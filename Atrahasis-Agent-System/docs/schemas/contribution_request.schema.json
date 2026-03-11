@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atrahasis Agent System — Contribution Request (v1.0)",
+  "type": "object",
+  "required": [
+    "type",
+    "invention_id",
+    "created_at",
+    "owner_role",
+    "requests"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "CONTRIBUTION_REQUEST"
+    },
+    "invention_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "owner_role": {
+      "type": "string"
+    },
+    "requests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "target_artifact",
+          "action",
+          "data",
+          "rationale",
+          "verify"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "target_artifact": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "add_claim",
+              "update_claim",
+              "update_architecture",
+              "add_prior_art_reference",
+              "update_spec_section",
+              "add_figure",
+              "add_prototype_component",
+              "update_landscape",
+              "add_embodiment",
+              "update_abstract"
+            ]
+          },
+          "data": {
+            "type": "object"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "verify": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

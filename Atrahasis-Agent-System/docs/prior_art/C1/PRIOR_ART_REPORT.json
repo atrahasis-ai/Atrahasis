@@ -1,0 +1,259 @@
+{
+  "type": "PRIOR_ART_REPORT",
+  "invention_id": "C1",
+  "concept": "Predictive Tidal Architecture (PTA)",
+  "date": "2026-03-09",
+  "search_queries": [
+    "Free Energy Principle active inference multi-agent systems coordination",
+    "deterministic scheduling distributed systems zero consensus coordination protocol",
+    "Solana Proof of History deterministic clock distributed coordination",
+    "stigmergy digital pheromones gradient-based task allocation multi-agent computing",
+    "predictive coding communication protocol minimize messages distributed systems",
+    "patent deterministic verification committee selection distributed AI agents",
+    "morphogenesis inspired computing task allocation reaction diffusion multi-agent",
+    "patent oscillatory coordination OR tidal scheduling OR periodic deterministic distributed agent system",
+    "pymdp active inference library multi-agent coordination open source",
+    "patent surprise-based communication OR exception-based messaging OR prediction error communication multi-agent",
+    "information theoretic optimal communication multi-agent coordination minimum messages",
+    "CRDT deterministic scheduling conflict-free replicated data type coordination without consensus",
+    "patent deterministic task assignment OR hash-based scheduling distributed computing verification",
+    "Google patent distributed system deterministic scheduling hash function coordination agents",
+    "active inference predictive processing surprise minimization communication multi-agent 2023 2024 2025",
+    "swarm intelligence coordination platform gradient field task allocation software product",
+    "verification membrane separate layer trust verification distributed system architecture",
+    "predictive coding only transmit differences errors distributed agents reduce bandwidth",
+    "Algorand verifiable random function committee selection deterministic blockchain validator",
+    "stigmergy-based coordination framework open source software github",
+    "SBP stigmergy based protocol digital pheromones multi-agent LLM coordination",
+    "deterministic epoch-based slot scheduling hash function agent coordination without runtime consensus",
+    "event-triggered communication multi-agent systems reduce messages prediction model 2024",
+    "VERSES Genius HSTP spatial web protocol active inference patent",
+    "Ethereum beacon chain deterministic validator assignment epoch slot committee selection",
+    "predictability awareness AAMAS 2025 multi-agent coordination efficient robust",
+    "federated inference belief sharing Friston active inference agents 2024"
+  ],
+  "patents_found": [
+    {
+      "id": "US20210018953A1",
+      "title": "Asynchronous distributed coordination and consensus with threshold logical clocks",
+      "relevance": "MEDIUM",
+      "summary": "Each node maintains a local tamper-evident log with entries digitally signed and linked via cryptographic hashes. Nodes deterministically replay other nodes' decisions based on causal history, ensuring correct implementation of threshold logical clocks and deterministically verifiable state machine logic. Reduces need for synchronous consensus.",
+      "differentiator": "PTA uses a single shared deterministic function (tidal backbone) that all agents compute independently, requiring no log exchange or replay. Threshold logical clocks still require nodes to exchange and replay logs, whereas PTA's coordination function eliminates all runtime message exchange for scheduling."
+    },
+    {
+      "id": "US20130263151A1",
+      "title": "Consistent Hashing Table for Workload Distribution",
+      "relevance": "MEDIUM",
+      "summary": "Uses consistent hashing with a ring structure for deterministic workload distribution. A mapping stage and selective assignment stage deterministically assign bins to nodes based on node IDs. Designed for dynamic distributed systems.",
+      "differentiator": "PTA's tidal backbone goes beyond workload distribution to encompass verification assignment, economic settlement, and communication scheduling all from a single deterministic function. Consistent hashing addresses data placement, not multi-dimensional agent coordination."
+    },
+    {
+      "id": "US10326862B2",
+      "title": "Distributed and Transactionally Deterministic Data Processing Architecture",
+      "relevance": "MEDIUM",
+      "summary": "Uses an orderer component to generate a deterministic data stream input into redundant transaction processors, ensuring all processors reach the same state. Facilitates deterministic behavior in distributed data processing.",
+      "differentiator": "PTA does not require an orderer component or centralized stream generation. Each agent independently computes its schedule from the shared function. PTA also integrates predictive communication and morphogenic fields, which this patent does not address."
+    },
+    {
+      "id": "CN113206724B",
+      "title": "Predictable and deterministic scheduling method for quasi-dynamic links",
+      "relevance": "LOW",
+      "summary": "Chinese patent on deterministic scheduling for quasi-dynamic communication links, applied to satellite nodes and UAV formations. Focuses on network-level deterministic scheduling.",
+      "differentiator": "PTA operates at the agent coordination level, not the network link level. PTA's deterministic function drives agent behavior (verification, settlement, routing) not just communication link scheduling."
+    },
+    {
+      "id": "VERSES AI Patent (title: Method and System for Specifying an Active Inference based agent using Natural Language)",
+      "title": "Method and System for Specifying an Active Inference based agent using Natural Language",
+      "relevance": "HIGH",
+      "summary": "VERSES AI holds a US patent on specifying active inference agents using natural language to generate predictions and carry out domain-specific tasks. This is the first known patent directly combining active inference with practical agent system design.",
+      "differentiator": "PTA uses FEP/active inference specifically for inter-agent predictive communication to minimize message traffic, not for agent specification or individual agent decision-making. PTA's innovation is applying FEP at the communication protocol layer combined with deterministic scheduling, not at the agent design layer."
+    },
+    {
+      "id": "WO2022235821A1",
+      "title": "Artificial-intelligence-based orchestration",
+      "relevance": "LOW",
+      "summary": "AI-based orchestration patent covering multi-agent system coordination using artificial intelligence techniques.",
+      "differentiator": "PTA explicitly avoids centralized orchestration. Its coordination emerges from deterministic computation and predictive models without any orchestrator component."
+    }
+  ],
+  "papers_found": [
+    {
+      "title": "Federated inference and belief sharing",
+      "authors": "Karl J. Friston, Thomas Parr, Conor Heins, Axel Constant, Daniel Friedman, et al.",
+      "year": 2024,
+      "relevance": "HIGH",
+      "summary": "Demonstrates that federated inference and learning emerge from minimizing free energy in ensembles of agents sharing a common world model. Shows how communication and language emerge as properties of self-evidencing agents through belief-sharing. Provides first-principles account of inference, learning and model selection for agent ensembles.",
+      "differentiator": "This paper addresses the theoretical foundation of belief sharing but does not propose a specific architecture combining deterministic scheduling with FEP-based communication. PTA operationalizes the FEP insight into a concrete protocol where only prediction errors generate messages, combined with deterministic backbone scheduling. Friston's work is theoretical neuroscience; PTA is an engineering architecture."
+    },
+    {
+      "title": "Predictability Awareness For Efficient and Robust Multi-Agent Coordination",
+      "authors": "Mustafa et al.",
+      "year": 2025,
+      "relevance": "HIGH",
+      "summary": "Uses free-energy (KL divergence between plan and prediction) as a penalty for unpredictable behavior in multi-agent navigation. Shows that predictability-aware planning leads to lower-cost trajectories and reduces planning effort without explicit communication. Agents converge on coordination strategies through soft social conventions.",
+      "differentiator": "This paper applies predictability to motion planning in physical space, not to communication protocol design or distributed system coordination. PTA uses prediction errors to gate message transmission across a distributed agent network, which is a fundamentally different application domain. Also, PTA combines this with deterministic scheduling and morphogenic fields."
+    },
+    {
+      "title": "Orchestrator: Active Inference for Multi-Agent Systems in Long-Horizon Tasks",
+      "authors": "Various (arXiv 2509.05651)",
+      "year": 2025,
+      "relevance": "HIGH",
+      "summary": "Proposes a multi-agent coordination framework grounded in active inference principles with task-observation instances and embedded active inference feedback loops. Considers inter-agentic communication and dynamic states between agents and their environment. Agents minimize variational free energy.",
+      "differentiator": "The Orchestrator uses a centralized orchestration model with active inference, whereas PTA eliminates the orchestrator entirely through deterministic coordination. PTA's tidal backbone provides coordination without any central component. The Orchestrator applies FEP to task decomposition; PTA applies it to communication minimization."
+    },
+    {
+      "title": "Factorised Active Inference for Strategic Multi-Agent Interactions",
+      "authors": "Various (AAMAS 2025)",
+      "year": 2025,
+      "relevance": "MEDIUM",
+      "summary": "Applies active inference to strategic multi-agent interactions where agents infer partner types by observing past actions and updating beliefs. Demonstrates learning effective strategies in iterated games through continuous belief updates about transition probabilities.",
+      "differentiator": "Focuses on game-theoretic strategic reasoning between agents, not on communication protocol optimization or deterministic coordination scheduling. PTA is an infrastructure architecture, not a game-theoretic framework."
+    },
+    {
+      "title": "Temporal Predictive Coding for Gradient Compression in Distributed Learning",
+      "authors": "Various (IEEE 2024, arXiv 2410.02478)",
+      "year": 2024,
+      "relevance": "MEDIUM",
+      "summary": "Uses temporal correlation in local gradients to reduce communication from distributed agents to parameter server. Agents compute predicted gradients and transmit only prediction residuals. Includes event-triggered residual transmission that avoids transmitting when prediction is sufficiently accurate.",
+      "differentiator": "Applied to distributed machine learning gradient exchange, not general agent coordination. PTA applies the predict-and-transmit-only-errors principle to all inter-agent communication (not just gradients) and combines it with deterministic scheduling and morphogenic task allocation."
+    },
+    {
+      "title": "Stigmergic Independent Reinforcement Learning for Multi-Agent Collaboration",
+      "authors": "Various (arXiv 1911.12504)",
+      "year": 2019,
+      "relevance": "MEDIUM",
+      "summary": "Agents deposit virtual pheromones while moving, generating spatial gradients that diffuse and decay over time. Uses stigmergic communication to foster cooperative behaviors through indirect environmental traces rather than direct messaging.",
+      "differentiator": "PTA's morphogenic fields are inspired by biological morphogenesis rather than ant colony stigmergy. PTA uses sparse spatial gradients specifically for within-cluster task allocation, not for general cooperative behavior. Additionally, PTA combines morphogenic fields with deterministic scheduling and FEP communication, which this work does not."
+    },
+    {
+      "title": "Communication-efficient distributed online prediction by dynamic model synchronization",
+      "authors": "Various (Academia.edu)",
+      "year": 2014,
+      "relevance": "MEDIUM",
+      "summary": "Develops protocols that minimize online prediction loss and network communication simultaneously. Controls variance of local models in a decentralized way to reduce communication while maintaining predictive performance.",
+      "differentiator": "Focuses on statistical prediction tasks, not on general multi-agent coordination. PTA uses predictive models of neighbor behavior (not data predictions) to eliminate steady-state communication. The FEP framing and combination with deterministic scheduling is absent."
+    },
+    {
+      "title": "Prediction-Based Event-Triggered Consensus Control of Multi-agent Systems",
+      "authors": "Various (Journal of Control, Automation and Electrical Systems, 2025)",
+      "year": 2025,
+      "relevance": "HIGH",
+      "summary": "Designs event-triggering conditions involving the error between system state and its optimal prediction for each agent. Agents only transmit when prediction error exceeds a threshold. Significantly reduces communication frequency while ensuring consensus convergence.",
+      "differentiator": "This is the closest prior art to PTA's predictive communication layer. However, it operates in the control theory domain (consensus of physical systems) and uses simple linear predictors, not generative models based on the Free Energy Principle. PTA's use of FEP-based generative models that predict neighbor behavior is more sophisticated and yields richer prediction capabilities. PTA also combines this with deterministic scheduling and morphogenic fields."
+    },
+    {
+      "title": "Morphogenesis of Complex Networks: A Reaction Diffusion Framework for Spatial Graphs",
+      "authors": "Various (Springer, 2018)",
+      "year": 2018,
+      "relevance": "MEDIUM",
+      "summary": "Applies reaction-diffusion dynamics from morphogenesis to network formation. Demonstrates how activator-inhibitor interactions can generate complex network topologies through local spatial interactions.",
+      "differentiator": "Addresses network topology formation, not task allocation within agent clusters. PTA uses morphogenic gradients for dynamic task assignment, not structural formation. The combination with deterministic scheduling and predictive communication is unique to PTA."
+    },
+    {
+      "title": "Exploring the emergence of joint agency in multi-agent systems",
+      "authors": "Various (arXiv 2511.10835)",
+      "year": 2025,
+      "relevance": "MEDIUM",
+      "summary": "Uses Markov blankets to formalize emergence of collective agency above individual agents. Demonstrates how statistical separation and mediating sensory/active states enable hierarchical agency where individual and collective agency coexist.",
+      "differentiator": "Theoretical work on collective agency formation, not a practical coordination architecture. PTA provides concrete engineering mechanisms (tidal function, prediction-error messaging, morphogenic gradients) rather than theoretical analysis of emergent properties."
+    }
+  ],
+  "products_found": [
+    {
+      "name": "Solana (Proof of History)",
+      "company": "Solana Labs",
+      "relevance": "HIGH",
+      "summary": "Proof of History creates a deterministic, cryptographically verifiable sequence of timestamps using sequential SHA256 hashing. All validators independently compute the same leader schedule without runtime communication. Acts as a 'clock before consensus' enabling pre-consensus ordering of events. Validators agree on ordering without talking to each other.",
+      "differentiator": "Solana's PoH is specifically designed for blockchain transaction ordering and leader selection. PTA generalizes the deterministic scheduling concept beyond blockchain to multi-agent AI coordination, verification assignment, and economic settlement. PTA also adds predictive communication (FEP layer) and morphogenic task allocation, neither of which exist in Solana. Solana still requires consensus (Tower BFT) on top of PoH; PTA aims for zero runtime consensus."
+    },
+    {
+      "name": "Ethereum Beacon Chain",
+      "company": "Ethereum Foundation",
+      "relevance": "HIGH",
+      "summary": "Uses epoch-and-slot based deterministic validator assignment. Validators are divided across slots and into committees using pseudorandom shuffling (RANDAO). Assignment is computed deterministically from a seed, enabling validators to know their schedule in advance. Pure state transition function ensures all nodes reach same state from same inputs.",
+      "differentiator": "Ethereum's committee selection uses randomness (RANDAO) for security against adversarial manipulation, while PTA proposes fully deterministic assignment from a shared function. Ethereum's focus is Byzantine fault tolerance for financial consensus; PTA addresses general multi-agent coordination. PTA adds FEP-based communication and morphogenic fields which Ethereum does not have."
+    },
+    {
+      "name": "Algorand (VRF-based committee selection)",
+      "company": "Algorand Inc.",
+      "relevance": "MEDIUM",
+      "summary": "Uses Verifiable Random Functions for cryptographic sortition. Committee members are selected proportionally to stake using VRF output. Selection is locally computable and publicly verifiable. Designed for Byzantine agreement in blockchain consensus.",
+      "differentiator": "Algorand uses randomness (VRFs) intentionally for security, whereas PTA uses deterministic functions. Algorand addresses only validator selection for consensus rounds; PTA's tidal backbone addresses scheduling, verification, routing, and settlement holistically. PTA is not a blockchain system."
+    },
+    {
+      "name": "VERSES AI Genius Platform",
+      "company": "VERSES AI Inc.",
+      "relevance": "HIGH",
+      "summary": "Enterprise intelligence platform using active inference (Free Energy Principle) for agent reasoning, planning, and acting under uncertainty. Agents use generative models to learn and adapt in real time. Supports multi-agent coordination at scale. Integrates with IEEE-approved Spatial Web standards (HSTP/HSML). Has demonstrated multi-agent energy optimization, fleet operations, and urban system coordination.",
+      "differentiator": "VERSES Genius is the closest commercial product to PTA's FEP communication layer. However, VERSES focuses on active inference for individual agent decision-making and federated belief sharing, not specifically on using prediction errors to minimize inter-agent communication. PTA's unique contribution is the three-layer combination: deterministic tidal backbone (which VERSES lacks), FEP-based communication minimization (extending VERSES' FEP usage), and morphogenic task allocation. VERSES also does not use deterministic scheduling as its coordination primitive."
+    },
+    {
+      "name": "L3Harris AMORPHOUS",
+      "company": "L3Harris Technologies",
+      "relevance": "LOW",
+      "summary": "Command-and-control system for drone swarms enabling autonomous coordination and role assumption when assets are lost. Maintains operations without ground-station intervention.",
+      "differentiator": "Military swarm coordination focused on resilience, not on the specific combination of deterministic scheduling, FEP communication, and morphogenic allocation that PTA proposes."
+    }
+  ],
+  "open_source_found": [
+    {
+      "name": "pymdp",
+      "url": "https://github.com/infer-actively/pymdp",
+      "relevance": "MEDIUM",
+      "summary": "Python library for simulating active inference agents in Markov Decision Process environments. First open-source package for active inference with POMDPs. Modular and flexible design for simulating bespoke active inference agents in discrete space and time. Published in JOSS.",
+      "differentiator": "pymdp simulates individual active inference agents, not multi-agent communication protocols. It does not implement prediction-error-based messaging between agents, deterministic scheduling, or morphogenic task allocation. PTA would need to build significantly beyond pymdp's capabilities."
+    },
+    {
+      "name": "SBP (Stigmergic Blackboard Protocol)",
+      "url": "https://github.com/AdviceNXT/sbp",
+      "relevance": "HIGH",
+      "summary": "Protocol for AI agent coordination through environment-based signals (digital pheromones) rather than direct messaging. Agents deposit pheromones with intensity that decays over time. Coordination emerges from the environment. Used in production for non-linear workflows with LLM agents. MCP-compatible.",
+      "differentiator": "SBP implements stigmergy/pheromone-based coordination similar to PTA's morphogenic field layer. However, SBP uses it as the primary coordination mechanism, whereas PTA uses morphogenic fields only for local within-cluster task allocation, supplemented by deterministic tidal scheduling and FEP predictive communication. SBP lacks deterministic backbone scheduling and FEP-based prediction-error messaging."
+    },
+    {
+      "name": "stigmergy (rescrv/stigmergy)",
+      "url": "https://github.com/rescrv/stigmergy",
+      "relevance": "MEDIUM",
+      "summary": "Rust-based stigmergy framework for agent coordination through shared environment modification. Uses PostgreSQL for persistence. Aims to replace centralized orchestration for large-scale agent systems.",
+      "differentiator": "Addresses stigmergic coordination at scale but does not include deterministic scheduling or FEP-based predictive communication. PTA's morphogenic fields are one layer of a three-layer architecture; this framework treats stigmergy as the entire coordination model."
+    },
+    {
+      "name": "Swarms",
+      "url": "https://github.com/kyegomez/swarms",
+      "relevance": "LOW",
+      "summary": "Enterprise-grade multi-agent orchestration framework providing a universal interface for running swarms with dynamic selection. Supports various swarm topologies.",
+      "differentiator": "General-purpose agent orchestration framework without deterministic scheduling, FEP communication, or morphogenic task allocation. Relies on conventional orchestration patterns that PTA aims to replace."
+    },
+    {
+      "name": "RxEnvironments.jl",
+      "url": "https://arxiv.org/html/2409.11087v1",
+      "relevance": "LOW",
+      "summary": "Julia library providing reactive environments for active inference agents. Supports real-time interaction between agents and environments.",
+      "differentiator": "Infrastructure library for single-agent active inference, not a multi-agent coordination system."
+    }
+  ],
+  "closest_prior_art": {
+    "reference": "VERSES AI Genius Platform combined with Friston et al. 'Federated inference and belief sharing' (2024) and Mustafa et al. 'Predictability Awareness for Efficient and Robust Multi-Agent Coordination' (AAMAS 2025)",
+    "similarity": "The combination of VERSES' commercial active inference platform, Friston's theoretical work on federated inference through free energy minimization in agent ensembles, and the AAMAS 2025 paper on using KL-divergence (free energy) as a coordination penalty collectively cover approximately 60-65% of PTA's conceptual territory. VERSES demonstrates commercial FEP-based multi-agent coordination. Friston's paper provides theoretical foundation for belief sharing through free energy minimization. The AAMAS paper shows prediction-error-based coordination reduces communication need. Solana's Proof of History provides the closest analog to PTA's deterministic tidal backbone.",
+    "differentiators": [
+      "No existing system combines all three layers: deterministic tidal backbone + FEP predictive communication + morphogenic local task allocation",
+      "The specific formulation verifier_set = f(claim_hash, epoch) for deterministic verification assignment without runtime consensus has no direct prior art in AI agent systems (blockchain systems like Ethereum use randomized selection intentionally)",
+      "Using FEP specifically as a communication gating mechanism (transmit only prediction errors) in a multi-agent AI system is novel -- existing FEP multi-agent work focuses on decision-making, not communication minimization",
+      "The concept of steady-state communication approaching zero through generative neighbor models is not found in any existing system or paper",
+      "Morphogenic fields for within-cluster task allocation (as distinct from stigmergy for general coordination) combined with deterministic global scheduling represents a novel hierarchical decomposition",
+      "Verification membranes as a separate architectural layer from coordination (rather than integrated with consensus as in blockchain) has no direct prior art",
+      "The tidal/oscillatory metaphor for deterministic coordination epochs -- where agents independently compute periodic schedules from a shared function -- generalizes Proof of History beyond blockchain"
+    ]
+  },
+  "novelty_assessment": "PTA demonstrates meaningful architectural novelty primarily in its specific three-layer combination rather than in any single layer alone. Each individual layer has identifiable prior art: deterministic scheduling exists in blockchain systems (Solana PoH, Ethereum beacon chain), FEP-based multi-agent coordination is an active research area (Friston's federated inference, VERSES AI, AAMAS 2025 predictability-awareness), and stigmergy/gradient-based task allocation has established literature and implementations (SBP, digital pheromones, ant colony optimization). However, no existing system, patent, paper, or product combines these three layers into a unified architecture. The most novel specific claims are: (1) using a single deterministic function to derive scheduling, verification assignment, AND economic settlement without any runtime consensus, (2) applying FEP generative models specifically as a communication gating mechanism where only prediction errors generate messages (existing FEP multi-agent work focuses on decision-making, not communication protocol design), and (3) the hierarchical decomposition where deterministic scheduling handles global coordination, FEP handles inter-agent communication efficiency, and morphogenic fields handle local task allocation. The prediction-error-only communication protocol has partial prior art in event-triggered control theory (prediction-based event-triggered consensus) and distributed learning (temporal predictive coding for gradient compression), but PTA's use of full FEP generative neighbor models rather than simple linear predictors appears novel. The 'verification membrane' concept of separating verification from coordination has no strong direct prior art outside of zero-trust architectural patterns. Overall confidence in novelty is moderate-to-high for the combined architecture, with individual components being well-grounded in existing research.",
+  "gaps_identified": [
+    "No prior art found for a system using a single deterministic function to simultaneously derive agent scheduling, verification assignment, and economic settlement",
+    "No prior art found for FEP/active inference applied specifically as a communication gating protocol (transmit only prediction errors) in distributed computing systems",
+    "No prior art found combining deterministic backbone scheduling with FEP predictive communication in any system",
+    "No prior art found for 'verification membranes' as a separate architectural layer from coordination in non-blockchain agent systems",
+    "No prior art found for morphogenic field-based task allocation specifically within agent clusters coordinated by a deterministic global schedule",
+    "No prior art found for the specific claim of steady-state inter-agent communication approaching zero through generative neighbor models",
+    "No patent found covering oscillatory or tidal deterministic coordination functions for AI agent systems (the tidal metaphor itself is novel terminology)"
+  ],
+  "confidence": 4
+}

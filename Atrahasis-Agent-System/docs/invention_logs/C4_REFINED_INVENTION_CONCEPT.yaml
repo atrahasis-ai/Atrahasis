@@ -1,0 +1,617 @@
+invention_id: C4
+concept_id: C4-A
+concept_name: "AASL Semantic Vocabulary (ASV) -- Epistemic Accountability Layer for Agent Communication"
+date: "2026-03-10"
+stage: "FEASIBILITY"
+
+refined_description: |
+  ASV (AASL Semantic Vocabulary) is a JSON Schema vocabulary and companion JSON-LD
+  context that extracts AASL's genuinely novel semantic constructs -- the CLM-CNF-EVD-PRV-VRF
+  epistemic accountability chain, dual claim classification (speech-act + epistemic type),
+  and durable object identity -- and delivers them as a composable layer that rides on top of
+  the protocols that have already won: Google A2A for agent-to-agent coordination and Anthropic
+  MCP for agent-to-tool connectivity. ASV is not a protocol. It is a vocabulary -- a set of
+  typed semantic structures that can be embedded inside A2A Task artifacts, MCP Tool responses,
+  or standalone JSON documents for persistence and audit.
+
+  The vocabulary defines six core schema types anchored in established standards. Claims (CLM)
+  extend the W3C Verifiable Credentials data model claim structure with an epistemic type
+  classifier (correlation, causation, observation, inference, prediction, prescription) that
+  goes beyond FIPA's speech-act classification of the communicative act to classify the nature
+  of the knowledge assertion itself. Confidence (CNF) is the genuinely novel primitive with
+  no existing standard: it represents structured confidence as a distribution (point estimate,
+  interval, or discrete distribution over outcomes) with a declared method (statistical,
+  consensus, model-derived, human-judged) and calibration metadata. Evidence (EVD) links
+  claims to supporting data with evidence quality typing (direct observation, inference,
+  hearsay, computational result, delegation) addressing a gap identified by the Science
+  Advisor. Provenance (PRV) extends W3C PROV-O rather than replacing it, following the
+  PROV-AGENT (2025) precedent: CLM maps to a specialized prov:Entity, PRV maps to
+  prov:Activity with wasGeneratedBy and used relations, and delegation chains use
+  prov:actedOnBehalfOf. Verification (VRF) maps to a prov:Activity of type
+  asv:VerificationActivity, aligned with W3C Verifiable Credentials Data Integrity for
+  cryptographic proof when needed. Speech-Act Envelope (SAE) wraps the epistemic chain in
+  a minimal performative taxonomy of 6 communicative acts (INFORM, REQUEST, PROPOSE, CONFIRM,
+  WARN, QUERY) grounded in commitment semantics (Singh, not mentalistic BDI), informed by
+  the uACP completeness proof that 4 verbs suffice for finite-state protocol encoding.
+
+  Three elements missing from AASL's original chain are added based on research findings.
+  First, rebuttals: CLM objects can carry a rebuts_claim field referencing counter-claims,
+  enabling Toulmin-complete argumentation. Second, evidence quality typing: EVD objects
+  declare their quality class (direct, inferred, hearsay, computed, delegated), enabling
+  downstream agents to weight evidence appropriately. Third, temporal validity: CLM objects
+  carry valid_from and valid_until timestamps following W3C PROV's temporal model, so claims
+  can expire or be scoped to time windows.
+
+  Because JSON Schema captures only 75-80% of AASL's type system (per the Science Assessment),
+  ASV ships as a pair: (a) JSON Schema files defining structural types with validation rules,
+  and (b) a Semantic Specification document defining the interpretation contracts that schemas
+  cannot enforce -- epistemic semantics of confidence values, operation class composition
+  algebra (M/B/X/V/G), graph referential integrity constraints, and calibration requirements.
+  The schema is the machine-enforceable contract; the semantic spec is the human-readable
+  (and LLM-readable) normative document that carries meaning beyond structure.
+
+  The vocabulary is delivered through three integration surfaces. As an A2A overlay, ASV
+  types are embedded as structured data Parts within A2A Messages, or as Artifacts attached
+  to A2A Tasks. As an MCP extension, ASV types appear as structured content in Tool responses,
+  enabling MCP-connected tools to return epistemically accountable results. As standalone
+  documents, ASV objects are persisted as JSON files or document-store records for audit,
+  compliance, and regulatory purposes -- the "objects not outputs" principle in practice.
+
+  The design explicitly avoids five failure modes identified in the research. It does not
+  create a custom syntax (JSON has won; LLMs generate valid JSON >95% of the time). It does
+  not compete with A2A or MCP as a protocol (ACP tried and was absorbed in 5 months). It
+  does not over-specify before implementation (ship a 200-line schema with 3 integration
+  examples before writing extensive documentation). It does not require a custom parser
+  (standard JSON Schema validation via Ajv, json-schema, or any compliant library). And it
+  does not assume centralized ontology governance (namespace-based vocabulary extension via
+  JSON-LD contexts, following the decentralized Schema.org model).
+
+original_gaps_addressed:
+  - gap: "Positioning -- must be vocabulary on top of MCP/A2A, not competing protocol"
+    mitigation: |
+      ASV is explicitly and architecturally a vocabulary layer, not a protocol. It defines
+      no transport, no connection management, no message routing, no task lifecycle. These are
+      delegated entirely to A2A (agent-to-agent) and MCP (agent-to-tool). ASV types are
+      embedded within A2A Message Parts, A2A Artifacts, MCP Tool responses, or standalone
+      JSON documents. The JSON Schema vocabulary mechanism (Draft 2020-12) and JSON-LD
+      @context provide the extension points. ASV has no opinion on how messages travel --
+      only on what epistemic structure they carry. The architecture diagram places ASV
+      between application logic (above) and transport protocols (below), occupying the
+      semantic layer that A2A and MCP explicitly leave unaddressed.
+    residual_risk: "LOW -- The risk is that A2A or MCP evolve their own epistemic metadata
+      (A2A adding confidence fields, MCP adding provenance). This is mitigated by the
+      integrated nature of ASV's chain: individual metadata fields are easy to add; a
+      coherent CLM-CNF-EVD-PRV-VRF vocabulary with cross-referencing and compositional
+      semantics is architecturally expensive to replicate piecemeal. The convergence risk
+      is that IBM ACP's CitationMetadata/TrajectoryMetadata (now merged into A2A) grows
+      incrementally toward ASV's territory. Monitoring A2A specification evolution is
+      essential."
+
+  - gap: "Semantic spec needed -- JSON Schema alone captures only 75-80%"
+    mitigation: |
+      ASV ships as a paired deliverable: JSON Schema files plus a Semantic Specification
+      document. The schema enforces structural validity (type discrimination, required
+      fields, value ranges, nested composition, $ref-based referential structure). The
+      semantic spec defines interpretation contracts that JSON Schema cannot enforce:
+      (a) epistemic semantics of CNF values (what confidence 0.85 means depends on the
+      declared method -- statistical, consensus, model-derived, human-judged -- and the
+      semantic spec defines these methods), (b) operation class composition algebra
+      (M+V=X; M+M=M; B+anything=B; these rules cannot be expressed as schema constraints),
+      (c) graph referential integrity (agent_id references must resolve to AGT objects;
+      evidence_id references must resolve to EVD objects; this requires application-layer
+      validation), (d) calibration requirements (a confidence of 0.90 should correspond
+      to 90% accuracy on held-out samples; the semantic spec defines calibration protocols).
+      The semantic spec is versioned alongside the schema and is the normative authority
+      where schema and spec diverge. Application-layer validators (reference implementations
+      in Python and TypeScript) enforce semantic contracts beyond schema validation.
+    residual_risk: "MEDIUM -- The semantic spec creates a documentation burden and risks
+      divergence from the schema over time. Mitigation: automated conformance tests that
+      validate semantic spec claims against reference implementation behavior. Residual:
+      third-party implementations may ignore the semantic spec and implement only schema
+      validation, producing structurally valid but semantically incorrect ASV objects.
+      This is the same risk JSON-LD faces with Schema.org -- structurally valid markup
+      that is semantically meaningless is common on the web."
+
+  - gap: "Provenance -- extend W3C PROV, don't reinvent"
+    mitigation: |
+      ASV's provenance model is defined as a W3C PROV extension profile, following the
+      PROV-AGENT (Souza et al., 2025) precedent. The mapping is explicit: CLM objects are
+      specialized prov:Entity instances with asv:claimType and asv:confidence properties.
+      EVD objects are prov:Entity instances linked to CLMs via asv:supportedBy (a subproperty
+      of prov:wasDerivedFrom). PRV objects are prov:Activity instances with prov:wasGeneratedBy
+      and prov:used relations. VRF objects are prov:Activity instances of type
+      asv:VerificationActivity. Delegation chains use prov:actedOnBehalfOf. AGT objects are
+      prov:Agent instances. The JSON-LD context maps ASV terms to PROV-O URIs, enabling
+      interoperability with existing PROV tooling (provtoolbox, prov Python library,
+      Neo4j PROV plugins) without modification. The PROV-JSON serialization format (W3C
+      Note) is used as the reference for PRV object structure, extended with ASV-specific
+      properties.
+    residual_risk: "LOW -- W3C PROV is mature (2013 Recommendation, stable for 13 years)
+      and the extension pattern is well-established. The risk is that ASV's epistemic
+      extensions (confidence, evidence quality, verification status) are semantically
+      richer than what PROV's generic extension mechanism was designed for, potentially
+      requiring custom PROV serializers. Mitigation: the reference implementation includes
+      a PROV-JSON exporter that produces standard PROV-JSON with ASV extensions as
+      qualified attributes."
+
+  - gap: "AACP grounding -- build on uACP formal results + FIPA tradition"
+    mitigation: |
+      ASV's speech-act envelope (SAE) is grounded in three decades of multi-agent system
+      research. The performative taxonomy of 6 acts (INFORM, REQUEST, PROPOSE, CONFIRM,
+      WARN, QUERY) is a principled selection from FIPA ACL's 20+ communicative acts,
+      constrained by the uACP completeness proof (January 2026) that demonstrates a 4-verb
+      basis {PING, TELL, ASK, OBSERVE} is sufficient for all finite-state FIPA protocols.
+      ASV's 6 performatives map onto this basis: INFORM=TELL, REQUEST=ASK, QUERY=ASK,
+      CONFIRM=TELL (with verification payload), PROPOSE=TELL (with commitment=provisional),
+      WARN=TELL (with priority=elevated). The two additional performatives (PROPOSE, WARN)
+      beyond the 4-verb basis are convenience extensions, not extensions of expressive power.
+      Commitment semantics (Singh) is used rather than mentalistic BDI semantics, which is
+      more appropriate for LLM-based agents where "belief" attribution is problematic. Each
+      SAE declares the commitment created by the speech act, making agent obligations
+      machine-readable and auditable. The AACP protocol specification (to be developed
+      separately) should adopt uACP's TLA+ verified safety properties and target comparable
+      latency (34ms median demonstrated by uACP at scale).
+    residual_risk: "MEDIUM -- The 6-performative set is a design choice, not a theoretical
+      necessity. The uACP proof shows 4 suffice; FIPA used 20+. ASV chooses 6 as a
+      pragmatic middle ground. The risk is that 6 is either too few (requiring awkward
+      encoding of some speech acts) or too many (confusing LLMs that must choose among
+      similar options). Mitigation: the performative set is designed to be extensible via
+      namespace-qualified additions, and the reference implementation includes a performative
+      routing layer that handles unknown performatives gracefully (treating them as INFORM
+      with metadata). Empirical experiment 4 (Speech-Act Routing Effectiveness) will
+      validate the set size."
+
+  - gap: "Convergence risk -- IBM ACP adding metadata incrementally toward similar ground"
+    mitigation: |
+      The convergence risk is real but structurally bounded. IBM ACP's CitationMetadata and
+      TrajectoryMetadata have been merged into A2A (August 2025). These additions provide
+      partial provenance tracking (source attribution, reasoning traces) but remain metadata
+      annotations on message parts -- not first-class semantic objects with identity,
+      confidence distributions, evidence quality typing, verification status, or compositional
+      semantics. The structural gap between "metadata annotation" and "epistemic accountability
+      chain" is architecturally significant: annotations are optional, untyped, and
+      unvalidatable; ASV's chain is required, typed, and schema-validated. The competitive
+      strategy is three-fold: (a) ship the vocabulary before A2A's metadata evolves further
+      (12-18 month window per landscape analysis), (b) demonstrate integration with A2A so
+      that ASV is perceived as complementary rather than competitive, and (c) target
+      regulated industries (financial services, healthcare, government AI) where the full
+      epistemic chain is a compliance requirement, not an optional enhancement. Additionally,
+      engage with the W3C AI Agent Protocol Community Group and the Semantic Agent
+      Communication Community Group (proposed November 2025) to contribute ASV concepts
+      before these groups converge on their own vocabulary.
+    residual_risk: "MEDIUM-HIGH -- This is the single highest strategic risk. If A2A adds
+      confidence fields, evidence linking, and verification status as first-class message
+      properties over the next 18 months, ASV's value proposition narrows to the integrated
+      compositional semantics and the semantic specification. Mitigation: ASV should position
+      itself as the reference vocabulary that A2A can adopt, not as a competitor. Contributing
+      ASV to AAIF (Linux Foundation) governance would be the strongest defensive move."
+
+  - gap: "Speech-act taxonomy -- recommended by Domain Translator, confirmed by Science Advisor"
+    mitigation: |
+      The Speech-Act Envelope (SAE) is a first-class component of every ASV message,
+      wrapping the epistemic chain (CLM-CNF-EVD-PRV-VRF) in a performative that declares
+      communicative intent. This addresses the Domain Translator's central insight that AASL
+      captures locutionary content (what is said) but not illocutionary force (what act is
+      performed by saying it). The 6-performative taxonomy was selected by cross-referencing
+      three sources: FIPA ACL's production-tested set (reduced from 20+ to the most-used
+      subset), uACP's formal completeness proof (4 verbs suffice), and the Science Advisor's
+      recommendation (4-6 performatives with commitment semantics). Each performative creates
+      a machine-readable commitment: INFORM commits the sender to the truth of the claim;
+      REQUEST commits the sender to processing the result; PROPOSE creates no commitment
+      until accepted; CONFIRM commits to agreement; WARN commits that the risk is non-trivial;
+      QUERY commits to processing the answer. This dual classification -- speech act (what
+      you are doing) + epistemic type (what kind of knowledge claim) -- has no precedent in
+      any JSON-based agent communication system.
+    residual_risk: "LOW -- Speech-act theory is the most empirically validated component,
+      backed by 30+ years of MAS research. The risk is over-engineering: LLM agents may
+      not reliably distinguish between PROPOSE and INFORM, or between WARN and INFORM with
+      elevated confidence. Mitigation: the reference implementation includes a speech-act
+      classifier that suggests performatives based on message content, and the system
+      degrades gracefully if performatives are misused (all performatives are valid TELL
+      variants in the uACP basis)."
+
+  - gap: "Missing from AASL -- rebuttals, evidence quality typing, temporal validity"
+    mitigation: |
+      Three structural additions to the epistemic chain address gaps identified by the
+      Science Advisor's Toulmin-model analysis:
+
+      (a) Rebuttals: CLM objects include an optional rebuts_claim field containing an array
+      of claim IDs that the current claim disputes. This enables Toulmin-complete
+      argumentation where counter-evidence and counter-claims are first-class objects in the
+      epistemic graph, not implicit contradictions that must be inferred. A rebuttal carries
+      its own full CLM-CNF-EVD-PRV-VRF chain, so counter-arguments have the same epistemic
+      accountability as primary arguments.
+
+      (b) Evidence quality typing: EVD objects include a quality_class field with values
+      from a controlled vocabulary: direct_observation, inference, hearsay, computational_result,
+      delegation. This enables downstream agents to weight evidence appropriately -- a direct
+      observation from a sensor carries different epistemic weight than hearsay from a
+      third-party agent. The quality class is declared by the evidence producer and can be
+      independently verified (a VRF activity can confirm or dispute the declared quality class).
+
+      (c) Temporal validity: CLM objects include optional valid_from and valid_until fields
+      (RFC 3339 timestamps) following W3C PROV's temporal model. Claims without temporal
+      bounds are treated as indefinitely valid. Claims with expired valid_until timestamps
+      are automatically flagged for re-verification. This addresses the Science Advisor's
+      observation that "claims may be true at time T but false at time T+1" and enables
+      natural pheromone-like decay of stale knowledge (Domain Translator Analogy 4).
+    residual_risk: "LOW -- These are structurally simple additions (optional fields on
+      existing types) with well-understood semantics from argumentation theory and provenance
+      research. The risk is that the controlled vocabulary for evidence quality classes is
+      either too coarse (5 classes may not capture important distinctions) or too fine
+      (more classes increase classification burden). Mitigation: the quality class vocabulary
+      is namespace-extensible, and the initial 5-class set is deliberately minimal."
+
+architecture_summary:
+  layers:
+    - name: "ASV JSON Schema Vocabulary"
+      description: |
+        Core schema definitions for 7 types: CLM (Claim), CNF (Confidence), EVD (Evidence),
+        PRV (Provenance), VRF (Verification), AGT (Agent), SAE (Speech-Act Envelope). Defined
+        as a JSON Schema vocabulary (Draft 2020-12) with URI-identified keywords and a
+        meta-schema. Each type uses a discriminator property ("type": "CLM", etc.) for
+        polymorphic validation. Nested composition via $ref. Structural validation via any
+        JSON Schema compliant validator (Ajv, jsonschema, etc.).
+      soundness: "SOUND"
+
+    - name: "ASV JSON-LD Context"
+      description: |
+        A JSON-LD @context document mapping ASV terms to ontology URIs. CLM, EVD, PRV, VRF,
+        AGT map to W3C PROV-O terms via subclass/subproperty relations. CNF maps to ASV's
+        own namespace (no existing standard). SAE performatives map to a namespace grounded
+        in FIPA ACL's ontology. The context enables interoperability with semantic web tooling
+        and linked data ecosystems without requiring ASV consumers to understand JSON-LD --
+        plain JSON consumers ignore @context, and the schemas validate independently.
+      soundness: "SOUND"
+
+    - name: "Semantic Specification"
+      description: |
+        Normative prose document defining interpretation contracts beyond JSON Schema:
+        epistemic semantics of confidence methods, operation class composition algebra,
+        graph referential integrity constraints, calibration requirements, commitment
+        semantics for each performative, and evidence quality class definitions. Versioned
+        alongside the schema. Accompanied by a machine-readable conformance test suite.
+      soundness: "PARTIALLY_SOUND"
+
+    - name: "A2A Integration Surface"
+      description: |
+        ASV types embedded as structured data Parts within A2A Messages, or as Artifacts
+        attached to A2A Tasks. An A2A Agent Card extension declares ASV vocabulary support
+        as a capability. Task artifacts carrying ASV objects become durable, identity-bearing
+        semantic objects (the "objects not outputs" principle). No modifications to A2A
+        protocol required -- ASV uses A2A's existing extensibility mechanisms.
+      soundness: "SOUND"
+
+    - name: "MCP Integration Surface"
+      description: |
+        ASV types embedded as structured content in MCP Tool responses. An MCP server
+        declaring ASV support returns epistemically accountable results: tool outputs carry
+        confidence, evidence, and provenance metadata. No modifications to MCP protocol
+        required -- ASV uses MCP's existing structured content mechanisms.
+      soundness: "SOUND"
+
+    - name: "Standalone Persistence Surface"
+      description: |
+        ASV objects persisted as JSON documents in document stores, file systems, or
+        regulatory archives. Each object has a stable URI-based identity. The "objects not
+        outputs" principle: every agent communication that passes through ASV becomes a
+        governed, auditable artifact with provenance, not an ephemeral message.
+      soundness: "SOUND"
+
+  integration_points:
+    - name: "IP-1: ASV over A2A"
+      description: |
+        ASV vocabulary types embedded in A2A Message Parts (type: "application/json",
+        with ASV schema reference). A2A Agent Cards extended with ASV capability declaration.
+        A2A Task Artifacts carrying ASV objects for durable persistence.
+      soundness: "SOUND"
+
+    - name: "IP-2: ASV over MCP"
+      description: |
+        ASV vocabulary types in MCP Tool response content. MCP server capability declarations
+        extended with ASV vocabulary version. Enables epistemically accountable tool outputs.
+      soundness: "SOUND"
+
+    - name: "IP-3: ASV over W3C PROV"
+      description: |
+        ASV provenance model as W3C PROV extension profile. PROV-JSON serialization with
+        ASV-specific qualified attributes. Interoperable with PROV tooling ecosystem.
+      soundness: "SOUND"
+
+    - name: "IP-4: ASV Schema + Semantic Spec Pairing"
+      description: |
+        Co-versioned JSON Schema files and semantic specification document. Conformance
+        test suite validates that reference implementations satisfy both schema constraints
+        and semantic contracts. Application-layer validators extend schema validation
+        with semantic checks.
+      soundness: "PARTIALLY_SOUND"
+
+scores:
+  novelty:
+    score: 3
+    justification: |
+      The prior art report (confidence 3/5) identifies genuine novelty in the integrated
+      CLM-CNF-EVD-PRV-VRF chain and dual classification (speech-act + epistemic type). No
+      existing standard, protocol, or vocabulary combines all five elements into a unified
+      JSON Schema vocabulary for agent communication. The individual building blocks all
+      have precedent: speech-act classification (FIPA ACL, 1997), provenance (W3C PROV,
+      2013), confidence methods (W3C VC, 2025), typed JSON messaging (A2A/MCP, 2024-2025).
+      The novelty is integrative, not foundational: the specific combination and the
+      epistemic type classifier for claims (correlation, causation, observation, inference,
+      prediction, prescription) have no direct precedent. CNF (structured confidence
+      distributions with declared methods) is the single most novel primitive -- no existing
+      standard addresses it. Score is 3 rather than 4 because the integration follows
+      logically from the source standards and the individual contributions, while valuable,
+      are extensions rather than inventions. The "objects not outputs" principle is a design
+      philosophy, not a technical mechanism, and is less defensible as invention.
+
+  feasibility:
+    score: 4
+    justification: |
+      ASV uses only existing, proven technologies: JSON Schema (Draft 2020-12), JSON-LD,
+      W3C PROV, standard JSON validators. No custom parser, no custom syntax, no custom
+      transport. The schema can be written in days; the semantic specification in weeks;
+      reference implementations (Python + TypeScript validators) in 4-6 weeks. Integration
+      with A2A and MCP uses their existing extensibility mechanisms with no protocol
+      modifications required. LLMs generate valid JSON >95% of the time (StructEval, 2025),
+      eliminating the bootstrapping problem that would have killed AASL's custom syntax.
+      The main feasibility risk is not technical but adoption: will developers use ASV
+      types when they are not required by the transport protocol? Score is 4 rather than 5
+      because the semantic specification and application-layer validators add complexity
+      beyond simple schema validation, and the paired schema+spec model requires ongoing
+      coordination to prevent divergence. The two-step generation pattern recommended by the
+      Science Advisor (free reasoning then structured formatting) adds implementation
+      complexity for LLM-based agents.
+
+  impact:
+    score: 3
+    justification: |
+      If adopted, ASV would be the first vocabulary standard for epistemic accountability
+      in AI agent communication. The immediate impact is in regulated industries where
+      audit trails, provenance, and verified claims are compliance requirements: financial
+      services (model risk management), healthcare (clinical AI decision support), and
+      government (NIST AI Agent Standards Initiative, February 2026). The broader impact
+      depends on adoption beyond regulated verticals. The landscape analysis identifies a
+      12-18 month window before W3C community groups or A2A extensions address this gap
+      organically. Impact is 3 rather than 4 because ASV is a vocabulary layer -- it
+      improves the quality and auditability of agent communication but does not enable
+      fundamentally new capabilities. Agents can coordinate without ASV; they just do so
+      without structured epistemic accountability. The transformative scenario requires
+      ASV becoming a de facto standard, which depends on adoption dynamics beyond technical
+      merit. The strongest impact pathway is regulatory mandates requiring structured
+      provenance for AI agent decisions.
+
+  commercial_viability:
+    score: 3
+    justification: |
+      ASV's commercial model is standards-based rather than product-based: the vocabulary
+      is open, but commercial value accrues through (a) reference implementation licensing,
+      (b) conformance certification services, (c) enterprise tooling (ASV validators,
+      dashboards, audit trail analyzers), and (d) consulting for regulated industries
+      adopting ASV for compliance. The addressable market is significant: every enterprise
+      deploying multi-agent AI systems in regulated contexts needs auditable provenance
+      and verified claims. The competitive moat is moderate: the integrated CLM-CNF-EVD-PRV-VRF
+      chain is architecturally expensive to replicate piecemeal, but any single component
+      (provenance, confidence, verification) can be approximated by extending existing
+      standards independently. The 12-18 month window is sufficient for establishing the
+      vocabulary as a reference but insufficient for building a standards monopoly.
+      Commercial viability improves significantly if ASV is contributed to the Linux
+      Foundation's AAIF or the W3C, trading direct control for legitimacy and adoption.
+      Score is 3 because the commercial model depends on ecosystem adoption of an open
+      standard, which is historically difficult for vocabulary-layer specifications
+      (cf. Schema.org's success vs. most RDF vocabularies' obscurity).
+
+  overall_risk: 5
+  risk_level: "MEDIUM"
+
+risk_assessment:
+  top_risks:
+    - risk: "Convergence -- A2A/MCP evolve their own epistemic metadata, making ASV redundant"
+      likelihood: "MEDIUM-HIGH"
+      impact: "HIGH"
+      mitigation: |
+        Ship ASV vocabulary within 6 months to establish first-mover position. Demonstrate
+        integration with A2A and MCP so ASV is perceived as complementary, not competitive.
+        Contribute ASV concepts to W3C AI Agent Protocol CG and AAIF to position ASV as
+        the reference vocabulary that protocols adopt. Target regulated industries where
+        the full epistemic chain is a compliance requirement, creating demand that protocol
+        teams must address (either by adopting ASV or by replicating it). Monitor A2A
+        specification evolution monthly for convergence signals. If A2A adds structured
+        confidence or verification as first-class message properties, pivot ASV to be the
+        semantic specification that defines how those properties should be interpreted.
+
+    - risk: "Adoption inertia -- developers use plain JSON without ASV types because protocols don't require them"
+      likelihood: "HIGH"
+      impact: "MEDIUM"
+      mitigation: |
+        Make ASV zero-friction to adopt. Provide schema files that can be imported with a
+        single $ref. Provide validator libraries that wrap existing JSON Schema validators
+        with one function call. Build 3 compelling demo integrations (A2A multi-agent
+        fact-checking with provenance, MCP tool with confidence-rated outputs, regulatory
+        audit trail from ASV objects). Target framework maintainers (LangGraph, CrewAI,
+        AutoGen) for integration partnerships. The killer adoption driver is a regulatory
+        mandate or a high-profile AI incident that creates demand for structured epistemic
+        accountability.
+
+    - risk: "Semantic spec divergence -- schema and semantic specification drift apart over time"
+      likelihood: "MEDIUM"
+      impact: "MEDIUM"
+      mitigation: |
+        Automated conformance test suite that validates semantic spec claims against
+        reference implementation behavior. CI/CD pipeline that rejects schema changes
+        without corresponding semantic spec updates. Version numbers are locked: schema
+        v1.2 always pairs with semantic spec v1.2. Breaking changes require major version
+        increment with migration guide.
+
+    - risk: "LLM generation quality -- LLMs produce structurally valid but semantically incorrect ASV objects"
+      likelihood: "MEDIUM"
+      impact: "MEDIUM"
+      mitigation: |
+        Application-layer validators catch common semantic errors (confidence > 1.0 with
+        method=statistical, evidence quality class inconsistent with evidence content,
+        temporal validity violations). Two-step generation pattern (free reasoning then
+        structured formatting) recommended by Science Advisor reduces semantic errors.
+        Experiment 3 (LLM Generation Accuracy) will quantify baseline error rates and
+        inform whether constrained decoding or two-step generation is preferable.
+
+    - risk: "FIPA/KQML failure repetition -- over-specification before adoption"
+      likelihood: "LOW-MEDIUM"
+      impact: "HIGH"
+      mitigation: |
+        Ship code before spec. The implementation timeline (Phase 1) delivers a working
+        200-line JSON Schema vocabulary with 3 integration examples before the full semantic
+        specification is complete. The vocabulary is deliberately minimal (7 types, 6
+        performatives) to avoid FIPA's trap of specifying 20+ communicative acts that
+        nobody used. Extensibility via namespace-qualified additions means the vocabulary
+        can grow based on demonstrated need, not speculative completeness.
+
+implementation_phases:
+  - phase: 1
+    name: "Core Vocabulary and Reference Validator"
+    duration: "6 weeks"
+    deliverables:
+      - "JSON Schema files for 7 core types (CLM, CNF, EVD, PRV, VRF, AGT, SAE)"
+      - "JSON-LD @context document mapping ASV terms to PROV-O and FIPA ontology URIs"
+      - "Python reference validator (schema + basic semantic checks)"
+      - "TypeScript reference validator (schema + basic semantic checks)"
+      - "3 integration examples: A2A task with ASV artifacts, MCP tool with ASV response, standalone ASV document"
+      - "10 example ASV objects covering all 7 types and 6 performatives"
+    kill_criteria: |
+      LLMs (Claude, GPT-4, Gemini) cannot generate valid ASV objects from natural language
+      prompts at >80% structural validity rate. OR JSON Schema validation adds >10ms
+      overhead per message at typical sizes (1-10KB). OR A2A/MCP integration requires
+      protocol modifications rather than using existing extensibility mechanisms.
+
+  - phase: 2
+    name: "Semantic Specification and Empirical Validation"
+    duration: "8 weeks"
+    deliverables:
+      - "Complete Semantic Specification v1.0 (interpretation contracts, composition algebra, calibration protocols)"
+      - "Experiment 1: JSON Schema Expressiveness Audit results"
+      - "Experiment 3: LLM Generation Accuracy results across 3 models"
+      - "Experiment 4: Speech-Act Routing Effectiveness results"
+      - "Conformance test suite (50+ tests validating schema + semantic spec)"
+      - "PROV-JSON export module for ASV provenance objects"
+    kill_criteria: |
+      LLM generation accuracy below 70% structural validity for CLM-CNF-EVD-PRV-VRF chains.
+      OR speech-act routing provides <10% coordination improvement vs untyped messages.
+      OR JSON Schema expressiveness audit reveals >30% of critical semantic constraints
+      are unenforced (indicating the paired schema+spec model is insufficient).
+
+  - phase: 3
+    name: "Ecosystem Integration and Regulated Industry Pilot"
+    duration: "12 weeks"
+    deliverables:
+      - "LangGraph/CrewAI/AutoGen integration plugins"
+      - "Experiment 5: Provenance Chain Utility results (multi-agent fact-checking pipeline)"
+      - "Regulated industry pilot: financial services model risk management OR healthcare clinical AI"
+      - "ASV vocabulary contribution to W3C AI Agent Protocol CG or AAIF"
+      - "Token cost optimization: minified ASV variant for wire format"
+      - "Experiment 2: Token Cost Comparison results"
+    kill_criteria: |
+      Provenance chain utility experiment shows <20% improvement in error detection vs
+      no-provenance baseline. OR regulated industry pilot reveals compliance gaps that
+      ASV cannot address. OR W3C/AAIF contribution is rejected or redirected to a
+      competing vocabulary effort. OR token cost of ASV messages exceeds 3x equivalent
+      unstructured messages.
+
+  - phase: 4
+    name: "Standard Maturation and Binary Optimization"
+    duration: "16 weeks"
+    deliverables:
+      - "ASV vocabulary v2.0 incorporating pilot feedback"
+      - "Binary encoding (Protobuf schema) for high-throughput scenarios"
+      - "AACP protocol specification v1.0 (built on uACP formal results)"
+      - "Formal properties document (TLA+ or Coq verification of critical safety invariants)"
+      - "Public specification for community review"
+    kill_criteria: |
+      Community review identifies fundamental design flaws requiring architecture-level
+      changes. OR binary encoding provides <2x throughput improvement over JSON (insufficient
+      to justify the complexity). OR AACP protocol specification cannot achieve safety
+      properties comparable to uACP's verified guarantees.
+
+competitive_moat: |
+  ASV's defensibility rests on three reinforcing advantages, ordered by strength:
+
+  1. INTEGRATED COMPOSITIONAL SEMANTICS. Individual metadata fields (confidence scores,
+     source citations, verification hashes) are trivial to add to any protocol. The
+     integrated CLM-CNF-EVD-PRV-VRF chain with compositional semantics (how confidence
+     aggregates across evidence, how verification status propagates through delegation
+     chains, how temporal validity interacts with re-verification triggers) is architecturally
+     expensive to replicate piecemeal. Competitors adding confidence fields to A2A must
+     eventually define the same composition rules ASV has already specified.
+
+  2. DUAL CLASSIFICATION TAXONOMY. The combination of speech-act classification (what
+     communicative act is performed) with epistemic type classification (what kind of
+     knowledge claim is made) has no precedent in any JSON-based agent communication system.
+     This dual classification enables routing and processing logic that is impossible with
+     either classification alone. Replicating it requires the same theoretical grounding
+     in speech-act theory and epistemology that ASV provides.
+
+  3. W3C PROV INTEGRATION. By extending W3C PROV rather than inventing a custom provenance
+     model, ASV inherits interoperability with the entire PROV ecosystem (tooling, libraries,
+     graph databases). Competitors who build custom provenance must either replicate this
+     ecosystem integration or accept isolation from existing provenance infrastructure.
+
+  The weakest point of the moat is that all three advantages are knowledge-based, not
+  technology-based. A well-resourced competitor (Google, Anthropic, Microsoft) could
+  replicate ASV's design in 3-6 months. The defense against this is adoption and
+  standards-body legitimacy: if ASV is already the reference vocabulary in W3C CG
+  discussions and has regulated-industry pilots, replication becomes less attractive
+  than adoption.
+
+recommended_experiments:
+  - experiment: "JSON Schema Expressiveness Audit"
+    purpose: |
+      Determine exactly which AASL type system features can and cannot be represented
+      in JSON Schema with custom vocabularies.
+    success_criteria: |
+      Concrete list of semantic contracts requiring application-layer validation. Gap
+      quantified as percentage of total constraints. Gap must be <30% of critical
+      constraints for the paired schema+spec model to be viable.
+
+  - experiment: "Token Cost Comparison"
+    purpose: |
+      Measure actual token overhead of ASV JSON vs unstructured JSON vs natural language
+      for representative agent messages.
+    success_criteria: |
+      ASV JSON token overhead vs unstructured JSON is <2x for typical messages. Cost at
+      current API pricing for 1M messages/day is quantified. Minified ASV variant achieves
+      <1.5x overhead vs unstructured JSON.
+
+  - experiment: "LLM Generation Accuracy"
+    purpose: |
+      Measure whether LLMs can reliably generate ASV-typed JSON messages conforming to
+      the proposed schemas across the full CLM-CNF-EVD-PRV-VRF chain.
+    success_criteria: |
+      Structural validity >85% across Claude, GPT-4, and Gemini. Semantic plausibility
+      (human-judged) >70%. Two-step generation (free reasoning then formatting) achieves
+      >90% structural validity.
+
+  - experiment: "Speech-Act Routing Effectiveness"
+    purpose: |
+      Test whether performative-tagged messages improve multi-agent coordination compared
+      to untyped messages.
+    success_criteria: |
+      >15% reduction in coordination errors (misrouted/misinterpreted messages). >10%
+      reduction in total messages required for task completion. Task completion rate
+      equal or better than baseline.
+
+  - experiment: "Provenance Chain Utility"
+    purpose: |
+      Test whether the CLM-CNF-EVD-PRV-VRF chain actually improves error detection and
+      trust calibration in multi-agent systems.
+    success_criteria: |
+      >25% improvement in error detection rate vs no-provenance baseline. >50% reduction
+      in error propagation distance (number of downstream agents affected before detection).
+      False positive rate <10%.
+
+  - experiment: "Regulated Industry Fit Assessment"
+    purpose: |
+      Validate that ASV objects satisfy regulatory requirements for AI audit trails in
+      at least one regulated vertical (financial services or healthcare).
+    success_criteria: |
+      ASV objects map to >80% of regulatory audit trail requirements identified in the
+      target vertical. Remaining gaps are addressable through namespace extensions without
+      architectural changes. At least one compliance officer confirms ASV meets minimum
+      documentation standards.

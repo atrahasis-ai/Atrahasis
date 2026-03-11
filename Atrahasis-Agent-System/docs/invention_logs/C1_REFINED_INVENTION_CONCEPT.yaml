@@ -1,0 +1,659 @@
+INVENTION_CONCEPT:
+  type: "INVENTION_CONCEPT"
+  invention_id: "C1"
+  title: "Predictive Tidal Architecture (PTA)"
+  domain: "distributed systems / planetary-scale AI coordination"
+  generated_at: "2026-03-09T18:00:00Z"
+  refined_from: "C1-A"
+  research_data_incorporated: true
+
+  summary: >
+    PTA is a coordination-layer architecture for planetary-scale AI agent networks (millions to
+    trillions of agents). It combines three complementary mechanisms: (1) a deterministic tidal
+    backbone where shared mathematical functions allow every agent to independently compute
+    coordination schedules, verification assignments, and economic settlements with zero runtime
+    consensus; (2) a predictive delta communication protocol where agents maintain lightweight
+    models of neighbors and transmit only prediction errors (surprises), achieving near-zero
+    steady-state messaging; and (3) local morphogenic field gradients within tetrahedral agent
+    clusters for sub-epoch adaptive task allocation. PTA is a coordination layer only — it
+    integrates with Verichain for verification execution, AASL for semantic structure, CIOS for
+    organizational hierarchy, and AIC for economic settlement. The tidal backbone is the core
+    innovation; the predictive and morphogenic layers are additive enhancements that can be
+    deployed incrementally.
+
+  novelty_score: 4
+  feasibility_score: 4
+
+  key_innovation: >
+    A single family of deterministic oscillatory functions from which agents independently derive
+    scheduling, verification assignment, and economic settlement — eliminating runtime consensus
+    for coordination. Combined with predictive delta communication that achieves information-
+    theoretically optimal messaging (transmitting only surprises) and local potential-game-based
+    gradient allocation within small agent clusters. No prior art combines these three layers.
+    Seven specific novelty gaps confirmed by prior art research: no existing system derives
+    scheduling + verification + economics from a single deterministic function; no system uses
+    FEP-motivated communication gating in distributed computing; no system combines deterministic
+    backbone with predictive communication; verification membranes as a separate layer from
+    coordination is novel; morphogenic field allocation within clusters coordinated by a
+    deterministic global schedule is novel; steady-state communication approaching zero through
+    generative neighbor models is novel; oscillatory/tidal deterministic coordination for AI
+    agents is novel.
+
+  technical_approach: >
+    Phase 1 (6-9 months): Implement tidal backbone — consistent-hashing-based deterministic
+    scheduling functions parameterized by (agent_id, task_type, epoch). Virtual node mapping
+    handles agent churn. VRF-based witness rotation prevents grinding attacks. Capacity snapshots
+    exchanged only at tidal boundaries (bounded O(N) per epoch). Versioned tidal functions with
+    overlap periods for migration. Core primitive: verifier_set = f(claim_hash, epoch).
+    Phase 2 (9-12 months): Add predictive delta communication — lightweight linear predictive
+    models per neighbor predicting tidal-schedule compliance. Adaptive surprise thresholds that
+    tighten as prediction accuracy improves and loosen during non-stationarity. Cold-start uses
+    standard messaging with progressive model-accuracy-gated transition. Tidal boundaries serve
+    as model recalibration synchronization points.
+    Phase 3 (6 months): Add morphogenic field gradients within tetrahedral clusters (4-agent
+    groups). Potential game framework (Monderer-Shapley) guarantees convergence to Nash
+    equilibria. AASL defines semantic dimensions. Tidal resets provide perturbations to escape
+    local minima. Gradient computation is trivial at 4-agent scale.
+    Total: 21-27 months for full system, functional and valuable at each phase.
+
+  system_primitives:
+    - name: "Epoch"
+      description: >
+        Discrete time interval; the fundamental unit of tidal coordination. All scheduling,
+        settlement, and model recalibration is epoch-relative. Epoch length is configurable
+        per deployment (milliseconds for low-latency, minutes for batch). Epoch counters
+        are synchronized via lightweight clock sync (NTP-grade, not consensus-grade).
+
+    - name: "Tidal Function"
+      description: >
+        A deterministic, pure function f(agent_id, task_type, epoch) -> assignment that every
+        agent can evaluate independently to produce identical results. Built on consistent
+        hashing with virtual nodes. Produces scheduling assignments, verifier sets, and
+        settlement boundaries. Versioned for migration. The family includes: base clock
+        (epoch counter), scheduling projections (consistent hash rings per task type), and
+        VRF-based witness rotation (verifier_set = VRF(claim_hash, epoch, seed)).
+
+    - name: "Prediction Model"
+      description: >
+        A lightweight linear predictive model maintained by each agent for each direct
+        neighbor (bounded by CIOS hierarchy degree, typically 4-10 neighbors). Predicts
+        neighbor behavior relative to the tidal schedule: expected task completions,
+        expected resource consumption, expected communication patterns. Model complexity
+        is O(1) per neighbor per epoch. Recalibrated at tidal boundaries using actual
+        observed behavior.
+
+    - name: "Surprise Signal"
+      description: >
+        A delta-encoded message transmitted when observed behavior deviates from predicted
+        behavior by more than an adaptive threshold. Contains: source_agent_id, epoch,
+        prediction_error_vector, magnitude (determines propagation radius). Threshold
+        adapts: tightens as model accuracy improves (reducing communication toward zero),
+        loosens during non-stationarity (graceful degradation to standard messaging).
+
+    - name: "Field Gradient"
+      description: >
+        A vector in AASL-defined semantic space representing the local direction of greatest
+        unmet task demand within a tetrahedral cluster. Computed by each cluster member from
+        shared local state (task queue depths, capability matches, resource availability).
+        Agents follow gradients for sub-epoch task allocation. Convergence guaranteed under
+        potential game conditions (Monderer-Shapley 1996).
+
+    - name: "Verifier Set"
+      description: >
+        The deterministic output of VRF(claim_hash, epoch, seed): a set of agent IDs assigned
+        to verify a specific claim at a specific epoch. Computed independently by any agent.
+        Provided to Verichain for verification execution. VRF prevents grinding attacks while
+        maintaining deterministic reproducibility given the seed.
+
+    - name: "Settlement Boundary"
+      description: >
+        An epoch boundary at which economic settlement occurs. Deterministic and auditable.
+        At each settlement boundary: tidal-compliant work earns AIC rewards, surprise events
+        incur AIC costs, prediction accuracy bonuses are computed, and all balances are
+        finalized. Settlement is a pure function of the tidal schedule and recorded events.
+
+    - name: "Tidal Version"
+      description: >
+        A versioned tidal function definition containing: version number, function parameters
+        (hash ring configuration, VRF seeds, epoch length, task-type frequency bands),
+        activation epoch, and deactivation epoch. Migration uses overlap periods where agents
+        evaluate both old and new versions. The overlap period is the one point requiring
+        soft consensus (Schelling-point based: agents switch when they observe sufficient
+        peers on the new version).
+
+  functional_pillars:
+    - name: "Coordination Scheduling"
+      description: >
+        The tidal backbone. Deterministic functions eliminate runtime consensus for
+        who-does-what-when. Every agent independently computes the same schedule from
+        shared mathematical definitions. Handles agent churn via virtual node mapping.
+        Capacity-awareness through periodic (epoch-boundary) state snapshots.
+      components:
+        - "Consistent hash ring per task type"
+        - "Virtual node mapping for agent churn"
+        - "VRF-based witness rotation"
+        - "Epoch clock synchronization"
+        - "Capacity snapshot propagation at tidal boundaries"
+        - "Task-type frequency bands (high-frequency for latency-sensitive, low for batch)"
+
+    - name: "Communication Reduction"
+      description: >
+        Predictive delta communication with adaptive thresholds. Each agent maintains
+        lightweight linear models of neighbors' tidal-schedule compliance. Only prediction
+        errors above threshold are transmitted. Steady state approaches zero messages.
+        Graceful degradation: when models degrade, thresholds loosen and communication
+        increases toward standard messaging rates.
+      components:
+        - "Per-neighbor linear prediction models"
+        - "Adaptive surprise thresholds (accuracy-gated)"
+        - "Delta-encoded surprise signals"
+        - "Cold-start standard messaging fallback"
+        - "Model recalibration at tidal boundaries"
+        - "Propagation radius proportional to surprise magnitude"
+
+    - name: "Local Allocation"
+      description: >
+        Morphogenic field gradients within tetrahedral clusters for sub-epoch adaptive
+        task distribution. Potential game framework guarantees convergence. AASL defines
+        the semantic dimensions of the field. Tidal resets inject perturbations to escape
+        local minima. Operates only within 4-agent clusters, making gradient computation
+        trivial and convergence fast.
+      components:
+        - "AASL-defined semantic space"
+        - "Potential function over 4-agent cluster state"
+        - "Gradient computation (trivial at 4D)"
+        - "Tidal reset perturbations (simulated annealing analog)"
+        - "Task demand signals (queue depth, capability match, urgency)"
+
+    - name: "Verification Scheduling"
+      description: >
+        Deterministic verifier set assignment fed to Verichain for execution. PTA determines
+        WHO verifies WHAT and WHEN. Verichain determines HOW verification is performed.
+        Clean separation of concerns: PTA is the coordination layer, Verichain is the
+        verification layer.
+      components:
+        - "VRF-based verifier set computation"
+        - "Claim-hash-to-verifier-set mapping"
+        - "Deterministic verification scheduling"
+        - "Verichain integration interface"
+
+    - name: "Economic Settlement"
+      description: >
+        Deterministic settlement at tidal boundaries using AIC token. Settlement is a pure
+        function of tidal schedule compliance, recorded events, and prediction accuracy.
+        No bidding, no negotiation, no runtime markets. Incentivizes reliability (tidal
+        compliance), predictability (low surprise generation), and accuracy (correct
+        prediction models).
+      components:
+        - "Tidal compliance scoring"
+        - "Surprise cost accounting"
+        - "Prediction accuracy bonuses"
+        - "Deterministic settlement computation at epoch boundaries"
+        - "AIC token integration interface"
+
+    - name: "Function Governance"
+      description: >
+        Tidal function versioning, migration, and update protocols. The single point where
+        consensus is required. Uses Schelling-point-based migration: new version is published,
+        agents switch when they observe sufficient peers on the new version, overlap period
+        runs both versions simultaneously. Governance decisions (new function parameters)
+        are the only human/strategic input to PTA.
+      components:
+        - "Tidal version registry"
+        - "Overlap period management"
+        - "Peer observation for migration coordination"
+        - "Function parameter governance interface"
+        - "Rollback mechanism (revert to previous version)"
+
+  integration_model:
+    cios: >
+      PTA is the coordination protocol that CIOS agents use. CIOS defines the organizational
+      hierarchy (Coordinators, Implementors, Observers, Strategists). PTA provides the
+      scheduling, communication, and allocation mechanisms within that hierarchy. Coordinators
+      use tidal functions to assign tasks to Implementors. Implementors use predictive
+      communication to report status to Coordinators (silence = on schedule). Observers use
+      morphogenic field gradients to allocate monitoring attention across their observation
+      scope. Strategists operate at tidal-function-governance level, proposing function updates.
+
+    verichain: >
+      Clean separation: PTA schedules verification, Verichain executes it. PTA computes
+      verifier_set = VRF(claim_hash, epoch, seed) and provides this to Verichain. Verichain
+      runs its Locus proofs, attestation chains, and verification membranes using the assigned
+      verifiers at the scheduled epochs. PTA does not know or care about verification logic;
+      Verichain does not know or care about scheduling logic. Integration is via a well-defined
+      interface: PTA emits (claim_hash, epoch, verifier_set) tuples; Verichain consumes them.
+
+    aasl: >
+      AASL defines the semantic vocabulary and claim structures that PTA operates on. AASL
+      claim structures are the units that tidal functions schedule. AASL semantic dimensions
+      define the space in which morphogenic field gradients operate. AASL provides the
+      vocabulary and type system; PTA provides the coordination grammar. Integration: AASL
+      claim types map to tidal function task-type parameters; AASL semantic coordinates map
+      to field gradient dimensions.
+
+    tetrahedral_clusters: >
+      Tetrahedral clusters (4-agent groups) are the fundamental unit of morphogenic field
+      operation. Each tetrahedron runs a local potential game for sub-epoch task allocation.
+      Tetrahedra are composed into larger structures by the tidal backbone's scheduling:
+      the tidal function determines which tetrahedra are active for which task types at which
+      epochs. Tetrahedra can be dynamically reformed at tidal boundaries based on workload
+      and capability matching. The tetrahedral structure provides natural redundancy (any
+      3 of 4 agents can cover for a failure) and minimal communication overhead (each agent
+      has exactly 3 neighbors within the cluster).
+
+    aic_token: >
+      AIC token is the settlement currency at tidal boundaries. PTA computes deterministic
+      settlement amounts based on: (1) tidal compliance — did the agent complete assigned
+      work on schedule? (2) surprise costs — did the agent generate unexpected behavior
+      requiring extra communication? (3) prediction accuracy — how well did the agent's
+      models predict its neighbors? (4) verification participation — did the agent fulfill
+      its verifier set duties? Settlement is a pure function: given the tidal schedule and
+      the recorded event log, any observer can independently compute the correct AIC
+      transfers. No disputes, no arbitration, no runtime negotiation.
+
+    knowledge_graph: >
+      Knowledge graph persistence is external to PTA. PTA schedules knowledge graph
+      operations via tidal functions: knowledge availability windows define when agents
+      can read from or write to the knowledge graph. Knowledge graph content informs
+      morphogenic field gradients (task demand signals, resource availability, capability
+      registries). The tidal backbone defines knowledge lifecycle phases: active (frequently
+      accessed), archival (infrequently accessed, lower-priority tidal slots), and deprecated
+      (scheduled for removal at a future tidal boundary).
+
+  layer_refinements:
+    tidal_backbone:
+      changes: >
+        (1) Replaced monolithic tidal function with composable family: base clock + consistent
+        hash scheduling + VRF witness rotation. (2) Added virtual node mapping for agent churn
+        handling (from consistent hashing literature, Karger 1997). (3) Capacity-awareness
+        bounded to epoch-boundary state exchange only (accepting O(N) aggregate per epoch but
+        making it periodic and predictable). (4) Adopted lightweight deterministic timing
+        approach validated by Solana Alpenglow evolution away from heavyweight PoH crypto.
+        (5) Explicit acknowledgment that scheduling is approximate (NP-hard optimal), with
+        bounded sub-optimality guarantees from consistent hashing properties.
+      mitigations: >
+        NP-hardness: consistent hashing provides provably good approximation with O(1) per-agent
+        computation. Function migration: versioned overlap periods with Schelling-point switching;
+        overlap period bounded to prevent indefinite dual-version operation. VRF grinding: using
+        Micali VRFs (1999) with periodic seed rotation at governance-controlled intervals.
+        Capacity staleness: epoch-boundary snapshots mean capacity information is at most one
+        epoch old; tidal functions degrade gracefully with stale capacity data (suboptimal
+        scheduling, not incorrect scheduling). Adversarial schedule prediction: VRF component
+        makes verification assignments unpredictable without the current seed, while scheduling
+        assignments remain deterministic (acceptable tradeoff — scheduling predictability is
+        a feature for agents, not a vulnerability).
+      revised_feasibility: 4
+
+    predictive_communication:
+      changes: >
+        (1) Narrowed from 'FEP communication protocol' to 'predictive delta communication with
+        adaptive thresholds' in the engineering specification. FEP retained as theoretical
+        motivation, not implementation specification. (2) Specified lightweight linear predictive
+        models (not full variational inference) for computational tractability. (3) Added
+        adaptive surprise thresholds that tighten with accuracy and loosen under non-stationarity.
+        (4) Layered adversarial defense: tidal backbone catches schedule violations, prediction
+        models catch behavioral anomalies within compliance — an adversary cannot fool both
+        simultaneously. (5) Tidal boundaries serve as mandatory model recalibration points,
+        addressing convergence under non-stationarity. (6) Dropped the claim of 'information-
+        theoretically optimal' in general; narrowed to 'optimal for stationary Gaussian processes
+        with correct model specification' per Shannon source coding theorem. For non-Gaussian
+        and non-stationary cases, PTA provides 'better than naive' communication reduction
+        (31-83% bandwidth reduction from delta encoding alone, per research findings).
+      mitigations: >
+        Transfer validity from neuroscience: avoided by specifying the engineering mechanism
+        (predictive delta encoding) independently of the neuroscience theory (FEP). The
+        implementation stands on signal processing foundations, not neuroscience claims.
+        Convergence under non-stationarity: bounded by tidal-boundary recalibration — models
+        are never more than one epoch stale. Adaptive thresholds prevent communication collapse
+        during model degradation. Adversarial fragility: two-layer defense (backbone + prediction)
+        requires adversary to simultaneously maintain tidal compliance AND fool prediction models,
+        which is significantly harder than either alone. Phase transition in prediction-vs-
+        communication: adaptive thresholds automatically navigate this — the system finds its
+        own operating point on the accuracy/communication tradeoff curve. Cold-start: standard
+        messaging fallback with model-accuracy-gated progressive transition. No cliff edge.
+      revised_feasibility: 3
+
+    morphogenic_fields:
+      changes: >
+        (1) Scope reduction: fields operate ONLY within tetrahedral clusters (4-agent groups),
+        eliminating curse of dimensionality entirely. (2) Formal grounding in potential games
+        (Monderer & Shapley 1996) provides convergence guarantees — Nash equilibria = local
+        minima of global potential function. (3) Semantic space construction deferred to AASL
+        integration rather than built from scratch. (4) Local minima escape via tidal reset
+        perturbations (periodic tidal boundaries inject state perturbations analogous to
+        simulated annealing temperature). (5) At 4-agent scale, 'morphogenic field' is
+        effectively a continuous load balancing mechanism — the biological metaphor describes
+        the mathematical structure, not the implementation complexity.
+      mitigations: >
+        Curse of dimensionality: eliminated by 4-agent scope. Gradient computation at 4D is
+        trivial. Local minima: tidal reset perturbations prevent permanent entrapment.
+        Convergence time: for 4 agents with periodic resets, convergence is practically
+        instantaneous (sub-epoch). Semantic space construction: deferred to AASL, which
+        defines the dimensions; PTA only computes gradients in that space.
+      revised_feasibility: 4
+
+  verification_approach: >
+    PTA does NOT perform verification — it schedules it. The verification approach is:
+    (1) Tidal backbone computes deterministic verifier sets via VRF(claim_hash, epoch, seed).
+    (2) Verichain receives the verifier assignment and executes verification using its own
+    protocols (Locus proofs, attestation chains, verification membranes). (3) Predictive
+    communication provides continuous behavioral anomaly detection as a supplementary signal:
+    agents whose behavior consistently deviates from predictions are flagged for deeper
+    Verichain inspection. (4) Morphogenic field coherence within clusters provides local
+    consistency checking: if a cluster member's field gradient response is inconsistent with
+    the cluster's potential function, this signals a local anomaly. Three independent signals
+    (scheduled verification, behavioral anomaly, field incoherence) are fed to Verichain,
+    which makes the actual verification decision. Semantic correctness verification remains
+    an open research question — PTA provides structural and behavioral verification signals,
+    not semantic ones.
+
+  economic_model: >
+    Deterministic settlement at tidal boundaries using AIC token. Four revenue/cost streams:
+    (1) Tidal compliance reward — base payment for completing assigned work on schedule.
+    (2) Surprise cost — agents that generate unexpected behavior (requiring extra communication)
+    pay a cost proportional to surprise magnitude. This incentivizes predictability and
+    reliability. (3) Prediction accuracy bonus — agents whose models accurately predict
+    neighbors earn a bonus, incentivizing good modeling and reducing system-wide communication
+    overhead. (4) Verification participation reward — agents that fulfill verifier set duties
+    earn verification fees. All four are pure functions of the tidal schedule and the recorded
+    event log. Settlement is fully deterministic and independently auditable. No markets, no
+    bidding, no runtime negotiation. Economic parameters (reward rates, cost rates, bonus
+    multipliers) are governed by tidal function governance and updated at version boundaries.
+
+  scalability_model: >
+    Horizontal scaling via tidal function decomposition. As agent count grows:
+    (1) Consistent hash rings accommodate new agents with O(K/N) key redistribution (where K
+    is total keys, N is agents) — sublinear churn impact. (2) Predictive communication overhead
+    per agent is O(neighbors) where neighbors are bounded by CIOS hierarchy degree (typically
+    4-10), not by total system size. Total system communication is O(N * avg_surprise_rate),
+    where surprise rate decreases as models improve — potentially sub-linear in practice.
+    (3) Morphogenic field computation is O(1) per agent (fixed 4-agent cluster). (4) Tidal
+    function evaluation is O(1) per agent per epoch (hash computation + VRF evaluation).
+    (5) Capacity snapshot propagation at epoch boundaries is O(N) aggregate, amortized over
+    the epoch. Net per-agent overhead: O(1) steady-state, O(neighbors) during surprises.
+    The 30-agent ceiling of current platforms is broken because PTA eliminates the O(N^2)
+    communication overhead that causes it.
+
+  failure_recovery_model: >
+    Layered failure recovery matching the three-layer architecture:
+    (1) Tidal backbone failures: agent failure is detected by absence at tidal-scheduled
+    checkpoints. The tidal function includes deterministic substitution lists — if agent A
+    fails, agent B (the next on the consistent hash ring) takes over. Substitution is
+    immediate and requires no coordination. (2) Predictive model failures: if a prediction
+    model degrades (surprise threshold exceeds a ceiling), the agent falls back to standard
+    messaging for that neighbor. This is per-neighbor, not system-wide — graceful degradation.
+    (3) Morphogenic field failures: if a cluster member fails, the remaining 3 members of the
+    tetrahedron redistribute load via field gradient rebalancing. If 2 members fail, the
+    tetrahedron is dissolved and agents are reassigned at the next tidal boundary.
+    (4) Tidal function governance failure: if function migration fails (insufficient peers
+    switch to new version), the rollback mechanism reverts to the previous version. Overlap
+    periods ensure the old version remains available throughout migration.
+    (5) Cascade prevention: surprise propagation radius is bounded by a damping function.
+    Large surprises propagate further but with diminishing magnitude. No surprise can trigger
+    unbounded cascade.
+
+  build_phases:
+    - phase: 1
+      name: "Tidal Backbone"
+      duration: "6-9 months"
+      deliverables:
+        - "Consistent hash ring implementation for task scheduling"
+        - "VRF-based verifier set computation"
+        - "Epoch clock synchronization protocol"
+        - "Virtual node mapping for agent churn"
+        - "Capacity snapshot propagation at epoch boundaries"
+        - "Tidal function versioning and overlap-period migration"
+        - "Deterministic settlement computation"
+        - "Integration interface for Verichain (verifier set output)"
+        - "Integration interface for CIOS (scheduling input/output)"
+        - "Benchmark: 1000+ agents with zero-consensus scheduling"
+
+    - phase: 2
+      name: "Predictive Delta Communication"
+      duration: "9-12 months"
+      deliverables:
+        - "Per-neighbor linear prediction model implementation"
+        - "Adaptive surprise threshold mechanism"
+        - "Delta-encoded surprise signal protocol"
+        - "Cold-start standard messaging fallback"
+        - "Model recalibration at tidal boundaries"
+        - "Propagation radius computation (surprise magnitude -> radius)"
+        - "Behavioral anomaly detection signals for Verichain"
+        - "Benchmark: 80%+ communication reduction in steady state vs. naive messaging"
+        - "Benchmark: graceful degradation under model failure (no cliff edge)"
+
+    - phase: 3
+      name: "Morphogenic Field Allocation"
+      duration: "6 months"
+      deliverables:
+        - "Potential game framework for 4-agent tetrahedral clusters"
+        - "AASL-defined semantic space integration"
+        - "Gradient computation within clusters"
+        - "Tidal reset perturbation mechanism"
+        - "Field coherence signals for Verichain"
+        - "Benchmark: sub-epoch convergence in tetrahedral allocation"
+        - "Benchmark: improved task distribution vs. tidal-only allocation"
+
+  research_questions:
+    - >
+      What is the optimal epoch length for different workload classes? Too short increases
+      synchronization overhead; too long reduces responsiveness. Is a single epoch length
+      sufficient or do we need hierarchical epochs (micro-epochs within macro-epochs)?
+    - >
+      What class of lightweight predictive models provides the best accuracy/computation
+      tradeoff for predicting agent tidal-schedule compliance? Linear models are the baseline;
+      can simple nonlinear models (e.g., kernel methods) significantly improve prediction
+      without exceeding computational budgets?
+    - >
+      What is the minimum calibration period for predictive models before communication
+      reduction exceeds 50%? Is this period practical (hours, days, weeks) at different scales?
+    - >
+      Can Schelling-point-based tidal function migration achieve reliable version transitions
+      without formal consensus? What is the failure rate? What are the failure modes?
+    - >
+      How does the system behave at the boundary between predictive and standard messaging?
+      Is the adaptive threshold mechanism smooth or does it exhibit hysteresis/oscillation?
+    - >
+      What is the information-geometric relationship between tidal function structure and
+      prediction model convergence rate? Does the Fisher information metric provide a useful
+      unified optimization objective across all three layers?
+    - >
+      How do you detect that predictive models are confidently wrong (silent model drift)
+      without periodic audit signals that reintroduce communication overhead? Can tidal-
+      boundary recalibration alone provide sufficient drift detection?
+
+  critical_experiments:
+    - >
+      Experiment 1 — Tidal Backbone Scaling: Implement consistent-hash-based scheduling for
+      N = {100, 1000, 10000, 100000} simulated agents. Measure: schedule computation time
+      per agent, schedule agreement rate (should be 100%), substitution latency on agent
+      failure, capacity snapshot overhead at epoch boundaries. Success criterion: O(1) per-
+      agent computation, 100% agreement, sub-epoch substitution.
+    - >
+      Experiment 2 — Predictive Communication Reduction: Implement linear prediction models
+      for a 100-agent tidal-backbone system. Measure: communication reduction vs. naive
+      messaging over time (calibration curve), steady-state surprise rate, model accuracy
+      distribution, degradation behavior under injected non-stationarity. Success criterion:
+      >50% communication reduction within 100 epochs, >80% within 1000 epochs.
+    - >
+      Experiment 3 — Adaptive Threshold Stability: Systematically vary the threshold
+      adaptation rate and measure communication overhead, model accuracy, and detection
+      latency for injected anomalies. Map the Pareto frontier of communication-reduction
+      vs. anomaly-detection-latency. Success criterion: identify a stable operating point
+      with >60% communication reduction and <10-epoch anomaly detection latency.
+    - >
+      Experiment 4 — Tetrahedral Field Convergence: Implement potential-game-based allocation
+      in 4-agent clusters with varying task heterogeneity. Measure: convergence time (epochs),
+      allocation quality vs. optimal, effect of tidal reset perturbations on local minima
+      escape. Success criterion: sub-epoch convergence for >90% of task distributions.
+    - >
+      Experiment 5 — Tidal Function Migration: Simulate version migration across 1000 agents
+      using Schelling-point coordination. Measure: migration completion time, fraction of
+      agents that fail to migrate, overlap period resource overhead, rollback success rate.
+      Success criterion: >99% migration within 10 epochs, successful rollback in all tested
+      failure scenarios.
+    - >
+      Experiment 6 — Adversarial Resilience: Inject adversarial agents that (a) violate tidal
+      schedule, (b) behave within prediction bounds while corrupting outputs, (c) attempt VRF
+      grinding, (d) poison morphogenic field gradients. Measure: detection rate and latency
+      for each attack type. Success criterion: >95% detection rate for types (a) and (c);
+      characterize detection limits for type (b) stealth attacks.
+
+  risk_register:
+    - risk: "Tidal function migration fails to converge — agents split between versions"
+      severity: "HIGH"
+      mitigation: >
+        Bounded overlap periods with automatic rollback. If migration does not reach threshold
+        within the overlap period, all agents revert to the previous version. Overlap period
+        length is a governance parameter. Experiment 5 specifically tests this.
+
+    - risk: "Predictive models converge too slowly for practical communication reduction"
+      severity: "HIGH"
+      mitigation: >
+        Incremental deployment: the system is fully functional without predictive communication
+        (Phase 1 tidal backbone alone provides value). Predictive layer is additive, not
+        required. If models converge slowly, the system degrades to standard messaging within
+        the tidal frame, which is already a significant improvement over status quo.
+
+    - risk: "Silent model drift — agents are confidently wrong without detection"
+      severity: "MEDIUM"
+      mitigation: >
+        Tidal-boundary model recalibration provides periodic ground truth checks. Additionally,
+        Verichain's scheduled verification catches output errors regardless of prediction model
+        state. The two-layer defense (model audit + independent verification) bounds the
+        duration and impact of silent drift.
+
+    - risk: "Adversarial agents exploit deterministic schedule predictability"
+      severity: "MEDIUM"
+      mitigation: >
+        VRF-based witness rotation makes verification assignments unpredictable without the
+        current seed. Task scheduling remains deterministic (necessary for zero-consensus
+        operation) but scheduling predictability is acceptable because the verification layer
+        (Verichain) catches malicious behavior regardless of whether the adversary knew the
+        schedule. The adversary can predict WHEN they will be verified, but not HOW to pass
+        verification.
+
+    - risk: "Epoch clock drift causes scheduling disagreements between agents"
+      severity: "MEDIUM"
+      mitigation: >
+        NTP-grade clock synchronization is sufficient for epoch-level coordination (epochs
+        are typically seconds to minutes, not milliseconds). Agents that drift beyond a
+        tolerance window are detected by their peers as generating surprises (unexpected
+        timing). Persistent clock drift is equivalent to agent failure, handled by
+        substitution lists.
+
+    - risk: "Integration complexity across CIOS, Verichain, AASL, and AIC creates emergent failures"
+      severity: "HIGH"
+      mitigation: >
+        Clean interface boundaries. PTA communicates with each subsystem through well-defined,
+        narrow interfaces: verifier set tuples to Verichain, scheduling parameters from CIOS,
+        semantic dimensions from AASL, settlement amounts to AIC. Each interface can be tested
+        independently. Phased deployment (backbone first) allows integration testing before
+        adding complexity.
+
+    - risk: "Morphogenic field metaphor adds complexity without proportional value"
+      severity: "LOW"
+      mitigation: >
+        At 4-agent cluster scope, the morphogenic field is a lightweight load balancer. If
+        it proves unnecessary, it can be replaced with simple round-robin allocation within
+        clusters with zero impact on the rest of PTA. Phase 3 is explicitly designed to be
+        droppable.
+
+    - risk: "Research competitors (especially academic active inference groups) publish similar ideas before PTA reaches prototype stage"
+      severity: "MEDIUM"
+      mitigation: >
+        The market window is 2026-2028. Academic timelines are slow (publication to product
+        is typically 3-5 years). VERSES AI (closest commercial competitor) is struggling.
+        PTA's combined three-layer approach has no direct academic analog. Fastest path to
+        defensibility is Phase 1 prototype + patent filing on the deterministic scheduling
+        primitive. The FEP communication layer is most defensible (fewest researchers).
+
+  comparison_with_existing:
+    vs_blockchain: >
+      Blockchain consensus (BFT, Nakamoto, DAG-based) requires O(N) to O(N^2) messages for
+      agreement. PTA requires zero messages for scheduling agreement (deterministic computation).
+      Blockchain verification is all-or-nothing (block is valid or not). PTA verification is
+      continuous and multi-signal (tidal compliance + behavioral anomaly + field coherence).
+      Blockchain settlement is per-block. PTA settlement is per-epoch with deterministic
+      computation. PTA is NOT a blockchain — it has no chain, no blocks, no mining, no global
+      state replication. It shares with blockchain only the insight that deterministic
+      computation can replace runtime communication (Solana PoH lineage).
+
+    vs_dag: >
+      DAG-based systems (Narwhal/Tusk, Hashgraph, IOTA) improve on blockchain throughput but
+      still require message exchange for ordering and consensus. PTA eliminates ordering
+      consensus entirely — the tidal function defines the order deterministically. DAGs
+      provide eventual consistency through causal ordering. PTA provides immediate consistency
+      through shared mathematical computation. DAGs scale communication to O(N * log(N));
+      PTA scales to O(1) per agent in steady state.
+
+    vs_event_stream: >
+      Event streaming (Kafka, Pulsar) provides ordered, durable message delivery. PTA's
+      insight is that most of these messages are unnecessary — they communicate expected
+      behavior that the receiver could have predicted. Event streams scale linearly with
+      event volume. PTA's predictive layer reduces event volume toward zero in steady state.
+      Event streams are infrastructure; PTA is a coordination protocol that could run ON
+      event streams (using them for surprise signals) but makes most of their capacity
+      unnecessary.
+
+    vs_current_multi_agent: >
+      Current multi-agent platforms (AutoGen, CrewAI, LangGraph, AgentVerse) hit a 30-agent
+      ceiling due to O(N^2) communication overhead. They use LLM-mediated conversation or
+      centralized orchestration for coordination. PTA eliminates coordination communication
+      entirely (tidal backbone) and reduces operational communication to surprises-only
+      (predictive layer). This breaks the scaling wall by making per-agent communication
+      overhead O(1) instead of O(N). PTA operates at a layer BELOW these frameworks — they
+      could use PTA as their coordination substrate while maintaining their agent programming
+      models.
+
+  why_new_paradigm: >
+    PTA is a new paradigm because it inverts the fundamental assumption of distributed
+    coordination: instead of 'communicate to agree,' PTA proposes 'agree by computation,
+    communicate only surprises.' Every existing distributed coordination system — consensus
+    protocols, message queues, event streams, pub/sub, gossip protocols — assumes that
+    coordination requires communication. PTA demonstrates that if agents share a deterministic
+    mathematical framework, coordination requires ZERO communication in steady state. The
+    tidal backbone makes this possible for scheduling. The predictive layer makes this possible
+    for operational status. The morphogenic fields make this possible for local allocation.
+    The combination produces a coordination protocol where per-agent overhead is O(1) and
+    total system communication approaches zero as the system reaches steady state — a
+    property that no existing coordination paradigm achieves or even targets. This is not
+    an optimization of existing approaches; it is a fundamentally different relationship
+    between coordination and communication.
+
+  # Dissent record from this FEASIBILITY refinement session
+  dissent_record:
+    - point: >
+        The Critic insists that 'FEP-based communication' should be dropped from all
+        engineering documents. The implementation is predictive delta encoding with adaptive
+        thresholds — standard signal processing. The FEP framing is a theoretical motivation,
+        not an engineering specification, and calling the implementation 'FEP-based' overstates
+        the neuroscience connection.
+      minority: "Critic"
+      monitoring_flag: >
+        Use 'predictive delta communication' in all engineering specifications. Reserve 'FEP-
+        motivated' or 'FEP-derived' for theoretical papers and patent filings where the
+        theoretical lineage adds value.
+
+    - point: >
+        The Visionary maintains that morphogenic fields should eventually scale beyond
+        tetrahedral clusters to larger agent groups. The 4-agent scope reduction is pragmatic
+        for Phase 3 but should not be treated as a permanent architectural constraint.
+      minority: "Visionary"
+      monitoring_flag: >
+        If Experiment 4 shows strong results, evaluate extending morphogenic field scope to
+        8-agent or 16-agent clusters in a future phase. Track whether the potential game
+        convergence guarantees hold at larger cluster sizes.
+
+    - point: >
+        The Critic maintains that semantic correctness verification remains an unsolved
+        blocking research question. PTA provides structural and behavioral verification
+        signals but cannot verify that an agent's output is semantically correct. This
+        limitation must be prominently documented and not obscured by the three-layer
+        verification narrative.
+      minority: "Critic"
+      monitoring_flag: >
+        Semantic correctness verification is explicitly out of scope for PTA and delegated
+        to Verichain. If Verichain cannot solve it, this becomes a system-level blocker
+        regardless of PTA's coordination quality. Track Verichain's progress on semantic
+        verification as a parallel research track.

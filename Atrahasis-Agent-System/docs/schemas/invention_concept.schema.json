@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atrahasis Agent System — Invention Concept (v1.0)",
+  "type": "object",
+  "required": [
+    "type",
+    "invention_id",
+    "title",
+    "domain",
+    "summary",
+    "novelty_score",
+    "feasibility_score",
+    "key_innovation",
+    "technical_approach",
+    "generated_at"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "INVENTION_CONCEPT"
+    },
+    "invention_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "novelty_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "feasibility_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "key_innovation": {
+      "type": "string"
+    },
+    "technical_approach": {
+      "type": "string"
+    },
+    "potential_applications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prior_art_concerns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "research_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "refined_from": {
+      "type": ["string", "null"],
+      "description": "If this concept was refined from a previous concept, reference its ID"
+    },
+    "research_data_incorporated": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "additionalProperties": true
+}

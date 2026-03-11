@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atrahasis Agent System — Prior Art Report (v1.0)",
+  "type": "object",
+  "required": [
+    "type",
+    "invention_id",
+    "search_queries",
+    "closest_prior_art",
+    "novelty_assessment",
+    "confidence"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "PRIOR_ART_REPORT"
+    },
+    "invention_id": {
+      "type": "string"
+    },
+    "search_queries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "patents_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "relevance", "summary"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "relevance": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "summary": { "type": "string" },
+          "filing_date": { "type": ["string", "null"] },
+          "assignee": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "papers_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "relevance", "summary"],
+        "properties": {
+          "title": { "type": "string" },
+          "authors": { "type": ["string", "null"] },
+          "year": { "type": ["integer", "null"] },
+          "relevance": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "summary": { "type": "string" },
+          "venue": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "products_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "relevance", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "company": { "type": ["string", "null"] },
+          "relevance": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "summary": { "type": "string" },
+          "url": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "open_source_found": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "relevance", "summary"],
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": ["string", "null"] },
+          "relevance": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+          "summary": { "type": "string" },
+          "license": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "closest_prior_art": {
+      "type": "object",
+      "required": ["reference", "similarity", "differentiators"],
+      "properties": {
+        "reference": { "type": "string" },
+        "similarity": { "type": "string" },
+        "differentiators": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "novelty_assessment": {
+      "type": "string"
+    },
+    "gaps_identified": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    }
+  },
+  "additionalProperties": true
+}

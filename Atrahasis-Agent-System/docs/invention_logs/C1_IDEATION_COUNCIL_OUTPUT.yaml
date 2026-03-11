@@ -1,0 +1,164 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "distributed systems / planetary-scale AI coordination"
+  generated_at: "2026-03-09T14:00:00Z"
+  consensus_level: "MAJORITY"
+  concepts:
+    - concept_id: "C1-A"
+      title: "Predictive Tidal Architecture (PTA)"
+      summary: >
+        A layered coordination architecture combining deterministic oscillatory scheduling (tidal functions)
+        as the global coordination backbone with a Free Energy Principle-based predictive communication
+        protocol that achieves zero-message steady state, and local morphogenic field gradients for
+        within-cluster adaptive task allocation. Three independent verification mechanisms (tidal witness
+        sets, predictive behavioral monitoring, field coherence) compensate for each other's weaknesses.
+        Incrementally buildable: tidal backbone first, then predictive layer, then local field dynamics.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: >
+        Layered architecture where deterministic scheduling eliminates coordination horizon collapse,
+        FEP-based surprise-only communication achieves information-theoretically optimal message rates,
+        and local field gradients handle sub-cycle adaptive allocation — each layer compensating for
+        the others' failure modes.
+      technical_approach: >
+        Phase 1 (6-9 months): Implement tidal function backbone — shared mathematical definitions from
+        which agents independently compute coordination schedules, verification assignments, and economic
+        settlements. Zero runtime consensus for coordination. Phase 2 (9-12 months): Add predictive
+        communication layer — each agent maintains generative models of neighbors; only prediction errors
+        (surprises) propagate as messages. Phase 3 (6 months): Add local morphogenic field dynamics for
+        within-cluster adaptive allocation using sparse spatial data structures with gradient computation.
+        Verification: tidal witness sets with VDF-based rotation, continuous behavioral anomaly detection
+        via prediction accuracy tracking, local field coherence checking.
+      potential_applications:
+        - "Atrahasis planetary-scale agent coordination (millions to trillions of agents)"
+        - "Distributed AI reasoning orchestration with zero-consensus steady state"
+        - "Self-healing verification pipelines that degrade gracefully under partial failure"
+        - "Deterministic economic settlement for AI agent marketplaces"
+        - "Any large-scale multi-agent system requiring coordination with minimal communication overhead"
+      known_risks:
+        - "Tidal function migration requires some form of consensus, contradicting the zero-consensus premise — versioned overlap periods mitigate but do not eliminate this"
+        - "Predictive model cold-start means the system must fall back to standard messaging until models calibrate — calibration time at trillion scale is unknown"
+        - "Three-layer verification is better than single-layer but still does not solve semantic correctness verification (only behavioral and structural correctness)"
+        - "Integration complexity across three paradigmatically different layers may produce emergent failure modes not present in any individual layer"
+        - "Adversarial predictability of deterministic tidal schedules, partially mitigated by VDF-based witness rotation"
+      prior_art_concerns:
+        - "Tidal functions resemble TDMA / deterministic scheduling in real-time systems — differentiated by unifying scheduling, verification, knowledge lifecycle, and economics into one frequency-domain formalism"
+        - "Predictive communication resembles hierarchical monitoring with ML anomaly detection (Prometheus + ML) — differentiated by being the PRIMARY protocol, not an overlay, and by the FEP theoretical foundation"
+        - "Local field dynamics resemble distributed spatial databases with pub/sub — differentiated by continuous gradient semantics and interference-based verification"
+        - "Surprise-only communication has conceptual overlap with exception-based reporting (SNMP traps) — differentiated by the generative model framework and information-theoretic optimality claim"
+      research_questions:
+        - "How do you verify distributed reasoning CORRECTNESS (not just consistency) without a global reference frame? Probabilistic verification at trillion scale remains an unsolved theoretical problem."
+        - "What is the convergence time for predictive models in a trillion-agent system? Is cold-start tractable, or does the system need years of calibration data?"
+        - "How do you atomically migrate tidal functions across a planetary-scale network without reintroducing global consensus? Can Schelling-point based migration achieve sufficient coordination?"
+        - "What is the optimal dimensionality and sparsity of the local morphogenic field for real workloads? Is the continuous field abstraction computationally tractable at cluster scale?"
+        - "How do you detect that predictive models are confidently wrong (silent model drift) without periodic audit signals that reintroduce communication overhead?"
+      hitl_required: true
+
+    - concept_id: "C1-B"
+      title: "Surprise-Governed Coordination Network (SGCN)"
+      summary: >
+        A pure Predictive Mesh architecture based on the Free Energy Principle where every node maintains
+        generative models of its neighbors' behavior. Zero messages in steady state — only prediction
+        errors (surprises) propagate, with surprise magnitude determining propagation radius. Task
+        allocation emerges from agents predicting what needs to be done. Verification through prediction
+        accuracy tracking. Economics reward surprise reduction (reliability). Preserves the CIOS
+        hierarchy exactly, changing only the communication protocol.
+      novelty_score: 4
+      feasibility_score: 3
+      key_innovation: >
+        Applying Karl Friston's Free Energy Principle as the PRIMARY coordination protocol for
+        distributed AI systems, achieving information-theoretically optimal communication (transmitting
+        only surprises, which IS information by definition) with graceful degradation to standard
+        messaging when models fail.
+      technical_approach: >
+        Each agent maintains variational generative models of its CIOS neighbors (parent, children,
+        siblings). In steady state, agents follow predicted behavior and communicate nothing. Prediction
+        errors above a threshold propagate as surprise signals. Surprise magnitude determines propagation
+        radius via a damping function. Task allocation emerges from model-predicted task appearance and
+        claim patterns. Model calibration uses initial standard-messaging phase with progressive
+        transition to predictive mode. Periodic cryptographic commitments to outputs enable post-hoc
+        verification of prediction accuracy. Audit surprises (random probe signals) detect silent
+        model drift.
+      potential_applications:
+        - "Atrahasis agent coordination with near-zero communication overhead in stable operation"
+        - "Any multi-agent system where steady-state behavior is predictable and deviations are rare"
+        - "Distributed AI systems requiring graceful degradation under communication failures"
+        - "Large-scale monitoring and coordination where bandwidth is the primary constraint"
+      known_risks:
+        - "No incremental deployment path — predictive models must be functional before messages can be eliminated, creating a chicken-and-egg problem"
+        - "Silent model drift: agents may become confidently wrong without detection, requiring audit mechanisms that partially negate the zero-communication advantage"
+        - "Stealth attacks: adversaries acting within prediction bounds while corrupting outputs are undetectable by the surprise mechanism"
+        - "Cold-start calibration time at planetary scale is unknown and potentially very long"
+        - "Model storage and computation overhead per agent may be significant if neighbor count is high"
+      prior_art_concerns:
+        - "FEP has been applied to robotics (active inference) and neuroscience but not to distributed system coordination — application is novel but principle is established"
+        - "Surprise-only communication resembles exception-based reporting and event-driven architectures — differentiated by the generative model framework"
+        - "Behavioral reputation via prediction accuracy tracking resembles existing trust/reputation systems (EigenTrust) — differentiated by the continuous model-based approach"
+      research_questions:
+        - "What class of generative models is expressive enough to predict multi-agent coordination behavior while remaining computationally tractable at scale?"
+        - "What is the minimum calibration period before predictive mode can replace standard messaging for a given prediction accuracy target?"
+        - "Can audit surprises detect silent model drift with bounded false positive/negative rates while maintaining sub-linear communication overhead?"
+        - "How do you prevent stealth attacks where adversaries stay within prediction bounds while corrupting outputs?"
+        - "Does the FEP variational free energy formulation have provable convergence guarantees in adversarial multi-agent settings?"
+      hitl_required: true
+
+    - concept_id: "C1-C"
+      title: "Deterministic Coordination Substrate (DCS)"
+      summary: >
+        A pure deterministic scheduling architecture where a shared mathematical coordination function
+        allows all agents to independently compute the complete coordination schedule — task assignments,
+        verification witnesses, economic settlements, and knowledge-sharing partners — with zero runtime
+        consensus. Agents only communicate task inputs and outputs, never coordination metadata. The
+        coordination function uses quasi-periodic oscillatory functions parameterized by agent ID, task
+        type, time, and capacity. Adaptation occurs through governance-controlled function updates with
+        versioned overlap periods.
+      novelty_score: 3
+      feasibility_score: 4
+      key_innovation: >
+        Unifying task scheduling, verification assignment, knowledge lifecycle management, and economic
+        settlement into a single family of deterministic oscillatory functions that every agent can
+        evaluate independently, eliminating all runtime coordination consensus.
+      technical_approach: >
+        Define a coordination function family F(agent_id, task_type, time, capacity) using quasi-periodic
+        functions with harmonic relationships between task-type frequency bands. High-frequency bands
+        for latency-sensitive tasks, low-frequency for batch processing. Verification via deterministic
+        witness sets with VDF-based rotation to prevent pre-computation attacks. Knowledge stored in
+        tidal pools with function-defined retention and availability schedules. Economic settlement at
+        function-defined cycle boundaries. Function updates are the sole governance action, using
+        versioned overlap periods for migration. Reserve frequency bands handle unpredictable workloads
+        via round-robin allocation.
+      potential_applications:
+        - "Atrahasis coordination backbone requiring maximum predictability and auditability"
+        - "High-reliability multi-agent systems where determinism is a requirement"
+        - "Regulatory-compliant AI coordination where all assignments must be auditable and reproducible"
+        - "Fallback coordination layer when adaptive mechanisms (predictive models) are unavailable"
+      known_risks:
+        - "Rigidity under genuinely unpredictable workloads — reserve frequency bands are a patch, not a solution"
+        - "Coordination function migration is effectively a global consensus problem, undermining the zero-consensus premise"
+        - "Deterministic schedules are adversarially predictable — VDFs mitigate but do not eliminate this"
+        - "Workload heterogeneity across regions may require region-specific functions, leading to evolutionary drift"
+        - "Less novel than alternatives — risk of prior art overlap with deterministic scheduling, TDMA, and committee-based BFT"
+      prior_art_concerns:
+        - "Deterministic scheduling is well-established in real-time systems (RMS, EDF) — differentiated by applying to all coordination concerns, not just task scheduling"
+        - "Frequency-band task mapping resembles FDMA/TDMA — differentiated by the comprehensive scope (verification, economics, knowledge, not just communication slots)"
+        - "Deterministic witness assignment resembles committee-based BFT (Algorand sortition) — differentiated by deterministic rather than random selection and VDF rotation"
+        - "Tidal pools resemble time-series databases with retention policies — differentiated by integration into the coordination function"
+      research_questions:
+        - "What family of quasi-periodic functions provides sufficient expressiveness for heterogeneous AI workloads while remaining computationally efficient to evaluate?"
+        - "Can tidal function migration be achieved via Schelling-point coordination without formal consensus, and what are the failure modes?"
+        - "What is the overhead of VDF-based witness rotation compared to the security benefit against pre-computation attacks?"
+      hitl_required: true
+
+  recommended_concept: "C1-A"
+  dissent_record:
+    - point: "The Morphogenic Field Architecture should be the primary paradigm, not relegated to a local cluster-level mechanism within C1-A"
+      minority: "Visionary"
+      monitoring_flag: "If local field dynamics in C1-A prove highly effective, reconsider elevating MFA to a more central role. Track field computation performance and the trust anchor problem resolution."
+    - point: "ALL proposed architectures fundamentally understate the verification problem. Semantic correctness verification at trillion scale is a blocking research question, not merely a known risk. Probabilistic verification may be insufficient for safety-critical AI coordination."
+      minority: "Critic"
+      monitoring_flag: "Treat verification as a first-class research track parallel to architecture development. Before advancing past FEASIBILITY, produce a formal analysis of verification guarantees under each layer of C1-A, including explicit assumptions and failure bounds. If no satisfactory verification approach is found, this becomes a blocker."
+    - point: "The Mycorrhizal Mesh's substrate-as-intelligence property was dismissed too quickly. The ghost hyphae concept and learning network topology are genuinely novel ideas that deserve more than component-level incorporation."
+      minority: "Visionary"
+      monitoring_flag: "Preserve ghost hyphae and substrate-learning concepts in the research backlog. If predictive models in C1-A need a knowledge persistence mechanism, evaluate Mycorrhizal Mesh patterns before inventing new ones."
+    - point: "SGCN (C1-B) should be the primary recommendation, not the runner-up. Information-theoretic optimality is more important than incremental buildability."
+      minority: "Visionary"
+      monitoring_flag: "If C1-A's tidal backbone proves unnecessarily rigid in practice, evaluate pivoting to C1-B. Track the ratio of surprise-to-steady-state messages in C1-A to determine whether the tidal backbone is adding value or just adding complexity."

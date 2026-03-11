@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atrahasis Agent System — Agent State (v1.0)",
+  "type": "object",
+  "required": [
+    "version",
+    "stage",
+    "status",
+    "last_updated",
+    "last_updated_by",
+    "inventions",
+    "pending_contribution_requests",
+    "pending_assessments",
+    "synthesis",
+    "approvals_pending",
+    "blockers",
+    "notes"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "IDEATION",
+        "RESEARCH",
+        "FEASIBILITY",
+        "DESIGN",
+        "PROTOTYPE",
+        "SPECIFICATION",
+        "ASSESSMENT",
+        "IDLE"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "COMPLETE",
+        "BLOCKED"
+      ]
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_updated_by": {
+      "type": "string",
+      "enum": [
+        "Director",
+        "Chronicler"
+      ]
+    },
+    "session_brief": {
+      "type": "string"
+    },
+    "invention_dashboard": {
+      "type": "string"
+    },
+    "pattern_register": {
+      "type": "string"
+    },
+    "decisions_log": {
+      "type": "string"
+    },
+    "tribunal_log": {
+      "type": "string"
+    },
+    "inventions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "stage",
+          "status",
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "IDEATION",
+              "RESEARCH",
+              "FEASIBILITY",
+              "DESIGN",
+              "PROTOTYPE",
+              "SPECIFICATION",
+              "ASSESSMENT",
+              "ARCHIVED"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "IN_PROGRESS",
+              "COMPLETE",
+              "BLOCKED",
+              "PIVOTED",
+              "REJECTED"
+            ]
+          },
+          "domain": {
+            "type": ["string", "null"]
+          },
+          "novelty_score": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 5
+          },
+          "feasibility_score": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 5
+          },
+          "owner_roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prior_art_status": {
+            "type": ["string", "null"],
+            "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE", null]
+          },
+          "prototype_status": {
+            "type": ["string", "null"],
+            "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE", "FAILED", null]
+          },
+          "spec_status": {
+            "type": ["string", "null"],
+            "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE", null]
+          },
+          "invention_log": {
+            "type": "string"
+          },
+          "contribution_request": {
+            "type": ["string", "null"]
+          },
+          "assessment": {
+            "type": ["object", "null"],
+            "properties": {
+              "decision": {
+                "type": "string",
+                "enum": [
+                  "ADVANCE",
+                  "CONDITIONAL_ADVANCE",
+                  "PIVOT",
+                  "REJECT"
+                ]
+              },
+              "novelty_score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "feasibility_score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "impact_score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "risk_score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10
+              },
+              "risk_level": {
+                "type": "string",
+                "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "pending_contribution_requests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pending_assessments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "synthesis": {
+      "type": "object",
+      "required": [
+        "active_invention_id",
+        "contributions_pending",
+        "consistency_checks_required",
+        "last_synthesis_result"
+      ],
+      "properties": {
+        "active_invention_id": {
+          "type": ["string", "null"]
+        },
+        "contributions_pending": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "consistency_checks_required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "last_synthesis_result": {
+          "type": ["object", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "approvals_pending": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "detail",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "CONCEPT_SELECTION",
+              "PIVOT",
+              "EXTERNAL_RESEARCH",
+              "RESOURCE_INTENSIVE",
+              "PATENT_DECISION",
+              "DISCLOSURE_RISK",
+              "ABANDONMENT",
+              "OTHER"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "invention_id": {
+            "type": ["string", "null"]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "detail",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "RESEARCH_ACCESS",
+              "DOMAIN_EXPERTISE",
+              "COMPUTE_RESOURCE",
+              "EXTERNAL_DATA",
+              "SPEC_GAP",
+              "OTHER"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "invention_id": {
+            "type": ["string", "null"]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atrahasis Agent System — Assessment Council Verdict (v1.0)",
+  "type": "object",
+  "required": [
+    "type",
+    "invention_id",
+    "stage",
+    "decision",
+    "novelty_score",
+    "feasibility_score",
+    "risk_score",
+    "risk_level",
+    "rationale"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "ASSESSMENT_COUNCIL_VERDICT"
+    },
+    "invention_id": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "FEASIBILITY",
+        "DESIGN",
+        "PROTOTYPE",
+        "SPECIFICATION",
+        "ASSESSMENT"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "ADVANCE",
+        "CONDITIONAL_ADVANCE",
+        "PIVOT",
+        "REJECT"
+      ]
+    },
+    "novelty_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "feasibility_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "impact_score": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "risk_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "detail"],
+        "properties": {
+          "id": { "type": "string" },
+          "detail": { "type": "string" },
+          "owner": { "type": ["string", "null"] },
+          "blocking": { "type": "boolean" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "monitoring_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "detail"],
+        "properties": {
+          "id": { "type": "string" },
+          "detail": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "pivot_direction": {
+      "type": ["string", "null"],
+      "description": "If decision is PIVOT, describe the recommended new direction"
+    },
+    "rationale": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
