@@ -1,0 +1,604 @@
+## TASK 2: REFINED CONCEPT — DSF v2 (Post-Feasibility)
+
+---
+
+```yaml
+#============================================================
+# C8 — DETERMINISTIC SETTLEMENT FABRIC v2.0
+# Post-Feasibility Refined Concept
+# Addressing: Science Assessment, Adversarial Analysis,
+#             Prior Art Gaps, Cross-Claim Coherence
+#============================================================
+
+meta:
+  version: "2.0"
+  status: "FEASIBILITY-REFINED"
+  delta_from_v1: "~55% preserved, ~45% redesigned"
+  key_change: "Pure-CRDT ledger replaced with Hybrid Deterministic Ledger (HDL)"
+
+#------------------------------------------------------------
+# SECTION 1: ARCHITECTURAL OVERVIEW
+#------------------------------------------------------------
+# v1 claimed "no consensus for balance updates" via pure CRDTs.
+# This was rated 2/5 (NEAR UNSOUND) by Science Assessment and
+# produced a FATAL attack vector (Phantom Balance).
+#
+# v2 introduces the Hybrid Deterministic Ledger (HDL):
+# - Read path: CRDT-replicated for fast, partition-tolerant reads
+# - Write path: Epoch-Anchored Batch Settlement (EABS) for all
+#   state-mutating operations that require conservation guarantees
+# - The "deterministic" property is PRESERVED: given the same
+#   inputs (task completions, verifications, slashing events),
+#   every node computes the same outputs. Determinism comes from
+#   deterministic computation over ordered inputs, not from
+#   eliminating coordination.
+
+architecture:
+  name: "Hybrid Deterministic Ledger (HDL)"
+  principle: >
+    CRDTs provide availability and partition tolerance for reads.
+    Epoch-Anchored Batch Settlement provides consistency for writes.
+    Determinism is achieved by deterministic processing of
+    canonically-ordered epoch batches, not by eliminating ordering.
+
+  read_path:
+    substrate: "CRDT-replicated counters (PN-Counters)"
+    properties:
+      - "Eventually consistent balance views"
+      - "Partition tolerant — reads never block"
+      - "Optimistic — may show pre-settlement balances"
+    use_cases:
+      - "Balance queries"
+      - "Capacity availability checks"
+      - "Protocol Credit balance display"
+      - "Non-binding resource estimates"
+    guarantee: "Balances shown are accurate as of last settled epoch ± current-epoch optimistic delta"
+
+  write_path:
+    substrate: "Epoch-Anchored Batch Settlement (EABS)"
+    mechanism: >
+      All state-mutating operations (transfers, slashing, reward
+      distribution, CSO allocation changes) are collected during
+      an epoch into an ordered batch. At epoch boundary, a
+      deterministic settlement function processes the batch.
+      Ordering within the batch is canonical: sorted by
+      (operation_type, timestamp_hash, submitter_id).
+    properties:
+      - "Deterministic — same batch → same output on every node"
+      - "Conservation-preserving — batch processor enforces invariants"
+      - "Atomic per-epoch — either entire epoch settles or rolls back"
+      - "No heavyweight consensus — nodes independently compute same result from same inputs"
+    coordination_requirement: >
+      Nodes must agree on epoch batch contents. This is achieved via
+      a lightweight Reliable Broadcast protocol (not full BFT consensus).
+      Reliable Broadcast guarantees: if any honest node includes
+      operation O in its epoch batch, all honest nodes include O.
+      This is strictly weaker than consensus (no ordering agreement
+      needed — ordering is computed deterministically post-broadcast).
+    complexity_class: "O(n) messages per epoch, where n = number of nodes"
+
+  consistency_model:
+    name: "Epoch-Consistent Optimistic Reads (ECOR)"
+    definition: >
+      Reads reflect the last fully settled epoch state plus
+      optimistic (unconfirmed) current-epoch operations.
+      After each epoch boundary, all nodes converge to identical
+      state within bounded time (reliable broadcast latency + 
+      settlement computation time).
+    formal_property: >
+      For any two honest nodes A and B, after epoch E settles:
+      state_A(E) = state_B(E) (deterministic settlement)
+      For reads during epoch E+1 before settlement:
+      state_A ≈ state_B (CRDT eventual consistency, optimistic)
+
+#------------------------------------------------------------
+# SECTION 2: THREE-BUDGET MODEL (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 3/5, secondary markets may erode isolation.
+# Adversarial Analysis: Cross-Budget Arbitrage (Attack 6).
+# Resolution: Maintain three budgets but design for "sufficient
+# friction" rather than hard isolation. Acknowledge that perfect
+# isolation is economically impossible and build monitoring +
+# friction mechanisms instead.
+
+budgets:
+  sponsor_budget:
+    token: "AIC"
+    transferability: "Transferable, subject to EABS settlement"
+    purpose: "Payment for task execution, primary economic unit"
+    unchanged_from_v1: true
+
+  protocol_credits:
+    token: "PC"
+    transferability: "Non-transferable, identity-bound"
+    decay: "10% per epoch (unchanged)"
+    purpose: "Spam control, rate limiting"
+    v2_changes:
+      - name: "Quality-Gated Earning"
+        description: >
+          PCs are only refreshed based on participation that produces
+          measurable value (successful task completions, accepted
+          verifications), not mere activity submission.
+      - name: "Sublinear Earning Curve"
+        description: >
+          PC earning rate: PC_earned = k × sqrt(quality_actions),
+          preventing linear farming.
+      - name: "Congestion-Dynamic Pricing"
+        description: >
+          PC cost per action scales with current-epoch network load.
+          Base cost × (1 + load_factor²), where load_factor =
+          current_epoch_ops / target_epoch_ops.
+      - name: "Identity-Bound Attestation"
+        description: >
+          PC-earning actions require cryptographic proof that the
+          earner (not a delegate) performed the work, using the
+          PCVM's verification attestation infrastructure (C5).
+      - name: "Balance Cap"
+        description: >
+          Max PC balance = 10 × epoch_earning_rate, limiting burst
+          capacity for spam attacks.
+
+  capacity_slices:
+    token: "CS"
+    backing: "CSO-backed resource reservation"
+    purpose: "Compute/storage/bandwidth allocation"
+    v2_changes:
+      - name: "Position Limits"
+        description: >
+          No single entity may hold > 15% of total CS supply in any
+          epoch. Prevents capacity market cornering (Attack 5).
+      - name: "Use-It-Or-Lose-It"
+        description: >
+          CS not utilized within 70% of epoch duration is
+          automatically released to a mid-epoch spot market.
+          Prevents hoarding and limbo attacks.
+      - name: "Progressive Release"
+        description: >
+          Only 60% of epoch CS is cleared at epoch boundary.
+          Remaining 40% released in two mid-epoch tranches (20% each).
+          Reduces thin-market squeeze vulnerability.
+
+  cross_budget_friction:
+    description: >
+      Rather than claiming hard isolation (which is economically
+      impossible), v2 implements friction mechanisms that make
+      cross-budget arbitrage unprofitable at protocol-relevant scales.
+    mechanisms:
+      - "PC identity-binding prevents delegation (Attack 6 mitigation)"
+      - "CS position limits prevent accumulation for arbitrage"
+      - "Cross-budget flow monitoring: protocol tracks correlation between SB spend and PC accumulation per identity"
+      - "Governance alert trigger: if implicit SB→PC exchange rate stabilizes within 5% for 10+ epochs, governance review is triggered"
+    design_honesty: >
+      The three-budget model provides FUNCTIONAL separation (different
+      purposes, different mechanics) rather than ABSOLUTE economic
+      isolation. This is analogous to how fiat economies have
+      distinct instruments (cash, credit, bonds) that are formally
+      separate but economically interrelated.
+
+#------------------------------------------------------------
+# SECTION 3: CAPABILITY-WEIGHTED STAKE (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 3/5, reputation circularity and gaming.
+# Adversarial Analysis: Reputation Laundering (Attack 2).
+# Resolution: Cap multiplier, require diversity, add Sybil resistance.
+
+staking:
+  formula: "effective_stake = AIC_collateral × min(capability_score, 3.0)"
+  
+  capability_score:
+    formula: "1.0 + ln(1 + raw_score)"
+    raw_score_inputs:
+      reputation:
+        weight: 0.4
+        source: "Cross-validated peer assessment (C5 PCVM credibility)"
+        sybil_resistance: >
+          Reputation only counts if earned across >= 3 independent
+          task sponsors (distinct economic entities, verified by
+          Sentinel Graph identity analysis from C3).
+      verification_track_record:
+        weight: 0.4
+        source: "Historical verification accuracy against ground truth"
+        gaming_resistance: >
+          Track record weighted by task economic value. Trivially
+          easy verifications contribute negligibly. Only verifications
+          of tasks with resource_bounds > median contribute to score.
+      claim_class_accuracy:
+        weight: 0.2
+        source: "Accuracy of claims within assigned claim classes"
+        gaming_resistance: >
+          Claim class assignments are random (not self-selected),
+          preventing specialization gaming.
+    
+    max_multiplier: 3.0
+    scaling: "Logarithmic — 1 + ln(1 + raw_score)"
+    rationale: >
+      Logarithmic scaling with a hard cap ensures that AIC collateral
+      remains the dominant factor in effective stake. A 10x increase
+      in raw_score only yields ~3.3x capability_score (capped at 3.0).
+      An attacker must invest primarily in AIC collateral, not
+      reputation farming.
+
+    sybil_resistance:
+      - "Minimum 3 independent sponsor interactions for reputation to count"
+      - "Verification track record weighted by task economic value"
+      - "Random claim class assignment prevents gaming by specialization"
+      - "Sentinel Graph identity clustering (C3) flags correlated identities"
+      - "New identities start at capability_score = 1.0 (no multiplier)"
+
+#------------------------------------------------------------
+# SECTION 4: MULTI-RATE SETTLEMENT (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 4/5 (SOUND).
+# Adversarial Analysis: Speed Class Gaming (Attack 10),
+#                        Epoch Boundary Race (Attack 3).
+# Resolution: Add timing normalization, epoch jitter, smoothing.
+
+settlement_rates:
+  B_class:
+    name: "Fast Settlement"
+    frequency: "Per-epoch"
+    scope: "Scheduling compliance rewards"
+    v2_changes:
+      - "Epoch boundary jitter: ±δ (uniformly random within 10% of epoch duration)"
+      - "Commit-reveal for completion reports: hash committed before boundary, content revealed after"
+      - "NPV discount: B-class rewards multiplied by 0.98 to offset timing advantage"
+
+  V_class:
+    name: "Standard Settlement"
+    frequency: "N-epoch (configurable, default N=5)"
+    scope: "Verification quality rewards, slashing"
+    v2_changes:
+      - "NPV premium: V-class rewards multiplied by 1.02 to compensate for delay"
+      - "Challenge rate limit: max 3 V-class challenges per entity per epoch"
+      - "Challenge bond: 5% of challenged amount, forfeited if challenge is frivolous"
+      - "Deterministic ordering via EABS eliminates slashing ordering attack (Attack 7)"
+
+  G_class:
+    name: "Governance Settlement"
+    frequency: "Governance-triggered (slow)"
+    scope: "Parameter changes, treasury operations"
+    unchanged_from_v1: true
+
+  timing_normalization:
+    description: >
+      All settlement streams are NPV-normalized so that the present
+      value of rewards is independent of settlement speed. This
+      eliminates the compound timing arbitrage identified in Attack 10.
+    formula: "adjusted_reward = base_reward × (1 + r)^(settlement_delay_epochs) where r = epoch_discount_rate"
+    epoch_discount_rate: "Set by governance, initially 0.2% per epoch"
+
+  epoch_boundary:
+    jitter: "±10% of epoch duration, uniformly random, seed = hash(epoch_number || network_entropy)"
+    smoothing: >
+      Cross-epoch reward smoothing: no participant's per-epoch reward
+      can deviate more than 25% from their trailing 5-epoch average
+      without triggering review. Prevents epoch-boundary manipulation.
+    overlap: >
+      Task evaluation uses a sliding window centered on completion
+      timestamp, not the epoch the task falls into. Window width =
+      0.5 × epoch_duration on each side. This prevents gaming by
+      timing task completion relative to epoch boundaries.
+
+#------------------------------------------------------------
+# SECTION 5: FOUR-STREAM SETTLEMENT (REVISED)
+#------------------------------------------------------------
+# Largely preserved from v1. Refinements address cross-stream
+# gaming and intent-budget integration.
+
+settlement_streams:
+  scheduling_compliance:
+    weight: 0.40
+    settlement_class: "B-class (fast)"
+    metric: "Tasks completed on-time and within resource_bounds"
+    unchanged_from_v1: true
+
+  verification_quality:
+    weight: 0.40
+    settlement_class: "V-class (standard)"
+    metric: "Verification accuracy against ground truth and peer review"
+    v2_change: "Challenge bond required for disputes (5% of challenged amount)"
+
+  communication_efficiency:
+    weight: 0.10
+    settlement_class: "B-class (fast)"
+    metric: "ASV protocol adherence, signal-to-noise ratio (C4)"
+    unchanged_from_v1: true
+
+  governance_participation:
+    weight: 0.10
+    settlement_class: "G-class (slow)"
+    metric: "Proposal quality, voting participation, constitutional adherence"
+    unchanged_from_v1: true
+
+#------------------------------------------------------------
+# SECTION 6: INTENT-BUDGETED SETTLEMENT (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 3/5, complements but doesn't replace marketplace.
+# Adversarial Analysis: RIF Draining (Attack 8).
+# Resolution: Add minimum bounds, worker protections, sponsor reputation.
+
+intent_budget:
+  source: "RIF intent resource_bounds (C7)"
+  mechanism: >
+    Settlement computes rewards based on completion quality
+    relative to the intent's resource_bounds. Budget is the
+    ceiling, quality determines actual payout within that ceiling.
+  
+  v2_changes:
+    minimum_bounds:
+      description: >
+        Protocol enforces minimum resource_bounds per task class,
+        based on trailing 10-epoch median completion cost for that
+        class. Intents below minimum are rejected.
+      formula: "min_bounds(task_class) = 0.7 × median_completion_cost(task_class, last_10_epochs)"
+    
+    worker_protection:
+      - "Workers may reject tasks after partial inspection (first 10% of estimated effort) without penalty"
+      - "If actual effort exceeds resource_bounds by >30%, sponsor reputation is penalized"
+      - "Workers can flag systematic under-budgeting; 3+ flags from independent workers triggers governance review of sponsor"
+    
+    sponsor_reputation:
+      description: >
+        Task sponsors accumulate a budget_accuracy_score based on
+        how well their resource_bounds predict actual completion costs.
+        Low scores result in higher minimum_bounds requirements
+        (up to 1.5x multiplier on minimums).
+      formula: "adjusted_min = min_bounds × (1 + 0.5 × (1 - budget_accuracy_score))"
+
+  marketplace_complement:
+    description: >
+      v2 explicitly acknowledges that intent-budgeted settlement
+      COMPLEMENTS a marketplace, not replaces it. The capacity market
+      (Section 7) handles resource pricing. Intent budgets handle
+      task-level cost ceilings. Both are necessary.
+
+#------------------------------------------------------------
+# SECTION 7: CAPACITY MARKET (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 3/5, thin markets at target scale.
+# Adversarial Analysis: Thin Market Squeeze (Attack 5).
+# Resolution: Progressive release, position limits, reserve pricing.
+
+capacity_market:
+  clearing: "Hybrid — 60% at epoch boundary, 20% at mid-epoch, 20% at 3/4-epoch"
+  
+  thin_market_protections:
+    position_limits:
+      max_share: "15% of total CS per entity per epoch"
+      enforcement: "EABS settlement rejects allocations exceeding limit"
+    
+    use_it_or_lose_it:
+      threshold: "70% utilization by 60% of epoch elapsed"
+      action: "Unutilized CS released to mid-epoch tranche"
+    
+    reserve_pricing:
+      floor: "Governance-set minimum price per CS unit"
+      purpose: "Prevents predatory undercutting in squeeze-and-dump cycles"
+      adjustment: "Floor adjusted quarterly by governance based on operating costs"
+    
+    bootstrap_provisions:
+      description: >
+        During bootstrap phase (first 6 months or until 50+ active
+        providers), protocol acts as capacity provider of last resort
+        using treasury-funded infrastructure. This prevents market
+        failure during thin-market phase.
+      treasury_allocation: "Up to 20% of treasury for bootstrap capacity"
+
+  market_design:
+    type: "Sealed-bid uniform-price auction"
+    rationale: >
+      Uniform-price auctions are incentive-compatible (bidding
+      true valuation is weakly dominant) and well-studied.
+      Sealed bids prevent last-minute sniping.
+    information: "Previous epoch clearing prices are public. Current bids are sealed."
+
+#------------------------------------------------------------
+# SECTION 8: CSO CONSERVATION FRAMEWORK (REVISED)
+#------------------------------------------------------------
+# Science Assessment: 2/5 (NEAR UNSOUND) — formal verification ≠
+# runtime enforcement in distributed system.
+# Adversarial Analysis: Limbo Attack (Attack 9).
+# Resolution: Runtime enforcement via EABS, pending state timeouts,
+#             collateral for pending states.
+
+cso_conservation:
+  invariant: "Σ alloc + Σ pending_out - Σ pending_in + spent = total_supply"
+  unchanged_from_v1: true
+
+  enforcement:
+    v1_approach: "Formal verification (I-confluence proofs)"
+    v2_approach: "Formal verification AND runtime enforcement"
+    
+    runtime_enforcement:
+      mechanism: >
+        The EABS settlement function checks the conservation invariant
+        after processing each epoch batch. If the invariant is violated,
+        the entire epoch batch is rejected and nodes enter a recovery
+        protocol (replay with additional logging). Because EABS is
+        deterministic, all honest nodes will detect the same violation
+        and enter recovery simultaneously.
+      guarantee: >
+        Conservation is enforced at every epoch boundary, not just
+        proved correct in theory. The gap between formal verification
+        and runtime reality is closed by making the verified algorithm
+        the ACTUAL settlement algorithm (same code, formally verified,
+        executed at runtime).
+
+  pending_state_protections:
+    timeout:
+      duration: "3 epochs maximum for any pending state"
+      action: "Auto-revert to pre-pending state; initiator's collateral returned minus timeout_fee"
+      timeout_fee: "2% of pending amount, burned (not redistributed)"
+    
+    collateral:
+      requirement: "Initiating a pending state requires 5% collateral deposit"
+      return: "Collateral returned upon successful completion of pending transition"
+      slash: "Collateral forfeited on timeout (covers timeout_fee + network cost)"
+    
+    volume_cap:
+      per_entity: "No entity may have > 10% of total_supply in pending state"
+      global: "Total pending across all entities may not exceed 25% of total_supply"
+      rationale: "Prevents limbo attack (Attack 9) from locking significant resources"
+
+  formal_verification:
+    scope: "I-confluence proofs for CRDT read-path operations (non-contentious)"
+    note: >
+      v2 narrows the scope of formal CRDT verification to the read path,
+      where CRDTs are actually used. Write-path conservation is enforced
+      by EABS deterministic computation, which is verified by conventional
+      program verification (not distributed systems proofs).
+
+#------------------------------------------------------------
+# SECTION 9: GRADUATED SLASHING (REVISED)
+#------------------------------------------------------------
+# v1: Clarified (no model fingerprint dependency).
+# Adversarial Analysis: Slashing Ordering Attack (Attack 7).
+# Resolution: All slashing processed through EABS with deterministic
+#             ordering. Eliminates ordering ambiguity entirely.
+
+slashing:
+  processing: "EABS — all violations collected in epoch batch, ordered deterministically"
+  
+  ordering:
+    method: "Canonical sort by (violation_type, detection_timestamp_hash, violator_id)"
+    guarantee: >
+      All honest nodes process violations in identical order,
+      producing identical graduated penalties. The slashing ordering
+      attack (Attack 7) is eliminated because ordering is not
+      determined by CRDT merge semantics but by deterministic sort
+      of the epoch batch.
+
+  schedule:
+    first_offense: "Warning + 1% of staked AIC"
+    second_offense: "5% slash"
+    third_offense: "15% slash"
+    fourth_offense: "50% slash + capability_score reset to 1.0"
+    fifth_offense: "100% slash + permanent exclusion (governance appeal possible)"
+  
+  epoch_scoping: >
+    Violation history is maintained per-entity as a monotonically
+    increasing counter in EABS state. Counter increments are
+    processed in the deterministic epoch batch. No ambiguity about
+    "which offense is which."
+
+  appeal:
+    mechanism: "G-class governance settlement"
+    bond: "10% of slashed amount"
+    timeline: "Decision within 10 epochs"
+
+#------------------------------------------------------------
+# SECTION 10: TREASURY-FIRST ISSUANCE
+#------------------------------------------------------------
+# Unchanged from v1. Sound design, no adversarial findings.
+
+treasury:
+  issuance: "All new AIC minted to treasury first"
+  distribution: "Governance-approved allocation to settlement rewards, bootstrap, development"
+  constitutional_protection: "Issuance rate caps, spending limits, supermajority for changes"
+  unchanged_from_v1: true
+
+#------------------------------------------------------------
+# SECTION 11: INTEGRATION POINTS
+#------------------------------------------------------------
+
+integrations:
+  C3_tidal_noosphere:
+    - "AIC ledger maintenance via HDL (read path: CRDT, write path: EABS)"
+    - "Deterministic settlement processing via EABS epoch batches"
+    - "CSO rebalancing via capacity market (Section 7)"
+    - "Sentinel Graph identity clustering feeds Sybil resistance"
+
+  C5_PCVM:
+    - "Verification rewards funded from treasury via four-stream settlement"
+    - "Credibility scores feed capability_score (Section 3)"
+    - "PCVM attestations used for PC identity-binding (Section 2)"
+
+  C6_EMA:
+    - "Knowledge contribution rewards via scheduling compliance stream"
+    - "Metabolic efficiency reports feed capacity market pricing"
+    - "SHREC budget allocation via intent-budgeted settlement (Section 6)"
+
+  C7_RIF:
+    - "Intent resource_bounds serve as task budget ceiling (Section 6)"
+    - "Stake availability checked against HDL read path (optimistic, fast)"
+    - "Resource return credits processed in EABS epoch batch (write path, consistent)"
+    - "5 settlement types mapped to B/V/G classes"
+
+#------------------------------------------------------------
+# SECTION 12: OPEN RESEARCH QUESTIONS
+#------------------------------------------------------------
+# Honest enumeration of what is NOT yet resolved and requires
+# DESIGN-stage analysis.
+
+open_questions:
+  1:
+    topic: "EABS Reliable Broadcast Protocol Selection"
+    description: >
+      The specific reliable broadcast protocol has not been selected.
+      Candidates: Bracha's RBC (O(n²) messages), HotStuff-inspired
+      linear broadcast, or gossip-based probabilistic broadcast.
+      Selection depends on expected network size and latency requirements.
+    required_for: "DESIGN stage — protocol specification"
+
+  2:
+    topic: "Epoch Duration Optimization"
+    description: >
+      Epoch duration affects settlement latency, batch size, and
+      market clearing frequency. Too short = high coordination overhead.
+      Too long = capital inefficiency. Needs simulation.
+    required_for: "DESIGN stage — parameter selection"
+
+  3:
+    topic: "Three-Budget Equilibrium Analysis"
+    description: >
+      Formal economic model of steady-state token flows between
+      SB, PC, CS under various demand scenarios. Required to validate
+      that the friction mechanisms in Section 2 are sufficient.
+    required_for: "DESIGN stage — economic model"
+
+  4:
+    topic: "Capacity Market Bootstrapping Simulation"
+    description: >
+      Monte Carlo simulation of capacity market behavior with
+      5, 10, 25, 50, 100 providers to validate thin-market
+      protections and determine when bootstrap provisions can sunset.
+    required_for: "DESIGN stage — market parameters"
+
+  5:
+    topic: "Failure Mode Catalogue"
+    description: >
+      Systematic enumeration of failure modes (node crash, network
+      partition, Byzantine behavior) and their impact on EABS
+      settlement, with recovery procedures for each.
+    required_for: "DESIGN stage — resilience specification"
+
+  6:
+    topic: "EABS Formal Verification Scope"
+    description: >
+      Determine which properties of the EABS settlement function
+      can be formally verified (conservation, determinism, termination)
+      and select appropriate verification tools (TLA+, Coq, Dafny).
+    required_for: "DESIGN stage — verification plan"
+```
+
+---
+
+### Summary of Changes from v1 to v2
+
+| Component | v1 | v2 | Rationale |
+|---|---|---|---|
+| AIC Ledger | Pure CRDT (no coordination) | Hybrid Deterministic Ledger (CRDT reads + EABS writes) | Fatal flaw: CRDTs cannot enforce conservation for transfers |
+| Capability Score | Unbounded multiplier | Capped at 3.0, logarithmic scaling, diversity requirements | Reputation laundering attack |
+| Protocol Credits | Basic decay | Quality-gated earning, sublinear curve, congestion pricing, identity-bound, balance cap | PC farming attack |
+| Capacity Market | Epoch-boundary clearing | Progressive 60/20/20 release, position limits, use-it-or-lose-it, reserve pricing | Thin market squeeze |
+| Budget Isolation | Hard separation claimed | Sufficient friction model with monitoring | Economic impossibility of hard isolation |
+| Settlement Timing | No normalization | NPV normalization across speed classes | Speed class gaming |
+| Epoch Boundaries | Fixed | Jittered ±10%, sliding window evaluation, cross-epoch smoothing | Epoch boundary race condition |
+| Slashing | Graduated (ordering unspecified) | EABS-ordered, deterministic, epoch-scoped | Slashing ordering attack |
+| CSO Pending States | No limits | Timeouts, collateral, volume caps | Limbo attack |
+| Intent Budgets | No minimums | Minimum bounds, worker protections, sponsor reputation | RIF draining |
+| Formal Verification | Broad CRDT proofs claimed | Narrowed to read-path; write-path verified via program verification | Formal verification ≠ runtime enforcement |
+
+---
+
+---

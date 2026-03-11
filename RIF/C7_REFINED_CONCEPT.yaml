@@ -1,0 +1,193 @@
+invention: C7
+title: "Recursive Intent Fabric (RIF)"
+version: "1.1-refined"
+date: "2026-03-10"
+stage: "FEASIBILITY"
+
+concept:
+  summary: >
+    Recursive Intent Fabric — orchestration architecture replacing centralized CIOS.
+    Two-plane design: Domain-Scoped State Plane (infrastructure) + Executive Plane
+    (System 3 operational + System 4 strategic + System 5 governance).
+    Intent Quanta as first-class lifecycle objects with formal decomposition algebra.
+    Three-level recursive hierarchy: Global Executive → Locus Decomposers → Parcel Executors.
+    Graduated sovereignty model resolving the sovereignty/orchestration paradox.
+
+  architecture:
+    planes:
+      domain_scoped_state_plane:
+        description: "Infrastructure services with locus-scoped state replication"
+        components:
+          - name: "Agent Registry"
+            type: "CRDT-replicated per-locus"
+            replication: "Intra-locus: full CRDT. Cross-locus: capability summaries only."
+          - name: "Clock Service"
+            type: "NTP federation + vector clocks for causal ordering"
+            partition_behavior: "Freeze non-local intent processing under partition"
+          - name: "Settlement Router"
+            type: "Message broker with at-least-once delivery"
+          - name: "Failure Detector"
+            type: "Sentinel-integrated + intent-level outcome verification"
+            byzantine_defense: "Outcome verification against intent success criteria"
+          - name: "Intent State Registry"
+            type: "Locus-local registries, cross-locus only for spanning intents"
+            gc_policy: "DISSOLVED intents removed after TTL (default: 100 epochs)"
+            crdt_budget: "Anti-entropy bandwidth capped at 5% of locus network capacity"
+
+      executive_plane:
+        system_3:
+          name: "Operational Control"
+          functions:
+            - "Intent decomposition execution"
+            - "Resource optimization and reconciliation"
+            - "Performance monitoring"
+            - "Failure playbooks and compensation protocols"
+            - "Decomposition memoization cache"
+          constraints:
+            - "Cannot initiate strategic adaptations (System 4 responsibility)"
+            - "Must respect constitutional sovereignty (always)"
+            - "May override coordination sovereignty for load balancing"
+        system_4:
+          name: "Strategic Intelligence"
+          functions:
+            - "Horizon scanning via read-only EMA projections"
+            - "Anticipatory capacity planning"
+            - "Adaptation proposal generation"
+            - "Volatility-aware confidence discounting"
+          constraints:
+            - "Read-only access to EMA projections (never canonical quanta)"
+            - "Mandatory cool-down between proposals (default: 5 epochs)"
+            - "Proposal similarity detector blocks inverse/near-inverse proposals"
+            - "Adaptation execution gated on 3 consecutive stable epochs"
+        system_5:
+          name: "G-Class Governance (Identity/Policy)"
+          mapping: "Existing G-class constitutional consensus mechanism"
+          functions:
+            - "Resolve System 3 vs System 4 conflicts"
+            - "Authorize operational sovereignty relaxation"
+            - "Define system identity constraints"
+            - "Emergency Tidal Rollback authorization"
+          thresholds:
+            standard_vote: "75% supermajority"
+            emergency_sovereignty_relaxation: "90% supermajority"
+            sovereignty_lease_max: "50 epochs"
+
+  intent_quantum:
+    definition: >
+      First-class typed object representing a goal/directive/query/optimization
+      with lifecycle management, decomposition constraints, and resource bounds.
+    fields:
+      - { name: "id", type: "IntentId", description: "Globally unique 256-bit" }
+      - { name: "type", type: "enum", values: ["GOAL", "DIRECTIVE", "QUERY", "OPTIMIZATION"] }
+      - { name: "content", type: "string", description: "Structured intent specification" }
+      - { name: "scope", type: "LocusSelector", description: "Target namespace(s)" }
+      - { name: "originator", type: "AgentId", description: "Cryptographically signed origin" }
+      - { name: "authorization", type: "GovernanceToken?", description: "Required for cross-locus" }
+      - { name: "decomposition_strategy", type: "enum", values: ["RECURSIVE", "PARALLEL", "SEQUENTIAL", "CONDITIONAL"] }
+      - { name: "max_depth", type: "uint", description: "Cycle prevention bound" }
+      - { name: "decomposition_budget", type: "ResourceBound", description: "Wall-clock + compute limit for decomposition itself" }
+      - { name: "resource_bound", type: "ResourceBound", description: "Total execution resource envelope" }
+      - { name: "success_criteria", type: "SuccessCriteria", description: "Machine-evaluable predicates" }
+      - { name: "deadline_epoch", type: "uint64" }
+      - { name: "lifecycle_state", type: "enum", values: ["PROPOSED", "DECOMPOSED", "ACTIVE", "COMPLETED", "DISSOLVED"] }
+      - { name: "parent_intent", type: "IntentId?", description: "Null for root intents" }
+      - { name: "child_intents", type: "[IntentId]", description: "Decomposition products" }
+      - { name: "operation_class", type: "enum", values: ["M", "B", "X", "V", "G"], description: "DERIVED, not assigned" }
+      - { name: "provenance", type: "W3C_PROV" }
+      - { name: "compensation", type: "CompensationSpec?", description: "Rollback procedure for partial failure" }
+
+    lifecycle:
+      states: 5
+      transitions:
+        - { from: "PROPOSED", to: "DECOMPOSED", trigger: "Admission gate passed + decomposition complete" }
+        - { from: "DECOMPOSED", to: "ACTIVE", trigger: "All child intents accepted by executors" }
+        - { from: "ACTIVE", to: "COMPLETED", trigger: "Success criteria met" }
+        - { from: "ACTIVE", to: "DISSOLVED", trigger: "Deadline exceeded OR resource exhausted OR explicit cancel" }
+        - { from: "DECOMPOSED", to: "DISSOLVED", trigger: "Decomposition budget exceeded OR no valid decomposition" }
+        - { from: "PROPOSED", to: "DISSOLVED", trigger: "Admission gate rejected" }
+      invariants:
+        - "No coherence graph for intents (not a knowledge system)"
+        - "No consolidation or dreaming for intents"
+        - "Forward-only transitions except ACTIVE→DECOMPOSED on partial failure requiring re-decomposition"
+        - "DISSOLVED is terminal"
+
+  graduated_sovereignty:
+    description: >
+      Three-tier sovereignty model resolving the paradox between subsystem
+      autonomy and orchestration effectiveness.
+    tiers:
+      constitutional:
+        description: "Inviolable — cannot be overridden under any circumstances"
+        protections:
+          - "PCVM claim classification (INV-M2)"
+          - "VTD and MCT immutability (INV-M7)"
+          - "EMA canonical source status (INV-E1)"
+          - "DISSOLVED state irreversibility (INV-E5)"
+        override: "NEVER"
+      operational:
+        description: "Default-on, relaxable via governance emergency vote"
+        protections:
+          - "VRF committee composition"
+          - "EMA metabolic phase timing"
+          - "SHREC budget allocations"
+          - "Operation class assignments"
+        override: "90% G-class supermajority, time-bounded lease (max 50 epochs), automatic reversion"
+      coordination:
+        description: "Advisory — respected when possible, overridable for load balancing"
+        protections:
+          - "Agent task preferences"
+          - "Locus workload distribution hints"
+          - "Resource reservation suggestions"
+        override: "System 3 operational authority"
+
+  recursive_decomposition:
+    hierarchy:
+      global_executive:
+        scope: "Cross-locus intents only"
+        throughput_threshold: "Bottleneck when >20% intents are cross-locus"
+        fault_tolerance: "Replicated via BFT consensus (same as G-class)"
+      locus_decomposers:
+        scope: "Domain-specific intent processing"
+        count: "~100s of loci"
+        fault_tolerance: "Active-passive minimum, active-active for safety_class HIGH/CRITICAL"
+        failover: "Standby promotes within 1 epoch"
+        emergency_bypass: "Global Executive may directly address parcel executors if locus fails (higher overhead accepted)"
+      parcel_executors:
+        scope: "Direct agent task assignment"
+        count: "~1000s of parcels"
+        mapping: "1:1 with C3 parcel topology"
+
+    decomposition_algebra:
+      termination: "Guaranteed by max_depth AND decomposition_budget (wall-clock + compute)"
+      cycle_prevention: "Strict depth decrease per decomposition step"
+      resource_preservation: "Parent resource bound ≥ sum of child bounds + decomposition overhead"
+      failure_handling: "Decomposition failure is first-class lifecycle event; compensation protocol defined"
+      memoization: "Prior decomposition plans cached per intent-type + context hash"
+      operation_class_mapping: "Leaf intents must map to exactly one M/B/X/V/G class"
+
+  scaling_model:
+    primary_target: "1K-10K agents"
+    aspirational: "100K+"
+    sub_linear_condition: "≥80% of intents are locus-local"
+    cross_locus_overhead: "O(L_touched) where L_touched = number of involved loci"
+    bottleneck_threshold: ">20% cross-locus intents → Global Executive becomes bottleneck"
+    monitoring_metric: "cross_locus_ratio tracked per settlement epoch"
+
+  scores:
+    novelty: 4
+    feasibility: 3
+    impact: 4
+    risk: 6
+    risk_level: "MEDIUM-HIGH"
+
+  refinements_from_research:
+    - "Graduated sovereignty model replaces absolute sovereignty (resolves fatal flaw)"
+    - "Domain-Scoped State Plane replaces 'thin stateless infrastructure' (addresses state explosion)"
+    - "Locus fault tolerance added (replication, failover, emergency bypass)"
+    - "Intent Admission Control gate with provenance verification"
+    - "System 5 explicitly mapped to G-class governance"
+    - "Oscillation dampening: cool-down + similarity detection + stability gating"
+    - "Decomposition budget (time + compute) added alongside max_depth"
+    - "Sub-linear scaling claim bounded: requires ≥80% locus-local intents"
+    - "Resource bound reconciliation: unused margins returned to parent"
+    - "Vector clocks for causal intent ordering under network partition"

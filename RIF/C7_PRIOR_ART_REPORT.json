@@ -1,0 +1,88 @@
+{
+  "invention": "C7",
+  "title": "Recursive Intent Fabric (RIF)",
+  "date": "2026-03-10",
+  "researcher": "Prior Art Researcher",
+  "confidence": 4,
+  "confidence_note": "High coverage across HTN, BDI, VSM, workflow engines, federated systems, formal methods, and 2025-2026 multi-agent landscape",
+
+  "components": {
+    "intent_based_orchestration": {
+      "novelty": 2,
+      "key_predecessors": [
+        "HTN planning (Ghallab, Nau, Traverso 2004)",
+        "BDI agents — Jadex goal-as-entity model (Rao & Georgeff 1995)",
+        "Intent-Based Networking (IETF RFC 9315)",
+        "AgentOrchestra TEA Protocol (2025)",
+        "DETROIT 6G intent decomposition (2025)",
+        "MDAPs — Massively Decomposed Agentic Processes"
+      ],
+      "assessment": "Well-established field. RIF contributes specific combination of typed intent + operation-class mapping, not the underlying concept."
+    },
+    "recursive_hierarchical_orchestration": {
+      "novelty": 2,
+      "key_predecessors": [
+        "Google Borg/Omega/Kubernetes (2003-present)",
+        "Kubernetes Federation (KubeFed/KubeAdmiral)",
+        "Apache Mesos two-level scheduling",
+        "Military C2 Mission Command doctrine",
+        "AgentOrchestra hierarchical decomposition (2025)"
+      ],
+      "assessment": "Thoroughly explored in computing and organizational theory. Novelty lies in specific formalization for AI agent systems, not the pattern."
+    },
+    "vsm_in_computing": {
+      "novelty": 2,
+      "key_predecessors": [
+        "Beer — Brain of the Firm (1972)",
+        "IBM Autonomic Computing / MAPE-K (2001-2003)",
+        "Gorelkin — VSM for Enterprise Agentic Systems (2025)",
+        "Block.Science — VSM for Decentralized Organization"
+      ],
+      "assessment": "VSM application to computing is well-documented. Gorelkin 2025 applies VSM directly to agentic AI. RIF novelty is in specific implementation within planetary-scale intent fabric."
+    },
+    "intent_lifecycle_objects": {
+      "novelty": 3,
+      "key_predecessors": [
+        "Temporal.io durable workflow execution",
+        "Saga pattern for distributed transactions",
+        "Jadex BDI goal lifecycle",
+        "Process calculi (pi-calculus, CSP)"
+      ],
+      "assessment": "Meaningful synthesis: typed intent objects with decomposition constraints + resource bounds + success criteria + 5-state lifecycle mapping to formal algebra. Not found as integrated package."
+    },
+    "sovereignty_preservation": {
+      "novelty": 3,
+      "key_predecessors": [
+        "GAIA-X federated data infrastructure",
+        "Federated learning (HyFL hybrid framework)",
+        "DAOs — governance-gated protocol changes",
+        "Holacracy / Sociocracy",
+        "Apache Mesos resource offers (sovereignty via two-level scheduling)",
+        "Sovereign Agents paper (arXiv Feb 2026)"
+      ],
+      "assessment": "Sovereignty addressed in multiple domains. RIF's specific contribution: enumerated non-interference guarantees in AI orchestration context. The field has identified the problem (Sovereign Agents 2026) but not proposed an orchestration solution."
+    },
+    "formal_decomposition_algebra": {
+      "novelty": 4,
+      "key_predecessors": [
+        "Refinement calculus (Back & von Wright 1998)",
+        "Event-B (Abrial 2010)",
+        "TLA+ (Lamport 2002)",
+        "DETROIT QoS algebra (2025)"
+      ],
+      "assessment": "Most novel component. Binding formal decomposition rules to domain-specific operation-class ontology (M/B/X/V/G) with cycle prevention has limited direct precedent."
+    }
+  },
+
+  "novelty_gaps": [
+    "Unified intent-lifecycle + decomposition-algebra + VSM-governance stack (no existing system combines all three)",
+    "Operation-class-bound decomposition algebra (DETROIT closest but limited to QoS in networking)",
+    "Enumerated sovereignty non-interference guarantees as formal architectural constraints",
+    "Two-plane architecture with VSM mapping specifically for distributed AI agent orchestration",
+    "Intent quanta as metabolic-style lifecycle objects mirroring knowledge metabolism",
+    "Governance-gated parameter changes for ALL orchestration parameters (more restrictive than any existing system)"
+  ],
+
+  "overall_novelty": 3,
+  "overall_assessment": "Architectural-integrative novelty rather than component-novel. Each of 6 components has prior art. The specific integration — formally-algebraic intent decomposition governed by VSM System 3/4 with sovereignty constraints over CRDT infrastructure substrate — does not exist as unified system. Formal decomposition algebra bound to operation classes is most novel individual component."
+}

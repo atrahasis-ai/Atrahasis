@@ -1,0 +1,249 @@
+{
+  "type": "PRIOR_ART_REPORT",
+  "invention_id": "C4",
+  "concept": "C4-A: Semantic Core Extraction -- AASL semantics as JSON Schema vocabulary for AI-to-AI communication",
+  "date": "2026-03-10",
+  "search_queries": [
+    "Google A2A protocol agent-to-agent communication specification 2025 2026",
+    "Anthropic MCP Model Context Protocol JSON schema specification",
+    "FIPA ACL agent communication language JSON modern implementation 2024 2025",
+    "OpenAI function calling structured outputs JSON schema agent communication",
+    "KQML knowledge query manipulation language agent communication modern",
+    "JSON-LD vocabulary semantic annotations JSON Schema extension domain specific 2025",
+    "W3C PROV provenance standard JSON serialization PROV-JSON",
+    "W3C verifiable credentials confidence trust chain provenance JSON",
+    "speech act theory agent communication protocol performatives classify intent taxonomy",
+    "protocol buffers CBOR MessagePack agent communication binary encoding AI agents",
+    "JSON Schema vocabulary custom keywords extension mechanism domain-specific semantics 2024 2025",
+    "provenance confidence chain structured data agent claims epistemic uncertainty representation",
+    "Google A2A agent card capability discovery task lifecycle JSON schema typed messages",
+    "agent communication protocol claim classification operation types epistemic logic AI 2025",
+    "ACP agent communication protocol IBM BeeAI multipart messages typed content 2025",
+    "PROV-AGENT provenance tracking agentic workflows graph structured metadata 2025",
+    "ANP agent network protocol decentralized identity DID agent communication 2025",
+    "JSON-LD provenance confidence verification vocabulary semantic web agents",
+    "objects not outputs agent communication durable semantic artifacts governed objects principle"
+  ],
+  "search_areas": [
+    {
+      "area": "AI Agent Communication Standards",
+      "findings": [
+        {
+          "name": "Google Agent2Agent Protocol (A2A)",
+          "type": "protocol/standard",
+          "relevance": "HIGH",
+          "summary": "Open protocol launched April 2025, now under Linux Foundation governance. Uses HTTP, SSE, and JSON-RPC. Features Agent Cards (JSON metadata for capability discovery), typed message Parts (text, file, structured data), task lifecycle management (submitted, working, input-required, completed, failed), and capability negotiation. Version 0.3 adds gRPC support and signed security cards. Backed by 50+ partners including Atlassian, Salesforce, SAP.",
+          "differentiator": "A2A provides typed message parts and task lifecycle but lacks first-class provenance-confidence-verification chains (CLM-CNF-EVD-PRV-VRF). A2A has no claim classification system, no operation classes for categorizing message intent, and no 'objects not outputs' principle for making agent communications into governed durable artifacts. A2A treats messages as ephemeral coordination signals, not as durable semantic objects with identity and provenance."
+        },
+        {
+          "name": "Anthropic Model Context Protocol (MCP)",
+          "type": "protocol/standard",
+          "relevance": "HIGH",
+          "summary": "JSON-RPC 2.0-based protocol for connecting LLMs to tools, resources, and prompts. Schema defined in TypeScript, published as JSON Schema (Draft 2020-12). Three server primitives (Prompts, Resources, Tools) and two client primitives (Roots, Sampling). Production-grade with wide ecosystem adoption. Transport-agnostic (stdio, HTTP+SSE).",
+          "differentiator": "MCP focuses on tool/resource access for a single model, not multi-agent semantic communication. Has no provenance, confidence, or verification constructs. No claim classification or speech-act taxonomy. No identity model for durable objects. MCP is about connecting models to tools, not about structuring what agents say to each other with epistemic accountability."
+        },
+        {
+          "name": "IBM Agent Communication Protocol (ACP)",
+          "type": "protocol/standard",
+          "relevance": "HIGH",
+          "summary": "REST-native agent-to-agent protocol from IBM BeeAI. Uses multipart messages with typed MessageParts. Features CitationMetadata for source tracking and TrajectoryMetadata for tracking multi-step reasoning and tool calling. HTTP-native with SSE streaming. Task lifecycle states. Recently added citation and trajectory metadata to MessageParts.",
+          "differentiator": "ACP's CitationMetadata and TrajectoryMetadata are the closest existing feature to C4-A's provenance chains, but they are metadata annotations on message parts rather than first-class semantic objects. ACP lacks confidence scoring, verification status, claim classification, and the full CLM-CNF-EVD-PRV-VRF chain. ACP does not treat communications as governed durable artifacts with stable identity."
+        },
+        {
+          "name": "Agent Network Protocol (ANP)",
+          "type": "protocol/standard",
+          "relevance": "MEDIUM",
+          "summary": "Three-layer protocol using W3C DID for decentralized identity, meta-protocol negotiation via natural language, and structured agent discovery. Agents negotiate communication protocols dynamically. Focus on cross-platform agent collaboration over the open internet.",
+          "differentiator": "ANP's DID-based identity is sophisticated but focused on authentication, not on semantic identity for claims and evidence. ANP has no provenance-confidence chain, no claim classification, and no structured confidence or verification model. Its meta-protocol negotiation layer is novel but orthogonal to C4-A's semantic vocabulary contribution."
+        },
+        {
+          "name": "OpenAI Function Calling / Structured Outputs",
+          "type": "product/API",
+          "relevance": "MEDIUM",
+          "summary": "JSON Schema-based system for constraining model outputs. Strict mode guarantees schema adherence. Models produce validated JSON matching provided schemas. SDKs support Pydantic/Zod objects for schema definition. Widely adopted for tool use and structured generation.",
+          "differentiator": "Function calling provides the mechanism (JSON Schema validation) but no domain-specific semantic vocabulary for agent communication. No provenance, confidence, verification, claim classification, or agent identity concepts. It is a delivery mechanism, not a semantic framework -- C4-A could potentially use structured outputs as a production pathway."
+        },
+        {
+          "name": "FIPA ACL (Foundation for Intelligent Physical Agents)",
+          "type": "standard (historical)",
+          "relevance": "HIGH",
+          "summary": "Foundational agent communication standard from the late 1990s. Defines 20+ performatives (inform, request, propose, confirm, disconfirm, etc.) based on speech act theory. Each message has a performative, sender, receiver, content, language, ontology, and reply-to fields. Content language independent. Influenced by Searle's taxonomy of illocutionary acts. Declined in adoption due to verbose XML encoding and complex ontology management, but principles persist in modern protocols.",
+          "differentiator": "FIPA ACL is the strongest prior art for C4-A's speech-act taxonomy. FIPA's performatives (inform, request, propose) directly map to the Domain Translator's proposed speech-act classification. However, FIPA ACL lacks first-class confidence/provenance/verification chains, claim classification with operation classes, the 'objects not outputs' principle, and was never expressed as a JSON Schema vocabulary. C4-A's contribution would be modernizing FIPA's speech-act approach with provenance-confidence chains in a JSON-native format."
+        },
+        {
+          "name": "KQML (Knowledge Query and Manipulation Language)",
+          "type": "standard (historical)",
+          "relevance": "MEDIUM",
+          "summary": "DARPA-funded agent communication language from early 1990s. Extensible set of performatives defining permissible speech acts. Separates communication protocol from content representation. Uses communication facilitators for knowledge sharing. Became de facto standard before FIPA ACL superseded it.",
+          "differentiator": "KQML established the performative/speech-act approach to agent communication that C4-A's speech-act taxonomy builds on. However, KQML is pre-JSON, pre-web, and has no provenance, confidence, or verification constructs. C4-A's innovation over KQML is the integration of epistemic accountability (confidence, evidence, verification) with the speech-act framework."
+        }
+      ]
+    },
+    {
+      "area": "Semantic Vocabularies over JSON",
+      "findings": [
+        {
+          "name": "JSON-LD",
+          "type": "W3C standard",
+          "relevance": "HIGH",
+          "summary": "W3C standard for encoding Linked Data in JSON. Uses @context to map JSON properties to ontology concepts. Supports namespace-governed extensibility, type declarations, and stable identity via URIs. Widely supported by Schema.org, search engines, and semantic web tools. JSON-LD 1.1 adds advanced features including nested contexts and scoped contexts.",
+          "differentiator": "JSON-LD provides the transport mechanism for embedding semantics in JSON but is a general-purpose framework, not a domain-specific vocabulary for agent communication. It has no built-in concepts for claims, confidence, evidence, provenance chains, or verification. C4-A would likely use JSON-LD as an encoding layer (or use JSON-LD context mappings) but the vocabulary itself -- the CLM/CNF/EVD/PRV/VRF type system -- is the novel contribution."
+        },
+        {
+          "name": "JSON Schema Vocabularies (Draft 2020-12)",
+          "type": "specification mechanism",
+          "relevance": "HIGH",
+          "summary": "JSON Schema 2020-12 supports custom vocabularies -- collections of keywords identified by URIs with associated semantics. Vocabularies group keyword definitions, are identified by URIs, and point to meta-schemas. Custom annotations use x- prefix convention. Implementations like Ajv support custom keyword validation. This is the exact mechanism C4-A would use to deliver AASL semantics.",
+          "differentiator": "JSON Schema vocabularies provide the extension mechanism C4-A would use, but no existing JSON Schema vocabulary defines agent communication semantics with provenance-confidence-verification chains, claim classification, or typed semantic tokens for agent communication. The mechanism exists; the specific vocabulary does not."
+        },
+        {
+          "name": "Schema.org",
+          "type": "vocabulary",
+          "relevance": "LOW",
+          "summary": "Collaborative vocabulary for structured data on the web. Defines types (Person, Organization, Event, etc.) and properties in JSON-LD. Has a pending extension mechanism for new terms. Widely adopted by search engines.",
+          "differentiator": "Schema.org is a vocabulary for web content, not agent communication. Has no concepts for claims, confidence, verification, or agent-to-agent epistemic exchange. Different domain entirely."
+        },
+        {
+          "name": "RDF/OWL serialized as JSON (JSON-LD)",
+          "type": "standard",
+          "relevance": "MEDIUM",
+          "summary": "RDF knowledge graphs and OWL ontologies can be serialized as JSON-LD, providing typed entities, relationships, and constraints. SHACL (Shapes Constraint Language) provides validation similar to AASL's validation layers. 25+ years of knowledge graph infrastructure.",
+          "differentiator": "RDF/OWL/SHACL provides the same foundational capability as AASL's typed semantic graph. The C4 Critic correctly noted that AASL's type system is structurally equivalent to RDF with different surface syntax. However, no existing RDF/OWL vocabulary defines the specific CLM-CNF-EVD-PRV-VRF provenance-confidence chain or the claim classification with operation classes. The graph model is prior art; the specific semantic vocabulary is not."
+        }
+      ]
+    },
+    {
+      "area": "Provenance and Confidence in Communication",
+      "findings": [
+        {
+          "name": "W3C PROV (PROV-DM, PROV-O, PROV-JSON, PROV-JSONLD)",
+          "type": "W3C standard",
+          "relevance": "HIGH",
+          "summary": "W3C provenance standard defining entities, activities, and agents with derivation, attribution, and delegation relationships. PROV-JSON provides lightweight JSON serialization. PROV-JSONLD (submitted 2024) adds JSON-LD semantic mappings. Convention-over-Configuration design with namespace extensibility. Well-established ecosystem with Python libraries (prov on PyPI) and tooling (provtoolbox).",
+          "differentiator": "W3C PROV covers provenance tracking comprehensively but lacks integrated confidence scoring, claim classification, and verification status as first-class elements. PROV records who did what and when, but does not natively represent how confident an agent is in a claim, what evidence supports it, or whether it has been verified by another agent. C4-A's CLM-CNF-EVD-PRV-VRF chain integrates provenance WITH confidence AND verification in a single semantic structure. W3C PROV would need to be extended to match this, and no such extension exists."
+        },
+        {
+          "name": "PROV-AGENT (2025)",
+          "type": "research paper",
+          "relevance": "HIGH",
+          "summary": "Published 2025, extends W3C PROV specifically for AI agentic workflows. Treats AI agent actions as first-class provenance components. Models AgentTool executions, AIModelInvocations (with Prompt and ResponseData), and model metadata. Integrates with MCP. Near real-time capture with graph-structured metadata persisted to Neo4j/MongoDB. Cross-facility evaluation across edge, cloud, and HPC.",
+          "differentiator": "PROV-AGENT is the closest prior art to C4-A's provenance component. It models agent interactions as first-class provenance objects and uses graph-structured metadata, closely matching AASL's approach. However, PROV-AGENT focuses on provenance tracking and traceability, not on embedding confidence scores, evidence chains, and verification status into the communication protocol itself. PROV-AGENT observes and logs what agents did; C4-A proposes that agents actively communicate with structured confidence, evidence, and verification as part of every claim."
+        },
+        {
+          "name": "W3C Verifiable Credentials (VC 2.0)",
+          "type": "W3C standard",
+          "relevance": "MEDIUM",
+          "summary": "Published as W3C Standard in 2025. Defines claims made by an issuer about a subject, with cryptographic proofs (Data Integrity, JWT, SD-JWT). JSON-LD based. Includes Confidence Methods specification allowing issuers to include mechanisms for verifiers to increase confidence in claim truth. Supports digital signatures, verification hashes, and selective disclosure.",
+          "differentiator": "W3C VC provides the verification and cryptographic integrity layer, and the Confidence Methods spec is directly relevant to C4-A's confidence construct. However, W3C VC is designed for credential issuance and identity verification between organizations, not for real-time AI agent communication. The Confidence Methods spec is the closest existing work to C4-A's confidence-verification concept, but it operates in the identity/credential domain, not the agent claim/reasoning domain. C4-A's integration of confidence with provenance and evidence in agent-to-agent communication is novel."
+        },
+        {
+          "name": "Epistemic uncertainty representation in structured data",
+          "type": "research area",
+          "relevance": "MEDIUM",
+          "summary": "Active research area in 2024-2025. Provenance tags with source, time, and confidence level for contradiction detection. Frameworks like Graphectory, PROV-AGENT, and AdProv formalize provenance through typed nodes, temporal and semantic edges. Emerging work on structured data reducing epistemic uncertainty in LLMs. 'Proving' concept for establishing machine-readable credibility.",
+          "differentiator": "The research area is converging toward what C4-A proposes, but no single system or standard yet integrates provenance, confidence, evidence, and verification into a unified JSON Schema vocabulary for agent communication. Individual pieces exist (provenance in W3C PROV, confidence in VC Confidence Methods, verification in VC Data Integrity) but the integrated CLM-CNF-EVD-PRV-VRF chain as a communication primitive is novel."
+        }
+      ]
+    },
+    {
+      "area": "Agent Communication with Claim Classification and Speech Acts",
+      "findings": [
+        {
+          "name": "FIPA Performatives",
+          "type": "standard",
+          "relevance": "HIGH",
+          "summary": "FIPA defines 20+ communicative acts based on speech act theory: inform, request, agree, refuse, propose, accept-proposal, reject-proposal, confirm, disconfirm, call-for-proposal, subscribe, query-if, query-ref, not-understood, etc. Each performative has formal semantics defined in terms of feasibility preconditions and rational effects on agent mental states (beliefs, desires, intentions).",
+          "differentiator": "FIPA performatives are the most direct prior art for C4-A's speech-act taxonomy. However, FIPA performatives classify the communicative intent but do not classify the epistemic nature of the content itself (e.g., whether the content is a correlation claim, a causal claim, an observation, a prediction). C4-A's claim classification with operation classes (correlation, causation, observation, inference, etc.) goes beyond FIPA by classifying what kind of knowledge claim is being made, not just what speech act wraps it."
+        },
+        {
+          "name": "Searle's Taxonomy of Illocutionary Acts",
+          "type": "academic foundation",
+          "relevance": "MEDIUM",
+          "summary": "Five categories: Assertives (commit speaker to truth of proposition), Directives (get hearer to do something), Commissives (commit speaker to action), Expressives (express psychological state), Declarations (change institutional state). Foundation for both FIPA ACL and KQML performatives.",
+          "differentiator": "Searle's taxonomy classifies the speech act type but not the epistemic properties of the claim content. C4-A combines speech-act classification (what you are doing with the communication) with claim classification (what kind of knowledge assertion it contains) and epistemic accountability (confidence, evidence, provenance, verification). This three-layer classification has no direct precedent."
+        },
+        {
+          "name": "ACP CitationMetadata and TrajectoryMetadata",
+          "type": "protocol feature",
+          "relevance": "MEDIUM",
+          "summary": "IBM's ACP recently added CitationMetadata (source tracking and attribution) and TrajectoryMetadata (tracking multi-step reasoning and tool calling) as MessagePart enhancements. These provide partial provenance tracking within agent messages.",
+          "differentiator": "ACP's metadata additions move in C4-A's direction but remain metadata annotations rather than first-class semantic objects. They do not include confidence scoring, verification status, claim classification, or the full provenance-to-verification chain. They are closer to logging than to epistemic accountability."
+        }
+      ]
+    },
+    {
+      "area": "Binary/Efficient Encodings for Agent Communication",
+      "findings": [
+        {
+          "name": "Protocol Buffers (Protobuf) / gRPC",
+          "type": "technology",
+          "relevance": "MEDIUM",
+          "summary": "Schema-driven, strongly typed binary serialization by Google. Foundation of gRPC. Used by A2A protocol (v0.3) as alternative transport. Highly compact and fast. Requires schema definition (.proto files). Widely adopted for microservices.",
+          "differentiator": "Protobuf is a serialization format, not a semantic vocabulary. C4-A's JSON Schema vocabulary could be projected to protobuf as a future optimization (as the C4 Concept B proposes for Tier 3). The semantic contribution of C4-A is orthogonal to the encoding format."
+        },
+        {
+          "name": "MessagePack",
+          "type": "technology",
+          "relevance": "LOW",
+          "summary": "Binary JSON -- maintains JSON structure but compresses to binary. Schema-less, 50% smaller than JSON, faster to parse. Used in Redis, Fluentd, real-time systems.",
+          "differentiator": "Encoding optimization only. No semantic contribution. Could serve as a compact wire format for C4-A vocabulary messages."
+        },
+        {
+          "name": "CBOR (Concise Binary Object Representation)",
+          "type": "IETF standard",
+          "relevance": "LOW",
+          "summary": "Binary encoding based on JSON data model. IETF RFC 8949. Designed for constrained environments. Natively supported in AWS IoT Core. Extensible with tags.",
+          "differentiator": "Encoding optimization only. CBOR tags could potentially carry C4-A semantic type information, but this would be a delivery mechanism, not the semantic contribution itself."
+        }
+      ]
+    }
+  ],
+  "overall_novelty_gaps": [
+    {
+      "gap": "Integrated CLM-CNF-EVD-PRV-VRF chain as a JSON Schema vocabulary",
+      "description": "No existing standard, protocol, or vocabulary defines a unified chain linking claims to confidence scores, evidence, provenance, and verification status as a single JSON Schema vocabulary for agent communication. W3C PROV covers provenance. W3C VC Confidence Methods covers confidence. W3C VC Data Integrity covers verification. But no system integrates all five elements (Claim, Confidence, Evidence, Provenance, Verification) into one coherent vocabulary designed for real-time agent-to-agent communication.",
+      "strength": "HIGH"
+    },
+    {
+      "gap": "Claim classification with operation classes in JSON Schema",
+      "description": "No existing agent communication protocol classifies the epistemic nature of claims themselves (correlation, causation, observation, inference, prediction, etc.) as structured types. FIPA performatives classify the speech act (inform, request, propose) but not what kind of knowledge assertion is being communicated. C4-A's operation classes that categorize the nature of the claim content have no direct prior art in any JSON-based agent communication system.",
+      "strength": "HIGH"
+    },
+    {
+      "gap": "Speech-act taxonomy combined with epistemic accountability in JSON",
+      "description": "While FIPA ACL established speech-act-based performatives for agents and Searle's taxonomy provides the theoretical foundation, no existing JSON-based agent protocol combines speech-act classification with integrated confidence, evidence, and provenance for each communication. The combination of 'what kind of speech act' + 'what kind of knowledge claim' + 'what is the confidence/evidence/verification chain' in a single JSON structure has no precedent.",
+      "strength": "HIGH"
+    },
+    {
+      "gap": "'Objects not outputs' principle for agent communications as governed artifacts",
+      "description": "Existing agent protocols (A2A, MCP, ACP) treat messages as ephemeral coordination signals. No existing protocol explicitly treats every agent communication as a durable, identity-bearing, governed semantic object that persists beyond the interaction. Cloudflare Durable Objects provides a related concept in infrastructure but not in agent communication semantics. This principle differentiates C4-A from all surveyed agent protocols.",
+      "strength": "MEDIUM"
+    },
+    {
+      "gap": "Typed semantic tokens (CLM, AGT, EVD, CNF, PRV, VRF) as JSON Schema types",
+      "description": "While type systems for agents exist (A2A has typed Parts, FIPA has typed message fields), no existing system defines the specific set of typed semantic tokens that AASL proposes -- particularly the evidence, confidence, provenance, and verification tokens as first-class JSON Schema types with defined relationships. The closest is ACP's CitationMetadata/TrajectoryMetadata but these are metadata annotations, not first-class types.",
+      "strength": "MEDIUM"
+    }
+  ],
+  "closest_prior_art": {
+    "reference": "The combination of (1) FIPA ACL performatives for speech-act taxonomy, (2) W3C PROV / PROV-AGENT for provenance tracking in agent systems, (3) W3C Verifiable Credentials Confidence Methods for confidence representation, (4) Google A2A for typed JSON agent messaging with task lifecycle, and (5) IBM ACP CitationMetadata/TrajectoryMetadata for source tracking in agent messages",
+    "similarity": "Collectively these cover approximately 55-60% of C4-A's conceptual territory. FIPA provides the speech-act classification. W3C PROV/PROV-AGENT provides provenance for agent workflows. W3C VC Confidence Methods provides confidence representation. A2A provides the typed JSON messaging infrastructure. ACP provides early citation/trajectory metadata. However, no single system or combination of systems integrates all of these into a unified JSON Schema vocabulary where every agent claim carries structured confidence, evidence, provenance, and verification as first-class semantic objects with stable identity.",
+    "differentiators": [
+      "No existing system provides the integrated CLM-CNF-EVD-PRV-VRF chain as a single coherent JSON Schema vocabulary for agent communication",
+      "No existing agent protocol combines speech-act classification with claim-type classification (operation classes categorizing what kind of knowledge assertion is being made)",
+      "No existing JSON-based agent communication system treats every communication as a governed, identity-bearing semantic object rather than an ephemeral message",
+      "FIPA ACL had speech acts but was pre-JSON and lacked confidence/provenance/verification; modernizing FIPA's approach with epistemic accountability in JSON Schema is novel",
+      "W3C PROV tracks provenance but does not integrate it with confidence and verification in a communication protocol; W3C VC handles verification but is designed for credentials not agent reasoning claims",
+      "PROV-AGENT (2025) is the closest work -- it models agent actions as first-class provenance objects -- but it is an observation/logging framework, not a communication vocabulary that agents actively use when making claims"
+    ]
+  },
+  "risk_assessment": {
+    "adoption_risk": "MEDIUM -- The agent protocol space is rapidly consolidating around A2A, MCP, and ACP. C4-A must position itself as a vocabulary layer that rides on top of these protocols rather than competing with them. If C4-A attempts to be a standalone protocol, adoption risk is HIGH.",
+    "convergence_risk": "MEDIUM -- IBM ACP is already adding CitationMetadata and TrajectoryMetadata. Google A2A is evolving rapidly. There is a risk that incremental additions to existing protocols could eventually cover C4-A's territory piecemeal. However, the integrated CLM-CNF-EVD-PRV-VRF chain and claim classification are unlikely to emerge organically from protocol-level metadata additions.",
+    "prior_art_risk": "LOW -- While individual components have prior art, the specific integrated vocabulary does not exist. The combination of speech-act taxonomy + claim classification + confidence-evidence-provenance-verification chain in JSON Schema is genuinely novel.",
+    "timing_risk": "LOW -- The 2025-2026 period is optimal. Agent protocols are standardizing but have not yet addressed epistemic accountability. W3C PROV-AGENT (2025) shows the community recognizes the need for agent provenance. The window for establishing a semantic vocabulary standard is open."
+  },
+  "novelty_assessment": "C4-A demonstrates genuine novelty primarily in its integration of multiple existing concepts into a unified JSON Schema vocabulary, not in any single component alone. The individual building blocks have established prior art: speech-act classification (FIPA ACL, 1997-2004), provenance (W3C PROV, 2013), confidence methods (W3C VC Confidence Methods, 2025), typed JSON messaging (A2A, MCP, ACP, 2024-2025), and JSON Schema vocabularies (Draft 2020-12). However, no existing system integrates these into a single vocabulary where agent communications carry first-class claims with typed confidence, evidence chains, provenance records, and verification status. The two most novel specific contributions are: (1) the CLM-CNF-EVD-PRV-VRF chain as an atomic communication primitive -- where every agent claim inherently carries its epistemic accountability metadata, and (2) claim classification with operation classes that categorize the nature of the knowledge assertion itself (correlation, causation, observation, etc.), going beyond FIPA's classification of the communicative act. The 'objects not outputs' principle is conceptually valuable but less defensible as invention since it is more of a design philosophy than a technical mechanism. The strategic insight of delivering AASL's semantics through JSON Schema rather than custom syntax is sound engineering but not itself novel -- it is the correct delivery mechanism for genuinely novel semantic content.",
+  "confidence": 3,
+  "summary": "C4-A proposes extracting AASL's semantic model into a JSON Schema vocabulary for AI-to-AI communication. The prior art landscape reveals that the individual components all have precedent: speech-act classification in agent communication (FIPA ACL, KQML), provenance standards (W3C PROV, PROV-AGENT), confidence representation (W3C VC Confidence Methods), typed JSON messaging (Google A2A, Anthropic MCP, IBM ACP), and JSON Schema extension mechanisms (vocabularies in Draft 2020-12). However, no existing system integrates these into a unified vocabulary where every agent claim carries structured confidence, evidence, provenance, and verification as first-class semantic objects. The CLM-CNF-EVD-PRV-VRF chain and claim classification with operation classes represent the genuinely novel contributions. The primary risk is not prior art invalidity but convergence: existing protocols (especially ACP with its CitationMetadata/TrajectoryMetadata additions) are incrementally moving toward similar capabilities. The window for establishing this vocabulary as a standard is currently open but will narrow as A2A, MCP, and ACP mature. Confidence level 3/5 reflects moderate novelty -- the integration is new and valuable, but C4-A builds on well-established foundations rather than introducing fundamentally new concepts."
+}

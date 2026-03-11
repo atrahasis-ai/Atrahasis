@@ -1,0 +1,467 @@
+{
+  "invention_id": "C6",
+  "concept": "C6-A+B: Epistemic Metabolism Architecture (EMA)",
+  "research_date": "2026-03-10",
+  "confidence": 4,
+  "areas_investigated": [
+    {
+      "area": "1. Knowledge as Metabolic/Living Process",
+      "prior_art": [
+        {
+          "name": "Knowledge Ecosystem Theory",
+          "source": "Wikipedia / academic literature",
+          "url": "https://en.wikipedia.org/wiki/Knowledge_ecosystem",
+          "description": "Knowledge ecosystem approach claims to foster dynamic evolution of knowledge interactions between entities. Uses ecological metaphors (competition, niches, evolution) for knowledge management.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Information Metabolism (Keirsey/Jung tradition)",
+          "source": "Psychological and popular frameworks",
+          "url": "https://medium.com/@culturesofpain/information-metabolism-why-we-process-knowledge-like-food-and-how-to-optimize-your-diet-6582b5eb0fe6",
+          "description": "Information metabolism concept recognizes that brains have distinct patterns for consumption, digestion, absorption, and elimination of information. Conceptual/psychological framework, not a computational architecture.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Autopoietic Knowledge Management Systems",
+          "source": "IGI Global / academic literature",
+          "url": "https://www.igi-global.com/chapter/autopoietic-knowledge-management-systems/269072",
+          "description": "Applies Maturana and Varela's autopoiesis (self-production) to knowledge management. Systems that constitutively produce their own components through autopoietic and allopoietic processes.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Self-Organizing Knowledge Representation",
+          "source": "Science Publishing Group / ResearchGate",
+          "url": "https://www.sciencepublishinggroup.com/article/10.11648/j.ajai.20200401.11",
+          "description": "Models knowledge as inherently active and self-organizing, producing new knowledge regardless of owner's desire. Focuses on internal structure of knowledge and emergent self-organization.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Process Metaphor and Knowledge Management",
+          "source": "University of Portsmouth",
+          "url": "https://researchportal.port.ac.uk/en/publications/process-metaphor-and-knowledge-management",
+          "description": "Applies process metaphors (vs. static asset metaphors) to knowledge management theory. Conceptual framework, not computational implementation.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        }
+      ],
+      "novelty_assessment": "The metaphor of knowledge as living/metabolic process exists in organizational theory and psychology. However, NO prior system implements a full computational architecture with explicit ingestion, circulation, anabolism, and catabolism stages mapped to concrete algorithms. The autopoietic KM literature is conceptual/organizational, not a runnable knowledge architecture. EMA's contribution is the operationalization of metabolic stages into concrete computational processes with measurable throughput."
+    },
+    {
+      "area": "2. Epistemic Quanta / Knowledge Atoms",
+      "prior_art": [
+        {
+          "name": "Cyc Microtheories",
+          "source": "Cycorp / Douglas Lenat",
+          "url": "https://en.wikipedia.org/wiki/CycL",
+          "description": "Cyc divides knowledge into microtheories (Mt) -- internally consistent collections of facts about particular domains. Uses CycL, a first-order logic language with modal extensions. Microtheories can be context-dependent and overlapping.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "ATOMIC (Atlas of Machine Commonsense)",
+          "source": "Allen AI / Maarten Sap et al.",
+          "url": "https://arxiv.org/pdf/1811.00146",
+          "description": "Knowledge graph of if-then commonsense reasoning with 877K textual descriptions of inferential knowledge organized as typed if-then relations. Atomic units of commonsense knowledge.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "RDF Triples / Semantic Web",
+          "source": "W3C",
+          "description": "The fundamental unit of the Semantic Web: (subject, predicate, object) triples. Established standard for atomic knowledge representation since 2004.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Knowledge Graph Embeddings",
+          "source": "Various (TransE, DistMult, ComplEx, etc.)",
+          "description": "Dense vector representations of knowledge graph entities and relations. Enable similarity computation and link prediction but lack explicit confidence/provenance metadata.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        }
+      ],
+      "novelty_assessment": "Atomic knowledge units are well-established (RDF triples, Cyc microtheories, ATOMIC). However, EMA's epistemic quantum is differentiated by: (a) built-in Subjective Logic confidence measures rather than binary truth or simple probability, (b) W3C PROV provenance chains as first-class components, and (c) multi-ontology projection functions that present the same quantum differently to different subsystems. No existing system combines all three in a single atomic unit. The PROJECTION FUNCTION concept -- where the same knowledge unit has multiple typed presentations -- is genuinely novel as an architectural primitive."
+    },
+    {
+      "area": "3. Knowledge Consolidation / Dreaming",
+      "prior_art": [
+        {
+          "name": "Sleep and Dreaming in LLMs",
+          "source": "OpenReview / arXiv",
+          "url": "https://openreview.net/forum?id=iiZy6xyVVE",
+          "description": "Introduces a 'Sleep' paradigm where LLMs consolidate short-term memories into stable long-term knowledge via Knowledge Seeding (RL-based distillation) and Dreaming (self-improvement via synthetic data). Published research demonstrating memory consolidation and dreaming phases for neural networks.",
+          "relevance": "VERY HIGH",
+          "threat_level": "HIGH"
+        },
+        {
+          "name": "Dreaming is All You Need",
+          "source": "arXiv 2409.01633",
+          "url": "https://arxiv.org/html/2409.01633v2",
+          "description": "Dream phase enables LLMs to self-reflect on internal knowledge, blending past outputs with noise for creative pattern synthesis. Demonstrates consolidation of learned patterns.",
+          "relevance": "VERY HIGH",
+          "threat_level": "HIGH"
+        },
+        {
+          "name": "HR System (Automated Theory Formation)",
+          "source": "Simon Colton, University of Edinburgh",
+          "url": "https://www.researchgate.net/publication/239060252_Automated_Theory_Formation_in_Pure_Mathematics",
+          "description": "HR forms mathematical theories automatically from axioms using seven production rules, automated theorem provers, and model generators. Discovers concepts, makes conjectures, attempts proofs. Best-first search building new concepts from most interesting old ones.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Eurisko / AM (Automated Mathematician)",
+          "source": "Douglas Lenat (1977-1983)",
+          "url": "https://taylorandfrancis.com/knowledge/Engineering_and_technology/Artificial_intelligence/Eurisko/",
+          "description": "AM discovered natural numbers and elementary number theory from heuristics. EURISKO extended this to learn new heuristics themselves. Pioneered autonomous concept formation and discovery.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "The Discovery Engine",
+          "source": "arXiv 2505.17500",
+          "url": "https://arxiv.org/html/2505.17500v1",
+          "description": "LLM-driven distillation of publications into structured 'knowledge artifacts' with verifiable links to source evidence. Consolidates emerging scientific fields into structured Conceptual Nexus Models.",
+          "relevance": "HIGH",
+          "threat_level": "HIGH"
+        },
+        {
+          "name": "Knowledge Distillation (Hinton et al.)",
+          "source": "Various",
+          "url": "https://www.sciencedirect.com/science/article/pii/S2666827024000811",
+          "description": "Transferring knowledge from large teacher models to smaller student models. Well-established technique but operates on model weights, not symbolic knowledge structures.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Memory Consolidation via Function Tokens",
+          "source": "arXiv 2510.08203",
+          "url": "https://arxiv.org/abs/2510.08203",
+          "description": "Memory retrieval and consolidation in LLMs using function tokens. Decouples consolidation from online inference via offline procedures.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        }
+      ],
+      "novelty_assessment": "This is EMA's HIGHEST THREAT area. LLM dreaming/sleep consolidation is an active and rapidly growing research area. Multiple papers (2024-2025) demonstrate sleep phases, dream consolidation, and autonomous pattern synthesis in LLMs. HOWEVER, EMA differentiates by: (a) operating on structured epistemic quanta with provenance rather than on model weights/activations, (b) producing verifiable consolidated outputs via PCVM verification, (c) maintaining full provenance chains through the consolidation process, and (d) integrating consolidation with the broader metabolic regulatory system (SHREC). The Discovery Engine is closest to EMA's approach but lacks the metabolic framing, regulatory feedback, and multi-ontology projection."
+    },
+    {
+      "area": "4. Multi-Ontology Projection / Knowledge Integration",
+      "prior_art": [
+        {
+          "name": "Ontology-Based Data Integration (OBDI)",
+          "source": "Wikipedia / academic standard",
+          "url": "https://en.wikipedia.org/wiki/Ontology-based_data_integration",
+          "description": "Uses ontologies to integrate data from multiple heterogeneous sources. Multiple ontologies mapping to a common top-level vocabulary. Well-established field since early 2000s.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Ontology Mapping / Alignment",
+          "source": "Various (OAEI, LogMap, AgreementMaker)",
+          "url": "https://link.springer.com/chapter/10.1007/3-540-44831-4_22",
+          "description": "Finding semantic correspondences between elements of different ontologies. Bidirectional mappings between ontological frames. Active research area with annual benchmarks (OAEI).",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Linked Data / FAIR Principles",
+          "source": "W3C / Tim Berners-Lee",
+          "description": "Knowledge linked across domains via URIs and RDF, enabling cross-ontology queries. SPARQL federated queries across different knowledge bases with different schemas.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "LLM-Supported Collaborative Ontology Design",
+          "source": "PMC",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12646930/",
+          "description": "Using LLMs to assist in creating and aligning ontologies for data and knowledge management platforms. Emerging approach combining AI with formal ontology methods.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        }
+      ],
+      "novelty_assessment": "Ontology mapping and multi-ontology integration are mature fields. HOWEVER, EMA's approach is differentiated by: (a) projection functions are PART OF the knowledge unit itself (epistemic quantum carries its own projection functions), rather than being external mapping tables, (b) projections are bidirectional and typed for specific subsystems (Tidal Noosphere, PCVM, ASV), creating a unified knowledge unit that self-presents in different frames, and (c) the projections are maintained dynamically as the quantum is metabolized. This 'self-projecting knowledge unit' concept is genuinely novel -- existing systems map BETWEEN ontologies externally, not FROM a single unit outward."
+    },
+    {
+      "area": "5. Ecological/Biological Regulation of Knowledge Systems",
+      "prior_art": [
+        {
+          "name": "Knowledge Ecosystem Theory",
+          "source": "Academic / Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Knowledge_ecosystem",
+          "description": "Views knowledge systems through ecological lens with producers, consumers, decomposers. Focuses on organizational dynamics rather than computational architecture.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Homeostasis as PI Control",
+          "source": "npj Digital Medicine",
+          "url": "https://www.nature.com/articles/s41746-020-0283-x",
+          "description": "Maps biological homeostasis (e.g., glucose regulation) onto proportional-integral (PI) control frameworks. Demonstrates formal equivalence between biological regulation and control theory.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Adaptive PID Controllers with Reinforcement Learning",
+          "source": "PMC / various",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10527306/",
+          "description": "AI-enhanced PID controllers that auto-tune based on real-time feedback. Adaptive resource allocation using control theory.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Memetic Evolution / Cultural Evolution Models",
+          "source": "Dawkins tradition / various",
+          "description": "Treats ideas as replicators subject to selection, mutation, and competition. Theoretical framework for idea dynamics but rarely implemented as computational knowledge management.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Regulation in Ecological Systems",
+          "source": "PMC",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12686030/",
+          "description": "Overview of regulation mechanisms across biological scales from protocells to ecosystems. Homeostatic maintenance of internal conditions despite external fluctuations.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        }
+      ],
+      "novelty_assessment": "SHREC is EMA's MOST NOVEL component. While individual elements exist (PID control, ecological competition, homeostatic regulation, Bayesian change-point detection), NO prior system combines: (a) four competing metabolic signals (hunger, consolidation pressure, stress, immune response) competing for a finite budget, (b) graduated control overlays (Normal -> Elevated -> Critical -> Constitutional), (c) statistical self-model with Bayesian cold-start priors, and (d) immune self-audit to prevent autoimmune pathology. The closest analogy is adaptive auto-scaling in cloud systems, but those lack the epistemic semantics and graduated regulatory hierarchy."
+    },
+    {
+      "area": "6. Coherence Graphs / Argumentation Networks",
+      "prior_art": [
+        {
+          "name": "Dung's Abstract Argumentation Framework",
+          "source": "Phan Minh Dung (1995)",
+          "url": "https://en.wikipedia.org/wiki/Argumentation_framework",
+          "description": "Foundational framework: directed graph where nodes are arguments and edges are attacks. Defines semantics (grounded, preferred, stable extensions) for evaluating argument acceptability. Underlies many non-monotonic logics.",
+          "relevance": "VERY HIGH",
+          "threat_level": "HIGH"
+        },
+        {
+          "name": "Thagard's Coherence Theory",
+          "source": "Paul Thagard",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-319-59294-7_45",
+          "description": "Epistemic coherence as constraint satisfaction over explanatory relations. Formal relationship established between coherent graphs and argumentation frameworks. Weighted argument evaluation.",
+          "relevance": "VERY HIGH",
+          "threat_level": "HIGH"
+        },
+        {
+          "name": "IBIS / gIBIS (Issue-Based Information Systems)",
+          "source": "Kunz & Rittel (1970) / Conklin & Begeman",
+          "description": "Structures deliberation as issues, positions, and arguments in a graph. gIBIS adds graphical interface. Used for design rationale and wicked problem analysis.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Toulmin Argumentation Model",
+          "source": "Stephen Toulmin (1958)",
+          "description": "Distinguishes data, warrants, backing, rebuttals, and qualifiers in argument structure. Widely used in argumentation theory and AI.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Generalized Argumentation Frameworks",
+          "source": "Various extensions of Dung",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-540-75526-5_4",
+          "description": "Extensions supporting weighted arguments, preference-based evaluation, structured arguments, and bipolar (support + attack) relations.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Inconsistency-Tolerant Ontology Reasoning via Argumentation",
+          "source": "Expert Systems with Applications",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417416303748",
+          "description": "Generalized abstract argumentation framework for reasoning with inconsistent ontologies. Bridges argumentation and ontology.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        }
+      ],
+      "novelty_assessment": "Coherence graphs and argumentation networks are a MATURE field with deep theoretical foundations. EMA's coherence graph draws heavily on established work. HOWEVER, EMA differentiates by: (a) TYPED epistemic edges (not just attack/support but epistemic relationship types), (b) integration with Subjective Logic confidence propagation through the graph, (c) the coherence graph serves as the CIRCULATION medium for the metabolic process, not just a static analysis structure, and (d) graph structure evolves via anabolism/catabolism rather than being manually constructed. The dynamic, metabolically-driven coherence graph is a novel integration."
+    },
+    {
+      "area": "7. Knowledge Catabolism / Forgetting",
+      "prior_art": [
+        {
+          "name": "Machine Unlearning",
+          "source": "Stanford AI / various",
+          "url": "https://ai.stanford.edu/~kzliu/blog/unlearning/",
+          "description": "Removing influence of specific training data from ML models. Active research area driven by privacy (GDPR right to be forgotten), safety, and copyright concerns. Operates on model weights, not symbolic knowledge.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Digital Forgetting in LLMs",
+          "source": "Springer / Artificial Intelligence Review",
+          "url": "https://link.springer.com/article/10.1007/s10462-024-11078-6",
+          "description": "Survey of unlearning methods for LLMs. Must balance effectiveness of forgetting, retention of useful performance, and computational cost. Emerging field with multiple approaches.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "Catastrophic Forgetting / Continual Learning",
+          "source": "arXiv 2403.05175",
+          "url": "https://arxiv.org/html/2403.05175v1",
+          "description": "Neural networks catastrophically forget previous tasks when learning new ones. Continual learning methods (EWC, progressive networks, replay buffers) attempt to prevent unwanted forgetting.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Concept Drift Handling",
+          "source": "Various",
+          "description": "Detecting and adapting to changes in underlying data distributions over time. Models must unlearn outdated patterns and learn new ones. Well-studied in streaming/online learning.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Comprehensive Survey of Forgetting in Deep Learning",
+          "source": "IEEE TPAMI 2024 / GitHub",
+          "url": "https://github.com/EnnengYang/Awesome-Forgetting-in-Deep-Learning",
+          "description": "Comprehensive taxonomy of forgetting phenomena beyond continual learning. Covers intentional forgetting, unintentional forgetting, and their interactions.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        }
+      ],
+      "novelty_assessment": "Knowledge forgetting/unlearning is actively studied but almost exclusively in the context of neural network weights and training data removal. EMA's catabolism is fundamentally different: (a) it operates on SYMBOLIC epistemic quanta, not model weights, (b) it RECYCLES component parts (provenance, confidence adjustments, partial claims) rather than simply deleting, (c) catabolism is driven by the SHREC regulatory system's metabolic signals rather than external triggers (privacy requests), and (d) it includes contradiction-driven breakdown (immune response) as well as redundancy elimination. The recycling/decomposition aspect -- breaking quanta into reusable components -- has no direct prior art."
+    },
+    {
+      "area": "8. Distributed Knowledge Architectures at Scale",
+      "prior_art": [
+        {
+          "name": "Google Knowledge Graph",
+          "source": "Google (2012-present)",
+          "url": "https://en.wikipedia.org/wiki/Knowledge_Graph_(Google)",
+          "description": "Large-scale knowledge graph powering Google Search. Billions of facts about entities and relationships. Built on Freebase acquisition and web extraction.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Wikidata",
+          "source": "Wikimedia Foundation",
+          "url": "https://elifesciences.org/articles/52614",
+          "description": "Collaborative, multilingual knowledge base with millions of entities and billions of triples. SPARQL queryable, linked data compliant. Community-driven with detailed provenance tracking.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "NELL (Never-Ending Language Learner)",
+          "source": "Carnegie Mellon University",
+          "url": "https://direct.mit.edu/dint/article/1/4/333/9987/Knowledge-Graph-Construction-and-Applications-for",
+          "description": "System that continuously reads the web and learns facts, building a knowledge base over time. Autonomous, ongoing learning from unstructured text.",
+          "relevance": "HIGH",
+          "threat_level": "MODERATE"
+        },
+        {
+          "name": "DBpedia",
+          "source": "Academic / community",
+          "description": "Structured knowledge extracted from Wikipedia, published as linked data. Millions of entities, multilingual, regularly updated.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        },
+        {
+          "name": "Semantica Framework",
+          "source": "GitHub / Hawksight AI",
+          "url": "https://github.com/Hawksight-AI/semantica",
+          "description": "Framework for building semantic layers, context graphs, and decision intelligence systems with explainability and provenance. Recent open-source project.",
+          "relevance": "MODERATE",
+          "threat_level": "LOW"
+        }
+      ],
+      "novelty_assessment": "Large-scale knowledge graphs are mature infrastructure. EMA does not primarily compete here -- it is not proposing a new knowledge graph at scale. EMA's differentiation is the METABOLIC LAYER on top of knowledge storage: how knowledge is actively processed, consolidated, and decomposed. Existing systems (Wikidata, NELL) handle storage and incremental learning but lack metabolic regulation, dreaming consolidation, and catabolism."
+    }
+  ],
+  "prior_art_component_analysis": {
+    "subjective_logic": {
+      "status": "ESTABLISHED",
+      "key_reference": "Josang, A. (2016). Subjective Logic: A Formalism for Reasoning Under Uncertainty. Springer.",
+      "url": "https://link.springer.com/book/10.1007/978-3-319-42337-1",
+      "notes": "Mature framework (2016 book). EMA adopts it as a component, not reinventing it. Using Subjective Logic for per-quantum confidence is a valid APPLICATION of existing theory."
+    },
+    "w3c_prov": {
+      "status": "ESTABLISHED STANDARD",
+      "key_reference": "W3C PROV Family of Specifications",
+      "url": "https://www.w3.org/TR/prov-overview/",
+      "notes": "W3C standard since 2013. EMA adopts it for provenance chains. Application to epistemic quanta is novel but the provenance model itself is standard."
+    },
+    "bayesian_change_point_detection": {
+      "status": "ESTABLISHED",
+      "key_reference": "Various (graph-based and time-series methods)",
+      "url": "https://arxiv.org/abs/2102.04112",
+      "notes": "Well-studied statistical technique. Application to knowledge system self-regulation is a novel USE but the technique itself is standard."
+    }
+  },
+  "novelty_gaps": [
+    {
+      "gap": "Self-Projecting Knowledge Units",
+      "description": "No prior system embeds bidirectional ontological projection functions WITHIN the knowledge atom itself. Existing ontology mapping is always EXTERNAL to the knowledge unit. EMA's epistemic quantum that self-presents in different ontological frames is architecturally novel.",
+      "novelty_score": 5,
+      "defensibility": "HIGH"
+    },
+    {
+      "gap": "SHREC Regulatory System",
+      "description": "No prior system combines ecological budget competition among epistemic signals (hunger, consolidation pressure, stress, immune response) with graduated control overlays (Normal -> Critical -> Constitutional) and immune self-audit. Individual components exist (PID control, ecological competition, Bayesian change detection) but their integration into a stratified homeostatic regulator for knowledge metabolism is entirely novel.",
+      "novelty_score": 5,
+      "defensibility": "VERY HIGH"
+    },
+    {
+      "gap": "Knowledge Catabolism with Recycling",
+      "description": "Machine unlearning removes data influence from weights. Knowledge pruning discards nodes. NO prior system decomposes knowledge units into reusable components (provenance fragments, partial claims, confidence adjustments) for recycling into new knowledge. The metabolic decomposition-and-reuse paradigm for symbolic knowledge is novel.",
+      "novelty_score": 4,
+      "defensibility": "HIGH"
+    },
+    {
+      "gap": "Metabolically-Driven Coherence Graph",
+      "description": "Argumentation frameworks and coherence graphs are mature. But using them as the CIRCULATION MEDIUM for a metabolic process -- where graph structure evolves via anabolism (fusion) and catabolism (decomposition) driven by regulatory signals -- is a novel integration. The graph is alive, not static.",
+      "novelty_score": 4,
+      "defensibility": "MODERATE"
+    },
+    {
+      "gap": "Provenance-Tracked Dreaming Consolidation",
+      "description": "LLM dreaming/sleep consolidation papers exist (2024-2025) but operate on model weights/activations without provenance. EMA's dreaming operates on symbolic epistemic quanta, maintains full provenance chains through consolidation, and subjects outputs to PCVM verification. This combination of symbolic consolidation + provenance + verification is novel.",
+      "novelty_score": 4,
+      "defensibility": "MODERATE"
+    },
+    {
+      "gap": "Unified Metabolic Architecture",
+      "description": "The overarching integration -- epistemic quanta with projections flowing through a coherence graph, regulated by SHREC, with anabolic consolidation and catabolic recycling -- has no unified prior art. Individual components have precedent; the architectural synthesis does not.",
+      "novelty_score": 5,
+      "defensibility": "VERY HIGH"
+    }
+  ],
+  "prior_art_threats": [
+    {
+      "threat": "LLM Sleep/Dreaming Consolidation Research",
+      "severity": "HIGH",
+      "description": "Rapidly growing field (2024-2026) with multiple papers on LLM dreaming, memory consolidation, and self-improvement during sleep phases. Could converge toward EMA's consolidation approach. Key papers: 'Language Models Need Sleep' (OpenReview), 'Dreaming is All You Need' (arXiv 2409.01633).",
+      "mitigation": "EMA differentiates by operating on symbolic quanta with provenance (not weights), integrating with SHREC regulation, and requiring PCVM verification of consolidated outputs. Emphasize these differentiators."
+    },
+    {
+      "threat": "The Discovery Engine (arXiv 2505.17500)",
+      "severity": "MODERATE-HIGH",
+      "description": "LLM-driven distillation of publications into structured knowledge artifacts with source evidence links. Consolidates knowledge into Conceptual Nexus Models. Closest existing system to EMA's anabolism.",
+      "mitigation": "Discovery Engine lacks metabolic regulation, catabolism, multi-ontology projection, and the coherence graph circulation model. EMA is a complete architecture, not just a consolidation pipeline."
+    },
+    {
+      "threat": "Dung/Thagard Argumentation-Coherence Frameworks",
+      "severity": "MODERATE",
+      "description": "Mature theoretical foundations for coherence graphs and argumentation. Formal relationships between coherence theory and argumentation frameworks are well-established.",
+      "mitigation": "EMA builds ON these foundations (proper attribution needed) and extends them with typed epistemic edges, Subjective Logic confidence, and metabolic dynamics. Not competing with but extending established theory."
+    },
+    {
+      "threat": "Autopoietic Knowledge Management Literature",
+      "severity": "LOW-MODERATE",
+      "description": "Academic work on self-producing knowledge systems exists in organizational theory. Could be cited as conceptual precursor.",
+      "mitigation": "This literature is conceptual/organizational, not computational. EMA provides a concrete architecture. Acknowledge intellectual debt but distinguish implementation."
+    },
+    {
+      "threat": "Machine Unlearning Field",
+      "severity": "LOW",
+      "description": "Active research on removing knowledge from models. Primarily concerns neural network weights and privacy compliance, not symbolic knowledge metabolism.",
+      "mitigation": "EMA's catabolism is fundamentally different in mechanism (symbolic decomposition with recycling vs. gradient-based unlearning). Different problem domain."
+    }
+  ],
+  "overall_assessment": "EMA scores HIGH on composite novelty (4/5). No single prior system combines metabolic knowledge processing, self-projecting epistemic quanta, coherence graph circulation, SHREC homeostatic regulation, dreaming consolidation with provenance, and knowledge catabolism with recycling. The INDIVIDUAL components have varying levels of prior art: Subjective Logic, W3C PROV, argumentation frameworks, and ontology mapping are established foundations that EMA properly ADOPTS rather than reinvents. The PRIMARY NOVELTY lies in: (1) the SHREC regulatory system (entirely novel), (2) self-projecting knowledge units with embedded projection functions (novel architectural primitive), (3) knowledge catabolism with component recycling (novel), and (4) the unified metabolic architecture integrating all components (novel synthesis). The HIGHEST RISK area is dreaming consolidation, where active LLM research (2024-2026) is converging on similar ideas, but EMA's symbolic/provenance-tracked approach remains differentiated. RECOMMENDATION: Proceed to feasibility. Emphasize SHREC, self-projecting quanta, and catabolic recycling as the core novel contributions. Properly cite and build upon Dung, Thagard, Josang, and W3C PROV as foundational work."
+}

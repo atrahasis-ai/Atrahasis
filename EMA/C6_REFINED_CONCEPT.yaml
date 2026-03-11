@@ -1,0 +1,1047 @@
+# =============================================================================
+# C6 REFINED INVENTION CONCEPT — Epistemic Metabolism Architecture (EMA)
+# =============================================================================
+# Stage: FEASIBILITY — Task 1 (Refined Concept with Risk Mitigations)
+# Invention: C6 — Knowledge Cortex Architecture Review and Invention
+# Concept: C6-A+B — Epistemic Metabolism Architecture
+# Date: 2026-03-10
+# Protocol: Atrahasis Agent System v2.0
+# Science Assessment Soundness: 3.0/5 (PARTIALLY_SOUND overall)
+# Research Confidence: 4/5
+# =============================================================================
+
+meta:
+  invention_id: "C6"
+  title: "Epistemic Metabolism Architecture (EMA)"
+  version: "2.0-refined"
+  prior_version: "1.0-ideation"
+  stage: "FEASIBILITY"
+  science_soundness_at_input: 3.0
+  projected_soundness_after_mitigations: 3.7
+  citations_required:
+    - "Josang, A. (2016). Subjective Logic. Springer."
+    - "W3C PROV (2013). PROV Data Model. W3C Recommendation."
+    - "Dung, P.M. (1995). On the acceptability of arguments. Artificial Intelligence, 77(2)."
+    - "Maturana, H. & Varela, F. (1980). Autopoiesis and Cognition."
+    - "Thagard, P. (2000). Coherence in Thought and Action. MIT Press."
+    - "Ziegler, J.G. & Nichols, N.B. (1942). Optimum settings for automatic controllers."
+    - "Lotka, A.J. (1925). Elements of Physical Biology."
+    - "Kirkpatrick, J. et al. (2017). Overcoming catastrophic forgetting. PNAS."
+    - "Adams, R.P. & MacKay, D.J.C. (2007). Bayesian Online Changepoint Detection."
+
+# =============================================================================
+# 1. EPISTEMIC QUANTUM — FORMAL DEFINITION
+# =============================================================================
+# Mitigation for Gap 1 (HIGH severity): "No formal definition of epistemic quantum"
+# Science Advisor: "Without this, the architecture cannot be formally analyzed."
+#
+# Design decision: The quantum is a typed record, not a proposition, not an RDF
+# triple, not a vector embedding. It combines structured claim content with
+# Subjective Logic confidence, W3C PROV provenance, coherence edges, metabolic
+# state, and projection functions. This combination is what differentiates it
+# from RDF triples (no confidence/provenance), Cyc microtheories (no projection),
+# and knowledge graph embeddings (no structure).
+# =============================================================================
+
+epistemic_quantum:
+  formal_definition: >
+    An epistemic quantum Q is a 10-tuple:
+    Q = (id, content, opinion, provenance, edges, metabolic_state, projections,
+         created_at, last_circulated, dissolution_record)
+    where each component is defined below.
+
+  json_schema:
+    type: "object"
+    required:
+      - "id"
+      - "content"
+      - "opinion"
+      - "provenance"
+      - "edges"
+      - "metabolic_state"
+    properties:
+      id:
+        type: "string"
+        format: "uuid-v7"
+        description: "Time-ordered UUID for natural temporal ordering"
+
+      content:
+        type: "object"
+        description: "Typed claim content — distinguishes EMA quanta from flat triples"
+        required: ["claim_type", "claim_text", "domain_tags", "evidence"]
+        properties:
+          claim_type:
+            type: "string"
+            enum:
+              - "observation"      # Direct agent observation of system state
+              - "inference"        # Derived from other quanta via reasoning
+              - "prediction"       # Forward-looking claim about future state
+              - "consolidation"    # Product of dreaming process (anabolism)
+              - "axiom"            # Foundational assumption, not derived
+              - "governance"       # Policy or regulatory rule
+            description: >
+              Maps to C5 PCVM claim classes: observation->D/E, inference->R,
+              prediction->P, consolidation->C (new class), axiom->H, governance->G
+          claim_text:
+            type: "string"
+            maxLength: 4096
+            description: "Natural language or structured claim content"
+          domain_tags:
+            type: "array"
+            items:
+              type: "string"
+            minItems: 1
+            description: "Ontological domain tags for circulation routing"
+          evidence:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                source_quantum_id:
+                  type: "string"
+                  description: "ID of supporting quantum (null for external evidence)"
+                external_reference:
+                  type: "string"
+                  description: "URI of external evidence source"
+                evidence_type:
+                  type: "string"
+                  enum: ["empirical", "testimonial", "inferential", "synthetic"]
+                weight:
+                  type: "number"
+                  minimum: 0.0
+                  maximum: 1.0
+            description: "Evidence basis for the claim"
+          structured_content:
+            type: "object"
+            description: >
+              Optional machine-readable content (key-value pairs, formulae,
+              code snippets, measurement data). Enables programmatic processing
+              beyond NL claim text.
+
+      opinion:
+        type: "object"
+        description: "Subjective Logic opinion (Josang 2016) — NOT a scalar probability"
+        required: ["belief", "disbelief", "uncertainty", "base_rate"]
+        properties:
+          belief:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+            description: "Evidence-supported belief mass"
+          disbelief:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+            description: "Evidence-supported disbelief mass"
+          uncertainty:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+            description: "Uncommitted belief mass (ignorance)"
+          base_rate:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+            description: "Prior probability used to compute expected probability"
+        constraints:
+          - "belief + disbelief + uncertainty = 1.0"
+          - "expected_probability = belief + base_rate * uncertainty"
+        rationale: >
+          Subjective Logic captures both confidence AND the amount of evidence
+          behind that confidence. A quantum with opinion (0.8, 0.0, 0.2, 0.5)
+          has strong belief with some residual uncertainty. One with
+          (0.4, 0.0, 0.6, 0.5) has moderate belief with high uncertainty.
+          Both have the same expected probability (0.9 vs 0.7) but the second
+          is much less established. This distinction drives catabolism decisions:
+          high-uncertainty quanta are consolidation candidates, not catabolism
+          candidates.
+
+      provenance:
+        type: "object"
+        description: "W3C PROV-DM compatible provenance record"
+        required: ["generating_agent", "generating_activity", "generation_time"]
+        properties:
+          generating_agent:
+            type: "string"
+            description: "Agent ID that created this quantum"
+          generating_activity:
+            type: "string"
+            enum: ["ingestion", "inference", "consolidation", "governance", "external_import"]
+          generation_time:
+            type: "string"
+            format: "date-time"
+          derived_from:
+            type: "array"
+            items:
+              type: "string"
+            description: "IDs of quanta this was derived from (PROV derivation chain)"
+          attribution_chain:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                agent_id: { type: "string" }
+                role: { type: "string", enum: ["creator", "reviewer", "consolidator", "verifier"] }
+                timestamp: { type: "string", format: "date-time" }
+
+      edges:
+        type: "array"
+        items:
+          type: "object"
+          required: ["target_id", "edge_type", "weight"]
+          properties:
+            target_id:
+              type: "string"
+              description: "ID of the connected quantum"
+            edge_type:
+              type: "string"
+              enum:
+                - "support"        # This quantum provides evidence for target
+                - "contradiction"  # This quantum contradicts target
+                - "derivation"     # This quantum was derived from target
+                - "analogy"        # Structural similarity (dreaming discovery)
+                - "supersession"   # This quantum replaces target
+              description: "Typed edge per Dung (1995) bipolar argumentation extension"
+            weight:
+              type: "number"
+              minimum: 0.0
+              maximum: 1.0
+              description: "Edge strength — decays with disuse, strengthens with confirmation"
+            created_at:
+              type: "string"
+              format: "date-time"
+            last_activated:
+              type: "string"
+              format: "date-time"
+              description: "Hebbian dynamics: edges that fire together strengthen"
+
+      metabolic_state:
+        type: "object"
+        required: ["phase", "vitality", "circulation_count", "last_accessed"]
+        properties:
+          phase:
+            type: "string"
+            enum:
+              - "ingesting"     # Being validated and integrated
+              - "active"        # In circulation, available for use
+              - "consolidating" # Under active dreaming processing (LOCKED)
+              - "quarantined"   # Marked for potential catabolism, recoverable
+              - "dissolved"     # Catabolized, only dissolution record remains
+          vitality:
+            type: "number"
+            minimum: 0.0
+            maximum: 1.0
+            description: >
+              Composite health score. Decays with time since last access,
+              boosted by circulation (access), strengthened by support edges,
+              weakened by contradiction edges. Formula:
+              vitality = base_decay(t) * support_factor * (1 - contradiction_factor) * access_recency
+          circulation_count:
+            type: "integer"
+            minimum: 0
+            description: "Number of times this quantum has been delivered to consumers"
+          last_accessed:
+            type: "string"
+            format: "date-time"
+          consolidation_lock:
+            type: "object"
+            description: "Present only when phase = consolidating"
+            properties:
+              dreaming_session_id: { type: "string" }
+              locked_at: { type: "string", format: "date-time" }
+              lock_ttl_epochs: { type: "integer", default: 5 }
+            description: >
+              CRITICAL MITIGATION: Quanta under active consolidation are
+              immune to catabolism. Lock has TTL to prevent deadlocks.
+              See dreaming_catabolism_coordination section.
+
+      dissolution_record:
+        type: "object"
+        description: "Created when quantum is catabolized — enables partial reversibility"
+        properties:
+          dissolved_at: { type: "string", format: "date-time" }
+          reason: { type: "string", enum: ["low_vitality", "superseded", "contradiction_resolved", "manual"] }
+          evidence_redistributed_to: { type: "array", items: { type: "string" } }
+          full_content_hash: { type: "string", description: "SHA-256 of original content for audit" }
+          quarantine_snapshot:
+            type: "string"
+            description: >
+              Full serialized quantum at time of quarantine entry.
+              Retained for configurable period (default 100 epochs) for
+              full reversibility. After retention period, only this
+              dissolution_record metadata persists.
+
+  how_it_differs_from_existing:
+    vs_rdf_triples: >
+      RDF triples are (subject, predicate, object) — no confidence, no provenance,
+      no metabolic state, no projection functions. An epistemic quantum is a
+      richly-typed knowledge unit that knows its own confidence, remembers its
+      own history, and can present itself differently to different consumers.
+    vs_cyc_microtheories: >
+      Cyc microtheories are internally consistent fact collections with context
+      scoping. They lack metabolic state (no decay, no vitality), lack Subjective
+      Logic confidence (binary truth in CycL), and lack self-projection functions.
+    vs_knowledge_graph_nodes: >
+      KG nodes are entities with typed relationships. Epistemic quanta are CLAIMS
+      (not entities) with OPINIONS (not truth values) and PROVENANCE (not just
+      creation metadata). The edges have Hebbian dynamics (strengthen/weaken with
+      use) rather than being static.
+    vs_memos_memcube: >
+      MemOS MemCube is the closest existing construct — a unified memory unit
+      with lifecycle management. EMA quanta add: Subjective Logic confidence,
+      typed coherence edges with dynamic weights, multi-ontology projection
+      functions, and consolidation locking. MemCube has lifecycle but not
+      metabolism.
+
+# =============================================================================
+# 2. BOUNDED-LOSS PROJECTIONS
+# =============================================================================
+# Mitigation for Gap 2 (HIGH severity): "No information-theoretic analysis"
+# Science Advisor: "Bidirectional lossless projection is impossible by data
+# processing inequality when frames have different information capacities."
+#
+# REFINED CLAIM: Projections are bounded-loss, not lossless. Each projection
+# function specifies what is preserved, what is lost, and what the round-trip
+# fidelity guarantee is.
+# =============================================================================
+
+projections:
+  refined_claim: >
+    Projection functions translate epistemic quanta into subsystem-native
+    representations with BOUNDED, MEASURABLE information loss. Round-trip
+    fidelity is guaranteed above specified thresholds. Some information exists
+    only in certain frames and cannot be recovered via round-trip projection.
+
+  theoretical_basis: >
+    Category theory adjunctions: projection F and reconstruction G form an
+    adjunction where the unit eta: Id -> GF and counit epsilon: FG -> Id
+    are natural transformations that are generally NOT identities. The
+    composition GF(Q) approximates Q, with the difference being the
+    projection loss. Bounded loss means ||Q - GF(Q)|| < epsilon for a
+    specified norm and bound epsilon.
+
+  c3_noospheric_projection:
+    target_system: "C3 — Tidal Noosphere"
+    native_format: "Parcel-scoped knowledge token with epoch timestamp"
+    preserved:
+      - "claim_text (full)"
+      - "domain_tags (mapped to parcel topology)"
+      - "expected_probability (computed from Subjective Logic opinion)"
+      - "generating_agent (mapped to parcel membership)"
+      - "support and contradiction edges (mapped to parcel-local graph)"
+    lost:
+      - "Full Subjective Logic opinion (collapsed to scalar probability)"
+      - "Uncertainty quantification (C3 does not model epistemic uncertainty)"
+      - "Evidence array details (reduced to count + summary)"
+      - "Metabolic state (C3 has epoch-based lifecycle, not metabolic)"
+      - "Analogy and derivation edges outside parcel scope"
+    acceptable_loss_bound: 0.15
+    round_trip_fidelity_guarantee: 0.85
+    fidelity_metric: >
+      Semantic similarity (embedding cosine) of claim content +
+      Wasserstein distance of opinion (reconstructed vs original) +
+      edge graph edit distance (local edges only).
+      Composite score: weighted mean with weights [0.5, 0.3, 0.2].
+    rationale: >
+      C3 cares about coordination topology, not epistemic nuance. Collapsing
+      Subjective Logic to expected probability is acceptable because C3's
+      tidal scheduling only needs a relevance score, not an uncertainty model.
+      The lost uncertainty can be recovered from the canonical quantum if needed.
+
+  c4_asv_projection:
+    target_system: "C4 — ASV/AASL Communication"
+    native_format: "AASL typed message with semantic payload"
+    preserved:
+      - "claim_text (mapped to AASL content field)"
+      - "claim_type (mapped to AASL message type: D/E/S/H/N/P/R/C)"
+      - "domain_tags (mapped to AASL topic ontology)"
+      - "generating_agent (mapped to AASL sender field)"
+      - "Full Subjective Logic opinion (AASL supports confidence metadata)"
+    lost:
+      - "Coherence edges (AASL is message-oriented, not graph-oriented)"
+      - "Metabolic state (no equivalent in communication protocol)"
+      - "Evidence array structure (flattened to AASL evidence references)"
+      - "Vitality score (no equivalent)"
+    acceptable_loss_bound: 0.12
+    round_trip_fidelity_guarantee: 0.88
+    fidelity_metric: >
+      Semantic similarity of claim content + opinion preservation (exact if
+      AASL supports SL, otherwise Wasserstein) + claim type preservation
+      (exact match = 1.0, compatible type = 0.8, incompatible = 0.0).
+      Composite: weighted mean [0.4, 0.4, 0.2].
+    rationale: >
+      C4/AASL is the richest target for opinion preservation since AASL
+      already supports typed confidence metadata. The main loss is graph
+      structure (edges), which is acceptable because AASL messages are
+      point-to-point, not graph-embedded.
+
+  c5_pcvm_projection:
+    target_system: "C5 — Proof-Carrying Verification Membrane"
+    native_format: "Claim + VTD (Verification Trace Document)"
+    preserved:
+      - "claim_text (mapped to PCVM claim content)"
+      - "claim_type (mapped to PCVM claim class: D/E/S/H/N/P/R/C)"
+      - "Full Subjective Logic opinion (mapped to PCVM credibility model)"
+      - "Full provenance chain (mapped to VTD provenance section)"
+      - "Evidence array (mapped to VTD evidence section)"
+      - "Support and contradiction edges (mapped to VTD coherence check)"
+    lost:
+      - "Analogy edges (no equivalent in verification context)"
+      - "Vitality and circulation metadata (not verification-relevant)"
+      - "Metabolic phase (PCVM has its own lifecycle)"
+    acceptable_loss_bound: 0.08
+    round_trip_fidelity_guarantee: 0.92
+    fidelity_metric: >
+      Claim content exact match + opinion Wasserstein distance +
+      provenance chain completeness (Jaccard) + evidence coverage (recall).
+      Composite: weighted mean [0.3, 0.3, 0.2, 0.2].
+    rationale: >
+      PCVM is the highest-fidelity projection because verification REQUIRES
+      full confidence and provenance information. The only losses are
+      metabolic metadata (not relevant to verification) and analogy edges
+      (not relevant to proof structure).
+
+  canonical_source_principle: >
+    The epistemic quantum in EMA's internal store is ALWAYS the canonical
+    representation. Projections are views, not copies. When a projected
+    quantum is updated in a subsystem, the update flows back through the
+    projection's reconstruction function G, and the canonical quantum is
+    updated with bounded-loss acknowledgment. Conflicts between canonical
+    and projected versions are resolved by the canonical version unless
+    the projected update carries PCVM verification.
+
+# =============================================================================
+# 3. DREAMING → PCVM VERIFICATION GATE
+# =============================================================================
+# Mitigation for Gap 3 (HIGH severity): "No evidence of LLM consolidation reliability"
+# Science Advisor: "The hallucination risk makes dreaming potentially harmful."
+#
+# REFINED CLAIM: All dreaming outputs are treated as unverified hypotheses.
+# They are submitted to C5 PCVM as a new claim class (C-class: Consolidation)
+# with mandatory VTD before integration into the active knowledge base.
+# =============================================================================
+
+dreaming_verification_gate:
+  principle: >
+    Dreaming consolidation is an ANABOLIC process that produces NEW epistemic
+    quanta from cross-domain pattern synthesis. These quanta are HYPOTHESES,
+    not established knowledge. They MUST pass through the C5 PCVM verification
+    membrane before being promoted to active phase. This converts the
+    hallucination risk from a system-level threat to a quality control problem.
+
+  consolidation_claim_class:
+    pcvm_class: "C-class (Consolidation)"
+    description: >
+      New claim class for PCVM, extending the 8-class system (D/E/S/H/N/P/R/C).
+      C-class claims are machine-generated syntheses of existing knowledge.
+      They have specific verification requirements reflecting their origin.
+    verification_requirements:
+      vtd_required: true
+      vtd_contents:
+        - section: "Source Quanta"
+          description: "Full list of input quanta IDs that the consolidation drew from"
+          required: true
+        - section: "Synthesis Reasoning"
+          description: >
+            Step-by-step reasoning chain showing how the consolidated claim
+            was derived from source quanta. Must be independently verifiable
+            by examining source quanta.
+          required: true
+        - section: "Novelty Justification"
+          description: >
+            Explanation of why this synthesis is non-trivial — not merely
+            restating existing quanta but identifying a genuinely new pattern.
+          required: true
+        - section: "Falsifiability Statement"
+          description: >
+            What evidence would contradict this consolidated claim?
+            If no falsification conditions can be stated, the claim is
+            not empirically meaningful and should be rejected.
+          required: true
+        - section: "Confidence Basis"
+          description: >
+            How the Subjective Logic opinion was computed. For C-class,
+            uncertainty should be HIGH (>= 0.4) initially, reflecting
+            the synthetic origin.
+          required: true
+      verification_level: "R-class equivalent (reasoning verification)"
+      additional_checks:
+        - "Source quanta must all be in active phase (not quarantined/dissolved)"
+        - "At least 3 source quanta from at least 2 different domains"
+        - "Consolidated claim must not be semantically equivalent to any existing active quantum"
+        - "If consolidation modifies an existing claim, supersession edge required"
+      adversarial_probing: >
+        C-class claims with high impact (connected to >5 active quanta) undergo
+        adversarial probing: a second LLM pass attempts to find counterexamples
+        or logical flaws in the synthesis. If the adversarial probe succeeds,
+        the claim is rejected and logged for human review.
+
+  dreaming_process_specification:
+    trigger: "SHREC anabolism signal exceeds threshold AND sufficient budget allocated"
+    frequency: "Once per N epochs (N configurable, default 10, minimum 5)"
+    scope: >
+      Dreaming operates on a SUBSET of active quanta, not the entire knowledge
+      base. Subset selection criteria: (1) quanta with high uncertainty but
+      moderate belief (candidates for evidence accumulation), (2) quanta with
+      cross-domain edges (candidates for pattern discovery), (3) recently
+      ingested quanta that have not yet been connected to the coherence graph.
+    process:
+      - step: "1. Candidate Selection"
+        description: "Select 20-100 quanta meeting scope criteria"
+        output: "Candidate set C"
+      - step: "2. Domain Clustering"
+        description: "Group candidates by domain tags, identify cross-domain pairs/triples"
+        output: "Domain clusters and cross-domain bridges"
+      - step: "3. LLM Synthesis Pass"
+        description: >
+          For each cross-domain bridge, prompt LLM to identify structural
+          analogies, shared causal patterns, or generalizable principles.
+          Temperature: 0.3 (low creativity, high coherence).
+          Prompt includes explicit instruction to flag uncertain inferences.
+        output: "Raw synthesis candidates"
+      - step: "4. Self-Consistency Check"
+        description: >
+          Run 3 independent synthesis passes with different prompt framings.
+          Only retain candidates that appear in >= 2 of 3 passes (majority vote).
+          This reduces hallucination rate by filtering stochastic noise.
+        output: "Filtered candidates (estimated hallucination rate < 0.15)"
+      - step: "5. VTD Generation"
+        description: "For each filtered candidate, generate C-class VTD"
+        output: "C-class claims with VTDs"
+      - step: "6. PCVM Submission"
+        description: "Submit to C5 PCVM for verification"
+        output: "Verified C-class quanta (promoted to active) or rejected (logged)"
+
+    reproducibility: >
+      Temperature 0.3 + majority voting across 3 passes provides bounded
+      reproducibility. Inter-run Jaccard similarity target: >= 0.5 (from
+      Science Advisor Experiment 3). Full determinism is not a goal —
+      stochastic exploration is a feature of dreaming, but quality is gated
+      by PCVM verification.
+
+    computational_cost: >
+      Each dreaming cycle costs approximately 3N LLM inference calls
+      (3 passes * N cross-domain bridges). For N=50 bridges, this is
+      ~150 LLM calls per dreaming cycle. At 10-epoch intervals, this
+      is ~15 calls/epoch amortized. SHREC must budget this explicitly
+      as LLM inference tokens (one of the 4 independent resources).
+
+# =============================================================================
+# 4. SHREC STABILITY — COMPETITIVE COEXISTENCE
+# =============================================================================
+# Mitigation for Gaps 4+5 (MEDIUM-HIGH + MEDIUM severity):
+# "Combined stability unproven" + "Competitive exclusion risk"
+# Science Advisor: "With a single limiting resource, only ONE signal should
+# dominate at equilibrium."
+#
+# SOLUTION: (a) 4 independent resource dimensions provide niche differentiation,
+# (b) floor budget allocations guarantee all signals survive, (c) frequency-
+# dependent selection prevents dominance.
+# =============================================================================
+
+shrec_stability:
+  signals:
+    S: "Saturation — measures knowledge density and redundancy"
+    H: "Hunger — measures knowledge gaps and unmet query demand"
+    R: "Renewal — measures staleness and need for refreshment"
+    E: "Elimination — measures accumulation pressure and need for catabolism"
+    C: "Consolidation — measures cross-domain synthesis opportunity"
+
+  note_on_five_signals: >
+    The original 4-signal SHREC is extended to 5 signals (SHREC+C) to
+    explicitly model consolidation demand. This addresses the Science
+    Advisor's concern that dreaming (the most expensive process) would be
+    starved by cheaper processes under pure Lotka-Volterra competition.
+    Consolidation gets its own signal and dedicated resource niche.
+
+  competitive_exclusion_solution:
+    problem: >
+      The competitive exclusion principle (Hardin 1960) states that N species
+      competing for K < N resources cannot stably coexist — at most K survive.
+      With a single shared resource (compute budget), only 1 signal would dominate.
+    solution_approach: "Multi-resource niche differentiation + floor guarantees + frequency-dependent selection"
+
+    independent_resources:
+      resource_1:
+        name: "CPU cycles"
+        primary_consumer: "Circulation (graph traversal, routing)"
+        secondary_consumers: ["Catabolism (coherence assessment)", "Ingestion (validation)"]
+      resource_2:
+        name: "LLM inference tokens"
+        primary_consumer: "Consolidation (dreaming synthesis)"
+        secondary_consumers: ["Ingestion (claim parsing)", "Adversarial probing"]
+      resource_3:
+        name: "Storage I/O bandwidth"
+        primary_consumer: "Catabolism (quarantine, dissolution, recycling)"
+        secondary_consumers: ["Ingestion (quantum persistence)", "Circulation (delivery)"]
+      resource_4:
+        name: "Graph traversal operations"
+        primary_consumer: "Coherence assessment (edge weight updates)"
+        secondary_consumers: ["Circulation (relevance routing)", "Consolidation (candidate selection)"]
+      resource_5:
+        name: "Network bandwidth"
+        primary_consumer: "Circulation (cross-parcel delivery)"
+        secondary_consumers: ["PCVM verification (VTD submission)", "Ingestion (external import)"]
+
+    niche_differentiation: >
+      Each signal has a PRIMARY resource niche where it is the dominant consumer.
+      The 5 signals on 5 resources satisfies N <= K for stable coexistence.
+      No signal is limited by the same resource as another signal's primary
+      resource, preventing direct competitive exclusion.
+
+    floor_budget_allocations:
+      description: >
+        Even with niche differentiation, floor guarantees prevent any signal
+        from being starved below functional threshold. These are CONSTITUTIONAL
+        BOUNDS that SHREC cannot violate, analogous to minimum wage laws in
+        an economy.
+      allocations:
+        S_floor: "5% of total budget — minimum circulation to detect saturation"
+        H_floor: "10% of total budget — minimum ingestion to address knowledge gaps"
+        R_floor: "5% of total budget — minimum renewal processing"
+        E_floor: "5% of total budget — minimum catabolism to prevent unbounded growth"
+        C_floor: "8% of total budget — minimum consolidation (dreaming is expensive)"
+      total_floor: "33% — leaves 67% for competitive allocation"
+      rationale: >
+        Floor allocations guarantee all signals survive. The remaining 67%
+        is allocated by ecological competition, allowing the system to
+        dynamically prioritize based on current knowledge state.
+
+    frequency_dependent_selection:
+      description: >
+        Signals that become rare get a competitive advantage — their marginal
+        utility increases. This is the biological analog of rare species
+        having reduced competition for their niche resources.
+      mechanism: >
+        When signal S_i drops below 2x its floor allocation, its competitive
+        coefficient alpha_i increases by factor (2 * floor_i / current_i).
+        This creates negative frequency dependence: rare signals are boosted,
+        common signals are penalized. This is a well-established coexistence
+        mechanism in ecology (Chesson 2000).
+
+  lotka_volterra_formulation:
+    description: "Generalized competitive Lotka-Volterra with 5 species and floor constraints"
+    equations: >
+      dS_i/dt = r_i * S_i * (1 - sum_j(alpha_ij * S_j / K_i)) + floor_correction_i
+
+      where:
+        S_i = budget share of signal i (i in {S, H, R, E, C})
+        r_i = intrinsic growth rate of signal i (derived from measurement)
+        K_i = carrying capacity of signal i (maximum useful budget)
+        alpha_ij = competitive effect of signal j on signal i
+        alpha_ii = 1 (intra-signal competition is normalized)
+        floor_correction_i = max(0, floor_i - S_i) * restoration_rate
+
+      Coexistence conditions (Lotka-Volterra with 5 species):
+        For each pair (i, j): alpha_ij * alpha_ji < 1
+        This means inter-signal competition is weaker than intra-signal
+        competition — each signal is more limited by its own saturation
+        than by competition from others. Guaranteed by niche differentiation
+        (each signal consumes primarily different resources).
+
+    stability_analysis:
+      approach: "Linearized stability around interior fixed point"
+      jacobian: >
+        J_ij = -r_i * S_i* * alpha_ij / K_i  (for i != j)
+        J_ii = -r_i * S_i* / K_i              (diagonal)
+        where S_i* is the equilibrium budget share of signal i.
+      stability_condition: >
+        All eigenvalues of J must have negative real parts.
+        For the niche-differentiated case (alpha_ij << 1 for i != j),
+        the eigenvalues are approximately -r_i * S_i* / K_i (all negative),
+        confirming local stability.
+      global_stability: >
+        A Lyapunov function V = sum_i (S_i - S_i* - S_i* * ln(S_i/S_i*))
+        is a standard result for Lotka-Volterra systems with weak inter-
+        specific competition. dV/dt < 0 when alpha_ij < K_i/K_j for all i,j.
+
+  pid_overlay:
+    description: >
+      The PID layer acts as a SAFETY NET on top of ecological competition,
+      not as the primary controller. It prevents pathological oscillations
+      and provides bounded response to sudden perturbations.
+    interaction_with_ecology: >
+      PID output is CLAMPED to [-0.1, +0.1] of total budget per epoch.
+      This means PID can adjust allocations by at most 10% per epoch,
+      preventing it from overriding ecological dynamics. The clamping
+      addresses the Science Advisor's concern about emergent instability
+      from the interaction between ecological and PID control layers.
+    anti_windup: >
+      Integral term is clamped to [-0.2, +0.2] and reset to 0 when the
+      system crosses a change-point boundary (detected by CUSUM).
+      This prevents integral windup during regime transitions.
+    sigma_derived_gains:
+      K_p: "0.5 * sigma_signal — proportional to signal variability"
+      K_i: "0.1 * sigma_signal — weak integral to avoid windup"
+      K_d: "0.2 * sigma_signal — moderate derivative for damping"
+      rationale: >
+        Sigma-based gains are a HEURISTIC, not a formally optimal tuning.
+        The Science Advisor correctly notes that sigma measures variability,
+        not system dynamics. We accept this limitation: the PID layer is a
+        safety net with conservative gains, not a precision controller.
+        Formal Ziegler-Nichols tuning requires system identification that
+        is not available at cold start; sigma-based gains provide reasonable
+        initial values that are refined as data accumulates.
+
+  immune_self_audit:
+    description: >
+      Periodic audit that checks whether catabolic processes are destroying
+      valid knowledge (autoimmune pathology). This is the SIMPLEST effective
+      mechanism, not a full artificial immune system.
+    mechanism:
+      - "Every 50 epochs: sample 10% of recently quarantined quanta"
+      - "Check: does each quarantined quantum have support edges from active quanta?"
+      - "If >20% of sampled quarantined quanta have active support, raise autoimmune alarm"
+      - "Autoimmune alarm: increase catabolism thresholds by 2x for 10 epochs, review quarantine queue"
+    rationale: >
+      The Science Advisor noted that "the immune metaphor introduces more
+      complexity than needed." We agree. This is not a negative selection
+      algorithm or clonal selection. It is a simple statistical audit that
+      catches systematic over-catabolism. The metaphor is retained for
+      narrative coherence but the mechanism is just periodic sampling + threshold.
+
+# =============================================================================
+# 5. DREAMING/CATABOLISM COORDINATION
+# =============================================================================
+# Mitigation for unresolved interaction identified in Science Assessment
+# Cross-Claim Coherence section: "Dreaming may discover value in knowledge
+# that catabolism has marked for elimination."
+# =============================================================================
+
+dreaming_catabolism_coordination:
+  problem: >
+    Dreaming (anabolism) and catabolism operate on overlapping subsets of quanta.
+    A quantum marked for catabolism might be exactly the one dreaming would
+    consolidate into a higher-level insight. Conversely, a quantum under active
+    consolidation should not be dissolved mid-process.
+
+  solution: "Epoch-phased processing with consolidation locks"
+
+  epoch_processing_order:
+    description: >
+      Within each epoch, metabolic processes execute in a defined order.
+      This prevents race conditions between dreaming and catabolism.
+    order:
+      - phase: "1. Ingestion"
+        description: "New quanta enter the system and are validated"
+      - phase: "2. Circulation"
+        description: "Active quanta are routed to consumers based on relevance"
+      - phase: "3. Consolidation (Dreaming)"
+        description: >
+          If SHREC triggers a dreaming cycle this epoch, consolidation runs
+          BEFORE catabolism. Candidate quanta are LOCKED (consolidation_lock
+          field set). Locked quanta cannot be quarantined or dissolved.
+      - phase: "4. Catabolism"
+        description: >
+          Vitality assessment and quarantine/dissolution runs AFTER consolidation.
+          Quanta with active consolidation locks are SKIPPED. Lock TTL prevents
+          permanent exemption — if consolidation does not complete within
+          lock_ttl_epochs, the lock expires and the quantum becomes catabolism-eligible.
+      - phase: "5. SHREC Regulation"
+        description: "Budget reallocation based on current signal levels"
+
+  consolidation_lock_specification:
+    lock_acquisition: >
+      Dreaming process acquires locks on all candidate quanta at the start
+      of step 3. Lock acquisition is atomic — either all candidates are
+      locked or none are (prevents partial consolidation).
+    lock_duration: "lock_ttl_epochs (default 5 epochs)"
+    lock_release: >
+      Locks are released when: (a) consolidation completes (normal),
+      (b) lock TTL expires (timeout — consolidation failed or stalled),
+      (c) manual release by system operator.
+    deadlock_prevention: >
+      Lock TTL ensures no quantum is permanently exempted from catabolism.
+      If a dreaming cycle repeatedly fails to consolidate a locked quantum,
+      the quantum's lock_ttl is halved each cycle (minimum 1 epoch).
+
+  quarantine_rescue: >
+    If dreaming identifies value in a quarantined (but not yet dissolved)
+    quantum, the dreaming process can RESCUE it: move it back to active phase
+    with a boosted vitality score. This is logged in the quantum's provenance
+    as a "rescue" event. Rescue is only possible during quarantine — once
+    dissolved, the quantum cannot be rescued (only its dissolution record remains).
+
+# =============================================================================
+# 6. METABOLIC PIPELINE — CONCRETE EXAMPLE
+# =============================================================================
+# Demonstrates how a specific piece of knowledge flows through the entire system.
+# =============================================================================
+
+concrete_example:
+  scenario: "Agent X predicts that system load will spike in epoch 1500 based on tidal scheduling patterns"
+
+  step_1_ingestion:
+    trigger: "Agent X submits prediction via AASL P-class message"
+    action: >
+      1. Ingestion process receives AASL message.
+      2. ASV projection function (reverse) creates epistemic quantum:
+         - id: "q-2026-0310-1423-a7f3"
+         - content.claim_type: "prediction"
+         - content.claim_text: "System load will exceed 85% capacity in epoch 1500
+           due to convergent tidal scheduling of parcels P7, P12, and P19"
+         - content.domain_tags: ["scheduling", "load_prediction", "tidal_dynamics"]
+         - content.evidence: [
+             {source: Agent X observation log, type: "empirical", weight: 0.7},
+             {source: "q-2026-0308-0912-b3c1" (historical load data), type: "empirical", weight: 0.8}
+           ]
+         - opinion: {belief: 0.5, disbelief: 0.1, uncertainty: 0.4, base_rate: 0.3}
+         - provenance.generating_agent: "agent-X"
+         - provenance.generating_activity: "ingestion"
+         - metabolic_state.phase: "ingesting"
+      3. Validation: check claim is well-formed, evidence references resolve.
+      4. Coherence edges created:
+         - support edge to q-2026-0308-0912-b3c1 (historical load data)
+         - derivation edge from Agent X's observation log
+      5. Phase transitions to "active".
+
+  step_2_circulation:
+    trigger: "Quantum enters active phase"
+    action: >
+      1. Domain tags ["scheduling", "load_prediction", "tidal_dynamics"] trigger
+         routing to consumers interested in these domains.
+      2. C3 Noospheric projection: quantum projected to parcels P7, P12, P19
+         (mentioned in claim). Projection loses Subjective Logic detail,
+         delivers expected probability 0.62 as relevance score.
+      3. Scheduling agents in those parcels receive the prediction.
+      4. Agent Y (in parcel P12) accesses the quantum → circulation_count++,
+         last_accessed updated, vitality boosted.
+      5. Agent Y creates a SUPPORTING quantum: "P12 internal metrics confirm
+         elevated thread count consistent with load spike prediction."
+         Support edge created: q-agent-Y → q-2026-0310-1423-a7f3, weight 0.8.
+      6. Agent Z (in parcel P7) creates a CONTRADICTING quantum: "P7 has
+         implemented load shedding that will prevent capacity breach."
+         Contradiction edge created: q-agent-Z → q-2026-0310-1423-a7f3, weight 0.6.
+      7. Quantum now has mixed support/contradiction — vitality reflects this.
+
+  step_3_potential_consolidation:
+    trigger: "SHREC consolidation signal exceeds threshold at epoch 1510"
+    action: >
+      1. Dreaming candidate selection includes q-2026-0310-1423-a7f3 because
+         it has cross-domain edges (scheduling + load_prediction + tidal_dynamics)
+         and moderate uncertainty (0.4).
+      2. Consolidation lock acquired on this quantum and 30 related quanta.
+      3. LLM synthesis pass identifies pattern: "Convergent tidal scheduling
+         of 3+ parcels in the same tidal phase creates load spikes. Agent Z's
+         load shedding mitigates but does not eliminate the spike. General
+         principle: TIDAL_CONVERGENCE_LOAD_RISK."
+      4. Self-consistency check: 3 passes produce this pattern with Jaccard 0.7.
+      5. New C-class quantum created:
+         - claim_type: "consolidation"
+         - claim_text: "When 3 or more parcels enter convergent tidal phase,
+           system load increases by 40-85% unless load shedding is active
+           in all participating parcels."
+         - opinion: {belief: 0.4, disbelief: 0.1, uncertainty: 0.5, base_rate: 0.3}
+           (HIGH uncertainty — synthetic origin)
+         - derived_from: [q-2026-0310-1423-a7f3, q-agent-Y, q-agent-Z, ...]
+      6. VTD generated with synthesis reasoning, novelty justification,
+         falsifiability statement.
+      7. Submitted to PCVM for C-class verification.
+      8. PCVM verification: passes (reasoning chain valid, source quanta active,
+         falsifiable claim). Quantum promoted to active phase.
+      9. Consolidation locks released.
+
+  step_4_potential_catabolism:
+    trigger: "Epoch 1600 — prediction event has passed, quantum relevance declining"
+    action: >
+      1. Original quantum q-2026-0310-1423-a7f3 vitality has decayed:
+         - Event has passed (prediction no longer forward-looking)
+         - last_accessed was epoch 1530 (70 epochs ago)
+         - Superseded by the consolidated general principle
+      2. Vitality score drops below catabolism threshold (0.15).
+      3. Catabolism process checks: is this quantum locked? No.
+      4. Catabolism process checks: does this quantum have active support edges
+         from non-quarantined quanta? The support from Agent Y is still active
+         but the consolidated quantum has a derivation edge FROM this quantum,
+         meaning the quantum's knowledge has been preserved in the consolidation.
+      5. Quantum transitions to "quarantined" phase.
+         - dissolution_record.quarantine_snapshot: full serialization stored
+         - quarantine_period: 100 epochs
+      6. During quarantine (epochs 1600-1700): no agent accesses this quantum.
+         The consolidated principle serves the same function more broadly.
+      7. At epoch 1700: quarantine expires. Evidence redistributed:
+         - Historical load data reference → transferred to consolidated quantum
+         - Agent X attribution → preserved in dissolution record
+      8. Quantum transitions to "dissolved". Only dissolution_record persists.
+      9. The knowledge is NOT lost — it lives on in the consolidated principle
+         and in the dissolution audit trail.
+
+  key_observations:
+    - "The quantum's knowledge was NEVER deleted — it was metabolized"
+    - "The consolidation process created a MORE GENERAL principle from specific observations"
+    - "PCVM verification prevented the consolidation from being accepted blindly"
+    - "The quarantine period provided a safety window for recovery"
+    - "Catabolism ran AFTER consolidation had already preserved the quantum's value"
+    - "The projection to C3 lost epistemic detail but served coordination needs"
+    - "Contradiction from Agent Z was incorporated, not suppressed"
+
+# =============================================================================
+# 7. METABOLIC HEALTH METRICS
+# =============================================================================
+# Addresses Science Advisor Mitigation 6: "Define concrete, measurable health
+# metrics that the metabolic framing predicts."
+# =============================================================================
+
+metabolic_health_metrics:
+  rationale: >
+    If the metabolic framing is more than a metaphor, it must make MEASURABLE
+    PREDICTIONS about system health. These metrics are the falsification
+    criteria: if they do not correlate with system performance, the metabolic
+    framing does not justify its complexity.
+
+  metrics:
+    metabolic_rate:
+      definition: "Quanta processed (ingested + circulated + consolidated + catabolized) per epoch"
+      healthy_range: "Within 2 sigma of rolling 100-epoch mean"
+      pathology_indicators:
+        too_high: "Metabolic storm — system is processing faster than it can maintain coherence"
+        too_low: "Metabolic stasis — system is not processing knowledge, stale state"
+
+    metabolic_efficiency:
+      definition: "Value generated (queries answered, predictions validated, contradictions resolved) per quantum processed"
+      healthy_range: "Monotonically non-decreasing over 100-epoch windows"
+      pathology_indicators:
+        declining: "Metabolic waste — processing effort not translating to value"
+
+    anabolic_catabolic_ratio:
+      definition: "Rate of consolidation / rate of catabolism"
+      healthy_range: "0.3 to 3.0 (biologically, healthy organisms maintain ratio near 1.0)"
+      pathology_indicators:
+        too_high: "Hyperanabolism — creating consolidated knowledge faster than dissolving stale knowledge; graph bloat"
+        too_low: "Hypercatabolism — destroying knowledge faster than consolidating; knowledge loss"
+
+    circulatory_efficiency:
+      definition: "Fraction of circulated quanta that are accessed by at least one consumer within 5 epochs"
+      healthy_range: ">0.4 (at least 40% of pushed knowledge is actually consumed)"
+      pathology_indicators:
+        too_low: "Circulatory waste — pushing knowledge nobody needs"
+
+    coherence_density:
+      definition: "Mean edge count per active quantum"
+      healthy_range: "3.0 to 15.0"
+      pathology_indicators:
+        too_low: "Isolated quanta — knowledge is not being connected"
+        too_high: "Hyper-connected graph — coherence computation becomes bottleneck"
+
+    immune_health:
+      definition: "False positive catabolism rate (quarantined quanta with active support edges)"
+      healthy_range: "<10% of quarantine queue"
+      pathology_indicators:
+        too_high: "Autoimmune pathology — system is attacking valid knowledge"
+
+# =============================================================================
+# 8. RISK MITIGATIONS — RESIDUAL RISK RATINGS
+# =============================================================================
+
+risk_mitigations:
+  mitigation_1:
+    gap: "Gap 1 — Formal Definition of Epistemic Quantum"
+    severity_before: "HIGH"
+    action_taken: "Defined complete JSON schema with 10 fields, type system, and constraints"
+    residual_risk: "LOW"
+    residual_description: >
+      Schema is defined but not yet validated against real workloads.
+      Risk: schema may need extension for edge cases not anticipated.
+    residual_rating: 2
+
+  mitigation_2:
+    gap: "Gap 2 — Information-Theoretic Analysis of Projection"
+    severity_before: "HIGH"
+    action_taken: >
+      Weakened claim from 'lossless' to 'bounded loss'. Defined per-projection
+      preserved/lost information, fidelity metrics, and round-trip guarantees.
+    residual_risk: "MEDIUM-LOW"
+    residual_description: >
+      Fidelity bounds (0.85-0.92) are targets, not proofs. Actual fidelity
+      must be measured empirically (Science Advisor Experiment 2). Risk:
+      fidelity may be lower than targets for complex quanta.
+    residual_rating: 3
+
+  mitigation_3:
+    gap: "Gap 3 — LLM Consolidation Reliability"
+    severity_before: "HIGH"
+    action_taken: >
+      All dreaming output gated through PCVM C-class verification.
+      3-pass majority voting for self-consistency. Adversarial probing for
+      high-impact consolidations.
+    residual_risk: "MEDIUM"
+    residual_description: >
+      PCVM can catch logical flaws in synthesis reasoning but cannot verify
+      the TRUTH of novel cross-domain patterns — only their internal
+      consistency. A consolidation that is logically consistent but
+      empirically false will pass verification. Risk: systematic bias in
+      LLM consolidation may produce internally consistent but wrong principles.
+    residual_rating: 5
+
+  mitigation_4:
+    gap: "Gap 4 — SHREC Stability Analysis"
+    severity_before: "MEDIUM-HIGH"
+    action_taken: >
+      Provided Lotka-Volterra formulation with linearized stability analysis.
+      5 independent resources for niche differentiation. Floor guarantees.
+      PID clamping to prevent override of ecological dynamics.
+    residual_risk: "MEDIUM-LOW"
+    residual_description: >
+      Linearized analysis confirms local stability around equilibrium.
+      Global stability via Lyapunov function requires alpha_ij < K_i/K_j
+      which must be validated empirically (Science Advisor Experiment 4).
+      Risk: time-varying competitive coefficients may violate stability
+      conditions during regime transitions.
+    residual_rating: 3
+
+  mitigation_5:
+    gap: "Gap 5 — Competitive Exclusion"
+    severity_before: "MEDIUM"
+    action_taken: >
+      5 independent resources (N=K=5 satisfies coexistence condition).
+      Floor budget guarantees. Frequency-dependent selection for rare signals.
+    residual_risk: "LOW"
+    residual_description: >
+      Competitive exclusion is addressed at the formal level. Residual risk:
+      in practice, resources may not be truly independent (e.g., LLM inference
+      also consumes CPU), creating partial resource overlap that could
+      weaken niche differentiation.
+    residual_rating: 2
+
+  mitigation_6:
+    gap: "Gap 6 — Scale Characterization"
+    severity_before: "MEDIUM"
+    action_taken: >
+      Not fully addressed in this refined concept. Partial: metabolic health
+      metrics provide monitoring at any scale, and the concrete example
+      demonstrates the pipeline at small scale.
+    residual_risk: "MEDIUM"
+    residual_description: >
+      The architecture should specify minimum viable scale (e.g., >1000 quanta
+      before metabolic dynamics add value over simple TTL-based management)
+      and maximum tested scale. Coherence graph traversal is the likely
+      bottleneck at scale — O(E) per epoch for edge weight updates.
+    residual_rating: 4
+
+  mitigation_7:
+    gap: "Gap 7 — Catabolism Reversibility Specification"
+    severity_before: "MEDIUM"
+    action_taken: >
+      Specified two-phase catabolism: quarantine (fully reversible, default
+      100 epochs) then dissolution (partial reversibility via dissolution
+      record). Full content preserved during quarantine, metadata-only
+      after dissolution.
+    residual_risk: "LOW"
+    residual_description: >
+      Quarantine period is configurable but default 100 epochs may be
+      too short for slowly-evolving knowledge domains. Risk: domain-specific
+      tuning required.
+    residual_rating: 2
+
+  overall_residual_risk:
+    score: 3.0
+    level: "MEDIUM-LOW"
+    highest_residual: "Mitigation 3 (LLM Consolidation Reliability) — rating 5"
+    critical_dependency: >
+      The highest residual risk is the one the architecture cannot fully
+      mitigate internally: the reliability of LLM-based cross-domain synthesis.
+      PCVM verification catches logical flaws but cannot catch empirically
+      false-but-consistent consolidations. This is an inherent limitation
+      of any system that uses LLMs for knowledge creation. The mitigation
+      reduces the risk from "system-level threat" to "quality control problem"
+      but does not eliminate it.

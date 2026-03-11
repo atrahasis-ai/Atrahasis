@@ -1,0 +1,189 @@
+{
+  "invention_id": "C8",
+  "invention_name": "Deterministic Settlement Fabric (DSF)",
+  "report_type": "PRIOR_ART_ANALYSIS",
+  "confidence": "4/5",
+  "overall_novelty": "3.5/5",
+  "methodology": "Web search across academic databases, blockchain whitepapers, AI infrastructure projects, traditional finance clearing systems, and mechanism design literature. Cross-referenced with C3-C7 integration requirements.",
+
+  "component_analysis": [
+    {
+      "component": "Three-Budget Separation (SB/PC/CS)",
+      "novelty_score": "4/5",
+      "description": "Explicit tripartite separation of payment budget (transferable AIC), spam control budget (non-transferable, decaying Protocol Credits), and resource reservation budget (CSO-backed Capacity Slices).",
+      "nearest_prior_art": [
+        {
+          "name": "IOTA 2.0 Mana System",
+          "relationship": "Two-resource model (Mana + IOTA token). Mana serves as both congestion control and access budget but conflates spam control with resource allocation into a single dimension.",
+          "gap": "DSF adds explicit third dimension separating resource allocation from spam control. IOTA's testnet experience with Mana-lending markets is cautionary for budget isolation."
+        },
+        {
+          "name": "Ethereum EIP-1559",
+          "relationship": "Single-budget system where gas simultaneously serves as spam control, payment, and resource signal. Base fee + priority tip is a pricing innovation but not a budget separation.",
+          "gap": "DSF's three-way separation is a genuine structural advance over single-gas models."
+        },
+        {
+          "name": "Solana Local Fee Markets",
+          "relationship": "Per-account fee markets provide partial resource isolation but remain single-budget per account.",
+          "gap": "DSF separates at the budget-type level, not the account level."
+        }
+      ],
+      "novelty_gap": "No production system implements explicit tripartite budget separation. IOTA 2.0's two-resource model is closest. The key open question is whether three budgets remain isolated under adversarial conditions or whether secondary markets erode the separation."
+    },
+    {
+      "component": "CRDT-Replicated AIC Ledger",
+      "novelty_score": "4/5",
+      "description": "AIC balances stored as CRDT counters. Settlement computation produces identical results deterministically on all nodes. No consensus needed for balance updates.",
+      "nearest_prior_art": [
+        {
+          "name": "GOC-Ledger (Research Prototype)",
+          "relationship": "Academic proposal for CRDT-based ledger using escrow reservations to prevent double-spend. Not deployed in production.",
+          "gap": "GOC-Ledger addresses double-spend via reservations (effectively reintroducing coordination). DSF claims no consensus at all, which is stronger and less proven."
+        },
+        {
+          "name": "Yjs / Automerge (CRDT Libraries)",
+          "relationship": "Production CRDT implementations for collaborative editing. Proven eventual consistency but for document editing, not financial ledgers.",
+          "gap": "Financial ledger semantics (no negative balances, slashing ordering, conservation laws) are fundamentally harder than document merging."
+        },
+        {
+          "name": "IOTA 2.0 DAG-Based Ledger",
+          "relationship": "DAG structure eliminates block-based consensus but still uses committee-based finality for double-spend resolution.",
+          "gap": "IOTA retained lightweight consensus for contentious operations. DSF's claim of zero consensus is more ambitious."
+        }
+      ],
+      "novelty_gap": "No production system uses CRDTs alone for financial settlement. This is the highest-novelty, highest-risk component. Double-spend prevention, slashing ordering, and conservation law verification all implicitly require coordination that pure CRDTs cannot provide."
+    },
+    {
+      "component": "Multi-Rate Settlement Engine",
+      "novelty_score": "3/5",
+      "description": "Different settlement frequencies for different operation classes: Fast (per-epoch) for B-class resource accounting, Standard (N-epoch) for V-class verification rewards, Slow (governance cycle) for G-class parameter changes.",
+      "nearest_prior_art": [
+        {
+          "name": "Traditional Clearing Systems (CLS, ACH, RTGS)",
+          "relationship": "Multi-tiered settlement is the standard in traditional finance. CLS uses PvP for FX, ACH uses batch processing, RTGS for urgent high-value payments.",
+          "gap": "DSF adapts proven clearing concepts to AI agent context. The novelty is in the application domain, not the settlement tiering concept."
+        },
+        {
+          "name": "Cosmos IBC Cross-Chain Settlement",
+          "relationship": "Different chains settle at different speeds. IBC enables cross-chain settlement with varying finality times.",
+          "gap": "Cosmos demonstrates multi-rate cross-domain settlement works in production. DSF's innovation is tying rate to operation class rather than chain identity."
+        },
+        {
+          "name": "Ethereum L2 Rollup Settlement",
+          "relationship": "Optimistic rollups (7-day challenge) vs zk-rollups (minutes) demonstrate multi-rate settlement for different security models.",
+          "gap": "DSF's rate distinction is by operation urgency, not security model."
+        }
+      ],
+      "novelty_gap": "Multi-rate settlement is proven in traditional finance and blockchain. DSF's contribution is applying it to AI agent economics with operation-class-based tiering. Sound but not highly novel."
+    },
+    {
+      "component": "Capability-Weighted Stake",
+      "novelty_score": "4/5",
+      "description": "Stake = AIC_collateral × capability_score, where capability_score = f(reputation, verification_track_record, claim_class_accuracy). Replaces PoMS model fingerprint.",
+      "nearest_prior_art": [
+        {
+          "name": "EigenLayer Restaking",
+          "relationship": "Restaking enables differentiated security services but stake is undifferentiated — same ETH backs different AVSs without capability weighting.",
+          "gap": "DSF's capability weighting is a genuine advance over flat restaking. EigenLayer's experience with correlated slashing risk is relevant."
+        },
+        {
+          "name": "Filecoin Storage Provider Reputation",
+          "relationship": "Filecoin tracks provider reliability and success rate but uses flat collateral requirements regardless of reputation.",
+          "gap": "DSF's multiplicative combination of collateral and capability score creates differentiated entry barriers."
+        },
+        {
+          "name": "Reputation Systems in P2P Networks (EigenTrust, PeerTrust)",
+          "relationship": "Mature reputation aggregation algorithms. EigenTrust uses iterative trust propagation.",
+          "gap": "DSF combines reputation with economic stake, which is less studied. Cold-start and gaming resistance need formal treatment."
+        }
+      ],
+      "novelty_gap": "The multiplicative combination of financial stake and multi-dimensional capability metrics is novel. Key risks: reputation circularity (cold-start), easy-claim farming, mutual grooming collusion, and stability of the weighting function."
+    },
+    {
+      "component": "Intent-Budgeted Settlement",
+      "novelty_score": "4/5",
+      "description": "RIF's intent resource_bounds serve as budget. Settlement computes rewards based on completion quality within budget. No external user escrow.",
+      "nearest_prior_art": [
+        {
+          "name": "Akash Network Escrow Model",
+          "relationship": "External escrow-based settlement for compute leases. Bidding, escrow locking, and release on completion.",
+          "gap": "DSF eliminates the external escrow overhead by using intent-declared budgets. However, this moves risk to the provider side."
+        },
+        {
+          "name": "EIP-4337 Account Abstraction (Intent-Based Transactions)",
+          "relationship": "Intent-centric transaction model where users express desired outcomes. Bundlers execute and are compensated from the user's account.",
+          "gap": "DSF's intent budgets are pre-declared resource bounds, not user-expressed outcome preferences. Different intent semantics."
+        }
+      ],
+      "novelty_gap": "Integrating orchestration-layer intent semantics (from RIF) directly into settlement accounting is novel. The C7-C8 integration surface is unique to Atrahasis. Key concern: without escrow, provider incentive alignment depends entirely on reputation and stake mechanisms."
+    },
+    {
+      "component": "Capacity Market",
+      "novelty_score": "3/5",
+      "description": "Formalized supply/demand mechanism for CSO resources. Infrastructure providers advertise capacity, agents bid with CS budget, prices discovered through epoch-boundary market clearing.",
+      "nearest_prior_art": [
+        {
+          "name": "Electricity Capacity Markets (PJM, CAISO)",
+          "relationship": "Well-established capacity markets with day-ahead and real-time pricing. 20+ year track record.",
+          "gap": "DSF adapts proven electricity market concepts. The novelty is in the application domain (AI compute) and integration with three-budget economics."
+        },
+        {
+          "name": "Filecoin Storage Market",
+          "relationship": "Two-sided marketplace for storage capacity with staked commitments and slashing.",
+          "gap": "DSF generalizes from storage to arbitrary compute/service obligations. CSO conservation laws go beyond Filecoin's deal mechanics."
+        },
+        {
+          "name": "Akash Reverse Auction",
+          "relationship": "Price-only auction for compute. Simple but lacks capability differentiation and quality-of-service considerations.",
+          "gap": "DSF's capacity market integrates with capability-weighted stake and multi-dimensional resource types."
+        }
+      ],
+      "novelty_gap": "Epoch-boundary market clearing is well-understood (call auctions). The novelty is in combining it with three-budget economics and CSO conservation laws. Market thickness at 1K-10K agents is a concern — electricity markets require 20+ independent generators per zone."
+    },
+    {
+      "component": "CSO Framework with Conservation Laws",
+      "novelty_score": "4/5",
+      "description": "Formally-proved resource reservation with conservation invariant: Σ alloc + Σ pending_out - Σ pending_in + spent = total_supply. I-confluence eligibility for conflict-free operation.",
+      "nearest_prior_art": [
+        {
+          "name": "EigenLayer Attributable Security",
+          "relationship": "Formally specified per-service slashing conditions. Closest to CSO conservation laws but focused on slashing, not resource conservation.",
+          "gap": "DSF's conservation laws cover the full economic cycle (allocation, pending, spent), not just slashing conditions."
+        },
+        {
+          "name": "Filecoin Sector Commitments",
+          "relationship": "Staked commitments to provide storage capacity with WindowPoSt penalties. Conservation is implicit in the sector lifecycle.",
+          "gap": "DSF formalizes conservation as an explicit invariant with I-confluence properties."
+        },
+        {
+          "name": "TLA+ Formal Specifications (Amazon, Microsoft)",
+          "relationship": "Formal specification of distributed system invariants using TLA+. Proven methodology for correctness verification.",
+          "gap": "DSF's contribution is applying formal conservation to a multi-budget economic system, not the formal methods themselves."
+        }
+      ],
+      "novelty_gap": "The combination of formal conservation proofs with CRDT-compatible I-confluence analysis is novel. However, as the Science Assessment notes, formal verification of the specification differs from runtime enforcement in a distributed system."
+    }
+  ],
+
+  "overall_novelty_gaps": [
+    "No production system implements tripartite budget separation for economic settlement.",
+    "No production system uses CRDTs alone for financial ledger operations (highest risk gap).",
+    "The integration of intent-based orchestration (RIF) with settlement accounting is unique to Atrahasis.",
+    "Capability-weighted stake combining financial collateral with multi-dimensional reputation is novel but needs formal game-theoretic analysis.",
+    "CSO conservation laws with I-confluence proofs extend beyond existing formal verification of distributed economic systems.",
+    "The full DSF system — combining all seven components — has no architectural precedent. The closest analogue is 'CLS-meets-IOTA for AI agents.'"
+  ],
+
+  "key_references": [
+    {"name": "GOC-Ledger", "relevance": "CRDT-based ledger research prototype with reservation-based double-spend prevention"},
+    {"name": "IOTA 2.0 (Mana System)", "relevance": "Closest architectural cousin — two-resource model, DAG-based, congestion control via Mana"},
+    {"name": "EigenLayer", "relevance": "Most sophisticated slashing framework, attributable security, restaking economics"},
+    {"name": "Filecoin", "relevance": "Storage deal settlement, sector commitments, capacity marketplace with staking"},
+    {"name": "Akash Network", "relevance": "Decentralized compute marketplace, escrow-based settlement, thin market challenges"},
+    {"name": "CLS / ACH / RTGS", "relevance": "Traditional multi-rate settlement, netting as scalability mechanism, clearing house design"},
+    {"name": "Ethereum EIP-1559 + L2 Rollups", "relevance": "Fee model evolution, batched settlement, multi-rate finality"},
+    {"name": "Cosmos IBC", "relevance": "Cross-domain settlement, heterogeneous economic zones, MEV across chains"},
+    {"name": "Solana", "relevance": "High-throughput settlement, local fee markets, priority fee manipulation"},
+    {"name": "IO.net / Exabits", "relevance": "Distributed AI compute economics, GPU verification fraud, utilization challenges"}
+  ]
+}

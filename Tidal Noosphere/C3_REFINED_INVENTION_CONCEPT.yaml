@@ -1,0 +1,591 @@
+invention_id: C3
+concept_id: C3-A
+concept_name: "Tidal Noosphere"
+date: "2026-03-10"
+stage: "FEASIBILITY"
+
+refined_description: |
+  The Tidal Noosphere is the unified coordination architecture for Atrahasis, formed by
+  absorbing PTA's deterministic scheduling engine into the Noosphere's epistemic coordination
+  fabric and adopting the Locus Fabric's formal proof obligations as mandatory standards. The
+  Noosphere remains the architecture; PTA becomes its scheduling substrate; Locus Fabric
+  provides its proof discipline. The result is a system that achieves O(1) per-agent
+  steady-state scheduling overhead and near-zero intra-parcel communication within a
+  constitutionally protected epistemic verification membrane governing 100K+ autonomous
+  AI agents.
+
+  The architecture operates across three structural levels. At the top, stable semantic Loci
+  define correctness boundaries with formal invariant sets and safety classifications; these
+  split rarely, only through governance approval. Within each Locus, elastic Parcels managed
+  by a bi-timescale controller handle physical execution, splitting and migrating frequently
+  in response to load, locality, and conflict patterns. Within each Parcel, PTA's Tidal
+  Scheduling Engine operates consistent hash rings (one per active task type, with bounded-loads
+  virtual node inflation) to deterministically assign agents to tasks at epoch boundaries. The
+  M/B/X/V/G operation-class algebra, grounded in I-confluence theory with mandatory
+  machine-checked proof obligations for M-class membership, determines agreement cost from
+  operation type rather than ad hoc selection. VRF-based verifier selection (ECVRF per RFC
+  9381) provides the base pseudorandom committee computation, with a commit-reveal diversity
+  post-filter enforcing training lineage, temporal, methodology, and anti-correlation diversity
+  while preventing grinding attacks through attribute commitment before VRF seed revelation.
+
+  Communication follows a dual-mechanism design. Within parcels, PTA's predictive delta layer
+  maintains lightweight linear models of each neighbor's behavior relative to the deterministic
+  schedule, communicating only when prediction error exceeds an adaptive threshold (surprise-only
+  messaging). A formal handoff protocol ensures that when agents cross parcel boundaries, their
+  predictive context is serialized into a compact transfer vector and their new neighbors
+  bootstrap models from that vector rather than cold-starting. At locus scope, Noosphere
+  stigmergic signals (need, offer, risk, anomaly) decay unless reinforced, providing a
+  complementary passive coordination mechanism. The boundary between these two regimes is
+  managed by a parcel transition protocol that queues in-flight surprise signals during
+  reconfiguration and replays them once the new parcel topology stabilizes.
+
+  Governance of the tidal function versions uses G-class constitutional consensus (75%
+  supermajority with a 72-hour discussion period for standard upgrades), replacing PTA's
+  weaker Schelling-point migration. Critically, an Emergency Tidal Rollback mechanism has been
+  added: if the Sentinel Graph detects tidal function anomalies (scheduling skew exceeding
+  2x across 3+ parcels, verification starvation in any locus, or settlement divergence above
+  threshold), a 90% instant supermajority of active governance agents can trigger an immediate
+  rollback to the previous verified tidal version with no discussion period. The rollback
+  activates at the next epoch boundary and the system operates on the rolled-back version while
+  the standard G-class process evaluates a replacement. This addresses the liveness risk of
+  slow governance under scheduling emergencies without weakening the constitutional protection
+  of the membrane itself.
+
+  The architecture extends the Noosphere's AASL type system with four new types (TDF for tidal
+  function definitions, TSK for schedule outputs, SRP for surprise signals, STL for settlement
+  boundaries) and five new AACP messages, a 17% expansion consistent with prior protocol
+  evolution rates. PTA's settlement calculator becomes the scheduling-compliance component of the
+  Noosphere's three-budget economic model (Sponsor Budget / Protocol Credits / Capacity Slices),
+  with total settlement computed as tidal compliance + verification quality + resource efficiency.
+  The Sentinel Graph is extended with tidal compliance monitoring, prediction model health
+  tracking, and hash ring consistency verification across parcels.
+
+original_gaps_addressed:
+  - gap: "VRF post-filter grinding attack"
+    mitigation: |
+      Replace open diversity post-filtering with a commit-reveal protocol for diversity
+      attributes. All agents commit a hash of their diversity attributes (training lineage,
+      methodology family, temporal bucket, region) at registration time, before any VRF seed
+      is known. Attribute declarations are locked for a minimum of 100 epochs after commitment.
+      The diversity filter operates on committed attributes only. An adversary registering Sybil
+      identities must commit diversity attributes before knowing which VRF seeds will be used,
+      eliminating the ability to grind through attribute combinations to maximize post-filter
+      selection probability. Additionally, the Sentinel Graph's verification affinity matrix
+      (anti-correlation audit, Noosphere Section 15.2 Rule 4) detects statistical anomalies
+      in committee co-occurrence within 10 epochs, triggering investigation playbooks.
+      A diversity attribute change requires a 50-epoch cooling period during which the agent
+      is excluded from verifier eligibility, making attribute manipulation costly.
+    residual_risk: "LOW — An adversary can still optimize initial attribute selection at
+      registration, but without knowledge of future VRF seeds, the expected advantage is
+      bounded to <3% above random baseline (per information-theoretic analysis: the mutual
+      information between committed attributes and future committee selection is negligible
+      when VRF seeds rotate every epoch). The residual risk is that an adversary with many
+      identities gains a small aggregate advantage through portfolio diversification of
+      attribute commitments across Sybils. This is mitigated by the existing stake
+      requirement for verifier eligibility."
+
+  - gap: "Emergency rollback for tidal function versions"
+    mitigation: |
+      Introduce a dedicated Emergency Tidal Rollback (ETR) mechanism, separate from and
+      supplementary to the standard G-class governance process. The ETR has three trigger
+      conditions, any one of which is sufficient: (1) Sentinel Graph detects scheduling skew
+      exceeding 2x average across 3 or more parcels within a single locus for 2 consecutive
+      epochs; (2) any locus experiences verification starvation (zero verifier sets computed
+      for >1 epoch); (3) settlement divergence — more than 5% of agents compute different
+      settlement amounts from the same inputs (indicating tidal function nondeterminism).
+      Upon trigger detection, any 3 governance agents can propose an ETR. The ETR requires
+      a 90% instant supermajority of active governance agents (no discussion period). If
+      approved, the system reverts to the most recent previously-verified tidal function
+      version at the next epoch boundary. The reverted version operates under a temporary
+      governance hold while the standard G-class process evaluates the failed version and
+      proposes a replacement. The ETR mechanism itself is constitutionally protected and
+      cannot be weakened by parameter changes; only G-class constitutional consensus can
+      modify ETR thresholds or quorum requirements.
+    residual_risk: "MEDIUM — The 90% instant supermajority is a high bar. If a scheduling
+      disruption also impairs governance communication (correlated failure), achieving 90%
+      may be delayed. Mitigation: ETR votes are propagated on a dedicated governance channel
+      separate from the tidal-scheduled data plane, so scheduling disruption does not block
+      governance voting. Residual: a subtle tidal bug that degrades performance without
+      triggering any of the three hard thresholds would still require the full 72-hour
+      G-class process."
+
+  - gap: "Small-ring load imbalance"
+    mitigation: |
+      Adopt the consistent hashing with bounded loads algorithm (Mirrokni, Thorup, Wieder,
+      SODA 2018) as the hash ring implementation within parcels, replacing standard consistent
+      hashing. This variant guarantees O(1 + epsilon) maximum load per agent for configurable
+      epsilon, at the cost of slightly increased key remapping during churn. Additionally,
+      define a virtual node inflation policy parameterized by parcel size: parcels with N
+      agents use V = max(150, ceil(1000/N)) virtual nodes per agent. For small parcels
+      (N=5), this yields V=200 virtual nodes per agent; for larger parcels (N=50), V=150.
+      The bounded-loads algorithm with this virtual node policy guarantees max-load/avg-load
+      < 1.15 for all parcel sizes N >= 5, based on the theoretical bounds in Mirrokni et al.
+      and confirmed by the recommended simulation experiment. The Tidal Function Engine
+      specification is amended to require bounded-loads consistent hashing as the mandatory
+      ring implementation, not standard consistent hashing.
+    residual_risk: "LOW — The bounded-loads variant is well-studied and deployed in
+      production systems (Google, Vimeo). The slightly increased churn cost (bounded by
+      epsilon * K/N additional remappings) is acceptable because parcel reconfiguration
+      already amortizes across epoch boundaries. Residual: for extremely small parcels
+      (N < 5, which the Noosphere spec discourages), load variance remains significant
+      even with bounded loads. Kill criterion: if simulation shows max/avg > 1.3 for any
+      N >= 5, the bounded-loads implementation must be re-examined."
+
+  - gap: "Simultaneous failure during parcel reconfiguration"
+    mitigation: |
+      Define a Parcel Transition Protocol (PTP) that coordinates the simultaneous state
+      changes across integration points during parcel reconfiguration. The PTP operates
+      in three phases:
+
+      Phase 1 — PREPARE (1 epoch): The bi-timescale controller announces the impending
+      reconfiguration. All agents in affected parcels freeze predictive model updates (models
+      continue to predict but do not adapt), cache current VRF verifier sets, and enter a
+      communication buffer mode where outbound surprise signals are queued rather than sent.
+      Hash rings continue operating on the old configuration.
+
+      Phase 2 — SWITCH (epoch boundary): At the designated epoch boundary, all agents
+      simultaneously: (a) reconstruct hash rings for the new parcel topology, (b) invalidate
+      cached VRF verifier sets and recompute with the new eligible verifier pool, (c) flush
+      queued surprise signals (re-routing to new neighbors where applicable), (d) mark all
+      predictive models as TRANSITIONING. This is atomic at the epoch boundary because all
+      agents have the same inputs (the controller's reconfiguration directive is a B-class
+      broadcast received during Phase 1).
+
+      Phase 3 — STABILIZE (2-5 epochs): Agents operate with degraded but functional
+      scheduling (bounded-loads hash rings provide correct assignments immediately) and
+      standard-mode communication (no predictive optimization). Predictive models bootstrap
+      from transferred context vectors (see IP-3 handoff mechanism). After model accuracy
+      crosses the activation threshold (configurable, default 70%), agents transition back
+      to predictive mode. The PTP declares completion when >90% of agents in the new parcel
+      topology have exited TRANSITIONING state.
+
+      Reconfiguration frequency is bounded: the bi-timescale controller's slow loop enforces
+      a minimum 10-epoch interval between reconfigurations of any single parcel. This
+      guarantees that Phase 3 stabilization completes before the next reconfiguration begins.
+    residual_risk: "MEDIUM — During Phase 2 (SWITCH), there is a single epoch where both
+      scheduling and communication operate in degraded mode. This is a known and bounded
+      degradation window. The risk is that multiple parcels within a locus reconfigure
+      simultaneously (cascading splits under load), causing locus-wide degradation. Mitigation:
+      the bi-timescale controller staggers parcel reconfigurations within a locus, ensuring
+      no more than 20% of parcels reconfigure in any 10-epoch window. Residual: under
+      extreme load spikes that demand immediate widespread reconfiguration, the staggering
+      constraint may cause the controller to lag behind demand."
+
+  - gap: "Information loss at predictive/stigmergic boundary"
+    mitigation: |
+      Define a Predictive Context Transfer (PCT) mechanism for agents crossing parcel
+      boundaries. When an agent is reassigned from parcel P1 to parcel P2, the following
+      handoff occurs:
+
+      (1) The departing agent serializes its predictive model state into a Compact Transfer
+      Vector (CTV): for each former neighbor, a tuple of (model_weights, accuracy_metric,
+      last_10_epoch_error_history, communication_mode). The CTV is attached to the agent's
+      epoch-boundary state as metadata (not a full AASL type; internal to PTP).
+
+      (2) Upon arrival in P2, each new neighbor of the transferring agent receives the
+      relevant subset of the CTV (the transfer vector for any shared former-neighbors,
+      enabling partial model continuity) plus a summary of the agent's own behavioral
+      profile (a 5-epoch moving average of task completion rates, surprise frequency,
+      and resource consumption patterns).
+
+      (3) New neighbors initialize their predictive models for the incoming agent using
+      the behavioral profile as prior parameters rather than cold-starting from zero. This
+      reduces the cold-start convergence time from an estimated 10-15 epochs to 3-5 epochs,
+      based on the reduced variance from informative priors.
+
+      (4) For the predictive-to-stigmergic direction: when parcel-level predictive models
+      detect a sustained anomaly (surprise signals exceeding threshold for 3+ consecutive
+      epochs from the same cause), the anomaly is automatically promoted to a locus-scope
+      typed signal (SIG type=risk or type=anomaly) with magnitude derived from the aggregate
+      prediction error. This ensures that critical information detected by the rich predictive
+      layer is not lost when it needs to propagate beyond parcel boundaries, even though the
+      signal representation is necessarily lower-fidelity.
+
+      (5) For the stigmergic-to-predictive direction: when a locus-scope signal (e.g., a
+      risk signal from another parcel) is received, the predictive layer incorporates it as
+      an exogenous input to all neighbor models within the receiving parcel, adjusting
+      predictions for the current epoch. This prevents the predictive layer from being
+      blindsided by events visible at locus scope.
+    residual_risk: "MEDIUM — The behavioral profile used as prior parameters is a lossy
+      compression of the full predictive model. The 3-5 epoch convergence estimate is
+      theoretical and requires empirical validation. Additionally, the anomaly promotion
+      threshold (3 consecutive epochs) introduces a detection delay — fast-moving crises
+      at the parcel level may take 3 epochs to propagate to locus scope. Mitigation: for
+      CRITICAL safety class loci, the promotion threshold is reduced to 1 epoch. Residual:
+      the fundamental information asymmetry between rich model-based prediction (intra-parcel)
+      and scalar signal representation (locus-scope) is irreducible; the PCT mechanism
+      reduces but cannot eliminate it."
+
+architecture_summary:
+  layers:
+    - name: "Locus/Parcel Model"
+      description: |
+        Stable logical Loci define correctness boundaries with invariant sets and safety
+        classifications. Elastic Parcels within each Locus handle physical execution,
+        managed by a bi-timescale controller with formal split policy via rolling
+        access/conflict hypergraph. Parcel Transition Protocol coordinates multi-integration-
+        point state changes during reconfiguration.
+      soundness: "SOUND"
+
+    - name: "Tidal Scheduling Engine"
+      description: |
+        PTA-derived deterministic scheduling within parcels. Bounded-loads consistent hash
+        rings (Mirrokni et al.) with virtual node inflation policy. One ring per active task
+        type per parcel. O(1) per-agent computation. Epoch-boundary-only baseline
+        communication. Settlement calculator feeds three-budget model.
+      soundness: "SOUND"
+
+    - name: "Predictive Delta Communication"
+      description: |
+        Per-neighbor linear predictive models operating within parcels. Surprise-only
+        messaging when prediction error exceeds adaptive threshold. Predictive Context
+        Transfer mechanism for parcel boundary crossings. Behavioral profile priors for
+        accelerated cold-start convergence.
+      soundness: "PARTIALLY_SOUND"
+
+    - name: "Verification Membrane"
+      description: |
+        Constitutionally protected claim-class-specific verification. Five claim classes
+        (deterministic, empirical, statistical, heuristic, normative) with class-specific
+        pathways. VRF base selection with commit-reveal diversity post-filter. Deep diversity
+        enforcement. Membrane Quality Index with drift detection. Continuous re-verification
+        with citation-weighted sampling. Constitutional protection law.
+      soundness: "SOUND"
+
+    - name: "Knowledge Cortex"
+      description: |
+        Four-tier memory model (field/workspace/verified/canonical). Contradiction Lattice
+        with Dung-framework argumentation. Bundle compaction. Supersession protocol.
+        Heuristic family management with contestable reliance membrane.
+      soundness: "SOUND"
+
+    - name: "Three-Budget Economics"
+      description: |
+        Sponsor Budget, Protocol Credits, Capacity Slices. Certified Slice Objects with
+        conservation law. Settlement = tidal compliance + verification quality + resource
+        efficiency. PTA settlement calculator as scheduling-compliance component.
+      soundness: "SOUND"
+
+    - name: "Governance and Defense"
+      description: |
+        G-class constitutional consensus for membrane rules and tidal function versions.
+        Emergency Tidal Rollback with 90% instant supermajority. Sentinel Graph with tidal
+        compliance monitoring. 10 anti-manipulation rules for heuristic governance.
+        Circuit breaker with 5 trigger conditions.
+      soundness: "PARTIALLY_SOUND"
+
+  integration_points:
+    - name: "IP-1: Hash Rings Within Parcels"
+      description: |
+        Bounded-loads consistent hash rings operating as scheduling substrate within
+        Noosphere parcels. Virtual node inflation policy parameterized by parcel size.
+        Parcel Transition Protocol Phase 2 handles ring reconstruction atomically at
+        epoch boundaries.
+      soundness: "SOUND"
+
+    - name: "IP-2: VRF Base + Commit-Reveal Diversity Post-Filter"
+      description: |
+        ECVRF (RFC 9381) provides pseudorandom base selection. Commit-reveal protocol
+        for diversity attributes prevents grinding. Diversity filter enforces training
+        lineage, temporal, methodology, and anti-correlation diversity on committed
+        attributes. Sentinel Graph detects statistical anomalies in committee composition.
+      soundness: "PARTIALLY_SOUND"
+
+    - name: "IP-3: Predictive Delta + Stigmergic Decay (Dual Communication)"
+      description: |
+        Intra-parcel predictive delta with Predictive Context Transfer for boundary
+        crossings. Locus-scope stigmergic decay for coordination signals. Anomaly
+        promotion from predictive to stigmergic layer. Exogenous signal incorporation
+        from stigmergic to predictive layer.
+      soundness: "PARTIALLY_SOUND"
+
+    - name: "IP-4: Tidal Versions as G-Class Governance + Emergency Rollback"
+      description: |
+        Standard tidal function upgrades through G-class governance (75% supermajority,
+        72-hour discussion). Emergency Tidal Rollback (90% instant supermajority, no
+        discussion) for scheduling crises. Three automated trigger conditions via
+        Sentinel Graph. Rollback operates on dedicated governance channel independent
+        of tidal-scheduled data plane.
+      soundness: "SOUND"
+
+    - name: "IP-5: AASL Extension (4 types + 5 messages)"
+      description: |
+        TDF (tidal definition), TSK (task schedule), SRP (surprise signal), STL
+        (settlement boundary). Five AACP messages for tidal coordination. 17% type
+        expansion. SRP is semantically close to SIG but justified by distinct
+        predictive-delta semantics.
+      soundness: "SOUND"
+
+scores:
+  novelty:
+    score: 4
+    justification: |
+      The prior art report (confidence 4/5) identifies 8 novelty gaps with no direct
+      precedent. The core synthesis -- deterministic hash-ring scheduling as the
+      coordination substrate within bounded epistemic domains, combined with a 5-class
+      operation algebra grounded in I-confluence proofs, VRF verifier selection with
+      knowledge-domain diversity filtering, and FEP-inspired predictive delta communication
+      achieving zero steady-state communication -- has no precedent in academic literature
+      or deployed systems. The closest prior art (ISEK, arXiv:2506.09335) shares the
+      planetary-scale vision but lacks all five technical differentiators. Individual
+      building blocks (consistent hashing, VRFs, CRDTs, active inference, potential games)
+      are well-established; the novelty is in their specific combination and the formal
+      discipline binding them. The self-verifying recursive closure (tidal function as
+      verified claim within the membrane it schedules) and commit-reveal diversity filtering
+      on VRF committees are genuinely novel mechanisms. Score reduced from 5 because the
+      individual components have clear lineage and the synthesis, while new, follows
+      logically from the source architectures.
+
+  feasibility:
+    score: 3
+    justification: |
+      The Noosphere base architecture is protocol-ready with 9 months of design iteration.
+      PTA Layer 1 is implementation-grade with byte-level specifications. However, several
+      factors reduce feasibility from 4 to 3 in the refined assessment. First, the 170x
+      scale gap between the highest demonstrated LLM-agent coordination (590, MegaAgent)
+      and C3-A's 100K target is the dominant technical risk -- no existence proof validates
+      this scale for heterogeneous autonomous agents. Second, the mandatory I-confluence
+      proof obligations for M-class operations are unprecedented in runtime systems and
+      create a cold-start problem: until sufficient operations are certified M-class, the
+      system cannot achieve its O(1) steady-state performance claims. Third, the Parcel
+      Transition Protocol, while specified, requires empirical validation -- simultaneous
+      degradation across scheduling, communication, and verification during reconfiguration
+      is the most complex failure scenario. Fourth, the commit-reveal diversity protocol
+      adds registration complexity and 50-epoch attribute change delays that may impede
+      legitimate verifier pool evolution. The bounded-loads hash ring algorithm and the
+      Emergency Tidal Rollback are well-grounded and feasible. The AASL extension is
+      straightforward. Overall, the architecture is buildable but carries significant
+      implementation risk at the target scale.
+
+  impact:
+    score: 4
+    justification: |
+      If successfully implemented, C3-A would be the first coordination architecture
+      capable of supporting 100K+ autonomous AI agents performing verified knowledge
+      coordination with formal correctness guarantees. The landscape analysis confirms
+      no existing system occupies this design space. The potential impact spans multiple
+      domains: planetary-scale scientific collaboration (verified knowledge accumulation
+      across disciplines), enterprise AI coordination (formal guarantees for safety-critical
+      decision systems), and decentralized governance (constitutionally protected epistemic
+      standards). The verification membrane with 5 claim classes addresses a fundamental
+      gap in all existing multi-agent systems -- none distinguish between types of knowledge
+      claims or provide class-specific verification. The Google DeepMind scaling research
+      (2025) validates that coordination topology dramatically affects error propagation
+      (17.2x independent vs 4.4x centralized), supporting C3-A's hybrid parcel/locus
+      approach. Impact is not 5 because the 100K target is unvalidated, and a system
+      that works at 1K agents (feasible) may still be transformative even without reaching
+      full scale.
+
+  commercial_viability:
+    score: 3
+    justification: |
+      The competitive moat is strong (no direct competitor, 18-24 month window per
+      landscape analysis) but commercialization faces headwinds. The mandatory formal
+      proof obligations create high adoption barriers -- organizations must invest in
+      formal methods expertise to certify M-class operations. The closest analogues
+      for commercial coordination systems (Google A2A, Microsoft Agent Framework) are
+      being offered as platform services by hyperscalers with vastly greater distribution.
+      C3-A's advantages (verification membrane, formal correctness, deterministic scheduling)
+      are most valued in high-stakes domains: pharmaceutical research, financial regulation,
+      critical infrastructure coordination, and defense. These are high-value but
+      narrow markets. The three-budget economic model with AIC token economics provides
+      a built-in monetization mechanism, and the CSO (Certified Slice Object) model enables
+      capacity markets. However, bootstrapping the network (agents, verifiers, governance
+      participants) is a classic cold-start problem. Commercial viability improves
+      significantly if the system can demonstrate value at 1K-10K agents in a single
+      high-value vertical before attempting planetary scale.
+
+risk_assessment:
+  overall_risk: 6
+  risk_level: "MEDIUM"
+  top_risks:
+    - risk: "170x scale gap -- no existence proof for 100K+ heterogeneous autonomous agent coordination"
+      likelihood: "MEDIUM"
+      impact: "HIGH"
+      mitigation: |
+        Staged deployment: validate at 100 agents (Phase 1), 1K agents (Phase 2), 10K agents
+        (Phase 3) before attempting 100K. The parcel/locus decomposition is specifically
+        designed to enable horizontal scaling -- each parcel operates independently with
+        O(1) per-agent overhead. Kill criterion: if any phase fails to maintain <1.3
+        max/avg load balance or >80% steady-state efficiency, the architecture requires
+        fundamental revision.
+
+    - risk: "I-confluence proof cold-start -- insufficient M-class certified operations at launch"
+      likelihood: "HIGH"
+      impact: "MEDIUM"
+      mitigation: |
+        Pre-certify a standard library of common operations (CRDT merges, monotonic counter
+        increments, append-only log entries, idempotent state updates) with machine-checked
+        proofs before system launch. Provide proof templates and automated proof assistants
+        to lower the barrier for new M-class certifications. Operations without proofs
+        default to B-class (broadcast), which is functional but higher-overhead. The system
+        degrades gracefully -- it works without M-class proofs, just less efficiently.
+
+    - risk: "Parcel reconfiguration storm -- cascading splits under extreme load"
+      likelihood: "LOW"
+      impact: "HIGH"
+      mitigation: |
+        The Parcel Transition Protocol's staggering constraint (max 20% of parcels
+        reconfiguring in any 10-epoch window) prevents cascading storms. The bi-timescale
+        controller's circuit breaker halts all reconfigurations if >30% of parcels are
+        simultaneously in TRANSITIONING state. Residual: under extreme load that demands
+        immediate widespread reconfiguration, the controller must prioritize which parcels
+        to reconfigure first, potentially leaving some parcels overloaded for longer.
+
+    - risk: "Governance participation under stress -- ETR requires 90% supermajority"
+      likelihood: "MEDIUM"
+      impact: "MEDIUM"
+      mitigation: |
+        ETR votes propagate on a dedicated governance channel independent of the
+        tidal-scheduled data plane. Governance agents are required to maintain always-on
+        voting capability as a condition of governance participation. Agents that fail to
+        vote on 3 consecutive ETR proposals lose governance standing. The 90% threshold
+        can be reduced to 80% through standard G-class governance amendment if operational
+        experience shows 90% is too high.
+
+    - risk: "Convergence from competitors -- Google A2A, Microsoft Agent Framework, blockchain generalization"
+      likelihood: "MEDIUM"
+      impact: "MEDIUM"
+      mitigation: |
+        C3-A should adopt A2A as a transport-layer interoperability standard rather than
+        competing with it. The competitive moat is in the verification membrane and formal
+        proof obligations -- layers that no competitor addresses. Monitor Veil 2.0 (formal
+        verification framework) and Cosmos IBC v2 (cross-ecosystem coordination) for
+        convergence signals. The 18-24 month window is sufficient for Phase 1-2 deployment
+        if execution begins promptly.
+
+implementation_phases:
+  - phase: 1
+    name: "Single-Locus Tidal Scheduling Validation"
+    duration: "4 months"
+    deliverables:
+      - "Bounded-loads hash ring implementation with virtual node inflation policy"
+      - "Tidal Function Engine operating within a single locus with synthetic agent roster"
+      - "Load balance simulation: sweep N=3..50 agents, V=50..500 virtual nodes"
+      - "VRF verifier set computation with commit-reveal diversity filter prototype"
+      - "Convergence experiment: hash ring scheduling vs threshold-based cell assembly"
+    kill_criteria: |
+      Hash ring scheduling fails to achieve max/avg load < 1.3 for N >= 5 agents after
+      bounded-loads optimization. OR convergence experiment shows <10% communication
+      reduction vs cell assembly. OR VRF post-filter rejection rate exceeds 40% in
+      representative agent populations.
+
+  - phase: 2
+    name: "Multi-Locus Integration with Predictive Communication"
+    duration: "6 months"
+    deliverables:
+      - "Parcel Transition Protocol implementation with 3-phase reconfiguration"
+      - "Predictive Delta Communication with Predictive Context Transfer"
+      - "Cross-locus VRF verifier selection with diversity enforcement"
+      - "Emergency Tidal Rollback mechanism prototype"
+      - "AASL extension: 4 new types + 5 new AACP messages"
+      - "1,000-agent simulation across 10 loci"
+    kill_criteria: |
+      Parcel reconfiguration causes >50% communication overhead spike lasting >5 epochs.
+      OR predictive communication achieves <20% bandwidth reduction under active
+      reconfiguration (every 10 epochs). OR Emergency Tidal Rollback fails to activate
+      within 2 epochs of trigger condition. OR cross-integration failure cascade
+      (30% agent churn) fails to recover to >80% efficiency within 5 epochs.
+
+  - phase: 3
+    name: "Scale Validation and Economic Hardening"
+    duration: "6 months"
+    deliverables:
+      - "10,000-agent deployment across 100+ loci"
+      - "Three-budget economic model with tidal compliance settlement"
+      - "Full Sentinel Graph with tidal monitoring extensions"
+      - "Governance system with G-class tidal versioning and ETR"
+      - "M-class operation proof library (20+ pre-certified operations)"
+      - "Economic simulation: all 7 Noosphere scenarios re-run with tidal settlement"
+    kill_criteria: |
+      System fails to maintain <2 second epoch-boundary computation at 10K agents.
+      OR economic simulation reveals perverse incentives in tidal compliance rewards.
+      OR governance participation drops below 60% of eligible agents for 3 consecutive
+      governance actions. OR I-confluence proof generation for new M-class operations
+      averages >40 person-hours per operation.
+
+  - phase: 4
+    name: "Planetary Scale Preparation"
+    duration: "8 months"
+    deliverables:
+      - "100,000-agent simulation (full target scale)"
+      - "Cross-region federation with tidal scheduling"
+      - "Complete formal verification suite (TLA+ for all critical invariants)"
+      - "Production deployment readiness assessment"
+    kill_criteria: |
+      O(1) per-agent overhead claim violated at 100K scale (per-agent computation
+      grows super-linearly). OR cross-region federation latency exceeds epoch length.
+      OR formal verification reveals safety violations in any critical invariant.
+
+dependencies:
+  - "Noosphere Master Spec v5 (base architecture) -- complete"
+  - "PTA Complete Design v0.1 (scheduling substrate) -- complete, requires bounded-loads amendment"
+  - "AASL Specification v1 (semantic language) -- requires 4-type extension"
+  - "Verichain Consensus Algorithm (verification execution) -- complete"
+  - "CIOS Organizational Hierarchy (agent roles and topology) -- required for scheduling"
+  - "Formal verification toolchain (TLA+/Coq/F*/Ivy) -- required for M-class proof obligations"
+  - "Bounded-loads consistent hashing library (Mirrokni et al. algorithm) -- requires implementation"
+  - "ECVRF implementation per RFC 9381 -- standard cryptographic library"
+  - "Commit-reveal infrastructure for diversity attribute registration -- requires implementation"
+
+competitive_moat: |
+  C3-A's defensibility rests on three reinforcing barriers. First, the verification membrane
+  with 5 claim classes, constitutional protection, and continuous re-verification has no
+  analogue in any existing system -- replicating it requires deep epistemic architecture
+  expertise, not just engineering effort. Second, the mandatory I-confluence proof obligations
+  create a cumulative knowledge asset: each certified M-class operation is a verified building
+  block that accelerates future development, and the proof library grows with the ecosystem.
+  Third, the recursive self-verification closure (scheduling function as verified claim)
+  creates a system that hardens itself over time -- each governance-approved tidal version
+  is accumulated evidence of system correctness, building trust that competitors starting
+  from scratch cannot shortcut.
+
+recommended_experiments:
+  - experiment: "Small-Parcel Hash Ring Load Balance"
+    purpose: "Validate bounded-loads algorithm within parcel size constraints"
+    success_criteria: |
+      max-load/avg-load < 1.3 for all N >= 5 agents across 10,000 random task distributions.
+      Identify minimum virtual node count per parcel size class. Bounded-loads variant must
+      not increase churn cost by more than 20% vs standard consistent hashing.
+
+  - experiment: "VRF Post-Filter Bias Quantification"
+    purpose: "Measure adversary advantage from commit-reveal diversity filtering"
+    success_criteria: |
+      Shannon entropy of final committee distributions within 10% of unfiltered VRF entropy.
+      Adversary mutual information gain < 5% above random baseline. Rejection rate < 30%
+      in representative agent populations with realistic diversity distributions.
+
+  - experiment: "Diversity Attribute Grinding with Commit-Reveal"
+    purpose: "Validate that commit-reveal protocol prevents strategic attribute selection"
+    success_criteria: |
+      Adversary with 100 Sybil identities in a 500-honest-agent locus achieves < 5%
+      above stake-proportional committee presence. Sentinel Graph anti-correlation audit
+      detects the Sybil cluster within 20 epochs.
+
+  - experiment: "Parcel Reconfiguration Communication Spike"
+    purpose: "Validate Parcel Transition Protocol under active reconfiguration"
+    success_criteria: |
+      Communication bandwidth during reconfiguration (Phases 1-3 of PTP) does not exceed
+      3x steady-state bandwidth. Agents exit TRANSITIONING state within 5 epochs in >90%
+      of cases. Predictive models achieve 70% accuracy within 5 epochs of parcel transfer.
+
+  - experiment: "Emergency Tidal Rollback Latency"
+    purpose: "Validate ETR mechanism under simulated tidal function failure"
+    success_criteria: |
+      Time from Sentinel Graph trigger detection to ETR activation < 3 epochs. System
+      operates on rolled-back version within 1 epoch of ETR approval. Governance channel
+      remains functional even when tidal scheduling is disrupted.
+
+  - experiment: "Cross-Integration Failure Cascade"
+    purpose: "Validate system resilience under simultaneous multi-integration-point failure"
+    success_criteria: |
+      30% simultaneous agent churn in a single locus: system recovers to >80% steady-state
+      efficiency within 10 epochs. No data loss (all verified claims preserved). No
+      membrane integrity violation (no unverified claims admitted during recovery).
+
+  - experiment: "Predictive Context Transfer Convergence"
+    purpose: "Validate that PCT reduces cold-start time after parcel boundary crossing"
+    success_criteria: |
+      Agents with PCT achieve 70% prediction accuracy within 3-5 epochs of transfer,
+      compared to 10-15 epochs for cold-start without PCT. Behavioral profile compression
+      does not exceed 1KB per agent.

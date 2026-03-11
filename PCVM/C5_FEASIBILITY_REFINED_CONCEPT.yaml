@@ -1,0 +1,721 @@
+# =============================================================================
+# C5 REFINED INVENTION CONCEPT: Proof-Carrying Verification Membrane (PCVM)
+# =============================================================================
+# Stage: FEASIBILITY
+# Invention: C5-B — Proof-Carrying Verification Membrane
+# Date: 2026-03-09
+# Protocol: Atrahasis Agent System v2.0
+# Science Assessment Soundness: 3.2/5
+# Prior Art Confidence: 4/5
+# =============================================================================
+
+invention_id: C5
+concept: C5-B
+title: "Proof-Carrying Verification Membrane (PCVM)"
+stage: FEASIBILITY
+status: REFINED
+
+# =============================================================================
+# 1. EXECUTIVE SUMMARY
+# =============================================================================
+
+executive_summary: |
+  PCVM replaces Verichain's replication-based consensus with a proof-carrying
+  architecture: every agent output carries a Verification Trace Document (VTD)
+  — a structured evidence package that the membrane checks instead of
+  re-executing computation.
+
+  The Science Assessment scored PCVM at 3.2/5, identifying three critical gaps:
+  (1) no proof theory for non-deterministic claims, (2) no credibility
+  composition algebra, and (3) no computational cost model. This refined
+  concept addresses each gap directly.
+
+  KEY REFINEMENT: We abandon the claim that VTDs are "proofs" in the formal
+  mathematical sense for all claim classes. Instead, we adopt a graduated
+  model: VTDs are formal proofs for D-class and C-class claims, structured
+  evidence packages for E/S/P/R-class claims, and structured attestations for
+  H-class and N-class claims. The verification benefit is not always sublinear
+  complexity — it is richer verification metadata, structured auditability,
+  and reduced cognitive overhead for downstream consumers.
+
+# =============================================================================
+# 2. CRITICAL GAP MITIGATIONS
+# =============================================================================
+
+critical_gap_mitigations:
+
+  # --------------------------------------------------------------------------
+  # GAP 1: No proof theory for non-deterministic claims
+  # --------------------------------------------------------------------------
+  gap_1_nondeterministic_proof_theory:
+    gap: "No proof theory exists for non-deterministic AI agent claims"
+    severity: CRITICAL
+    science_assessment_ref: "Gap 1, Claims 1 and 2"
+
+    mitigation_strategy: "Graduated VTD Model — abandon universal proof claim"
+
+    description: |
+      The original proposal implied that VTDs are "proofs" in the PCC sense
+      for all 8 claim classes. This is untenable. PCC proofs work because
+      program types and safety properties are decidable. AI agent outputs
+      about heuristic judgments or normative positions are not decidable.
+
+      The refined model distinguishes three VTD tiers:
+
+      TIER 1 — FORMAL PROOF (D-class, C-class):
+        The VTD contains a machine-checkable proof in a decidable theory.
+        Verification IS proof-checking. Complexity: sublinear.
+        Example: "This hash is SHA-256 of input X" — VTD carries the
+        preimage and the computation trace.
+
+      TIER 2 — STRUCTURED EVIDENCE (E-class, S-class, P-class, R-class):
+        The VTD contains structured evidence that makes verification
+        EASIER but not mechanical. Evidence includes source citations,
+        statistical test results, process logs, and reasoning chains.
+        The membrane checks evidence completeness and structural validity,
+        then may invoke adversarial probing for high-stakes claims.
+        Complexity: reduced but not formally sublinear.
+        What the proof IS: "This output was produced by a process with
+        these declared properties, and its claims are supported by these
+        specific evidence chains, each of which meets the minimum evidence
+        threshold for its claim class."
+
+      TIER 3 — STRUCTURED ATTESTATION (H-class, N-class):
+        The VTD contains a structured declaration of the agent's reasoning,
+        the alternatives considered, and the values/heuristics applied.
+        Verification checks: (a) process was followed, (b) alternatives
+        were genuinely considered, (c) the attestation is internally
+        consistent, (d) the conclusion is not contradicted by known facts.
+        Complexity: comparable to re-evaluation but with richer metadata.
+        The honest admission: for H-class and N-class, the VTD's value
+        is auditability and structured disagreement, not verification
+        cost reduction.
+
+    formal_definition: |
+      For any claim c of class K, a VTD is valid if and only if:
+        1. STRUCTURAL: VTD conforms to the schema for class K
+        2. COMPLETENESS: VTD contains all required evidence fields for K
+        3. CONSISTENCY: No internal contradictions in the evidence chain
+        4. GROUNDING: Every terminal claim in the evidence chain either:
+           (a) is itself a verified claim with credibility >= threshold(K), or
+           (b) is a constitutional axiom, or
+           (c) is an empirical observation with cited source
+        5. FRESHNESS: All cited evidence is within the validity window for K
+        6. PROCESS: The declared production process conforms to the
+           registered process specification for the producing agent's role
+
+    proof_obligations_per_class:
+      D_deterministic:
+        tier: 1
+        vtd_contains: "Computation trace, input/output pairs, formal proof object"
+        verification: "Replay computation or check proof certificate"
+        example: |
+          Claim: "SHA-256('hello') = 2cf24dba..."
+          VTD: { inputs: ['hello'], algorithm: 'SHA-256', trace: [...], result: '2cf24dba...' }
+          Verification: Recompute hash, compare. O(n) where n = input size.
+
+      E_empirical:
+        tier: 2
+        vtd_contains: "Source citations with retrieval timestamps, quoted evidence, relevance justification"
+        verification: "Check source exists, quote is accurate, relevance is defensible"
+        example: |
+          Claim: "GPT-4 scores 86.4% on MMLU"
+          VTD: { sources: [{url: 'openai.com/research/gpt-4', retrieved: '2026-03-01',
+                 quote: 'GPT-4 achieves 86.4% on MMLU', context: 'Table 1'}],
+                 cross_references: [{source: 'paperswithcode.com/sota/...', confirms: true}] }
+          Verification: Check URL is accessible, quote matches source, cross-ref confirms.
+
+      S_statistical:
+        tier: 2
+        vtd_contains: "Dataset description, sample size, test statistic, p-value or CI, methodology"
+        verification: "Check statistical test is appropriate, sample size adequate, conclusion follows from results"
+        example: |
+          Claim: "Treatment A reduces error rate by 15% (p < 0.01, n=500)"
+          VTD: { dataset: {n: 500, source: '...', sampling: 'random'},
+                 test: {type: 'two-proportion z-test', statistic: 3.42, p: 0.0006},
+                 effect_size: {point: 0.15, ci_95: [0.08, 0.22]},
+                 assumptions: ['independence', 'large sample'], assumption_checks: [...] }
+          Verification: Check test appropriateness, assumption validity, arithmetic.
+
+      H_heuristic:
+        tier: 3
+        vtd_contains: "Reasoning trace, alternatives considered, criteria applied, precedents cited"
+        verification: "Check alternatives were genuinely considered, criteria are appropriate, no known contradictions"
+        example: |
+          Claim: "Microservices architecture is preferred for this system"
+          VTD: { alternatives: ['monolith', 'microservices', 'serverless'],
+                 criteria: ['scalability', 'team structure', 'deployment frequency'],
+                 evaluation: {monolith: {scalability: 'poor fit because...'}, ...},
+                 precedents: [{system: 'Netflix', context: '...', relevance: '...'}],
+                 confidence: 0.75, uncertainty_sources: ['team experience unknown'] }
+          Verification: Check alternatives are reasonable, criteria match context,
+          precedents are real, evaluation is internally consistent.
+
+      N_normative:
+        tier: 3
+        vtd_contains: "Value framework, ethical principles invoked, stakeholder impacts, constitutional alignment"
+        verification: "Check constitutional consistency, stakeholder coverage, principle application"
+        example: |
+          Claim: "User privacy should take precedence over analytics in this design"
+          VTD: { values: ['user autonomy', 'data minimization'],
+                 constitutional_ref: ['CONST-007: privacy-by-default'],
+                 stakeholders: [{group: 'users', impact: 'positive'}, {group: 'analytics team', impact: 'negative'}],
+                 alternatives: [{position: 'analytics first', counter: 'violates CONST-007'}],
+                 framework: 'deontological — duty to user autonomy' }
+          Verification: Check constitutional reference valid, stakeholder analysis complete,
+          framework application consistent. NOTE: Normative claims are verified for
+          consistency and completeness, not for truth.
+
+      P_process:
+        tier: 2
+        vtd_contains: "Process log, step timestamps, tool invocations, input/output at each step"
+        verification: "Check process log matches declared process specification, all required steps present"
+        example: |
+          Claim: "This research report followed the 5-step RESEARCH protocol"
+          VTD: { process_spec: 'RESEARCH_PROTOCOL_v2',
+                 steps: [{id: 1, name: 'source_identification', started: '...', completed: '...',
+                          inputs: [...], outputs: [...], tools: ['web_search']}, ...],
+                 deviations: [{step: 3, deviation: 'skipped due to...', justification: '...'}] }
+          Verification: Check all required steps present, sequence correct, deviations justified.
+
+      R_reasoning:
+        tier: 2
+        vtd_contains: "Premise list, inference steps, logical form, identified assumptions"
+        verification: "Check logical validity, premise support, assumption disclosure"
+        example: |
+          Claim: "If A implies B, and B implies C, then A implies C"
+          VTD: { premises: [{id: 'P1', content: 'A → B', support: '...'}, {id: 'P2', content: 'B → C', support: '...'}],
+                 inference: [{from: ['P1', 'P2'], rule: 'hypothetical syllogism', yields: 'A → C'}],
+                 assumptions: ['classical logic', 'no relevance requirement'],
+                 logical_form: 'valid' }
+          Verification: Check inference rules correctly applied, premises supported,
+          assumptions disclosed.
+
+      C_compliance:
+        tier: 1
+        vtd_contains: "Regulation reference, requirement mapping, evidence of conformance"
+        verification: "Check regulation exists, requirement correctly identified, evidence meets requirement"
+        example: |
+          Claim: "This system complies with EU AI Act Article 11 (technical documentation)"
+          VTD: { regulation: 'EU AI Act 2024/1689', article: '11',
+                 requirements: [{id: '11.1a', text: '...', evidence: {type: 'document', ref: '...'}}, ...],
+                 gaps: [], last_reviewed: '2026-03-01' }
+          Verification: Check requirements list is complete, evidence exists for each, no gaps.
+
+    residual_risk: MEDIUM
+    residual_risk_justification: |
+      The graduated model is intellectually honest but concedes that PCVM does
+      NOT achieve proof-checking for all claim classes. For Tier 3 claims (H, N),
+      verification cost is comparable to re-evaluation. The value proposition
+      for Tier 3 is auditability and structured metadata, not cost reduction.
+      This is still valuable but narrower than the original proposal claimed.
+
+  # --------------------------------------------------------------------------
+  # GAP 2: No credibility composition algebra
+  # --------------------------------------------------------------------------
+  gap_2_credibility_composition:
+    gap: "No algebra for composing credibility scores through dependency chains"
+    severity: HIGH
+    science_assessment_ref: "Gap 2, Claim 6"
+
+    mitigation_strategy: "Adopt Josang's Subjective Logic with claim-class adaptations"
+
+    description: |
+      We adopt Josang's Subjective Logic (2016) as the credibility composition
+      framework. Subjective Logic represents beliefs as opinion tuples
+      w = (b, d, u, a) where:
+        b = belief (evidence for)
+        d = disbelief (evidence against)
+        u = uncertainty (lack of evidence)
+        a = base rate (prior probability)
+        Constraint: b + d + u = 1
+
+      This framework is chosen over alternatives because:
+      - vs. Bayesian: handles explicit uncertainty (not just point probabilities)
+      - vs. Dempster-Shafer: has well-defined operators for trust in multi-agent systems
+      - vs. novel algebra: avoids inventing unproven mathematics
+
+    composition_rules:
+      conjunction: |
+        If conclusion C requires both premise A and premise B:
+        w_C = w_A ⊗ w_B (subjective logic conjunction)
+        Result: belief decreases, uncertainty increases.
+        This correctly models that depending on more premises increases fragility.
+
+      disjunction: |
+        If conclusion C requires either premise A or premise B:
+        w_C = w_A ⊕ w_B (subjective logic disjunction)
+        Result: belief increases, uncertainty may decrease.
+
+      discounting: |
+        If agent X reports opinion w_A about claim A, and we have trust opinion
+        w_X about agent X:
+        w_A_discounted = w_X ⊗ w_A (trust discounting)
+        Result: an untrusted agent's strong opinion becomes uncertain.
+        This is critical for multi-agent systems.
+
+      consensus: |
+        If agents X and Y both report opinions about claim A:
+        w_A_consensus = w_A_X ⊕_consensus w_A_Y (cumulative fusion)
+        Result: multiple independent opinions reduce uncertainty.
+
+    claim_class_adaptations:
+      D_deterministic:
+        opinion_model: "Binary: b=1,d=0,u=0 (verified) or b=0,d=1,u=0 (falsified)"
+        decay: "None — deterministic proofs do not expire"
+        justification: "Deterministic claims are decidable; uncertainty is inappropriate"
+
+      E_empirical:
+        opinion_model: "Full tuple. u reflects source reliability and recency."
+        decay: "Half-life proportional to domain volatility (fast-moving fields: 90 days; stable: 365 days)"
+        justification: "Empirical claims can become stale as facts change"
+
+      S_statistical:
+        opinion_model: "Full tuple. u includes sampling uncertainty from CI width."
+        decay: "Triggered by new data availability, not time alone"
+        justification: "Statistical claims are invalidated by new data, not by calendar"
+
+      H_heuristic:
+        opinion_model: "Full tuple. High base rate for u (heuristics are inherently uncertain)."
+        decay: "Moderate — 180-day half-life"
+        justification: "Heuristic judgments may be superseded by better information"
+
+      N_normative:
+        opinion_model: "Modified: b/d represent constitutional alignment, not truth."
+        decay: "Only on constitutional amendment"
+        justification: "Normative claims are verified against the constitution, not against reality"
+
+      P_process:
+        opinion_model: "Binary for process conformance; full tuple for process quality."
+        decay: "On process specification change"
+        justification: "Either the process was followed or it was not"
+
+      R_reasoning:
+        opinion_model: "Full tuple. u captures premise uncertainty propagation."
+        decay: "When any premise credibility changes"
+        justification: "Reasoning validity depends on premise support"
+
+      C_compliance:
+        opinion_model: "Binary for current compliance; full tuple for ongoing risk."
+        decay: "On regulation change or audit cycle"
+        justification: "Compliance is point-in-time; risk is continuous"
+
+    convergence_guarantee: |
+      Subjective Logic's cumulative fusion operator is proven to converge for
+      finite evidence sets (Josang 2016, Theorem 7.3). For DAGs, belief
+      propagation converges in O(|edges|) steps. For graphs with cycles,
+      we apply iterative dampening (alpha=0.85, analogous to PageRank) with
+      convergence guaranteed within epsilon=0.001 in at most
+      ceil(log(epsilon) / log(alpha)) = 44 iterations.
+
+      DESIGN must validate this through Experiment 3 (credibility propagation
+      stability) with 500-claim dependency graphs.
+
+    residual_risk: MEDIUM
+    residual_risk_justification: |
+      Subjective Logic is proven for trust management in multi-agent systems
+      but has not been applied to epistemic claim verification at this scale.
+      The claim-class adaptations (especially the modified opinion model for
+      N-class) are novel and untested. The convergence guarantee for cyclic
+      graphs relies on dampening, which may lose information.
+
+  # --------------------------------------------------------------------------
+  # GAP 3: No computational cost model
+  # --------------------------------------------------------------------------
+  gap_3_computational_cost:
+    gap: "Verification cost claim (O(replication) to O(proof-checking)) is unsubstantiated"
+    severity: HIGH
+    science_assessment_ref: "Gap 3"
+
+    mitigation_strategy: "Honest cost model with per-class analysis"
+
+    description: |
+      We abandon the blanket claim that proof-checking is sublinear relative
+      to replication for all claim classes. Instead, we provide an honest
+      per-class cost analysis.
+
+    cost_model:
+      definitions:
+        C_produce: "Cost for agent to produce the output (baseline)"
+        C_vtd: "Additional cost for agent to construct the VTD"
+        C_check: "Cost for membrane to verify the VTD"
+        C_replicate: "Cost to re-execute the task (Verichain baseline)"
+        C_probe: "Cost of adversarial probing (when triggered)"
+
+      per_class_analysis:
+        D_deterministic:
+          C_vtd_ratio: "~0.1x C_produce (computation trace is a byproduct)"
+          C_check_ratio: "~0.01x C_replicate (proof checking is sublinear)"
+          C_probe_ratio: "N/A (Tier 1: no adversarial probing needed)"
+          total_vs_replication: "~0.11x — genuine sublinear improvement"
+          honest_assessment: "This is where the PCC analogy holds exactly."
+
+        E_empirical:
+          C_vtd_ratio: "~0.3x C_produce (gathering citations takes effort)"
+          C_check_ratio: "~0.4x C_replicate (source checking is substantial)"
+          C_probe_ratio: "~0.5x C_produce (when triggered for high-stakes)"
+          total_vs_replication: "~0.7x without probing, ~1.2x with probing"
+          honest_assessment: |
+            Marginal cost improvement without adversarial probing.
+            WITH probing, verification costs MORE than replication.
+            The value is not speed — it is richer verification metadata and
+            a structured audit trail that replication does not produce.
+
+        S_statistical:
+          C_vtd_ratio: "~0.2x C_produce (statistical metadata is structured)"
+          C_check_ratio: "~0.3x C_replicate (checking test appropriateness)"
+          C_probe_ratio: "~0.4x C_produce (when triggered)"
+          total_vs_replication: "~0.5x without probing, ~0.9x with probing"
+          honest_assessment: "Moderate improvement. Statistical claims benefit from structured checks."
+
+        H_heuristic:
+          C_vtd_ratio: "~0.5x C_produce (articulating reasoning is effortful)"
+          C_check_ratio: "~0.8x C_replicate (evaluating reasoning is hard)"
+          C_probe_ratio: "~0.7x C_produce (adversarial probing is valuable here)"
+          total_vs_replication: "~1.3x without probing, ~2.0x with probing"
+          honest_assessment: |
+            Verification costs MORE than replication for H-class claims.
+            This is the honest truth. The value of VTDs for heuristic claims
+            is NOT cost reduction — it is forced articulation of reasoning,
+            structured documentation for audit, and enabling meaningful
+            disagreement. These are real benefits but they are quality
+            benefits, not efficiency benefits.
+
+        N_normative:
+          C_vtd_ratio: "~0.4x C_produce"
+          C_check_ratio: "~0.6x C_replicate"
+          C_probe_ratio: "~0.6x C_produce"
+          total_vs_replication: "~1.0x without probing, ~1.6x with probing"
+          honest_assessment: |
+            No cost improvement. Normative verification is inherently expensive.
+            Value is in structured constitutional alignment checking, not speed.
+
+        P_process:
+          C_vtd_ratio: "~0.15x C_produce (logs are a natural byproduct)"
+          C_check_ratio: "~0.1x C_replicate (conformance checking is efficient)"
+          C_probe_ratio: "N/A (process conformance is deterministic)"
+          total_vs_replication: "~0.25x — genuine improvement"
+          honest_assessment: "Strong case. Process logs are cheap to produce and check."
+
+        R_reasoning:
+          C_vtd_ratio: "~0.3x C_produce"
+          C_check_ratio: "~0.5x C_replicate (checking logical validity is feasible)"
+          C_probe_ratio: "~0.4x C_produce (counterexample search)"
+          total_vs_replication: "~0.8x without probing, ~1.2x with probing"
+          honest_assessment: "Moderate improvement without probing. Value is in structured argument analysis."
+
+        C_compliance:
+          C_vtd_ratio: "~0.2x C_produce"
+          C_check_ratio: "~0.15x C_replicate (checklist verification is efficient)"
+          C_probe_ratio: "N/A (compliance is deterministic)"
+          total_vs_replication: "~0.35x — genuine improvement"
+          honest_assessment: "Strong case. Compliance checking maps well to structured verification."
+
+      aggregate_assessment: |
+        HONEST SUMMARY:
+        - 3 of 8 classes show genuine cost improvement (D, P, C): ~0.1x-0.35x
+        - 2 of 8 classes show moderate improvement (S, R): ~0.5x-0.8x
+        - 3 of 8 classes show no improvement or increased cost (E, H, N): ~0.7x-1.3x
+
+        The original claim of O(replication) → O(proof-checking) holds only
+        for Tier 1 classes (D, C) and approximately for P-class. For the
+        remaining classes, the value proposition shifts from cost reduction
+        to quality improvement:
+
+        1. STRUCTURED AUDITABILITY: VTDs create audit trails that replication
+           does not. This matters for regulatory compliance (EU AI Act, NIST).
+        2. FORCED ARTICULATION: Requiring agents to produce VTDs forces them
+           to articulate their reasoning, which itself improves output quality.
+        3. TARGETED ADVERSARIAL PROBING: The membrane can selectively invoke
+           probing for high-stakes claims, concentrating verification resources.
+        4. DOWNSTREAM TRUST PROPAGATION: VTDs enable downstream consumers to
+           assess claim reliability without re-verifying, reducing SYSTEM-LEVEL
+           cost even when individual verification is not cheaper.
+
+        The revised claim: PCVM reduces total system verification cost by
+        40-60% compared to full replication, primarily through selective
+        verification (not all claims need adversarial probing) and downstream
+        trust propagation (verified claims carry their credibility forward).
+
+  # --------------------------------------------------------------------------
+  # GAP 4: Taxonomy is ad hoc
+  # --------------------------------------------------------------------------
+  gap_4_taxonomy_derivation:
+    gap: "8-class taxonomy lacks principled derivation"
+    severity: MEDIUM
+    science_assessment_ref: "Claim 2 limitations"
+
+    mitigation_strategy: "Derive from epistemic status x verification modality matrix"
+
+    description: |
+      The Science Assessment correctly identified the taxonomy as ad hoc.
+      We now derive the 8 classes from a principled 2x4 matrix:
+
+      AXIS 1 — Epistemic Status (how was the claim produced?):
+        COMPUTED: Derived from deterministic computation
+        OBSERVED: Derived from empirical observation or data
+        INFERRED: Derived from reasoning over other claims
+        JUDGED: Derived from expert/heuristic/normative judgment
+
+      AXIS 2 — Verification Modality (how can the claim be checked?):
+        REPLAY: Re-execute the producing process
+        EVIDENCE: Check against external evidence sources
+        LOGIC: Check internal logical validity
+        ALIGNMENT: Check against declared values/standards
+
+      The 8 classes map into this matrix:
+
+      |              | REPLAY        | EVIDENCE       | LOGIC          | ALIGNMENT      |
+      |--------------|---------------|----------------|----------------|----------------|
+      | COMPUTED     | D (primary)   |                |                | C              |
+      | OBSERVED     |               | E (primary)    |                |                |
+      | INFERRED     |               | S              | R (primary)    |                |
+      | JUDGED       |               |                |                | H, N           |
+
+      P (Process) is CROSS-CUTTING: it applies to the production process of
+      ANY claim, regardless of epistemic status. P-class verification asks
+      "was the right process followed?" independently of "is the claim correct?"
+
+      This derivation shows:
+      1. The 8 classes are NOT arbitrary — they occupy distinct cells in the matrix
+      2. Some cells are empty — this predicts potential MISSING classes
+      3. P is correctly identified as cross-cutting (process verification is orthogonal)
+      4. H and N share a cell (JUDGED x ALIGNMENT) but are distinguished by
+         whether the judgment is pragmatic (H) or ethical (N)
+
+    multi_class_rules: |
+      Claims may occupy multiple cells. When they do:
+      1. PRIMARY classification: the cell that determines the strongest proof obligation
+      2. SECONDARY classifications: additional proof obligations that apply
+      3. VTD must satisfy ALL applicable proof obligations (union of requirements)
+      4. Credibility is the MINIMUM of the credibilities computed for each class
+
+      Example: "This algorithm runs in O(n log n) on average"
+        Primary: S (Statistical — average-case is a statistical claim)
+        Secondary: D (Deterministic — the algorithm's correctness is decidable)
+        VTD must include: statistical evidence AND deterministic proof
+        Credibility: min(cred_S, cred_D)
+
+    residual_risk: LOW
+    residual_risk_justification: |
+      The matrix derivation is principled and addresses the Science Assessment's
+      criticism. The empty cells may reveal missing classes, but this is a
+      feature (the taxonomy is extensible) not a bug. The multi-class rules
+      resolve the mutual exclusivity concern. Residual risk is in automated
+      classification accuracy (estimated F1 0.65-0.80 from argument mining
+      literature), which must be validated in Experiment 2.
+
+# =============================================================================
+# 3. RELATIONSHIP TO TIDAL NOOSPHERE
+# =============================================================================
+
+tidal_noosphere_integration:
+  summary: |
+    PCVM replaces Verichain as the Verification Membrane within the Tidal
+    Noosphere architecture. The membrane's sovereignty (INV-1, INV-2) is
+    preserved — PCVM is a more capable membrane, not a weakened one.
+
+  what_stays:
+    - component: "Membrane Sovereignty (INV-1, INV-2)"
+      detail: "No claim enters durable memory without passing PCVM"
+
+    - component: "VRF Dual Defense"
+      detail: |
+        VRF verifier selection remains unchanged. PCVM verification is
+        performed by VRF-selected verifier sets, not self-verification.
+        Commit-reveal prevents grinding; pre-stratified pools prevent
+        filter exploitation.
+
+    - component: "G-Class Governance"
+      detail: |
+        Constitutional parameters remain G-class (BFT consensus for changes).
+        PCVM's constitutional axioms are themselves G-class protected.
+
+    - component: "Operation Class Algebra (M/B/X/V/G)"
+      detail: |
+        V-class operations flow through PCVM instead of Verichain.
+        All other classes unchanged.
+
+    - component: "Sentinel Graph"
+      detail: |
+        Sentinel monitoring of membrane health continues. PCVM adds
+        new sentinel metrics: VTD rejection rate, adversarial probe
+        trigger rate, credibility distribution statistics.
+
+    - component: "MQI (Membrane Quality Index)"
+      detail: |
+        MQI computation adapts to PCVM metrics. New inputs:
+        VTD completeness scores, claim-class distribution, probe outcomes.
+
+  what_changes:
+    - component: "Verification Protocol"
+      from: "Replication-based consensus (re-execute and compare)"
+      to: "VTD proof-checking + selective adversarial probing"
+
+    - component: "Verification Cost"
+      from: "O(replication) for all claims"
+      to: "Variable: O(proof-check) for D/P/C, O(evidence-check) for E/S/R, O(evaluation) for H/N"
+
+    - component: "Verification Output"
+      from: "Binary: pass/fail"
+      to: "Credibility opinion tuple (b, d, u, a) per claim"
+
+    - component: "Claim Metadata"
+      from: "Untyped claims"
+      to: "8-class typed claims with class-specific proof obligations"
+
+    - component: "Verification Persistence"
+      from: "Verification result stored as boolean"
+      to: "VTD stored permanently, enabling re-verification and audit"
+
+    - component: "Adversarial Layer"
+      from: "None (Verichain has no adversarial component)"
+      to: "Selective adversarial probing for high-stakes and low-credibility claims"
+
+# =============================================================================
+# 4. RISK MITIGATIONS
+# =============================================================================
+
+risk_mitigations:
+  - risk: "VTD construction overhead degrades agent performance"
+    mitigation: |
+      Tiered VTD requirements: D/P/C classes produce VTDs as natural byproducts
+      (computation traces, process logs, compliance checklists). E/S/R classes
+      require moderate additional effort. H/N classes require the most effort
+      but these are inherently slower tasks anyway.
+      Experiment 1 will quantify overhead per class.
+    residual_risk: MEDIUM
+
+  - risk: "Agents produce fake or misleading VTDs (Goodhart's Law)"
+    mitigation: |
+      Three defenses:
+      1. VRF-selected verifiers check VTDs (not self-verification)
+      2. Adversarial probing specifically tests for VTD manipulation
+      3. Cross-referencing between VTD claims and external evidence
+      Goodhart's Law is the primary adversarial concern and is addressed
+      extensively in the Adversarial Report.
+    residual_risk: HIGH
+
+  - risk: "8-class taxonomy is wrong or incomplete"
+    mitigation: |
+      The matrix derivation (epistemic status x verification modality) provides
+      a principled extension mechanism. Empty cells in the matrix suggest
+      potential missing classes. The taxonomy is designed to be extensible
+      without breaking existing VTDs. Experiment 2 validates classifiability.
+    residual_risk: LOW
+
+  - risk: "Credibility composition is unstable at scale"
+    mitigation: |
+      Subjective Logic's convergence properties are proven for finite evidence
+      sets. We add iterative dampening for cyclic graphs. Experiment 3 validates
+      stability on 500-claim dependency graphs. Kill criterion: if propagation
+      does not converge within 100 iterations, adopt simplified composition
+      (min-credibility through dependency chains, ignoring correlation).
+    residual_risk: MEDIUM
+
+  - risk: "Platform incumbents add verification features within 24 months"
+    mitigation: |
+      PCVM's differentiation is not "verification features" (anyone can add a
+      confidence field) but the integrated architecture: typed claims, structured
+      VTDs, adversarial probing, credibility composition, constitutional grounding.
+      The gap between "metadata fields" and "verification membrane" is architectural,
+      not incremental. Submit VTD format to NIST and AAIF as proposed standard.
+    residual_risk: MEDIUM-HIGH
+
+  - risk: "Verification cost exceeds replication for majority of claims"
+    mitigation: |
+      The honest cost model acknowledges this for H/N classes. System-level
+      cost reduction comes from: (1) selective probing (not all claims probed),
+      (2) downstream trust propagation (verified claims carry credibility forward),
+      (3) audit cost reduction (structured VTDs vs. unstructured logs).
+      If total system cost exceeds replication by >20%, pivot to VTD-as-audit-trail
+      without the proof-carrying cost claim.
+    residual_risk: MEDIUM
+
+  - risk: "Adversarial probing quality is insufficient (weak adversary problem)"
+    mitigation: |
+      Adversarial probes are generated by DIFFERENT agents than the claim producer,
+      selected via VRF (unpredictable). Probe strategies are drawn from a library
+      of attack patterns per claim class. Probe quality is itself monitored via
+      the Sentinel Graph. If probe effectiveness drops below threshold, escalate
+      to human-in-the-loop review.
+    residual_risk: MEDIUM
+
+  - risk: "Constitutional parameters are inadequately specified"
+    mitigation: |
+      Produce draft constitution of 30+ parameters during DESIGN stage.
+      Run Experiment 5 (constitutional grounding coverage) on C1-C4 claims.
+      Kill criterion: if <85% of claims trace to constitutional parameters,
+      the constitution is too sparse.
+    residual_risk: MEDIUM
+
+# =============================================================================
+# 5. REVISED CLAIMS
+# =============================================================================
+
+revised_claims:
+  original_claim_1: "Verification cost drops from O(replication) to O(proof-checking)"
+  revised_claim_1: |
+    Verification cost drops for Tier 1 classes (D, P, C — approximately 30-40%
+    of typical claims). For Tier 2 classes (E, S, R), cost is reduced moderately.
+    For Tier 3 classes (H, N), cost is comparable or higher than replication.
+    System-level cost reduction of 40-60% is achieved through selective
+    verification and downstream trust propagation, not per-claim speedup.
+
+  original_claim_2: "VTDs are machine-checkable proofs for all claim classes"
+  revised_claim_2: |
+    VTDs are machine-checkable proofs for D and C classes, structured evidence
+    packages for E/S/P/R classes, and structured attestations for H/N classes.
+    All VTDs are machine-parseable and structurally validatable. Semantic
+    verification depth varies by class.
+
+  original_claim_3: "The membrane is a proof-checker, not a consensus engine"
+  revised_claim_3: |
+    The membrane is a structured evidence evaluator with proof-checking
+    capability for decidable claim classes. It replaces Verichain's
+    replication-based consensus with evidence-based evaluation, augmented
+    by selective adversarial probing. The membrane is more capable than
+    a consensus engine but not a pure proof-checker for all inputs.
+
+# =============================================================================
+# 6. DESIGN STAGE REQUIREMENTS
+# =============================================================================
+
+design_requirements:
+  - id: DR-1
+    title: "VTD Schema Definition"
+    description: "Define JSON Schema for each of the 8 claim-class VTDs"
+    priority: P0
+    depends_on: []
+
+  - id: DR-2
+    title: "Credibility Composition Implementation"
+    description: "Implement Subjective Logic operators for claim credibility"
+    priority: P0
+    depends_on: []
+
+  - id: DR-3
+    title: "Constitutional Parameter Draft"
+    description: "Draft 30+ constitutional parameters for the Atrahasis system"
+    priority: P0
+    depends_on: []
+
+  - id: DR-4
+    title: "Adversarial Probe Library"
+    description: "Define adversarial attack patterns per claim class"
+    priority: P1
+    depends_on: [DR-1]
+
+  - id: DR-5
+    title: "Tidal Noosphere Integration Spec"
+    description: "Specify how PCVM integrates with VRF, Sentinel Graph, MQI"
+    priority: P1
+    depends_on: [DR-1, DR-2]
+
+  - id: DR-6
+    title: "Experiment Execution (1-5)"
+    description: "Execute all 5 experiments proposed by Science Assessment"
+    priority: P0
+    depends_on: [DR-1, DR-2, DR-3]
+
+# End of Refined Concept

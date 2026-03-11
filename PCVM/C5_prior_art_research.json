@@ -1,0 +1,352 @@
+{
+  "invention_id": "C5",
+  "concept": "C5-B: Proof-Carrying Verification Membrane (PCVM)",
+  "research_date": "2026-03-09",
+  "confidence": 4,
+  "areas_investigated": [
+    {
+      "area_id": "A1",
+      "title": "Proof-Carrying Code / Proof-Carrying Computation",
+      "summary": "Necula's Proof-Carrying Code (PCC, POPL 1997) is the foundational prior art. PCC requires untrusted code to carry a machine-checkable proof of safety properties; the host verifies the proof rather than re-executing or sandboxing the code. The architecture — producer generates proof, consumer checks proof, verification is sublinear relative to production — maps directly onto PCVM's design. CompCert (verified C compiler via Coq) and translation validation extend this into certified compilation. A 2024 blog post from biocomm.ai explicitly proposes PCC 'for Safe AI,' noting the conceptual connection between proof-carrying code and AI safety verification.",
+      "key_prior_art": [
+        {
+          "name": "Proof-Carrying Code (Necula, 1997)",
+          "citation": "Necula, G.C. Proof-carrying code. POPL 1997, pp. 106-119. ACM Press.",
+          "url": "https://dl.acm.org/doi/10.1145/263699.263712",
+          "relevance": "Direct architectural ancestor. PCVM's VTDs are the AI-agent analog of PCC's safety proofs accompanying executable code. The verification-not-re-execution principle is identical."
+        },
+        {
+          "name": "CompCert Verified Compiler",
+          "citation": "Leroy, X. Formal verification of a realistic compiler. Communications of the ACM, 2009.",
+          "url": "https://www.cs.cmu.edu/~rwh/students/necula.pdf",
+          "relevance": "Shows proof-carrying and certified compilation at industrial scale for deterministic programs. PCVM extends this to non-deterministic AI agent outputs."
+        },
+        {
+          "name": "PCC for Safe AI (biocomm.ai, 2024)",
+          "citation": "Blog post, July 2024. 'Proof-Carrying Code for Safe AI.'",
+          "url": "https://blog.biocomm.ai/2024/07/20/proof-carrying-code-for-safe-ai-was-originally-described-in-1996-by-george-necula-and-peter-lee/",
+          "relevance": "Explicitly connects PCC to AI safety, though remains a conceptual sketch without implementation details or claim-class taxonomy."
+        }
+      ],
+      "novelty_delta": "PCC was designed for deterministic machine code with decidable type-safety properties. PCVM's novelty lies in: (1) extending proof-carrying to non-deterministic, epistemic AI agent outputs, (2) introducing 8 claim classes with class-specific proof obligations (PCC has a single safety policy), and (3) coupling proof-checking with adversarial probing for underdetermined claims. The conceptual bridge from PCC to AI is acknowledged but not implemented anywhere."
+    },
+    {
+      "area_id": "A2",
+      "title": "AI Output Verification Systems",
+      "summary": "Multiple frameworks exist for verifying LLM factuality through structured claim decomposition: FactScore (Min et al., 2023), SAFE (Wei et al., 2024), FActool, Chain-of-Verification (CoVe, Meta AI, Dhuliawala et al., 2024), VeriScore (2024), and DecMetrics (2025). All decompose outputs into atomic claims and verify each against evidence sources. However, none produce persistent, machine-checkable proof artifacts — they produce scores, not proofs. None classify claims by epistemic type before selecting verification strategy.",
+      "key_prior_art": [
+        {
+          "name": "FactScore (Min et al., 2023)",
+          "citation": "Min, S. et al. FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. 2023.",
+          "url": "https://arxiv.org/html/2402.02420v2",
+          "relevance": "Pioneered atomic claim decomposition for factuality scoring. Uses GPT-4 to extract and verify atomic facts against Wikipedia. Produces a score, not a proof artifact."
+        },
+        {
+          "name": "SAFE (Wei et al., 2024)",
+          "citation": "Wei, J. et al. Long-form factuality in large language models. 2024.",
+          "url": "https://aclanthology.org/2025.findings-emnlp.1295.pdf",
+          "relevance": "Decomposes responses into atomic claims and verifies each through multi-step reasoning with search. Introduces F1@K metric combining precision and recall. Closest to VTDs in structure but produces evaluation scores, not persistent proof documents."
+        },
+        {
+          "name": "Chain-of-Verification (CoVe, Meta AI, 2024)",
+          "citation": "Dhuliawala, S. et al. Chain-of-Verification Reduces Hallucination in Large Language Models. ACL Findings 2024.",
+          "url": "https://aclanthology.org/2024.findings-acl.212.pdf",
+          "relevance": "Self-verification pipeline where the model generates verification questions, answers them independently, then revises. Inline verification, not external proof artifact."
+        },
+        {
+          "name": "VeriScore (2024)",
+          "citation": "Song, Y. et al. VeriScore: Evaluating the factuality of verifiable claims in long-form text generation. EMNLP Findings 2024.",
+          "url": "https://arxiv.org/abs/2406.19276",
+          "relevance": "Focused on verifiable claims in long-form text. Distinguishes verifiable from unverifiable claims but does not implement a full epistemic classification taxonomy."
+        },
+        {
+          "name": "DecMetrics (2025)",
+          "citation": "DecMetrics: Structured Claim Decomposition Scoring for Factually Consistent LLM Outputs. 2025.",
+          "url": "https://arxiv.org/html/2509.04483",
+          "relevance": "Structured decomposition scoring. Moves toward structured evaluation but still produces metrics, not portable proof documents."
+        }
+      ],
+      "novelty_delta": "Existing systems verify factuality through scoring pipelines but none produce structured, persistent, machine-checkable proof artifacts (VTDs) that travel with the output. None classify claims by epistemic type before selecting verification strategy. None integrate adversarial probing. PCVM's VTD concept — a proof document that accompanies the output permanently — is novel in the AI verification space."
+    },
+    {
+      "area_id": "A3",
+      "title": "Epistemic Claim Classification",
+      "summary": "Several classification systems exist for evidence and claims, but none match PCVM's 8-class taxonomy designed for AI agent outputs. Medical evidence hierarchies (Cochrane GRADE), the Evidence and Conclusion Ontology (ECO), W3C PROV-O, and Kuhnian epistemic classification for scholarly articles all classify claims or evidence, but for different purposes and with different granularity.",
+      "key_prior_art": [
+        {
+          "name": "Cochrane GRADE System",
+          "citation": "GRADE Working Group. Grading quality of evidence and strength of recommendations. BMJ 2004.",
+          "url": "https://training.cochrane.org/handbook/current/chapter-14",
+          "relevance": "Classifies evidence certainty into four levels (high/moderate/low/very low) across five domains (risk of bias, inconsistency, indirectness, imprecision, publication bias). Domain-specific to medicine; does not classify claim types, only evidence quality."
+        },
+        {
+          "name": "Evidence and Conclusion Ontology (ECO)",
+          "citation": "Chibucos, M.C. et al. Standardized description of scientific evidence using the Evidence Ontology. Database, 2014.",
+          "url": "https://www.evidenceontology.org/",
+          "relevance": "Comprehensive ontology of evidence types used in biocuration. Classifies evidence supporting assertions. Closest to PCVM's claim-class concept but focused on biological annotation, not general AI agent outputs."
+        },
+        {
+          "name": "W3C PROV-O Ontology",
+          "citation": "W3C. PROV-O: The PROV Ontology. W3C Recommendation, 2013.",
+          "url": "https://www.w3.org/TR/prov-o/",
+          "relevance": "Models provenance as Entity-Activity-Agent triples. Provides vocabulary for tracking how outputs were produced. Relevant to P-class (process) claims in PCVM but does not classify claim types or specify proof obligations."
+        },
+        {
+          "name": "Kuhnian Epistemic Classification for Scholarly Articles",
+          "citation": "de Waard, A. and Maat, H.P. A Novel Kuhnian Ontology for Epistemic Classification of STM Scholarly Articles.",
+          "url": "https://www.researchgate.net/publication/339164147_A_Novel_Kuhnian_Ontology_for_Epistemic_Classification_of_STM_Scholarly_Articles",
+          "relevance": "Classifies scholarly articles by epistemic contribution to paradigm-centred knowledge. Philosophical framework, not operational verification taxonomy."
+        },
+        {
+          "name": "Hierarchy of Evidence (general)",
+          "citation": "Various. Over 80 hierarchies proposed for medical evidence ranking.",
+          "url": "https://en.wikipedia.org/wiki/Hierarchy_of_evidence",
+          "relevance": "Extensive history of evidence classification but all domain-specific to clinical medicine. None designed for AI agent output verification."
+        }
+      ],
+      "novelty_delta": "PCVM's 8-class taxonomy (D/E/S/H/N/P/R/C) is novel in combining: (1) epistemic type classification for AI agent outputs specifically, (2) class-specific proof obligations (each class has different verification requirements), and (3) integration with a verification membrane. No prior system ties claim classification to differential proof obligations in an automated AI pipeline."
+    },
+    {
+      "area_id": "A4",
+      "title": "Adversarial Testing / Red Teaming in AI",
+      "summary": "AI red teaming is a rapidly growing field with significant institutional backing. NIST launched the ARIA program (2024), published AI RMF and GenAI Profile (AI 600-1), and announced the AI Agent Standards Initiative (Feb 2026). OWASP published the Gen AI Red Teaming Guide (Jan 2025) and Top 10 for Agentic Applications (Dec 2025). The CAMLIS 2024 exercise demonstrated practical adversarial testing. However, all existing red-teaming focuses on model-level vulnerabilities (prompt injection, jailbreaking, bias), not on adversarial verification of structured proof artifacts.",
+      "key_prior_art": [
+        {
+          "name": "NIST ARIA Program (2024)",
+          "citation": "NIST. Assessing Risks and Impacts of AI (ARIA). Launched May 2024.",
+          "url": "https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations",
+          "relevance": "Major government initiative for AI risk assessment. Focuses on agent hijacking, prompt injection, not on verifying proof artifacts."
+        },
+        {
+          "name": "NIST AI Agent Standards Initiative (Feb 2026)",
+          "citation": "NIST. Announcing the AI Agent Standards Initiative for Interoperable and Secure Innovation. Feb 2026.",
+          "url": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+          "relevance": "Very recent initiative for AI agent standards. Focuses on interoperability and security, not proof-carrying verification."
+        },
+        {
+          "name": "OWASP Gen AI Red Teaming Guide (2025)",
+          "citation": "OWASP. Gen AI Red Teaming Guide. January 2025.",
+          "url": "https://cleverx.com/blog/red-teaming-playbook-for-model-safety-complete-implementation-framework-for-ai-operations-teams/",
+          "relevance": "Practical red-teaming playbook. Focuses on model safety testing (prompt injection, data poisoning, model theft). Does not address adversarial probing of verification traces."
+        },
+        {
+          "name": "CAMLIS Red Teaming Exercise (2024)",
+          "citation": "CAMLIS 2024 Red Teaming Workshop. 139 unique exploits across 4 models.",
+          "url": "https://humane-intelligence.org/wp-content/uploads/2025/09/camlis-report.pdf",
+          "relevance": "Demonstrated practical red-teaming at scale. Target: model vulnerabilities. Not focused on proof verification."
+        },
+        {
+          "name": "AgentDojo (ETH Zurich)",
+          "citation": "AgentDojo: open-source framework for testing AI agent vulnerability.",
+          "url": "https://github.com/requie/AI-Red-Teaming-Guide",
+          "relevance": "Leading open-source framework for agent vulnerability testing. Tests agent hijacking, not proof artifact integrity."
+        }
+      ],
+      "novelty_delta": "PCVM's adversarial probing is novel in its target: it red-teams the proof artifacts (VTDs) accompanying outputs, not the model or agent itself. Existing red-teaming attacks the model; PCVM's adversarial probing attacks the verification trace to find logical gaps, unsupported claims, or weaknesses in the proof chain. This proof-directed adversarial testing has no direct precedent."
+    },
+    {
+      "area_id": "A5",
+      "title": "Verification in Multi-Agent Systems",
+      "summary": "Major multi-agent frameworks (AutoGen/AG2, CrewAI, LangGraph, CAMEL) handle output quality through monitoring, evaluation pipelines, and human-in-the-loop review — not through formal proofs. CrewAI routes executions through evaluation pipelines checking for hallucination and off-topic behavior. LangGraph uses graph-based workflows with conditional edges. None produce machine-checkable proof artifacts. Recent work on formal verification of AI agents focuses on verifying agent plans against specifications (using Lean 4, SMT solvers) but not on proof-carrying outputs.",
+      "key_prior_art": [
+        {
+          "name": "AutoGen / AG2 (Microsoft)",
+          "citation": "Wu, Q. et al. AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation. 2023.",
+          "url": "https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen",
+          "relevance": "Conversational multi-agent framework. Verification through multi-agent debate and human approval, not formal proofs."
+        },
+        {
+          "name": "CrewAI",
+          "citation": "CrewAI. Role-based multi-agent framework. $3.2M revenue by July 2025.",
+          "url": "https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen",
+          "relevance": "Role-based agents with evaluation pipelines. Sampling-based quality checks for hallucination and off-topic behavior. No proof artifacts."
+        },
+        {
+          "name": "LangGraph (LangChain)",
+          "citation": "LangGraph. Graph-based agent workflow framework. In production at LinkedIn, Uber.",
+          "url": "https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen",
+          "relevance": "Stateful graph workflows with conditional routing. Verification through workflow design (guard nodes, conditional edges), not formal proofs."
+        },
+        {
+          "name": "CLOVER: Closed-Loop Verifiable Code Generation (2024-2025)",
+          "citation": "CLOVER. Closed-loop pipeline with SMT-based verification.",
+          "url": "https://queue.acm.org/detail.cfm?id=3762990",
+          "relevance": "Closest to PCVM in multi-agent context: generates code + formal annotations, uses SMT-based verification. But limited to code correctness, not general agent outputs."
+        },
+        {
+          "name": "Formal Methods for Human-Agent Interaction (Brännström, 2025)",
+          "citation": "Brännström, A. Formal Methods for Verification in Human-Agent Interaction. 2025.",
+          "url": "http://www.diva-portal.org/smash/get/diva2:1950795/FULLTEXT01.pdf",
+          "relevance": "Academic work on formal verification of agent behavior. Focuses on verifying agent plans, not on proof-carrying output artifacts."
+        }
+      ],
+      "novelty_delta": "No existing multi-agent framework requires outputs to carry machine-checkable proofs. All use statistical quality monitoring (sampling, scoring) or workflow-based guardrails (conditional routing, human review). PCVM's requirement that every agent output carry a VTD is architecturally unique in the multi-agent landscape. CLOVER is the closest precedent but is restricted to code generation with SMT verification."
+    },
+    {
+      "area_id": "A6",
+      "title": "Zero-Knowledge Verification (zkML)",
+      "summary": "Zero-knowledge proofs for ML verification is an active and growing field. zkLLM (Sun et al., CCS 2024) demonstrated ZK proofs for 13B-parameter LLM inference in under 15 minutes. zkPyTorch (2025) provides a compiler for ZK-verified ML inference. A comprehensive survey (Feb 2025) covers verifiable training, inference, and testing via ZKPs. These systems prove that a specific model produced a specific output, but do not verify the epistemic quality or correctness of that output's claims.",
+      "key_prior_art": [
+        {
+          "name": "zkLLM (Sun et al., CCS 2024)",
+          "citation": "Sun, H. et al. zkLLM: Zero Knowledge Proofs for Large Language Models. ACM CCS 2024.",
+          "url": "https://arxiv.org/abs/2404.16109",
+          "relevance": "First ZK proof system for LLMs at scale (13B parameters). Proves inference correctness (this output came from this model) in <15 min with <200 kB proof. Verifies computational provenance, not claim-level correctness."
+        },
+        {
+          "name": "zkPyTorch (2025)",
+          "citation": "zkPyTorch: A Hierarchical Optimized Compiler for Zero-Knowledge ML. 2025.",
+          "url": "https://eprint.iacr.org/2025/535.pdf",
+          "relevance": "Compiler framework allowing PyTorch models (including Llama-3) to generate ZK proofs of inference. Infrastructure-level tool. Does not address claim-level verification."
+        },
+        {
+          "name": "Survey of ZKP-Based Verifiable ML (Feb 2025)",
+          "citation": "A Survey of Zero-Knowledge Proof Based Verifiable Machine Learning. Feb 2025.",
+          "url": "https://arxiv.org/abs/2502.18535",
+          "relevance": "Comprehensive survey covering 2017-2024. Categorizes verifiable training, inference, and testing. Confirms that ZK verification of AI focuses on computational integrity, not epistemic quality."
+        },
+        {
+          "name": "ZKML System (EuroSys 2024)",
+          "citation": "Kang, D. et al. ZKML: An Optimizing System for ML Inference in Zero-Knowledge Proofs. EuroSys 2024.",
+          "url": "https://ddkang.github.io/papers/2024/zkml-eurosys.pdf",
+          "relevance": "Optimizing system for ZK-verified ML inference. Focuses on performance optimization for proving inference computations."
+        }
+      ],
+      "novelty_delta": "ZK techniques verify computational provenance ('this model produced this output') but not epistemic quality ('this output's claims are well-supported'). PCVM operates at the epistemic layer — verifying that claims are properly evidenced, logically coherent, and process-conformant. These are complementary, not competing: zkML could serve as the D-class (deterministic) verification engine within PCVM, while PCVM addresses claim classes (H, N, R) that ZK cannot touch. The combination is novel."
+    },
+    {
+      "area_id": "A7",
+      "title": "Distributed Scientific Peer Review Models",
+      "summary": "The DeSci (Decentralized Science) movement has produced several platforms for decentralized peer review: ResearchHub (featured in Nature, $150/review in RSC tokens), Ants-Review, and SCINET. These use blockchain for transparency and incentive alignment. A 2024 paper proposes a formal mechanism for decentralized peer review (arxiv 2404.18148). However, these platforms facilitate human peer review with crypto incentives — they do not automate verification through machine-checkable proofs.",
+      "key_prior_art": [
+        {
+          "name": "ResearchHub",
+          "citation": "ResearchHub. Decentralized scientific publishing platform. Featured in Nature.",
+          "url": "https://blog.researchhub.foundation/the-state-of-desci-an-ecosystem-overview/",
+          "relevance": "Pays reviewers in crypto for peer review. Blockchain-recorded reviews. Human review process, not automated proof-checking."
+        },
+        {
+          "name": "Decentralized Peer Review Mechanism (2024)",
+          "citation": "Decentralized Peer Review in Open Science: A Mechanism Proposal. arXiv 2404.18148, 2024.",
+          "url": "https://arxiv.org/html/2404.18148v1",
+          "relevance": "Formal mechanism design for decentralized peer review. Proposes incentive structures and review protocols. Closest to PCVM's adversarial probing model but uses human reviewers, not automated proof-checkers."
+        },
+        {
+          "name": "SCINET / Ants-Review",
+          "citation": "SCINET and Ants-Review. Blockchain-based peer review platforms.",
+          "url": "https://www.zeeve.io/blog/how-decentralized-sciencedesci-cures-the-common-ails-of-academic-research/",
+          "relevance": "Blockchain-based open access with recorded peer reviews. SCINET reports 40% reduction in review times. Human-based, not machine-checkable."
+        },
+        {
+          "name": "DeScAI: Convergence of DeSci and AI (2025)",
+          "citation": "DeScAI: the convergence of decentralized science and artificial intelligence. Frontiers in Blockchain, 2025.",
+          "url": "https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1657050/full",
+          "relevance": "Proposes convergence of DeSci with AI. Discusses AI-assisted review and verification. Directionally similar to PCVM but at conceptual stage."
+        }
+      ],
+      "novelty_delta": "DeSci platforms decentralize the peer review process but keep it fundamentally human-driven with crypto incentives. PCVM's adversarial probing automates the red-teaming of proof artifacts — it is machine peer review of machine proofs. The structural parallel (adversarial evaluation by independent parties) exists, but PCVM's automation and integration with claim-class-specific proof obligations is novel."
+    },
+    {
+      "area_id": "A8",
+      "title": "Process Mining / Process Conformance Checking",
+      "summary": "Process mining, established by Wil van der Aalst, is a mature field focused on discovering, monitoring, and improving processes by extracting knowledge from event logs. Conformance checking specifically compares process models against event logs to identify deviations. This maps closely to PCVM's P-class (process) claims, where verification checks whether an agent followed its specified process.",
+      "key_prior_art": [
+        {
+          "name": "Process Mining (van der Aalst, 2011)",
+          "citation": "van der Aalst, W.M.P. Process Mining: Discovery, Conformance and Enhancement of Business Processes. Springer, 2011.",
+          "url": "https://link.springer.com/book/10.1007/978-3-642-19345-3",
+          "relevance": "Foundational text. Defines conformance checking as comparing process models to event logs. Directly relevant to P-class verification in PCVM."
+        },
+        {
+          "name": "Conformance Checking via Passages (van der Aalst & Verbeek, 2014)",
+          "citation": "van der Aalst, W.M.P. and Verbeek, H.M.W. Process Discovery and Conformance Checking Using Passages. Fundamenta Informaticae, 2014.",
+          "url": "https://journals.sagepub.com/doi/10.3233/FI-2014-1006",
+          "relevance": "Advanced conformance checking technique. Decomposes processes into passages for efficient checking. Algorithmic approach relevant to PCVM's process verification."
+        },
+        {
+          "name": "Process Mining Maturity Grid (2025)",
+          "citation": "A technology-specific process mining maturity grid for manufacturing and logistics. Int. J. Production Research, 2025.",
+          "url": "https://www.tandfonline.com/doi/full/10.1080/00207543.2025.2451810",
+          "relevance": "Shows continued active development in process mining. Domain-specific (manufacturing), not AI agent workflows."
+        }
+      ],
+      "novelty_delta": "Process mining's conformance checking is well-established for business processes with structured event logs. PCVM's P-class claims extend this concept to AI agent workflows, where the 'process' may include reasoning steps, tool invocations, and epistemic operations that are more complex than business process activities. The integration of process conformance into a unified 8-class proof framework alongside epistemic, statistical, and normative claims is novel."
+    }
+  ],
+  "novelty_gaps": [
+    {
+      "gap_id": "NG-1",
+      "description": "Proof-carrying architecture for AI agent outputs with persistent, machine-checkable proof artifacts (VTDs). No existing system requires AI outputs to carry structured proof documents that travel with the output and can be independently verified.",
+      "closest_prior_art": "Necula's PCC (1997) for code safety proofs; SAFE/FactScore for factuality scoring of LLM outputs; biocomm.ai blog (2024) for conceptual connection",
+      "gap_size": "LARGE",
+      "evidence": "PCC targets deterministic machine code safety. FactScore/SAFE produce ephemeral scores, not persistent proof documents. The biocomm.ai blog acknowledges the gap but offers no implementation. No system produces VTD-like artifacts for AI agent outputs."
+    },
+    {
+      "gap_id": "NG-2",
+      "description": "8-class epistemic claim taxonomy with class-specific proof obligations for AI agent verification. No existing classification system ties epistemic type to differential verification requirements in an automated pipeline.",
+      "closest_prior_art": "Cochrane GRADE (4-level evidence certainty); ECO (evidence types for biocuration); VeriScore (verifiable vs. unverifiable distinction)",
+      "gap_size": "LARGE",
+      "evidence": "GRADE classifies evidence quality, not claim type. ECO classifies evidence for biology, not AI. VeriScore makes a binary verifiable/unverifiable distinction. None map claim type to specific proof obligations. PCVM's 8-class system (D/E/S/H/N/P/R/C) with differential proof requirements is original."
+    },
+    {
+      "gap_id": "NG-3",
+      "description": "Adversarial probing of proof artifacts (red-teaming the proof, not the model). All existing AI red-teaming targets model vulnerabilities; PCVM targets the verification trace itself.",
+      "closest_prior_art": "NIST ARIA program; OWASP Gen AI Red Teaming Guide; CAMLIS red-teaming exercises; AgentDojo",
+      "gap_size": "LARGE",
+      "evidence": "NIST ARIA focuses on agent hijacking. OWASP focuses on prompt injection, data poisoning. CAMLIS tested model-level exploits. AgentDojo tests agent vulnerabilities. None red-team proof artifacts or verification traces."
+    },
+    {
+      "gap_id": "NG-4",
+      "description": "Integration of proof-checking verification with multi-agent governance systems (Tidal Noosphere). No existing multi-agent framework combines proof-carrying verification with constitutional governance, VRF dual defense, or sentinel graph monitoring.",
+      "closest_prior_art": "LangGraph conditional workflows; CrewAI evaluation pipelines; CLOVER closed-loop verification for code",
+      "gap_size": "LARGE",
+      "evidence": "LangGraph uses graph-based routing, not proof-checking. CrewAI uses sampling-based quality monitoring. CLOVER is closest but limited to code generation. None integrate with governance frameworks."
+    },
+    {
+      "gap_id": "NG-5",
+      "description": "Verification membrane as proof-checker replacing consensus-based verification. Shifting from replication/voting to proof-checking for AI agent verification.",
+      "closest_prior_art": "PCC verification paradigm; zkML computational integrity proofs; self-consistency methods in LLMs",
+      "gap_size": "MEDIUM",
+      "evidence": "PCC established proof-checking over re-execution for code. zkML proves computational integrity. Self-consistency uses sampling-based agreement. PCVM applies the proof-checking paradigm to epistemic AI outputs specifically, which is a novel application domain but the underlying principle has precedent."
+    }
+  ],
+  "prior_art_threats": [
+    {
+      "threat_id": "PT-1",
+      "description": "Necula's PCC (1997) establishes the proof-carrying paradigm. Critics could argue PCVM is 'just PCC for AI' without sufficient architectural novelty.",
+      "severity": "MEDIUM",
+      "mitigation": "PCC addresses decidable type-safety properties of deterministic machine code. PCVM addresses underdetermined epistemic claims from non-deterministic AI agents. The 8-class taxonomy, adversarial probing, and epistemic proof obligations have no parallel in PCC. The proof-carrying principle is borrowed; the verification domain and proof structures are entirely new."
+    },
+    {
+      "threat_id": "PT-2",
+      "description": "SAFE/FactScore atomic claim decomposition and verification pipeline. Could be argued to already implement VTD-like functionality.",
+      "severity": "MEDIUM",
+      "mitigation": "SAFE/FactScore produce ephemeral scores during evaluation, not persistent proof artifacts. They do not classify claims by epistemic type. They verify only factual/empirical claims, not process conformance, reasoning validity, or normative claims. VTDs are structured documents with formal proof obligations; SAFE scores are numerical aggregates."
+    },
+    {
+      "threat_id": "PT-3",
+      "description": "zkLLM and zkML systems already provide cryptographic proofs of LLM inference correctness.",
+      "severity": "LOW",
+      "mitigation": "zkML proves computational provenance (this model produced this output) but not epistemic quality (this output's claims are well-supported). PCVM and zkML operate at different layers: zkML verifies the computation, PCVM verifies the epistemic content. They are complementary, not competing. zkML could serve as the D-class verification engine within PCVM."
+    },
+    {
+      "threat_id": "PT-4",
+      "description": "Process mining conformance checking (van der Aalst) already verifies process adherence from event logs.",
+      "severity": "LOW",
+      "mitigation": "Process mining is well-established for structured business processes but has not been applied to AI agent reasoning workflows. PCVM's P-class draws on conformance checking concepts but extends them to epistemic agent processes and integrates them into a unified multi-class verification framework."
+    },
+    {
+      "threat_id": "PT-5",
+      "description": "CLOVER's closed-loop verification pipeline generates code + formal annotations + SMT-based verification, approaching proof-carrying outputs.",
+      "severity": "MEDIUM",
+      "mitigation": "CLOVER is limited to code generation verification using SMT solvers. It does not handle epistemic claims, heuristic reasoning, normative judgments, or multi-class proof obligations. PCVM addresses the full spectrum of AI agent outputs, not just code."
+    },
+    {
+      "threat_id": "PT-6",
+      "description": "The DeScAI convergence (Frontiers 2025) proposes combining DeSci with AI for scientific verification, which directionally overlaps with PCVM's adversarial probing model.",
+      "severity": "LOW",
+      "mitigation": "DeScAI remains at the conceptual stage and proposes human-AI hybrid review with crypto incentives. PCVM's adversarial probing is fully automated, operates on machine-checkable proof artifacts, and integrates with constitutional governance. The architectural specificity of PCVM goes well beyond DeScAI's conceptual proposals."
+    }
+  ],
+  "overall_assessment": "PCVM occupies a genuinely novel position at the intersection of three established fields: proof-carrying code (Necula 1997), AI factuality verification (FactScore/SAFE/CoVe), and adversarial AI testing (NIST/OWASP). While each field has mature prior art, no existing system combines them into a unified architecture where AI agent outputs carry structured, machine-checkable proof artifacts classified by epistemic claim type with class-specific proof obligations, verified by a proof-checking membrane augmented with adversarial probing. The closest threats come from (1) PCC's foundational paradigm, which PCVM explicitly extends from deterministic code to non-deterministic AI outputs, (2) SAFE/FactScore's atomic claim decomposition, which produces scores rather than persistent proof documents, and (3) CLOVER's closed-loop code verification, which is restricted to code correctness. The 8-class epistemic taxonomy (D/E/S/H/N/P/R/C) with differential proof obligations appears to be entirely novel — no prior system classifies AI agent claims by epistemic type before selecting verification strategy. The adversarial probing of proof artifacts (red-teaming the proof, not the model) also has no direct precedent. Confidence level: 4/5. The main uncertainty is whether unpublished work in enterprise AI governance systems may implement similar proof-carrying concepts internally."
+}
