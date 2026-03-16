@@ -12,14 +12,14 @@
 {"event": "telemetry_active", "logs_dir": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs", "timestamp": "2026-03-13T10:06:21Z"}
 {"cssm_state": "AAS-State-v1.1", "event": "bootstrap_completed", "timestamp": "2026-03-13T10:06:21Z"}
 {"event": "recovery_started", "recovery_manifest": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\recovery\\latest.json", "timestamp": "2026-03-13T10:06:32Z"}
-{"cssm_state": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\canonical\\AAS-State-v1.1.json", "event": "recovery_completed", "timestamp": "2026-03-13T10:06:32Z"}
-{"cssm_state": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\canonical\\AAS-State-v1.1.json", "event": "recovery_started", "recovery_manifest": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\recovery\\latest.json", "timestamp": "2026-03-13T10:16:23Z"}
+{"cssm_state": "AAS-State-v1.1", "event": "recovery_completed", "timestamp": "2026-03-13T10:06:32Z"}
+{"cssm_state": "AAS-State-v1.1", "event": "recovery_started", "recovery_manifest": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\recovery\\latest.json", "timestamp": "2026-03-13T10:16:23Z"}
 {"event": "continuous_paee_started", "interval_seconds": 1, "max_cycles": 1, "pid": 73328, "timestamp": "2026-03-13T10:16:23Z"}
 {"cssm_state": "AAS-State-v1.1", "cycle_number": 1, "event": "cycle_started", "timestamp": "2026-03-13T10:16:23Z"}
 {"cssm_state": "AAS-State-v1.2", "cycle_number": 1, "event": "architecture_state_updated", "selected_proposal": "META-CYCLE001-MERGE-001", "timestamp": "2026-03-13T10:16:23Z"}
 {"cssm_state": "AAS-State-v1.2", "cycle_number": 1, "event": "cycle_completed", "timestamp": "2026-03-13T10:16:23Z"}
 {"cycles_completed": 1, "event": "continuous_paee_stopped", "latest_cssm": "AAS-State-v1.2", "pid": 73328, "timestamp": "2026-03-13T10:16:23Z"}
-{"cssm_state": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\canonical\\AAS-State-v1.2.json", "event": "recovery_started", "recovery_manifest": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\recovery\\latest.json", "timestamp": "2026-03-13T10:16:48Z"}
+{"cssm_state": "AAS-State-v1.2", "event": "recovery_started", "recovery_manifest": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\recovery\\latest.json", "timestamp": "2026-03-13T10:16:48Z"}
 {"event": "continuous_paee_started", "interval_seconds": 5, "max_cycles": 0, "pid": 12004, "timestamp": "2026-03-13T10:16:48Z"}
 {"cssm_state": "AAS-State-v1.2", "cycle_number": 2, "event": "cycle_started", "timestamp": "2026-03-13T10:16:48Z"}
 {"cssm_state": "AAS-State-v1.3", "cycle_number": 2, "event": "architecture_state_updated", "selected_proposal": "META-CYCLE002-MERGE-001", "timestamp": "2026-03-13T10:16:48Z"}
