@@ -110,10 +110,7 @@ python scripts/aas_controller.py serve --open
 ```bash
 pwsh -File scripts/start_aas5_operator_stack.ps1 -Open
 pwsh -File scripts/start_aas5_operator_stack.ps1 -Daemon -Open
-pwsh -File scripts/install_aas5_operator_stack.ps1
 ```
-
-The install script writes repo-local launcher wrappers under `runtime/launchers/`.
 
 ### Run The Local Controller Regression Suite
 
