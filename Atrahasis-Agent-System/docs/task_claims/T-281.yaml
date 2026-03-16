@@ -13,4 +13,5 @@ scope:
     - "docs/specifications/C38/CONFORMANCE_AND_CERTIFICATION_FRAMEWORK.md"
     - "docs/specifications/C38/MASTER_TECH_SPEC.md"
   pipeline_type: "DIRECT_EDIT"
-notes: "DONE. Added the canonical C38 companion conformance framework covering certification tiers, a 1,240-vector corpus, interoperability methodology, transport binding matrices, and the zero-external-runtime gate. Shared-state closeout is queued in docs/handoffs/T-281_CODEX_HANDOFF.md."
+notes: "DONE. Added the canonical C38 companion conformance framework covering certification tiers, a 1,240-vector corpus, interoperability methodology, transport binding matrices, and the zero-external-runtime gate. Shared-state closeout is queued in docs/handoffs/applied/T-281_CODEX_HANDOFF.md."
+

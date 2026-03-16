@@ -3,24 +3,47 @@ from __future__ import annotations
 from pathlib import Path
 
 
-def resolve_spec_path(repo_root: Path, spec_id: str) -> Path:
-    """Resolve a spec id like C42 to its actual titled master spec path."""
+def spec_id_directory_prefixes(spec_id: str) -> tuple[str, ...]:
     normalized = spec_id.strip().upper()
     if not normalized:
         raise ValueError("spec_id is required")
 
-    specs_root = repo_root / "docs" / "specifications"
-    direct_candidate = specs_root / normalized / "MASTER_TECH_SPEC.md"
-    if direct_candidate.exists():
-        return direct_candidate
+    prefix = normalized[:1]
+    suffix = normalized[1:]
+    if not prefix.isalpha() or not suffix.isdigit():
+        return (normalized,)
 
-    directory_candidates = []
-    for item in specs_root.glob(f"{normalized}*"):
-        if not item.is_dir():
-            continue
-        name = item.name.upper()
-        if name == normalized or name.startswith(normalized + " ") or name.startswith(normalized + " -"):
-            directory_candidates.append(item)
+    number = int(suffix)
+    short = f"{prefix}{number}"
+    padded = f"{prefix}{number:02d}" if number < 10 else short
+
+    ordered: list[str] = []
+    for candidate in (normalized, short, padded):
+        if candidate not in ordered:
+            ordered.append(candidate)
+    return tuple(ordered)
+
+
+def resolve_spec_path(repo_root: Path, spec_id: str) -> Path:
+    """Resolve a spec id like C42 to its actual titled master spec path."""
+    prefixes = spec_id_directory_prefixes(spec_id)
+    normalized = prefixes[0]
+
+    specs_root = repo_root / "docs" / "specifications"
+    for prefix in prefixes:
+        direct_candidate = specs_root / prefix / "MASTER_TECH_SPEC.md"
+        if direct_candidate.exists():
+            return direct_candidate
+
+    directory_candidates: list[Path] = []
+    for prefix in prefixes:
+        for item in specs_root.glob(f"{prefix}*"):
+            if not item.is_dir():
+                continue
+            name = item.name.upper()
+            if name == prefix or name.startswith(prefix + " ") or name.startswith(prefix + " -"):
+                if item not in directory_candidates:
+                    directory_candidates.append(item)
 
     if not directory_candidates:
         raise FileNotFoundError(f"Unable to resolve spec directory for {normalized}")

@@ -9,11 +9,11 @@
 
 | Path | Description |
 |------|-------------|
-| `docs/specifications/C3 - Tidal Noosphere/C3_Tidal_Noosphere_Master_Tech_Spec.md` | Removed old-stack forward-authority wording and re-anchored forward communication posture to Alternative C / `AXIP-v1` |
-| `docs/specifications/C5 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md` | Replaced live `ASV` interface authority with native sovereign communication wording |
-| `docs/specifications/C7 - Recursive Intent Framework/C7_Recursive_Intent_Framework_Master_Tech_Spec.md` | Rewrote provenance / intent-carriage contracts from `C4 ASV` to native sovereign claim objects |
-| `docs/specifications/C8 - Deterministic Settlement Fabric/C8_Deterministic_Settlement_Fabric_Master_Tech_Spec.md` | Replaced `C4 ASV` communication authority with Alternative C native settlement-message posture |
-| `docs/specifications/C9 - Cross-Document Reconciliation/C9_Cross-Document_Reconciliation_Master_Tech_Spec.md` | Replaced canonical `ASV` integration lane with native communication integration mapping and marked `C4` compatibility-only |
+| `docs/specifications/C03 - Tidal Noosphere/C3_Tidal_Noosphere_Master_Tech_Spec.md` | Removed old-stack forward-authority wording and re-anchored forward communication posture to Alternative C / `AXIP-v1` |
+| `docs/specifications/C05 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md` | Replaced live `ASV` interface authority with native sovereign communication wording |
+| `docs/specifications/C07 - Recursive Intent Framework/C7_Recursive_Intent_Framework_Master_Tech_Spec.md` | Rewrote provenance / intent-carriage contracts from `C4 ASV` to native sovereign claim objects |
+| `docs/specifications/C08 - Deterministic Settlement Fabric/C8_Deterministic_Settlement_Fabric_Master_Tech_Spec.md` | Replaced `C4 ASV` communication authority with Alternative C native settlement-message posture |
+| `docs/specifications/C09 - Cross-Document Reconciliation/C9_Cross-Document_Reconciliation_Master_Tech_Spec.md` | Replaced canonical `ASV` integration lane with native communication integration mapping and marked `C4` compatibility-only |
 | `docs/specifications/C23 - Execution Lease and Budget Membrane/C23_Execution_Lease_and_Budget_Membrane_Master_Tech_Spec.md` | Removed bridge runtime profile authority and updated normative references to Alternative C / `AXIP-v1` |
 | `docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md` | Removed explicit `MCP` / `A2A` / bridge transport authority and tightened machine identity posture to native sovereign surfaces |
 | `docs/task_workspaces/T-067/specifications/MASTER_TECH_SPEC.md` | Updated the stack summary to Alternative C forward communication authority |
@@ -66,3 +66,4 @@ Replace the current Wave 8 bullets with:
 - Remaining `C4` / `ASV` mentions on the claimed surfaces are historical-compatibility references only, not forward authority.
 - `C24` remained unchanged because the live text did not carry substantive old-stack authority assumptions.
 - `docs/AGENT_STATE.md`, `docs/DECISIONS.md`, and `docs/INVENTION_DASHBOARD.md` do not require `T-302` updates.
+

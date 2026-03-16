@@ -39,6 +39,7 @@ from aas5.aas5_ideation import (
 from aas5.artifact_registry import ArtifactRegistry
 from aas5.common import ensure_dir, load_json, load_yaml, utc_now, write_text
 from aas5.command_modifier_router import CommandModifierRouter
+from aas5.spec_path_resolver import spec_id_directory_prefixes
 from aas5.task_claim_coordinator import TaskClaimCoordinator
 from aas5.task_id_policy import TaskIdPolicy
 from aas5.workflow_policy_engine import (
@@ -1346,10 +1347,16 @@ def _spec_paths_for_ids(repo_root: Path, spec_ids: list[str]) -> list[str]:
     resolved: list[str] = []
     specs_root = repo_root / "docs" / "specifications"
     for spec_id in spec_ids:
-        pattern = f"{spec_id}*"
-        for spec_dir in sorted(specs_root.glob(pattern)):
-            if not spec_dir.is_dir():
-                continue
+        directory_candidates: list[Path] = []
+        for prefix in spec_id_directory_prefixes(spec_id):
+            for spec_dir in sorted(specs_root.glob(f"{prefix}*")):
+                if not spec_dir.is_dir():
+                    continue
+                name = spec_dir.name.upper()
+                if name == prefix or name.startswith(prefix + " ") or name.startswith(prefix + " -"):
+                    if spec_dir not in directory_candidates:
+                        directory_candidates.append(spec_dir)
+        for spec_dir in directory_candidates:
             for candidate in sorted(spec_dir.glob("*MASTER*SPEC*.md")):
                 relative = _rel(repo_root, candidate)
                 if relative not in resolved:

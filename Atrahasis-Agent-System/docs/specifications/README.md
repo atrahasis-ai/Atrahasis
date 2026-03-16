@@ -2,6 +2,8 @@
 
 One directory per invention: `<INVENTION_ID>/`
 
+Single-digit invention directories are zero-padded on disk for stable GitHub sorting, for example `C01 - ...` through `C09 - ...`. Canonical invention IDs remain `C1` through `C9`.
+
 Each directory contains:
 - `technical_spec.md` — formal technical specification
 - `architecture.md` — system architecture document

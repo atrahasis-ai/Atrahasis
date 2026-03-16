@@ -18,11 +18,11 @@ updated_at: '2026-03-15T14:27:47Z'
 status: DONE
 scope:
   safe_zone_paths:
-  - docs/specifications/C3 - Tidal Noosphere/C3_Tidal_Noosphere_Master_Tech_Spec.md
-  - docs/specifications/C5 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md
-  - docs/specifications/C7 - Recursive Intent Framework/C7_Recursive_Intent_Framework_Master_Tech_Spec.md
-  - docs/specifications/C8 - Deterministic Settlement Fabric/C8_Deterministic_Settlement_Fabric_Master_Tech_Spec.md
-  - docs/specifications/C9 - Cross-Document Reconciliation/C9_Cross-Document_Reconciliation_Master_Tech_Spec.md
+  - docs/specifications/C03 - Tidal Noosphere/C3_Tidal_Noosphere_Master_Tech_Spec.md
+  - docs/specifications/C05 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md
+  - docs/specifications/C07 - Recursive Intent Framework/C7_Recursive_Intent_Framework_Master_Tech_Spec.md
+  - docs/specifications/C08 - Deterministic Settlement Fabric/C8_Deterministic_Settlement_Fabric_Master_Tech_Spec.md
+  - docs/specifications/C09 - Cross-Document Reconciliation/C9_Cross-Document_Reconciliation_Master_Tech_Spec.md
   - docs/specifications/C24 - Federated Habitat Fabric/C24_Federated_Habitat_Fabric_Master_Tech_Spec.md
   - docs/specifications/C23 - Execution Lease and Budget Membrane/C23_Execution_Lease_and_Budget_Membrane_Master_Tech_Spec.md
   - docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md
@@ -30,3 +30,4 @@ scope:
   pipeline_type: DIRECT_EDIT
 notes: Direct-spec Wave 8 retrofit to remove bridge/A2A/MCP forward-authority assumptions
   and enforce strict SP-NATIVE-ATTESTED posture on the claimed surfaces.
+

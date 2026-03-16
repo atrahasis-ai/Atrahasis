@@ -24,6 +24,12 @@ class SpecPathResolverTests(unittest.TestCase):
         specs_root = self.repo_root / "docs" / "specifications"
         specs_root.mkdir(parents=True, exist_ok=True)
 
+        c05_dir = specs_root / "C05 - Proof-Carrying Verification Membrane"
+        c05_dir.mkdir(parents=True, exist_ok=True)
+        (c05_dir / "C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md").write_text(
+            "# C5\n", encoding="utf-8"
+        )
+
         c42_dir = specs_root / "C42 - Lease-Primed Execution Mesh"
         c42_dir.mkdir(parents=True, exist_ok=True)
         (c42_dir / "C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md").write_text(
@@ -42,6 +48,13 @@ class SpecPathResolverTests(unittest.TestCase):
         self.assertEqual(
             str(resolved.relative_to(self.repo_root)).replace("\\", "/"),
             "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md",
+        )
+
+    def test_resolve_spec_path_accepts_zero_padded_single_digit_directories(self) -> None:
+        resolved = resolve_spec_path(self.repo_root, "C5")
+        self.assertEqual(
+            str(resolved.relative_to(self.repo_root)).replace("\\", "/"),
+            "docs/specifications/C05 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md",
         )
 
     def test_resolve_spec_ref_prefers_master_tech_spec_shortcut_when_present(self) -> None:

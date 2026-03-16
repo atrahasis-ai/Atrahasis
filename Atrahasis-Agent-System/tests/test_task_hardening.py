@@ -97,7 +97,7 @@ class TaskHardeningTests(unittest.TestCase):
             status="CLAIMED",
             agent_name="Zababa",
             safe_zone_paths=[
-                "docs/specifications/C5 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md"
+                "docs/specifications/C05 - Proof-Carrying Verification Membrane/C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md"
             ],
             target_specs=["C5"],
             notes="Remove bridged provenance caveats and MCP-era assumptions.",
@@ -118,7 +118,7 @@ class TaskHardeningTests(unittest.TestCase):
         target = self._write_claimed_spec(
             task_id="T-303",
             spec_id="C5",
-            spec_dir="C5 - Proof-Carrying Verification Membrane",
+            spec_dir="C05 - Proof-Carrying Verification Membrane",
             filename="C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md",
             body="Legacy bridged provenance remains here.\n",
         )
@@ -144,7 +144,7 @@ class TaskHardeningTests(unittest.TestCase):
         target = self._write_claimed_spec(
             task_id="T-303",
             spec_id="C5",
-            spec_dir="C5 - Proof-Carrying Verification Membrane",
+            spec_dir="C05 - Proof-Carrying Verification Membrane",
             filename="C5_Proof-Carrying_Verification_Membrane_Master_Tech_Spec.md",
             body="Native provenance only.\n",
         )

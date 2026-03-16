@@ -75,9 +75,9 @@ supersession, migration, or historical comparison.
 
 ### Compatibility / historical baseline surfaces to retain
 
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/C4_Agent_Abstraction_and_Control_Protocol_Master_Tech_Spec.md`
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/architecture.md`
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/technical_spec.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/C4_Agent_Abstraction_and_Control_Protocol_Master_Tech_Spec.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/architecture.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/technical_spec.md`
 
 These files stay in the repo and remain citable only as old-stack baseline and
 compatibility context.
@@ -126,3 +126,4 @@ The dangerous mistake is collapsing `C4` into one of two wrong extremes:
 
 This task must instead keep `C4` visible, retained, and bounded while making
 Alternative C the only forward design authority.
+

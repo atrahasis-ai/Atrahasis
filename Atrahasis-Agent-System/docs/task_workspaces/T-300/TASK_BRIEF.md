@@ -43,9 +43,9 @@ retrofit tasks must replace rather than reinterpret.
   old-stack dependency footprint that this boundary must govern.
 
 ## Primary source files
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/C4_Agent_Abstraction_and_Control_Protocol_Master_Tech_Spec.md`
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/architecture.md`
-- `docs/specifications/C4 - Agent Abstraction and Control Protocol/technical_spec.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/C4_Agent_Abstraction_and_Control_Protocol_Master_Tech_Spec.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/architecture.md`
+- `docs/specifications/C04 - Agent Abstraction and Control Protocol/technical_spec.md`
 - `docs/specifications/C38 - AACP Full Sovereign Protocol Architecture/C38_AACP_Full_Sovereign_Protocol_Architecture_Master_Tech_Spec.md`
 - `docs/specifications/UNIFIED_ARCHITECTURE.md`
 
@@ -63,3 +63,4 @@ retrofit tasks must replace rather than reinterpret.
 - This task must not collapse the baseline and the replacement into one blended
   posture. It has to state exactly where `C4` stops being normative and exactly
   where Alternative C starts being mandatory.
+
