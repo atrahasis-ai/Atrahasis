@@ -124,7 +124,7 @@ class SharedStateCloseoutManager:
             text = text[: section_match.start("body")] + body + text[section_match.end("body") :]
         text = re.sub(
             r"\*Last updated: [^\n]+\*",
-            f"*Last updated: {completed_on} ({task_id} controller closeout)*",
+            f"*Last updated: {completed_on} ({task_id} task closeout)*",
             text,
             count=1,
         )
@@ -144,7 +144,7 @@ class SharedStateCloseoutManager:
         text = path.read_text(encoding="utf-8")
         if re.search(rf"^\|\s*{re.escape(task_id)}\s*\|", text, re.MULTILINE):
             return {"path": str(path.relative_to(self.repo_root)), "changed": False}
-        line = f"| {task_id} | {task_title} | {completed_on} | Controller closeout. Decision: {operator_decision or 'n/a'}. |"
+        line = f"| {task_id} | {task_title} | {completed_on} | Task closeout. Decision: {operator_decision or 'n/a'}. |"
         updated = text.rstrip() + "\n" + line + "\n"
         write_text(path, updated)
         return {"path": str(path.relative_to(self.repo_root)), "changed": True}
@@ -165,7 +165,7 @@ class SharedStateCloseoutManager:
         actor_name = actor if actor in self.VALID_AGENT_STATE_ACTORS else "Chronicler"
         text = re.sub(r'^last_updated: ".*"$', f'last_updated: "{timestamp}"', text, count=1, flags=re.MULTILINE)
         text = re.sub(r'^last_updated_by: ".*"$', f'last_updated_by: "{actor_name}"', text, count=1, flags=re.MULTILINE)
-        summary = f'{task_id}: controller closeout complete - {task_title} ({workflow_status}) on {completed_on}.'
+        summary = f'{task_id}: task closeout complete - {task_title} ({workflow_status}) on {completed_on}.'
         if summary not in text:
             text = text.rstrip() + f'\n  - "{summary}"\n'
         if text != original:
@@ -206,7 +206,7 @@ class SharedStateCloseoutManager:
     ) -> dict[str, Any]:
         path = self.docs_root / "TRIBUNAL_LOG.md"
         text = path.read_text(encoding="utf-8")
-        marker = f"## Controller Closeout: {task_id}"
+        marker = f"## Task Closeout: {task_id}"
         if marker in text:
             return {"path": str(path.relative_to(self.repo_root)), "changed": False}
         entry = [

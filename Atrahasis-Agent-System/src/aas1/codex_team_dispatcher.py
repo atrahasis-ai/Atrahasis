@@ -52,13 +52,11 @@ class CodexTeamDispatcher:
         *,
         artifact_registry: ArtifactRegistry,
         provider_runtime: ProviderRuntimeRegistry,
-        operator_sessions: Any | None = None,
         context_store: WorkflowContextStore | None = None,
     ) -> None:
         self.repo_root = repo_root
         self.registry = artifact_registry
         self.provider_runtime = provider_runtime
-        self.operator_sessions = operator_sessions
         self.context_store = context_store
         self.dispatch_root = ensure_dir(runtime_state_dir(repo_root) / "codex_dispatch")
         self.session_root = Path.home() / ".codex" / "sessions"
@@ -754,18 +752,12 @@ class CodexTeamDispatcher:
         human_record = load_json(task_root / "HUMAN_DECISION_RECORD.json")
         recommendations_path = task_root / "TEAM_DISPATCH_RECOMMENDATIONS.json"
         recommendations = load_json(recommendations_path) if recommendations_path.exists() else None
-        latest_session = self.operator_sessions.load_latest_session(task_id) if self.operator_sessions else None
         latest_workflow = self.context_store.load_latest(task_id) if self.context_store else None
-        workflow_id = (
-            (latest_session or {}).get("workflow_id")
-            or (latest_workflow or {}).get("workflow_id")
-            or "unknown"
-        )
+        workflow_id = (latest_workflow or {}).get("workflow_id") or "unknown"
         return {
             "human_record": human_record,
             "recommendations": recommendations,
             "workflow_id": workflow_id,
-            "latest_session": latest_session,
             "latest_workflow": latest_workflow,
         }
 

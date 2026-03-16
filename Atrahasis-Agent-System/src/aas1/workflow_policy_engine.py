@@ -694,7 +694,6 @@ class WorkflowPolicyEngine:
         convergence_gate_record: dict[str, Any] | None = None,
         human_decision_record: dict[str, Any] | None = None,
         closeout_execution_record: dict[str, Any] | None = None,
-        controller_run_result: dict[str, Any] | None = None,
         claim: dict[str, Any] | None = None,
         pending_hitl_count: int = 0,
     ) -> dict[str, Any]:
@@ -1068,7 +1067,7 @@ class WorkflowPolicyEngine:
             or ""
         )
         decision_recorded_at = str(
-            (human_decision_record or {}).get("controller_recorded_at")
+            (human_decision_record or {}).get("decision_recorded_at")
             or (human_decision_record or {}).get("updated_at")
             or ""
         )
@@ -1331,7 +1330,7 @@ class WorkflowPolicyEngine:
         if lifecycle_status == "READY_FOR_CLOSEOUT" and not closeout_execution_record:
             actions.append({"action": "execute_closeout", "reason": "The final stage is approved and the task can close out.", "priority": "high"})
             if settings.get("auto_closeout"):
-                actions.append({"action": "auto_closeout_ready", "reason": "Workflow policy allows controller-managed closeout execution.", "priority": "medium"})
+                actions.append({"action": "auto_closeout_ready", "reason": "Workflow policy allows automated closeout execution.", "priority": "medium"})
         if lifecycle_status == "REVISION_REQUIRED":
             actions.append({"action": "start_task_turn", "reason": "Review requested changes for the current stage.", "priority": "high"})
         if pending_hitl_count:

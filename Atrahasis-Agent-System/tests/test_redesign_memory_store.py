@@ -176,7 +176,6 @@ class RedesignMemoryStoreTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -206,7 +205,6 @@ class RedesignMemoryStoreTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -256,7 +254,6 @@ class RedesignMemoryStoreTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -333,7 +330,6 @@ class RedesignMemoryStoreTests(unittest.TestCase):
             convergence_gate_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )

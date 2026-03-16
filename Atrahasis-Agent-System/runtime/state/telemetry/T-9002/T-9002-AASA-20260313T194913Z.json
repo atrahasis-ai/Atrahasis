@@ -2,10 +2,10 @@
   "artifact_count": 25,
   "event_counts": {
     "artifact_written": 112,
-    "operator_session_updated": 4,
     "pipeline_run_completed": 3,
     "pipeline_run_started": 4,
-    "pipeline_stage_completed": 12
+    "pipeline_stage_completed": 12,
+    "workflow_context_updated": 4
   },
   "recent_events": [
     {
@@ -71,7 +71,7 @@
       "timestamp": "2026-03-13T19:49:14Z"
     },
     {
-      "event": "operator_session_updated",
+      "event": "workflow_context_updated",
       "task_id": "T-9002",
       "timestamp": "2026-03-13T19:49:14Z",
       "workflow_id": "T-9002-AASA-20260313T194913Z"

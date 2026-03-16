@@ -468,8 +468,14 @@ class RedesignMemoryStore:
 
     def _task_title_from_context(self, workflow_context: dict[str, Any] | None) -> str | None:
         workflow_record = (workflow_context or {}).get("workflow_record") or {}
-        task_brief = (workflow_context or {}).get("operator_session") or {}
-        return str(workflow_record.get("title") or task_brief.get("task_title") or "").strip() or None
+        workflow = (workflow_context or {}).get("workflow") or {}
+        request = workflow.get("request") or {}
+        return str(
+            workflow_record.get("title")
+            or request.get("task_title")
+            or request.get("prompt")
+            or ""
+        ).strip() or None
 
     def _tokens(self, text: str) -> set[str]:
         return {

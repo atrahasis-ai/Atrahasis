@@ -7,7 +7,7 @@ from aas1.common import ensure_dir, load_json, runtime_state_dir, utc_now, write
 
 
 class AuditTimelineStore:
-    """Durable per-task audit timeline for controller-owned orchestration events."""
+    """Durable per-task audit timeline for orchestration events."""
 
     def __init__(self, repo_root: Path) -> None:
         self.root = ensure_dir(runtime_state_dir(repo_root) / "audit_timelines")
@@ -19,7 +19,7 @@ class AuditTimelineStore:
         event_type: str,
         summary: str,
         payload: dict[str, Any] | None = None,
-        source: str = "controller",
+        source: str = "system",
         level: str = "INFO",
     ) -> dict[str, Any]:
         state = self.load(task_id) or self._new_state(task_id)

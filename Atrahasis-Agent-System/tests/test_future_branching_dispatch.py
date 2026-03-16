@@ -79,7 +79,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -109,7 +108,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -136,7 +134,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -145,7 +142,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             self.repo_root,
             artifact_registry=registry,
             provider_runtime=FakeProviderRuntime(),
-            operator_sessions=None,
             context_store=None,
         )
         payload = dispatcher.prepare_dispatch(
@@ -187,7 +183,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -197,7 +192,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             self.repo_root,
             artifact_registry=registry,
             provider_runtime=FakeProviderRuntime(),
-            operator_sessions=None,
             context_store=None,
         )
         payload = dispatcher.prepare_dispatch(
@@ -250,7 +244,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -260,7 +253,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             self.repo_root,
             artifact_registry=registry,
             provider_runtime=FakeProviderRuntime(),
-            operator_sessions=None,
             context_store=None,
         )
         team_plan = dispatcher.prepare_dispatch(
@@ -422,7 +414,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -431,7 +422,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             self.repo_root,
             artifact_registry=registry,
             provider_runtime=FakeProviderRuntime(),
-            operator_sessions=None,
             context_store=None,
         )
         team_plan = dispatcher.prepare_dispatch(
@@ -688,7 +678,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -697,7 +686,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             self.repo_root,
             artifact_registry=registry,
             provider_runtime=FakeProviderRuntime(),
-            operator_sessions=None,
             context_store=None,
         )
         payload = dispatcher.prepare_dispatch(
@@ -723,7 +711,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -755,7 +742,7 @@ class FutureBranchingDispatchTests(unittest.TestCase):
         }
         approved_decision = {
             "operator_decision": "APPROVED",
-            "controller_recorded_at": "2026-03-15T00:11:00Z",
+            "decision_recorded_at": "2026-03-15T00:11:00Z",
             "updated_at": "2026-03-15T00:11:00Z",
         }
         blocked = engine.evaluate(
@@ -766,7 +753,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=approved_decision,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -785,7 +771,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             },
             human_decision_record=approved_decision,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -802,7 +787,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -821,7 +805,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             adversarial_review_record=None,
             human_decision_record=None,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -897,7 +880,7 @@ class FutureBranchingDispatchTests(unittest.TestCase):
         }
         approved_decision = {
             "operator_decision": "APPROVED",
-            "controller_recorded_at": "2026-03-15T00:13:00Z",
+            "decision_recorded_at": "2026-03-15T00:13:00Z",
             "updated_at": "2026-03-15T00:13:00Z",
         }
         blocked = engine.evaluate(
@@ -912,7 +895,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             convergence_gate_record=None,
             human_decision_record=approved_decision,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )
@@ -958,7 +940,6 @@ class FutureBranchingDispatchTests(unittest.TestCase):
             },
             human_decision_record=approved_decision,
             closeout_execution_record=None,
-            controller_run_result=None,
             claim=None,
             pending_hitl_count=0,
         )

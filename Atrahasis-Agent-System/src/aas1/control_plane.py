@@ -399,11 +399,11 @@ class AtrahasisControlPlane:
         resolved_status = workflow_status or human_record.get("workflow_status", "PENDING_HUMAN_REVIEW")
         human_record["operator_decision"] = operator_decision
         human_record["workflow_status"] = resolved_status
-        human_record["controller_recorded_at"] = utc_now()
+        human_record["decision_recorded_at"] = utc_now()
         if constraints is not None:
             human_record["constraints"] = constraints
         if notes:
-            human_record["controller_notes"] = notes
+            human_record["decision_notes"] = notes
         self.registry.write_json_artifact(task_id, "HUMAN_DECISION_RECORD.json", human_record, schema_name="human_decision_record")
 
         workflow_path = task_root / "WORKFLOW_RUN_RECORD.json"

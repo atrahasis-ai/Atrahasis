@@ -79,7 +79,6 @@
       "source": "legacy_archive_migration",
       "state_buckets_removed": [
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",
@@ -98,7 +97,6 @@
       "source": "legacy_archive_migration",
       "state_buckets_removed": [
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",
@@ -117,7 +115,6 @@
       "source": "legacy_archive_migration",
       "state_buckets_removed": [
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",
@@ -136,7 +133,6 @@
       "source": "legacy_archive_migration",
       "state_buckets_removed": [
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",
@@ -155,7 +151,6 @@
       "source": "legacy_archive_migration",
       "state_buckets_removed": [
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",

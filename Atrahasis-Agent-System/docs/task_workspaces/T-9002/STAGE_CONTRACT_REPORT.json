@@ -2,12 +2,8 @@
   "artifact_checks": {
     "any_of_files": [
       {
-        "exists": true,
-        "path": "CONTROLLER_RUN_RESULT.json"
-      },
-      {
-        "exists": true,
-        "path": "WORKFLOW_SUMMARY.md"
+        "path": "WORKFLOW_SUMMARY.md",
+        "exists": true
       }
     ],
     "evidence_artifacts": [
@@ -83,7 +79,6 @@
   },
   "contract": {
     "any_of_files": [
-      "CONTROLLER_RUN_RESULT.json",
       "WORKFLOW_SUMMARY.md"
     ],
     "minimum_evidence_artifacts": 2,
@@ -107,7 +102,7 @@
     {
       "exit_code": 0,
       "name": "workspace",
-      "output": "[OK] COMMAND_REQUEST.yaml\n[OK] DISCOVERY_MAP.json\n[OK] TECHNOLOGY_FRONTIER_MODEL.json\n[OK] OPPORTUNITY_REPORT.json\n[OK] HYPOTHESIS_PACKET.json\n[OK] CONTRADICTION_MAP.json\n[OK] SOLUTION_PATH_SET.json\n[OK] NOVELTY_REPORT.json\n[OK] FEASIBILITY_REPORT.json\n[OK] EXPERIMENT_SIMULATION_REPORT.json\n[OK] HUMAN_DECISION_RECORD.json\n[OK] EXPLORATION_CONTROL_RECORD.json\n[OK] WORKFLOW_RUN_RECORD.json\n[OK] CROSS_INDUSTRY_DISCOVERY_REPORT.json\n[OK] KNOWLEDGE_DISTILLATION_REPORT.json\n[OK] VALUE_ALIGNMENT_REPORT.json\n[OK] PLATFORM_ALIGNMENT_REPORT.json\n[OK] DECISION_RANKING_REPORT.json\n[OK] RESEARCH_PROGRAM_REPORT.json\n[OK] RESEARCH_STRATEGY_REPORT.json\n[OK] REVIEW_GATE_RECORD.json\n[OK] CONTROLLER_RUN_RESULT.json\n[OK] STAGE_CONTRACT_REPORT.json",
+      "output": "[OK] COMMAND_REQUEST.yaml\n[OK] DISCOVERY_MAP.json\n[OK] TECHNOLOGY_FRONTIER_MODEL.json\n[OK] OPPORTUNITY_REPORT.json\n[OK] HYPOTHESIS_PACKET.json\n[OK] CONTRADICTION_MAP.json\n[OK] SOLUTION_PATH_SET.json\n[OK] NOVELTY_REPORT.json\n[OK] FEASIBILITY_REPORT.json\n[OK] EXPERIMENT_SIMULATION_REPORT.json\n[OK] HUMAN_DECISION_RECORD.json\n[OK] EXPLORATION_CONTROL_RECORD.json\n[OK] WORKFLOW_RUN_RECORD.json\n[OK] CROSS_INDUSTRY_DISCOVERY_REPORT.json\n[OK] KNOWLEDGE_DISTILLATION_REPORT.json\n[OK] VALUE_ALIGNMENT_REPORT.json\n[OK] PLATFORM_ALIGNMENT_REPORT.json\n[OK] DECISION_RANKING_REPORT.json\n[OK] RESEARCH_PROGRAM_REPORT.json\n[OK] RESEARCH_STRATEGY_REPORT.json\n[OK] REVIEW_GATE_RECORD.json\n[OK] STAGE_CONTRACT_REPORT.json",
       "valid": true
     }
   ]

@@ -1132,7 +1132,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z"}
 {"artifact": "docs/task_workspaces/T-910/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z"}
 {"artifact": "docs/task_workspaces/T-910/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z"}
-{"event": "operator_session_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z", "workflow_id": "T-910-AASBT-20260313T171444Z"}
+{"event": "workflow_context_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z", "workflow_id": "T-910-AASBT-20260313T171444Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z"}
 {"artifact": "docs/task_workspaces/T-910/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-910", "timestamp": "2026-03-13T17:14:44Z"}
 {"event": "pipeline_run_started", "execution_profile": "buildout", "modifier": "AASBT", "task_id": "T-910", "timestamp": "2026-03-13T17:15:15Z", "workflow_id": "T-910-AASBT-20260313T171515Z"}
@@ -1185,7 +1185,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z"}
 {"artifact": "docs/task_workspaces/T-910/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z"}
 {"artifact": "docs/task_workspaces/T-910/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z"}
-{"event": "operator_session_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z", "workflow_id": "T-910-AASBT-20260313T171515Z"}
+{"event": "workflow_context_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z", "workflow_id": "T-910-AASBT-20260313T171515Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z"}
 {"artifact": "docs/task_workspaces/T-910/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-910", "timestamp": "2026-03-13T17:15:16Z", "workflow_id": "T-910-AASBT-20260313T171515Z"}
@@ -1239,7 +1239,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z"}
 {"artifact": "docs/task_workspaces/T-910/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z"}
 {"artifact": "docs/task_workspaces/T-910/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z"}
-{"event": "operator_session_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z", "workflow_id": "T-910-AASBT-20260313T171622Z"}
+{"event": "workflow_context_updated", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z", "workflow_id": "T-910-AASBT-20260313T171622Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z"}
 {"artifact": "docs/task_workspaces/T-910/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-910", "timestamp": "2026-03-13T17:16:22Z", "workflow_id": "T-910-AASBT-20260313T171622Z"}
@@ -1293,7 +1293,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z"}
 {"artifact": "docs/task_workspaces/T-911/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z"}
 {"artifact": "docs/task_workspaces/T-911/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z"}
-{"event": "operator_session_updated", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z", "workflow_id": "T-911-AASAQ-20260313T181343Z"}
+{"event": "workflow_context_updated", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z", "workflow_id": "T-911-AASAQ-20260313T181343Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z"}
 {"artifact": "docs/task_workspaces/T-911/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z"}
 {"event": "pipeline_run_completed", "modifier": "AASAQ", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-911", "timestamp": "2026-03-13T18:13:43Z", "workflow_id": "T-911-AASAQ-20260313T181343Z"}
@@ -1349,7 +1349,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z"}
 {"artifact": "docs/task_workspaces/T-9500/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z"}
 {"artifact": "docs/task_workspaces/T-9500/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z"}
-{"event": "operator_session_updated", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z", "workflow_id": "T-9500-AASAQ-20260313T185851Z"}
+{"event": "workflow_context_updated", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z", "workflow_id": "T-9500-AASAQ-20260313T185851Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z"}
 {"artifact": "docs/task_workspaces/T-9500/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z"}
 {"event": "pipeline_run_completed", "modifier": "AASAQ", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9500", "timestamp": "2026-03-13T18:58:51Z", "workflow_id": "T-9500-AASAQ-20260313T185851Z"}
@@ -1401,7 +1401,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z"}
 {"artifact": "docs/task_workspaces/T-9000/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z"}
 {"artifact": "docs/task_workspaces/T-9000/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z"}
-{"event": "operator_session_updated", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z", "workflow_id": "T-9000-AASAQ-20260313T185851Z"}
+{"event": "workflow_context_updated", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z", "workflow_id": "T-9000-AASAQ-20260313T185851Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z"}
 {"artifact": "docs/task_workspaces/T-9000/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z"}
 {"event": "pipeline_run_completed", "modifier": "AASAQ", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9000", "timestamp": "2026-03-13T18:58:52Z", "workflow_id": "T-9000-AASAQ-20260313T185851Z"}
@@ -1455,7 +1455,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z"}
 {"artifact": "docs/task_workspaces/T-9001/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z"}
 {"artifact": "docs/task_workspaces/T-9001/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z"}
-{"event": "operator_session_updated", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z", "workflow_id": "T-9001-AASAQ-20260313T185901Z"}
+{"event": "workflow_context_updated", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z", "workflow_id": "T-9001-AASAQ-20260313T185901Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z"}
 {"artifact": "docs/task_workspaces/T-9001/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z"}
 {"event": "pipeline_run_completed", "modifier": "AASAQ", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9001", "timestamp": "2026-03-13T18:59:02Z", "workflow_id": "T-9001-AASAQ-20260313T185901Z"}
@@ -1505,7 +1505,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z", "workflow_id": "T-9002-AASA-20260313T191606Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z", "workflow_id": "T-9002-AASA-20260313T191606Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:16:06Z", "workflow_id": "T-9002-AASA-20260313T191606Z"}
@@ -1553,7 +1553,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z", "workflow_id": "T-9002-AASA-20260313T193427Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z", "workflow_id": "T-9002-AASA-20260313T193427Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:34:27Z", "workflow_id": "T-9002-AASA-20260313T193427Z"}
@@ -1613,7 +1613,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z", "workflow_id": "T-9002-AASA-20260313T194115Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z", "workflow_id": "T-9002-AASA-20260313T194115Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:41:15Z", "workflow_id": "T-9002-AASA-20260313T194115Z"}
@@ -1659,7 +1659,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z"}
 {"artifact": "docs/task_workspaces/T-260/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z"}
 {"artifact": "docs/task_workspaces/T-260/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z"}
-{"event": "operator_session_updated", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z", "workflow_id": "T-260-AASBT-20260313T194754Z"}
+{"event": "workflow_context_updated", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z", "workflow_id": "T-260-AASBT-20260313T194754Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z"}
 {"artifact": "docs/task_workspaces/T-260/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-260", "timestamp": "2026-03-13T19:47:54Z", "workflow_id": "T-260-AASBT-20260313T194754Z"}
@@ -1707,7 +1707,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z"}
 {"artifact": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z"}
 {"artifact": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z"}
-{"event": "operator_session_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z", "workflow_id": "T-270-AASBT-20260313T194827Z"}
+{"event": "workflow_context_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z", "workflow_id": "T-270-AASBT-20260313T194827Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z"}
 {"artifact": "docs/task_workspaces/T-270/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-270", "timestamp": "2026-03-13T19:48:27Z", "workflow_id": "T-270-AASBT-20260313T194827Z"}
@@ -1770,7 +1770,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z"}
 {"artifact": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z"}
 {"artifact": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z"}
-{"event": "operator_session_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z", "workflow_id": "T-270-AASBT-20260313T194837Z"}
+{"event": "workflow_context_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z", "workflow_id": "T-270-AASBT-20260313T194837Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z"}
 {"artifact": "docs/task_workspaces/T-270/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-270", "timestamp": "2026-03-13T19:48:37Z", "workflow_id": "T-270-AASBT-20260313T194837Z"}
@@ -1833,7 +1833,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z"}
 {"artifact": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z"}
 {"artifact": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z"}
-{"event": "operator_session_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z", "workflow_id": "T-270-AASBT-20260313T194849Z"}
+{"event": "workflow_context_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z", "workflow_id": "T-270-AASBT-20260313T194849Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z"}
 {"artifact": "docs/task_workspaces/T-270/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-270", "timestamp": "2026-03-13T19:48:50Z", "workflow_id": "T-270-AASBT-20260313T194849Z"}
@@ -1896,7 +1896,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z"}
 {"artifact": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z"}
 {"artifact": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z"}
-{"event": "operator_session_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z", "workflow_id": "T-270-AASBT-20260313T194900Z"}
+{"event": "workflow_context_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z", "workflow_id": "T-270-AASBT-20260313T194900Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z"}
 {"artifact": "docs/task_workspaces/T-270/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-270", "timestamp": "2026-03-13T19:49:00Z", "workflow_id": "T-270-AASBT-20260313T194900Z"}
@@ -1959,7 +1959,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z"}
 {"artifact": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z"}
 {"artifact": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z"}
-{"event": "operator_session_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z", "workflow_id": "T-270-AASBT-20260313T194910Z"}
+{"event": "workflow_context_updated", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z", "workflow_id": "T-270-AASBT-20260313T194910Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z"}
 {"artifact": "docs/task_workspaces/T-270/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-270", "timestamp": "2026-03-13T19:49:11Z", "workflow_id": "T-270-AASBT-20260313T194910Z"}
@@ -2017,7 +2017,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z", "workflow_id": "T-9002-AASA-20260313T194913Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z", "workflow_id": "T-9002-AASA-20260313T194913Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:49:14Z", "workflow_id": "T-9002-AASA-20260313T194913Z"}
@@ -2063,7 +2063,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z"}
 {"artifact": "docs/task_workspaces/T-251/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z"}
 {"artifact": "docs/task_workspaces/T-251/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z"}
-{"event": "operator_session_updated", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z", "workflow_id": "T-251-AASBT-20260313T194957Z"}
+{"event": "workflow_context_updated", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z", "workflow_id": "T-251-AASBT-20260313T194957Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z"}
 {"artifact": "docs/task_workspaces/T-251/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-251", "timestamp": "2026-03-13T19:49:57Z", "workflow_id": "T-251-AASBT-20260313T194957Z"}
@@ -2116,7 +2116,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z"}
 {"artifact": "docs/task_workspaces/T-260/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z"}
 {"artifact": "docs/task_workspaces/T-260/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z"}
-{"event": "operator_session_updated", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z", "workflow_id": "T-260-AASBT-20260313T195136Z"}
+{"event": "workflow_context_updated", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z", "workflow_id": "T-260-AASBT-20260313T195136Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z"}
 {"artifact": "docs/task_workspaces/T-260/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-260", "timestamp": "2026-03-13T19:51:37Z", "workflow_id": "T-260-AASBT-20260313T195136Z"}
@@ -2174,7 +2174,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z", "workflow_id": "T-9002-AASA-20260313T195251Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z", "workflow_id": "T-9002-AASA-20260313T195251Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:52:52Z", "workflow_id": "T-9002-AASA-20260313T195251Z"}
@@ -2226,7 +2226,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z"}
 {"artifact": "docs/task_workspaces/T-251/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z"}
 {"artifact": "docs/task_workspaces/T-251/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z"}
-{"event": "operator_session_updated", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z", "workflow_id": "T-251-AASBT-20260313T195354Z"}
+{"event": "workflow_context_updated", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z", "workflow_id": "T-251-AASBT-20260313T195354Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z"}
 {"artifact": "docs/task_workspaces/T-251/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-251", "timestamp": "2026-03-13T19:53:54Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-251", "timestamp": "2026-03-13T19:53:55Z", "workflow_id": "T-251-AASBT-20260313T195354Z"}
@@ -2272,7 +2272,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z", "workflow_id": "T-9002-AASA-20260313T195511Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z", "workflow_id": "T-9002-AASA-20260313T195511Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T19:55:11Z", "workflow_id": "T-9002-AASA-20260313T195511Z"}
@@ -2324,7 +2324,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z"}
 {"artifact": "docs/task_workspaces/T-251/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z"}
 {"artifact": "docs/task_workspaces/T-251/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z"}
-{"event": "operator_session_updated", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z", "workflow_id": "T-251-AASBT-20260313T200130Z"}
+{"event": "workflow_context_updated", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z", "workflow_id": "T-251-AASBT-20260313T200130Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z"}
 {"artifact": "docs/task_workspaces/T-251/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z"}
 {"event": "pipeline_run_completed", "modifier": "AASBT", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-251", "timestamp": "2026-03-13T20:01:30Z", "workflow_id": "T-251-AASBT-20260313T200130Z"}
@@ -2376,7 +2376,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:08Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:08Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:08Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:09Z", "workflow_id": "T-9002-AASA-20260313T201208Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:09Z", "workflow_id": "T-9002-AASA-20260313T201208Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:09Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:09Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:12:09Z", "workflow_id": "T-9002-AASA-20260313T201208Z"}
@@ -2428,7 +2428,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z", "workflow_id": "T-9002-AASA-20260313T201752Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z", "workflow_id": "T-9002-AASA-20260313T201752Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:17:52Z", "workflow_id": "T-9002-AASA-20260313T201752Z"}
@@ -2482,7 +2482,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z", "workflow_id": "T-9002-AASA-20260313T202524Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z", "workflow_id": "T-9002-AASA-20260313T202524Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:25:24Z", "workflow_id": "T-9002-AASA-20260313T202524Z"}
@@ -2534,7 +2534,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z", "workflow_id": "T-9002-AASA-20260313T202613Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z", "workflow_id": "T-9002-AASA-20260313T202613Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:26:14Z", "workflow_id": "T-9002-AASA-20260313T202613Z"}
@@ -2586,7 +2586,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z", "workflow_id": "T-9002-AASA-20260313T202846Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z", "workflow_id": "T-9002-AASA-20260313T202846Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:28:46Z", "workflow_id": "T-9002-AASA-20260313T202846Z"}
@@ -2638,7 +2638,7 @@
 {"event": "pipeline_stage_completed", "stage": "reasoning_and_evaluation", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z"}
 {"artifact": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json", "event": "artifact_written", "schema": "human_decision_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z"}
 {"artifact": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json", "event": "artifact_written", "schema": "exploration_control_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z"}
-{"event": "operator_session_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z", "workflow_id": "T-9002-AASA-20260313T203253Z"}
+{"event": "workflow_context_updated", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z", "workflow_id": "T-9002-AASA-20260313T203253Z"}
 {"event": "pipeline_stage_completed", "stage": "human_guidance", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z"}
 {"artifact": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json", "event": "artifact_written", "schema": "workflow_run_record", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z"}
 {"event": "pipeline_run_completed", "modifier": "AASA", "status": "PENDING_HUMAN_REVIEW", "task_id": "T-9002", "timestamp": "2026-03-13T20:32:53Z", "workflow_id": "T-9002-AASA-20260313T203253Z"}
