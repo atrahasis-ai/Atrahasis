@@ -13,10 +13,10 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.control_plane import AtrahasisControlPlane
-from aas1.stage_contracts import StageContractRegistry
-from aas1.common import load_yaml
-from aas1.task_hardening import (
+from aas5.control_plane import AtrahasisControlPlane
+from aas5.stage_contracts import StageContractRegistry
+from aas5.common import load_yaml
+from aas5.task_hardening import (
     AUTHORITY_COVERAGE_MATRIX,
     CHILD_RESULT_MERGE_PACKAGE,
     COMMAND_REQUEST,

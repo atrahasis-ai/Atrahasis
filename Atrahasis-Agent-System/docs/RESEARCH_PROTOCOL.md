@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The AAS1 research protocol feeds the knowledge infrastructure used by invention reasoning. Research is controlled by `InventionPipelineManager`; it is not an independent stage controller.
+The AAS5 research protocol feeds the knowledge infrastructure used by invention reasoning. Research is controlled by `InventionPipelineManager`; it is not an independent stage controller.
 
 ## Knowledge Infrastructure Modules
 

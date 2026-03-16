@@ -26,7 +26,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.provider_runtime import ProviderRuntimeRegistry
+    from aas5.provider_runtime import ProviderRuntimeRegistry
 
     registry = ProviderRuntimeRegistry(repo_root)
     payload = registry.register_backend(

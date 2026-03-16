@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Knowledge Distillation Report",
+  "title": "AAS5 Knowledge Distillation Report",
   "type": "object",
   "required": ["type", "triggered", "cycle_count", "node_count", "distilled_clusters", "updated_discovery_map"],
   "properties": {

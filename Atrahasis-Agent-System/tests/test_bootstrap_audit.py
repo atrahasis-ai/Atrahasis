@@ -12,7 +12,7 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.bootstrap_audit import build_bootstrap_runtime_audit
+from aas5.bootstrap_audit import build_bootstrap_runtime_audit
 
 
 class BootstrapAuditTests(unittest.TestCase):

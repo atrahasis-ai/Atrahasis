@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Team Dispatch Recommendations",
+  "title": "AAS5 Team Dispatch Recommendations",
   "type": "object",
   "required": [
     "type",

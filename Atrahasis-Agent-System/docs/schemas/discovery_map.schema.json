@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Discovery Map",
+  "title": "AAS5 Discovery Map",
   "type": "object",
   "required": ["type", "nodes", "edges", "entities", "relationships", "problem_clusters", "domain_links", "evidence_refs"],
   "properties": {

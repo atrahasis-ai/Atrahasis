@@ -13,8 +13,8 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.human_decision_interface import HumanDecisionInterface
-from aas1.invention_pipeline_manager import InventionPipelineManager
+from aas5.human_decision_interface import HumanDecisionInterface
+from aas5.invention_pipeline_manager import InventionPipelineManager
 
 
 class HumanReviewOptionSynthesisTests(unittest.TestCase):

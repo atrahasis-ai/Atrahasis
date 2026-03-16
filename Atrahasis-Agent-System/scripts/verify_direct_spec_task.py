@@ -32,7 +32,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.task_hardening import verify_direct_spec_task
+    from aas5.task_hardening import verify_direct_spec_task
 
     payload = verify_direct_spec_task(
         repo_root,

@@ -23,7 +23,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.workflow_retirement_manager import WorkflowRetirementManager
+    from aas5.workflow_retirement_manager import WorkflowRetirementManager
 
     manager = WorkflowRetirementManager(repo_root)
     payload = manager.retire_tasks(task_ids=args.task_ids, reason=args.reason)

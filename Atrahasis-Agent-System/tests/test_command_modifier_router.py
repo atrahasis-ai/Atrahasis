@@ -10,7 +10,7 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.command_modifier_router import CommandModifierRouter
+from aas5.command_modifier_router import CommandModifierRouter
 
 
 class CommandModifierRouterTests(unittest.TestCase):

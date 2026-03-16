@@ -210,6 +210,6 @@
 {"cssm_state": "AAS-State-gamma-v1.103", "cycle_number": 103, "event": "proposal_approved", "proposal_id": "AEP-CYCLE103-GAMMA-001", "timestamp": "2026-03-13T10:33:50Z"}
 {"candidate_metrics": {"capability_gain": 0.057, "consensus_alignment": 0.855, "governance_stability": 0.77, "meaningful_change_score": 0.165}, "cycle_number": 104, "event": "swarm_exploration_completed", "proposal_id": "AEP-CYCLE104-GAMMA-001", "timestamp": "2026-03-13T10:33:51Z"}
 {"cssm_state": "AAS-State-gamma-v1.104", "cycle_number": 104, "event": "proposal_approved", "proposal_id": "AEP-CYCLE104-GAMMA-001", "timestamp": "2026-03-13T10:33:51Z"}
-{"event": "swarm_architecture_candidate", "focus": "recast_aas_as_portfolio_scale_discovery_graph", "run_id": "AAS1-REDESIGN-20260313-01", "swarm": "gamma", "timestamp": "2026-03-13T11:43:33Z"}
+{"event": "swarm_architecture_candidate", "focus": "recast_aas_as_portfolio_scale_discovery_graph", "run_id": "AAS5-REDESIGN-20260313-01", "swarm": "gamma", "timestamp": "2026-03-13T11:43:33Z"}
 {"event": "swarm_review_completed", "focus": "radical_alternatives", "recommendation": "reject_full_distributed_runtime", "score": 0.7, "swarm": "gamma", "timestamp": "2026-03-13T16:40:51Z"}
 {"aas3_score": 0.76, "drr_score": 0.79, "event": "swarm_evaluation_completed", "focus": "radical_alternatives_and_long_term_evolution", "recommendation": "reject_drr_as_primary_runtime_today", "swarm": "gamma", "timestamp": "2026-03-13T16:54:32Z"}

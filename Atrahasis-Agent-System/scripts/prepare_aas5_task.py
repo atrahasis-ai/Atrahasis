@@ -27,7 +27,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.task_hardening import prepare_task
+    from aas5.task_hardening import prepare_task
 
     payload = prepare_task(
         repo_root,

@@ -12,7 +12,7 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.stage_contracts import StageContractRegistry
+from aas5.stage_contracts import StageContractRegistry
 from tests.aas5_fixture_support import AAS5IdeationFixture, copy_aas5_validator_runtime
 
 

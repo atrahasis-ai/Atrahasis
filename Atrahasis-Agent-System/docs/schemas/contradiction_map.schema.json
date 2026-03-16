@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Contradiction Map",
+  "title": "AAS5 Contradiction Map",
   "type": "object",
   "required": ["type", "contradictions", "affected_subsystems", "blocking_assumptions", "severity"],
   "properties": {

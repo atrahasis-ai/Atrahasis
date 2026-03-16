@@ -47,7 +47,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.invention_pipeline_manager import InventionPipelineManager
+    from aas5.invention_pipeline_manager import InventionPipelineManager
 
     manager = InventionPipelineManager(repo_root)
     payload = manager.prepare_team_dispatch(

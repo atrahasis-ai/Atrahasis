@@ -45,7 +45,7 @@ broader operational role catalog.
   three separate tribunal children unless the task explicitly needs that
   overhead.
 
-Reference role catalog: `src/aas1/provider_runtime.py`
+Reference role catalog: `src/aas5/provider_runtime.py`
 
 ---
 

@@ -3,7 +3,7 @@
 
 ## Purpose
 
-AAS1 is a human-guided invention intelligence system for the Atrahasis repository. It maps the repository as a living research corpus, identifies invention opportunities, generates candidate invention paths, and packages the results for human direction.
+AAS5 is a human-guided invention intelligence system for the Atrahasis repository. It maps the repository as a living research corpus, identifies invention opportunities, generates candidate invention paths, and packages the results for human direction.
 
 ## Single Orchestration Rule
 

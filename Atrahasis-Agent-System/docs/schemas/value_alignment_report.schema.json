@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Value Alignment Report",
+  "title": "AAS5 Value Alignment Report",
   "type": "object",
   "required": ["type", "alignment_mode", "hypothesis_alignment", "program_alignment"],
   "properties": {

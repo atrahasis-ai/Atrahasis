@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Decision Ranking Report",
+  "title": "AAS5 Decision Ranking Report",
   "type": "object",
   "required": ["type", "candidate_count", "presentation_limit", "ranked_hypotheses", "display_candidates"],
   "properties": {

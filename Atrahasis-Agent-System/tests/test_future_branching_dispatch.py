@@ -13,12 +13,12 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.artifact_registry import ArtifactRegistry
-from aas1.codex_team_dispatcher import CodexTeamDispatcher
-from aas1.dispatch_merge_engine import DispatchMergeEngine
-from aas1.redesign_memory_store import RedesignMemoryStore
-from aas1.swarm_validation import validate_swarm_execution_task
-from aas1.workflow_policy_engine import WorkflowPolicyEngine
+from aas5.artifact_registry import ArtifactRegistry
+from aas5.codex_team_dispatcher import CodexTeamDispatcher
+from aas5.dispatch_merge_engine import DispatchMergeEngine
+from aas5.redesign_memory_store import RedesignMemoryStore
+from aas5.swarm_validation import validate_swarm_execution_task
+from aas5.workflow_policy_engine import WorkflowPolicyEngine
 
 
 SCHEMA_NAMES = [

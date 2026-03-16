@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Research Synthesis Report",
+  "title": "AAS5 Research Synthesis Report",
   "type": "object",
   "required": ["type", "research_clusters", "top_keywords", "synthesis_summary"],
   "properties": {

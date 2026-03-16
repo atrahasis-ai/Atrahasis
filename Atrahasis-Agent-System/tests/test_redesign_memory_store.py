@@ -13,9 +13,9 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.control_plane import AtrahasisControlPlane
-from aas1.redesign_memory_store import RedesignMemoryStore
-from aas1.workflow_policy_engine import WorkflowPolicyEngine
+from aas5.control_plane import AtrahasisControlPlane
+from aas5.redesign_memory_store import RedesignMemoryStore
+from aas5.workflow_policy_engine import WorkflowPolicyEngine
 
 
 class RedesignMemoryStoreTests(unittest.TestCase):

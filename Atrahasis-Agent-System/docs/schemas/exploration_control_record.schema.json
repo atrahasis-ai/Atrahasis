@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Exploration Control Record",
+  "title": "AAS5 Exploration Control Record",
   "type": "object",
   "required": ["type", "recommended_branch_budget", "priority_order", "escalate_to_human"],
   "properties": {

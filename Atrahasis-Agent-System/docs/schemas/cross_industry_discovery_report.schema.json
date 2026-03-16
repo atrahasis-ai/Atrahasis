@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Cross Industry Discovery Report",
+  "title": "AAS5 Cross Industry Discovery Report",
   "type": "object",
   "required": ["type", "analogies", "generated_hypothesis_seeds", "updated_discovery_map"],
   "properties": {

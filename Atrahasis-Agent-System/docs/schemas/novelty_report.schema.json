@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Novelty Report",
+  "title": "AAS5 Novelty Report",
   "type": "object",
   "required": ["type", "closest_prior_art", "differentiators", "novelty_score", "collision_risk", "hypothesis_assessments"],
   "properties": {

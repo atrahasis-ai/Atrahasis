@@ -13,10 +13,10 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.common import write_json, write_text
-from aas1.provider_runtime import ProviderRuntimeRegistry
-from aas1.task_id_policy import TaskIdPolicy
-from aas1.workflow_retirement_manager import WorkflowRetirementManager
+from aas5.common import write_json, write_text
+from aas5.provider_runtime import ProviderRuntimeRegistry
+from aas5.task_id_policy import TaskIdPolicy
+from aas5.workflow_retirement_manager import WorkflowRetirementManager
 
 
 class WorkflowRetirementManagerTests(unittest.TestCase):

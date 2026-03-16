@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Discovery Gap Report",
+  "title": "AAS5 Discovery Gap Report",
   "type": "object",
   "required": ["type", "gaps", "gap_count"],
   "properties": {

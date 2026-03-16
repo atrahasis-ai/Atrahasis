@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The AAS1 synthesis layer keeps artifacts consistent without becoming a second orchestrator. Synthesis exists to preserve durable outputs after `InventionPipelineManager` decides what to run.
+The AAS5 synthesis layer keeps artifacts consistent without becoming a second orchestrator. Synthesis exists to preserve durable outputs after `InventionPipelineManager` decides what to run.
 
 ## Artifact Families
 

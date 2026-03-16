@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Human Decision Record",
+  "title": "AAS5 Human Decision Record",
   "type": "object",
   "required": ["decision_type", "evidence_summary", "options", "operator_decision", "constraints"],
   "properties": {

@@ -29,7 +29,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.bootstrap_audit import build_bootstrap_runtime_audit
+    from aas5.bootstrap_audit import build_bootstrap_runtime_audit
 
     child_agent_capable = None
     if args.child_agent_capable == "true":

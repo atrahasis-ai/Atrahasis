@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Research Ingestion Report",
+  "title": "AAS5 Research Ingestion Report",
   "type": "object",
   "required": ["type", "evidence", "task_workspace_records", "inventory"],
   "properties": {

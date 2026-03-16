@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Platform Alignment Report",
+  "title": "AAS5 Platform Alignment Report",
   "type": "object",
   "required": ["type", "platform_objectives", "hypothesis_assessments", "program_recommendations"],
   "properties": {

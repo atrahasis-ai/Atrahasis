@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Technology Frontier Model",
+  "title": "AAS5 Technology Frontier Model",
   "type": "object",
   "required": ["type", "domain", "frontier_signals", "maturity_estimates", "breakthrough_candidates"],
   "properties": {

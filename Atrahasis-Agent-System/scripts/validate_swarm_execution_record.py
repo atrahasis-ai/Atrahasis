@@ -18,7 +18,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.swarm_validation import validate_swarm_execution_task
+    from aas5.swarm_validation import validate_swarm_execution_task
 
     failures = validate_swarm_execution_task(repo_root=repo_root, task_id=task_id)
     if failures:

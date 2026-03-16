@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Solution Path Set",
+  "title": "AAS5 Solution Path Set",
   "type": "object",
   "required": ["type", "candidate_paths", "required_subsystems", "tradeoffs", "dependency_order"],
   "properties": {

@@ -77,13 +77,13 @@ python scripts/claim_aas_task.py <task_id> "<title>" <platform> <agent_name>
 Run AAS3 and register the backend in one step:
 
 ```bash
-python scripts/run_aas1.py AASBT T-260 "..." --provider codex --agent-name Nergal --session-id abc123 --agent-type director
+python scripts/run_aas5.py AASBT T-260 "..." --provider codex --agent-name Nergal --session-id abc123 --agent-type director
 ```
 
 Run an ad hoc analysis/question/idea workflow and let AAS3 mint the task ID:
 
 ```bash
-python scripts/run_aas1.py AASAQ "Explain the current provider runtime architecture and supported backends." --provider gemini --agent-name Enki --session-id gemini-session-001 --agent-type primary
+python scripts/run_aas5.py AASAQ "Explain the current provider runtime architecture and supported backends." --provider gemini --agent-name Enki --session-id gemini-session-001 --agent-type primary
 ```
 
 ---

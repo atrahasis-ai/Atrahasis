@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Research Quality Report",
+  "title": "AAS5 Research Quality Report",
   "type": "object",
   "required": ["type", "ranked_evidence", "high_quality_count"],
   "properties": {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AAS1 Hypothesis Packet",
+  "title": "AAS5 Hypothesis Packet",
   "type": "object",
   "required": ["type", "hypotheses", "supporting_evidence", "opportunity_zone_refs", "confidence"],
   "properties": {

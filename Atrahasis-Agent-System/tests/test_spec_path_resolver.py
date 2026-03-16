@@ -12,7 +12,7 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from aas1.spec_path_resolver import resolve_spec_path, resolve_spec_ref
+from aas5.spec_path_resolver import resolve_spec_path, resolve_spec_ref
 
 
 class SpecPathResolverTests(unittest.TestCase):

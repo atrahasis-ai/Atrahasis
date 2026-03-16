@@ -1,6 +1,6 @@
 # Atrahasis Agent System
 
-The Atrahasis Agent System currently runs on the AAS3 architecture. It is a human-guided invention intelligence platform for the Atrahasis repository. It analyzes the repository as a research corpus, detects opportunity zones, generates invention hypotheses, evaluates solution paths, and produces structured artifacts for operator review.
+The Atrahasis Agent System currently runs on the AAS5 architecture. It is a human-guided invention intelligence platform for the Atrahasis repository. It analyzes the repository as a research corpus, detects opportunity zones, generates invention hypotheses, evaluates solution paths, and produces structured artifacts for operator review.
 
 ## System Model
 
@@ -62,32 +62,32 @@ python scripts/register_aas_backend.py codex Nergal session-001 --agent-type dir
 Run an AAS task:
 
 ```bash
-python scripts/run_aas1.py AASBT T-260 "Design the native server framework, decorator model, schema validation, auto-wrapping, provenance generation, and FastAPI/Express/Actix adapters." --constraint "Keep human approval mandatory"
+python scripts/run_aas5.py AASBT T-260 "Design the native server framework, decorator model, schema validation, auto-wrapping, provenance generation, and FastAPI/Express/Actix adapters." --constraint "Keep human approval mandatory"
 ```
 
-Run an ad hoc architecture question and let AAS3 mint the task ID:
+Run an ad hoc architecture question and let AAS5 mint the task ID:
 
 ```bash
-python scripts/run_aas1.py AASAQ "Explain the current provider runtime architecture and supported backends."
+python scripts/run_aas5.py AASAQ "Explain the current provider runtime architecture and supported backends."
 ```
 
 Run a validation-band task explicitly:
 
 ```bash
-python scripts/run_aas1.py AASAQ "Validate provider runtime registration flow." --task-class validation
+python scripts/run_aas5.py AASAQ "Validate provider runtime registration flow." --task-class validation
 ```
 
 Validate state and workspace artifacts:
 
 ```bash
 python scripts/validate_agent_state.py docs/AGENT_STATE.md
-python scripts/validate_aas1_task_workspace.py docs/task_workspaces/T-901
+python scripts/validate_aas5_task_workspace.py docs/task_workspaces/T-901
 ```
 
 Validate one artifact:
 
 ```bash
-python scripts/validate_aas1_artifact.py hypothesis_packet docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json
+python scripts/validate_aas5_artifact.py hypothesis_packet docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json
 ```
 
 ## Repository Structure
@@ -103,7 +103,7 @@ docs/
   schemas/
   templates/
   task_workspaces/
-src/aas1/
+src/aas5/
   invention_pipeline_manager.py
   command_modifier_router.py
   gcml_memory_interface.py
@@ -113,12 +113,12 @@ src/aas1/
   reasoning/
   validation/
 scripts/
-  run_aas1.py
+  run_aas5.py
   register_aas_backend.py
   claim_aas_task.py
   validate_agent_state.py
-  validate_aas1_artifact.py
-  validate_aas1_task_workspace.py
+  validate_aas5_artifact.py
+  validate_aas5_task_workspace.py
 ```
 
 ## Human Guidance Rule

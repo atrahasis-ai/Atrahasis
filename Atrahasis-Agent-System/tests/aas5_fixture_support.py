@@ -5,7 +5,7 @@ import shutil
 from pathlib import Path
 from typing import Any
 
-from aas1.aas5_ideation import (
+from aas5.aas5_ideation import (
     AAS5_DOCTRINE_VERSION,
     AAS5_TOPOLOGY_MODE,
     EXECUTION_PARALLELISM_RECORD,
@@ -25,17 +25,17 @@ from aas1.aas5_ideation import (
     lane_worker_node_ids,
     make_run_key,
 )
-from aas1.workflow_policy_engine import future_exploration_for
+from aas5.workflow_policy_engine import future_exploration_for
 
 
 def copy_aas5_validator_runtime(*, source_repo: Path, destination_repo: Path) -> None:
     (destination_repo / "scripts").mkdir(parents=True, exist_ok=True)
-    (destination_repo / "src" / "aas1").mkdir(parents=True, exist_ok=True)
-    (destination_repo / "src" / "aas1" / "__init__.py").write_text("", encoding="utf-8")
+    (destination_repo / "src" / "aas5").mkdir(parents=True, exist_ok=True)
+    (destination_repo / "src" / "aas5" / "__init__.py").write_text("", encoding="utf-8")
     for relative in [
         ("scripts", "validate_swarm_execution_record.py"),
-        ("src/aas1", "swarm_validation.py"),
-        ("src/aas1", "aas5_ideation.py"),
+        ("src/aas5", "swarm_validation.py"),
+        ("src/aas5", "aas5_ideation.py"),
     ]:
         root, name = relative
         shutil.copy2(source_repo / root / name, destination_repo / root / name)

@@ -210,6 +210,6 @@
 {"cssm_state": "AAS-State-alpha-v1.103", "cycle_number": 103, "event": "proposal_approved", "proposal_id": "AEP-CYCLE103-ALPHA-001", "timestamp": "2026-03-13T10:33:50Z"}
 {"candidate_metrics": {"capability_gain": 0.03, "consensus_alignment": 0.895, "governance_stability": 0.87, "meaningful_change_score": 0.155}, "cycle_number": 104, "event": "swarm_exploration_completed", "proposal_id": "AEP-CYCLE104-ALPHA-001", "timestamp": "2026-03-13T10:33:51Z"}
 {"cssm_state": "AAS-State-alpha-v1.104", "cycle_number": 104, "event": "proposal_approved", "proposal_id": "AEP-CYCLE104-ALPHA-001", "timestamp": "2026-03-13T10:33:51Z"}
-{"event": "swarm_architecture_candidate", "focus": "preserve_stage_gates_and_human_guidance", "run_id": "AAS1-REDESIGN-20260313-01", "swarm": "alpha", "timestamp": "2026-03-13T11:43:33Z"}
+{"event": "swarm_architecture_candidate", "focus": "preserve_stage_gates_and_human_guidance", "run_id": "AAS5-REDESIGN-20260313-01", "swarm": "alpha", "timestamp": "2026-03-13T11:43:33Z"}
 {"event": "swarm_review_completed", "focus": "optimization_and_stabilization", "recommendation": "stage_registry_and_manifest_caching", "score": 0.73, "swarm": "alpha", "timestamp": "2026-03-13T16:40:51Z"}
 {"aas3_score": 0.84, "drr_score": 0.71, "event": "swarm_evaluation_completed", "focus": "stability_and_simplicity", "recommendation": "proceed_with_aas3", "swarm": "alpha", "timestamp": "2026-03-13T16:54:32Z"}

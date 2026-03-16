@@ -20,7 +20,7 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repo_root / "src"))
 
-    from aas1.task_hardening import validate_closeout_consistency
+    from aas5.task_hardening import validate_closeout_consistency
 
     payload = validate_closeout_consistency(repo_root, task_id=args.task_id)
     print(json.dumps(payload, indent=2, sort_keys=True))

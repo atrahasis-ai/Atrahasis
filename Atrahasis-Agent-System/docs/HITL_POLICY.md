@@ -2,7 +2,7 @@
 
 ## Core Rule
 
-AAS1 is human-guided. It may analyze, synthesize, hypothesize, simulate, and recommend, but it must not finalize major invention decisions without operator review.
+AAS5 is human-guided. It may analyze, synthesize, hypothesize, simulate, and recommend, but it must not finalize major invention decisions without operator review.
 
 ## Mandatory Review Gates
 
@@ -15,7 +15,7 @@ AAS1 is human-guided. It may analyze, synthesize, hypothesize, simulate, and rec
 
 ## Required Operator Artifacts
 
-Every AAS1 run must produce:
+Every AAS5 run must produce:
 
 - `HUMAN_DECISION_RECORD.json`
 - `EXPLORATION_CONTROL_RECORD.json`
