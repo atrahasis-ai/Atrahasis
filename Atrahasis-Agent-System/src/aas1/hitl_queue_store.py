@@ -6,14 +6,6 @@ from typing import Any
 from aas1.common import ensure_dir, load_json, runtime_state_dir, utc_now, write_json
 
 
-METHOD_TO_CATEGORY = {
-    "item/commandExecution/requestApproval": "command_approval",
-    "item/fileChange/requestApproval": "file_change_approval",
-    "item/permissions/requestApproval": "permissions_approval",
-    "item/tool/requestUserInput": "request_user_input",
-}
-
-
 class HitlQueueStore:
     """Durable controller-owned HITL queue."""
 
@@ -62,33 +54,6 @@ class HitlQueueStore:
         }
         self._write(payload)
         return payload
-
-    def record_app_server_request(
-        self,
-        *,
-        request_id: str | int,
-        method: str,
-        params: dict[str, Any],
-        task_id: str | None,
-        run_id: str | None,
-        thread_id: str | None = None,
-        review_thread_id: str | None = None,
-    ) -> dict[str, Any]:
-        existing = self.find_by_request_id(request_id)
-        if existing and existing.get("status") == "PENDING":
-            return existing
-        return self.create_entry(
-            task_id=task_id,
-            run_id=run_id,
-            source="app_server",
-            category=METHOD_TO_CATEGORY.get(method, "server_request"),
-            summary=f"{method} requires operator action",
-            request_id=request_id,
-            method=method,
-            thread_id=thread_id,
-            review_thread_id=review_thread_id,
-            request_payload=params,
-        )
 
     def list_entries(
         self,

@@ -1,6 +1,6 @@
 # Review Templates
 **Platform:** OpenAI Codex
-**Purpose:** Provide stage- and role-aware review scaffolds for controller-managed review gates
+**Purpose:** Preserve stage- and role-aware review scaffolds for AAS5 review work
 
 ---
 
@@ -39,32 +39,16 @@ Fallback role:
 
 ---
 
-## How To Use
+## Current Posture
 
-### Automatic
+The old controller-owned review-start commands were retired with the App Server runtime.
 
-```bash
-python scripts/aas_controller.py start-review T-9002
-```
+These templates are still kept in-repo because they remain useful for:
+- direct provider-session reviews
+- manual review drafting
+- future controller review flows if AAS5 reintroduces a provider-neutral review launcher
 
-The controller chooses a template from the current workflow stage.
-
-### Explicit Role
-
-```bash
-python scripts/aas_controller.py start-review T-9002 --review-role critic
-```
-
-The controller records the selected template role and template path into the review gate record notes so the review surface stays auditable.
-
-### Conditional Adversarial Review
-
-```bash
-python scripts/aas_controller.py start-adversarial-review T-9002
-python scripts/aas_controller.py finalize-adversarial-review T-9002 REVIEW_APPROVED "Adversarial concerns addressed."
-```
-
-This is a separate gate from the ordinary review record. AAS5 only requires it when the workflow policy marks the current stage as high-risk enough to need explicit adversarial pressure.
+Finalization commands still exist for controller records, but review startup is no longer performed by the controller CLI or operator UI.
 
 ---
 

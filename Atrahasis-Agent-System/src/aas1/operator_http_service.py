@@ -1,12 +1,7 @@
 from __future__ import annotations
 
 import json
-import os
-import shutil
-import socket
-import subprocess
 import threading
-import time
 import webbrowser
 from collections import deque
 from dataclasses import dataclass
@@ -26,21 +21,16 @@ from aas1.task_id_policy import TASK_ID_RE, TaskIdPolicy
 
 DEFAULT_OPERATOR_HOST = "127.0.0.1"
 DEFAULT_OPERATOR_PORT = 4180
-DEFAULT_APP_SERVER_URL = "ws://127.0.0.1:8765"
-MAX_LOG_LINES = 120
+RETIRED_RUNTIME_MESSAGE = (
+    "Controller-owned App Server runtime has been retired from AAS5. "
+    "Use direct provider sessions and task-local artifacts instead."
+)
 
 
 def _bool_arg(value: str | None, default: bool = False) -> bool:
     if value is None:
         return default
     return value.lower() in {"1", "true", "yes", "on"}
-
-
-def _json_preview(payload: Any) -> str:
-    text = json.dumps(payload, indent=2, sort_keys=True)
-    if len(text) > 2000:
-        return text[:2000] + "\n..."
-    return text
 
 
 def _now_display() -> str:
@@ -89,219 +79,39 @@ class ControllerEventBroker:
 
 
 @dataclass
-class AppServerLaunchConfig:
-    listen_url: str = DEFAULT_APP_SERVER_URL
+class RetiredRuntimeLaunchConfig:
+    listen_url: str | None = None
     codex_executable: str | None = None
 
 
-class AppServerProcessManager:
-    def __init__(self, repo_root: Path, launch_config: AppServerLaunchConfig | None = None) -> None:
+class RetiredRuntimeManager:
+    def __init__(self, repo_root: Path) -> None:
         self.repo_root = repo_root
-        self.launch_config = launch_config or AppServerLaunchConfig()
-        self._lock = threading.Lock()
-        self._process: subprocess.Popen[str] | None = None
-        self._stdout_lines: deque[str] = deque(maxlen=MAX_LOG_LINES)
-        self._stderr_lines: deque[str] = deque(maxlen=MAX_LOG_LINES)
-        self._started_at: str | None = None
-        self._last_error: str | None = None
+        self.launch_config = RetiredRuntimeLaunchConfig()
 
     def start(self, *, listen_url: str | None = None, codex_executable: str | None = None) -> dict[str, Any]:
-        with self._lock:
-            target_url = listen_url or self.launch_config.listen_url
-            executable = codex_executable or self.launch_config.codex_executable or self._detect_codex_executable()
-            self.launch_config.listen_url = target_url
-            self.launch_config.codex_executable = executable
-            if self._is_running():
-                return self.status()
-            if self._port_ready(target_url) is True:
-                self._last_error = None
-                if self._started_at is None:
-                    self._started_at = utc_now()
-                return self.status()
-
-            cmd = [executable, "app-server", "--listen", target_url]
-            env = self._app_server_env()
-            creationflags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
-            self._stdout_lines.clear()
-            self._stderr_lines.clear()
-            self._last_error = None
-            try:
-                self._process = subprocess.Popen(
-                    cmd,
-                    cwd=self.repo_root,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    stdin=subprocess.DEVNULL,
-                    text=True,
-                    encoding="utf-8",
-                    errors="replace",
-                    bufsize=1,
-                    creationflags=creationflags,
-                    env=env,
-                )
-            except OSError as exc:
-                self._last_error = str(exc)
-                raise RuntimeError(f"Failed to start Codex App Server: {exc}") from exc
-
-            self._started_at = utc_now()
-            self._start_reader(self._process.stdout, self._stdout_lines)
-            self._start_reader(self._process.stderr, self._stderr_lines)
-
-        self._wait_for_ready(timeout_seconds=8.0)
         return self.status()
 
     def stop(self) -> dict[str, Any]:
-        with self._lock:
-            process = self._process
-            if process is None:
-                return self.status()
-            if process.poll() is None:
-                process.terminate()
-                try:
-                    process.wait(timeout=5.0)
-                except subprocess.TimeoutExpired:
-                    process.kill()
-                    process.wait(timeout=5.0)
-            self._process = None
         return self.status()
 
     def status(self) -> dict[str, Any]:
-        process = self._process
-        pid = process.pid if process else None
-        managed = self._is_running()
-        port_ready = self._port_ready(self.launch_config.listen_url)
         return {
-            "running": managed or port_ready is True,
-            "managed_process": managed,
-            "external_ready": port_ready is True and not managed,
-            "listen_url": self.launch_config.listen_url,
-            "codex_executable": self.launch_config.codex_executable or self._detect_codex_executable(),
-            "pid": pid,
-            "started_at": self._started_at,
-            "last_error": self._last_error,
-            "port_ready": port_ready,
-            "stdout_tail": list(self._stdout_lines),
-            "stderr_tail": list(self._stderr_lines),
+            "enabled": False,
+            "running": False,
+            "mode": "retired",
+            "reason": RETIRED_RUNTIME_MESSAGE,
+            "listen_url": None,
+            "codex_executable": None,
         }
 
     def client_config(self) -> dict[str, Any]:
-        master_prompt_path = self.repo_root / "docs" / "ATRAHASIS_SYSTEM_MASTER_PROMPT_v5.md"
         return {
-            "ws_url": self.launch_config.listen_url,
+            "enabled": False,
+            "mode": "retired",
+            "reason": RETIRED_RUNTIME_MESSAGE,
             "repo_root": str(self.repo_root),
-            "codex_home": str(self._app_server_home_dir()),
-            "master_prompt_path": str(master_prompt_path),
-            "initialize_params": {
-                "clientInfo": {"name": "atrahasis-operator-ui", "version": "0.1.0"},
-                "capabilities": {"experimentalApi": True},
-            },
-            "default_thread_start": {
-                "cwd": str(self.repo_root),
-                "approvalPolicy": "on-request",
-                "sandbox": "workspace-write",
-                "serviceName": "Atrahasis Operator UI",
-                "baseInstructions": (
-                    "Use the full local file docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v5.md "
-                    "as the operative instructions for this thread."
-                ),
-                "ephemeral": False,
-                "experimentalRawEvents": False,
-                "persistExtendedHistory": True,
-            },
-            "default_turn": {
-                "cwd": str(self.repo_root),
-                "approvalPolicy": "on-request",
-                "effort": "high",
-            },
         }
-
-    def _detect_codex_executable(self) -> str:
-        candidates = [
-            "codex-alpha.exe",
-            "codex-alpha.cmd",
-            "codex-alpha",
-            "codex.exe",
-            "codex.cmd",
-            "codex",
-        ]
-        for candidate in candidates:
-            resolved = shutil.which(candidate)
-            if resolved:
-                return resolved
-        raise RuntimeError("Could not locate a Codex executable on PATH.")
-
-    def _app_server_home_dir(self) -> Path:
-        return self.repo_root / "runtime" / "app_server_home"
-
-    def _app_server_env(self) -> dict[str, str]:
-        home = self._app_server_home_dir()
-        home.mkdir(parents=True, exist_ok=True)
-        config_path = home / "config.toml"
-        node_path = shutil.which("node")
-        project_parent = self.repo_root.parent
-        lines = [
-            'model = "gpt-5.4"',
-            'model_reasoning_effort = "high"',
-            'service_tier = "fast"',
-            'web_search = "disabled"',
-        ]
-        if node_path:
-            lines.append(f'js_repl_node_path = "{node_path.replace("\\", "\\\\")}"')
-        for trusted in (project_parent, self.repo_root):
-            lines.extend(
-                [
-                    "",
-                    f"[projects.'\\\\?\\{trusted}']",
-                    'trust_level = "trusted"',
-                ]
-            )
-        lines.extend(
-            [
-                "",
-                "[features]",
-                "multi_agent = true",
-            ]
-        )
-        config_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        env = os.environ.copy()
-        env["CODEX_HOME"] = str(home)
-        return env
-
-    def _start_reader(self, stream: Any, target: deque[str]) -> None:
-        if stream is None:
-            return
-
-        def _reader() -> None:
-            for line in iter(stream.readline, ""):
-                target.append(line.rstrip())
-
-        thread = threading.Thread(target=_reader, daemon=True)
-        thread.start()
-
-    def _is_running(self) -> bool:
-        return self._process is not None and self._process.poll() is None
-
-    def _port_ready(self, listen_url: str) -> bool | None:
-        parsed = urlparse(listen_url)
-        if parsed.scheme not in {"ws", "wss"}:
-            return None
-        if not parsed.hostname or not parsed.port:
-            return False
-        try:
-            with socket.create_connection((parsed.hostname, parsed.port), timeout=0.25):
-                return True
-        except OSError:
-            return False
-
-    def _wait_for_ready(self, *, timeout_seconds: float) -> None:
-        deadline = time.time() + timeout_seconds
-        while time.time() < deadline:
-            if not self._is_running():
-                return
-            ready = self._port_ready(self.launch_config.listen_url)
-            if ready is True or ready is None:
-                return
-            time.sleep(0.2)
 
 
 class OperatorHttpServer(ThreadingHTTPServer):
@@ -314,23 +124,18 @@ class OperatorHttpServer(ThreadingHTTPServer):
         *,
         repo_root: Path,
         ui_path: Path,
-        app_server_url: str,
-        codex_executable: str | None = None,
     ) -> None:
         super().__init__(server_address, handler_class)
         self.repo_root = repo_root
         self.ui_path = ui_path
         self.control = AtrahasisControlPlane(repo_root)
         self.controller_lock = threading.Lock()
-        self.app_server = AppServerProcessManager(
-            repo_root,
-            launch_config=AppServerLaunchConfig(listen_url=app_server_url, codex_executable=codex_executable),
-        )
+        self.runtime_bridge = RetiredRuntimeManager(repo_root)
         self.event_broker = ControllerEventBroker()
         self.controller = OperatorControllerService(
             repo_root,
             control=self.control,
-            app_server=self.app_server,
+            runtime_bridge=self.runtime_bridge,
             event_callback=self.event_broker.publish,
             start_monitor=True,
         )
@@ -362,7 +167,7 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
                         "status": "ok",
                         "timestamp": _now_display(),
                         "repo_root": str(self.operator_server.repo_root),
-                        "app_server": self.operator_server.app_server.status(),
+                        "runtime_bridge": self.operator_server.runtime_bridge.status(),
                     }
                 )
             if path == "/api/controller/session-brief":
@@ -464,10 +269,6 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
                 task_id = query.get("task_id", [None])[0]
                 after_id = int(query.get("after_id", ["0"])[0])
                 return self._serve_event_stream(task_id=task_id.upper() if task_id else None, after_id=after_id)
-            if path == "/api/app-server/status":
-                return self._send_json(self.operator_server.app_server.status())
-            if path == "/api/app-server/client-config":
-                return self._send_json(self.operator_server.app_server.client_config())
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
         except Exception as exc:
             self._send_error(exc)
@@ -491,27 +292,11 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
                 with self.operator_server.controller_lock:
                     return self._send_json(self._dispatch_team(payload))
             if path == "/api/controller/start-task-thread":
-                with self.operator_server.controller_lock:
-                    return self._send_json(
-                        self.operator_server.controller.start_task_thread(
-                            task_id=str(payload["task_id"]).upper(),
-                            model=str(payload["model"]) if payload.get("model") else None,
-                            base_instructions=str(payload["base_instructions"]) if payload.get("base_instructions") else None,
-                        )
-                    )
+                return self._runtime_retired_response()
             if path == "/api/controller/start-task-turn":
-                with self.operator_server.controller_lock:
-                    return self._send_json(
-                        self.operator_server.controller.start_task_turn(
-                            task_id=str(payload["task_id"]).upper(),
-                            prompt=str(payload["prompt"]),
-                            effort=str(payload["effort"]) if payload.get("effort") else None,
-                            output_schema=payload.get("output_schema"),
-                        )
-                    )
+                return self._runtime_retired_response()
             if path == "/api/controller/sync-task-run":
-                with self.operator_server.controller_lock:
-                    return self._send_json(self.operator_server.controller.sync_task_run(task_id=str(payload["task_id"]).upper()))
+                return self._runtime_retired_response()
             if path == "/api/controller/evaluate-workflow-policy":
                 with self.operator_server.controller_lock:
                     return self._send_json(
@@ -541,29 +326,11 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
                     task_id = str(payload["task_id"]).upper() if payload.get("task_id") else None
                     return self._send_json(self.operator_server.controller.run_monitor_cycle(task_id=task_id))
             if path == "/api/controller/resume-task":
-                with self.operator_server.controller_lock:
-                    return self._send_json(
-                        self.operator_server.controller.resume_task(task_id=str(payload["task_id"]).upper())
-                    )
+                return self._runtime_retired_response()
             if path == "/api/controller/start-review":
-                with self.operator_server.controller_lock:
-                    return self._send_json(
-                        self.operator_server.controller.start_review(
-                            task_id=str(payload["task_id"]).upper(),
-                            instructions=str(payload["instructions"]) if payload.get("instructions") else None,
-                            delivery=str(payload.get("delivery", "detached")),
-                            review_role=str(payload["review_role"]) if payload.get("review_role") else None,
-                        )
-                    )
+                return self._runtime_retired_response()
             if path == "/api/controller/start-adversarial-review":
-                with self.operator_server.controller_lock:
-                    return self._send_json(
-                        self.operator_server.controller.start_adversarial_review(
-                            task_id=str(payload["task_id"]).upper(),
-                            instructions=str(payload["instructions"]) if payload.get("instructions") else None,
-                            delivery=str(payload.get("delivery", "detached")),
-                        )
-                    )
+                return self._runtime_retired_response()
             if path == "/api/controller/start-convergence-decision":
                 with self.operator_server.controller_lock:
                     return self._send_json(
@@ -678,41 +445,19 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
                             validate_workspace=bool(payload.get("validate_workspace", True)),
                         )
                     )
-            if path == "/api/app-server/start":
-                listen_url = payload.get("listen_url")
-                codex_executable = payload.get("codex_executable")
-                status = self.operator_server.app_server.start(
-                    listen_url=str(listen_url) if listen_url else None,
-                    codex_executable=str(codex_executable) if codex_executable else None,
-                )
-                recovery = self.operator_server.controller.recover_state()
-                monitor = self.operator_server.controller.run_monitor_cycle()
-                self.operator_server.event_broker.publish({"event_type": "app_server_status", "payload": status})
-                return self._send_json(
-                    {
-                        "app_server": status,
-                        "recovery": recovery,
-                        "monitor": monitor,
-                    }
-                )
             if path == "/api/controller/daemon-start":
                 with self.operator_server.controller_lock:
                     return self._send_json(
                         self.operator_server.controller.start_daemon(
                             host=str(payload.get("host", DEFAULT_OPERATOR_HOST)),
                             port=int(payload.get("port", DEFAULT_OPERATOR_PORT)),
-                            app_server_url=str(payload.get("app_server_url", DEFAULT_APP_SERVER_URL)),
-                            codex_executable=str(payload["codex_executable"]) if payload.get("codex_executable") else None,
                         )
                     )
             if path == "/api/controller/daemon-stop":
                 with self.operator_server.controller_lock:
                     return self._send_json(self.operator_server.controller.stop_daemon())
-            if path == "/api/app-server/stop":
-                self.operator_server.controller.stop()
-                status = self.operator_server.app_server.stop()
-                self.operator_server.event_broker.publish({"event_type": "app_server_status", "payload": status})
-                return self._send_json(status)
+            if path in {"/api/app-server/start", "/api/app-server/stop"}:
+                return self._runtime_retired_response()
             self.send_error(HTTPStatus.NOT_FOUND, "Not found")
         except Exception as exc:
             self._send_error(exc)
@@ -773,6 +518,16 @@ class OperatorHttpHandler(BaseHTTPRequestHandler):
             "message": str(exc),
         }
         self._send_json(payload, status=status)
+
+    def _runtime_retired_response(self) -> None:
+        self._send_json(
+            {
+                "error": "RetiredControllerRuntime",
+                "message": RETIRED_RUNTIME_MESSAGE,
+                "runtime_bridge": self.operator_server.runtime_bridge.status(),
+            },
+            status=HTTPStatus.GONE,
+        )
 
     def _read_json_body(self) -> dict[str, Any]:
         length = int(self.headers.get("Content-Length", "0"))
@@ -856,9 +611,6 @@ def serve_operator_http(
     host: str = DEFAULT_OPERATOR_HOST,
     port: int = DEFAULT_OPERATOR_PORT,
     open_browser: bool = False,
-    auto_start_app_server: bool = True,
-    app_server_url: str = DEFAULT_APP_SERVER_URL,
-    codex_executable: str | None = None,
 ) -> int:
     ui_path = repo_root / "ui" / "operator_console.html"
     server = OperatorHttpServer(
@@ -866,17 +618,11 @@ def serve_operator_http(
         OperatorHttpHandler,
         repo_root=repo_root,
         ui_path=ui_path,
-        app_server_url=app_server_url,
-        codex_executable=codex_executable,
     )
     url = f"http://{host}:{port}/"
-    if auto_start_app_server:
-        status = server.app_server.start(listen_url=app_server_url, codex_executable=codex_executable)
-        server.event_broker.publish({"event_type": "app_server_status", "payload": status})
-        server.controller.recover_state()
-        server.controller.run_monitor_cycle()
+    server.controller.run_monitor_cycle()
     print(f"Atrahasis operator service listening at {url}")
-    print(f"App Server target: {app_server_url}")
+    print("Controller runtime bridge: retired")
     if open_browser:
         webbrowser.open(url)
     try:
@@ -886,5 +632,4 @@ def serve_operator_http(
     finally:
         server.server_close()
         server.controller.stop()
-        server.app_server.stop()
     return 0

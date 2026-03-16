@@ -26,7 +26,7 @@ class ValidationCheck:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Validate local Atrahasis controller flows either offline or with live App Server/model traffic."
+        description="Validate local Atrahasis controller flows without the retired App Server runtime."
     )
     subparsers = parser.add_subparsers(dest="mode", required=True)
 
@@ -35,32 +35,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="Validate controller HTTP surfaces without external model traffic.",
     )
     _add_common_args(offline)
-
-    live = subparsers.add_parser(
-        "live",
-        help="Validate the controller end-to-end with the local App Server and real model traffic.",
-    )
-    _add_common_args(live)
-    live.add_argument("--listen-url", default="ws://127.0.0.1:8765")
-    live.add_argument("--codex-executable")
-    live.add_argument("--turn-prompt", required=True)
-    live.add_argument("--effort", default="high")
-    live.add_argument("--sync-polls", type=int, default=2)
-    live.add_argument("--sync-interval", type=float, default=2.0)
-    live.add_argument("--review-instructions")
-    live.add_argument("--review-role")
-    live.add_argument("--skip-review", action="store_true")
-    live.add_argument("--review-verdict")
-    live.add_argument("--review-summary")
-    live.add_argument("--review-findings-file")
-    live.add_argument("--operator-decision")
-    live.add_argument("--workflow-status")
-    live.add_argument("--operator-note", action="append", default=[])
-    live.add_argument("--dispatch-spawn-id")
-    live.add_argument("--action-label", default="spawn_program")
-    live.add_argument("--provider", default="codex")
-    live.add_argument("--execute-closeout", action="store_true")
-    live.add_argument("--skip-validate-workspace", action="store_true")
 
     return parser
 
@@ -79,9 +53,6 @@ def _add_common_args(parser: argparse.ArgumentParser) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-
-    if args.mode == "live" and args.review_verdict and not args.review_summary:
-        parser.error("--review-summary is required when --review-verdict is supplied.")
 
     repo_root = Path(__file__).resolve().parents[1]
     process: subprocess.Popen[str] | None = None
@@ -102,40 +73,12 @@ def main(argv: list[str] | None = None) -> int:
             spawned_service = True
             _wait_for_health(service_url, timeout_seconds=args.startup_timeout, request_timeout=args.request_timeout)
 
-        if args.mode == "offline":
-            report = run_offline_validation(
-                service_url=service_url,
-                task_id=args.task_id.upper(),
-                request_timeout=args.request_timeout,
-                spawned_service=spawned_service,
-            )
-        else:
-            report = run_live_validation(
-                service_url=service_url,
-                task_id=args.task_id.upper(),
-                request_timeout=args.request_timeout,
-                listen_url=args.listen_url,
-                codex_executable=args.codex_executable,
-                turn_prompt=args.turn_prompt,
-                effort=args.effort,
-                sync_polls=args.sync_polls,
-                sync_interval=args.sync_interval,
-                review_instructions=args.review_instructions,
-                review_role=args.review_role,
-                skip_review=args.skip_review,
-                review_verdict=args.review_verdict,
-                review_summary=args.review_summary,
-                review_findings_file=args.review_findings_file,
-                operator_decision=args.operator_decision,
-                workflow_status=args.workflow_status,
-                operator_notes=args.operator_note,
-                dispatch_spawn_id=args.dispatch_spawn_id,
-                action_label=args.action_label,
-                provider=args.provider,
-                execute_closeout=args.execute_closeout,
-                validate_workspace=not args.skip_validate_workspace,
-                spawned_service=spawned_service,
-            )
+        report = run_offline_validation(
+            service_url=service_url,
+            task_id=args.task_id.upper(),
+            request_timeout=args.request_timeout,
+            spawned_service=spawned_service,
+        )
     finally:
         if process is not None:
             _stop_service(process)
@@ -160,7 +103,7 @@ def run_offline_validation(
     spawned_service: bool = False,
 ) -> dict[str, Any]:
     checks: list[ValidationCheck] = []
-    checks.append(_expect_json(service_url, "GET", "/api/health", timeout=request_timeout, validator=lambda payload: ("status" in payload and "app_server" in payload, "Health payload returned service and app server status.")))
+    checks.append(_expect_json(service_url, "GET", "/api/health", timeout=request_timeout, validator=lambda payload: ("status" in payload and "runtime_bridge" in payload, "Health payload returned service and runtime-bridge status.")))
     checks.append(_expect_json(service_url, "GET", "/api/controller/session-brief", timeout=request_timeout, validator=lambda payload: ("summary" in payload and "next_dispatchable_canonical_task" in payload, "Session brief returned summary and next dispatchable task.")))
     checks.append(_expect_json(service_url, "GET", f"/api/controller/dispatchable?{urlencode({'limit': 3})}", timeout=request_timeout, validator=lambda payload: ("tasks" in payload and "next_dispatchable_canonical_task" in payload, "Dispatchable tasks returned tasks and canonical next task.")))
     checks.append(_expect_json(service_url, "GET", f"/api/controller/status?{urlencode({'task_id': task_id})}", timeout=request_timeout, validator=lambda payload: (payload.get("task_id") == task_id, f"Status payload returned task_id={task_id}.")))
@@ -180,207 +123,6 @@ def run_offline_validation(
         checks=checks,
         spawned_service=spawned_service,
     )
-
-
-def run_live_validation(
-    *,
-    service_url: str,
-    task_id: str,
-    request_timeout: float,
-    listen_url: str,
-    codex_executable: str | None,
-    turn_prompt: str,
-    effort: str,
-    sync_polls: int,
-    sync_interval: float,
-    review_instructions: str | None,
-    review_role: str | None,
-    skip_review: bool,
-    review_verdict: str | None,
-    review_summary: str | None,
-    review_findings_file: str | None,
-    operator_decision: str | None,
-    workflow_status: str | None,
-    operator_notes: list[str],
-    dispatch_spawn_id: str | None,
-    action_label: str,
-    provider: str,
-    execute_closeout: bool,
-    validate_workspace: bool,
-    spawned_service: bool,
-) -> dict[str, Any]:
-    checks = run_offline_validation(
-        service_url=service_url,
-        task_id=task_id,
-        request_timeout=request_timeout,
-        spawned_service=spawned_service,
-    )["checks"]
-
-    checks.append(
-        _expect_json(
-            service_url,
-            "POST",
-            "/api/app-server/start",
-            payload={key: value for key, value in {"listen_url": listen_url, "codex_executable": codex_executable}.items() if value},
-            timeout=request_timeout,
-            validator=lambda payload: ("app_server" in payload and bool(payload["app_server"].get("running")), "App Server start returned a running status."),
-        )
-    )
-    checks.append(
-        _expect_json(
-            service_url,
-            "POST",
-            "/api/controller/start-task-thread",
-            payload={"task_id": task_id},
-            timeout=request_timeout,
-            validator=lambda payload: (payload.get("task_id") == task_id and payload.get("run", {}).get("thread_id"), "Controller bound a thread to the task."),
-        )
-    )
-    checks.append(
-        _expect_json(
-            service_url,
-            "POST",
-            "/api/controller/start-task-turn",
-            payload={"task_id": task_id, "prompt": turn_prompt, "effort": effort},
-            timeout=request_timeout,
-            validator=lambda payload: (payload.get("task_id") == task_id and payload.get("run", {}).get("status"), "Controller started a turn."),
-        )
-    )
-
-    for poll_index in range(max(sync_polls, 0)):
-        if poll_index:
-            time.sleep(max(0.0, sync_interval))
-        checks.append(
-            _expect_json(
-                service_url,
-                "POST",
-                "/api/controller/sync-task-run",
-                payload={"task_id": task_id},
-                timeout=request_timeout,
-                validator=lambda payload: (payload.get("task_id") == task_id and "run" in payload, "Controller sync returned task run state."),
-            )
-        )
-
-    review_payload: dict[str, Any] | None = None
-    if not skip_review:
-        checks.append(
-            _expect_json(
-                service_url,
-                "POST",
-                "/api/controller/start-review",
-                payload={
-                    "task_id": task_id,
-                    "instructions": review_instructions,
-                    "delivery": "detached",
-                    "review_role": review_role,
-                },
-                timeout=request_timeout,
-                validator=lambda payload: (payload.get("task_id") == task_id and payload.get("run", {}).get("review_thread_id"), "Controller started a review gate."),
-            )
-        )
-        if review_verdict and review_summary:
-            review_payload = {
-                "task_id": task_id,
-                "verdict": review_verdict,
-                "summary": review_summary,
-                "findings": _load_json_file(review_findings_file) if review_findings_file else [],
-                "notes": ["Generated by validate_controller_flows.py"],
-            }
-            checks.append(
-                _expect_json(
-                    service_url,
-                    "POST",
-                    "/api/controller/finalize-review",
-                    payload=review_payload,
-                    timeout=request_timeout,
-                    validator=lambda payload: (payload.get("task_id") == task_id and payload.get("review_gate_record", {}).get("review_status"), "Review finalization returned a review gate record."),
-                )
-            )
-
-    decision_payload: dict[str, Any] | None = None
-    if operator_decision:
-        decision_payload = {
-            "task_id": task_id,
-            "operator_decision": operator_decision,
-            "workflow_status": workflow_status,
-            "constraints": [],
-            "notes": operator_notes or ["Generated by validate_controller_flows.py"],
-        }
-        checks.append(
-            _expect_json(
-                service_url,
-                "POST",
-                "/api/controller/record-human-decision",
-                payload=decision_payload,
-                timeout=request_timeout,
-                validator=lambda payload: (payload.get("task_id") == task_id and payload.get("human_decision_record", {}).get("operator_decision"), "Human decision record was written."),
-            )
-        )
-
-    if dispatch_spawn_id:
-        checks.append(
-            _expect_json(
-                service_url,
-                "POST",
-                "/api/controller/dispatch",
-                payload={
-                    "task_id": task_id,
-                    "spawn_id": dispatch_spawn_id,
-                    "action_label": action_label,
-                    "provider": provider,
-                    "dry_run": True,
-                },
-                timeout=request_timeout,
-                validator=lambda payload: ("status" in payload or "team_plan" in payload or "dispatch_record" in payload, "Dispatch endpoint returned a team dispatch payload."),
-            )
-        )
-
-    if execute_closeout:
-        checks.append(
-            _expect_json(
-                service_url,
-                "POST",
-                "/api/controller/execute-closeout",
-                payload={
-                    "task_id": task_id,
-                    "review": _closeout_review_payload(review_payload),
-                    "human_decision": _closeout_human_decision_payload(decision_payload),
-                    "validate_workspace": validate_workspace,
-                },
-                timeout=request_timeout,
-                validator=lambda payload: (payload.get("task_id") == task_id and "validation" in payload, "Closeout execution returned a validation summary."),
-            )
-        )
-
-    return _build_report(
-        mode="live",
-        service_url=service_url,
-        task_id=task_id,
-        checks=checks,
-        spawned_service=spawned_service,
-    )
-
-
-def _closeout_review_payload(review_payload: dict[str, Any] | None) -> dict[str, Any] | None:
-    if not review_payload:
-        return None
-    return {
-        "verdict": review_payload["verdict"],
-        "summary": review_payload["summary"],
-        "findings": review_payload.get("findings", []),
-        "notes": review_payload.get("notes", []),
-    }
-
-
-def _closeout_human_decision_payload(decision_payload: dict[str, Any] | None) -> dict[str, Any] | None:
-    if not decision_payload:
-        return None
-    return {
-        "operator_decision": decision_payload["operator_decision"],
-        "workflow_status": decision_payload.get("workflow_status"),
-        "constraints": decision_payload.get("constraints", []),
-        "notes": decision_payload.get("notes", []),
-    }
 
 
 def _expect_json(
@@ -446,7 +188,6 @@ def _spawn_service(*, repo_root: Path, python_executable: str, host: str, port: 
         host,
         "--port",
         str(port),
-        "--no-app-server",
     ]
     return subprocess.Popen(
         command,
@@ -527,10 +268,6 @@ def _preview(payload: dict[str, Any]) -> str:
     if len(text) > 320:
         return text[:320] + "..."
     return text
-
-
-def _load_json_file(path: str) -> Any:
-    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

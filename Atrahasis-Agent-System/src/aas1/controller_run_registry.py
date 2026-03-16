@@ -17,7 +17,7 @@ TERMINAL_STATUSES = {
 
 
 class ControllerRunRegistry:
-    """Persists controller-owned App Server run bindings per task."""
+    """Persists controller-owned run bindings per task."""
 
     def __init__(self, repo_root: Path) -> None:
         self.root = ensure_dir(runtime_state_dir(repo_root) / "controller_runs")
@@ -30,7 +30,7 @@ class ControllerRunRegistry:
         workflow_id: str | None = None,
         run_id: str | None = None,
         status: str = "IDLE",
-        app_server_url: str | None = None,
+        legacy_runtime_url: str | None = None,
     ) -> dict[str, Any]:
         if run_id:
             path = self._run_path(task_id, run_id)
@@ -51,7 +51,7 @@ class ControllerRunRegistry:
             "review_thread_id": None,
             "review_turn_id": None,
             "status": status,
-            "app_server_url": app_server_url,
+            "app_server_url": legacy_runtime_url,
             "created_at": utc_now(),
             "updated_at": utc_now(),
             "artifacts": {},

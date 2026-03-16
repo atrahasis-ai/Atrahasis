@@ -16,9 +16,6 @@ def build_parser() -> argparse.ArgumentParser:
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=4180)
     serve.add_argument("--open", action="store_true")
-    serve.add_argument("--app-server-url", default="ws://127.0.0.1:8765")
-    serve.add_argument("--codex-executable")
-    serve.add_argument("--no-app-server", action="store_true", help="Do not auto-start the local Codex App Server.")
 
     status = subparsers.add_parser("status", help="Show the latest workflow/operator/dispatch status for a task.")
     status.add_argument("task_id")
@@ -87,20 +84,6 @@ def build_parser() -> argparse.ArgumentParser:
     hitl_queue.add_argument("--include-resolved", action="store_true")
     hitl_queue.add_argument("--limit", type=int, default=100)
 
-    start_thread = subparsers.add_parser("start-task-thread", help="Create and bind an App Server thread for a task.")
-    start_thread.add_argument("task_id")
-    start_thread.add_argument("--model")
-    start_thread.add_argument("--base-instructions")
-
-    start_turn = subparsers.add_parser("start-task-turn", help="Start a turn through the controller-owned App Server bridge.")
-    start_turn.add_argument("task_id")
-    start_turn.add_argument("prompt")
-    start_turn.add_argument("--effort", default="high")
-    start_turn.add_argument("--output-schema")
-
-    sync_run = subparsers.add_parser("sync-task-run", help="Read bound App Server thread state and ingest the latest results.")
-    sync_run.add_argument("task_id")
-
     eval_policy = subparsers.add_parser("evaluate-workflow-policy", help="Recompute workflow policy, stage state, and next actions for a task.")
     eval_policy.add_argument("task_id")
 
@@ -120,24 +103,8 @@ def build_parser() -> argparse.ArgumentParser:
     daemon_start = subparsers.add_parser("daemon-start", help="Start the detached controller daemon.")
     daemon_start.add_argument("--host", default="127.0.0.1")
     daemon_start.add_argument("--port", type=int, default=4180)
-    daemon_start.add_argument("--app-server-url", default="ws://127.0.0.1:8765")
-    daemon_start.add_argument("--codex-executable")
 
     daemon_stop = subparsers.add_parser("daemon-stop", help="Stop the detached controller daemon.")
-
-    resume = subparsers.add_parser("resume-task", help="Resume a controller-bound App Server thread for a task.")
-    resume.add_argument("task_id")
-
-    review = subparsers.add_parser("start-review", help="Start a first-class review gate for a task.")
-    review.add_argument("task_id")
-    review.add_argument("--instructions")
-    review.add_argument("--delivery", default="detached")
-    review.add_argument("--review-role")
-
-    adversarial_review = subparsers.add_parser("start-adversarial-review", help="Start a conditional adversarial review gate for a task.")
-    adversarial_review.add_argument("task_id")
-    adversarial_review.add_argument("--instructions")
-    adversarial_review.add_argument("--delivery", default="detached")
 
     start_convergence = subparsers.add_parser("start-convergence-decision", help="Start a convergence gate for a branch-heavy stage.")
     start_convergence.add_argument("task_id")
@@ -242,7 +209,7 @@ def main() -> int:
     from aas1.control_plane import AtrahasisControlPlane
     from aas1.invention_pipeline_manager import InventionPipelineManager
     from aas1.operator_controller_service import OperatorControllerService
-    from aas1.operator_http_service import serve_operator_http
+    from aas1.operator_http_service import RetiredRuntimeManager, serve_operator_http
     from aas1.task_id_policy import TASK_ID_RE, TaskIdPolicy
 
     if args.command == "serve":
@@ -251,16 +218,11 @@ def main() -> int:
             host=args.host,
             port=args.port,
             open_browser=args.open,
-            auto_start_app_server=not args.no_app_server,
-            app_server_url=args.app_server_url,
-            codex_executable=args.codex_executable,
         )
 
     control = AtrahasisControlPlane(repo_root)
-    from aas1.operator_http_service import AppServerLaunchConfig, AppServerProcessManager
-
-    app_server = AppServerProcessManager(repo_root, launch_config=AppServerLaunchConfig())
-    controller = OperatorControllerService(repo_root, control=control, app_server=app_server)
+    runtime_bridge = RetiredRuntimeManager(repo_root)
+    controller = OperatorControllerService(repo_root, control=control, runtime_bridge=runtime_bridge)
     atexit.register(controller.stop)
 
     if args.command == "status":
@@ -393,37 +355,6 @@ def main() -> int:
             )
         )
         return 0
-    if args.command == "start-task-thread":
-        print(
-            json.dumps(
-                controller.start_task_thread(
-                    task_id=args.task_id.upper(),
-                    model=args.model,
-                    base_instructions=args.base_instructions,
-                ),
-                indent=2,
-                sort_keys=True,
-            )
-        )
-        return 0
-    if args.command == "start-task-turn":
-        output_schema = json.loads(args.output_schema) if args.output_schema else None
-        print(
-            json.dumps(
-                controller.start_task_turn(
-                    task_id=args.task_id.upper(),
-                    prompt=args.prompt,
-                    effort=args.effort,
-                    output_schema=output_schema,
-                ),
-                indent=2,
-                sort_keys=True,
-            )
-        )
-        return 0
-    if args.command == "sync-task-run":
-        print(json.dumps(controller.sync_task_run(task_id=args.task_id.upper()), indent=2, sort_keys=True))
-        return 0
     if args.command == "evaluate-workflow-policy":
         print(
             json.dumps(
@@ -470,8 +401,6 @@ def main() -> int:
                 controller.start_daemon(
                     host=args.host,
                     port=args.port,
-                    app_server_url=args.app_server_url,
-                    codex_executable=args.codex_executable,
                 ),
                 indent=2,
                 sort_keys=True,
@@ -480,36 +409,6 @@ def main() -> int:
         return 0
     if args.command == "daemon-stop":
         print(json.dumps(controller.stop_daemon(), indent=2, sort_keys=True))
-        return 0
-    if args.command == "resume-task":
-        print(json.dumps(controller.resume_task(task_id=args.task_id.upper()), indent=2, sort_keys=True))
-        return 0
-    if args.command == "start-review":
-        print(
-            json.dumps(
-                controller.start_review(
-                    task_id=args.task_id.upper(),
-                    instructions=args.instructions,
-                    delivery=args.delivery,
-                    review_role=args.review_role,
-                ),
-                indent=2,
-                sort_keys=True,
-            )
-        )
-        return 0
-    if args.command == "start-adversarial-review":
-        print(
-            json.dumps(
-                controller.start_adversarial_review(
-                    task_id=args.task_id.upper(),
-                    instructions=args.instructions,
-                    delivery=args.delivery,
-                ),
-                indent=2,
-                sort_keys=True,
-            )
-        )
         return 0
     if args.command == "start-convergence-decision":
         print(

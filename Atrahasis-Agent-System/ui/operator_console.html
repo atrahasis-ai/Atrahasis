@@ -178,10 +178,7 @@
       <h1>Atrahasis Operator Console</h1>
       <div class="toolbar">
         <span id="service-status" class="pill">service: loading</span>
-        <span id="app-status" class="pill">app-server: unknown</span>
         <button id="refresh-overview">Refresh</button>
-        <button id="start-app-server" class="primary">Start App Server</button>
-        <button id="stop-app-server" class="danger">Stop App Server</button>
         <button id="start-daemon">Start Daemon</button>
         <button id="stop-daemon">Stop Daemon</button>
         <button id="recover-state">Recover State</button>
@@ -207,8 +204,8 @@
           <div id="improvement-advisories-list" class="stack"></div>
         </div>
         <div class="panel">
-          <h2>Service &amp; App Health</h2>
-          <p class="section-note">Controller, App Server, event stream, and provider-session visibility.</p>
+          <h2>Service &amp; Runtime Health</h2>
+          <p class="section-note">Controller, retired runtime posture, event stream, and provider-session visibility.</p>
           <div id="health-summary" class="summary-grid"></div>
         </div>
       </div>
@@ -222,33 +219,16 @@
       </div>
       <div class="panel">
         <h2>Task Runtime &amp; Focus</h2>
-        <p class="section-note">Selected-task bindings, stage posture, next actions, and raw run state.</p>
+        <p class="section-note">Selected-task posture, retained run metadata, next actions, and raw controller state.</p>
         <div id="active-task-summary" class="summary-grid"></div>
         <div class="row">
           <label style="flex: 1 1 120px;">
             Task ID
             <input id="task-id" value="T-9002">
           </label>
-          <label style="flex: 1 1 140px;">
-            Model
-            <input id="thread-model" placeholder="optional model">
-          </label>
         </div>
-        <label>
-          Turn Prompt
-          <textarea id="turn-prompt" class="mono" placeholder="Prompt for controller-owned turn start"></textarea>
-        </label>
-        <label>
-          Review Instructions
-          <textarea id="review-instructions" placeholder="Optional custom review instructions"></textarea>
-        </label>
         <div class="toolbar">
           <button id="load-task" class="primary">Load Task</button>
-          <button id="start-thread">Start Thread</button>
-          <button id="start-turn">Start Turn</button>
-          <button id="sync-run">Sync Run</button>
-          <button id="start-review">Start Review</button>
-          <button id="start-adversarial-review" class="warn">Start Adversarial Review</button>
           <button id="start-convergence-decision">Start Convergence</button>
           <button id="evaluate-policy">Evaluate Policy</button>
           <button id="monitor-cycle">Monitor Cycle</button>
@@ -410,7 +390,7 @@
         workflowPayload: {},
       };
       const $ = (id) => document.getElementById(id);
-      const EVENT_NAMES = ["run_state_changed", "review_gate_changed", "adversarial_review_changed", "convergence_gate_changed", "hitl_queue_changed", "recovery_completed", "closeout_completed", "controller_warning", "app_server_status", "app_server_event", "workflow_policy_changed", "audit_timeline_changed", "monitor_cycle_completed", "improvement_advisories_changed"];
+      const EVENT_NAMES = ["run_state_changed", "review_gate_changed", "adversarial_review_changed", "convergence_gate_changed", "hitl_queue_changed", "recovery_completed", "closeout_completed", "controller_warning", "workflow_policy_changed", "audit_timeline_changed", "monitor_cycle_completed", "improvement_advisories_changed"];
 
       function lines(text) {
         return (text || "").split(/\r?\n/).map((item) => item.trim()).filter(Boolean);
@@ -557,10 +537,9 @@
       }
 
       function renderHealth(health) {
-        const appRunning = !!health?.app_server?.running;
+        const runtimeBridge = health?.runtime_bridge || state.dashboardPayload.runtime_bridge || {};
         const daemon = state.dashboardPayload.daemon || {};
         setPill("service-status", `service: ${health?._failed ? "unreachable" : health.status}`);
-        setPill("app-status", `app-server: ${appRunning ? "running" : "stopped"}`);
         $("health-summary").innerHTML = `
           <article class="health-card">
             <span class="mini-label">Controller</span>
@@ -568,9 +547,9 @@
             <div class="muted">${escapeHtml(health?.message || "Health endpoint responding.")}</div>
           </article>
           <article class="health-card">
-            <span class="mini-label">App Server</span>
-            <strong>${appRunning ? "running" : "stopped"}</strong>
-            <div class="muted">${appRunning ? "Ready for turns and reviews." : "Start the App Server for runtime work."}</div>
+            <span class="mini-label">Runtime Bridge</span>
+            <strong>${runtimeBridge.enabled === false ? "retired" : "active"}</strong>
+            <div class="muted">${escapeHtml(runtimeBridge.reason || "Controller-owned runtime bridge is not active.")}</div>
           </article>
           <article class="health-card">
             <span class="mini-label">Provider Sessions</span>
@@ -618,9 +597,6 @@
         } else {
           if (health?.status && String(health.status).toLowerCase() !== "ok") {
             notifications.push({ level: "warning", title: `Controller reports ${health.status}`, detail: "Inspect service health before starting new work." });
-          }
-          if (health?.app_server && !health.app_server.running) {
-            notifications.push({ level: "warning", title: "App Server is stopped", detail: "New controller-mediated turns and reviews remain blocked until it is started." });
           }
         }
         if (state.hitlEntries.length) {
@@ -1015,25 +991,6 @@
         await post("/api/controller/respond-hitl", { entry_id: entryId, response_payload: responsePayload });
       }
 
-      async function startThread() {
-        await post("/api/controller/start-task-thread", {
-          task_id: currentTask(),
-          model: $("thread-model").value.trim() || null,
-        });
-      }
-
-      async function startTurn() {
-        await post("/api/controller/start-task-turn", {
-          task_id: currentTask(),
-          prompt: $("turn-prompt").value,
-          effort: "high",
-        });
-      }
-
-      async function syncRun() {
-        await post("/api/controller/sync-task-run", { task_id: currentTask() });
-      }
-
       async function evaluateWorkflowPolicy() {
         await post("/api/controller/evaluate-workflow-policy", { task_id: currentTask() });
       }
@@ -1049,23 +1006,6 @@
 
       async function runMonitorCycle() {
         await post("/api/controller/monitor-cycle", { task_id: currentTask() || null });
-      }
-
-      async function startReview() {
-        await post("/api/controller/start-review", {
-          task_id: currentTask(),
-          instructions: $("review-instructions").value.trim() || null,
-          delivery: "detached",
-          review_role: $("review-role").value || null,
-        });
-      }
-
-      async function startAdversarialReview() {
-        await post("/api/controller/start-adversarial-review", {
-          task_id: currentTask(),
-          instructions: $("review-instructions").value.trim() || null,
-          delivery: "detached",
-        });
       }
 
       async function startConvergenceDecision() {
@@ -1169,14 +1109,6 @@
         $("closeout-result").textContent = JSON.stringify(payload, null, 2);
       }
 
-      async function startAppServer() {
-        await post("/api/app-server/start", {});
-      }
-
-      async function stopAppServer() {
-        await post("/api/app-server/stop", {});
-      }
-
       async function recoverState() {
         await post("/api/controller/recover-state", {});
       }
@@ -1198,17 +1130,10 @@
       }
 
       $("refresh-overview").addEventListener("click", async () => { await Promise.all([refreshOverview(), refreshRunState(), refreshHitlQueue(), refreshWorkflowPolicy(), refreshAuditTimeline()]); });
-      $("start-app-server").addEventListener("click", startAppServer);
-      $("stop-app-server").addEventListener("click", stopAppServer);
       $("start-daemon").addEventListener("click", startDaemon);
       $("stop-daemon").addEventListener("click", stopDaemon);
       $("recover-state").addEventListener("click", recoverState);
       $("load-task").addEventListener("click", loadTask);
-      $("start-thread").addEventListener("click", startThread);
-      $("start-turn").addEventListener("click", startTurn);
-      $("sync-run").addEventListener("click", syncRun);
-      $("start-review").addEventListener("click", startReview);
-      $("start-adversarial-review").addEventListener("click", startAdversarialReview);
       $("start-convergence-decision").addEventListener("click", startConvergenceDecision);
       $("evaluate-policy").addEventListener("click", evaluateWorkflowPolicy);
       $("monitor-cycle").addEventListener("click", runMonitorCycle);

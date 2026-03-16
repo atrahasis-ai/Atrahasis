@@ -1,11 +1,8 @@
 param(
     [string]$Host = "127.0.0.1",
     [int]$Port = 4180,
-    [string]$AppServerUrl = "ws://127.0.0.1:8765",
-    [string]$CodexExecutable,
     [switch]$Daemon,
-    [switch]$Open,
-    [switch]$NoAppServer
+    [switch]$Open
 )
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
@@ -18,11 +15,7 @@ if ($Daemon) {
         "daemon-start"
         "--host", $Host
         "--port", "$Port"
-        "--app-server-url", $AppServerUrl
     )
-    if ($CodexExecutable) {
-        $argsList += @("--codex-executable", $CodexExecutable)
-    }
     & $python @argsList
     if ($Open) {
         Start-Process "http://$Host`:$Port/operator/"
@@ -35,16 +28,9 @@ $argsList = @(
     "serve"
     "--host", $Host
     "--port", "$Port"
-    "--app-server-url", $AppServerUrl
 )
 if ($Open) {
     $argsList += "--open"
-}
-if ($NoAppServer) {
-    $argsList += "--no-app-server"
-}
-if ($CodexExecutable) {
-    $argsList += @("--codex-executable", $CodexExecutable)
 }
 
 & $python @argsList

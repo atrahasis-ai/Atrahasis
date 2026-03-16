@@ -1,5 +1,5 @@
 {
-  "app_server_url": "ws://127.0.0.1:8774",
+  "app_server_url": null,
   "artifact_refs": {
     "adversarial_review_record": "docs/task_workspaces/T-9002/ADVERSARIAL_REVIEW_RECORD.json",
     "human_decision_record": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json",
@@ -10,7 +10,10 @@
   "latest_assistant_text": null,
   "latest_review_text": null,
   "latest_user_text": null,
-  "notes": [],
+  "notes": [
+    "Legacy controller sample retained after the AAS5 runtime bridge retirement.",
+    "app_server_url is intentionally null because the controller-owned App Server is no longer part of the live runtime."
+  ],
   "review_status": "REVIEW_REVIEW_APPROVED",
   "review_thread_id": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
   "review_turns": [],

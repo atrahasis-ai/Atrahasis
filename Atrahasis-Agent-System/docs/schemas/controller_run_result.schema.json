@@ -23,7 +23,10 @@
     "thread_id": {"type": ["string", "null"]},
     "turn_id": {"type": ["string", "null"]},
     "review_thread_id": {"type": ["string", "null"]},
-    "app_server_url": {"type": ["string", "null"]},
+    "app_server_url": {
+      "type": ["string", "null"],
+      "description": "Legacy compatibility field. In AAS5 retired-runtime records this should be null."
+    },
     "run_status": {"type": "string"},
     "thread_status": {"type": ["string", "null"]},
     "review_status": {"type": ["string", "null"]},

@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 
@@ -184,7 +185,7 @@ class FakeControllerService:
                 "resolved_count": 0,
                 "advisories": list(self.improvement_advisories),
             },
-            "app_server": {"running": True, "listen_url": "ws://127.0.0.1:8765"},
+            "runtime_bridge": {"enabled": False, "running": False, "mode": "retired", "reason": "Controller-owned App Server runtime has been retired from AAS5."},
             "daemon": dict(self.daemon),
             "provider_sessions": {"session_count": 1, "sessions": [{"provider": "codex", "session_id": "session-1"}]},
         }
@@ -253,15 +254,11 @@ class FakeControllerService:
         *,
         host: str = "127.0.0.1",
         port: int = 4180,
-        app_server_url: str = "ws://127.0.0.1:8765",
-        codex_executable: str | None = None,
     ) -> dict[str, Any]:
         self._record(
             "start_daemon",
             host=host,
             port=port,
-            app_server_url=app_server_url,
-            codex_executable=codex_executable,
         )
         self.daemon.update(
             {
@@ -270,8 +267,6 @@ class FakeControllerService:
                 "host": host,
                 "port": port,
                 "ui_url": f"http://{host}:{port}/operator/",
-                "app_server_url": app_server_url,
-                "codex_executable": codex_executable,
             }
         )
         return dict(self.daemon)
@@ -557,38 +552,31 @@ class FakeControllerService:
         self._record("stop")
 
 
-class FakeAppServerManager:
+class FakeRuntimeBridgeManager:
     def __init__(self) -> None:
-        self.start_calls: list[dict[str, Any]] = []
-        self.stop_calls = 0
         self.running = False
 
     def start(self, *, listen_url: str | None = None, codex_executable: str | None = None) -> dict[str, Any]:
-        self.start_calls.append({"listen_url": listen_url, "codex_executable": codex_executable})
-        self.running = True
         return self.status()
 
     def stop(self) -> dict[str, Any]:
-        self.stop_calls += 1
-        self.running = False
         return self.status()
 
     def status(self) -> dict[str, Any]:
         return {
-            "running": self.running,
-            "listen_url": "ws://127.0.0.1:8765",
-            "codex_executable": "codex-alpha.exe",
-            "pid": 4242 if self.running else None,
-            "port_ready": self.running,
-            "stdout_tail": [],
-            "stderr_tail": [],
+            "enabled": False,
+            "running": False,
+            "mode": "retired",
+            "reason": "Controller-owned App Server runtime has been retired from AAS5.",
+            "listen_url": None,
+            "codex_executable": None,
         }
 
     def client_config(self) -> dict[str, Any]:
         return {
-            "ws_url": "ws://127.0.0.1:8765",
-            "default_thread_start": {"cwd": str(REPO_ROOT)},
-            "default_turn": {"cwd": str(REPO_ROOT), "effort": "high"},
+            "enabled": False,
+            "mode": "retired",
+            "reason": "Controller-owned App Server runtime has been retired from AAS5.",
         }
 
 
@@ -606,7 +594,7 @@ class FakeOperatorHttpServer(ThreadingHTTPServer):
         self.ui_path = ui_path
         self.control = FakeControlPlane()
         self.controller_lock = threading.Lock()
-        self.app_server = FakeAppServerManager()
+        self.runtime_bridge = FakeRuntimeBridgeManager()
         self.event_broker = ControllerEventBroker()
         self.controller = FakeControllerService()
 
@@ -651,5 +639,11 @@ def http_json(
         data = json.dumps(payload).encode("utf-8")
         headers["Content-Type"] = "application/json"
     request = Request(base_url.rstrip("/") + path, data=data, method=method, headers=headers)
-    with urlopen(request, timeout=timeout) as response:
-        return int(response.status), json.loads(response.read().decode("utf-8"))
+    try:
+        with urlopen(request, timeout=timeout) as response:
+            return int(response.status), json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        try:
+            return int(exc.code), json.loads(exc.read().decode("utf-8"))
+        finally:
+            exc.close()

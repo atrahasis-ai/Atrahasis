@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import shutil
 import signal
 import subprocess
 import sys
@@ -31,8 +30,6 @@ class ControllerDaemonManager:
         *,
         host: str = "127.0.0.1",
         port: int = 4180,
-        app_server_url: str = "ws://127.0.0.1:8765",
-        codex_executable: str | None = None,
     ) -> dict[str, Any]:
         current = self.status()
         if current.get("running"):
@@ -50,11 +47,7 @@ class ControllerDaemonManager:
             host,
             "--port",
             str(port),
-            "--app-server-url",
-            app_server_url,
         ]
-        if codex_executable:
-            cmd.extend(["--codex-executable", codex_executable])
         kwargs: dict[str, Any] = {}
         creationflags = 0
         if os.name == "nt":
@@ -75,8 +68,6 @@ class ControllerDaemonManager:
             "host": host,
             "port": port,
             "ui_url": f"http://{host}:{port}/operator/",
-            "app_server_url": app_server_url,
-            "codex_executable": codex_executable or shutil.which("codex-alpha") or shutil.which("codex"),
             "started_at": utc_now(),
             "stdout_log": str(stdout_path.relative_to(self.repo_root)),
             "stderr_log": str(stderr_path.relative_to(self.repo_root)),

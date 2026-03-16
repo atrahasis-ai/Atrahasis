@@ -45,21 +45,15 @@ def _stubbed_aas1_modules(recorder: CliRecorder):
             recorder.control_calls.append({"method": "get_dispatchable_tasks", "limit": limit})
             return {"tasks": [{"task_id": "T-9002"}], "next_dispatchable_canonical_task": "T-9002"}
 
-    class FakeAppServerLaunchConfig:
-        def __init__(self, *args, **kwargs) -> None:
-            self.args = args
-            self.kwargs = kwargs
-
-    class FakeAppServerProcessManager:
-        def __init__(self, repo_root: Path, launch_config: object) -> None:
+    class FakeRetiredRuntimeManager:
+        def __init__(self, repo_root: Path) -> None:
             self.repo_root = repo_root
-            self.launch_config = launch_config
 
     class FakeControllerService:
-        def __init__(self, repo_root: Path, control: object, app_server: object) -> None:
+        def __init__(self, repo_root: Path, control: object, runtime_bridge: object) -> None:
             self.repo_root = repo_root
             self.control = control
-            self.app_server = app_server
+            self.runtime_bridge = runtime_bridge
 
         def stop(self) -> None:
             recorder.controller_calls.append({"method": "stop"})
@@ -119,16 +113,12 @@ def _stubbed_aas1_modules(recorder: CliRecorder):
             *,
             host: str = "127.0.0.1",
             port: int = 4180,
-            app_server_url: str = "ws://127.0.0.1:8765",
-            codex_executable: str | None = None,
         ) -> dict[str, object]:
             recorder.controller_calls.append(
                 {
                     "method": "start_daemon",
                     "host": host,
                     "port": port,
-                    "app_server_url": app_server_url,
-                    "codex_executable": codex_executable,
                 }
             )
             return {"running": True, "pid": 5150, "port": port}
@@ -140,61 +130,6 @@ def _stubbed_aas1_modules(recorder: CliRecorder):
         def run_monitor_cycle(self, *, task_id: str | None = None) -> dict[str, object]:
             recorder.controller_calls.append({"method": "run_monitor_cycle", "task_id": task_id})
             return {"task_ids": [task_id] if task_id else ["T-9002"]}
-
-        def start_task_turn(
-            self,
-            *,
-            task_id: str,
-            prompt: str,
-            effort: str | None = None,
-            output_schema: dict[str, object] | None = None,
-        ) -> dict[str, object]:
-            recorder.controller_calls.append(
-                {
-                    "method": "start_task_turn",
-                    "task_id": task_id,
-                    "prompt": prompt,
-                    "effort": effort,
-                    "output_schema": output_schema,
-                }
-            )
-            return {"task_id": task_id, "run": {"turn_id": "turn-1", "status": "TURN_RUNNING"}}
-
-        def start_review(
-            self,
-            *,
-            task_id: str,
-            instructions: str | None = None,
-            delivery: str = "detached",
-            review_role: str | None = None,
-        ) -> dict[str, object]:
-            recorder.controller_calls.append(
-                {
-                    "method": "start_review",
-                    "task_id": task_id,
-                    "instructions": instructions,
-                    "delivery": delivery,
-                    "review_role": review_role,
-                }
-            )
-            return {"task_id": task_id, "run": {"review_thread_id": "review-1", "status": "REVIEW_PENDING"}}
-
-        def start_adversarial_review(
-            self,
-            *,
-            task_id: str,
-            instructions: str | None = None,
-            delivery: str = "detached",
-        ) -> dict[str, object]:
-            recorder.controller_calls.append(
-                {
-                    "method": "start_adversarial_review",
-                    "task_id": task_id,
-                    "instructions": instructions,
-                    "delivery": delivery,
-                }
-            )
-            return {"task_id": task_id, "run": {"review_thread_id": "review-adv-1", "status": "ADVERSARIAL_REVIEW_PENDING"}}
 
         def start_convergence_decision(
             self,
@@ -280,8 +215,7 @@ def _stubbed_aas1_modules(recorder: CliRecorder):
 
     http_module = types.ModuleType("aas1.operator_http_service")
     http_module.serve_operator_http = fake_serve_operator_http
-    http_module.AppServerLaunchConfig = FakeAppServerLaunchConfig
-    http_module.AppServerProcessManager = FakeAppServerProcessManager
+    http_module.RetiredRuntimeManager = FakeRetiredRuntimeManager
 
     pipeline_module = types.ModuleType("aas1.invention_pipeline_manager")
     pipeline_module.InventionPipelineManager = FakePipelineManager
@@ -333,12 +267,11 @@ class AasControllerCliTests(unittest.TestCase):
 
     def test_serve_delegates_to_http_service(self) -> None:
         recorder = CliRecorder()
-        rc, _stdout = _run_main(["serve", "--host", "127.0.0.1", "--port", "4191", "--no-app-server"], recorder)
+        rc, _stdout = _run_main(["serve", "--host", "127.0.0.1", "--port", "4191"], recorder)
         self.assertEqual(rc, 0)
         self.assertEqual(len(recorder.serve_calls), 1)
         self.assertEqual(recorder.serve_calls[0]["host"], "127.0.0.1")
         self.assertEqual(recorder.serve_calls[0]["port"], 4191)
-        self.assertFalse(recorder.serve_calls[0]["auto_start_app_server"])
 
     def test_dispatchable_command_prints_json(self) -> None:
         recorder = CliRecorder()
@@ -348,24 +281,15 @@ class AasControllerCliTests(unittest.TestCase):
         self.assertEqual(payload["next_dispatchable_canonical_task"], "T-9002")
         self.assertEqual(recorder.control_calls[-1]["limit"], 3)
 
-    def test_start_task_turn_and_workflow_policy_commands(self) -> None:
+    def test_workflow_policy_command(self) -> None:
         recorder = CliRecorder()
-        rc, stdout = _run_main(
-            ["start-task-turn", "T-9002", "Summarize state.", "--effort", "medium", "--output-schema", "{\"type\":\"object\"}"],
-            recorder,
-        )
-        self.assertEqual(rc, 0)
-        payload = json.loads(stdout)
-        self.assertEqual(payload["run"]["turn_id"], "turn-1")
-        self.assertEqual(recorder.controller_calls[-1]["output_schema"], {"type": "object"})
-
         rc, stdout = _run_main(["workflow-policy", "T-9002", "--no-refresh"], recorder)
         self.assertEqual(rc, 0)
         payload = json.loads(stdout)
         self.assertEqual(payload["task_id"], "T-9002")
         self.assertFalse(recorder.controller_calls[-1]["refresh"])
 
-    def test_dashboard_notification_and_review_commands(self) -> None:
+    def test_dashboard_notification_and_controller_commands(self) -> None:
         recorder = CliRecorder()
 
         rc, stdout = _run_main(["dashboard-summary", "--limit-tasks", "5"], recorder)
@@ -391,18 +315,6 @@ class AasControllerCliTests(unittest.TestCase):
         self.assertEqual(rc, 0)
         payload = json.loads(stdout)
         self.assertEqual(payload["advisories"][0]["status"], "ACKNOWLEDGED")
-
-        rc, stdout = _run_main(["start-review", "T-9002", "--instructions", "Be strict.", "--review-role", "critic"], recorder)
-        self.assertEqual(rc, 0)
-        payload = json.loads(stdout)
-        self.assertEqual(payload["run"]["review_thread_id"], "review-1")
-        self.assertEqual(recorder.controller_calls[-1]["review_role"], "critic")
-
-        rc, stdout = _run_main(["start-adversarial-review", "T-9002", "--instructions", "Break it."], recorder)
-        self.assertEqual(rc, 0)
-        payload = json.loads(stdout)
-        self.assertEqual(payload["run"]["review_thread_id"], "review-adv-1")
-        self.assertEqual(recorder.controller_calls[-1]["method"], "start_adversarial_review")
 
         rc, stdout = _run_main(["finalize-adversarial-review", "T-9002", "REVIEW_APPROVED", "Risk checked."], recorder)
         self.assertEqual(rc, 0)

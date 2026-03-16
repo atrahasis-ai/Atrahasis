@@ -72,9 +72,9 @@ Exploratory idea prep:
 ## Optional Controller Files
 
 - `REVIEW_GATE_RECORD.json`
-  First-class controller-owned review status for App Server review runs, findings, and verdicts.
+  First-class controller-owned review status, findings, and verdicts.
 - `CONTROLLER_RUN_RESULT.json`
-  Controller-ingested thread/read snapshot with latest turn outputs, review outputs, and sync timestamps.
+  Controller-owned run snapshot for retained runtime metadata and sync posture.
 - `CLOSEOUT_EXECUTION_RECORD.json`
   Controller-owned closeout execution record covering review finalization, human decision capture, claim/handoff updates, and validator results.
 - `CLOSEOUT_CONSISTENCY_REPORT.json`

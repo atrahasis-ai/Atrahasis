@@ -11,7 +11,7 @@ The controller app is:
 - a small local CLI
 - built on top of the existing `InventionPipelineManager`
 - paired with the same read/control-plane surface used by the MCP server
-- extended with controller-owned App Server orchestration, run binding, HITL persistence, workflow policy, redesign-memory retrieval, audit timeline, and background monitoring
+- extended with HITL persistence, workflow policy, redesign-memory retrieval, audit timeline, daemon management, and background monitoring
 
 Entry point:
 
@@ -53,7 +53,7 @@ python scripts/aas_controller.py dispatchable
 python scripts/aas_controller.py dispatch T-9002 --spawn-id spawn:model --execute
 ```
 
-### Inspect Controller Run State
+### Inspect Controller State
 
 ```bash
 python scripts/aas_controller.py run-state T-9002
@@ -64,11 +64,11 @@ python scripts/aas_controller.py notifications
 python scripts/aas_controller.py improvement-advisories --refresh --high-confidence-only
 ```
 
-The controller run state now also carries a distilled `redesign_memory` snapshot:
+The controller run state also carries a distilled `redesign_memory` snapshot:
 - the current task's latest redesign/improvement cycle, if one exists
 - related prior redesign cycles from other tasks with overlapping architectural pressure
 
-The controller now also maintains a repo-wide `AAS5` improvement-observer index:
+The controller also maintains a repo-wide `AAS5` improvement-observer index:
 - it watches structured controller state instead of scraping raw terminal text
 - it only emits major system-improvement advisories
 - it is advisory only and never mutates canonical Atrahasis artifacts by itself
@@ -79,30 +79,24 @@ You can acknowledge one advisory without clearing it from the historical record:
 python scripts/aas_controller.py acknowledge-improvement-advisory aas5-update-controller-reliability
 ```
 
-### Review Gate + HITL Queue
+### Workflow Policy, HITL, And Closeout
 
 ```bash
-python scripts/aas_controller.py start-review T-9002 --review-role critic
-python scripts/aas_controller.py start-adversarial-review T-9002 --instructions "Try to break the design."
 python scripts/aas_controller.py hitl-queue --task-id T-9002
-```
-
-### Start A Controller-Owned Thread And Turn
-
-```bash
-python scripts/aas_controller.py start-task-thread T-9002
-python scripts/aas_controller.py start-task-turn T-9002 "Summarize the current review state."
-```
-
-### Sync, Recover, And Close Out
-
-```bash
-python scripts/aas_controller.py sync-task-run T-9002
 python scripts/aas_controller.py evaluate-workflow-policy T-9002
 python scripts/aas_controller.py configure-workflow-policy T-9002 --dispatch-mode hook_only
 python scripts/aas_controller.py recover-state
 python scripts/aas_controller.py monitor-cycle --task-id T-9002
 python scripts/aas_controller.py execute-closeout T-9002 --review-json "{...}" --human-decision-json "{...}"
+```
+
+### Convergence And Finalization
+
+```bash
+python scripts/aas_controller.py start-convergence-decision T-9002 --note "Need parent disposition."
+python scripts/aas_controller.py finalize-review T-9002 REVIEW_APPROVED "Looks good."
+python scripts/aas_controller.py finalize-adversarial-review T-9002 REVIEW_APPROVED "Risk checked."
+python scripts/aas_controller.py finalize-convergence-decision T-9002 hybridize "Blend Alpha and Beta."
 ```
 
 ### Serve The Local Operator UI
@@ -127,21 +121,13 @@ The install script writes repo-local launcher wrappers under `runtime/launchers/
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
-### Run The Offline Validation Harness
+### Run The Controller Validation Harness
 
 ```bash
 python scripts/validate_controller_flows.py offline --task-id T-9002
 ```
 
 Use `--service-url http://127.0.0.1:4180` to target an already-running controller service.
-
-### Run The Live Validation Harness
-
-```bash
-python scripts/validate_controller_flows.py live --task-id T-9002 --turn-prompt "Summarize the current task state."
-```
-
-`live` mode starts with the same offline HTTP checks, then exercises App Server start, thread start, turn start, sync, and optional review/decision/closeout steps. It requires a working local Codex/App Server environment and real model traffic.
 
 ---
 
@@ -153,13 +139,15 @@ python scripts/validate_controller_flows.py live --task-id T-9002 --turn-prompt 
 
 ---
 
-## Relationship To The App Server
+## Runtime Posture
 
-- The controller app owns Atrahasis workflow and canonical state operations.
-- The Codex App Server owns thread, turn, review, and approval mechanics.
-- The local operator UI now talks to the controller for task-thread starts, turns, reviews, approvals, and run state.
-- The controller, not the browser, owns the App Server bridge and HITL queue.
-- The controller now also owns run-result ingestion, restart recovery, controller-enforced workflow policy, audit timelines, background monitor cycles, closeout execution, and the SSE event feed used by the UI.
-- Review startup can choose a stage-aware template automatically or take an explicit `--review-role`.
+The old controller-owned Codex App Server runtime was retired from AAS5.
+
+That means:
+- the controller no longer starts local App Server subprocesses
+- the controller no longer owns thread, turn, or review-session startup
+- the local operator UI is now a policy/state/finalization surface rather than a session runtime surface
+
+Direct model execution now lives in provider sessions and task-local workflows, not inside the controller app.
 
 See `docs/platform_overlays/codex/OPERATOR_UI.md`.

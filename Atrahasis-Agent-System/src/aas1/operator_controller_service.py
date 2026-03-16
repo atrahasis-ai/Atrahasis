@@ -1,16 +1,13 @@
 from __future__ import annotations
 
-import copy
 import subprocess
 import sys
 import threading
-import time
 from pathlib import Path
 from typing import Any, Callable
 
 from aas1.audit_analytics import AuditAnalytics
 from aas1.audit_timeline_store import AuditTimelineStore
-from aas1.app_server_bridge import AppServerBridge
 from aas1.artifact_registry import ArtifactRegistry
 from aas1.common import load_json, utc_now
 from aas1.control_plane import AtrahasisControlPlane
@@ -29,23 +26,28 @@ from aas1.shared_state_closeout import SharedStateCloseoutManager
 from aas1.workflow_policy_engine import WorkflowPolicyEngine
 from aas1.workflow_context_store import WorkflowContextStore
 
+RETIRED_RUNTIME_MESSAGE = (
+    "Controller-owned App Server runtime has been retired from AAS5. "
+    "Use direct provider sessions and task-local artifacts instead."
+)
+
 
 class OperatorControllerService:
-    """Controller-owned orchestration across AAS runtime state and Codex App Server."""
+    """Controller-owned orchestration across AAS runtime state and task-local artifacts."""
 
     def __init__(
         self,
         repo_root: Path,
         *,
         control: AtrahasisControlPlane,
-        app_server: Any,
+        runtime_bridge: Any,
         event_callback: Callable[[dict[str, Any]], None] | None = None,
         start_monitor: bool = False,
         monitor_interval_seconds: float = 5.0,
     ) -> None:
         self.repo_root = repo_root
         self.control = control
-        self.app_server = app_server
+        self.runtime_bridge = runtime_bridge
         self.registry = ArtifactRegistry(repo_root)
         self.run_registry = ControllerRunRegistry(repo_root)
         self.hitl_queue = HitlQueueStore(repo_root)
@@ -62,10 +64,7 @@ class OperatorControllerService:
         self.review_templates = ReviewTemplateRegistry(repo_root)
         self.human_decision = HumanDecisionInterface()
         self.redesign_memory = RedesignMemoryStore(repo_root)
-        self._bridge: AppServerBridge | None = None
         self._event_callback = event_callback
-        self._sync_lock = threading.Lock()
-        self._sync_inflight: set[str] = set()
         self._monitor_interval_seconds = max(1.0, monitor_interval_seconds)
         self._monitor_stop = threading.Event()
         self._monitor_thread: threading.Thread | None = None
@@ -74,9 +73,6 @@ class OperatorControllerService:
 
     def stop(self) -> None:
         self.stop_monitor()
-        if self._bridge is not None:
-            self._bridge.stop()
-            self._bridge = None
 
     def start_monitor(self) -> None:
         if self._monitor_thread is not None and self._monitor_thread.is_alive():
@@ -184,7 +180,7 @@ class OperatorControllerService:
             "dashboard": self.analytics.summary(limit_tasks=limit_tasks),
             "notifications": self.notifications.list_notifications(limit=100),
             "improvement_advisories": advisories,
-            "app_server": self.app_server.status(),
+            "runtime_bridge": self.runtime_bridge.status(),
             "daemon": self.daemon.status(),
             "provider_sessions": self.control.get_active_provider_sessions(),
         }
@@ -241,14 +237,10 @@ class OperatorControllerService:
         *,
         host: str = "127.0.0.1",
         port: int = 4180,
-        app_server_url: str = "ws://127.0.0.1:8765",
-        codex_executable: str | None = None,
     ) -> dict[str, Any]:
         return self.daemon.start(
             host=host,
             port=port,
-            app_server_url=app_server_url,
-            codex_executable=codex_executable,
         )
 
     def stop_daemon(self) -> dict[str, Any]:
@@ -261,37 +253,7 @@ class OperatorControllerService:
         model: str | None = None,
         base_instructions: str | None = None,
     ) -> dict[str, Any]:
-        bridge, config = self._ensure_bridge()
-        latest_context = self.control.get_latest_workflow_context(task_id=task_id)
-        workflow_id = (latest_context.get("workflow") or {}).get("workflow_id")
-        run = self.run_registry.ensure_run(
-            task_id=task_id,
-            workflow_id=workflow_id,
-            status="THREAD_STARTING",
-            app_server_url=config["ws_url"],
-        )
-        params = copy.deepcopy(config["default_thread_start"])
-        if model:
-            params["model"] = model
-        if base_instructions:
-            params["baseInstructions"] = base_instructions
-        response = bridge.request("thread/start", params)
-        thread_id = self._extract_nested_id(response, "thread")
-        if not thread_id:
-            raise RuntimeError("App Server did not return a thread id.")
-        run = self.run_registry.bind_thread(
-            task_id=task_id,
-            run_id=run["run_id"],
-            thread_id=thread_id,
-            status="THREAD_READY",
-            metadata={"response": response},
-        )
-        self.run_registry.append_event(task_id=task_id, run_id=run["run_id"], event_type="thread_started", payload={"thread_id": thread_id})
-        payload = {"task_id": task_id, "run": run, "response": response}
-        self._record_timeline(task_id=task_id, event_type="thread_started", summary=f"Controller bound App Server thread {thread_id}.", payload={"run_id": run["run_id"], "thread_id": thread_id})
-        self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-        self._emit_event("run_state_changed", payload)
-        return payload
+        raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
 
     def start_task_turn(
         self,
@@ -301,49 +263,10 @@ class OperatorControllerService:
         effort: str | None = None,
         output_schema: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
-        bridge, config = self._ensure_bridge()
-        run = self._require_or_create_run(task_id=task_id, auto_thread=True)
-        params = copy.deepcopy(config["default_turn"])
-        params["threadId"] = run["thread_id"]
-        params["input"] = [{"type": "text", "text": prompt, "text_elements": []}]
-        if effort:
-            params["effort"] = effort
-        if output_schema is not None:
-            params["outputSchema"] = output_schema
-        response = bridge.request("turn/start", params)
-        turn_id = self._extract_nested_id(response, "turn") or response.get("turnId")
-        run = self.run_registry.bind_turn(
-            task_id=task_id,
-            run_id=run["run_id"],
-            turn_id=str(turn_id) if turn_id else None,
-            status="TURN_RUNNING",
-            metadata={"response": response, "prompt": prompt},
-        )
-        self.run_registry.append_event(
-            task_id=task_id,
-            run_id=run["run_id"],
-            event_type="turn_started",
-            payload={"turn_id": turn_id, "thread_id": run["thread_id"]},
-        )
-        payload = {"task_id": task_id, "run": run, "response": response}
-        self._record_timeline(task_id=task_id, event_type="turn_started", summary="Controller started a new turn.", payload={"run_id": run["run_id"], "turn_id": turn_id})
-        self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-        self._emit_event("run_state_changed", payload)
-        return payload
+        raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
 
     def resume_task(self, *, task_id: str) -> dict[str, Any]:
-        bridge, _config = self._ensure_bridge()
-        run = self._require_or_create_run(task_id=task_id, auto_thread=False)
-        if not run.get("thread_id"):
-            raise ValueError(f"No bound App Server thread exists for {task_id}.")
-        response = bridge.request("thread/resume", {"threadId": run["thread_id"], "persistExtendedHistory": True})
-        run = self.run_registry.update_status(task_id=task_id, run_id=run["run_id"], status="THREAD_READY")
-        self.run_registry.append_event(task_id=task_id, run_id=run["run_id"], event_type="thread_resumed", payload={"thread_id": run["thread_id"]})
-        payload = {"task_id": task_id, "run": run, "response": response}
-        self._record_timeline(task_id=task_id, event_type="thread_resumed", summary=f"Controller resumed thread {run['thread_id']}.", payload={"run_id": run["run_id"], "thread_id": run["thread_id"]})
-        self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-        self._emit_event("run_state_changed", payload)
-        return payload
+        raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
 
     def start_review(
         self,
@@ -353,13 +276,7 @@ class OperatorControllerService:
         delivery: str = "detached",
         review_role: str | None = None,
     ) -> dict[str, Any]:
-        return self._start_review_flow(
-            task_id=task_id,
-            instructions=instructions,
-            delivery=delivery,
-            review_role=review_role,
-            record_kind="review_gate",
-        )
+        raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
 
     def start_adversarial_review(
         self,
@@ -368,13 +285,7 @@ class OperatorControllerService:
         instructions: str | None = None,
         delivery: str = "detached",
     ) -> dict[str, Any]:
-        return self._start_review_flow(
-            task_id=task_id,
-            instructions=instructions,
-            delivery=delivery,
-            review_role="adversarial_analyst",
-            record_kind="adversarial_review",
-        )
+        raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
 
     def start_convergence_decision(
         self,
@@ -533,96 +444,6 @@ class OperatorControllerService:
         self._emit_event("run_state_changed", payload)
         return payload
 
-    def _start_review_flow(
-        self,
-        *,
-        task_id: str,
-        instructions: str | None,
-        delivery: str,
-        review_role: str | None,
-        record_kind: str,
-    ) -> dict[str, Any]:
-        bridge, _config = self._ensure_bridge()
-        run = self._require_or_create_run(task_id=task_id, auto_thread=False)
-        if not run.get("thread_id"):
-            raise ValueError(f"No bound App Server thread exists for {task_id}.")
-        spec = self._review_record_spec(record_kind)
-        template = self.review_templates.resolve(
-            task_id=task_id,
-            workflow_policy=self.workflow_policy.load(task_id) or self.get_workflow_policy(task_id=task_id, refresh=False),
-            explicit_role=review_role,
-        )
-        effective_instructions = self.review_templates.compose(
-            task_id=task_id,
-            template=template,
-            instructions=instructions,
-        )
-        target: dict[str, Any] = {"type": "custom", "instructions": effective_instructions}
-        response = bridge.request("review/start", {"threadId": run["thread_id"], "target": target, "delivery": delivery})
-        review_thread_id = response.get("reviewThreadId") or self._extract_nested_id(response, "review") or self._extract_nested_id(response, "thread")
-        policy_state = self.workflow_policy.load(task_id) or self.get_workflow_policy(task_id=task_id, refresh=False)
-        adversarial_policy = dict((policy_state.get("adversarial_review") or {})) if record_kind == "adversarial_review" else None
-        record = self._write_review_record(
-            task_id=task_id,
-            run=run,
-            record_kind=record_kind,
-            review_status="REVIEW_PENDING",
-            review_thread_id=str(review_thread_id) if review_thread_id else None,
-            review_target=target,
-            review_delivery=delivery,
-            custom_instructions=effective_instructions,
-            review_response=response,
-            findings=None,
-            verdict=None,
-            summary=None,
-            completed_at=None,
-            notes=[
-                f"review_template_role={template.get('role')}",
-                f"review_template_ref={template.get('path')}",
-            ],
-            adversarial_policy=adversarial_policy,
-        )
-        run = self.run_registry.bind_review(
-            task_id=task_id,
-            run_id=run["run_id"],
-            review_thread_id=str(review_thread_id) if review_thread_id else None,
-            status="REVIEW_PENDING",
-            metadata={
-                "response": response,
-                "record_ref": record["path"],
-                "record_kind": record_kind,
-            },
-        )
-        artifact_key = spec["artifact_key"]
-        queue_entry = self._ensure_review_queue_entry(
-            task_id=task_id,
-            run=run,
-            summary=spec["queue_summary_started"],
-            artifact_refs={artifact_key: record["path"]},
-            category=spec["queue_category"],
-        )
-        self._propagate_status(
-            task_id=task_id,
-            workflow_status=self._review_workflow_status(record_kind=record_kind, review_status="REVIEW_PENDING"),
-            artifact_updates={artifact_key: record["path"]},
-        )
-        payload = {
-            "task_id": task_id,
-            "run": self.run_registry.load(task_id=task_id, run_id=run["run_id"]),
-            artifact_key: record["payload"],
-            "queue_entry": queue_entry,
-            "response": response,
-        }
-        self._record_timeline(
-            task_id=task_id,
-            event_type=spec["timeline_started_event"],
-            summary=spec["timeline_started_summary"],
-            payload={"run_id": run["run_id"], "review_thread_id": run.get("review_thread_id")},
-        )
-        self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-        self._emit_event(spec["event_name"], payload)
-        return payload
-
     def _finalize_review_flow(
         self,
         *,
@@ -687,8 +508,9 @@ class OperatorControllerService:
         entry = self.hitl_queue.load_entry(entry_id)
         request_id = entry.get("request_id")
         if request_id is not None:
-            bridge, _config = self._ensure_bridge()
-            bridge.respond(request_id, response_payload)
+            response_payload = dict(response_payload)
+            response_payload.setdefault("runtime_bridge_retired", True)
+            response_payload.setdefault("note", RETIRED_RUNTIME_MESSAGE)
         resolved = self.hitl_queue.resolve_entry(entry_id=entry_id, response_payload=response_payload)
         task_id = resolved.get("task_id")
         run_id = resolved.get("run_id")
@@ -746,7 +568,7 @@ class OperatorControllerService:
             task_id=task_id,
             workflow_id=workflow_record.get("workflow_id"),
             status=workflow_record.get("status", "PENDING_HUMAN_REVIEW"),
-            app_server_url=self.app_server.launch_config.listen_url,
+            legacy_runtime_url=None,
         )
         run = self.run_registry.update_status(
             task_id=task_id,
@@ -765,104 +587,53 @@ class OperatorControllerService:
         run = self._require_or_create_run(task_id=task_id, auto_thread=False)
         if not run.get("thread_id") and not run.get("review_thread_id"):
             return {"task_id": task_id, "run": run, "synced": False, "reason": "No bound thread or review thread."}
-        bridge, _config = self._ensure_bridge()
-        thread_summary = self._read_thread_summary(bridge=bridge, thread_id=run.get("thread_id"), role="run")
-        review_summary = self._read_thread_summary(bridge=bridge, thread_id=run.get("review_thread_id"), role="review")
-        active_review_kind = str(((run.get("metadata") or {}).get("review") or {}).get("record_kind") or "review_gate")
-        review_spec = self._review_record_spec(active_review_kind)
-        result_payload = self._write_controller_run_result(task_id=task_id, run=run, thread_summary=thread_summary, review_summary=review_summary)
-        artifact_updates: dict[str, str | None] = {"controller_run_result": result_payload["path"]}
-        review_status = self._review_record_status(task_id=task_id, run=run, review_summary=review_summary, record_kind=active_review_kind)
-        review_record = None
-        if review_status is not None:
-            review_record = self._sync_review_record(
-                task_id=task_id,
-                run=run,
-                review_status=review_status,
-                review_summary=review_summary,
-                record_kind=active_review_kind,
-            )
-            artifact_updates[review_spec["artifact_key"]] = review_record["path"]
-            if review_status == "REVIEW_READY_FOR_OPERATOR":
-                self._propagate_status(
-                    task_id=task_id,
-                    workflow_status=self._review_workflow_status(record_kind=active_review_kind, review_status=review_status),
-                    artifact_updates={review_spec["artifact_key"]: review_record["path"]},
-                )
-        merge_result = self._build_merge_package(task_id=task_id)
-        if merge_result is not None:
-            artifact_updates["child_result_merge_package"] = merge_result["merge_package_ref"]
-        next_status = review_status or (thread_summary or {}).get("status") or run.get("status") or "IDLE"
         updated_run = self.run_registry.update_status(
             task_id=task_id,
             run_id=run["run_id"],
-            status=next_status,
-            artifact_updates=artifact_updates,
-            metadata_updates={"last_sync": {"synced_at": utc_now(), "thread_status": (thread_summary or {}).get("status"), "review_status": review_status}},
+            status=str(run.get("status") or "IDLE"),
+            metadata_updates={"last_sync": {"synced_at": utc_now(), "synced": False, "reason": RETIRED_RUNTIME_MESSAGE}},
         )
-        self.run_registry.append_event(task_id=task_id, run_id=run["run_id"], event_type="run_synced", payload={"thread_status": (thread_summary or {}).get("status"), "review_status": review_status})
+        self.run_registry.append_event(
+            task_id=task_id,
+            run_id=run["run_id"],
+            event_type="runtime_sync_skipped",
+            payload={"reason": RETIRED_RUNTIME_MESSAGE},
+        )
         payload = {
             "task_id": task_id,
             "run": updated_run,
-            "controller_run_result": result_payload["payload"],
-            "review_gate_record": review_record["payload"] if review_record and active_review_kind == "review_gate" else None,
-            "adversarial_review_record": review_record["payload"] if review_record and active_review_kind == "adversarial_review" else None,
-            "child_result_merge_package": merge_result["merge_package"] if merge_result else None,
-            "synced": True,
+            "synced": False,
+            "reason": RETIRED_RUNTIME_MESSAGE,
         }
-        self._record_timeline(task_id=task_id, event_type="run_synced", summary="Controller ingested the latest App Server thread state.", payload={"run_status": updated_run.get("status"), "review_status": review_status})
-        policy_state = self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-        self._sync_notifications(task_id=task_id, workflow_policy=policy_state, run_status=str(updated_run.get("status") or ""))
+        self._record_timeline(
+            task_id=task_id,
+            event_type="runtime_sync_skipped",
+            summary="Controller skipped legacy runtime sync because the App Server bridge is retired.",
+            payload={"run_status": updated_run.get("status")},
+        )
         self._emit_event("run_state_changed", payload)
-        if review_record is not None:
-            self._emit_event(review_spec["event_name"], payload)
-            self._emit_event("hitl_queue_changed", self.get_hitl_queue(task_id=task_id, include_resolved=False))
         return payload
 
     def recover_state(self) -> dict[str, Any]:
-        self._ensure_bridge()
-        recovered_runs = []
-        errors = []
-        seen_tasks: set[str] = set()
-        for run in self.run_registry.list_runs(limit=200):
-            task_id = str(run.get("task_id", ""))
-            if not task_id or task_id in seen_tasks:
-                continue
-            seen_tasks.add(task_id)
-            if run.get("status") in TERMINAL_STATUSES:
-                continue
-            if not run.get("thread_id") and not run.get("review_thread_id"):
-                continue
-            try:
-                sync_result = self.sync_task_run(task_id=task_id)
-                policy_state = self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-                self._sync_notifications(
-                    task_id=task_id,
-                    workflow_policy=policy_state,
-                    run_status=str((sync_result.get("run") or {}).get("status") or ""),
-                )
-                recovered_runs.append({"task_id": task_id, "run_id": run.get("run_id"), "status": (sync_result.get("run") or {}).get("status")})
-            except Exception as exc:
-                errors.append({"task_id": task_id, "message": str(exc)})
         stale_hitl_entry_ids = []
         for entry in self.hitl_queue.list_entries(include_resolved=False, limit=500):
-            if entry.get("source") == "app_server" and entry.get("request_id"):
+            if entry.get("source") in {"app_server", "runtime_bridge"} and entry.get("request_id"):
                 stale_hitl_entry_ids.append(entry["entry_id"])
                 self.hitl_queue.update_entry(
                     entry_id=entry["entry_id"],
-                    summary=f"{entry.get('summary', 'Pending App Server request')} (recovery check required)",
-                    metadata={"recovered_at": utc_now(), "recovery_state": "REQUEST_REBIND_REQUIRED"},
+                    summary=f"{entry.get('summary', 'Pending legacy runtime request')} (runtime retired)",
+                    metadata={"recovered_at": utc_now(), "recovery_state": "RUNTIME_BRIDGE_RETIRED"},
                 )
         payload = {
-            "recovered_run_count": len(recovered_runs),
-            "recovered_runs": recovered_runs,
+            "recovered_run_count": 0,
+            "recovered_runs": [],
             "stale_hitl_entry_ids": stale_hitl_entry_ids,
-            "error_count": len(errors),
-            "errors": errors,
+            "error_count": 0,
+            "errors": [],
+            "runtime_bridge_retired": True,
+            "reason": RETIRED_RUNTIME_MESSAGE,
             "notifications": self.notifications.list_notifications(limit=100),
         }
-        for item in recovered_runs:
-            self._record_timeline(task_id=item["task_id"], event_type="run_recovered", summary="Controller recovered a non-terminal run after restart.", payload=item)
         self._emit_event("recovery_completed", payload)
         return payload
 
@@ -1124,6 +895,7 @@ class OperatorControllerService:
         dispatch_results: list[dict[str, Any]] = []
         merge_results: list[dict[str, Any]] = []
         auto_closeouts: list[dict[str, Any]] = []
+        legacy_runtime_tasks: list[str] = []
         errors: list[dict[str, str]] = []
         for current_task in sorted(tasks):
             try:
@@ -1132,8 +904,11 @@ class OperatorControllerService:
                     continue
                 run = self.run_registry.load_latest(current_task)
                 if run and run.get("status") not in TERMINAL_STATUSES and (run.get("thread_id") or run.get("review_thread_id")):
-                    self.sync_task_run(task_id=current_task)
-                    synced_tasks.append(current_task)
+                    sync_result = self.sync_task_run(task_id=current_task)
+                    if sync_result.get("synced"):
+                        synced_tasks.append(current_task)
+                    else:
+                        legacy_runtime_tasks.append(current_task)
                 policy_state = self.evaluate_workflow_policy(task_id=current_task, emit_events=True)
                 policy_updates.append(
                     {
@@ -1166,6 +941,7 @@ class OperatorControllerService:
             "dispatch_results": dispatch_results,
             "merge_results": merge_results,
             "auto_closeouts": auto_closeouts,
+            "legacy_runtime_tasks": legacy_runtime_tasks,
             "error_count": len(errors),
             "errors": errors,
         }
@@ -1176,140 +952,14 @@ class OperatorControllerService:
         latest = self.run_registry.load_latest(task_id)
         if latest is not None:
             if auto_thread and not latest.get("thread_id"):
-                return self.start_task_thread(task_id=task_id)["run"]
+                raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
             return latest
         latest_context = self.control.get_latest_workflow_context(task_id=task_id)
         workflow_id = (latest_context.get("workflow") or {}).get("workflow_id")
-        run = self.run_registry.ensure_run(task_id=task_id, workflow_id=workflow_id, status="IDLE", app_server_url=self.app_server.launch_config.listen_url)
+        run = self.run_registry.ensure_run(task_id=task_id, workflow_id=workflow_id, status="IDLE", legacy_runtime_url=None)
         if auto_thread:
-            return self.start_task_thread(task_id=task_id)["run"]
+            raise RuntimeError(RETIRED_RUNTIME_MESSAGE)
         return run
-
-    def _ensure_bridge(self) -> tuple[AppServerBridge, dict[str, Any]]:
-        if not self.app_server.status().get("running"):
-            self.app_server.start()
-        config = self.app_server.client_config()
-        needs_restart = self._bridge is None or not self._bridge.is_running or self._bridge.ws_url != config["ws_url"]
-        if needs_restart:
-            if self._bridge is not None:
-                self._bridge.stop()
-            self._bridge = AppServerBridge(
-                repo_root=self.repo_root,
-                ws_url=config["ws_url"],
-                initialize_params=config["initialize_params"],
-                event_handler=self._handle_app_server_event,
-            )
-            self._bridge.start()
-        return self._bridge, config
-
-    def _handle_app_server_event(self, event: dict[str, Any]) -> None:
-        event_type = event.get("type")
-        if event_type == "server_request":
-            self._handle_server_request(event)
-            return
-        if event_type in {"notification", "bridge_error", "bridge_stderr", "connected", "closed"}:
-            self._handle_notification_like_event(event)
-
-    def _handle_server_request(self, event: dict[str, Any]) -> None:
-        params = event.get("params", {}) or {}
-        thread_id = params.get("threadId") or self._extract_nested_id(params, "thread")
-        review_thread_id = params.get("reviewThreadId") or self._extract_nested_id(params, "reviewThread")
-        binding = self.run_registry.resolve_task_for_thread(str(thread_id)) if thread_id else None
-        if binding is None and review_thread_id:
-            binding = self.run_registry.resolve_task_for_review_thread(str(review_thread_id))
-        if binding is None:
-            task_id = self.run_registry.latest_active_task()
-            run_id = self.run_registry.load_latest(task_id)["run_id"] if task_id else None
-        else:
-            task_id = binding["task_id"]
-            run_id = binding["run_id"]
-        entry = self.hitl_queue.record_app_server_request(
-            request_id=event["id"],
-            method=str(event["method"]),
-            params=params,
-            task_id=task_id,
-            run_id=run_id,
-            thread_id=str(thread_id) if thread_id else None,
-            review_thread_id=str(review_thread_id) if review_thread_id else None,
-        )
-        if task_id and run_id:
-            self.run_registry.note_hitl_entry(task_id=task_id, run_id=run_id, entry_id=entry["entry_id"])
-            self.run_registry.append_event(task_id=task_id, run_id=run_id, event_type="hitl_requested", payload={"entry_id": entry["entry_id"], "method": event["method"]})
-            self._record_timeline(task_id=task_id, event_type="hitl_requested", summary=f"App Server requested operator action: {event['method']}.", payload={"entry_id": entry["entry_id"], "method": event["method"]})
-            self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-            self._emit_event("hitl_queue_changed", self.get_hitl_queue(task_id=task_id, include_resolved=False))
-
-    def _handle_notification_like_event(self, event: dict[str, Any]) -> None:
-        if event.get("type") in {"bridge_error", "bridge_stderr"}:
-            task_id = self.run_registry.latest_active_task()
-            latest = self.run_registry.load_latest(task_id) if task_id else None
-            if latest:
-                self.run_registry.append_event(task_id=task_id, run_id=latest["run_id"], event_type=event["type"], payload={"message": event.get("message")})
-            self._emit_event("controller_warning", {"task_id": task_id, "event": event})
-            return
-        if event.get("type") != "notification":
-            self._emit_event("app_server_event", event)
-            return
-        method = str(event.get("method", ""))
-        params = event.get("params", {}) or {}
-        binding = self._binding_for_notification(params)
-        if binding is None:
-            return
-        task_id = binding["task_id"]
-        run_id = binding["run_id"]
-        self.run_registry.append_event(task_id=task_id, run_id=run_id, event_type=method, payload=params)
-        normalized = method.lower()
-        sync_needed = False
-        if normalized.endswith("thread/started") or normalized == "thread/started":
-            thread_id = params.get("threadId") or self._extract_nested_id(params, "thread")
-            if thread_id:
-                self.run_registry.bind_thread(task_id=task_id, run_id=run_id, thread_id=str(thread_id))
-        elif "/turn/" in normalized or normalized.startswith("turn/"):
-            turn_id = params.get("turnId") or self._extract_nested_id(params, "turn")
-            status = "TURN_RUNNING"
-            if normalized.endswith("completed") or normalized.endswith("finished"):
-                status = "TURN_COMPLETED"
-                sync_needed = True
-            elif normalized.endswith("failed"):
-                status = "TURN_FAILED"
-                sync_needed = True
-            elif normalized.endswith("interrupted"):
-                status = "TURN_INTERRUPTED"
-                sync_needed = True
-            self.run_registry.bind_turn(task_id=task_id, run_id=run_id, turn_id=str(turn_id) if turn_id else None, status=status)
-        elif "/review/" in normalized or normalized.startswith("review/"):
-            review_thread_id = params.get("reviewThreadId") or self._extract_nested_id(params, "reviewThread")
-            status = "REVIEW_PENDING"
-            if normalized.endswith("completed") or normalized.endswith("finished"):
-                status = "REVIEW_COMPLETED"
-                sync_needed = True
-            elif normalized.endswith("failed"):
-                status = "REVIEW_FAILED"
-                sync_needed = True
-            self.run_registry.bind_review(task_id=task_id, run_id=run_id, review_thread_id=str(review_thread_id) if review_thread_id else None, status=status)
-        self._record_timeline(task_id=task_id, event_type="app_server_notification", summary=f"Observed App Server notification {method}.", payload={"method": method, "params": params})
-        self._emit_event("run_state_changed", {"task_id": task_id, "run": self.run_registry.load_latest(task_id), "event": event})
-        if sync_needed:
-            self._schedule_sync(task_id=task_id)
-        else:
-            self.evaluate_workflow_policy(task_id=task_id, emit_events=True)
-
-    def _binding_for_notification(self, params: dict[str, Any]) -> dict[str, str] | None:
-        thread_id = params.get("threadId") or self._extract_nested_id(params, "thread")
-        if thread_id:
-            binding = self.run_registry.resolve_task_for_thread(str(thread_id))
-            if binding:
-                return binding
-        review_thread_id = params.get("reviewThreadId") or self._extract_nested_id(params, "reviewThread")
-        if review_thread_id:
-            binding = self.run_registry.resolve_task_for_review_thread(str(review_thread_id))
-            if binding:
-                return binding
-        task_id = self.run_registry.latest_active_task()
-        latest = self.run_registry.load_latest(task_id) if task_id else None
-        if not latest:
-            return None
-        return {"task_id": task_id, "run_id": latest["run_id"]}
 
     def _propagate_status(
         self,
@@ -1567,206 +1217,6 @@ class OperatorControllerService:
             return "REVIEW_BLOCKED"
         return f"REVIEW_{normalized}"
 
-    def _read_thread_summary(self, *, bridge: AppServerBridge, thread_id: str | None, role: str) -> dict[str, Any] | None:
-        if not thread_id:
-            return None
-        try:
-            response = bridge.request("thread/read", {"threadId": thread_id}, timeout_seconds=15.0)
-        except Exception as exc:
-            self._emit_event("controller_warning", {"thread_id": thread_id, "role": role, "message": str(exc)})
-            return {"role": role, "status": None, "error": str(exc), "turns": []}
-        thread = response.get("thread") or {}
-        turns = [self._summarize_turn(turn) for turn in (thread.get("turns") or [])][-12:]
-        latest = turns[-1] if turns else {}
-        return {
-            "role": role,
-            "thread_id": thread.get("id"),
-            "thread_status": thread.get("status"),
-            "status": self._map_turn_status(latest.get("status")),
-            "latest_turn_id": latest.get("turn_id"),
-            "latest_user_text": latest.get("user_text"),
-            "latest_assistant_text": latest.get("assistant_text"),
-            "turns": turns,
-        }
-
-    def _summarize_turn(self, turn: dict[str, Any]) -> dict[str, Any]:
-        user_text = ""
-        assistant_text = ""
-        for item in turn.get("items") or []:
-            role = str(item.get("role", "")).lower()
-            item_type = str(item.get("type", "")).lower()
-            text = self._join_fragments(self._extract_text_fragments(item))
-            if role == "user" or item_type.startswith("user"):
-                user_text = text if len(text) > len(user_text) else user_text
-            elif role == "assistant" or item_type.startswith("assistant"):
-                assistant_text = text if len(text) > len(assistant_text) else assistant_text
-        return {
-            "turn_id": turn.get("id"),
-            "status": turn.get("status"),
-            "user_text": user_text or None,
-            "assistant_text": assistant_text or None,
-            "user_preview": self._preview_text(user_text),
-            "assistant_preview": self._preview_text(assistant_text),
-        }
-
-    def _extract_text_fragments(self, payload: Any) -> list[str]:
-        fragments: list[str] = []
-        if isinstance(payload, str):
-            text = payload.strip()
-            if text:
-                fragments.append(text)
-            return fragments
-        if isinstance(payload, list):
-            for item in payload:
-                fragments.extend(self._extract_text_fragments(item))
-            return fragments
-        if not isinstance(payload, dict):
-            return fragments
-        for key in ("text", "output_text"):
-            value = payload.get(key)
-            if isinstance(value, str) and value.strip():
-                fragments.append(value.strip())
-        for key in ("content", "items", "text_elements", "result", "arguments"):
-            if key in payload:
-                fragments.extend(self._extract_text_fragments(payload.get(key)))
-        return fragments
-
-    def _join_fragments(self, fragments: list[str]) -> str:
-        unique: list[str] = []
-        for fragment in fragments:
-            if fragment not in unique:
-                unique.append(fragment)
-        return "\n".join(unique).strip()
-
-    def _preview_text(self, text: str, *, limit: int = 240) -> str | None:
-        if not text:
-            return None
-        normalized = " ".join(text.split())
-        return normalized if len(normalized) <= limit else normalized[: limit - 3] + "..."
-
-    def _map_turn_status(self, status: Any) -> str | None:
-        if not status:
-            return None
-        normalized = str(status).strip().lower()
-        if normalized in {"completed", "finished"}:
-            return "TURN_COMPLETED"
-        if normalized in {"failed", "error"}:
-            return "TURN_FAILED"
-        if normalized in {"interrupted", "paused"}:
-            return "TURN_INTERRUPTED"
-        if normalized in {"running", "queued", "started", "in_progress"}:
-            return "TURN_RUNNING"
-        return f"TURN_{normalized.upper()}"
-
-    def _write_controller_run_result(
-        self,
-        *,
-        task_id: str,
-        run: dict[str, Any],
-        thread_summary: dict[str, Any] | None,
-        review_summary: dict[str, Any] | None,
-    ) -> dict[str, Any]:
-        active_review_kind = str(((run.get("metadata") or {}).get("review") or {}).get("record_kind") or "review_gate")
-        payload = {
-            "type": "CONTROLLER_RUN_RESULT",
-            "task_id": task_id,
-            "workflow_id": run.get("workflow_id"),
-            "run_id": run["run_id"],
-            "thread_id": run.get("thread_id"),
-            "turn_id": run.get("turn_id"),
-            "review_thread_id": run.get("review_thread_id"),
-            "app_server_url": run.get("app_server_url"),
-            "run_status": run.get("status"),
-            "thread_status": (thread_summary or {}).get("status"),
-            "review_status": self._review_record_status(task_id=task_id, run=run, review_summary=review_summary, record_kind=active_review_kind),
-            "started_at": run.get("created_at"),
-            "last_synced_at": utc_now(),
-            "latest_user_text": (thread_summary or {}).get("latest_user_text"),
-            "latest_assistant_text": (thread_summary or {}).get("latest_assistant_text"),
-            "latest_review_text": (review_summary or {}).get("latest_assistant_text"),
-            "thread_turns": (thread_summary or {}).get("turns", []),
-            "review_turns": (review_summary or {}).get("turns", []),
-            "artifact_refs": {
-                "workflow_run_record": f"docs/task_workspaces/{task_id}/WORKFLOW_RUN_RECORD.json",
-                "review_gate_record": f"docs/task_workspaces/{task_id}/REVIEW_GATE_RECORD.json",
-                "adversarial_review_record": f"docs/task_workspaces/{task_id}/ADVERSARIAL_REVIEW_RECORD.json",
-                "human_decision_record": f"docs/task_workspaces/{task_id}/HUMAN_DECISION_RECORD.json",
-            },
-            "source": "operator_controller_service",
-            "notes": [],
-        }
-        self.registry.write_json_artifact(task_id, "CONTROLLER_RUN_RESULT.json", payload, schema_name="controller_run_result")
-        return {"path": f"docs/task_workspaces/{task_id}/CONTROLLER_RUN_RESULT.json", "payload": payload}
-
-    def _review_record_status(
-        self,
-        *,
-        task_id: str,
-        run: dict[str, Any],
-        review_summary: dict[str, Any] | None,
-        record_kind: str = "review_gate",
-    ) -> str | None:
-        if not run.get("review_thread_id") and not review_summary:
-            return None
-        existing = self._load_optional_json(self.registry.task_root(task_id) / self._review_record_spec(record_kind)["filename"])
-        if existing and existing.get("verdict"):
-            return existing.get("review_status")
-        status = (review_summary or {}).get("status")
-        if status in {"TURN_COMPLETED", "TURN_INTERRUPTED"} and (review_summary or {}).get("latest_assistant_text"):
-            return "REVIEW_READY_FOR_OPERATOR"
-        if status == "TURN_FAILED":
-            return "REVIEW_FAILED"
-        return existing.get("review_status") if existing else "REVIEW_PENDING"
-
-    def _sync_review_record(
-        self,
-        *,
-        task_id: str,
-        run: dict[str, Any],
-        review_status: str,
-        review_summary: dict[str, Any] | None,
-        record_kind: str = "review_gate",
-    ) -> dict[str, Any]:
-        spec = self._review_record_spec(record_kind)
-        existing = self._load_optional_json(self.registry.task_root(task_id) / spec["filename"])
-        summary = None
-        completed_at = None
-        if review_status == "REVIEW_READY_FOR_OPERATOR":
-            summary = (existing or {}).get("summary") or (review_summary or {}).get("latest_assistant_text")
-            completed_at = (existing or {}).get("completed_at") or utc_now()
-        elif review_status == "REVIEW_FAILED":
-            summary = (existing or {}).get("summary") or (review_summary or {}).get("error")
-            completed_at = (existing or {}).get("completed_at") or utc_now()
-        policy_state = self.workflow_policy.load(task_id) or self.get_workflow_policy(task_id=task_id, refresh=False)
-        adversarial_policy = dict((policy_state.get("adversarial_review") or {})) if record_kind == "adversarial_review" else None
-        record = self._write_review_record(
-            task_id=task_id,
-            run=run,
-            record_kind=record_kind,
-            review_status=review_status,
-            review_thread_id=run.get("review_thread_id"),
-            review_target=None,
-            review_delivery=None,
-            custom_instructions=None,
-            review_response={"review_sync": review_summary} if review_summary is not None else None,
-            findings=None,
-            verdict=(existing or {}).get("verdict"),
-            summary=summary,
-            completed_at=completed_at,
-            notes=(existing or {}).get("notes"),
-            adversarial_policy=adversarial_policy,
-        )
-        if review_status in {"REVIEW_PENDING", "REVIEW_READY_FOR_OPERATOR", "REVIEW_FAILED"}:
-            queue_entry = self._ensure_review_queue_entry(
-                task_id=task_id,
-                run=run,
-                summary=spec["queue_summary_ready"] if review_status == "REVIEW_READY_FOR_OPERATOR" else spec["queue_summary_pending"],
-                artifact_refs={spec["artifact_key"]: record["path"]},
-                category=spec["queue_category"],
-            )
-            self.run_registry.note_hitl_entry(task_id=task_id, run_id=run["run_id"], entry_id=queue_entry["entry_id"])
-        return record
-
     def _ensure_review_queue_entry(
         self,
         *,
@@ -1836,24 +1286,6 @@ class OperatorControllerService:
         if completed.stderr:
             output = (output + "\n" + completed.stderr).strip()
         return {"valid": completed.returncode == 0, "exit_code": completed.returncode, "output": output.strip()}
-
-    def _schedule_sync(self, *, task_id: str) -> None:
-        with self._sync_lock:
-            if task_id in self._sync_inflight:
-                return
-            self._sync_inflight.add(task_id)
-
-        def _worker() -> None:
-            try:
-                time.sleep(0.25)
-                self.sync_task_run(task_id=task_id)
-            except Exception as exc:
-                self._emit_event("controller_warning", {"task_id": task_id, "stage": "background_sync", "message": str(exc)})
-            finally:
-                with self._sync_lock:
-                    self._sync_inflight.discard(task_id)
-
-        threading.Thread(target=_worker, daemon=True).start()
 
     def _monitor_loop(self) -> None:
         while not self._monitor_stop.wait(self._monitor_interval_seconds):
@@ -2131,11 +1563,3 @@ class OperatorControllerService:
         if not path.exists():
             return None
         return load_json(path)
-
-    def _extract_nested_id(self, payload: dict[str, Any], key: str) -> str | None:
-        value = payload.get(key)
-        if isinstance(value, dict):
-            nested = value.get("id")
-            if isinstance(nested, str):
-                return nested
-        return None

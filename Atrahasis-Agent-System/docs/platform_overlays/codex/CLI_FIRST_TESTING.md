@@ -11,7 +11,7 @@ Use the new Atrahasis Agent System in the Codex CLI exactly the way you normally
 - talk to it directly in the terminal
 - compare that experience and output quality against the previous system
 
-Do not treat the web controller, daemon, or App Server as required for this evaluation.
+Do not treat the web controller or daemon as required for this evaluation.
 
 ---
 
@@ -45,7 +45,7 @@ What this does:
 For the first evaluation pass, ignore:
 - the operator web UI
 - the daemon/service controls
-- App Server features
+- retired controller-runtime features
 - controller-managed review and queue surfaces
 
 Those may be useful later, but they are not the right baseline for determining whether AAS5 itself improves direct Codex performance.

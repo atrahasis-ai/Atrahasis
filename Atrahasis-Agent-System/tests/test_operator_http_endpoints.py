@@ -17,7 +17,7 @@ class OperatorHttpEndpointTests(unittest.TestCase):
         status, payload = http_json(self.handle.base_url, "/api/health")
         self.assertEqual(status, 200)
         self.assertEqual(payload["status"], "ok")
-        self.assertIn("app_server", payload)
+        self.assertIn("runtime_bridge", payload)
 
         status, payload = http_json(
             self.handle.base_url,
@@ -67,26 +67,7 @@ class OperatorHttpEndpointTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertFalse(payload["running"])
 
-    def test_thread_turn_and_policy_configuration_posts(self) -> None:
-        status, payload = http_json(
-            self.handle.base_url,
-            "/api/controller/start-task-thread",
-            method="POST",
-            payload={"task_id": "t-9002", "model": "gpt-5.4"},
-        )
-        self.assertEqual(status, 200)
-        self.assertEqual(payload["run"]["thread_id"], "thread-1")
-
-        status, payload = http_json(
-            self.handle.base_url,
-            "/api/controller/start-task-turn",
-            method="POST",
-            payload={"task_id": "T-9002", "prompt": "Summarize.", "effort": "medium", "output_schema": {"type": "object"}},
-        )
-        self.assertEqual(status, 200)
-        self.assertEqual(payload["run"]["turn_id"], "turn-1")
-        self.assertEqual(self.handle.server.controller.calls[-1]["output_schema"], {"type": "object"})
-
+    def test_policy_configuration_posts(self) -> None:
         status, payload = http_json(
             self.handle.base_url,
             "/api/controller/configure-workflow-policy",
@@ -98,27 +79,18 @@ class OperatorHttpEndpointTests(unittest.TestCase):
         self.assertTrue(payload["workflow_policy"]["settings"]["auto_closeout"])
         self.assertFalse(payload["workflow_policy"]["settings"]["monitor_enabled"])
 
-    def test_hitl_review_and_closeout_posts(self) -> None:
+    def test_retired_runtime_endpoints_return_gone(self) -> None:
         status, payload = http_json(
             self.handle.base_url,
-            "/api/controller/start-review",
+            "/api/controller/start-task-turn",
             method="POST",
-            payload={"task_id": "T-9002", "instructions": "Check the output.", "review_role": "critic"},
+            payload={"task_id": "T-9002", "prompt": "Summarize."},
         )
-        self.assertEqual(status, 200)
-        self.assertEqual(payload["run"]["review_thread_id"], "review-1")
-        self.assertEqual(self.handle.server.controller.calls[-1]["review_role"], "critic")
+        self.assertEqual(status, 410)
+        self.assertEqual(payload["error"], "RetiredControllerRuntime")
+        self.assertIn("runtime_bridge", payload)
 
-        status, payload = http_json(
-            self.handle.base_url,
-            "/api/controller/start-adversarial-review",
-            method="POST",
-            payload={"task_id": "T-9002", "instructions": "Try to break it."},
-        )
-        self.assertEqual(status, 200)
-        self.assertEqual(payload["run"]["review_thread_id"], "review-adv-1")
-        self.assertEqual(self.handle.server.controller.calls[-1]["method"], "start_adversarial_review")
-
+    def test_hitl_and_closeout_posts(self) -> None:
         status, payload = http_json(
             self.handle.base_url,
             "/api/controller/start-convergence-decision",
@@ -238,20 +210,6 @@ class OperatorHttpEndpointTests(unittest.TestCase):
         )
         self.assertEqual(status, 200)
         self.assertFalse(payload["running"])
-
-    def test_app_server_start_triggers_recovery_and_monitor(self) -> None:
-        status, payload = http_json(
-            self.handle.base_url,
-            "/api/app-server/start",
-            method="POST",
-            payload={"listen_url": "ws://127.0.0.1:9999", "codex_executable": "codex-alpha.exe"},
-        )
-        self.assertEqual(status, 200)
-        self.assertTrue(payload["app_server"]["running"])
-        self.assertEqual(len(self.handle.server.app_server.start_calls), 1)
-        methods = [item["method"] for item in self.handle.server.controller.calls]
-        self.assertIn("recover_state", methods)
-        self.assertIn("run_monitor_cycle", methods)
 
 
 if __name__ == "__main__":
