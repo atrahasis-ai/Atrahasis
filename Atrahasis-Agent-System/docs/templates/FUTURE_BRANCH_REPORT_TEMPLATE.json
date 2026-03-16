@@ -1,0 +1,216 @@
+{
+  "type": "FUTURE_BRANCH_REPORT",
+  "task_id": "T-0000",
+  "workflow_id": "wf-0000",
+  "dispatch_id": "T-0000-IDEATION-00000000",
+  "team_mode": "FUTURE_BRANCH_SWARM",
+  "current_stage": "IDEATION",
+  "convergence_owner": "parent",
+  "convergence_artifact": "docs/task_workspaces/T-0000/FUTURE_CONVERGENCE_REPORT.json",
+  "recommendation_authorized": false,
+  "blocking_gates": [
+    "The full Alpha/Beta/Gamma/Radical branch set must complete with real child results.",
+    "Run validate_swarm_execution_record.py before presenting a recommendation."
+  ],
+  "improvement_trigger_policy": {
+    "enabled": true,
+    "trigger_reasons": [
+      "stage_supports_task_improvement",
+      "task_class_has_design_surface"
+    ],
+    "decision_options": [
+      "reject",
+      "adopt",
+      "hybridize",
+      "escalate_to_hitl"
+    ],
+    "lane_ids": [
+      "alpha",
+      "beta",
+      "gamma",
+      "radical"
+    ],
+    "lane_order": [
+      "alpha",
+      "beta",
+      "gamma",
+      "radical"
+    ]
+  },
+  "radical_trigger_policy": {
+    "enabled": true,
+    "trigger_reasons": [
+      "stage_supports_core_assumption_rewrite"
+    ],
+    "decision_options": [
+      "reject",
+      "hybridize",
+      "promote"
+    ],
+    "radical_branch_ids": [
+      "visionary:frame_replacement",
+      "systems_thinker:authority_reset",
+      "critic:foundational_invalidity"
+    ]
+  },
+  "branches": [
+    {
+      "branch_id": "visionary:conservative",
+      "parent_role": "visionary",
+      "branch_kind": "conservative",
+      "branch_label": "Conservative Future",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the highest-leverage minimal-change future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/alpha__visionary__conservative.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "visionary:aggressive",
+      "parent_role": "visionary",
+      "branch_kind": "aggressive",
+      "branch_label": "Aggressive Future",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore the strongest capability-maximizing future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/beta__visionary__aggressive.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "visionary:radical",
+      "parent_role": "visionary",
+      "branch_kind": "radical",
+      "branch_label": "Radical Future",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore the most discontinuous redesign future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/gamma__visionary__radical.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "visionary:frame_replacement",
+      "parent_role": "visionary",
+      "branch_kind": "frame_replacement",
+      "branch_label": "Frame-Replacement Future",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge the current architectural frame itself and explore a replacement future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/radical__visionary__frame_replacement.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "systems_thinker:minimal_change",
+      "parent_role": "systems_thinker",
+      "branch_kind": "minimal_change",
+      "branch_label": "Minimal-Change Topology",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the smallest viable topology shift that still resolves the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/alpha__systems_thinker__minimal_change.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "systems_thinker:modular",
+      "parent_role": "systems_thinker",
+      "branch_kind": "modular",
+      "branch_label": "Modular Topology",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore a modular decomposition future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/beta__systems_thinker__modular.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "systems_thinker:full_restructure",
+      "parent_role": "systems_thinker",
+      "branch_kind": "full_restructure",
+      "branch_label": "Full-Restructure Topology",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore an end-to-end topology rewrite future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/gamma__systems_thinker__full_restructure.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "systems_thinker:authority_reset",
+      "parent_role": "systems_thinker",
+      "branch_kind": "authority_reset",
+      "branch_label": "Authority-Reset Topology",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge the current module, authority, and topology boundaries and explore a replacement operating structure for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/radical__systems_thinker__authority_reset.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "critic:failure",
+      "parent_role": "critic",
+      "branch_kind": "failure",
+      "branch_label": "Failure Future",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the most plausible failure cascade future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/alpha__critic__failure.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "critic:abuse",
+      "parent_role": "critic",
+      "branch_kind": "abuse",
+      "branch_label": "Abuse Future",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore the strongest misuse or adversarial-abuse future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/beta__critic__abuse.json",
+      "radical_candidate": false,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "critic:governance_break",
+      "parent_role": "critic",
+      "branch_kind": "governance_break",
+      "branch_label": "Governance-Break Future",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore the strongest authority, doctrine, or governance-break future for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/gamma__critic__governance_break.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    },
+    {
+      "branch_id": "critic:foundational_invalidity",
+      "parent_role": "critic",
+      "branch_kind": "foundational_invalidity",
+      "branch_label": "Foundational-Invalidity Future",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge whether the current architectural frame is fundamentally invalid for the current ideation problem.",
+      "expected_artifact": "docs/task_workspaces/T-0000/children/radical__critic__foundational_invalidity.json",
+      "radical_candidate": true,
+      "status": "PLANNED"
+    }
+  ],
+  "created_at": "2026-03-15T00:00:00Z",
+  "updated_at": "2026-03-15T00:00:00Z"
+}

@@ -1,0 +1,15 @@
+task_id: "T-070"
+agent_name: "Ninsubur"
+invention_ids: []
+target_specs:
+  - "C3"
+title: "Specify Capsule Epoch Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-12T06:22:23Z"
+updated_at: "2026-03-12T06:28:08Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C3/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Added Section 7.12 Fusion Capsule Epoch Protocol to C3, including capsule lifecycle, commit semantics, C24 transport boundary, and Appendix B constants. Shared-state updates are deferred to docs/handoffs/T-070_CODEX_HANDOFF.md."

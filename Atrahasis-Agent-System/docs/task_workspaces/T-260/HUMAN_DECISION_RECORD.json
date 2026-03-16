@@ -1,0 +1,190 @@
+{
+  "active_research_programs": [
+    {
+      "allocation_ratio": 0.533,
+      "branch_budget": 3,
+      "contradiction_list": [
+        "X-001"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::model."
+      ],
+      "hypothesis_list": [
+        "H-001"
+      ],
+      "last_exploration_cycle": 5,
+      "opportunity_score": 0.74,
+      "program_goal": "Explore model in a coordinated research program.",
+      "program_id": "RP-104",
+      "program_status": "stabilizing",
+      "program_title": "Model Research Program",
+      "recommended_action": "expand_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-001"
+      ],
+      "target_domain": "model"
+    },
+    {
+      "allocation_ratio": 0.467,
+      "branch_budget": 3,
+      "contradiction_list": [
+        "X-001",
+        "X-002"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agent."
+      ],
+      "hypothesis_list": [
+        "H-001",
+        "H-002"
+      ],
+      "last_exploration_cycle": 5,
+      "opportunity_score": 0.649,
+      "program_goal": "Systematically explore opportunity space around agent.",
+      "program_id": "RP-947",
+      "program_status": "stabilizing",
+      "program_title": "Agent Research Program",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-001",
+        "P-002"
+      ],
+      "target_domain": "agent"
+    }
+  ],
+  "constraints": [],
+  "core_contradictions": [
+    {
+      "contradiction_id": "X-001",
+      "hypothesis_id": "H-001",
+      "severity": "high",
+      "statement": "High-opportunity zone with unresolved evidence gaps."
+    },
+    {
+      "contradiction_id": "X-002",
+      "hypothesis_id": "H-002",
+      "severity": "high",
+      "statement": "High-opportunity zone with unresolved evidence gaps."
+    }
+  ],
+  "cross_domain_candidates": [],
+  "decision_type": "OPERATOR_GUIDANCE",
+  "evidence_summary": {
+    "contradiction_count": 2,
+    "modifier": "AASBT",
+    "priority_zones": [
+      "model",
+      "agent"
+    ],
+    "strategy_summary": "Focus on Model Research Program with expand_program and branch budget 3."
+  },
+  "operator_actions": [
+    {
+      "instruction": "<new exploration instruction>",
+      "label": "redirect"
+    }
+  ],
+  "operator_decision": "PENDING",
+  "options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "expand_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    }
+  ],
+  "prompt": "spawn_program: spawn:agent",
+  "recommended_actions": [
+    {
+      "action": "expand_program",
+      "allocation_ratio": 0.533,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.74,
+      "program_id": "RP-104",
+      "program_title": "Model Research Program",
+      "rationale": "Model Research Program has opportunity score 0.74 and allocation ratio 0.533, so the recommended action is expand_program.",
+      "scope_level": "L2",
+      "target_domain": "model"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.467,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.649,
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program",
+      "rationale": "Agent Research Program has opportunity score 0.649 and allocation ratio 0.467, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    }
+  ],
+  "research_strategy_summary": "Focus on Model Research Program with expand_program and branch budget 3.",
+  "spawn_candidates": [],
+  "task_id": "T-260",
+  "top_hypotheses": [
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-001",
+      "opportunity_score": 0.64,
+      "opportunity_zone": "agent",
+      "title": "Agent invention pathway"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-002",
+      "opportunity_score": 0.545,
+      "opportunity_zone": "agents",
+      "title": "Agents invention pathway"
+    }
+  ],
+  "workflow_status": "PENDING_HUMAN_REVIEW"
+}

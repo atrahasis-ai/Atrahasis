@@ -1,0 +1,17 @@
+task_id: "T-291"
+invention_ids: []
+target_specs: []
+title: "AACP v2 Justification Test Specification"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-15T00:05:00Z"
+updated_at: "2026-03-15T00:35:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/TODO.md"
+    - "docs/COMPLETED.md"
+    - "docs/task_workspaces/T-291/"
+    - "docs/task_claims/T-291.yaml"
+  pipeline_type: "DIRECT_SPEC"
+notes: "Completed on 2026-03-15. Authored docs/task_workspaces/T-291/JUSTIFICATION_TEST_SPEC.md as the task-scoped direct specification for the executable seven-test justification harness governing the Alternative C Forge pipeline, including source-packet normalization, canonical evidence-pack structure, full-program and lane-scope decision rules, and explicit fallback profiles."

@@ -1,0 +1,17 @@
+{
+  "type": "OPPORTUNITY_REPORT",
+  "high_value_invention_targets": [
+    "distributed coordination"
+  ],
+  "emerging_research_clusters": [
+    "prior_art"
+  ],
+  "high_impact_hypothesis_zones": [
+    {
+      "zone": "distributed coordination",
+      "priority_rank": 1,
+      "basis": "frontier_signal"
+    }
+  ],
+  "priority_rank": 1
+}

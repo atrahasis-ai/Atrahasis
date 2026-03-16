@@ -1,0 +1,165 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "MCP compatibility / semantic bridge architecture / bridge-provenance governance"
+  generated_at: "2026-03-13T03:01:50.9527219-05:00"
+  agent: "Nergal"
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Bridge-Resident Semantic Cell"
+      position: |
+        Treat the bridge as a governed semantic cell that can maintain durable
+        bridge-side state, continuation posture, and selective execution
+        priming around upstream MCP servers. This maximizes long-term power and
+        could make bridged tools feel almost native inside AACP, but it risks
+        overreaching into runtime and server-framework territory too early.
+      novelty_estimate: 5
+      feasibility_estimate: 2
+
+    systems_thinker:
+      concept_name: "Snapshot-Bound Provenance Bridge"
+      position: |
+        Keep the bridge architecture explicit and bounded. Translate MCP tool
+        inventory into signed bridge-scoped snapshots, map tool calls into
+        canonical AACP invocation bundles, enrich results into accountable
+        semantic bundles, and preserve a strict bridge provenance floor so
+        native and bridged behavior remain policy-distinguishable.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Thin Passthrough Adapter"
+      position: |
+        A minimal wrapper that exposes MCP tools as AACP endpoints with only
+        light semantic wrapping is the most straightforward to implement and
+        easiest to explain, but it may fail the Alternative B integrity test by
+        making bridge posture too shallow and enrichment too underspecified.
+      novelty_estimate: 3
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      A bridge-resident semantic cell risks duplicating `T-260` and bleeding
+      into `C23` runtime authority. T-250 should define the migration bridge,
+      not a second native server framework hidden inside bridge code.
+
+    critic_challenges_both: |
+      The bridge cannot invent confidence and provenance stronger than the
+      source system provides. If semantic enrichment is too aggressive, the
+      design will become dishonest precisely where Alternative B says bridge
+      posture must stay visible.
+
+    visionary_response: |
+      The useful insight is that a universal bridge still needs durable bridge
+      state: inventory snapshots, translation policy, and bounded continuation
+      posture. The chosen concept should preserve those without claiming native
+      equivalence or full runtime authority.
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Thin Passthrough Adapter"
+      summary: |
+        A minimal MCP facade that maps `tools/list` to `tool_discovery`,
+        `tools/call` to `tool_invocation`/`tool_result`, and wraps results with
+        only a lightweight semantic envelope. This is the easiest rollout path,
+        but it risks weak provenance discipline and too much endpoint-specific
+        ambiguity.
+      novelty_score: 3
+      feasibility_score: 5
+      key_innovation: "Low-friction MCP facade that standardizes only the minimum AACP wrapper"
+      technical_approach: |
+        Treat the bridge as a stateless adapter with generic MCP schema
+        ingestion, one canonical call translation path, and a thin result
+        wrapper that attaches bridge origin plus a bounded semantic bundle for
+        downstream use.
+      potential_applications:
+        - "Fastest compatibility layer for common MCP servers"
+        - "Short path to broad ecosystem reach during migration"
+      known_risks:
+        - "Result enrichment may be too weak for strong downstream trust"
+        - "Inventory and call semantics may drift across MCP servers"
+        - "Bridge posture may become visible but not operationally meaningful"
+      prior_art_concerns:
+        - "Resembles conventional protocol gateway and adapter patterns"
+      research_questions:
+        - "What is the minimum semantic wrapper that still satisfies Alternative B integrity goals?"
+        - "Can a stateless bridge handle inventory churn without custom server hints?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Snapshot-Bound Provenance Bridge"
+      summary: |
+        A universal MCP bridge that emits bridge-scoped signed tool inventory
+        snapshots, translates tool invocations against pinned snapshot/tool
+        identity, and returns semantically enriched accountable result bundles
+        with explicit `BRIDGE_ENRICHED` or `BRIDGE_DEGRADED` posture. The bridge
+        acts as a visible custody boundary rather than a fake native endpoint.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: "A custody-aware protocol bridge that combines snapshot-bound translation, bounded semantic enrichment, and explicit bridge trust ceilings"
+      technical_approach: |
+        Define a canonical bridge inventory model derived from generic MCP tool
+        catalogs; require invocation translation to bind to one snapshot and one
+        translated tool identity; generate accountable `CLM + CNF + EVD + PRV`
+        bundles that preserve source-versus-bridge contribution boundaries; and
+        expose manifest and security posture that make bridged surfaces clearly
+        distinct from native `C42` tool hosts.
+      potential_applications:
+        - "Universal migration bridge for the existing MCP ecosystem"
+        - "Canonical bridge contract for `T-281` conformance and `T-307` retirement policy"
+        - "Shared downstream surface for `T-260`, `T-262`, and native-vs-bridge policy consumers"
+      known_risks:
+        - "Signed bridge snapshots may be difficult to keep generic across highly dynamic MCP servers"
+        - "Confidence and evidence enrichment rules could become unsound if source metadata is sparse"
+        - "Continuation or priming semantics need careful derating so the bridge does not overclaim native `C42` behavior"
+      prior_art_concerns:
+        - "Protocol bridges and wrapper-based tool adapters are known; novelty must come from the Atrahasis-specific fusion of signed bridge snapshots, semantic accountability wrapping, and explicit bridge trust ceilings"
+      research_questions:
+        - "Which MCP metadata is sufficient to derive stable bridge snapshots without per-server configuration?"
+        - "How should the bridge separate observed source facts from bridge-inferred semantic structure in `CNF`, `EVD`, and `PRV`?"
+        - "What degraded continuation or execution-priming posture, if any, is safe across the bridge boundary?"
+        - "How should manifest disclosure communicate bridge capabilities without overstating native equivalence?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Bridge-Resident Semantic Cell"
+      summary: |
+        A richer bridge architecture that caches inventories, manages bridge-side
+        continuation state, performs deeper semantic normalization, and exposes
+        a quasi-native tool host surface around MCP servers. This offers the
+        strongest long-term power but risks architectural overreach and blurred
+        authority boundaries.
+      novelty_score: 5
+      feasibility_score: 2
+      key_innovation: "A stateful bridge cell that upgrades MCP servers into a managed quasi-native AACP execution surface"
+      technical_approach: |
+        Introduce a bridge-side semantic state machine that tracks translated
+        tool inventories, continuation contexts, bridge policy profiles, and
+        richer lifecycle state so downstream AACP clients can interact with the
+        bridge almost as if it were a native server framework.
+      potential_applications:
+        - "High-value bridge clusters where deeper translation amortizes over many calls"
+        - "Future migration path toward native server replacement for popular MCP integrations"
+      known_risks:
+        - "Encroaches on `T-260`, `T-262`, and `C23` responsibilities"
+        - "May create false expectations of native trust or priming behavior"
+        - "Raises maintenance cost sharply for the universal bridge"
+      prior_art_concerns:
+        - "Stateful mediation and protocol virtualization patterns are known; the risk is not lack of novelty but building too much infrastructure in the bridge layer before the native ecosystem is mature"
+      research_questions:
+        - "What subset of bridge-side state is truly necessary for universal compatibility?"
+        - "Can a richer bridge remain clearly non-native in policy and provenance terms?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-2"]
+
+  dissent_record:
+    - point: "The selected concept must preserve a path for bounded bridge-side continuation and warm-state reuse without pretending the bridge is fully native."
+      minority: "Visionary"
+      monitoring_flag: "FEASIBILITY should define which bridge-side state is necessary versus out of scope for the universal bridge."
+    - point: "Semantic enrichment must never overstate certainty, evidence quality, or provenance strength relative to the source MCP server."
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must separate source-observed fields from bridge-inferred fields and define a strict provenance floor."
+    - point: "The bridge must not duplicate the future native server framework or runtime lease authority."
+      minority: "Systems Thinker"
+      monitoring_flag: "DESIGN must keep bridge translation, framework ergonomics, and runtime execution ownership explicitly separate."

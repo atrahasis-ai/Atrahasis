@@ -1,0 +1,1651 @@
+{
+  "active_programs": [
+    {
+      "active_hypothesis_count": 1,
+      "archived_hypotheses": [],
+      "archived_hypothesis_count": 0,
+      "contradiction_list": [
+        "X-001"
+      ],
+      "created_cycle": 5,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 5.0,
+      "frontier_score": 0.82,
+      "governance_lock": "L2::agent",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agent."
+      ],
+      "hypothesis_list": [
+        "H-001"
+      ],
+      "last_exploration_cycle": 5,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agent"
+      ],
+      "novelty_trend": 2.0,
+      "number_of_hypotheses": 1,
+      "number_of_resolved_contradictions": 1,
+      "opportunity_score": 0.675,
+      "program_goal": "Systematically explore opportunity space around agent.",
+      "program_id": "RP-947",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Agent Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-902/HYPOTHESIS_PACKET.json",
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-001"
+      ],
+      "target_domain": "agent"
+    },
+    {
+      "active_hypothesis_count": 1,
+      "archived_hypotheses": [
+        "H-003"
+      ],
+      "archived_hypothesis_count": 1,
+      "contradiction_list": [
+        "X-002"
+      ],
+      "created_cycle": 5,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 5.0,
+      "frontier_score": 0.74,
+      "governance_lock": "L2::agents",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agents."
+      ],
+      "hypothesis_list": [
+        "H-002"
+      ],
+      "last_exploration_cycle": 5,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agents"
+      ],
+      "novelty_trend": 1.0,
+      "number_of_hypotheses": 1,
+      "number_of_resolved_contradictions": 1,
+      "opportunity_score": 0.6,
+      "program_goal": "Systematically explore opportunity space around agents.",
+      "program_id": "RP-191",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Agents Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-902/HYPOTHESIS_PACKET.json",
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-002"
+      ],
+      "target_domain": "agents"
+    },
+    {
+      "active_hypothesis_count": 1,
+      "archived_hypotheses": [
+        "H-002"
+      ],
+      "archived_hypothesis_count": 1,
+      "contradiction_list": [
+        "X-003"
+      ],
+      "created_cycle": 5,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 5.0,
+      "frontier_score": 0.66,
+      "governance_lock": "L2::model",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::model."
+      ],
+      "hypothesis_list": [
+        "H-003"
+      ],
+      "last_exploration_cycle": 5,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "model"
+      ],
+      "novelty_trend": 1.0,
+      "number_of_hypotheses": 1,
+      "number_of_resolved_contradictions": 1,
+      "opportunity_score": 0.569,
+      "program_goal": "Systematically explore opportunity space around model.",
+      "program_id": "RP-104",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Model Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-902/HYPOTHESIS_PACKET.json",
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-003"
+      ],
+      "target_domain": "model"
+    },
+    {
+      "active_hypothesis_count": 1,
+      "archived_hypotheses": [],
+      "archived_hypothesis_count": 0,
+      "contradiction_list": [
+        "X-004"
+      ],
+      "created_cycle": 5,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 5.0,
+      "frontier_score": 0.58,
+      "governance_lock": "L2::verification",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::verification."
+      ],
+      "hypothesis_list": [
+        "H-004"
+      ],
+      "last_exploration_cycle": 5,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "verification"
+      ],
+      "novelty_trend": 1.0,
+      "number_of_hypotheses": 1,
+      "number_of_resolved_contradictions": 1,
+      "opportunity_score": 0.539,
+      "program_goal": "Systematically explore Verification invention pathway.",
+      "program_id": "RP-075",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Verification",
+      "research_artifacts": [
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-004"
+      ],
+      "target_domain": "verification"
+    },
+    {
+      "active_hypothesis_count": 1,
+      "archived_hypotheses": [],
+      "archived_hypothesis_count": 0,
+      "contradiction_list": [
+        "X-005"
+      ],
+      "created_cycle": 5,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 5.0,
+      "frontier_score": 0.5,
+      "governance_lock": "L2::detection",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::detection."
+      ],
+      "hypothesis_list": [
+        "H-005"
+      ],
+      "last_exploration_cycle": 5,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "detection"
+      ],
+      "novelty_trend": 1.0,
+      "number_of_hypotheses": 1,
+      "number_of_resolved_contradictions": 1,
+      "opportunity_score": 0.515,
+      "program_goal": "Systematically explore Detection invention pathway.",
+      "program_id": "RP-019",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Detection",
+      "research_artifacts": [
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-005"
+      ],
+      "target_domain": "detection"
+    }
+  ],
+  "cycle_count": 5,
+  "governance_summary": {
+    "active_program_count": 5,
+    "archived_program_count": 0,
+    "authoritative_lock_count": 7,
+    "completed_program_count": 0,
+    "enforced_hypothesis_capacity": 10,
+    "governance_kernel": "active",
+    "l0_blockers": [],
+    "lock_keys": [
+      "L2::agent",
+      "L2::agents",
+      "L2::data-center-cooling",
+      "L2::detection",
+      "L2::model",
+      "L2::verification",
+      "L3::cross-domain-cooling-analogies"
+    ],
+    "paused_program_count": 0
+  },
+  "master_program_tree": [
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agent"
+      ],
+      "program_id": "RP-947",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    },
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agents"
+      ],
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "target_domain": "agents"
+    },
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "model"
+      ],
+      "program_id": "RP-104",
+      "scope_level": "L2",
+      "target_domain": "model"
+    },
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "verification"
+      ],
+      "program_id": "RP-075",
+      "scope_level": "L2",
+      "target_domain": "verification"
+    },
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "detection"
+      ],
+      "program_id": "RP-019",
+      "scope_level": "L2",
+      "target_domain": "detection"
+    }
+  ],
+  "telemetry_events": [
+    {
+      "event": "program_created",
+      "program_id": "RP-075",
+      "program_title": "Verification",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_created",
+      "program_id": "RP-019",
+      "program_title": "Detection",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_updated",
+      "program_id": "RP-947",
+      "program_status": "stabilizing",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_updated",
+      "program_id": "RP-191",
+      "program_status": "stabilizing",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_updated",
+      "program_id": "RP-104",
+      "program_status": "stabilizing",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_updated",
+      "program_id": "RP-075",
+      "program_status": "stabilizing",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_updated",
+      "program_id": "RP-019",
+      "program_status": "stabilizing",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_prioritized",
+      "execution_state": "active",
+      "opportunity_score": 0.675,
+      "program_id": "RP-947",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_prioritized",
+      "execution_state": "active",
+      "opportunity_score": 0.6,
+      "program_id": "RP-191",
+      "scope_level": "L2"
+    },
+    {
+      "event": "program_prioritized",
+      "execution_state": "active",
+      "opportunity_score": 0.569,
+      "program_id": "RP-104",
+      "scope_level": "L2"
+    }
+  ],
+  "type": "RESEARCH_PROGRAM_REPORT",
+  "updated_discovery_map": {
+    "cluster_evidence": {
+      "prior_art": [
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md",
+        "docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/science_assessment.md",
+        "docs/prior_art/C34/landscape.md",
+        "docs/prior_art/C34/prior_art_report.md",
+        "docs/prior_art/C34/science_assessment.md"
+      ],
+      "specification": [
+        "docs/specifications/C1/architecture.md",
+        "docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "docs/specifications/C1/technical_spec.md",
+        "docs/specifications/C1/technical_spec_part2.md",
+        "docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md"
+      ]
+    },
+    "domain_links": [
+      {
+        "domain": "agent",
+        "linked_cluster": "specification"
+      },
+      {
+        "domain": "agents",
+        "linked_cluster": "prior_art"
+      },
+      {
+        "domain": "model",
+        "linked_cluster": "specification"
+      },
+      {
+        "domain": "verification",
+        "linked_cluster": "prior_art"
+      },
+      {
+        "domain": "detection",
+        "linked_cluster": "specification"
+      },
+      {
+        "domain": "system",
+        "linked_cluster": "prior_art"
+      },
+      {
+        "domain": "governance",
+        "linked_cluster": "specification"
+      },
+      {
+        "domain": "epoch",
+        "linked_cluster": "prior_art"
+      }
+    ],
+    "edges": [
+      {
+        "from": "concept:agent",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:agents",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:model",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:verification",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:detection",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:system",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:governance",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:epoch",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C1/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C5/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C6/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C33/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C23/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/architecture.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/technical_spec.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/technical_spec_part2.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "concept:agent",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "concept:agents",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "concept:model",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "concept:verification",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "concept:detection",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "H-001",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "X-001",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "P-001",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "H-002",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "X-002",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "P-002",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "H-003",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "X-003",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "P-003",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "H-004",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "X-004",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "P-004",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "H-005",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "X-005",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "P-005",
+        "type": "tracks_solution_path"
+      }
+    ],
+    "entities": [
+      {
+        "id": "cluster:specification",
+        "label": "specification",
+        "signal": 44,
+        "type": "cluster"
+      },
+      {
+        "id": "cluster:prior_art",
+        "label": "prior_art",
+        "signal": 16,
+        "type": "cluster"
+      },
+      {
+        "id": "concept:agent",
+        "label": "agent",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:agents",
+        "label": "agents",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:model",
+        "label": "model",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:verification",
+        "label": "verification",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:detection",
+        "label": "detection",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:system",
+        "label": "system",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:governance",
+        "label": "governance",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:epoch",
+        "label": "epoch",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C1/landscape.md",
+        "label": "docs/prior_art/C1/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/landscape.md",
+        "label": "docs/prior_art/C3/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/science_assessment.md",
+        "label": "docs/prior_art/C3/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/landscape.md",
+        "label": "docs/prior_art/C34/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/prior_art_report.md",
+        "label": "docs/prior_art/C34/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/science_assessment.md",
+        "label": "docs/prior_art/C34/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/landscape.md",
+        "label": "docs/prior_art/C4/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/science_assessment.md",
+        "label": "docs/prior_art/C4/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C5/science_assessment.md",
+        "label": "docs/prior_art/C5/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C6/science_assessment.md",
+        "label": "docs/prior_art/C6/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "label": "docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C33/prior_art_report.md",
+        "label": "docs/prior_art/C33/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C23/prior_art_report.md",
+        "label": "docs/prior_art/C23/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/architecture.md",
+        "label": "docs/specifications/C1/architecture.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "label": "docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/technical_spec.md",
+        "label": "docs/specifications/C1/technical_spec.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/technical_spec_part2.md",
+        "label": "docs/specifications/C1/technical_spec_part2.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "label": "docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "label": "docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "label": "docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "label": "docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "label": "docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-947",
+        "label": "Agent Research Program",
+        "opportunity_score": 0.82,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-191",
+        "label": "Agents Research Program",
+        "opportunity_score": 0.74,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-104",
+        "label": "Model Research Program",
+        "opportunity_score": 0.66,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "active",
+        "id": "program:RP-075",
+        "label": "Verification",
+        "opportunity_score": 0.539,
+        "program_status": "stabilizing",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "active",
+        "id": "program:RP-019",
+        "label": "Detection",
+        "opportunity_score": 0.515,
+        "program_status": "stabilizing",
+        "scope_level": "L2",
+        "type": "research_program"
+      }
+    ],
+    "evidence_refs": [
+      "docs/prior_art/C1/landscape.md",
+      "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+      "docs/prior_art/C3/landscape.md",
+      "docs/prior_art/C3/PRIOR_ART_REPORT.json",
+      "docs/prior_art/C3/science_assessment.md",
+      "docs/prior_art/C34/landscape.md",
+      "docs/prior_art/C34/prior_art_report.md",
+      "docs/prior_art/C34/science_assessment.md",
+      "docs/prior_art/C4/landscape.md",
+      "docs/prior_art/C4/PRIOR_ART_REPORT.json",
+      "docs/prior_art/C4/science_assessment.md",
+      "docs/prior_art/C5/science_assessment.md",
+      "docs/prior_art/C6/science_assessment.md",
+      "docs/prior_art/distributed_consensus_protocols_comparison.md",
+      "docs/prior_art/C33/prior_art_report.md",
+      "docs/prior_art/C23/prior_art_report.md",
+      "docs/specifications/C1/architecture.md",
+      "docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+      "docs/specifications/C1/technical_spec.md",
+      "docs/specifications/C1/technical_spec_part2.md",
+      "docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+      "docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+      "docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+      "docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+      "docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+      "docs/specifications/C11/MASTER_TECH_SPEC.md",
+      "docs/specifications/C12/MASTER_TECH_SPEC.md",
+      "docs/specifications/C13/MASTER_TECH_SPEC.md",
+      "docs/specifications/C14/MASTER_TECH_SPEC.md",
+      "docs/specifications/C15/MASTER_TECH_SPEC.md",
+      "docs/specifications/C16/MASTER_TECH_SPEC.md",
+      "docs/specifications/C17/MASTER_TECH_SPEC.md",
+      "docs/specifications/C18/MASTER_TECH_SPEC.md",
+      "docs/specifications/C19/MASTER_TECH_SPEC.md",
+      "docs/specifications/C20/MASTER_TECH_SPEC.md",
+      "docs/specifications/C21/MASTER_TECH_SPEC.md",
+      "docs/specifications/C22/MASTER_TECH_SPEC.md",
+      "docs/specifications/C23/MASTER_TECH_SPEC.md",
+      "docs/specifications/C24/MASTER_TECH_SPEC.md",
+      "docs/specifications/C3/architecture.md"
+    ],
+    "nodes": [
+      {
+        "id": "cluster:specification",
+        "label": "specification",
+        "signal": 44,
+        "type": "cluster"
+      },
+      {
+        "id": "cluster:prior_art",
+        "label": "prior_art",
+        "signal": 16,
+        "type": "cluster"
+      },
+      {
+        "id": "concept:agent",
+        "label": "agent",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:agents",
+        "label": "agents",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:model",
+        "label": "model",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:verification",
+        "label": "verification",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:detection",
+        "label": "detection",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:system",
+        "label": "system",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "id": "concept:governance",
+        "label": "governance",
+        "linked_cluster": "specification",
+        "type": "concept"
+      },
+      {
+        "id": "concept:epoch",
+        "label": "epoch",
+        "linked_cluster": "prior_art",
+        "type": "concept"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C1/landscape.md",
+        "label": "docs/prior_art/C1/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/landscape.md",
+        "label": "docs/prior_art/C3/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C3/science_assessment.md",
+        "label": "docs/prior_art/C3/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/landscape.md",
+        "label": "docs/prior_art/C34/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/prior_art_report.md",
+        "label": "docs/prior_art/C34/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C34/science_assessment.md",
+        "label": "docs/prior_art/C34/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/landscape.md",
+        "label": "docs/prior_art/C4/landscape.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "label": "docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C4/science_assessment.md",
+        "label": "docs/prior_art/C4/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C5/science_assessment.md",
+        "label": "docs/prior_art/C5/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C6/science_assessment.md",
+        "label": "docs/prior_art/C6/science_assessment.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "label": "docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C33/prior_art_report.md",
+        "label": "docs/prior_art/C33/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "prior_art",
+        "id": "evidence:docs/prior_art/C23/prior_art_report.md",
+        "label": "docs/prior_art/C23/prior_art_report.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/architecture.md",
+        "label": "docs/specifications/C1/architecture.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "label": "docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/technical_spec.md",
+        "label": "docs/specifications/C1/technical_spec.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C1/technical_spec_part2.md",
+        "label": "docs/specifications/C1/technical_spec_part2.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "label": "docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "label": "docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "label": "docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "label": "docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "label": "docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "category": "specification",
+        "id": "evidence:docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "label": "docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "type": "evidence"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-947",
+        "label": "Agent Research Program",
+        "opportunity_score": 0.82,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-191",
+        "label": "Agents Research Program",
+        "opportunity_score": 0.74,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "proposed",
+        "id": "program:RP-104",
+        "label": "Model Research Program",
+        "opportunity_score": 0.66,
+        "program_status": "proposed",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "active",
+        "id": "program:RP-075",
+        "label": "Verification",
+        "opportunity_score": 0.539,
+        "program_status": "stabilizing",
+        "scope_level": "L2",
+        "type": "research_program"
+      },
+      {
+        "execution_state": "active",
+        "id": "program:RP-019",
+        "label": "Detection",
+        "opportunity_score": 0.515,
+        "program_status": "stabilizing",
+        "scope_level": "L2",
+        "type": "research_program"
+      }
+    ],
+    "problem_clusters": [
+      {
+        "name": "specification",
+        "signal": 44
+      },
+      {
+        "name": "prior_art",
+        "signal": 16
+      }
+    ],
+    "relationships": [
+      {
+        "from": "concept:agent",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:agents",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:model",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:verification",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:detection",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:system",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:governance",
+        "to": "cluster:specification",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "concept:epoch",
+        "to": "cluster:prior_art",
+        "type": "belongs_to_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C1/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C3/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C34/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/landscape.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/PRIOR_ART_REPORT.json",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C4/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C5/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C6/science_assessment.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/distributed_consensus_protocols_comparison.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C33/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/prior_art/C23/prior_art_report.md",
+        "to": "cluster:prior_art",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/architecture.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/PTA_COMPLETE_DESIGN.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/technical_spec.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C1/technical_spec_part2.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_EMERGENCY_ROLLBACK.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_RECONFIG_STORM.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C3_HARDENING_VRF_SMALLRING.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C5_C6_HARDENING_DEFENSE_IN_DEPTH.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C10/C6_HARDENING_SHREC_COHERENCE.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C11/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C12/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C13/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C14/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "evidence:docs/specifications/C15/MASTER_TECH_SPEC.md",
+        "to": "cluster:specification",
+        "type": "supports_cluster"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "concept:agent",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "concept:agents",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "concept:model",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "concept:verification",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "concept:detection",
+        "type": "targets_domain"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "H-001",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "X-001",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-947",
+        "to": "P-001",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "H-002",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "X-002",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-191",
+        "to": "P-002",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "H-003",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "X-003",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-104",
+        "to": "P-003",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "H-004",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "X-004",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-075",
+        "to": "P-004",
+        "type": "tracks_solution_path"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "H-005",
+        "type": "contains_hypothesis"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "X-005",
+        "type": "tracks_contradiction"
+      },
+      {
+        "from": "program:RP-019",
+        "to": "P-005",
+        "type": "tracks_solution_path"
+      }
+    ],
+    "type": "DISCOVERY_MAP"
+  }
+}

@@ -1,0 +1,15 @@
+task_id: "T-244"
+agent_name: "Nammu"
+invention_ids: []
+target_specs:
+  - "C39"
+title: "AACP Sampling Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-13T02:59:44.9750248-05:00"
+updated_at: "2026-03-13T03:06:49.1156871-05:00"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C39/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Updated C39 LCML to v1.0.4 with the T-244 sampling addendum: delegated sampling bundle contracts, prompt-surface and model-preference rules, bounded execution constraints, execution-state vocabulary, model-provenance disclosure, and LCML-R49 through LCML-R56. Shared-state updates are applied and the archived handoff is at docs/handoffs/applied/T-244_CODEX_HANDOFF.md."

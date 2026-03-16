@@ -1,0 +1,30 @@
+{
+  "constraints": [
+    "Keep human approval mandatory"
+  ],
+  "decision_type": "OPERATOR_GUIDANCE",
+  "evidence_summary": {
+    "contradiction_count": 5,
+    "modifier": "AASAQ",
+    "priority_zones": [
+      "agent",
+      "model",
+      "agents"
+    ]
+  },
+  "operator_decision": "PENDING",
+  "options": [
+    {
+      "label": "advance_top_path",
+      "path_id": "P-001"
+    },
+    {
+      "label": "advance_top_path",
+      "path_id": "P-002"
+    },
+    {
+      "label": "advance_top_path",
+      "path_id": "P-003"
+    }
+  ]
+}

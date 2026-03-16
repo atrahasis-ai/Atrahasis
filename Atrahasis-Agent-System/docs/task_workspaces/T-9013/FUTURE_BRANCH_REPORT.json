@@ -1,0 +1,300 @@
+{
+  "blocking_gates": [
+    "Operator concept choice is still required before any research, feasibility, design, or shared-state promotion."
+  ],
+  "branches": [
+    {
+      "branch_id": "visionary:conservative",
+      "branch_kind": "conservative",
+      "branch_label": "Conservative Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/alpha__visionary__conservative.json",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the highest-leverage minimal-change future for the current ideation problem.",
+      "parent_role": "visionary",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "NEEDS_ADDENDUM",
+      "top_option_name": "Inference Capacity Addendum"
+    },
+    {
+      "branch_id": "visionary:aggressive",
+      "branch_kind": "aggressive",
+      "branch_label": "Aggressive Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/beta__visionary__aggressive.json",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore the strongest capability-maximizing future for the current ideation problem.",
+      "parent_role": "visionary",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "IMPLIES_NEW_INTERNAL_SUBSYSTEM",
+      "top_option_name": "Sovereign Inference Fabric"
+    },
+    {
+      "branch_id": "visionary:radical",
+      "branch_kind": "radical",
+      "branch_label": "Radical Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/gamma__visionary__radical.json",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore the most discontinuous redesign future for the current ideation problem.",
+      "parent_role": "visionary",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "TRANSFORM_INTO_MORE_RADICAL_INTERNAL_SUBSYSTEM",
+      "top_option_name": "Non-Endpoint Cognition Substrate"
+    },
+    {
+      "branch_id": "visionary:frame_replacement",
+      "branch_kind": "frame_replacement",
+      "branch_label": "Frame-Replacement Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/radical__visionary__frame_replacement.json",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge the current architectural frame itself and explore a replacement future for the current ideation problem.",
+      "parent_role": "visionary",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "replace_with_cross_spec_substrate_planning_frame",
+      "top_option_name": "Sovereign Cognition Substrate Planning Frame"
+    },
+    {
+      "branch_id": "systems_thinker:minimal_change",
+      "branch_kind": "minimal_change",
+      "branch_label": "Minimal-Change Topology",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/alpha__systems_thinker__minimal_change.json",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the smallest viable topology shift that still resolves the current ideation problem.",
+      "parent_role": "systems_thinker",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "DO_NOT_CREATE_INDEPENDENT_LAYER",
+      "top_option_name": "Thin Internal Substrate-Routing Seam"
+    },
+    {
+      "branch_id": "systems_thinker:modular",
+      "branch_kind": "modular",
+      "branch_label": "Modular Topology",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/beta__systems_thinker__modular.json",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore a modular decomposition future for the current ideation problem.",
+      "parent_role": "systems_thinker",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "REFRAME_AS_SUBORDINATE_MODULAR_INFERENCE_FABRIC",
+      "top_option_name": "Subordinate Modular Inference Fabric"
+    },
+    {
+      "branch_id": "systems_thinker:full_restructure",
+      "branch_kind": "full_restructure",
+      "branch_label": "Full-Restructure Topology",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/gamma__systems_thinker__full_restructure.json",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore an end-to-end topology rewrite future for the current ideation problem.",
+      "parent_role": "systems_thinker",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "REWRITE_AS_INTERNAL_SOVEREIGN_COGNITION_SUBSTRATE",
+      "top_option_name": "Internal Sovereign Cognition Substrate"
+    },
+    {
+      "branch_id": "systems_thinker:authority_reset",
+      "branch_kind": "authority_reset",
+      "branch_label": "Authority-Reset Topology",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/radical__systems_thinker__authority_reset.json",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge the current module, authority, and topology boundaries and explore a replacement operating structure for the current ideation problem.",
+      "parent_role": "systems_thinker",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "RESET_AROUND_INTERNAL_CAPACITY_AUTHORITY",
+      "top_option_name": "Sovereign Cognition Capacity Fabric"
+    },
+    {
+      "branch_id": "critic:failure",
+      "branch_kind": "failure",
+      "branch_label": "Failure Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/alpha__critic__failure.json",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "objective": "Explore the most plausible failure cascade future for the current ideation problem.",
+      "parent_role": "critic",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_LAYER",
+      "top_option_name": "Shadow Runtime and Sovereignty Drift"
+    },
+    {
+      "branch_id": "critic:abuse",
+      "branch_kind": "abuse",
+      "branch_label": "Abuse Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/beta__critic__abuse.json",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "objective": "Explore the strongest misuse or adversarial-abuse future for the current ideation problem.",
+      "parent_role": "critic",
+      "radical_candidate": false,
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_INFERENCE_MICROSERVICE_LAYER",
+      "top_option_name": "Shadow Cognition Plane"
+    },
+    {
+      "branch_id": "critic:governance_break",
+      "branch_kind": "governance_break",
+      "branch_label": "Governance-Break Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/gamma__critic__governance_break.json",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "objective": "Explore the strongest authority, doctrine, or governance-break future for the current ideation problem.",
+      "parent_role": "critic",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_MICROSERVICE_LAYER_AS_SHADOW_AUTHORITY_BREAK",
+      "top_option_name": "Shadow Authority Break"
+    },
+    {
+      "branch_id": "critic:foundational_invalidity",
+      "branch_kind": "foundational_invalidity",
+      "branch_label": "Foundational-Invalidity Future",
+      "expected_artifact": "docs/task_workspaces/T-9013/children/radical__critic__foundational_invalidity.json",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "objective": "Challenge whether the current architectural frame is fundamentally invalid for the current ideation problem.",
+      "parent_role": "critic",
+      "radical_candidate": true,
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_FRAME_AS_FOUNDATIONALLY_INVALID",
+      "top_option_name": "Literal Frame Invalid"
+    }
+  ],
+  "convergence_artifact": "docs/task_workspaces/T-9013/FUTURE_CONVERGENCE_REPORT.json",
+  "convergence_owner": "parent",
+  "created_at": "2026-03-16T06:44:25Z",
+  "current_stage": "IDEATION",
+  "dispatch_id": "T-9013-IDEATION-20260316T064425Z",
+  "improvement_trigger_policy": {
+    "contradiction_count": 3,
+    "decision_options": [
+      "reject",
+      "adopt",
+      "hybridize",
+      "escalate_to_hitl"
+    ],
+    "enabled": true,
+    "highest_novelty_score": "high",
+    "lane_ids": [
+      "alpha",
+      "beta",
+      "gamma",
+      "radical"
+    ],
+    "lane_order": [
+      "alpha",
+      "beta",
+      "gamma",
+      "radical"
+    ],
+    "redesign_memory_signals": {
+      "adopt_count": 0,
+      "adversarial_issue_count": 4,
+      "adversarial_reviewed_count": 4,
+      "continue_count": 0,
+      "escalate_count": 0,
+      "full_branch_coverage_recommended": true,
+      "gamma_related_count": 4,
+      "historical_pressure_high": true,
+      "history_available": true,
+      "hybridize_count": 3,
+      "preferred_parent_action": "hybridize",
+      "promote_count": 0,
+      "proven_improvement_available": false,
+      "recurring_disagreement_signals": [
+        "whether a genuinely new internal authority is required or a direct-spec addendum is sufficient"
+      ],
+      "recurring_trigger_reasons": [
+        "literal microservice frame invalid under current authority",
+        "underlying capacity-governance objective remains partially open"
+      ],
+      "reject_count": 5,
+      "related_entry_count": 1,
+      "sample_size": 12,
+      "successful_count": 0
+    },
+    "trigger_reasons": [
+      "stage_supports_task_improvement",
+      "task_class_has_design_surface",
+      "full_swarm_completed_with_real_child_results"
+    ]
+  },
+  "radical_trigger_policy": {
+    "contradiction_count": 2,
+    "decision_options": [
+      "reject",
+      "hybridize",
+      "promote"
+    ],
+    "enabled": true,
+    "highest_novelty_score": "high",
+    "radical_branch_ids": [
+      "visionary:radical",
+      "visionary:frame_replacement",
+      "systems_thinker:full_restructure",
+      "systems_thinker:authority_reset",
+      "critic:governance_break",
+      "critic:foundational_invalidity"
+    ],
+    "redesign_memory_signals": {
+      "adopt_count": 0,
+      "adversarial_issue_count": 4,
+      "adversarial_reviewed_count": 4,
+      "continue_count": 0,
+      "escalate_count": 0,
+      "full_branch_coverage_recommended": true,
+      "gamma_related_count": 4,
+      "historical_pressure_high": true,
+      "history_available": true,
+      "hybridize_count": 2,
+      "preferred_parent_action": "hybridize",
+      "promote_count": 0,
+      "proven_improvement_available": false,
+      "recurring_disagreement_signals": [
+        "planning-frame replacement versus distinct internal capacity authority"
+      ],
+      "recurring_trigger_reasons": [
+        "old stack framing rejected",
+        "internal capacity substrate remains thinkable"
+      ],
+      "reject_count": 4,
+      "related_entry_count": 1,
+      "sample_size": 6,
+      "successful_count": 0
+    },
+    "trigger_reasons": [
+      "stage_supports_core_assumption_rewrite",
+      "radical branches converged on redesign rather than literal revival"
+    ]
+  },
+  "recommendation_authorized": true,
+  "task_id": "T-9013",
+  "team_mode": "FUTURE_BRANCH_SWARM",
+  "type": "FUTURE_BRANCH_REPORT",
+  "updated_at": "2026-03-16T07:12:00Z",
+  "workflow_id": "T-9013-AASNI-20260316T064425Z"
+}

@@ -1,0 +1,14 @@
+task_id: "T-203"
+invention_ids: []
+target_specs: []
+title: "Alternative B Wave Parallelism Guidance"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T21:45:00Z"
+updated_at: "2026-03-12T21:55:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-203/"
+  pipeline_type: "GOVERNANCE"
+notes: "Completed governance/docs update. TODO now states wave-by-wave parallel capacity, distinguishes launch capacity from total wave count where internal blockers exist, and tightens the early gate by making T-210 depend on T-201."

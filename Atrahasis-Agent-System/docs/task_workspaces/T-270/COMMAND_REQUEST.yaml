@@ -1,0 +1,10 @@
+command_modifier: AASBT
+task_id: T-270
+prompt: 'terminate_program: RP-947'
+scope: buildout_task
+operator_constraints: []
+hitl_requirements:
+- PIVOT
+- RESOURCE_INTENSIVE
+- PATENT_RELATED
+created_at: '2026-03-13T19:49:10Z'

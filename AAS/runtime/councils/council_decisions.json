@@ -1,0 +1,1203 @@
+{
+  "decisions": [
+    {
+      "councils_involved": [
+        "Runtime Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-001",
+      "decision_outcome": "approved_with_modifications",
+      "proposal_id": "AEP-ALPHA-001",
+      "reasoning": "The overlay model preserves the existing document canon while adding the minimum runtime needed to execute PAEE without destabilizing the repo workflow.",
+      "requested_modifications": [
+        "Treat existing repo documentation as the GCML input surface instead of duplicating it.",
+        "Keep runtime outputs under /AAS/runtime so governance and Atrahasis specs remain separated."
+      ]
+    },
+    {
+      "councils_involved": [
+        "Runtime Council",
+        "Registry Council"
+      ],
+      "decision_id": "CDR-002",
+      "decision_outcome": "approved",
+      "proposal_id": "AEP-BETA-001",
+      "reasoning": "A machine-readable ACR, proposal registry, and task graph are required for capability-driven execution and are compatible with the current operating model.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Governance Council",
+        "Protocol Council"
+      ],
+      "decision_id": "CDR-003",
+      "decision_outcome": "approved_with_modifications",
+      "proposal_id": "AEP-GAMMA-001",
+      "reasoning": "The event-sourced control plane materially increases recursive evolution power, but it must not replace human override or the existing shared-state authority boundary.",
+      "requested_modifications": [
+        "Keep the control plane file-backed and local during bootstrap.",
+        "Preserve explicit human override and council arbitration as first-class invariants."
+      ]
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-004",
+      "decision_outcome": "approved",
+      "proposal_id": "META-MERGE-001",
+      "reasoning": "The strongest path is a merge: Alpha's non-breaking overlay, Beta's registries and task graph, and Gamma's event-sourced recursive evolution objective.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-001",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE001-MERGE-001",
+      "reasoning": "Cycle 001 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-002",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE002-MERGE-001",
+      "reasoning": "Cycle 002 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-003",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE003-MERGE-001",
+      "reasoning": "Cycle 003 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-004",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE004-MERGE-001",
+      "reasoning": "Cycle 004 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-005",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE005-MERGE-001",
+      "reasoning": "Cycle 005 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-006",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE006-MERGE-001",
+      "reasoning": "Cycle 006 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-007",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE007-MERGE-001",
+      "reasoning": "Cycle 007 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-008",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE008-MERGE-001",
+      "reasoning": "Cycle 008 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-009",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE009-MERGE-001",
+      "reasoning": "Cycle 009 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-010",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE010-MERGE-001",
+      "reasoning": "Cycle 010 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-011",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE011-MERGE-001",
+      "reasoning": "Cycle 011 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-012",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE012-MERGE-001",
+      "reasoning": "Cycle 012 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-013",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE013-MERGE-001",
+      "reasoning": "Cycle 013 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-014",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE014-MERGE-001",
+      "reasoning": "Cycle 014 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-015",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE015-MERGE-001",
+      "reasoning": "Cycle 015 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-016",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE016-MERGE-001",
+      "reasoning": "Cycle 016 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-017",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE017-MERGE-001",
+      "reasoning": "Cycle 017 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-018",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE018-MERGE-001",
+      "reasoning": "Cycle 018 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-019",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE019-MERGE-001",
+      "reasoning": "Cycle 019 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-020",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE020-MERGE-001",
+      "reasoning": "Cycle 020 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-021",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE021-MERGE-001",
+      "reasoning": "Cycle 021 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-022",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE022-MERGE-001",
+      "reasoning": "Cycle 022 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-023",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE023-MERGE-001",
+      "reasoning": "Cycle 023 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-024",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE024-MERGE-001",
+      "reasoning": "Cycle 024 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-025",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE025-MERGE-001",
+      "reasoning": "Cycle 025 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-026",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE026-MERGE-001",
+      "reasoning": "Cycle 026 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-027",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE027-MERGE-001",
+      "reasoning": "Cycle 027 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-028",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE028-MERGE-001",
+      "reasoning": "Cycle 028 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-029",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE029-MERGE-001",
+      "reasoning": "Cycle 029 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-030",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE030-MERGE-001",
+      "reasoning": "Cycle 030 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-031",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE031-MERGE-001",
+      "reasoning": "Cycle 031 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-032",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE032-MERGE-001",
+      "reasoning": "Cycle 032 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-033",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE033-MERGE-001",
+      "reasoning": "Cycle 033 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-034",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE034-MERGE-001",
+      "reasoning": "Cycle 034 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-035",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE035-MERGE-001",
+      "reasoning": "Cycle 035 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-036",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE036-MERGE-001",
+      "reasoning": "Cycle 036 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-037",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE037-MERGE-001",
+      "reasoning": "Cycle 037 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-038",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE038-MERGE-001",
+      "reasoning": "Cycle 038 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-039",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE039-MERGE-001",
+      "reasoning": "Cycle 039 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-040",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE040-MERGE-001",
+      "reasoning": "Cycle 040 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-041",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE041-MERGE-001",
+      "reasoning": "Cycle 041 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-042",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE042-MERGE-001",
+      "reasoning": "Cycle 042 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-043",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE043-MERGE-001",
+      "reasoning": "Cycle 043 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-044",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE044-MERGE-001",
+      "reasoning": "Cycle 044 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-045",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE045-MERGE-001",
+      "reasoning": "Cycle 045 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-046",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE046-MERGE-001",
+      "reasoning": "Cycle 046 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-047",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE047-MERGE-001",
+      "reasoning": "Cycle 047 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-048",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE048-MERGE-001",
+      "reasoning": "Cycle 048 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-049",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE049-MERGE-001",
+      "reasoning": "Cycle 049 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-050",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE050-MERGE-001",
+      "reasoning": "Cycle 050 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-051",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE051-MERGE-001",
+      "reasoning": "Cycle 051 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-052",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE052-MERGE-001",
+      "reasoning": "Cycle 052 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-053",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE053-MERGE-001",
+      "reasoning": "Cycle 053 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-054",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE054-MERGE-001",
+      "reasoning": "Cycle 054 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-055",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE055-MERGE-001",
+      "reasoning": "Cycle 055 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-056",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE056-MERGE-001",
+      "reasoning": "Cycle 056 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-057",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE057-MERGE-001",
+      "reasoning": "Cycle 057 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-058",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE058-MERGE-001",
+      "reasoning": "Cycle 058 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-059",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE059-MERGE-001",
+      "reasoning": "Cycle 059 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-060",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE060-MERGE-001",
+      "reasoning": "Cycle 060 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-061",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE061-MERGE-001",
+      "reasoning": "Cycle 061 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-062",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE062-MERGE-001",
+      "reasoning": "Cycle 062 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-063",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE063-MERGE-001",
+      "reasoning": "Cycle 063 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-064",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE064-MERGE-001",
+      "reasoning": "Cycle 064 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-065",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE065-MERGE-001",
+      "reasoning": "Cycle 065 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-066",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE066-MERGE-001",
+      "reasoning": "Cycle 066 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-067",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE067-MERGE-001",
+      "reasoning": "Cycle 067 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-068",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE068-MERGE-001",
+      "reasoning": "Cycle 068 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-069",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE069-MERGE-001",
+      "reasoning": "Cycle 069 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-070",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE070-MERGE-001",
+      "reasoning": "Cycle 070 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-071",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE071-MERGE-001",
+      "reasoning": "Cycle 071 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-072",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE072-MERGE-001",
+      "reasoning": "Cycle 072 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-073",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE073-MERGE-001",
+      "reasoning": "Cycle 073 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-074",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE074-MERGE-001",
+      "reasoning": "Cycle 074 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-075",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE075-MERGE-001",
+      "reasoning": "Cycle 075 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-076",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE076-MERGE-001",
+      "reasoning": "Cycle 076 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-077",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE077-MERGE-001",
+      "reasoning": "Cycle 077 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-078",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE078-MERGE-001",
+      "reasoning": "Cycle 078 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-079",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE079-MERGE-001",
+      "reasoning": "Cycle 079 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-080",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE080-MERGE-001",
+      "reasoning": "Cycle 080 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-081",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE081-MERGE-001",
+      "reasoning": "Cycle 081 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-082",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE082-MERGE-001",
+      "reasoning": "Cycle 082 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-083",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE083-MERGE-001",
+      "reasoning": "Cycle 083 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-084",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE084-MERGE-001",
+      "reasoning": "Cycle 084 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-085",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE085-MERGE-001",
+      "reasoning": "Cycle 085 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-086",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE086-MERGE-001",
+      "reasoning": "Cycle 086 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-087",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE087-MERGE-001",
+      "reasoning": "Cycle 087 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-088",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE088-MERGE-001",
+      "reasoning": "Cycle 088 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-089",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE089-MERGE-001",
+      "reasoning": "Cycle 089 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-090",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE090-MERGE-001",
+      "reasoning": "Cycle 090 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-091",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE091-MERGE-001",
+      "reasoning": "Cycle 091 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-092",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE092-MERGE-001",
+      "reasoning": "Cycle 092 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-093",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE093-MERGE-001",
+      "reasoning": "Cycle 093 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-094",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE094-MERGE-001",
+      "reasoning": "Cycle 094 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-095",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE095-MERGE-001",
+      "reasoning": "Cycle 095 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-096",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE096-MERGE-001",
+      "reasoning": "Cycle 096 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-097",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE097-MERGE-001",
+      "reasoning": "Cycle 097 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-098",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE098-MERGE-001",
+      "reasoning": "Cycle 098 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-099",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE099-MERGE-001",
+      "reasoning": "Cycle 099 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council"
+      ],
+      "decision_id": "CDR-CYCLE-100",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE100-MERGE-001",
+      "reasoning": "Cycle 100 merged Alpha, Beta, and Gamma improvements into the next canonical runtime state.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council",
+        "Runtime Council"
+      ],
+      "decision_id": "CDR-CYCLE-101",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE101-MERGE-001",
+      "reasoning": "Cycle 101 selected a pressure-tested and adversarial-reviewed merged architecture.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council",
+        "Runtime Council"
+      ],
+      "decision_id": "CDR-CYCLE-102",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE102-MERGE-001",
+      "reasoning": "Cycle 102 selected a pressure-tested and adversarial-reviewed merged architecture.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council",
+        "Runtime Council"
+      ],
+      "decision_id": "CDR-CYCLE-103",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE103-MERGE-001",
+      "reasoning": "Cycle 103 selected a pressure-tested and adversarial-reviewed merged architecture.",
+      "requested_modifications": []
+    },
+    {
+      "councils_involved": [
+        "Meta-Evaluation Council",
+        "Governance Council",
+        "Runtime Council"
+      ],
+      "decision_id": "CDR-CYCLE-104",
+      "decision_outcome": "approved",
+      "proposal_id": "META-CYCLE104-MERGE-001",
+      "reasoning": "Cycle 104 selected a pressure-tested and adversarial-reviewed merged architecture.",
+      "requested_modifications": []
+    }
+  ],
+  "generated_at": "2026-03-13T10:33:51Z"
+}

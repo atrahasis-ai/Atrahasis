@@ -1,0 +1,149 @@
+{
+  "artifact_provenance": {
+    "notes": [
+      "Replaced bootstrap placeholder with an actual Alpha-lane critic failure result.",
+      "Read current claim inventory before writing; active-claim registry returned zero live claims, and sampled recent noncanonical claim YAMLs T-9002 through T-9009 all show DONE status."
+    ],
+    "writer_agent_name": "codex-alpha-critic-failure",
+    "writer_mode": "future_branch_child_direct_write",
+    "writer_session_id": "codex-t9013-alpha-critic-failure-20260316"
+  },
+  "branch_id": "critic:failure",
+  "branch_kind": "failure",
+  "branch_label": "Failure Future",
+  "classification": "most_plausible_failure_cascade",
+  "evidence": [
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md#L59",
+      "summary": "C45 already compiles each request into a sovereign execution plan, selects execution mode, binds authority, and enforces provenance. An independent inference layer that chooses backend class, failover, or routing becomes a duplicate control plane."
+    },
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md#L68",
+      "summary": "C45 explicitly locks execution mode and forbids silent drift between native and leased operation. A shared inference plane pressures the system to reintroduce exactly that drift for efficiency and availability."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md#L429",
+      "summary": "C42 says execution priming is stronger than warm-state reuse but still does not create a second runtime system. A persistent inference service with reusable sessions and queued work is the most likely place for priming to turn into shadow runtime authority."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md#L542",
+      "summary": "C42 requires a C23 lease before active runtime work begins. Any independent inference layer that starts long-running work on the strength of cached context or preallocated backend state violates that boundary."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md#L44",
+      "summary": "C36 is not a generic API gateway. If the new layer needs direct enterprise, foundry, or agent-facing access to justify its separation, it immediately collides with EMA-I's membrane-owned receptor model."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md#L520",
+      "summary": "All external interactions must pass through EMA-I receptors. A separately managed inference layer creates recurring pressure for a bypass path because teams will want direct model-serving access instead of receptor-mediated bounded execution."
+    },
+    {
+      "path": "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md#L603",
+      "summary": "C39 already defines delegated sampling results with required model provenance. A new inference layer either duplicates this semantic contract or hides realized execution facts behind noncanonical internal RPC behavior."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md#L209",
+      "summary": "C47 is explicit that C45 chooses whether a route uses leased or native execution and C47 supplies promoted native models. A separate layer blurs this split and turns native promotion into a plugin detail instead of the migration driver."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md#L271",
+      "summary": "C47 forbids reintroducing runtime bridge dependency. A general inference microservice tier is the easiest place for permanent provider-shaped dependencies to hide under a new name."
+    },
+    {
+      "path": "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md#L498",
+      "summary": "C18 already treats sovereign compute, leased cognition, and Forge adaptation as explicit cost buckets. Reintroducing a separate inference layer does not remove these costs; it adds another platform surface that duplicates governance and operating expense."
+    },
+    {
+      "path": "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md#L429",
+      "summary": "C22 already assumes bounded leased-provider wrappers plus local/native fallback. The implementation gap is controlled substrate management, not revival of an independent service layer."
+    },
+    {
+      "path": "docs/task_workspaces/T-300/BOUNDARY_POLICY_DRAFT.md#L58",
+      "summary": "T-300 fixes Alternative C forward authority through C38, C39, C40, C41, C42, C45, C46, C47, and T-290. Reintroducing a historical-style inference microservice as new forward doctrine is boundary drift by definition."
+    },
+    {
+      "path": "docs/task_claims/T-300.yaml",
+      "summary": "The T-300 claim closeout records the same boundary in governance form: C4-era ideas remain retained only for historical, audit, retrofit, and migration use, not as forward authority."
+    }
+  ],
+  "lane_id": "alpha",
+  "lane_label": "Alpha Lane",
+  "lane_strategy": "Improve the current task path without breaking core assumptions.",
+  "model_audit": {
+    "actual_runtime_model": "gpt-5",
+    "auditability": "runtime_self_reported",
+    "policy_target": "gpt-5.4",
+    "reasoning_effort": "high",
+    "routing_basis": "User-directed real future-branch child execution for T-9013 in Codex."
+  },
+  "objective": "Explore the most plausible failure cascade future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "one_sentence_thesis": "The likeliest failure is a quiet authority split, not a dramatic crash: the reintroduced inference layer starts as an internal efficiency surface, then becomes a de facto second runtime and routing authority that weakens C45 locks, turns C42 priming into shadow execution, slows C47 native migration, and leaves Atrahasis with permanent non-sovereign model operations dressed up as infrastructure.",
+  "parent_role": "critic",
+  "role": "critic",
+  "session_identity": {
+    "agent_name": "codex-alpha-critic-failure",
+    "provider": "codex",
+    "role": "critic",
+    "session_id": "codex-t9013-alpha-critic-failure-20260316"
+  },
+  "status": "COMPLETED",
+  "task_id": "T-9013",
+  "type": "CHILD_AGENT_RESULT",
+  "verdict": "REJECT_LITERAL_LAYER",
+  "top_failure_name": "Shadow Runtime and Sovereignty Drift",
+  "plausibility_rationale": [
+    "This failure path is plausible because it begins with a reasonable local optimization: separate lightweight agents from heavyweight GPU serving without openly changing doctrine.",
+    "It does not require anyone to announce a doctrinal break. Each step can be justified as convenience, latency reduction, batching efficiency, or operational simplification.",
+    "That makes it more likely than an overt governance rupture: the system drifts into invalid authority shape incrementally while still sounding architecturally prudent."
+  ],
+  "failure_trigger": "The idea is reintroduced as an independently operated shared model-serving plane, nominally internal-only, that handles backend placement, batching, warm-state reuse, and failover for many agents.",
+  "most_plausible_failure_cascade": [
+    {
+      "step": 1,
+      "title": "Internal-only reinterpretation softens the boundary",
+      "detail": "To avoid obvious conflict with current doctrine, the layer is framed as an implementation convenience rather than a new public subsystem. In practice it still acquires its own scheduler, backend pool, session cache, and routing logic."
+    },
+    {
+      "step": 2,
+      "title": "C45 becomes a thin wrapper around decisions made elsewhere",
+      "detail": "Because the new layer controls which backend actually runs, C45 no longer meaningfully owns native-versus-leased execution choice, failover, or provider posture. Route authority is duplicated and eventually eroded."
+    },
+    {
+      "step": 3,
+      "title": "Warm-state reuse mutates into shadow runtime authority",
+      "detail": "The service starts holding reusable contexts, queued work, and long-lived backend sessions to save latency. Those operational shortcuts function like execution rights before or outside explicit C23 lease issuance, violating the C42 rule that priming is necessary but insufficient."
+    },
+    {
+      "step": 4,
+      "title": "Membrane and message discipline start drifting",
+      "detail": "Teams want direct enterprise or machine access to the faster shared service, or they add internal RPC semantics that bypass canonical sampling_result and model-provenance disclosure. C36 and C39 are then treated as outer wrappers instead of owning surfaces."
+    },
+    {
+      "step": 5,
+      "title": "C47 promotion incentives weaken",
+      "detail": "Once the shared layer is optimized around pooled leased backends, native promoted models are onboarded as just another backend option. The system stops treating native promotion as a path to retire leased dependence and instead treats leased dependence as the stable operating center."
+    },
+    {
+      "step": 6,
+      "title": "C18 and C22 absorb permanent hybrid-operating cost",
+      "detail": "The promised efficiency gains are offset by a new platform budget: duplicated observability, compliance, capacity controls, provenance plumbing, and provider governance. The implementation roadmap now has to carry an extra always-on service plane instead of a bounded internal seam."
+    },
+    {
+      "step": 7,
+      "title": "The layer survives only by becoming doctrinal debt",
+      "detail": "At that point Atrahasis either pays to unwind the layer back into C45/C47-aligned internals or keeps a permanent sovereignty exception whose architecture no longer matches T-300's forward-authority posture."
+    }
+  ],
+  "primary_collision_surfaces": [
+    "C45",
+    "C42",
+    "C36",
+    "C39",
+    "C47",
+    "C18",
+    "C22",
+    "T-300"
+  ],
+  "failure_outcome": "Instead of achieving clean agent-model decoupling, Atrahasis ends up with duplicated runtime authority, weaker provenance discipline, slower native migration, and a durable leased-cognition dependency hidden behind an internal service abstraction.",
+  "recommended_next_action": "Do not reintroduce the idea as an independent layer. If the objective still matters, salvage it only as a narrow internal capacity-control seam under C45 with explicit C42 handoff discipline, C47 promotion ownership, C39 provenance visibility, and C18/C22 cost governance."
+}

@@ -1,0 +1,4 @@
+name: Swarm Beta
+philosophy: balanced-evolution
+optimization: capability_vs_complexity_balance
+agent_target_count: 40

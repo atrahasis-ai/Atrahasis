@@ -1,0 +1,14 @@
+task_id: T-083
+title: "Add Manual Ratification Interface to C14"
+type: DIRECT_EDIT
+target_spec: C14
+status: COMPLETE
+completed_at: "2026-03-12"
+priority: MEDIUM
+agent_name: "Shamash"
+claimed_at: "2026-03-12"
+description: >
+  Add explicit interface specification for how human trustees interact
+  with governance decisions. C14 defines trustee voting thresholds but
+  no interface spec for how trustees view proposals, cast votes, submit
+  ratifications, or interact with the governance system in practice.

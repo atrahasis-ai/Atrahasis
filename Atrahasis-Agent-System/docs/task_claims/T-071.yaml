@@ -1,0 +1,15 @@
+task_id: "T-071"
+invention_ids: []
+target_specs:
+  - "C3"
+title: "Specify Cut Commit Fallback"
+platform: "CODEX"
+agent_name: "Inanna"
+claimed_at: "2026-03-12T06:21:20Z"
+updated_at: "2026-03-12T06:25:43Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C3/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Added Cut Commit fallback to C3 Section 7.10.1 for partial epoch failure in complex X-class operations, plus validation hooks, constants, and glossary entries. Removed my TODO active row and emitted a handoff packet for shared-state closeout. Overlap risk: T-070 was claimed after T-071 and also targets C3."

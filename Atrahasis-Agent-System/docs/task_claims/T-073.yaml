@@ -1,0 +1,14 @@
+task_id: "T-073"
+invention_ids: []
+target_specs: ["C6"]
+title: "Specify Contradiction Lattice"
+agent_name: "Shamash"
+platform: "CLAUDE"
+claimed_at: "2026-03-12T14:00:00Z"
+updated_at: "2026-03-12T14:30:00Z"
+status: "COMPLETE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C6/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_SPEC_EDIT"
+notes: "COMPLETE. Replaced 7-line stub Section 7.6 with 381-line Contradiction Lattice specification. 8 subsections: motivation, data model (ContradictionRecord + ContradictionLattice), detection protocol, subsumption partial ordering, 3-phase resolution protocol (arbitration + propagation + cascading supersession), INV-E7 monotonicity enforcement, SHREC integration, cross-layer integration (C5/C35/catabolism). C6 grew from 3,578 to 3,960 lines."

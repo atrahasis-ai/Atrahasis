@@ -1,0 +1,71 @@
+{
+  "artifact_refs": {
+    "analogy_report": "docs/task_workspaces/T-9002/ANALOGY_REPORT.json",
+    "contradiction_map": "docs/task_workspaces/T-9002/CONTRADICTION_MAP.json",
+    "cross_industry_discovery_report": "docs/task_workspaces/T-9002/CROSS_INDUSTRY_DISCOVERY_REPORT.json",
+    "decision_ranking_report": "docs/task_workspaces/T-9002/DECISION_RANKING_REPORT.json",
+    "discovery_gap_report": "docs/task_workspaces/T-9002/DISCOVERY_GAP_REPORT.json",
+    "discovery_map": "docs/task_workspaces/T-9002/DISCOVERY_MAP.json",
+    "experiment_simulation_report": "docs/task_workspaces/T-9002/EXPERIMENT_SIMULATION_REPORT.json",
+    "exploration_control_record": "docs/task_workspaces/T-9002/EXPLORATION_CONTROL_RECORD.json",
+    "feasibility_report": "docs/task_workspaces/T-9002/FEASIBILITY_REPORT.json",
+    "human_decision_record": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json",
+    "hypothesis_packet": "docs/task_workspaces/T-9002/HYPOTHESIS_PACKET.json",
+    "idea_cluster_report": "docs/task_workspaces/T-9002/IDEA_CLUSTER_REPORT.json",
+    "knowledge_distillation_report": "docs/task_workspaces/T-9002/KNOWLEDGE_DISTILLATION_REPORT.json",
+    "novelty_report": "docs/task_workspaces/T-9002/NOVELTY_REPORT.json",
+    "opportunity_report": "docs/task_workspaces/T-9002/OPPORTUNITY_REPORT.json",
+    "platform_alignment_report": "docs/task_workspaces/T-9002/PLATFORM_ALIGNMENT_REPORT.json",
+    "research_ingestion_report": "docs/task_workspaces/T-9002/RESEARCH_INGESTION_REPORT.json",
+    "research_program_report": "docs/task_workspaces/T-9002/RESEARCH_PROGRAM_REPORT.json",
+    "research_quality_report": "docs/task_workspaces/T-9002/RESEARCH_QUALITY_REPORT.json",
+    "research_strategy_report": "docs/task_workspaces/T-9002/RESEARCH_STRATEGY_REPORT.json",
+    "research_synthesis_report": "docs/task_workspaces/T-9002/RESEARCH_SYNTHESIS_REPORT.json",
+    "solution_path_set": "docs/task_workspaces/T-9002/SOLUTION_PATH_SET.json",
+    "technology_frontier_model": "docs/task_workspaces/T-9002/TECHNOLOGY_FRONTIER_MODEL.json",
+    "value_alignment_report": "docs/task_workspaces/T-9002/VALUE_ALIGNMENT_REPORT.json"
+  },
+  "decision_options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    }
+  ],
+  "operator_actions": [
+    {
+      "instruction": "spawn:model",
+      "label": "spawn_program"
+    },
+    {
+      "instruction": "<new exploration instruction>",
+      "label": "redirect"
+    }
+  ],
+  "priority_order": [
+    "RP-947",
+    "spawn:model"
+  ],
+  "recommended_branch_budget": 3,
+  "rendered_prompt": "Human Review Required\n\nTask: T-9002\nStatus: PENDING_HUMAN_REVIEW\nCommand: AASA\n\nPrompt:\nContinue research program RP-947. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and create a summary of every module needed to be built out. Include modules already built and modules still left to build for the Atrahasis platform to be fully built out.\n\nResearch Strategy:\nFocus on Agent Research Program with continue_program and branch budget 3. Hold 1 spawn candidate(s) for operator approval.\n\nActive Research Programs:\n- Program RP-947: Agent Research Program (L2, score 0.627, status stabilizing, execution active)\n  Hypotheses: H-001, H-002, H-003\n  Contradictions: X-001, X-002, X-003\n  Recommended action: continue_program (branch budget 3, allocation 1.0)\n  Governance: Authoritative scope lock granted: L2::agent.\n\nCore Contradictions:\n- X-001 [high]: High-opportunity zone with unresolved evidence gaps.\n- X-002 [high]: High-opportunity zone with unresolved evidence gaps.\n- X-003 [high]: High-opportunity zone with unresolved evidence gaps.\n\nOperator Action Required:\n- continue_program: RP-947\n- explore_new_hypothesis: RP-947\n- pause_program: RP-947\n- terminate_program: RP-947\n- spawn_program: spawn:model\n- redirect: <new exploration instruction>\n\nProgram Spawn Candidates:\n- spawn:model: Model Research Program (priority 0.726)\n\nExploration Guidance:\n- Escalate to human: true\n- Recommended branch budget: 3\n- Priority order: RP-947, spawn:model\n\nOperator Constraints:\n- Analyze the Atrahasis platform, not the Atrahasis Agent System itself.\n\nRespond with one of:\n- continue_program: RP-947\n- explore_new_hypothesis: RP-947\n- pause_program: RP-947\n- terminate_program: RP-947\n- spawn_program: spawn:model\n- redirect: <new exploration instruction>",
+  "status": "PENDING_HUMAN_REVIEW",
+  "task_id": "T-9002",
+  "type": "OPERATOR_SESSION",
+  "updated_at": "2026-03-13T20:25:24Z",
+  "workflow_id": "T-9002-AASA-20260313T202524Z"
+}

@@ -1,0 +1,24 @@
+task_id: "T-120"
+invention_ids: []
+target_specs: []
+title: "Task and invention identity scheme normalization"
+platform: "CODEX"
+claimed_at: "2026-03-12T01:44:54Z"
+updated_at: "2026-03-12T01:53:02Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md"
+    - "docs/AGENT_STATE.md"
+    - "docs/SESSION_BRIEF.md"
+    - "docs/INVENTION_DASHBOARD.md"
+    - "docs/DECISIONS.md"
+    - "docs/TODO.md"
+    - "docs/COMPLETED.md"
+    - "docs/platform_overlays/SHARED_OPERATING_MODEL.md"
+    - "docs/platform_overlays/PARALLEL_EXECUTION_PROTOCOL.md"
+    - "docs/platform_overlays/codex/COEXISTENCE.md"
+    - "docs/task_claims/CLAIM_TEMPLATE.yaml"
+    - "docs/task_workspaces/README.md"
+  pipeline_type: "GOVERNANCE"
+notes: "Normalize task IDs vs invention IDs, remove reserved future invention slots, and document multi-invention task branching."

@@ -1,0 +1,36 @@
+{
+  "escalate_to_human": true,
+  "priority_order": [
+    "RP-104",
+    "RP-947"
+  ],
+  "recommended_actions": [
+    {
+      "action": "expand_program",
+      "allocation_ratio": 0.533,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.74,
+      "program_id": "RP-104",
+      "program_title": "Model Research Program",
+      "rationale": "Model Research Program has opportunity score 0.74 and allocation ratio 0.533, so the recommended action is expand_program.",
+      "scope_level": "L2",
+      "target_domain": "model"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.467,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.649,
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program",
+      "rationale": "Agent Research Program has opportunity score 0.649 and allocation ratio 0.467, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    }
+  ],
+  "recommended_branch_budget": 3,
+  "strategy_summary": "Focus on Model Research Program with expand_program and branch budget 3.",
+  "type": "EXPLORATION_CONTROL_RECOMMENDATION"
+}

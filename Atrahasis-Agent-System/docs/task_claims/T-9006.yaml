@@ -1,0 +1,16 @@
+task_id: T-9006
+invention_ids: []
+target_specs: []
+title: Combined Doctrine Reconciliation - Anu Round Two
+platform: CODEX
+agent_name: Anu
+claimed_at: '2026-03-13T23:21:42Z'
+updated_at: '2026-03-13T23:21:42Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-9006/
+  pipeline_type: AAS
+notes: AASNI second-pass synthesis over the operator-merged Enki, Nanshe,
+  Ashur, and Anu doctrine outputs from Desktop/AAT. Kept out of docs/TODO.md
+  per TASK_ID_POLICY until operator promotion.

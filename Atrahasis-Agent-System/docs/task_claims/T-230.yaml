@@ -1,0 +1,21 @@
+task_id: T-230
+invention_ids:
+- C40
+target_specs: []
+title: AACP-Auth Security Module
+platform: CODEX
+agent_name: Marduk
+claimed_at: '2026-03-12T13:12:05Z'
+updated_at: '2026-03-12T13:45:05Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-230/
+  - docs/specifications/C40/
+  - docs/invention_logs/C40_IDEATION.md
+  - docs/invention_logs/C40_REFINED_INVENTION_CONCEPT.yaml
+  - docs/invention_logs/C40_FEASIBILITY.md
+  - docs/invention_logs/C40_ASSESSMENT.md
+  - docs/prior_art/C40/
+  pipeline_type: AAS
+notes: 'Completed by Marduk (Codex); canonical closeout captured in docs/handoffs/applied/T-230_CODEX_HANDOFF.md.'

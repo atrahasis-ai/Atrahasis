@@ -1,0 +1,114 @@
+{
+  "artifact_checks": {
+    "any_of_files": [
+      {
+        "exists": true,
+        "path": "CONTROLLER_RUN_RESULT.json"
+      },
+      {
+        "exists": true,
+        "path": "WORKFLOW_SUMMARY.md"
+      }
+    ],
+    "evidence_artifacts": [
+      {
+        "path": "ANALOGY_REPORT.json",
+        "size_bytes": 866
+      },
+      {
+        "path": "CROSS_INDUSTRY_DISCOVERY_REPORT.json",
+        "size_bytes": 32496
+      },
+      {
+        "path": "DECISION_RANKING_REPORT.json",
+        "size_bytes": 5311
+      },
+      {
+        "path": "DISCOVERY_GAP_REPORT.json",
+        "size_bytes": 160
+      },
+      {
+        "path": "IDEA_CLUSTER_REPORT.json",
+        "size_bytes": 336
+      },
+      {
+        "path": "KNOWLEDGE_DISTILLATION_REPORT.json",
+        "size_bytes": 32526
+      },
+      {
+        "path": "PLATFORM_ALIGNMENT_REPORT.json",
+        "size_bytes": 1874
+      },
+      {
+        "path": "PLATFORM_MODULE_SUMMARY.md",
+        "size_bytes": 6993
+      },
+      {
+        "path": "RESEARCH_INGESTION_REPORT.json",
+        "size_bytes": 1903623
+      },
+      {
+        "path": "RESEARCH_PROGRAM_REPORT.json",
+        "size_bytes": 43556
+      },
+      {
+        "path": "RESEARCH_QUALITY_REPORT.json",
+        "size_bytes": 1780262
+      },
+      {
+        "path": "RESEARCH_STRATEGY_REPORT.json",
+        "size_bytes": 2151
+      },
+      {
+        "path": "RESEARCH_SYNTHESIS_REPORT.json",
+        "size_bytes": 585
+      },
+      {
+        "path": "VALUE_ALIGNMENT_REPORT.json",
+        "size_bytes": 1039
+      }
+    ],
+    "evidence_count": 14,
+    "required_files": [
+      {
+        "exists": true,
+        "path": "REVIEW_GATE_RECORD.json"
+      },
+      {
+        "exists": true,
+        "path": "HUMAN_DECISION_RECORD.json"
+      }
+    ],
+    "required_globs": []
+  },
+  "contract": {
+    "any_of_files": [
+      "CONTROLLER_RUN_RESULT.json",
+      "WORKFLOW_SUMMARY.md"
+    ],
+    "minimum_evidence_artifacts": 2,
+    "required_files": [
+      "REVIEW_GATE_RECORD.json",
+      "HUMAN_DECISION_RECORD.json"
+    ],
+    "required_globs": [],
+    "validators": [
+      "workspace"
+    ]
+  },
+  "evaluated_at": "2026-03-15T12:46:48Z",
+  "missing_requirements": [],
+  "satisfied": true,
+  "stage": "ASSESSMENT",
+  "task_class": "ANALYSIS",
+  "task_id": "T-9002",
+  "type": "STAGE_CONTRACT_REPORT",
+  "validator_results": [
+    {
+      "exit_code": 0,
+      "name": "workspace",
+      "output": "[OK] COMMAND_REQUEST.yaml\n[OK] DISCOVERY_MAP.json\n[OK] TECHNOLOGY_FRONTIER_MODEL.json\n[OK] OPPORTUNITY_REPORT.json\n[OK] HYPOTHESIS_PACKET.json\n[OK] CONTRADICTION_MAP.json\n[OK] SOLUTION_PATH_SET.json\n[OK] NOVELTY_REPORT.json\n[OK] FEASIBILITY_REPORT.json\n[OK] EXPERIMENT_SIMULATION_REPORT.json\n[OK] HUMAN_DECISION_RECORD.json\n[OK] EXPLORATION_CONTROL_RECORD.json\n[OK] WORKFLOW_RUN_RECORD.json\n[OK] CROSS_INDUSTRY_DISCOVERY_REPORT.json\n[OK] KNOWLEDGE_DISTILLATION_REPORT.json\n[OK] VALUE_ALIGNMENT_REPORT.json\n[OK] PLATFORM_ALIGNMENT_REPORT.json\n[OK] DECISION_RANKING_REPORT.json\n[OK] RESEARCH_PROGRAM_REPORT.json\n[OK] RESEARCH_STRATEGY_REPORT.json\n[OK] REVIEW_GATE_RECORD.json\n[OK] CONTROLLER_RUN_RESULT.json\n[OK] STAGE_CONTRACT_REPORT.json",
+      "valid": true
+    }
+  ]
+}

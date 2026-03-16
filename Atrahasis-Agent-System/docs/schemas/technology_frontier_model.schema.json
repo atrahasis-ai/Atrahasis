@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Technology Frontier Model",
+  "type": "object",
+  "required": ["type", "domain", "frontier_signals", "maturity_estimates", "breakthrough_candidates"],
+  "properties": {
+    "type": {"const": "TECHNOLOGY_FRONTIER_MODEL"},
+    "domain": {"type": "string"},
+    "frontier_signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["domain", "momentum", "evidence_signal"],
+        "properties": {
+          "domain": {"type": "string"},
+          "momentum": {"type": "number", "minimum": 0, "maximum": 1},
+          "evidence_signal": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "maturity_estimates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cluster", "maturity"],
+        "properties": {
+          "cluster": {"type": "string"},
+          "maturity": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "breakthrough_candidates": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}

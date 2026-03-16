@@ -1,0 +1,51 @@
+{
+  "type": "WORKFLOW_RUN_RECORD",
+  "task_id": "T-9011",
+  "workflow_id": "T-9011-AASNI-20260315T162443Z",
+  "started_at": "2026-03-15T16:24:43Z",
+  "completed_at": "2026-03-15T16:35:00Z",
+  "status": "IDEATION_COMPLETE_AWAITING_OPERATOR",
+  "modifier": "AASNI",
+  "orchestrator": "InventionPipelineManager",
+  "operator_constraints": [],
+  "gcml_documents_loaded": 0,
+  "manifest_document_count": 0,
+  "hitl_requirements": [
+    "CONCEPT_SELECTION",
+    "PIVOT"
+  ],
+  "artifacts": {
+    "authority_coverage_matrix": "docs/task_workspaces/T-9011/AUTHORITY_COVERAGE_MATRIX.json",
+    "child_result_merge_package": "docs/task_workspaces/T-9011/CHILD_RESULT_MERGE_PACKAGE.json",
+    "command_request": "docs/task_workspaces/T-9011/COMMAND_REQUEST.yaml",
+    "swarm_execution_record": "docs/task_workspaces/T-9011/SWARM_EXECUTION_RECORD.json",
+    "team_plan": "docs/task_workspaces/T-9011/TEAM_PLAN.yaml"
+  },
+  "recommended_next_actions": [
+    "Present the operator with the 3-4 ideation options and the parent recommendation.",
+    "Stop after ideation and wait for operator choice.",
+    "Do not promote a concept, research the idea, or edit shared state without explicit operator direction."
+  ],
+  "stage_records": [
+    {
+      "stage": "IDEATION",
+      "status": "COMPLETE",
+      "notes": [
+        "Named authority surfaces C45, C42, C47, C36, C18, C22, C39, and T-300 were evaluated explicitly.",
+        "Real child swarm completed and converged on rejecting the literal historical layer framing.",
+        "The surviving positive path is a reframed internal inference orchestration/control-plane concept."
+      ],
+      "produced_artifacts": [
+        "COMMAND_REQUEST.yaml",
+        "HUMAN_DECISION_RECORD.json",
+        "AUTHORITY_COVERAGE_MATRIX.json",
+        "TEAM_PLAN.yaml",
+        "SWARM_EXECUTION_RECORD.json",
+        "CHILD_RESULT_MERGE_PACKAGE.json",
+        "children/visionary.json",
+        "children/systems_thinker.json",
+        "children/critic.json"
+      ]
+    }
+  ]
+}

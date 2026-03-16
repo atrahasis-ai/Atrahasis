@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-03-13T10:33:48Z",
+  "results": [
+    {
+      "aggregate_score": 0.968,
+      "proposal_id": "AEP-CYCLE101-ALPHA-001",
+      "scenarios": [
+        {
+          "passed": true,
+          "scenario": "cssm_replay_load",
+          "score": 0.968
+        },
+        {
+          "passed": true,
+          "scenario": "task_graph_fanout",
+          "score": 0.943
+        },
+        {
+          "passed": true,
+          "scenario": "proposal_registry_bloat",
+          "score": 0.918
+        },
+        {
+          "passed": true,
+          "scenario": "telemetry_backpressure",
+          "score": 0.893
+        }
+      ],
+      "swarm": "alpha"
+    },
+    {
+      "aggregate_score": 0.922,
+      "proposal_id": "AEP-CYCLE101-BETA-001",
+      "scenarios": [
+        {
+          "passed": true,
+          "scenario": "cssm_replay_load",
+          "score": 0.922
+        },
+        {
+          "passed": true,
+          "scenario": "task_graph_fanout",
+          "score": 0.897
+        },
+        {
+          "passed": true,
+          "scenario": "proposal_registry_bloat",
+          "score": 0.872
+        },
+        {
+          "passed": true,
+          "scenario": "telemetry_backpressure",
+          "score": 0.847
+        }
+      ],
+      "swarm": "beta"
+    },
+    {
+      "aggregate_score": 0.851,
+      "proposal_id": "AEP-CYCLE101-GAMMA-001",
+      "scenarios": [
+        {
+          "passed": true,
+          "scenario": "cssm_replay_load",
+          "score": 0.851
+        },
+        {
+          "passed": true,
+          "scenario": "task_graph_fanout",
+          "score": 0.826
+        },
+        {
+          "passed": true,
+          "scenario": "proposal_registry_bloat",
+          "score": 0.801
+        },
+        {
+          "passed": true,
+          "scenario": "telemetry_backpressure",
+          "score": 0.776
+        }
+      ],
+      "swarm": "gamma"
+    }
+  ]
+}

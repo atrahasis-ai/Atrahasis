@@ -1,0 +1,28 @@
+{
+  "artifact_refs": {
+    "review_gate_record": "docs/task_workspaces/T-9002/REVIEW_GATE_RECORD.json"
+  },
+  "category": "review_gate",
+  "created_at": "2026-03-15T09:13:27Z",
+  "entry_id": "HITL-00002",
+  "metadata": {
+    "review_thread_id": "019cf0c5-968a-7472-baf6-9ad06a5532dd"
+  },
+  "method": null,
+  "request_id": null,
+  "request_payload": {},
+  "resolved_at": "2026-03-15T09:13:27Z",
+  "response_payload": {
+    "summary": "Live validation review completed.",
+    "verdict": "APPROVED"
+  },
+  "review_thread_id": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+  "run_id": "T-9002-AASA-20260313T203253Z",
+  "source": "controller",
+  "status": "RESOLVED",
+  "summary": "Review started and awaits findings or operator disposition.",
+  "task_id": "T-9002",
+  "thread_id": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+  "type": "HITL_QUEUE_ENTRY",
+  "updated_at": "2026-03-15T09:13:27Z"
+}

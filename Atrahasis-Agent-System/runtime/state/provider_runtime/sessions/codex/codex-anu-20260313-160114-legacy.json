@@ -1,0 +1,34 @@
+{
+  "agent_name": "Anu",
+  "available_models": [
+    "gpt-5.4",
+    "gpt-5.3-codex",
+    "gpt-5.3-codex-spark",
+    "gpt-5.2-codex",
+    "gpt-5.2",
+    "gpt-5.1-codex-max",
+    "gpt-5.1-codex-mini"
+  ],
+  "current_task": null,
+  "display_name": "OpenAI Codex",
+  "notes": "Completed T-290; no current task assigned.",
+  "provider": "codex",
+  "registered_at": "2026-03-13T22:19:28Z",
+  "routing_manifest": [
+    {
+      "agent_type": "director",
+      "model": "gpt-5.4",
+      "notes": "Use for highest-capability invention, architecture, and council roles.",
+      "provider": "codex",
+      "reasoning_effort": "xhigh",
+      "tier": "primary"
+    }
+  ],
+  "session_id": "codex-anu-20260313-160114-legacy",
+  "status": "ACTIVE",
+  "supported_agent_types": [
+    "director"
+  ],
+  "type": "PROVIDER_BACKEND_SESSION",
+  "updated_at": "2026-03-13T22:19:28Z"
+}

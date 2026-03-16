@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Discovery Map",
+  "type": "object",
+  "required": ["type", "nodes", "edges", "entities", "relationships", "problem_clusters", "domain_links", "evidence_refs"],
+  "properties": {
+    "type": {"const": "DISCOVERY_MAP"},
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "label": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "type": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "label"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "label": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "type"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "type": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "problem_clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "signal"],
+        "properties": {
+          "name": {"type": "string"},
+          "signal": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "domain_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["domain", "linked_cluster"],
+        "properties": {
+          "domain": {"type": "string"},
+          "linked_cluster": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,34 @@
+{
+  "agent_name": "Nanshe",
+  "available_models": [
+    "gpt-5.4",
+    "gpt-5.3-codex",
+    "gpt-5.3-codex-spark",
+    "gpt-5.2-codex",
+    "gpt-5.2",
+    "gpt-5.1-codex-max",
+    "gpt-5.1-codex-mini"
+  ],
+  "current_task": "T-9003",
+  "display_name": "OpenAI Codex",
+  "notes": "Running AASNI T-9003 closed Atrahasis mission pivot analysis.",
+  "provider": "codex",
+  "registered_at": "2026-03-13T23:01:24Z",
+  "routing_manifest": [
+    {
+      "agent_type": "director",
+      "model": "gpt-5.4",
+      "notes": "Use for highest-capability invention, architecture, and council roles.",
+      "provider": "codex",
+      "reasoning_effort": "xhigh",
+      "tier": "primary"
+    }
+  ],
+  "session_id": "codex-nanshe-20260313-161317-legacy",
+  "status": "ACTIVE",
+  "supported_agent_types": [
+    "director"
+  ],
+  "type": "PROVIDER_BACKEND_SESSION",
+  "updated_at": "2026-03-13T23:01:24Z"
+}

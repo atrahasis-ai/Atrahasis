@@ -1,0 +1,38 @@
+{
+  "governance_summary": {
+    "active_program_count": 2,
+    "archived_program_count": 0,
+    "authoritative_lock_count": 2,
+    "completed_program_count": 0,
+    "enforced_hypothesis_capacity": 10,
+    "governance_kernel": "active",
+    "l0_blockers": [],
+    "lock_keys": [
+      "L2::data-center-cooling",
+      "L3::cross-domain-cooling-analogies"
+    ],
+    "paused_program_count": 0
+  },
+  "locks": {
+    "L2::data-center-cooling": {
+      "granted_at": "2026-03-13T17:14:44Z",
+      "program_id": "RP-401",
+      "scope_level": "L2",
+      "target_domain": "data center cooling",
+      "task_id": "T-910",
+      "workflow_id": "T-910-AASBT-20260313T171444Z"
+    },
+    "L3::cross-domain-cooling-analogies": {
+      "granted_at": "2026-03-13T17:14:44Z",
+      "program_id": "RP-181",
+      "scope_level": "L3",
+      "target_domain": "cross-domain cooling analogies",
+      "task_id": "T-910",
+      "workflow_id": "T-910-AASBT-20260313T171444Z"
+    }
+  },
+  "task_id": "T-910",
+  "type": "GOVERNANCE_SNAPSHOT",
+  "updated_at": "2026-03-13T17:14:44Z",
+  "workflow_id": "T-910-AASBT-20260313T171444Z"
+}

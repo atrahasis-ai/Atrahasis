@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Contradiction Map",
+  "type": "object",
+  "required": ["type", "contradictions", "affected_subsystems", "blocking_assumptions", "severity"],
+  "properties": {
+    "type": {"const": "CONTRADICTION_MAP"},
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "hypothesis_id", "contradiction", "severity"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^X-\\d{3}$"},
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "contradiction": {"type": "string"},
+          "severity": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "affected_subsystems": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "blocking_assumptions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "severity": {"type": "string"}
+  },
+  "additionalProperties": true
+}

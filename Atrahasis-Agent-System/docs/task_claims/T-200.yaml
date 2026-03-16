@@ -1,0 +1,14 @@
+task_id: "T-200"
+invention_ids: []
+target_specs: []
+title: "ADR: Approve Full Replacement Strategy"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T20:40:00Z"
+updated_at: "2026-03-12T21:05:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-200/"
+  pipeline_type: "GOVERNANCE"
+notes: "Completed governance bootstrap for Alternative B. Recorded ADR-041, removed stale AASL/AACP out-of-scope status, added T-200-T-291 protocol buildout tasks plus T-300-T-309 retrofit tasks, activated AGENT_STATE/SESSION_BRIEF for AACP v2 buildout, and wrote docs/task_workspaces/T-200/README.md."

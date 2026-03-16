@@ -1,0 +1,42 @@
+{
+  "emerging_research_clusters": [
+    "specification",
+    "prior_art"
+  ],
+  "high_impact_hypothesis_zones": [
+    {
+      "basis": "frontier_signal",
+      "priority_rank": 1,
+      "zone": "agent"
+    },
+    {
+      "basis": "frontier_signal",
+      "priority_rank": 2,
+      "zone": "model"
+    },
+    {
+      "basis": "frontier_signal",
+      "priority_rank": 3,
+      "zone": "agents"
+    },
+    {
+      "basis": "frontier_signal",
+      "priority_rank": 4,
+      "zone": "verification"
+    },
+    {
+      "basis": "frontier_signal",
+      "priority_rank": 5,
+      "zone": "governance"
+    }
+  ],
+  "high_value_invention_targets": [
+    "agent",
+    "model",
+    "agents",
+    "verification",
+    "governance"
+  ],
+  "priority_rank": 1,
+  "type": "OPPORTUNITY_REPORT"
+}

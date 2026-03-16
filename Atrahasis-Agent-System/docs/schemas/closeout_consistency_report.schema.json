@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Closeout Consistency Report",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "task_class",
+    "generated_at",
+    "claim_status",
+    "workspace_present",
+    "handoff_status",
+    "checks",
+    "valid",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "CLOSEOUT_CONSISTENCY_REPORT"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "task_class": {
+      "type": "string",
+      "enum": ["FULL_PIPELINE", "DIRECT_SPEC", "GOVERNANCE", "ANALYSIS", "PACKAGING", "VALIDATION", "DEMO"]
+    },
+    "generated_at": {"type": "string", "format": "date-time"},
+    "claim_status": {"type": ["string", "null"]},
+    "workspace_present": {"type": "boolean"},
+    "handoff_status": {
+      "type": "object",
+      "required": ["live_exists", "live_paths", "applied_exists", "applied_paths"],
+      "properties": {
+        "live_exists": {"type": "boolean"},
+        "live_paths": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "applied_exists": {"type": "boolean"},
+        "applied_paths": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "passed", "detail"],
+        "properties": {
+          "name": {"type": "string"},
+          "passed": {"type": "boolean"},
+          "detail": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "valid": {"type": "boolean"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

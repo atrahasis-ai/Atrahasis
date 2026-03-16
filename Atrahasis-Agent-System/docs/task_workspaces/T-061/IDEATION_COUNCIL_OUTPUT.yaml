@@ -1,0 +1,96 @@
+IDEATION_COUNCIL_OUTPUT:
+  task_id: "T-061"
+  domain: "agent execution / runtime systems / secure multi-agent infrastructure"
+  generated_at: "2026-03-12T03:45:00Z"
+  consensus_level: "MAJORITY"
+  concepts:
+    - concept_id: "IC-1"
+      title: "Agent-as-Container Fabric"
+      summary: >
+        Run each agent as a conventional containerized workload with light policy wrappers.
+        C7 and C3 remain external schedulers, while the runtime mainly handles container
+        startup, health checks, and log forwarding.
+      novelty_score: 2
+      feasibility_score: 5
+      key_innovation: >
+        Minimal invention surface by reusing ordinary workload runtime patterns.
+      technical_approach: >
+        Map each agent to a long-lived container, use parcel-local queue workers, and
+        bolt on model-provider adapters as environment-scoped dependencies.
+      potential_applications:
+        - "Fast Wave 1 bootstrap"
+        - "Single-tenant or internal-only development deployments"
+      known_risks:
+        - "Collapses agent identity and execution container too tightly"
+        - "Weak least-privilege story for tools, models, and network egress"
+        - "Does not produce a stack-native evidence contract for C5"
+      prior_art_concerns:
+        - "Large overlap with Kubernetes-style workload execution"
+      research_questions:
+        - "Can generic container boundaries satisfy Atrahasis sovereignty and verification requirements?"
+      hitl_required: false
+
+    - concept_id: "IC-2"
+      title: "Sovereign Cell Runtime (SCR)"
+      summary: >
+        Introduce a parcel-local execution runtime built around typed sovereign cells.
+        Agents keep persistent identity outside the cell, while each leaf intent runs under
+        a lease that specifies the allowed tools, model access, resource budget, evidence
+        obligations, and isolation class.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: >
+        Make the runtime's primary object a lease-bound sovereign cell rather than a generic
+        process, container, or workflow step.
+      technical_approach: >
+        Add Parcel Runtime Hosts, a Locus Runtime Controller, an Inference Lease Broker, a
+        Tool Capability Broker, and Execution Evidence Bundles that connect runtime execution
+        directly to C5 verification and C8 settlement.
+      potential_applications:
+        - "Atrahasis core runtime substrate"
+        - "Policy-controlled execution for reasoning, tools, synthesis, and governance actions"
+        - "Provider-agnostic inference access with explicit metering"
+      known_risks:
+        - "More complex than a generic container runtime"
+        - "Requires a careful lease model to avoid queue and warm-pool explosion"
+        - "Evidence completeness can be overstated if non-deterministic providers are treated as reproducible"
+      prior_art_concerns:
+        - "Touches ground already occupied by workflow engines, actor runtimes, container schedulers, and inference servers"
+      research_questions:
+        - "What isolation profile must be mandatory for each operation class and provider path?"
+        - "How much parcel-local warm pooling is enough before cost and fragmentation dominate?"
+      hitl_required: false
+
+    - concept_id: "IC-3"
+      title: "Serverless Intent Function Plane"
+      summary: >
+        Treat every leaf intent as a stateless function invocation with short-lived cold
+        starts, remote tools, and centralized provider routing. Runtime state is minimized.
+      novelty_score: 3
+      feasibility_score: 4
+      key_innovation: >
+        Push nearly all execution into stateless ephemeral functions to maximize elasticity.
+      technical_approach: >
+        Convert leaf intents into serverless invocations, use centralized inference routing,
+        and keep agent identity mostly outside the runtime path.
+      potential_applications:
+        - "Burst workloads"
+        - "Public API execution tiers"
+      known_risks:
+        - "Poor fit for persistent agent identity and parcel locality"
+        - "High cold-start pressure on model and tool access"
+        - "Weak bridge to C3/C31 parcel semantics"
+      prior_art_concerns:
+        - "Strong overlap with Lambda-style function runtimes"
+      research_questions:
+        - "Can a stateless runtime preserve Atrahasis sovereignty and locality assumptions?"
+      hitl_required: false
+
+  recommended_concept: "IC-2"
+  dissent_record:
+    - point: "IC-1 is still the best bootstrap path if implementation speed dominates architectural fit."
+      minority: "Systems Thinker"
+      monitoring_flag: "If SCR proves too heavy for Wave 1, use IC-1 as a constrained fallback profile rather than abandoning the lease model."
+    - point: "IC-3 should survive as a deployment profile for burst or external execution, even if it is not the canonical core runtime."
+      minority: "Visionary"
+      monitoring_flag: "Keep stateless burst execution as a future deployment mode inside SCR rather than a separate invention today."

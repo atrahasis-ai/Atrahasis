@@ -1,0 +1,7 @@
+command_modifier: AASAQ
+task_id: T-9500
+prompt: Validate provider runtime registration flow.
+scope: architecture_question
+operator_constraints: []
+hitl_requirements: []
+created_at: '2026-03-13T18:58:51Z'

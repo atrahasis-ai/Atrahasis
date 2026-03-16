@@ -1,0 +1,21 @@
+task_id: "T-211"
+agent_name: "Nergal"
+invention_ids:
+  - "C39"
+target_specs: []
+title: "AACP Message Class Extension (23 to 42)"
+platform: "CODEX"
+claimed_at: "2026-03-12T12:27:01Z"
+updated_at: "2026-03-12T12:40:30Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-211/"
+    - "docs/prior_art/C39/"
+    - "docs/specifications/C39/"
+    - "docs/invention_logs/C39_IDEATION.md"
+    - "docs/invention_logs/C39_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C39_FEASIBILITY.md"
+    - "docs/invention_logs/C39_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "DONE. IC-2 Lineage-Bearing Capability Message Lattice (LCML) promoted as C39. Defined the canonical Alternative B message-layer expansion from 23 to 42 classes, including 19 new discovery/tool/resource/prompt/stream/sampling classes, 7 header extensions, lineage rules, and class-economy constraints. Shared-state deltas deferred to handoff."

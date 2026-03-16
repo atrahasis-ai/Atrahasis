@@ -1,0 +1,14 @@
+task_id: "T-082"
+invention_ids: []
+target_specs: ["C14"]
+title: "Specify Governance Audit Layer"
+platform: "CLAUDE"
+agent_name: "Enki"
+claimed_at: "2026-03-12T22:15:00Z"
+updated_at: "2026-03-12T22:45:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C14/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Direct spec edit complete. Added Section 16.4 Runtime Governance Audit Specification to C14 — 7-category event taxonomy, GOVERNANCE_AUDIT_EVENT schema, 3-tier retention, 6-query interface with access control, 5 compliance reports, 6 integrity guarantees. 8 new requirements (REQ-A-001–008), 8 new parameters, 6 glossary entries."

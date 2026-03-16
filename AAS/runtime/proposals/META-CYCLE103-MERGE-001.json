@@ -1,0 +1,61 @@
+{
+  "aep_id": "META-CYCLE103-MERGE-001",
+  "affected_layers": [
+    "Infrastructure",
+    "Runtime",
+    "Governance",
+    "Registry",
+    "Agent",
+    "Bridge"
+  ],
+  "architecture_gap": "An endlessly rotating merge is not enough; the AAS needs a freeze-capable target architecture once convergence is evident.",
+  "authoring_agent": "Meta-Evaluation Council",
+  "cssm_version": "AAS-State-v1.103",
+  "data_model_changes": "Add pressure-test traces, adversarial traces, convergence metrics, and finalization metadata to canonical state.",
+  "date": "2026-03-13T10:33:50Z",
+  "governance_implications": "Councils can now terminate exploration deliberately once two convergence conditions are satisfied.",
+  "implementation_tasks": [
+    "AEP-CYCLE103-ALPHA-001",
+    "AEP-CYCLE103-BETA-001",
+    "AEP-CYCLE103-GAMMA-001"
+  ],
+  "invention_concept": "Merge the strongest stabilizing, registry, and recursive-evolution modules into one canonical runtime architecture.",
+  "migration_strategy": "Apply the merged architecture in the next CSSM version and freeze if convergence is achieved.",
+  "objective_profile": {
+    "capability": 0.055,
+    "feasibility": 0.94,
+    "governance_stability": 0.87
+  },
+  "problem_statement": "A bounded evolution cycle requires one strongest architecture selected from Alpha, Beta, and Gamma after review under pressure and adversarial conditions.",
+  "proposed_architecture_change": "Promote the reviewed merged architecture into the next CSSM version and freeze it once convergence conditions are satisfied.",
+  "protocol_implications": "Architecture selection becomes pressure-tested, adversarial-reviewed, and convergence-bounded.",
+  "security_implications": "The selected architecture includes replay safety, recovery control, telemetry durability, and governance freeze control.",
+  "selected_metrics": {
+    "adversarial_resilience": 0.907,
+    "capability_improvement": 0.055,
+    "consensus_score": 0.837,
+    "meaningful_change_score": 0.2,
+    "pressure_resilience": 0.973,
+    "selection_score": 0.605
+  },
+  "selected_modules": [
+    "service-kernel",
+    "recovery-orchestrator",
+    "freeze-controller",
+    "adaptive-routing",
+    "registry-learning",
+    "policy-replay",
+    "event-compiler",
+    "pressure-lab",
+    "self-refactor-planner"
+  ],
+  "selected_top_proposal": "AEP-CYCLE103-ALPHA-001",
+  "sources": [
+    "AEP-CYCLE103-ALPHA-001",
+    "AEP-CYCLE103-BETA-001",
+    "AEP-CYCLE103-GAMMA-001"
+  ],
+  "status": "approved",
+  "swarm": "meta",
+  "title": "Cycle 103 Converged Meta-Architecture"
+}

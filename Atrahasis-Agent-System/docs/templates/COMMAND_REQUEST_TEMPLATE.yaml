@@ -1,0 +1,9 @@
+command_modifier: AASBT
+task_id: T-000
+prompt: Describe the buildout or analysis request.
+scope: buildout_task
+operator_constraints:
+  - Preserve human-guided review
+hitl_requirements:
+  - PIVOT
+created_at: 2026-03-13T00:00:00Z

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS Workflow Run Record",
+  "type": "object",
+  "required": [
+    "type",
+    "workflow_id",
+    "task_id",
+    "modifier",
+    "status",
+    "started_at",
+    "completed_at",
+    "orchestrator",
+    "gcml_documents_loaded",
+    "manifest_document_count",
+    "artifacts",
+    "stage_records",
+    "hitl_requirements",
+    "operator_constraints",
+    "recommended_next_actions"
+  ],
+  "properties": {
+    "type": {"const": "WORKFLOW_RUN_RECORD"},
+    "doctrine_version": {"type": "string"},
+    "topology_mode": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "task_id": {"type": "string"},
+    "modifier": {"type": "string"},
+    "status": {"type": "string"},
+    "started_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": "string", "format": "date-time"},
+    "orchestrator": {"type": "string"},
+    "gcml_documents_loaded": {"type": "integer", "minimum": 0},
+    "manifest_document_count": {"type": "integer", "minimum": 0},
+    "artifacts": {"type": "object"},
+    "stage_records": {"type": "array", "items": {"type": "object"}},
+    "hitl_requirements": {"type": "array", "items": {"type": "string"}},
+    "operator_constraints": {"type": "array", "items": {"type": "string"}},
+    "recommended_next_actions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

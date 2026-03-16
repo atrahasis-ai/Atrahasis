@@ -1,0 +1,15 @@
+task_id: "T-231"
+agent_name: "Ninsubur"
+invention_ids: []
+target_specs:
+  - "C40"
+title: "AACP Semantic Poisoning Defense Model"
+platform: "CODEX"
+claimed_at: "2026-03-13T01:52:17.7971734-05:00"
+updated_at: "2026-03-13T02:01:17.7490248-05:00"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C40/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Updated C40 DAAF to v1.0.1 with the T-231 semantic-poisoning defense addendum: five Alternative B security-surface threat families (malformed handshake exploitation, transport replay/resume abuse, encoding downgrade/carrier confusion, bridge-mediated injection, and Agent Manifest spoofing), cumulative admission gates, manifest anti-spoofing admission, five new parameters, eight new formal requirements, and matching risk treatment. Shared-state updates applied and handoff archived to docs/handoffs/applied/T-231_CODEX_HANDOFF.md."

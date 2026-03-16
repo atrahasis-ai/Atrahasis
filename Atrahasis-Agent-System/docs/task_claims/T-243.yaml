@@ -1,0 +1,15 @@
+task_id: "T-243"
+agent_name: "Nergal"
+invention_ids: []
+target_specs:
+  - "C39"
+title: "AACP Streaming and Push Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-13T02:02:23.7211750-05:00"
+updated_at: "2026-03-13T02:08:18.3342185-05:00"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C39/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C39 LCML to v1.0.3 with the concrete stream/push operational addendum: stream bundle refinements, ordered incremental_sequence rules, progress indicators, explicit push-callback registration and delivery posture, and HTTP SSE / WebSocket realization without adding push-only classes."

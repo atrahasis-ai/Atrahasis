@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Hypothesis Packet",
+  "type": "object",
+  "required": ["type", "hypotheses", "supporting_evidence", "opportunity_zone_refs", "confidence"],
+  "properties": {
+    "type": {"const": "HYPOTHESIS_PACKET"},
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "summary",
+          "statement",
+          "supporting_research",
+          "contradiction",
+          "solution_paths",
+          "novelty_score",
+          "feasibility_score",
+          "program_id",
+          "scope_level",
+          "domain",
+          "opportunity_zone",
+          "confidence",
+          "artifact_links"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "title": {"type": "string"},
+          "summary": {"type": "string"},
+          "statement": {"type": "string"},
+          "supporting_research": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["evidence_ref", "link_reason"],
+              "properties": {
+                "evidence_ref": {"type": "string"},
+                "link_reason": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "contradiction": {
+            "type": ["object", "null"],
+            "properties": {
+              "id": {"type": "string", "pattern": "^X-\\d{3}$"},
+              "statement": {"type": "string"},
+              "severity": {"type": "string"},
+              "artifact_ref": {"type": "string"}
+            },
+            "required": ["id", "statement", "severity", "artifact_ref"],
+            "additionalProperties": false
+          },
+          "solution_paths": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "title", "tradeoffs", "artifact_ref"],
+              "properties": {
+                "id": {"type": "string", "pattern": "^P-\\d{3}$"},
+                "title": {"type": "string"},
+                "tradeoffs": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "artifact_ref": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "novelty_score": {"type": "integer", "minimum": 1, "maximum": 5},
+          "feasibility_score": {"type": "integer", "minimum": 1, "maximum": 5},
+          "program_id": {"type": ["string", "null"], "pattern": "^RP-\\d{3}$"},
+          "scope_level": {"type": ["string", "null"], "enum": ["L0", "L1", "L2", "L3", "L4", null]},
+          "domain": {"type": ["string", "null"]},
+          "opportunity_zone": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "origin": {"type": "string"},
+          "candidate_label": {"type": "string"},
+          "cross_domain_source": {"type": ["string", "null"]},
+          "cross_domain_strength": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "artifact_links": {
+            "type": "object",
+            "required": ["contradiction_map", "solution_path_set", "novelty_report", "feasibility_report"],
+            "properties": {
+              "contradiction_map": {"type": ["string", "null"]},
+              "solution_path_set": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "novelty_report": {"type": ["string", "null"]},
+              "feasibility_report": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "supporting_evidence": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "opportunity_zone_refs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": true
+}

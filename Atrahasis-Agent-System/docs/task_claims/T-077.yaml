@@ -1,0 +1,15 @@
+task_id: "T-077"
+invention_ids: []
+target_specs:
+  - "C3"
+title: "Name Scoped Replica Groups in C3"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T07:30:00Z"
+updated_at: "2026-03-12T07:31:52Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C3/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Completed direct C3 terminology update in safe zone. Shared-state closeout queued in docs/handoffs/T-077_CODEX_HANDOFF.md."

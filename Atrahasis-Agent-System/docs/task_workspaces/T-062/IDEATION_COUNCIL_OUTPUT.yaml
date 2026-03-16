@@ -1,0 +1,214 @@
+IDEATION_COUNCIL_OUTPUT:
+  task_id: "T-062"
+  domain: "distributed systems recovery / multi-layer state assurance"
+  generated_at: "2026-03-12T04:30:00Z"
+  consensus_level: "FULL"
+  concepts:
+    - concept_id: "IC-1"
+      title: "Black-Start Recovery Fabric with Epoch-Anchored Consistent Cut"
+      summary: >
+        A coordinated cross-layer recovery architecture that defines a strict boot order
+        derived from the Atrahasis dependency graph (C8 -> C5 -> C3 -> C7 -> C6), with
+        pairwise synchronization predicates at each reconnection point and per-epoch
+        state digests that enable retrospective consistent-cut computation without
+        coordinated checkpointing. Each layer recovers independently into a self-consistent
+        state (island recovery), then layers reconnect in dependency order with explicit
+        synchronization verification before cross-layer operations resume.
+      novelty_score: 3
+      feasibility_score: 4
+      key_innovation: >
+        Combines island-and-reconnect recovery ordering (from power grid black-start) with
+        epoch-anchored consistent-cut computation (from communication-induced checkpointing)
+        tailored to the specific Atrahasis six-layer dependency graph and three-tier temporal
+        hierarchy. The consistent cut is computed retrospectively from per-epoch state digests
+        and existing cross-layer references, avoiding the overhead and FIFO assumptions of
+        coordinated global snapshots (Chandy-Lamport).
+      technical_approach: >
+        (1) Each layer computes a lightweight state digest (Merkle root over cross-layer
+        references) at every SETTLEMENT_TICK boundary (60s). (2) On failure detection, a
+        recovery protocol defined in C9 determines the boot order from the static dependency
+        DAG. (3) The first layer (C8) self-recovers via its existing deterministic EABS
+        replay. (4) Before each subsequent layer starts recovery, its upstream dependencies
+        must have reached ROSC (minimum viable recovery) status, verified by the upstream
+        layer's health predicate. (5) At each reconnection point, pairwise synchronization
+        predicates — derived from C9 integration contracts — verify that the recovering
+        layer's cross-layer references are consistent with the already-recovered layers.
+        (6) If a synchronization predicate fails, the recovering layer rolls back to an
+        earlier epoch and retries. (7) The recovery protocol is defined as a C9 extension
+        (cross-layer integration contract), not a new component. Each layer implements its
+        portion via its existing controller. (8) Parallel recovery is permitted where the
+        dependency graph allows (e.g., C8 has no dependencies and can recover concurrently
+        with any other layer's internal recovery), but reconnection still follows the
+        strict ordering.
+      potential_applications:
+        - "Coordinated multi-layer crash recovery after partial or total system failure"
+        - "Ordered restart after planned maintenance or upgrades"
+        - "Graceful degradation with incremental layer restoration"
+        - "Recovery window bounding via consistent-cut computation"
+      known_risks:
+        - "C5 currently lacks state snapshotting or replay capability, limiting the recovery window to C5's current state"
+        - "Per-tick state digests add continuous (small) overhead even during normal operation"
+        - "Serial recovery ordering is safe but slower than maximum parallelism; the parallel optimization adds specification complexity"
+        - "Synchronization predicates must be maintained in sync with C9 integration contracts — a governance burden"
+      prior_art_concerns:
+        - "Recovery ordering is a direct application of Erlang rest-for-one supervision strategy and DO-178C hierarchical health monitoring"
+        - "Per-epoch state digests are standard checkpointing practice"
+        - "Consistent-cut computation from causal dependencies is a variant of communication-induced checkpointing (Elnozahy et al., 2002)"
+        - "Island-and-reconnect is well-established in power grid black-start protocols"
+        - "The novelty is in the specific application to a heterogeneous six-layer architecture with authority-asymmetric dependencies, not in new algorithms"
+      research_questions:
+        - "What is the minimum state that C5 must snapshot to enable meaningful rollback, and at what interval?"
+        - "Can synchronization predicates be auto-generated from C9 integration contract definitions?"
+        - "What is the maximum acceptable recovery time for the full boot sequence under worst-case conditions?"
+        - "Should the recovery protocol support partial recovery (e.g., recover C8+C5+C3 but leave C7+C6 offline) as a stable intermediate state?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Recovery Witness Protocol with Asymmetric Cross-Layer Merkle Verification"
+      summary: >
+        A post-recovery verification protocol in which each layer produces a recovery
+        attestation — a signed Merkle digest of its post-recovery state's cross-layer
+        references — and adjacent layers verify mutual consistency. Conflicts are resolved
+        deterministically using C9's authority hierarchy (e.g., C5 is authoritative for
+        claim classification, C8 for settlement). The protocol provides a formal proof
+        that recovery succeeded or precisely identifies remaining inconsistencies.
+      novelty_score: 3
+      feasibility_score: 4
+      key_innovation: >
+        Asymmetric Merkle verification across structurally different layers. Unlike Dynamo
+        anti-entropy (which compares replicas of the same data), this compares different
+        layers' projections of shared cross-layer events and uses the C9 authority hierarchy
+        to resolve conflicts deterministically. The authoritative layer's version always
+        wins, eliminating the ambiguity that plagues symmetric reconciliation.
+      technical_approach: >
+        (1) Each layer exposes a CrossLayerDigest API that returns a Merkle root over its
+        cross-layer references, scoped to a specific epoch range. (2) After recovery
+        completes (per IC-1's boot order), the recovery protocol enters a verification
+        phase. (3) For each pair of adjacent layers (per C9 integration contract directory),
+        their CrossLayerDigest roots are compared. (4) If roots match, the pair is
+        verified consistent. (5) If roots diverge, Merkle tree descent identifies the
+        specific divergent references. (6) Divergent references are reconciled toward the
+        authoritative layer's state (per C9 authority hierarchy). (7) After reconciliation,
+        the verification phase repeats until all pairs are consistent. (8) A recovery
+        completion attestation is produced — a signed tuple of all layer digests at the
+        verified-consistent epoch — which serves as the new known-good recovery point
+        for future recoveries.
+      potential_applications:
+        - "Post-recovery consistency verification"
+        - "Continuous background anti-entropy (lazy cross-layer consistency checking during normal operation)"
+        - "Audit trail for recovery events (the attestation is a signed proof)"
+        - "Regression detection after software upgrades that may introduce cross-layer inconsistencies"
+      known_risks:
+        - "Adds a verification phase to every recovery, extending total recovery time"
+        - "CrossLayerDigest API must be implemented in all 5 stateful layers (C3, C5, C6, C7, C8)"
+        - "Authority-directed reconciliation may silently discard a non-authoritative layer's state if it diverged during failure — this must be logged and auditable"
+        - "Merkle tree construction over cross-layer references requires each layer to index those references, which some layers may not currently do"
+      prior_art_concerns:
+        - "Merkle tree anti-entropy is well-established (Dynamo, Cassandra, Riak)"
+        - "The asymmetric/authority-directed variant is an incremental extension, not a fundamentally new technique"
+        - "Post-recovery verification is standard in safety-critical systems (DO-178C, IEC 61508)"
+      research_questions:
+        - "What is the computational cost of Merkle tree construction over cross-layer references at each epoch boundary?"
+        - "Should background anti-entropy run continuously (detecting drift during normal operation) or only during recovery?"
+        - "How should the system handle the case where authority-directed reconciliation discards non-authoritative state that was correct (i.e., the authoritative layer was the one with corrupted state)?"
+        - "Can the recovery attestation be used as a checkpoint for future recoveries, replacing or supplementing per-layer snapshots?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Stratigraphic State Reconstruction Engine"
+      summary: >
+        A full state reconstruction engine that exploits the density of cross-layer
+        references (claim_ids, intent_ids, epoch numbers appearing across multiple layers)
+        to reconstruct missing state in one layer from the surviving state in others.
+        Uses a causal DAG (Harris Matrix) of cross-layer events to bound the set of
+        possible states and deterministically resolve ambiguities.
+      novelty_score: 3.5
+      feasibility_score: 2.5
+      key_innovation: >
+        Treats cross-layer references as archaeological cross-dating artifacts that
+        constrain possible states of a damaged layer. The causal DAG of cross-layer
+        events provides terminus-post-quem and terminus-ante-quem bounds that narrow
+        the reconstruction space. Combined with deterministic replay within each layer,
+        this may enable partial state reconstruction without full WAL availability.
+      technical_approach: >
+        (1) Maintain a queryable cross-layer event DAG that records causal dependencies
+        across layers (intent created in C7 -> claim submitted to C5 -> claim verified ->
+        settlement processed in C8). (2) When a layer cannot self-recover (e.g., WAL
+        corruption), query the DAG to determine what cross-layer events constrain the
+        missing state. (3) Use constraint propagation to reconstruct the minimum consistent
+        state. (4) Verify reconstructed state against all adjacent layers via IC-2's
+        Merkle verification.
+      potential_applications:
+        - "Recovery from catastrophic single-layer state loss"
+        - "Forensic analysis of past system states"
+        - "Verification that a layer's state is consistent with what other layers expect"
+      known_risks:
+        - "Cross-layer references may not be dense enough to fully constrain missing state"
+        - "Deterministic reconstruction requires that the missing state be uniquely determined by the constraints — if it is not, the system must halt"
+        - "The cross-layer event DAG is a new data structure that must be maintained continuously"
+        - "Violates the Chronicler's anti-pattern warning about new state stores"
+        - "Feasibility is unproven — the density of cross-layer references may be insufficient for practical reconstruction"
+      prior_art_concerns:
+        - "Constraint propagation for state reconstruction is well-studied in model-based diagnosis"
+        - "Causal dependency DAGs are standard in distributed systems (vector clocks, Lamport timestamps)"
+        - "The archaeology framing is novel but the underlying technique is not"
+      research_questions:
+        - "What fraction of each layer's state is constrained by cross-layer references? Is it 10%, 50%, 90%?"
+        - "Can reconstruction be made deterministic, or does it inherently produce a set of possible states?"
+        - "Is the cross-layer event DAG maintenance cost justified given that this capability is needed only for catastrophic failures?"
+        - "Could this be implemented as an offline forensic tool rather than an online recovery component?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-1", "IC-2"]
+  dissent_record:
+    - point: >
+        IC-3 (Stratigraphic State Reconstruction) should be deferred to a research
+        question rather than included as a recommended concept. Its feasibility is
+        unproven, it requires a new state store (violating the Chronicler's anti-pattern),
+        and the two primary concepts (IC-1 + IC-2) address the most critical gaps
+        without it.
+      minority: "Visionary (originally proposed IC-3 as part of unified concept)"
+      monitoring_flag: >
+        MF-1: During RESEARCH, quantify the density of cross-layer references to determine
+        whether stratigraphic reconstruction is feasible. If >70% of each layer's
+        cross-layer state is constrained by references from other layers, IC-3 should
+        be revisited as a future invention.
+    - point: >
+        The Recovery Coordinator should be embedded in C7's Locus Decomposer rather
+        than defined as a C9 protocol. C7 already manages cross-layer lifecycle and
+        has the infrastructure for coordination.
+      minority: "Systems Thinker"
+      monitoring_flag: >
+        MF-2: During DESIGN, evaluate whether C9 protocol definition (Critic's preference)
+        or C7 LD embedding (Systems Thinker's preference) better respects layer sovereignty.
+        The key test is whether recovery coordination requires intent-tree awareness (favors C7)
+        or only integration-contract awareness (favors C9).
+    - point: >
+        C5 must implement state snapshotting before the recovery architecture can guarantee
+        rollback beyond C5's current state. Without this, the system's recovery window is
+        hard-bounded by C5's most recent self-consistent state, which may be inadequate
+        for multi-layer recovery scenarios.
+      minority: "None (full consensus)"
+      monitoring_flag: >
+        MF-3: C5 state snapshotting is a blocking dependency for IC-1. If C5 snapshotting
+        proves infeasible or too expensive, IC-1's consistent-cut computation must be
+        redesigned to treat C5 as a forward-only layer with no rollback capability.
+    - point: >
+        Background anti-entropy (continuous cross-layer Merkle verification during normal
+        operation, not just during recovery) could detect drift before it becomes a recovery
+        problem, but adds continuous overhead.
+      minority: "Visionary (proposed), Critic (cautioned about overhead)"
+      monitoring_flag: >
+        MF-4: During FEASIBILITY, benchmark the cost of continuous cross-layer Merkle
+        verification at SETTLEMENT_TICK frequency. If overhead is <1% of per-tick
+        compute budget, recommend enabling by default. If >5%, defer to on-demand only.
+    - point: >
+        The novelty ceiling for this invention is 3/5. The value is in the specific
+        architectural application, not in new algorithms. The Ideation Council should
+        set expectations accordingly — this is engineering integration, not a research
+        breakthrough.
+      minority: "None (full consensus)"
+      monitoring_flag: >
+        MF-5: Ensure that the invention's claims and patent-style claims (if any) focus on
+        the specific Atrahasis architecture integration rather than claiming novelty for
+        the underlying distributed systems techniques.

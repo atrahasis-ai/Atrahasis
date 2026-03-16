@@ -1,0 +1,404 @@
+{
+  "active_research_programs": [
+    {
+      "allocation_ratio": 0.233,
+      "branch_budget": 1,
+      "contradiction_list": [
+        "X-001"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agent."
+      ],
+      "hypothesis_list": [
+        "H-001"
+      ],
+      "last_exploration_cycle": 8,
+      "opportunity_score": 0.675,
+      "program_goal": "Systematically explore opportunity space around agent.",
+      "program_id": "RP-947",
+      "program_status": "stabilizing",
+      "program_title": "Agent Research Program",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-001"
+      ],
+      "target_domain": "agent"
+    },
+    {
+      "allocation_ratio": 0.207,
+      "branch_budget": 1,
+      "contradiction_list": [
+        "X-002"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agents."
+      ],
+      "hypothesis_list": [
+        "H-002"
+      ],
+      "last_exploration_cycle": 8,
+      "opportunity_score": 0.6,
+      "program_goal": "Systematically explore opportunity space around agents.",
+      "program_id": "RP-191",
+      "program_status": "stabilizing",
+      "program_title": "Agents Research Program",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-002"
+      ],
+      "target_domain": "agents"
+    },
+    {
+      "allocation_ratio": 0.196,
+      "branch_budget": 1,
+      "contradiction_list": [
+        "X-003"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::model."
+      ],
+      "hypothesis_list": [
+        "H-003"
+      ],
+      "last_exploration_cycle": 8,
+      "opportunity_score": 0.569,
+      "program_goal": "Systematically explore opportunity space around model.",
+      "program_id": "RP-104",
+      "program_status": "stabilizing",
+      "program_title": "Model Research Program",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-003"
+      ],
+      "target_domain": "model"
+    },
+    {
+      "allocation_ratio": 0.186,
+      "branch_budget": 1,
+      "contradiction_list": [
+        "X-004"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::verification."
+      ],
+      "hypothesis_list": [
+        "H-004"
+      ],
+      "last_exploration_cycle": 8,
+      "opportunity_score": 0.539,
+      "program_goal": "Systematically explore Verification invention pathway.",
+      "program_id": "RP-075",
+      "program_status": "stabilizing",
+      "program_title": "Verification",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-004"
+      ],
+      "target_domain": "verification"
+    },
+    {
+      "allocation_ratio": 0.178,
+      "branch_budget": 1,
+      "contradiction_list": [
+        "X-005"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::detection."
+      ],
+      "hypothesis_list": [
+        "H-005"
+      ],
+      "last_exploration_cycle": 8,
+      "opportunity_score": 0.515,
+      "program_goal": "Systematically explore Detection invention pathway.",
+      "program_id": "RP-019",
+      "program_status": "stabilizing",
+      "program_title": "Detection",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-005"
+      ],
+      "target_domain": "detection"
+    }
+  ],
+  "constraints": [],
+  "core_contradictions": [
+    {
+      "contradiction_id": "X-001",
+      "hypothesis_id": "H-001",
+      "severity": "medium",
+      "statement": "Novelty must be validated against concentrated prior art."
+    },
+    {
+      "contradiction_id": "X-002",
+      "hypothesis_id": "H-002",
+      "severity": "medium",
+      "statement": "Novelty must be validated against concentrated prior art."
+    },
+    {
+      "contradiction_id": "X-003",
+      "hypothesis_id": "H-003",
+      "severity": "medium",
+      "statement": "Novelty must be validated against concentrated prior art."
+    },
+    {
+      "contradiction_id": "X-004",
+      "hypothesis_id": "H-004",
+      "severity": "medium",
+      "statement": "Novelty must be validated against concentrated prior art."
+    },
+    {
+      "contradiction_id": "X-005",
+      "hypothesis_id": "H-005",
+      "severity": "medium",
+      "statement": "Novelty must be validated against concentrated prior art."
+    }
+  ],
+  "cross_domain_candidates": [],
+  "decision_type": "OPERATOR_GUIDANCE",
+  "evidence_summary": {
+    "contradiction_count": 5,
+    "modifier": "AASAQ",
+    "priority_zones": [
+      "agent",
+      "agents",
+      "model",
+      "verification",
+      "detection"
+    ],
+    "strategy_summary": "Focus on Agent Research Program with continue_program and branch budget 1."
+  },
+  "operator_actions": [
+    {
+      "instruction": "<new exploration instruction>",
+      "label": "redirect"
+    }
+  ],
+  "operator_decision": "PENDING",
+  "options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-019",
+      "program_title": "Detection"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-019",
+      "program_title": "Detection"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-019",
+      "program_title": "Detection"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-019",
+      "program_title": "Detection"
+    }
+  ],
+  "prompt": "Explain the current task-id policy.",
+  "recommended_actions": [
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.233,
+      "branch_budget": 1,
+      "execution_state": "active",
+      "opportunity_score": 0.675,
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program",
+      "rationale": "Agent Research Program has opportunity score 0.675 and allocation ratio 0.233, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.207,
+      "branch_budget": 1,
+      "execution_state": "active",
+      "opportunity_score": 0.6,
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program",
+      "rationale": "Agents Research Program has opportunity score 0.6 and allocation ratio 0.207, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "agents"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.196,
+      "branch_budget": 1,
+      "execution_state": "active",
+      "opportunity_score": 0.569,
+      "program_id": "RP-104",
+      "program_title": "Model Research Program",
+      "rationale": "Model Research Program has opportunity score 0.569 and allocation ratio 0.196, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "model"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.186,
+      "branch_budget": 1,
+      "execution_state": "active",
+      "opportunity_score": 0.539,
+      "program_id": "RP-075",
+      "program_title": "Verification",
+      "rationale": "Verification has opportunity score 0.539 and allocation ratio 0.186, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "verification"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.178,
+      "branch_budget": 1,
+      "execution_state": "active",
+      "opportunity_score": 0.515,
+      "program_id": "RP-019",
+      "program_title": "Detection",
+      "rationale": "Detection has opportunity score 0.515 and allocation ratio 0.178, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "detection"
+    }
+  ],
+  "research_strategy_summary": "Focus on Agent Research Program with continue_program and branch budget 1.",
+  "spawn_candidates": [],
+  "task_id": "T-9001",
+  "top_hypotheses": [
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-001",
+      "opportunity_score": 0.627,
+      "opportunity_zone": "agent",
+      "title": "Agent invention pathway"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-002",
+      "opportunity_score": 0.553,
+      "opportunity_zone": "agents",
+      "title": "Agents invention pathway"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-003",
+      "opportunity_score": 0.539,
+      "opportunity_zone": "model",
+      "title": "Model invention pathway"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-004",
+      "opportunity_score": 0.525,
+      "opportunity_zone": "verification",
+      "title": "Verification invention pathway"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-005",
+      "opportunity_score": 0.52,
+      "opportunity_zone": "detection",
+      "title": "Detection invention pathway"
+    }
+  ],
+  "workflow_status": "PENDING_HUMAN_REVIEW"
+}

@@ -1,0 +1,125 @@
+IDEATION_COUNCIL_HYBRID_FOLLOWUP:
+  domain: "MCP-to-AACP bridge design with bounded bridge-side state and explicit provenance ceilings"
+  generated_at: "2026-03-13T03:09:24.5465094-05:00"
+  agent: "Nergal"
+  basis_concepts: ["IC-2", "IC-3"]
+  trigger: |
+    User requested a second council pass asking whether the strengths of
+    `IC-2` and `IC-3` could be combined into a better solution, or whether
+    `IC-3` alone should be preferred.
+  consensus_level: "MAJORITY"
+
+  synthesis_principles:
+    - "Keep `IC-2`'s snapshot-bound custody and provenance-floor rules as the canonical bridge baseline."
+    - "Admit only the minimum bridge-side state from `IC-3` needed for durable translation and warm reuse."
+    - "Do not let the bridge masquerade as a native `C42` tool host."
+    - "Do not let bridge-side state become shadow runtime or shadow server-framework behavior."
+    - "Make every bridge-added semantic element distinguishable from source-observed MCP facts."
+
+  round_1:
+    visionary:
+      concept_name: "Custody Mesh Bridge"
+      position: |
+        The bridge should keep durable bridge-side state, but only as a visible
+        custody boundary: inventory snapshots, translation policy, limited
+        continuation posture, and result-enrichment memory. This preserves
+        useful power from `IC-3` without pretending the bridge is native.
+      novelty_estimate: 5
+      feasibility_estimate: 4
+
+    systems_thinker:
+      concept_name: "Snapshot Core with Bounded Bridge State"
+      position: |
+        The clean hybrid is one where bridge discovery, invocation, and result
+        translation still revolve around signed bridge snapshots and pinned tool
+        identity, but the bridge may keep bounded reusable state for inventory
+        caching, translation policy, and explicitly derated continuation handles.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Constrained Non-Native Upgrade"
+      position: |
+        The hybrid works only if it never upgrades bridge guarantees silently.
+        Every cache, continuation, or bridge-generated claim must remain visibly
+        non-native and must degrade rather than inflate certainty when the MCP
+        source is weak.
+      novelty_estimate: 4
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      Bridge-side state must stay bounded and profile-gated. If every MCP
+      server suddenly needs bridge-managed continuation state, the universal
+      bridge becomes a hidden framework rather than a translation surface.
+
+    critic_challenges_both: |
+      The hybrid must make a hard distinction between:
+      source-observed MCP facts,
+      bridge-normalized structure,
+      and bridge-inferred semantic assertions.
+      If those are blended together, the provenance story fails.
+
+    visionary_response: |
+      Agreed. The bridge should be stateful enough to preserve custody,
+      freshness, and useful reuse, but not stateful enough to claim native
+      identity, native priming, or framework-equivalent execution behavior.
+
+  concepts:
+    - concept_id: "IC-4"
+      title: "Snapshot Core with Bounded Bridge State"
+      summary: |
+        A constrained hybrid that keeps `IC-2` as the canonical bridge shape
+        while importing only the useful statefulness from `IC-3`. The bridge
+        emits signed bridge-scoped inventory snapshots, translates invocation
+        against pinned snapshot/tool identity, returns accountable semantic
+        bundles with explicit bridge posture, and may retain bounded bridge-side
+        state for snapshot caching, translation policy reuse, and explicitly
+        derated continuation handles.
+      novelty_score: 5
+      feasibility_score: 4
+      key_innovation: "A custody-aware universal bridge that combines signed bridge snapshots, bounded semantic enrichment, and limited reusable bridge state without claiming native equivalence"
+      technical_approach: |
+        Preserve `IC-2` discovery and invocation discipline as the default
+        contract. Add three explicit bridge-state surfaces only:
+        1. reusable bridge inventory cache bound to signed snapshot identity,
+        2. pinned translation-policy state for schema and metadata normalization,
+        3. optional bridge-issued continuation handles with explicit
+           `BRIDGE_DEGRADED` or `BRIDGE_ENRICHED` posture and no native
+           execution-priming claim.
+        Result bundles separate source-observed fields, bridge-normalized
+        structure, and bridge-inferred accountability fields explicitly.
+      potential_applications:
+        - "Universal migration bridge for broad MCP ecosystem coverage"
+        - "High-reuse bridge clusters where inventory caching and translation reuse matter"
+        - "Downstream foundation for conformance, coexistence, and bridge retirement policy"
+      known_risks:
+        - "Bridge-state boundaries may still drift toward framework behavior if not kept profile-gated"
+        - "Continuation handles may be overspecified unless carefully derated and limited"
+        - "Signed bridge snapshot generation may still be difficult for highly dynamic MCP servers"
+      prior_art_concerns:
+        - "Protocol gateways, caching adapters, and semantic wrappers are known; novelty must come from the Atrahasis-specific fusion of custody-bound snapshot translation, explicit source-versus-bridge semantic separation, and bounded non-native continuation posture"
+      research_questions:
+        - "What exact minimum MCP metadata is needed to mint stable signed bridge snapshots generically?"
+        - "How should the bridge compute `CNF`, `EVD`, and `PRV` when the source system provides incomplete trust metadata?"
+        - "Which bridge-side state is universal enough to standardize, and which belongs in implementation or later framework work?"
+        - "How should derated continuation handles interact with future `T-243`, `T-260`, and `T-307` work without preempting them?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-4"]
+
+  council_judgment: |
+    The council does not recommend `IC-3` alone. The better solution is the
+    constrained hybrid `IC-4`, which keeps `IC-2` as the architectural base and
+    imports only the minimum useful bridge-side state from `IC-3`.
+
+  dissent_record:
+    - point: "The hybrid must preserve a mandatory zero-ambiguity bridge posture and never claim native-equivalent trust."
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must define a hard provenance floor and a source-vs-bridge semantic separation rule."
+    - point: "Bridge-side state should remain bounded, profile-gated, and clearly below framework/runtime authority."
+      minority: "Systems Thinker"
+      monitoring_flag: "DESIGN must explicitly mark what belongs to T-250 versus later T-260/C23 work."
+    - point: "The bridge should still leave room for richer migration pathways if some MCP ecosystems demand stronger warm-state behavior later."
+      minority: "Visionary"
+      monitoring_flag: "FEASIBILITY should record which richer bridge-state capabilities are deferred rather than denied."

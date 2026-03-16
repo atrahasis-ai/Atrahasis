@@ -1,0 +1,584 @@
+version: '1.0'
+task_id: T-9013
+workflow_id: T-9013-AASNI-20260316T064425Z
+dispatch_id: T-9013-IDEATION-20260316T064425Z
+status: COMPLETED
+created_at: '2026-03-16T06:44:25Z'
+updated_at: '2026-03-16T07:12:00Z'
+selection:
+  action_label: explore_futures
+  instruction: future_swarm:ideation
+  spawn_id: T-9013-IDEATION-20260316T064425Z
+  program_title: Independent Model Inference Microservice Layer
+  target_domain: architecture
+  program_goal: Explore bounded Alpha/Beta/Gamma/Radical invention improvements before concept promotion or selection.
+  priority_score: 1
+parent:
+  provider: codex
+  agent_name: Ningishzida
+  session_id: codex-ningishzida-20260316-bootstrap-local
+  role: Swarm Director
+  merge_owner: Ningishzida
+  model: gpt-5.4
+  reasoning_effort: xhigh
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: xhigh
+    auditability: runtime_not_exposed
+    routing_basis: Codex MODEL_ROUTING primary director policy target for AAS4 orchestration.
+spawn_policy:
+  team_mode: FUTURE_BRANCH_SWARM
+  max_children: 12
+  default_child_permission: read_only
+  hitl_gate_owner: parent
+  shared_state_owner: parent
+context_refs:
+- docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v4.md
+- docs/SESSION_BRIEF.md
+- docs/DECISIONS.md
+- docs/TODO.md
+- docs/task_workspaces/T-9013/TASK_BRIEF.md
+children:
+- child_id: T-9013-IDEATION-20260316T064425Z-visionary-conservative
+  agent_name: Codex
+  session_id: 019cf564-eb3b-73a3-aaf3-ffac4bba70e3
+  role: visionary
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: gpt-5.4
+    reasoning_effort: high
+    auditability: direct_runtime_write
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the highest-leverage minimal-change future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/alpha__visionary__conservative.json
+  branch_id: visionary:conservative
+  branch_label: Conservative Future
+  parent_role: visionary
+  branch_kind: conservative
+  lane_id: alpha
+  lane_label: Alpha Lane
+  lane_strategy: Improve the current task path without breaking core assumptions.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-visionary-aggressive
+  agent_name: codex-beta-visionary-aggressive
+  session_id: 019cf564-eb4b-74c2-a603-99883a2ca00c
+  role: visionary
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: gpt-5
+    reasoning_effort: high
+    auditability: runtime_self_reported
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the strongest capability-maximizing future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/beta__visionary__aggressive.json
+  branch_id: visionary:aggressive
+  branch_label: Aggressive Future
+  parent_role: visionary
+  branch_kind: aggressive
+  lane_id: beta
+  lane_label: Beta Lane
+  lane_strategy: Explore a materially different framing or topology for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-visionary-radical
+  agent_name: gamma-visionary-radical-child
+  session_id: 019cf564-eb57-76a0-badb-359a3e75039a
+  role: visionary
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: not_runtime_verified_in_artifact
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the most discontinuous redesign future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/gamma__visionary__radical.json
+  branch_id: visionary:radical
+  branch_label: Radical Future
+  parent_role: visionary
+  branch_kind: radical
+  lane_id: gamma
+  lane_label: Gamma Lane
+  lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-visionary-frame_replacement
+  agent_name: radical-visionary-frame_replacement
+  session_id: 019cf564-eb6e-7640-8063-2f3691e7fd22
+  role: visionary
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Challenge the current architectural frame itself and explore a replacement future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/radical__visionary__frame_replacement.json
+  branch_id: visionary:frame_replacement
+  branch_label: Frame-Replacement Future
+  parent_role: visionary
+  branch_kind: frame_replacement
+  lane_id: radical
+  lane_label: Radical Lane
+  lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-systems_thinker-minimal_change
+  agent_name: codex-alpha-systems-thinker-minimal-change
+  session_id: 019cf564-eb84-77b1-a6e2-35fd3875e01e
+  role: systems_thinker
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: gpt-5
+    reasoning_effort: high
+    auditability: runtime_self_reported
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the smallest viable topology shift that still resolves the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/alpha__systems_thinker__minimal_change.json
+  branch_id: systems_thinker:minimal_change
+  branch_label: Minimal-Change Topology
+  parent_role: systems_thinker
+  branch_kind: minimal_change
+  lane_id: alpha
+  lane_label: Alpha Lane
+  lane_strategy: Improve the current task path without breaking core assumptions.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-systems_thinker-modular
+  agent_name: beta-systems_thinker-modular
+  session_id: 019cf564-eba8-77a2-b983-6b7f0a1b7eb8
+  role: systems_thinker
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore a modular decomposition future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/beta__systems_thinker__modular.json
+  branch_id: systems_thinker:modular
+  branch_label: Modular Topology
+  parent_role: systems_thinker
+  branch_kind: modular
+  lane_id: beta
+  lane_label: Beta Lane
+  lane_strategy: Explore a materially different framing or topology for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-systems_thinker-full_restructure
+  agent_name: gamma-systems_thinker-full_restructure
+  session_id: 019cf567-b05f-74c3-b153-98679040951d
+  role: systems_thinker
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore an end-to-end topology rewrite future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/gamma__systems_thinker__full_restructure.json
+  branch_id: systems_thinker:full_restructure
+  branch_label: Full-Restructure Topology
+  parent_role: systems_thinker
+  branch_kind: full_restructure
+  lane_id: gamma
+  lane_label: Gamma Lane
+  lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-systems_thinker-authority_reset
+  agent_name: radical-systems_thinker-authority_reset
+  session_id: 019cf567-b066-7f40-8426-e2f7e2142d1e
+  role: systems_thinker
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Challenge the current module, authority, and topology boundaries and explore a replacement operating structure for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/radical__systems_thinker__authority_reset.json
+  branch_id: systems_thinker:authority_reset
+  branch_label: Authority-Reset Topology
+  parent_role: systems_thinker
+  branch_kind: authority_reset
+  lane_id: radical
+  lane_label: Radical Lane
+  lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-critic-failure
+  agent_name: codex-alpha-critic-failure
+  session_id: 019cf567-b084-77d1-ae42-7bf5e624b8bf
+  role: critic
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: gpt-5
+    reasoning_effort: high
+    auditability: runtime_self_reported
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the most plausible failure cascade future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/alpha__critic__failure.json
+  branch_id: critic:failure
+  branch_label: Failure Future
+  parent_role: critic
+  branch_kind: failure
+  lane_id: alpha
+  lane_label: Alpha Lane
+  lane_strategy: Improve the current task path without breaking core assumptions.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-critic-abuse
+  agent_name: beta-critic-abuse-child
+  session_id: 019cf567-e52c-7641-b178-d4e6d559b2e2
+  role: critic
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the strongest misuse or adversarial-abuse future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/beta__critic__abuse.json
+  branch_id: critic:abuse
+  branch_label: Abuse Future
+  parent_role: critic
+  branch_kind: abuse
+  lane_id: beta
+  lane_label: Beta Lane
+  lane_strategy: Explore a materially different framing or topology for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-critic-governance_break
+  agent_name: Codex
+  session_id: 019cf568-1cef-7830-8790-651781124406
+  role: critic
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Explore the strongest authority, doctrine, or governance-break future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/gamma__critic__governance_break.json
+  branch_id: critic:governance_break
+  branch_label: Governance-Break Future
+  parent_role: critic
+  branch_kind: governance_break
+  lane_id: gamma
+  lane_label: Gamma Lane
+  lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+  status: COMPLETED
+- child_id: T-9013-IDEATION-20260316T064425Z-critic-foundational_invalidity
+  agent_name: radical-critic-foundational-invalidity
+  session_id: 019cf568-3fed-7d10-8636-69542462d32a
+  role: critic
+  tier: future_branch_child
+  model: gpt-5.4
+  reasoning_effort: high
+  model_audit:
+    policy_target: gpt-5.4
+    actual_runtime_model: null
+    reasoning_effort: high
+    auditability: runtime_not_exposed_in_environment
+    routing_basis: AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target.
+  objective: Challenge whether the current architectural frame is fundamentally invalid for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9013/
+  expected_artifact: docs/task_workspaces/T-9013/children/radical__critic__foundational_invalidity.json
+  branch_id: critic:foundational_invalidity
+  branch_label: Foundational-Invalidity Future
+  parent_role: critic
+  branch_kind: foundational_invalidity
+  lane_id: radical
+  lane_label: Radical Lane
+  lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+  status: COMPLETED
+future_exploration:
+  enabled: true
+  current_stage: IDEATION
+  max_depth: 2
+  convergence_owner: parent
+  convergence_artifact: docs/task_workspaces/T-9013/FUTURE_CONVERGENCE_REPORT.json
+  branch_report_ref: docs/task_workspaces/T-9013/FUTURE_BRANCH_REPORT.json
+  improvement_trigger_policy:
+    enabled: true
+    contradiction_count: 3
+    highest_novelty_score: high
+    trigger_reasons:
+    - stage_supports_task_improvement
+    - task_class_has_design_surface
+    - full_swarm_completed_with_real_child_results
+    decision_options:
+    - reject
+    - adopt
+    - hybridize
+    - escalate_to_hitl
+    lane_ids:
+    - alpha
+    - beta
+    - gamma
+    - radical
+    lane_order:
+    - alpha
+    - beta
+    - gamma
+    - radical
+    redesign_memory_signals:
+      history_available: true
+      sample_size: 12
+      related_entry_count: 1
+      successful_count: 0
+      adopt_count: 0
+      hybridize_count: 3
+      promote_count: 0
+      reject_count: 5
+      continue_count: 0
+      escalate_count: 0
+      gamma_related_count: 4
+      adversarial_reviewed_count: 4
+      adversarial_issue_count: 4
+      historical_pressure_high: true
+      proven_improvement_available: false
+      preferred_parent_action: hybridize
+      full_branch_coverage_recommended: true
+      recurring_trigger_reasons:
+      - literal microservice frame invalid under current authority
+      - underlying capacity-governance objective remains partially open
+      recurring_disagreement_signals:
+      - whether a genuinely new internal authority is required or a direct-spec addendum is sufficient
+  radical_trigger_policy:
+    enabled: true
+    contradiction_count: 2
+    highest_novelty_score: high
+    trigger_reasons:
+    - stage_supports_core_assumption_rewrite
+    - radical branches converged on redesign rather than literal revival
+    decision_options:
+    - reject
+    - hybridize
+    - promote
+    radical_branch_ids:
+    - visionary:radical
+    - visionary:frame_replacement
+    - systems_thinker:full_restructure
+    - systems_thinker:authority_reset
+    - critic:governance_break
+    - critic:foundational_invalidity
+    redesign_memory_signals:
+      history_available: true
+      sample_size: 6
+      related_entry_count: 1
+      successful_count: 0
+      adopt_count: 0
+      hybridize_count: 2
+      promote_count: 0
+      reject_count: 4
+      continue_count: 0
+      escalate_count: 0
+      gamma_related_count: 4
+      adversarial_reviewed_count: 4
+      adversarial_issue_count: 4
+      historical_pressure_high: true
+      proven_improvement_available: false
+      preferred_parent_action: hybridize
+      full_branch_coverage_recommended: true
+      recurring_trigger_reasons:
+      - old stack framing rejected
+      - internal capacity substrate remains thinkable
+      recurring_disagreement_signals:
+      - planning-frame replacement versus distinct internal capacity authority
+  branches:
+  - branch_id: visionary:conservative
+    parent_role: visionary
+    branch_kind: conservative
+    branch_label: Conservative Future
+    lane_id: alpha
+    lane_label: Alpha Lane
+    lane_strategy: Improve the current task path without breaking core assumptions.
+    objective: Explore the highest-leverage minimal-change future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/alpha__visionary__conservative.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: visionary:aggressive
+    parent_role: visionary
+    branch_kind: aggressive
+    branch_label: Aggressive Future
+    lane_id: beta
+    lane_label: Beta Lane
+    lane_strategy: Explore a materially different framing or topology for the current task.
+    objective: Explore the strongest capability-maximizing future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/beta__visionary__aggressive.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: visionary:radical
+    parent_role: visionary
+    branch_kind: radical
+    branch_label: Radical Future
+    lane_id: gamma
+    lane_label: Gamma Lane
+    lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+    objective: Explore the most discontinuous redesign future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/gamma__visionary__radical.json
+    radical_candidate: true
+    status: COMPLETED
+  - branch_id: visionary:frame_replacement
+    parent_role: visionary
+    branch_kind: frame_replacement
+    branch_label: Frame-Replacement Future
+    lane_id: radical
+    lane_label: Radical Lane
+    lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+    objective: Challenge the current architectural frame itself and explore a replacement future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/radical__visionary__frame_replacement.json
+    radical_candidate: true
+    status: COMPLETED
+  - branch_id: systems_thinker:minimal_change
+    parent_role: systems_thinker
+    branch_kind: minimal_change
+    branch_label: Minimal-Change Topology
+    lane_id: alpha
+    lane_label: Alpha Lane
+    lane_strategy: Improve the current task path without breaking core assumptions.
+    objective: Explore the smallest viable topology shift that still resolves the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/alpha__systems_thinker__minimal_change.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: systems_thinker:modular
+    parent_role: systems_thinker
+    branch_kind: modular
+    branch_label: Modular Topology
+    lane_id: beta
+    lane_label: Beta Lane
+    lane_strategy: Explore a materially different framing or topology for the current task.
+    objective: Explore a modular decomposition future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/beta__systems_thinker__modular.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: systems_thinker:full_restructure
+    parent_role: systems_thinker
+    branch_kind: full_restructure
+    branch_label: Full-Restructure Topology
+    lane_id: gamma
+    lane_label: Gamma Lane
+    lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+    objective: Explore an end-to-end topology rewrite future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/gamma__systems_thinker__full_restructure.json
+    radical_candidate: true
+    status: COMPLETED
+  - branch_id: systems_thinker:authority_reset
+    parent_role: systems_thinker
+    branch_kind: authority_reset
+    branch_label: Authority-Reset Topology
+    lane_id: radical
+    lane_label: Radical Lane
+    lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+    objective: Challenge the current module, authority, and topology boundaries and explore a replacement operating structure for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/radical__systems_thinker__authority_reset.json
+    radical_candidate: true
+    status: COMPLETED
+  - branch_id: critic:failure
+    parent_role: critic
+    branch_kind: failure
+    branch_label: Failure Future
+    lane_id: alpha
+    lane_label: Alpha Lane
+    lane_strategy: Improve the current task path without breaking core assumptions.
+    objective: Explore the most plausible failure cascade future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/alpha__critic__failure.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: critic:abuse
+    parent_role: critic
+    branch_kind: abuse
+    branch_label: Abuse Future
+    lane_id: beta
+    lane_label: Beta Lane
+    lane_strategy: Explore a materially different framing or topology for the current task.
+    objective: Explore the strongest misuse or adversarial-abuse future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/beta__critic__abuse.json
+    radical_candidate: false
+    status: COMPLETED
+  - branch_id: critic:governance_break
+    parent_role: critic
+    branch_kind: governance_break
+    branch_label: Governance-Break Future
+    lane_id: gamma
+    lane_label: Gamma Lane
+    lane_strategy: Break one core assumption and test a high-novelty replacement for the current task.
+    objective: Explore the strongest authority, doctrine, or governance-break future for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/gamma__critic__governance_break.json
+    radical_candidate: true
+    status: COMPLETED
+  - branch_id: critic:foundational_invalidity
+    parent_role: critic
+    branch_kind: foundational_invalidity
+    branch_label: Foundational-Invalidity Future
+    lane_id: radical
+    lane_label: Radical Lane
+    lane_strategy: Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.
+    objective: Challenge whether the current architectural frame is fundamentally invalid for the current ideation problem.
+    expected_artifact: docs/task_workspaces/T-9013/children/radical__critic__foundational_invalidity.json
+    radical_candidate: true
+    status: COMPLETED
+notes:
+- Read current claim YAML contents before spawning children so the swarm had parallel-context awareness.
+- Real child session ids were recorded from parent spawn metadata where child self-reports were incomplete.

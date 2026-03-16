@@ -1,0 +1,33 @@
+{
+  "adoption_feasibility": 3,
+  "blocking_unknowns": [
+    "missing_task_workspace"
+  ],
+  "hypothesis_assessments": [
+    {
+      "adoption_feasibility": 3,
+      "artifact_ref": "FEASIBILITY_REPORT.json#H-001",
+      "blocking_unknowns": [
+        "missing_task_workspace"
+      ],
+      "feasibility_score": 4,
+      "hypothesis_id": "H-001",
+      "operational_feasibility": 3,
+      "technical_feasibility": 4
+    },
+    {
+      "adoption_feasibility": 3,
+      "artifact_ref": "FEASIBILITY_REPORT.json#H-002",
+      "blocking_unknowns": [
+        "missing_task_workspace"
+      ],
+      "feasibility_score": 4,
+      "hypothesis_id": "H-002",
+      "operational_feasibility": 3,
+      "technical_feasibility": 4
+    }
+  ],
+  "operational_feasibility": 3,
+  "technical_feasibility": 4,
+  "type": "FEASIBILITY_REPORT"
+}

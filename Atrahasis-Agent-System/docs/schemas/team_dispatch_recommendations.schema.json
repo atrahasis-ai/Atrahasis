@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Team Dispatch Recommendations",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "dispatch_candidates",
+    "created_at"
+  ],
+  "properties": {
+    "type": {"const": "TEAM_DISPATCH_RECOMMENDATIONS"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": "string"},
+    "command_modifier": {"type": ["string", "null"]},
+    "priority_order": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "dispatch_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "action_label",
+          "instruction",
+          "spawn_id",
+          "program_title",
+          "target_domain",
+          "approval_status",
+          "dispatch_readiness",
+          "team_mode",
+          "parent_role",
+          "parent_model",
+          "merge_owner",
+          "context_refs",
+          "child_roles",
+          "notes"
+        ],
+        "properties": {
+          "action_label": {"type": "string"},
+          "instruction": {"type": "string"},
+          "spawn_id": {"type": "string"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "program_goal": {"type": "string"},
+          "priority_score": {"type": ["number", "null"]},
+          "approval_status": {"type": "string"},
+          "dispatch_readiness": {"type": "string"},
+          "team_mode": {"type": "string"},
+          "parent_role": {"type": "string"},
+          "parent_model": {"type": "string"},
+          "merge_owner": {"type": "string"},
+          "context_refs": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "child_roles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "role",
+                "tier",
+                "model",
+                "reasoning_effort",
+                "objective",
+                "permission",
+                "safe_zone_paths",
+                "expected_artifact"
+              ],
+              "properties": {
+                "role": {"type": "string"},
+                "tier": {"type": "string"},
+                "model": {"type": "string"},
+                "reasoning_effort": {"type": "string"},
+                "objective": {"type": "string"},
+                "permission": {"type": "string"},
+                "safe_zone_paths": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "expected_artifact": {"type": "string"},
+                "branch_id": {"type": "string"},
+                "branch_label": {"type": "string"},
+                "parent_role": {"type": "string"},
+                "branch_kind": {"type": "string"},
+                "lane_id": {"type": "string"},
+                "lane_label": {"type": "string"},
+                "lane_strategy": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "future_exploration": {
+            "type": "object",
+            "required": ["team_mode", "max_depth", "convergence_owner", "branches"],
+            "properties": {
+              "team_mode": {"type": "string"},
+              "max_depth": {"type": "integer", "minimum": 1},
+              "convergence_owner": {"type": "string"},
+              "current_stage": {"type": "string"},
+              "program_title": {"type": "string"},
+              "program_goal": {"type": "string"},
+              "improvement_trigger_policy": {
+                "type": "object",
+                "required": ["enabled", "trigger_reasons", "decision_options", "lane_ids", "lane_order"],
+                "properties": {
+                  "enabled": {"type": "boolean"},
+                  "contradiction_count": {"type": "integer", "minimum": 0},
+                  "highest_novelty_score": {"type": ["number", "null"]},
+                  "trigger_reasons": {"type": "array", "items": {"type": "string"}},
+                  "decision_options": {"type": "array", "items": {"type": "string"}},
+                  "lane_ids": {"type": "array", "items": {"type": "string"}},
+                  "lane_order": {"type": "array", "items": {"type": "string"}},
+                  "redesign_memory_signals": {
+                    "type": "object",
+                    "properties": {
+                      "history_available": {"type": "boolean"},
+                      "sample_size": {"type": "integer", "minimum": 0},
+                      "related_entry_count": {"type": "integer", "minimum": 0},
+                      "successful_count": {"type": "integer", "minimum": 0},
+                      "adopt_count": {"type": "integer", "minimum": 0},
+                      "hybridize_count": {"type": "integer", "minimum": 0},
+                      "promote_count": {"type": "integer", "minimum": 0},
+                      "reject_count": {"type": "integer", "minimum": 0},
+                      "continue_count": {"type": "integer", "minimum": 0},
+                      "escalate_count": {"type": "integer", "minimum": 0},
+                      "gamma_related_count": {"type": "integer", "minimum": 0},
+                      "adversarial_reviewed_count": {"type": "integer", "minimum": 0},
+                      "adversarial_issue_count": {"type": "integer", "minimum": 0},
+                      "historical_pressure_high": {"type": "boolean"},
+                      "proven_improvement_available": {"type": "boolean"},
+                      "preferred_parent_action": {"type": ["string", "null"]},
+                      "full_branch_coverage_recommended": {"type": "boolean"},
+                      "recurring_trigger_reasons": {"type": "array", "items": {"type": "string"}},
+                      "recurring_disagreement_signals": {"type": "array", "items": {"type": "string"}}
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "radical_trigger_policy": {
+                "type": "object",
+                "required": ["enabled", "trigger_reasons", "decision_options", "radical_branch_ids"],
+                "properties": {
+                  "enabled": {"type": "boolean"},
+                  "contradiction_count": {"type": "integer", "minimum": 0},
+                  "highest_novelty_score": {"type": ["number", "null"]},
+                  "trigger_reasons": {"type": "array", "items": {"type": "string"}},
+                  "decision_options": {"type": "array", "items": {"type": "string"}},
+                  "radical_branch_ids": {"type": "array", "items": {"type": "string"}},
+                  "redesign_memory_signals": {
+                    "type": "object",
+                    "properties": {
+                      "history_available": {"type": "boolean"},
+                      "sample_size": {"type": "integer", "minimum": 0},
+                      "related_entry_count": {"type": "integer", "minimum": 0},
+                      "successful_count": {"type": "integer", "minimum": 0},
+                      "adopt_count": {"type": "integer", "minimum": 0},
+                      "hybridize_count": {"type": "integer", "minimum": 0},
+                      "promote_count": {"type": "integer", "minimum": 0},
+                      "reject_count": {"type": "integer", "minimum": 0},
+                      "continue_count": {"type": "integer", "minimum": 0},
+                      "escalate_count": {"type": "integer", "minimum": 0},
+                      "gamma_related_count": {"type": "integer", "minimum": 0},
+                      "adversarial_reviewed_count": {"type": "integer", "minimum": 0},
+                      "adversarial_issue_count": {"type": "integer", "minimum": 0},
+                      "historical_pressure_high": {"type": "boolean"},
+                      "proven_improvement_available": {"type": "boolean"},
+                      "preferred_parent_action": {"type": ["string", "null"]},
+                      "full_branch_coverage_recommended": {"type": "boolean"},
+                      "recurring_trigger_reasons": {"type": "array", "items": {"type": "string"}},
+                      "recurring_disagreement_signals": {"type": "array", "items": {"type": "string"}}
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "branches": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "branch_id",
+                    "parent_role",
+                    "branch_kind",
+                    "branch_label",
+                    "objective",
+                    "expected_artifact"
+                  ],
+                  "properties": {
+                    "branch_id": {"type": "string"},
+                    "parent_role": {"type": "string"},
+                    "branch_kind": {"type": "string"},
+                    "branch_label": {"type": "string"},
+                    "lane_id": {"type": "string"},
+                    "lane_label": {"type": "string"},
+                    "lane_strategy": {"type": "string"},
+                    "objective": {"type": "string"},
+                    "expected_artifact": {"type": "string"},
+                    "radical_candidate": {"type": "boolean"}
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "notes": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

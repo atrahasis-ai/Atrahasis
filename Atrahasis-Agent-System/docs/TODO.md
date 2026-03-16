@@ -7,44 +7,199 @@
 
 ## Active / In Progress
 
-| ID | Task | Status | Priority | AAS | Notes |
-|----|------|--------|----------|-----|-------|
-| — | No active tasks | — | — | — | — |
+### The Sovereign Custody Redesign (Renovation Backlog)
+These tasks supersede the previous buildout.
+
+The Sovereign Custody Redesign backlog is complete.
+Next dispatchable canonical tranche: `PARALLEL` - `T-303` + `T-306` + one of `T-305 / T-307`.
+
+See docs/specifications/STRATEGY/RENOVATION_TASKS.md for full details.
+
+#### Renovation Status
+
+| ID | Target | Status | Notes |
+|----|--------|--------|-------|
+| `T-RENOVATE-001` | `C14 AiBC` | `DONE` | Constitutional rewrite completed and claim closed. |
+| `T-RENOVATE-002` | `C15 AIC` | `DONE` | Economic rewrite completed and claim closed. |
+| `T-RENOVATE-003` | `C18 Funding` | `DONE` | Closed-capability publication posture rewrite completed. |
+| `T-RENOVATE-004` | `C22 Implementation` | `DONE` | Implementation resequencing completed and claim closed. |
+| `T-RENOVATE-005` | `C3 Noosphere` | `DONE` | Osmosis boundary and quarantine filter retrofit completed. |
+| `T-RENOVATE-006` | `C36 EMA-I` | `DONE` | Four-membrane interface isolation rewrite completed. |
+| `T-RENOVATE-007` | `C40 Security` | `DONE` | Sanctum trust-anchor exclusion hardening completed. |
+| `T-RENOVATE-008` | `C44 / C45` | `DONE` | Leased-cognition envelope formalization completed. |
+| `T-RENOVATE-009` | `C47 Forge` | `DONE` | Native model adaptation expansion completed. |
+| `T-RENOVATE-010` | `C48 Glass Vault` | `DONE` | New transparency-ledger spec completed. |
+| `T-RENOVATE-011` | `C1 - C13` | `DONE` | Audit completed; canonical membrane mapping lives in `T-RENOVATE-011/MEMBRANE_AUDIT.md` and `C9 v2.0.1`. |
+| `T-RENOVATE-012` | `C19 - C42` | `DONE` | Audit completed; stale marketplace and uncontrolled API assumptions were patched in `C22` and `C35`. |
+
+No active canonical tasks at the moment. `T-302` and `T-304` closeout are complete, and the next dispatchable tranche is listed above.
+System note: Master Prompt v2.2 model routing policy has been applied. No follow-up TODO item is required for this governance update.
 
 ---
 
 ## AAS Pipeline Required (New System Design)
 
-These are genuinely missing subsystems that need full invention — IDEATION through ASSESSMENT.
+These are genuinely missing subsystems that need task-scoped invention work - IDEATION through ASSESSMENT.
 
-### CRITICAL — Referenced by existing specs but never specified
+Policy note:
+- `T-xxx` entries below are task / problem-space IDs, not preassigned invention IDs.
+- A task may mint zero, one, or multiple `C-xxx` inventions after IDEATION selection.
+- For any `FULL PIPELINE` task, Ideation Council output is advisory only. The assigned agent must stop after `IDEATION`, obtain explicit user concept approval, and record it in `docs/task_workspaces/T-<ID>/HITL_APPROVAL.md` before minting any `C-xxx` invention ID or creating per-invention artifacts.
 
-| ID | Task | Priority | Notes |
-|----|------|----------|-------|
-| T-060 | C23 — Sentinel Graph (Security & Anomaly Detection) | CRITICAL | Referenced by 10+ specs (C3, C5, C6, C8, C11, C12, C13, C14, C17) as critical infrastructure for anomaly detection, behavioral clustering, and infrastructure fingerprinting. Most-referenced unspecified component in the entire system. No dedicated spec exists. |
+### CRITICAL - Referenced by existing specs but never specified
 
-### HIGH — Core architectural gaps
+(No remaining CRITICAL items â€” T-060 completed as C35 Seismographic Sentinel.)
 
-| ID | Task | Priority | Notes |
-|----|------|----------|-------|
-| T-061 | C24 — Agent Execution Runtime | HIGH | The system orchestrates agents (C7 RIF), schedules them (C3), and verifies their output (C5) — but never specifies how agents actually run. No agent types, no execution runtime, no inference provisioning, no cell execution layer. C22 Wave 1 assumes this exists. |
-| T-062 | C25 — Recovery & State Assurance | HIGH | No snapshot layer, delta journal, witness system, or state reconstruction engine. C3 has Emergency Tidal Rollback and C8 has deterministic EABS, but no unified recovery architecture across all 6 layers. Critical for production deployment. |
-| T-063 | C26 — Identity & Citizenship Registry | HIGH | Identity is scattered: C7 RIF has Agent Registry, C5 PCVM has Credibility Engine, C8 DSF has Capability-Weighted Stake, C14 has Citicate. No unified identity system. Missing: role history tracking, domain expertise profiles, unified eligibility engine. |
+### HIGH - Core architectural gaps
 
-### MEDIUM — Needed for deployment but not blocking architecture
+(No remaining HIGH items â€” T-062 completed as C34 BSRF.)
 
-| ID | Task | Priority | Notes |
-|----|------|----------|-------|
-| T-064 | C27 — Human & External Interface Layer (Website / Mobile / API / SDK / CLI) | MEDIUM | No spec defines how humans or external systems interact with Atrahasis. Humans need: website, mobile apps, API access, developer SDKs, CLI tooling. C4 ASV defines message schemas but no REST/gRPC/WebSocket API surface. C14 trustees need governance interfaces. C16 institutional partners need access points. C22 mentions TypeScript schemas but no interface spec. |
-| T-065 | C28 — Infrastructure & Federation | MEDIUM | No compute topology, cluster architecture, or cross-region federation. C3 explicitly defers federation to Phase 4. C22 specifies technology stack (Rust/Python/NATS/PostgreSQL) but not deployment architecture. |
-| ~~T-068~~ | ~~C31 — Agent Organizational Topology~~ | ~~COMPLETE~~ | ~~Moved to COMPLETED.md~~ |
-| T-066 | C29 — Operational Monitoring & Incident Response | MEDIUM | No governance health dashboard, incident response playbooks, or runtime security audit layer. C14 defines CFI metric and AiSIA monitoring conceptually, but no operational tooling spec exists. Needed for production operations. |
+### MEDIUM - Needed for deployment but not blocking architecture
 
-### LOW — Architectural completeness, not blocking
+(No remaining MEDIUM items â€” T-064 completed as C36 EMA-I.)
 
-| ID | Task | Priority | Notes |
-|----|------|----------|-------|
-| T-067 | C30 — Cognitive Control & Meta-Cognition | LOW | No learning loops, reasoning templates, strategy feedback, or system optimization. The system verifies reasoning (C5 R-class claims) but doesn't guide it. May be intentionally out of scope — Atrahasis is infrastructure, not agent internals. Needs scoping decision: is this in-scope or explicitly excluded? |
+### LOW - Architectural completeness, not blocking
+
+(No remaining LOW items â€” T-067 completed as C37 Epistemic Feedback Fabric.)
+
+---
+
+## AACP/AASL Full Replacement (Alternative C)
+
+These tasks activate the sovereign Atrahasis communication stack described in the March 12, 2026 source packet under `C:\Users\jever\Atrahasis\AACP-AASL\`. The source packet used the Alternative B label; the repo's canonical shared state now tracks this program as Alternative C.
+
+Policy notes:
+- `T-200` through `T-291` are the protocol buildout tasks derived directly from the Alternative C strategy packet, historically introduced under the Alternative B source-packet label.
+- `T-300` through `T-309` are mandatory retrofit tasks for the rest of the Atrahasis repo, because large parts of the current system assume `C4 ASV + A2A/MCP`.
+- A2A/MCP bridges remain allowed as migration scaffolding, not as the intended end-state architecture.
+- `C4 ASV` and related materials are retained as the historical baseline and compatibility reference; they are not normative design authority for `T-200`+ protocol-design tasks.
+- Direct use of ASV-era materials is expected for supersession, audit, retrofit, migration, and compatibility tasks (`T-300`+), or when a task explicitly requires comparison against the old stack.
+- Do not delete or archive ASV materials out of the working repo until the Alternative C retrofit program is complete.
+
+### Dependency Safety Rules
+
+- The `Dependencies` column is a hard gate, not a hint. If a listed prerequisite is not complete, the downstream task must stop rather than invent missing architecture.
+- `FULL PIPELINE` tasks establish upstream design authority. `DIRECT SPEC`, `Governance`, `Analysis`, and `Packaging` tasks must consume those upstream artifacts instead of fabricating placeholders.
+- `FULL PIPELINE` tasks must also honor the ideation approval gate: `recommended_concepts` are not self-approving, and no promoted invention may be minted without `docs/task_workspaces/T-<ID>/HITL_APPROVAL.md`.
+- If a task discovers that its declared prerequisites are insufficient, the correct action is to add or assign a prerequisite task, not to fill the gap with speculative details.
+- `T-301` is intentionally early. It audits the old `ASV + A2A/MCP` footprint so later retrofit tasks do not miss stale assumptions.
+- Parallel-capacity notes below are **surface-safe dispatch ceilings**, not just dependency counts. They assume one writer per canonical surface.
+- A task may be dependency-ready but still blocked if another active claim owns the same primary write surface: the same spec file, the same future `C` master spec, the same governance/shared-doc surface, or the same external AASL corpus.
+- When a wave contains multiple direct-spec tasks on one primary surface, only one of those tasks may run at a time even if every dependency is complete.
+- Claim files remain authoritative. If a task's concrete `scope.safe_zone_paths` overlap a live claim, stop and wait even if the wave note says capacity remains.
+- The wave counts below are conservative planning numbers for delegation. If a claim reveals broader overlap than the table assumed, use the smaller number.
+
+### Dispatch Lane Rules
+
+- Treat the lane notes under each wave as the actual assignment rule. If two tasks appear on the same lane, they are mutually exclusive and must serialize.
+- Do not assign two direct-spec tasks in the same wave unless they sit on different named lanes.
+- For `FULL PIPELINE` tasks, the lane is the task workspace before approval and the minted `C-xxx` safe zone after approval. Two different `FULL PIPELINE` tasks are parallel-safe only if they are on different lanes and the ideation approval gate is respected.
+- If a lane note says "broad existing-stack surface" or "shared governance/docs surface", assume overlap unless a fresh claim review proves otherwise.
+- When in doubt, dispatch fewer tasks and let the claim review expand capacity instead of assuming the larger wave count is safe.
+
+### Wave 1 - Foundation (Sequential)
+
+These tasks should run first and in order.
+Surface-safe dispatch ceiling: 1 task at a time.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+
+### Wave 1A - Early Audit (Can Run After T-200)
+
+Surface-safe dispatch ceiling: 1 additional task. This wave can overlap with Wave 1 after `T-200`, so the early global ceiling is 2 concurrent tasks (`T-301` plus one Wave 1 task).
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+
+### Wave 2 - Core Protocol (After T-210, Can Parallelize)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 2 is complete.
+
+(No remaining open Wave 2 tasks - `T-211`, `T-212`, `T-213`, and `T-215` are complete. Historical note: `T-213` and `T-215` serialized because both refined the `C38` master spec surface.)
+
+### Wave 3 - Transport, Auth, and Manifest (After Wave 2, Can Parallelize)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 3 is complete.
+Dispatch lanes:
+- Historical note: the serialized `C38` transport lane (`T-220` -> `T-221` -> `T-222` -> `T-223`) is complete.
+- Historical note: `T-214` completed as `C41`, so downstream tasks now consume the canonical manifest authority surface rather than dispatching the invention lane.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+(No remaining open Wave 3 tasks - the serialized C38 transport lane is complete.)
+
+### Wave 4 - Tool Connectivity and Operational Semantics (After T-211, T-212, T-230)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 4 is complete.
+Dispatch lanes:
+- `Tool invention lane`: complete as `C42` Lease-Primed Execution Mesh (LPEM); downstream tasks now consume the canonical tool-authority surface.
+- `C39 message-semantics lane`: complete through `T-243` and `T-244`; `C39` now defines both the concrete stream/push operational surface (`v1.0.3`) and the canonical sampling contract (`v1.0.4`).
+- `Security addendum lane`: complete as the `C40 v1.0.1` semantic-poisoning defense addendum; downstream tasks now consume the bounded admission-gate and manifest anti-spoofing surface.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+(No remaining open Wave 4 tasks - `T-241`, `T-242`, `T-243`, and `T-244` are complete.)
+
+### Wave 5 - The Cross-Compilation Forge (After T-240)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 5 is complete.
+Dispatch lanes:
+- `Forge lane`: complete as `C47` AACP Automated Cross-Compilation Forge; downstream tasks now consume the canonical tool ingestion surface.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+(No remaining open Wave 5 tasks - `T-252` is complete.)
+
+### Wave 6 - Ecosystem and Cross-Layer Integration (After Wave 5)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 6 is complete.
+Dispatch lanes:
+- `Ecosystem lane`: complete through `T-280`; downstream interface work now consumes the canonical tooling surface.
+- `Conformance lane`: complete through `T-281`; downstream work now consumes the canonical certification authority surface.
+- `Cross-layer integration lane`: complete through `T-290`; downstream retrofit and governance work now consume `AXIP-v1` as the native integration target.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+(No remaining open Wave 6 tasks - `T-262`, `T-280`, `T-281`, and `T-290` are complete.)
+
+### Wave 7 - Validation, Governance, and Supersession Boundary (After Wave 6)
+
+Surface-safe dispatch ceiling: no open tasks. Wave 7 is complete.
+Dispatch lanes:
+- `Validation lane`: complete through `T-291`; downstream work now consumes the canonical justification-test authority.
+- `Governance/shared-doc lane`: complete through `T-300`; downstream retrofit planning now uses the canonical C4 supersession boundary.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+(No remaining open Wave 7 tasks - `T-291` and `T-300` are complete.)
+
+### Wave 8 - Repo-Wide Retrofit (After Boundary and Integration Artifacts Exist)
+
+These follow-on tasks revise the rest of the Atrahasis repo after the Alternative C architecture stabilizes.
+Surface-safe dispatch ceiling: 3 concurrent tasks.
+Dispatch lanes:
+- `Core retrofit lane`: `T-303`. The remaining verification/communication retrofit still touches the `C5`-side core surfaces.
+- `Governance retrofit lane`: `T-305`, `T-307`. These must serialize because both edit shared planning/governance docs.
+- `Interface retrofit lane`: `T-306`. Unblocked now that `T-302` and `T-280` are complete; it may overlap with `T-303` and one governance task if claim review confirms no shared file collision.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+| T-303 | Verification, Memory, and Provenance Retrofit | DIRECT SPEC | HIGH | T-301, T-240, T-252, T-290 | Align C5, C6, C34, and C35 trust boundaries and provenance handling. Remove all legacy 'bridged provenance' caveats. |
+| T-305 | Implementation Plan and Wave Sequencing Rewrite | Governance | HIGH | T-301, T-210, T-230, T-240, T-260, T-290 | Replace the current implementation roadmap with Alternative C sequencing, staffing, rollout gates, and ownership splits. |
+| T-306 | Interface and Developer Experience Retrofit | DIRECT SPEC | MEDIUM | T-302, T-260, T-280 | Update EMA-I, developer/operator touchpoints, and tool assumptions for native AACP/AASL workflows. |
+| T-307 | Sub-Agent Loci Conversion Strategy | Governance | HIGH | T-300, T-252, T-291 | Define the strategic roadmap for converting the top 50 required external capabilities into native Sub-Agent Loci via the Cross-Compilation Forge. |
+
+### Wave 9 - Cleanup and Publication
+
+Surface-safe dispatch ceiling: 1 task launch from the Alternative C tranche. `T-308` starts first; `T-309` remains blocked until `T-308` is complete.
+Dispatch lane:
+- `Publication lane`: `T-308`, `T-309`. Serialize these; `T-309` remains blocked on `T-308`.
+
+| ID | Task | Type | Priority | Dependencies | Notes |
+|----|------|------|----------|--------------|-------|
+| T-308 | Repo-Wide Terminology and Reference Sweep | Packaging | MEDIUM | T-300, T-301, T-302, T-307 | Replace stale ASV/A2A/MCP/Bridge language across read-first docs, spec introductions, and cross-references. |
+| T-309 | External Review Package Refresh | Packaging | LOW | T-304, T-305, T-308 | Repackage the repo for external reviewers after the communication-architecture shift, including funding and implementation narrative updates. Absorbs the former `T-011` packaging scope. |
 
 ---
 
@@ -56,82 +211,40 @@ These are gaps that can be closed by adding sections to existing specs.
 
 | ID | Task | Type | Target Spec | Notes |
 |----|------|------|-------------|-------|
-| T-070 | Specify Capsule Epoch Protocol | Missing section | C3 | C3 TOC line 259 explicitly lists "Fusion Capsule Epoch Protocol" as excluded/deferred. Needs specification for complete coordination layer. |
-| T-071 | Specify Cut Commit Fallback | Missing section | C3 | No "cut commit" recovery pattern specified. C3 has ETR but needs a general-purpose fallback for partial epoch failures. |
-| T-072 | Unify Attestation Engine references | Cross-reference | C5 | Attestation logic distributed across C5 Sections 6-7. Add a named subsection consolidating the attestation flow. |
-| T-073 | Specify Contradiction Lattice | Missing section | C6 | C6 Section 7 has Coherence Graph with CONTRADICTION edges but no dedicated lattice data structure. Original Noosphere spec had detailed contradiction lattice. |
-| T-074 | Add Membrane Certificate Engine spec | Missing section | C5 | C3 references "Membrane Certificate (MCT)" in data flow. C5 Section 10 produces admission/rejection decisions. Need explicit MCT format and lifecycle. |
-| T-075 | Define Proposal System lifecycle | Missing section | C14 | C3 Section 7.1 has G-class consensus and C14 has governance taxonomy, but no formal proposal lifecycle (submission → debate → voting → ratification → execution). |
-| T-076 | Define Governance Directive Registry | Missing section | C14 | C14 defines governance decision taxonomy (GTP) but no persistent registry for active directives, their status, and enforcement state. |
+(No remaining HIGH direct edit items â€” T-074 completed as C5 Section 10.5 Membrane Certificate Engine, T-076 completed as C14 Section 7.6 Governance Directive Registry.)
 
 ### MEDIUM Priority
 
 | ID | Task | Type | Target Spec | Notes |
 |----|------|------|-------------|-------|
-| T-077 | Name Scoped Replica Groups in C3 | Terminology | C3 | C3's parcels + loci function as scoped replica groups. Add explicit naming and cross-reference to align with original architecture terminology. |
-| T-078 | Add Claim Family Graph to C5/C6 | Missing section | C5, C6 | C5 Credibility Engine tracks claim dependencies. C6 Coherence Graph has derivation edges. Need explicit "claim family" grouping and graph structure. |
-| T-079 | Add Semantic Index to C6 | Missing section | C6 | C6 EMA Section 9 has retrieval interfaces but no dedicated semantic index for knowledge discovery. Need indexing strategy for epistemic quanta. |
-| T-080 | Define Four-Tier Memory Model | Missing section | C6 | C3 Section 1.2 defers this to Noosphere Spec Sections 23-25. C6 has metabolic lifecycle states but the original four-tier model (working/short-term/long-term/archival) is never formally specified. |
-| T-081 | Add Archive Layer to C6 | Missing section | C6 | C6 catabolism handles knowledge retirement (quarantine → dissolution) but no long-term archival. Need archive specification for historical knowledge preservation. |
-| T-082 | Specify Governance Audit Layer | Missing section | C14 | C14 Section 16 defines AiSIA conceptually. Need runtime audit specification: what's logged, retention, query interface, compliance reporting. |
-| T-083 | Add Manual Ratification Interface to C14 | Missing section | C14 | C14 defines trustee voting thresholds but no interface spec for how human trustees interact with governance decisions in practice. |
-| T-084 | Specify Contestable Reliance Membrane | Missing section | C5 | Original Verichain spec had this concept — a mechanism for agents to contest verification results they rely on. Not carried forward into PCVM. |
+(No remaining MEDIUM direct edit items â€” T-080 completed as C6 Section 4.6 Four-Tier Memory Model, T-083 completed as C14 Section 4.4 Trustee Ratification Interface, T-084 completed as C5 Section 10.6 Contestable Reliance Membrane.)
 
 ### LOW Priority
 
 | ID | Task | Type | Target Spec | Notes |
 |----|------|------|-------------|-------|
-| T-085 | Add Heuristic Family Store to C6 | Missing section | C6 | H-class claims exist in C5 taxonomy but heuristics are not grouped into "families" for tracking, versioning, or retirement. |
-| T-086 | Add Super-Verification Layer to C5 | Missing section | C5 | C5 has deep-audit (7% random full replication) but no escalation path for contested high-stakes verification. Original spec had a "super-verification" concept. |
-| T-087 | Specify Bundle Compaction Engine | Missing section | C6 | C6 catabolism handles retirement. Need specification for compacting related knowledge bundles without information loss. |
-| T-088 | Specify Canonicalizer service | Missing section | C4 | C4 ASV provides JSON-LD context for semantic normalization but no dedicated canonicalization service for deduplication and normalization of equivalent representations. |
-| T-011 | External review preparation | Packaging | All | Package specs for external review or publication |
+(No remaining LOW direct edit items. Legacy packaging task `T-011` has been folded into `T-309`.)
 
 ---
 
-## Deprecated / Out of Scope (No Action Needed)
+## Out of Scope (No Action Needed)
 
-These components from the original 15-layer list are either deprecated, replaced, or absorbed:
+These items are not active work for the current AAS backlog:
 
-| Original Component | Status | Replacement |
-|----|--------|-------------|
-| AASC Compiler | DEPRECATED | C4 ASV — JSON Schema replaces custom compiler |
-| AASL Parser | DEPRECATED | C4 ASV — standard JSON Schema validation |
-| AASL Validator | DEPRECATED | C4 ASV — standard JSON Schema validators |
-| AASL Runtime Workspace | DEPRECATED | Concept eliminated — ASV is vocabulary, not runtime |
-| AACP Envelope Layer | DEPRECATED | C4 ASV Speech-Act Envelope (SAE) + A2A/MCP integration |
-| CIOS | DEPRECATED | C7 RIF — fully replaces CIOS |
-| Knowledge Cortex | DEPRECATED | C6 EMA — fully replaces Knowledge Cortex |
-| Collective Intelligence Kernel (CIK) | ABSORBED | Distributed across C7 RIF, C3, C6 EMA |
-| Global Intelligence Control Plane | ABSORBED | C7 RIF Section 10.2 — Global Executive (GE) |
-| Trinity Structures | RESOLVED by C31 | CAT generalizes the tetrahedral motif — DAN of 4 in MEDIUM safety IS a tetrahedral cell |
-| Tetrahedral Clusters | RESOLVED by C31 | CAT preserves the concept as Deterministic Affinity Neighborhoods (DANs) of 3-5 agents |
-| Lattice Clusters | RESOLVED by C31 | Crystal Structure (informational layer) provides lattice-like inter-DAN connectivity |
-| Planetary Intelligence Network | DEFERRED | C3 targets planetary scale; physical network deferred |
-| Planning Agents | ABSORBED | C7 RIF Section 8.2 — System 4 Strategic Intelligence |
-| Routing Policy Engine | ABSORBED | C7 RIF Section 8.1 — System 3 Operational Control + C3 hash-ring scheduling |
-| Resource Strategy Engine | ABSORBED | C7 RIF Section 6.4-6.5 + C8 DSF Section 8 Capacity Market |
-| Coordinator Agents | ABSORBED | C7 RIF architectural roles (GE, LD, PE) |
-| Verification Liaison Agents | ABSORBED | C5 PCVM VRF-selected committees handle verification directly |
-| Memory Liaison Agents | ABSORBED | C6 EMA system service handles knowledge metabolism |
-| Human Interface | MOVED TO T-064 | Elevated to AAS Pipeline task C27 — website, mobile apps, API, SDK, CLI |
-| Verichain | DEPRECATED | C5 PCVM — fully replaces Verichain |
+- Physical planetary network deployment remains deferred beyond current AAS specification scope; current work stops at the architecture/specification layer.
+- Legacy Verichain, CIOS, and Knowledge Cortex continuation work is out of scope as standalone lines because C5, C7, and C6 replaced them.
+
+## User Dispatch Order (Simple)
+
+Use this section for assignment order. It is intentionally simplified and already accounts for the known non-conflict lanes.
+When a task listed here is completed, remove its task ID from this section as part of shared-state closeout. During parallel execution, queue that removal in the handoff rather than editing the UDO live.
+
+1. `PARALLEL` - `T-303` + `T-306` + one of `T-305 / T-307`
+2. `SOLO after T-307` - `T-308`
+3. `SOLO after T-308` - `T-309`
+
+Completed tasks are archived in [COMPLETED.md](COMPLETED.md) (124 tasks).
 
 ---
 
-## Summary
-
-| Category | Count |
-|----------|-------|
-| AAS Pipeline Required | 8 new inventions (C23-C30) + C31 COMPLETE |
-| Direct Spec Edits — HIGH | 7 tasks |
-| Direct Spec Edits — MEDIUM | 8 tasks |
-| Direct Spec Edits — LOW | 5 tasks |
-| Deprecated / Out of Scope | 18 components (no action) + 3 under review |
-| **Total open tasks** | **29** + T-011 |
-
-*Completed tasks archived in [COMPLETED.md](COMPLETED.md) (56 tasks)*
-
----
-
-*Last updated: 2026-03-11*
+*Last updated: 2026-03-15 (T-302 shared-state closeout - Tishpak)*

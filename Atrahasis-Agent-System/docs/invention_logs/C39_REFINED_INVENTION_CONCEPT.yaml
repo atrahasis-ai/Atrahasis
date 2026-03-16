@@ -1,0 +1,44 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C39"
+title: "Lineage-Bearing Capability Message Lattice (LCML)"
+domain: "agent communication / protocol messaging / distributed systems / semantic interoperability"
+summary: >
+  LCML defines the canonical message-layer expansion for Alternative B by
+  normalizing the current AACP baseline to 23 canonical legacy classes and
+  extending it to 42 through exactly 19 new classes across six capability
+  families: discovery, tools, resources, prompting, streaming, and sampling.
+  Its central innovation is a bounded message lattice shaped by capability
+  family, interaction mode, and lineage rules. This allows some interactions
+  to remain dual-phase within one class while reserving distinct result classes
+  only where the reply has materially different downstream semantic or
+  provenance consequences.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  A bounded capability-family message lattice that preserves explicit lineage,
+  native-versus-bridge provenance posture, and a fixed class-growth budget
+  without collapsing into either generic RPC ambiguity or uncontrolled class
+  proliferation.
+technical_approach: >
+  Normalize the legacy 23-class AACP inventory, define 19 new capability-family
+  classes, add message-layer header extensions for family and delivery posture,
+  and specify class-economy rules for when request and response may share one
+  class versus when a distinct result class is required.
+potential_applications:
+  - "Canonical 42-class inventory for Alternative B"
+  - "Message authority for T-214, T-240, T-241, T-242, T-243, and T-244"
+  - "Envelope-level visibility of native versus bridged capability flows"
+known_risks:
+  - "Legacy inventory normalization may be challenged if draft-era message lists are treated as canonical"
+  - "Downstream specs may try to bypass the class-economy rules and re-inflate the taxonomy"
+  - "Push-as-mode could be implemented inconsistently if T-243 does not preserve the message-layer distinction"
+prior_art_concerns:
+  - "The component patterns are familiar, so novelty depends on the Atrahasis-specific synthesis"
+  - "Without clear lineage and provenance rules, the design would collapse into generic RPC-style messaging"
+research_questions:
+  - "Which existing legacy classes must be retained in the normalized 23-class baseline to stay faithful to live repo lineage?"
+  - "Which replies need dedicated result classes because they produce distinct trust, storage, or verification consequences?"
+  - "How should stream and push surfaces relate so the class inventory stays bounded without losing operational clarity?"
+generated_at: "2026-03-12T13:05:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

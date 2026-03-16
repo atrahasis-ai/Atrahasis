@@ -1,0 +1,37 @@
+{
+  "type": "CLOSEOUT_CONSISTENCY_REPORT",
+  "task_id": "T-000",
+  "task_class": "DIRECT_SPEC",
+  "generated_at": "2026-03-15T00:00:00Z",
+  "claim_status": "DONE",
+  "workspace_present": true,
+  "handoff_status": {
+    "live_exists": false,
+    "live_paths": [],
+    "applied_exists": true,
+    "applied_paths": [
+      "docs/handoffs/applied/T-000_CODEX_HANDOFF.md"
+    ]
+  },
+  "checks": [
+    {
+      "name": "workspace_present",
+      "passed": true,
+      "detail": "Task workspace exists."
+    },
+    {
+      "name": "direct_spec_verification_clean",
+      "passed": true,
+      "detail": "Direct-spec verification is clean."
+    },
+    {
+      "name": "done_claim_removed_from_dispatch_order",
+      "passed": true,
+      "detail": "DONE task no longer appears in User Dispatch Order."
+    }
+  ],
+  "valid": true,
+  "notes": [
+    "Closeout consistency requires claim, workspace, handoff state, and dispatch order to agree."
+  ]
+}

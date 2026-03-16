@@ -1,0 +1,26 @@
+{
+  "type": "DIRECT_SPEC_VERIFICATION_REPORT",
+  "task_id": "T-000",
+  "generated_at": "2026-03-15T00:00:00Z",
+  "scope_paths": [
+    "docs/specifications/C5 - Example/C5_Example_Master_Tech_Spec.md"
+  ],
+  "forbidden_patterns": [
+    "bridge",
+    "A2A",
+    "MCP"
+  ],
+  "checked_files": [
+    {
+      "path": "docs/specifications/C5 - Example/C5_Example_Master_Tech_Spec.md",
+      "size_bytes": 1024
+    }
+  ],
+  "match_count": 0,
+  "matches": [],
+  "clean": true,
+  "notes": [
+    "Checked 1 file across the exact claimed scope.",
+    "Clean=true for the declared forbidden patterns across the claimed scope."
+  ]
+}

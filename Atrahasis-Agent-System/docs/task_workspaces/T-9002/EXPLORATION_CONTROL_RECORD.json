@@ -1,0 +1,24 @@
+{
+  "escalate_to_human": true,
+  "priority_order": [
+    "RP-947",
+    "spawn:model"
+  ],
+  "recommended_actions": [
+    {
+      "action": "continue_program",
+      "allocation_ratio": 1.0,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.626,
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program",
+      "rationale": "Agent Research Program has opportunity score 0.626 and allocation ratio 1.0, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    }
+  ],
+  "recommended_branch_budget": 3,
+  "strategy_summary": "Focus on Agent Research Program with continue_program and branch budget 3. Hold 1 spawn candidate(s) for operator approval.",
+  "type": "EXPLORATION_CONTROL_RECOMMENDATION"
+}

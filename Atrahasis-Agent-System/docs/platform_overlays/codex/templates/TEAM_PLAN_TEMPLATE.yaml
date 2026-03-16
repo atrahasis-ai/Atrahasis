@@ -1,0 +1,135 @@
+version: "1.0"
+doctrine_version: "AAS5"
+topology_mode: "AAS5_25_AGENT_HIERARCHY"
+task_id: "T-000"
+workflow_id: "wf-000"
+run_key: "T-000::wf-000"
+dispatch_id: "disp-000"
+status: "PLANNED"
+created_at: "2026-03-16T00:00:00Z"
+updated_at: "2026-03-16T00:00:00Z"
+selection:
+  action_label: "explore_futures"
+  instruction: "future_swarm:ideation"
+  spawn_id: "disp-000"
+  program_title: "Example AAS5 ideation swarm"
+  target_domain: "architecture"
+  program_goal: "Compare Alpha/Beta/Gamma/Radical futures before recommendation."
+  priority_score: 1
+parent:
+  provider: "codex"
+  agent_name: "TBD"
+  node_id: "mst"
+  role: "Master Orchestrator"
+  session_id: "not_exposed"
+  merge_owner: "mst"
+  model: "gpt-5.4"
+  reasoning_effort: "xhigh"
+  model_audit:
+    requested_model: "gpt-5.4"
+    requested_reasoning_effort: "xhigh"
+    observed_runtime_model: null
+    observed_model_auditability: "runtime_not_exposed"
+    routing_basis: "Codex MODEL_ROUTING primary director policy target"
+spawn_policy:
+  team_mode: "FUTURE_BRANCH_SWARM"
+  orchestration_topology: "master_lane_managers_reporters_auditors"
+  manager_count: 4
+  reporter_count: 4
+  auditor_count: 4
+  worker_count: 12
+  total_non_parent_participants: 24
+  total_agents: 25
+  simultaneous_target_agent_count: 25
+  max_live_children: 6
+  spawn_batch_size: 6
+  planned_wave_count: 5
+  scheduling_mode: "batched_by_runtime_cap"
+  default_child_permission: "read_only"
+  hitl_gate_owner: "mst"
+  shared_state_owner: "mst"
+manager_orchestrators:
+  - node_id: "mgr.alpha"
+    agent_name: "TBD-alpha-manager"
+    role: "lane_manager"
+    tier: "manager"
+    lane_id: "alpha"
+    lane_label: "Alpha Lane"
+    lane_strategy: "Improve the current path without breaking core assumptions."
+    model: "gpt-5.4"
+    reasoning_effort: "xhigh"
+    objective: "Manage the Alpha lane and coordinate its three workers."
+    expected_artifact: "children/managers/mgr.alpha.json"
+    status: "PLANNED"
+lane_convergence_reporters:
+  - node_id: "rep.alpha"
+    agent_name: "TBD-alpha-reporter"
+    role: "lane_convergence_reporter"
+    tier: "reporter"
+    lane_id: "alpha"
+    lane_label: "Alpha Lane"
+    model: "gpt-5.4"
+    reasoning_effort: "xhigh"
+    objective: "Synthesize Alpha worker results without acting as manager, auditor, or final recommender."
+    expected_artifact: "children/reporters/rep.alpha.json"
+    status: "PLANNED"
+audit_orchestrators:
+  - node_id: "aud.compliance"
+    agent_name: "TBD-compliance-auditor"
+    role: "auditor"
+    tier: "auditor"
+    audit_domain: "compliance"
+    model: "gpt-5.4"
+    reasoning_effort: "xhigh"
+    objective: "Verify topology realism and participant independence."
+    expected_artifact: "children/auditors/aud.compliance.json"
+    status: "PLANNED"
+workers:
+  - node_id: "wrk.alpha.visionary"
+    agent_name: "TBD-alpha-visionary"
+    role: "visionary"
+    tier: "worker"
+    parent_node_id: "mgr.alpha"
+    lane_id: "alpha"
+    lane_label: "Alpha Lane"
+    branch_id: "visionary:conservative"
+    branch_kind: "conservative"
+    model: "gpt-5.4"
+    reasoning_effort: "high"
+    objective: "Explore the highest-leverage minimal-change future for the ideation problem."
+    expected_artifact: "children/workers/wrk.alpha.visionary.json"
+    status: "PLANNED"
+context_refs:
+  - "docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v5.md"
+  - "docs/task_workspaces/T-000/TASK_BRIEF.md"
+future_exploration:
+  enabled: true
+  current_stage: "IDEATION"
+  max_depth: 2
+  convergence_owner: "mst"
+  branch_report_ref: "docs/task_workspaces/T-000/FUTURE_BRANCH_REPORT.json"
+children:
+  - node_id: "mgr.alpha"
+    role: "lane_manager"
+    tier: "manager"
+    expected_artifact: "children/managers/mgr.alpha.json"
+    status: "PLANNED"
+  - node_id: "wrk.alpha.visionary"
+    role: "visionary"
+    tier: "worker"
+    expected_artifact: "children/workers/wrk.alpha.visionary.json"
+    status: "PLANNED"
+  - node_id: "rep.alpha"
+    role: "lane_convergence_reporter"
+    tier: "reporter"
+    expected_artifact: "children/reporters/rep.alpha.json"
+    status: "PLANNED"
+  - node_id: "aud.compliance"
+    role: "auditor"
+    tier: "auditor"
+    expected_artifact: "children/auditors/aud.compliance.json"
+    status: "PLANNED"
+notes:
+  - "Expand this template to the full 25-agent topology before execution."
+  - "Ordinary AAS5 ideation requires four managers, twelve workers, four lane reporters, and four independent auditors."
+  - "Plan participant spawning in deliberate waves if the runtime cannot support ideal simultaneous 25-agent execution."

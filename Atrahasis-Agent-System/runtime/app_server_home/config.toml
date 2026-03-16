@@ -1,0 +1,14 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+service_tier = "fast"
+web_search = "disabled"
+js_repl_node_path = "C:\\Users\\jever\\.local\\bin\\node.CMD"
+
+[projects.'\\?\C:\Users\jever\Atrahasis']
+trust_level = "trusted"
+
+[projects.'\\?\C:\Users\jever\Atrahasis\Atrahasis-Agent-System']
+trust_level = "trusted"
+
+[features]
+multi_agent = true

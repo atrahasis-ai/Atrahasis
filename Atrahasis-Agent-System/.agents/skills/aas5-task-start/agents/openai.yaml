@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Task Start"
+  short_description: "Prepare and harden task start"
+  default_prompt: "Prepare the canonical task start contract under AAS5 and follow its machine-checked constraints."

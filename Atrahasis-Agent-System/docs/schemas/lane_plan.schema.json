@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Lane Plan",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "run_key",
+    "lane_id",
+    "manager_node_id",
+    "worker_node_ids",
+    "reporter_node_id",
+    "status",
+    "generated_at"
+  ],
+  "properties": {
+    "type": {"const": "LANE_PLAN"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "lane_id": {"type": "string"},
+    "lane_label": {"type": "string"},
+    "lane_strategy": {"type": "string"},
+    "manager_node_id": {"type": "string"},
+    "worker_node_ids": {"type": "array", "items": {"type": "string"}},
+    "reporter_node_id": {"type": "string"},
+    "status": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

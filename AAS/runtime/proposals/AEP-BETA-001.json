@@ -1,0 +1,33 @@
+{
+  "aep_id": "AEP-BETA-001",
+  "affected_layers": [
+    "Registry",
+    "Runtime",
+    "Agent",
+    "Governance"
+  ],
+  "architecture_gap": "The current system cannot allocate capabilities dynamically, route proposals structurally, or coordinate execution through machine-readable task dependencies.",
+  "authoring_agent": "Swarm Beta",
+  "cssm_version": "AAS-State-v1.0",
+  "data_model_changes": "Add agent profiles, proposal registry entries, task dependency nodes, and council decision records.",
+  "date": "2026-03-13T10:06:21Z",
+  "governance_implications": "Council decisions gain durable machine-readable records for arbitration and replay.",
+  "implementation_tasks": [
+    "AAS-TASK-BOOT-003",
+    "AAS-TASK-BOOT-004"
+  ],
+  "invention_concept": "Convert the AAS from a document-only operating manual into a governed execution system with ACR, proposal registry, and task graph surfaces.",
+  "migration_strategy": "Use bootstrap registries first; evolve toward a persistent service surface later without invalidating stored state.",
+  "objective_profile": {
+    "capability": 0.91,
+    "feasibility": 0.88,
+    "governance_stability": 0.82
+  },
+  "problem_statement": "Capability-aware assignment and proposal-driven execution were impossible.",
+  "proposed_architecture_change": "Introduce a bootstrap ACR, proposal registry, council decision records, and task graph snapshots under /AAS/runtime/state.",
+  "protocol_implications": "Proposal routing becomes deterministic and auditable. Task generation becomes machine-readable rather than purely narrative.",
+  "security_implications": "Stronger traceability improves auditability and post-failure reconstruction.",
+  "status": "submitted",
+  "swarm": "beta",
+  "title": "Stateful Registry and Task Graph Core"
+}

@@ -1,0 +1,14 @@
+command_modifier: AASNI
+task_id: T-9008
+prompt: 'Run the updated merged doctrine document in AAT 3 through AAS4 again
+  as Anu, determine whether the doctrine changes, and evaluate whether the new
+  C48 Glass Vault idea should be accepted, narrowed, or rejected.'
+scope: c48_accountability_review
+operator_constraints:
+- Treat this as a fourth-pass synthesis over the merged AAT 3 document.
+- Commit to a direction even if there are no new inventions.
+- Keep the result separate from canonical backlog state until operator
+  promotion.
+hitl_requirements:
+- OPERATOR_APPROVAL_FOR_CANONICAL_REWRITE
+created_at: '2026-03-13T23:32:45Z'

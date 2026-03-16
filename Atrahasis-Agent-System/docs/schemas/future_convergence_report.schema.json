@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Future Convergence Report",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "dispatch_id",
+    "team_mode",
+    "current_stage",
+    "generated_at",
+    "branch_count",
+    "branch_summaries",
+    "disagreement_signals",
+    "convergence_summary",
+    "source_refs"
+  ],
+  "properties": {
+    "type": {"const": "FUTURE_CONVERGENCE_REPORT"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "dispatch_id": {"type": "string"},
+    "team_mode": {"type": "string"},
+    "current_stage": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "branch_count": {"type": "integer", "minimum": 0},
+    "branch_summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "branch_id",
+          "branch_label",
+          "parent_role",
+          "branch_kind",
+          "lane_id",
+          "lane_label",
+          "lane_strategy",
+          "objective",
+          "status",
+          "verdicts",
+          "recommended_next_actions",
+          "child_artifacts"
+        ],
+        "properties": {
+          "branch_id": {"type": "string"},
+          "branch_label": {"type": "string"},
+          "parent_role": {"type": "string"},
+          "branch_kind": {"type": "string"},
+          "lane_id": {"type": "string"},
+          "lane_label": {"type": "string"},
+          "lane_strategy": {"type": "string"},
+          "objective": {"type": "string"},
+          "status": {"type": "string"},
+          "verdicts": {"type": "array", "items": {"type": "string"}},
+          "recommended_next_actions": {"type": "array", "items": {"type": "string"}},
+          "child_artifacts": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "disagreement_signals": {"type": "array", "items": {"type": "string"}},
+    "convergence_summary": {"type": "string"},
+    "recommended_parent_action": {"type": ["string", "null"]},
+    "source_refs": {"type": "object", "additionalProperties": {"type": ["string", "null"]}}
+  },
+  "additionalProperties": false
+}

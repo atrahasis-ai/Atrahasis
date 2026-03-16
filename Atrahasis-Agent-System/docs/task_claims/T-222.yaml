@@ -1,0 +1,15 @@
+task_id: "T-222"
+agent_name: "Nammu"
+invention_ids: []
+target_specs:
+  - "C38"
+title: "AACP-WebSocket Transport Binding"
+platform: "CODEX"
+claimed_at: "2026-03-12T14:35:14.4944295Z"
+updated_at: "2026-03-12T14:39:15.7770531Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C38/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Added the normative C38 WebSocket transport binding: `AACP-WS-v1`, explicit text/binary opcode discipline, in-band `SCF-v1` handshake gating, supplemental Ping/Pong boundaries, bounded reconnect behavior, lineage-safe resume semantics, and matching conformance vectors."

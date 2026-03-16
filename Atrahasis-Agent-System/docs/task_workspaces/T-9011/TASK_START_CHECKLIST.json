@@ -1,0 +1,59 @@
+{
+  "agent_name": null,
+  "claim_conflicts": [],
+  "dependency_ids": [],
+  "generated_at": "2026-03-15T16:24:43Z",
+  "next_dispatchable_summary": "`PARALLEL` - `T-303` + `T-306` + one of `T-305 / T-307`",
+  "notes": [
+    "This exploratory ideation run is still a real AAS4 task workspace and may not remain session-only.",
+    "Read the contents of current claim YAML files before ideation so the swarm has parallel-context awareness.",
+    "Update the placeholder ideation artifacts before presenting a final recommendation."
+  ],
+  "readiness_checks": {
+    "claim_conflict": false,
+    "dependencies_resolved": true,
+    "dispatchable_now": true,
+    "parallel_mode_active": false,
+    "task_listed": false
+  },
+  "required_artifacts": [
+    "README.md",
+    "TASK_BRIEF.md",
+    "TASK_START_CHECKLIST.json",
+    "COMMAND_REQUEST.yaml",
+    "HUMAN_DECISION_RECORD.json",
+    "WORKFLOW_RUN_RECORD.json",
+    "AUTHORITY_COVERAGE_MATRIX.json",
+    "TEAM_PLAN.yaml",
+    "SWARM_EXECUTION_RECORD.json",
+    "CHILD_RESULT_MERGE_PACKAGE.json"
+  ],
+  "source_refs": {
+    "claim": "",
+    "todo": "docs/TODO.md",
+    "workspace": "docs/task_workspaces/T-9011/"
+  },
+  "stop_rules": [
+    "Stop after IDEATION and wait for explicit concept approval before promotion.",
+    "Do not mint any C-xxx invention id before HITL approval is recorded.",
+    "Stop again if convergence or adversarial review is required by policy.",
+    "When ideation is architecture-heavy or operator-requested as a swarm, form a real child swarm; do not substitute internal roleplay.",
+    "Do not treat ideation as complete until SWARM_EXECUTION_RECORD.json records a satisfied real swarm."
+  ],
+  "task_class": "FULL_PIPELINE",
+  "task_id": "T-9011",
+  "title": "Independent Model Inference Microservice Layer",
+  "type": "TASK_START_CHECKLIST",
+  "unresolved_dependencies": [],
+  "validators": [
+    "workspace",
+    "swarm_execution"
+  ],
+  "write_surface": {
+    "mode": "exploratory_task_workspace",
+    "paths": [
+      "docs/task_workspaces/T-9011/"
+    ],
+    "source": "AASNI_auto_mint"
+  }
+}

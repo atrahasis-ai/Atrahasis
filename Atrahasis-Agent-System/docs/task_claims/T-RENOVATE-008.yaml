@@ -1,0 +1,17 @@
+task_id: "T-RENOVATE-008"
+invention_ids: []
+target_specs:
+  - "C44"
+  - "C45"
+title: "C44/C45 Leased Cognition Wrapper Formalization"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T18:42:00Z"
+updated_at: "2026-03-15T00:30:44Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C44/MASTER_TECH_SPEC.md"
+    - "docs/specifications/C45/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Canonical authority comes from docs/specifications/STRATEGY/RENOVATION_TASKS.md and the mission-locked sovereignty doctrine. Ninkasi formalized temporary frontier-model use as leased cognition behind Atrahasis-owned AACP/AASL control planes across C44 and C45 until native models replace it."

@@ -1,0 +1,17 @@
+# Task Claim File
+# Copy this template to T-<ID>.yaml when claiming a task.
+# Only ONE platform may hold a claim on a given task ID at a time.
+
+task_id: "T-000"
+invention_ids: []             # empty until concepts are promoted; may contain one or more C IDs
+target_specs: []              # e.g. ["C3"] for direct edits
+title: "Task title"
+platform: "CODEX"             # CODEX | GEMINI | CLAUDE
+claimed_at: "2026-03-11T00:00:00Z"
+updated_at: "2026-03-11T00:00:00Z"
+status: "CLAIMED"             # CLAIMED | IN_PROGRESS | DONE | ABANDONED
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-000/"
+  pipeline_type: "AAS"        # AAS | DIRECT_EDIT | GOVERNANCE
+notes: ""

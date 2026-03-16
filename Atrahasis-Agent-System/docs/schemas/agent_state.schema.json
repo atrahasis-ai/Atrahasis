@@ -30,6 +30,8 @@
         "PROTOTYPE",
         "SPECIFICATION",
         "ASSESSMENT",
+        "ARCHITECTURE_REWRITE",
+        "ACTIVE",
         "IDLE"
       ]
     },
@@ -39,7 +41,12 @@
         "NOT_STARTED",
         "IN_PROGRESS",
         "COMPLETE",
-        "BLOCKED"
+        "BLOCKED",
+        "AACP_V2_BUILDOUT",
+        "ALTERNATIVE_C_ZERO_BRIDGE_PIVOT",
+        "AWAITING_TASK",
+        "AAS1_IMPLEMENTATION",
+        "AAS1_ACTIVE"
       ]
     },
     "last_updated": {
@@ -102,19 +109,20 @@
               "COMPLETE",
               "BLOCKED",
               "PIVOTED",
-              "REJECTED"
+              "REJECTED",
+              "ACCEPTED_AND_APPLIED"
             ]
           },
           "domain": {
             "type": ["string", "null"]
           },
           "novelty_score": {
-            "type": ["integer", "null"],
+            "type": ["number", "null"],
             "minimum": 1,
             "maximum": 5
           },
           "feasibility_score": {
-            "type": ["integer", "null"],
+            "type": ["number", "null"],
             "minimum": 1,
             "maximum": 5
           },
@@ -155,22 +163,22 @@
                 ]
               },
               "novelty_score": {
-                "type": "integer",
+                "type": "number",
                 "minimum": 1,
                 "maximum": 5
               },
               "feasibility_score": {
-                "type": "integer",
+                "type": "number",
                 "minimum": 1,
                 "maximum": 5
               },
               "impact_score": {
-                "type": "integer",
+                "type": "number",
                 "minimum": 1,
                 "maximum": 5
               },
               "risk_score": {
-                "type": "integer",
+                "type": "number",
                 "minimum": 1,
                 "maximum": 10
               },

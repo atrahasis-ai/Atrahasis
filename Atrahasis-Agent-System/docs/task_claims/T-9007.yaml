@@ -1,0 +1,16 @@
+task_id: T-9007
+invention_ids: []
+target_specs: []
+title: Doctrine Lock Review - Anu Round Three
+platform: CODEX
+agent_name: Anu
+claimed_at: '2026-03-13T23:27:01Z'
+updated_at: '2026-03-13T23:27:01Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-9007/
+  pipeline_type: AAS
+notes: AASNI third-pass synthesis over the operator-merged AAT 2 document.
+  Records Anu's doctrine-lock position and keeps the run out of docs/TODO.md
+  per TASK_ID_POLICY until operator promotion.

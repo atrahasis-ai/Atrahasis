@@ -1,0 +1,88 @@
+version: '1.0'
+task_id: T-9012
+workflow_id: T-9012-AASNI-20260315T172504Z
+dispatch_id: T-9012-IDEATION-20260315T172504Z
+status: PLANNED
+created_at: '2026-03-15T17:25:04Z'
+updated_at: '2026-03-15T17:25:04Z'
+selection:
+  action_label: ideation
+  instruction: Evaluate the exploratory candidate 'Independent Model Inference Microservice
+    Layer' under AAS4 ideation rules.
+  spawn_id: T-9012-IDEATION-20260315T172504Z
+  program_title: Independent Model Inference Microservice Layer
+  target_domain: architecture
+  program_goal: Determine whether the candidate idea is already subsumed, needs a
+    narrower addendum, or requires a new subsystem.
+  priority_score: 1
+parent:
+  provider: codex
+  agent_name: Sin
+  session_id: pending-parent-session
+  role: Swarm Director
+  merge_owner: Sin
+  model: gpt-5.4
+spawn_policy:
+  team_mode: Stage Team
+  max_children: 3
+  default_child_permission: read_only
+  hitl_gate_owner: parent
+  shared_state_owner: parent
+context_refs:
+- docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v4.md
+- docs/SESSION_BRIEF.md
+- docs/DECISIONS.md
+- docs/TODO.md
+- docs/task_workspaces/T-9012/TASK_BRIEF.md
+- C45
+- C42
+- C47
+- C36
+- C18
+- C22
+- C39
+- T-300
+children:
+- child_id: T-9012-IDEATION-20260315T172504Z-visionary
+  agent_name: pending-visionary
+  role: visionary
+  tier: swarm_child
+  model: gpt-5.4
+  reasoning_effort: high
+  objective: Find the strongest viable pro-adoption or salvaged redesign path for
+    'Independent Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9012/
+  expected_artifact: docs/task_workspaces/T-9012/children/visionary.json
+  status: PLANNED
+- child_id: T-9012-IDEATION-20260315T172504Z-systems_thinker
+  agent_name: pending-systems_thinker
+  role: systems_thinker
+  tier: swarm_child
+  model: gpt-5.4
+  reasoning_effort: high
+  objective: Map the tightest integration and downstream task consequences for 'Independent
+    Model Inference Microservice Layer'.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9012/
+  expected_artifact: docs/task_workspaces/T-9012/children/systems_thinker.json
+  status: PLANNED
+- child_id: T-9012-IDEATION-20260315T172504Z-critic
+  agent_name: pending-critic
+  role: critic
+  tier: swarm_child
+  model: gpt-5.4
+  reasoning_effort: high
+  objective: Find the strongest case that 'Independent Model Inference Microservice
+    Layer' is duplicative, destabilizing, or wrongly framed.
+  permission: read_only
+  safe_zone_paths:
+  - docs/task_workspaces/T-9012/
+  expected_artifact: docs/task_workspaces/T-9012/children/critic.json
+  status: PLANNED
+notes:
+- Read current claim YAML contents before spawning children so the swarm has parallel-context
+  awareness.
+- Replace planned child metadata with actual session identifiers after spawn.

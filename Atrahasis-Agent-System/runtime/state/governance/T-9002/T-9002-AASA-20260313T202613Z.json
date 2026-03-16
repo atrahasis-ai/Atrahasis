@@ -1,0 +1,92 @@
+{
+  "governance_summary": {
+    "active_program_count": 1,
+    "archived_program_count": 2,
+    "authoritative_lock_count": 8,
+    "completed_program_count": 0,
+    "enforced_hypothesis_capacity": 10,
+    "governance_kernel": "active",
+    "l0_blockers": [],
+    "lock_keys": [
+      "L2::agent",
+      "L2::agents",
+      "L2::data",
+      "L2::data-center-cooling",
+      "L2::detection",
+      "L2::governance",
+      "L2::model",
+      "L2::verification"
+    ],
+    "paused_program_count": 0
+  },
+  "locks": {
+    "L2::agent": {
+      "granted_at": "2026-03-13T20:26:14Z",
+      "program_id": "RP-947",
+      "scope_level": "L2",
+      "target_domain": "agent",
+      "task_id": "T-9002",
+      "workflow_id": "T-9002-AASA-20260313T202613Z"
+    },
+    "L2::agents": {
+      "granted_at": "2026-03-13T19:49:10Z",
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "target_domain": "agents",
+      "task_id": "T-270",
+      "workflow_id": "T-270-AASBT-20260313T194910Z"
+    },
+    "L2::data": {
+      "granted_at": "2026-03-13T19:49:10Z",
+      "program_id": "RP-362",
+      "scope_level": "L2",
+      "target_domain": "data",
+      "task_id": "T-270",
+      "workflow_id": "T-270-AASBT-20260313T194910Z"
+    },
+    "L2::data-center-cooling": {
+      "granted_at": "2026-03-13T17:16:22Z",
+      "program_id": "RP-401",
+      "scope_level": "L2",
+      "target_domain": "data center cooling",
+      "task_id": "T-910",
+      "workflow_id": "T-910-AASBT-20260313T171622Z"
+    },
+    "L2::detection": {
+      "granted_at": "2026-03-13T18:59:02Z",
+      "program_id": "RP-019",
+      "scope_level": "L2",
+      "target_domain": "detection",
+      "task_id": "T-9001",
+      "workflow_id": "T-9001-AASAQ-20260313T185901Z"
+    },
+    "L2::governance": {
+      "granted_at": "2026-03-13T19:49:10Z",
+      "program_id": "RP-579",
+      "scope_level": "L2",
+      "target_domain": "governance",
+      "task_id": "T-270",
+      "workflow_id": "T-270-AASBT-20260313T194910Z"
+    },
+    "L2::model": {
+      "granted_at": "2026-03-13T19:51:37Z",
+      "program_id": "RP-104",
+      "scope_level": "L2",
+      "target_domain": "model",
+      "task_id": "T-260",
+      "workflow_id": "T-260-AASBT-20260313T195136Z"
+    },
+    "L2::verification": {
+      "granted_at": "2026-03-13T19:49:10Z",
+      "program_id": "RP-075",
+      "scope_level": "L2",
+      "target_domain": "verification",
+      "task_id": "T-270",
+      "workflow_id": "T-270-AASBT-20260313T194910Z"
+    }
+  },
+  "task_id": "T-9002",
+  "type": "GOVERNANCE_SNAPSHOT",
+  "updated_at": "2026-03-13T20:26:14Z",
+  "workflow_id": "T-9002-AASA-20260313T202613Z"
+}

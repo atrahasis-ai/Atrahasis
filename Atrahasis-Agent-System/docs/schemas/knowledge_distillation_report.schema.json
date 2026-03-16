@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Knowledge Distillation Report",
+  "type": "object",
+  "required": ["type", "triggered", "cycle_count", "node_count", "distilled_clusters", "updated_discovery_map"],
+  "properties": {
+    "type": {"const": "KNOWLEDGE_DISTILLATION_REPORT"},
+    "triggered": {"type": "boolean"},
+    "cycle_count": {"type": "integer", "minimum": 0},
+    "node_count": {"type": "integer", "minimum": 0},
+    "trigger_reason": {"type": ["string", "null"]},
+    "distilled_clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cluster_id", "title", "representative_hypothesis", "supporting_hypotheses"],
+        "properties": {
+          "cluster_id": {"type": "string"},
+          "title": {"type": "string"},
+          "representative_hypothesis": {"type": "string"},
+          "supporting_hypotheses": {"type": "array", "items": {"type": "string"}},
+          "summary": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "updated_discovery_map": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

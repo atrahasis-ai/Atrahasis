@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Direct Spec Audit Record",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "task_class",
+    "generated_at",
+    "target_specs",
+    "scope_paths",
+    "authority_inputs",
+    "forbidden_patterns",
+    "verification_rule",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "DIRECT_SPEC_AUDIT_RECORD"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "task_class": {"const": "DIRECT_SPEC"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "target_specs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "scope_paths": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "authority_inputs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "verification_rule": {"type": "string"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

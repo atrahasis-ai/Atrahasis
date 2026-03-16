@@ -1,0 +1,12 @@
+{
+  "app_server_url": "ws://127.0.0.1:8765",
+  "codex_executable": "C:\\Users\\jever\\.local\\bin\\codex-alpha.EXE",
+  "host": "127.0.0.1",
+  "pid": 43676,
+  "port": 4180,
+  "started_at": "2026-03-15T12:34:08Z",
+  "stderr_log": "runtime\\logs\\controller_daemon\\stderr.log",
+  "stdout_log": "runtime\\logs\\controller_daemon\\stdout.log",
+  "stopped_at": "2026-03-15T12:34:40Z",
+  "ui_url": "http://127.0.0.1:4180/operator/"
+}

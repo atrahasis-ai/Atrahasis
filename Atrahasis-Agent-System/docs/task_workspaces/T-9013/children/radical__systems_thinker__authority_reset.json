@@ -1,0 +1,240 @@
+{
+  "type": "CHILD_AGENT_RESULT",
+  "task_id": "T-9013",
+  "role": "systems_thinker",
+  "objective": "Challenge the current module, authority, and topology boundaries and explore a replacement operating structure for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "status": "COMPLETED",
+  "branch_id": "systems_thinker:authority_reset",
+  "branch_label": "Authority-Reset Topology",
+  "parent_role": "systems_thinker",
+  "branch_kind": "authority_reset",
+  "lane_id": "radical",
+  "lane_label": "Radical Lane",
+  "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+  "session_identity": {
+    "agent_name": "radical-systems_thinker-authority_reset",
+    "session_id": null,
+    "provider": "codex",
+    "role": "systems_thinker"
+  },
+  "model_audit": {
+    "policy_target": "gpt-5.4",
+    "actual_runtime_model": null,
+    "reasoning_effort": "high",
+    "auditability": "runtime_not_exposed",
+    "routing_basis": "AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target."
+  },
+  "artifact_provenance": {
+    "writer_mode": "child_session",
+    "writer_agent_name": "radical-systems_thinker-authority_reset",
+    "writer_session_id": null,
+    "notes": [
+      "Real T-9013 future-branch child result for the Radical lane systems_thinker authority-reset topology.",
+      "Only the assigned child artifact was updated; no shared-state surfaces were edited."
+    ]
+  },
+  "claim_context": {
+    "active_claims_present": false,
+    "summary": "Current task claim review returned zero active claims, so no live claim collision constrains this child write surface."
+  },
+  "verdict": "RESET_AROUND_INTERNAL_CAPACITY_AUTHORITY",
+  "one_sentence_thesis": "Do not create an independent model inference microservice layer; replace it with a new internal capacity-authority seam that splits route admission from backend arbitration, keeps protocol and membrane authority where they already live, and turns model-serving into governed substrate capacity instead of a peer service plane.",
+  "architectural_fit": "The literal layer is invalid under current authority. The valid radical move is not 'more microservice' but an authority reset: C45 becomes a thinner ingress compiler, a new internal capacity authority owns backend arbitration and warm-state policy, C42/C23 remain the only execution-rights path, C47 remains model-supply authority, C39 remains wire semantics, C36 remains exposure authority, and C18/C22 absorb economics and rollout.",
+  "affected_modules": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C39",
+    "C18",
+    "C22"
+  ],
+  "governance_constraints": [
+    "T-300"
+  ],
+  "evidence": [
+    {
+      "path": "docs/task_workspaces/T-9013/TASK_BRIEF.md",
+      "line_refs": "1-34",
+      "finding": "This child is required to challenge authority boundaries, not merely optimize implementation details, so a replacement operating structure is in scope if it stays inside the task-local workspace."
+    },
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md",
+      "line_refs": "20-29,59,65-68,166-172,210-221",
+      "finding": "C45 already owns route-level execution-mode selection, identity lock, lease enforcement, and bounded leased cognition. That means a literal peer inference layer would duplicate route authority. The reset is to keep C45 as ingress compiler while moving backend arbitration below it."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md",
+      "line_refs": "134-158,227-235,299-321,473-475,558-563",
+      "finding": "C42 already owns priming levels, continuation contexts, runtime handoff contracts, and the rule that no primed context becomes runtime execution without a C23 lease. Any replacement structure must consume this authority, not bypass it."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md",
+      "line_refs": "25-33,45-46,147-163,209-213,243-244,269-280",
+      "finding": "C47 already owns native model adaptation, quarantine, promotion, and the staged reduction of leased-provider dependence. The replacement structure cannot absorb model lifecycle ownership; it must consume promoted model families as supply."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md",
+      "line_refs": "84-90,185-188,247,296,525-527,727,988",
+      "finding": "C36 explicitly rejects passthrough gateway behavior, forbids direct raw model access, and routes enterprise execution through bounded receptors tied to C45/C42. Therefore the replacement structure must stay internal and non-receptor-facing."
+    },
+    {
+      "path": "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md",
+      "line_refs": "223-226,377-390,593-614,905-912,970-974,993",
+      "finding": "C39 already owns delegated sampling request/result semantics, realized model provenance, and explicit deny-by-default tool posture. Backend facts should be surfaced through existing sampling semantics rather than a new inference protocol family."
+    },
+    {
+      "path": "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md",
+      "line_refs": "42,494-505,512,557-560,638,798-805",
+      "finding": "C18 already treats sovereign compute, C45 leased cognition, and C47 adaptation/quarantine as first-order budget items. A real inference-capacity authority has economic consequences and cannot remain an implementation afterthought."
+    },
+    {
+      "path": "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md",
+      "line_refs": "23,429-443,587,603-607,690-692,939-952,1082-1085,1329-1331,1344",
+      "finding": "C22 already budgets leased/native model operations and notes that implementation decomposes by specification boundary, not by reviving generic service-layer logic. A new authority is justified only if it becomes a true cross-spec internal control plane with explicit rollout gates."
+    },
+    {
+      "path": "docs/task_workspaces/T-300/BOUNDARY_POLICY_DRAFT.md",
+      "line_refs": "19-23,46-61,95-105,116-125",
+      "finding": "T-300 fixes Alternative C as the only forward communication authority and warns against collapsing old and new stacks. Any valid replacement must stay Alternative C-native and internal, not recreate an old-style generic microservice doctrine."
+    }
+  ],
+  "authority_reset_map": [
+    {
+      "surface": "C45",
+      "current_owner_role": "route-level execution wrapper and substrate choice owner",
+      "reset_owner_role": "route admission, membrane-safe execution-mode declaration, scrub policy, and provenance envelope only",
+      "reason": "C45 should stop owning fine-grained backend arbitration. It should decide whether a route is allowed to use native, leased, or fallback classes, then hand placement to the new internal authority."
+    },
+    {
+      "surface": "New internal authority seam",
+      "current_owner_role": "implicit, spread across C45 implementation details and rollout assumptions",
+      "reset_owner_role": "backend arbitration, queue policy, batching, warm-state reuse, capacity classes, shadow execution, and leased-to-native migration policy",
+      "reason": "This is the actual missing authority. Without it, model capacity remains hidden inside wrappers, budget docs, and promotion logic with no canonical owner."
+    },
+    {
+      "surface": "C42",
+      "current_owner_role": "continuation and execution-primed handoff authority",
+      "reset_owner_role": "unchanged",
+      "reason": "The new authority may optimize substrate placement, but it must never mint execution rights or convert backend access into ambient authority."
+    },
+    {
+      "surface": "C47",
+      "current_owner_role": "model ingestion, adaptation, quarantine, and promotion authority",
+      "reset_owner_role": "unchanged",
+      "reason": "The new authority consumes model families and readiness states from Forge; it must not own model lifecycle or training governance."
+    },
+    {
+      "surface": "C39",
+      "current_owner_role": "delegated sampling and model provenance semantics",
+      "reset_owner_role": "unchanged, with optional additive backend-class disclosure",
+      "reason": "Protocol semantics remain stable. Only execution-fact disclosure may need extension."
+    },
+    {
+      "surface": "C36",
+      "current_owner_role": "external receptor and membrane exposure authority",
+      "reset_owner_role": "unchanged",
+      "reason": "The new authority is internal only. Exposure remains bounded to existing ENTERPRISE or FOUNDRY receptors."
+    },
+    {
+      "surface": "C18/C22",
+      "current_owner_role": "economic and rollout planning",
+      "reset_owner_role": "expanded to explicitly govern capacity classes, migration milestones, and substrate spend triggers",
+      "reason": "If capacity arbitration becomes a first-class authority, funding and sequencing rules must become explicit instead of inferred."
+    }
+  ],
+  "replacement_operating_structure": {
+    "name": "Sovereign Cognition Capacity Fabric",
+    "design_goal": "Create one internal authority for model-capacity governance without creating a new public protocol family or a new external membrane surface.",
+    "modules": [
+      {
+        "name": "Ingress Compilation Gateway",
+        "owner_surface": "C45",
+        "responsibilities": [
+          "Validate route-level policy and membrane legality.",
+          "Declare allowed substrate class for the request.",
+          "Emit the sovereign provenance envelope and scrubbed leased capsule when needed."
+        ]
+      },
+      {
+        "name": "Capacity Arbitration Core",
+        "owner_surface": "new internal authority",
+        "responsibilities": [
+          "Select concrete backend pool within the route's allowed substrate class.",
+          "Apply queueing, batching, warm-state reuse, and cost-pressure policy.",
+          "Choose shadow or ensemble execution when policy allows."
+        ]
+      },
+      {
+        "name": "Execution Rights Broker",
+        "owner_surface": "C42 plus C23",
+        "responsibilities": [
+          "Convert approved continuation or priming state into lawful runtime handoff.",
+          "Keep all active execution rights lease-bound and auditable.",
+          "Reject any backend shortcut that would create ambient runtime authority."
+        ]
+      },
+      {
+        "name": "Model Supply and Promotion Feed",
+        "owner_surface": "C47",
+        "responsibilities": [
+          "Publish promoted native model families, quarantine states, and readiness tiers.",
+          "Drive leased-to-native migration inputs into the arbitration core.",
+          "Keep adaptation and model-governance ownership outside the capacity fabric."
+        ]
+      },
+      {
+        "name": "Semantic Disclosure Adapter",
+        "owner_surface": "C39",
+        "responsibilities": [
+          "Expose realized execution facts and model provenance through existing sampling surfaces.",
+          "Optionally disclose backend class or capacity tier if the current contract is too weak.",
+          "Avoid creation of a parallel inference message family."
+        ]
+      },
+      {
+        "name": "Membrane Exposure Adapter",
+        "owner_surface": "C36",
+        "responsibilities": [
+          "Keep all outward access bound to existing ENTERPRISE, FOUNDRY, or PUBLIC receptors.",
+          "Prevent the capacity fabric from becoming a generic external endpoint.",
+          "Preserve release-law and non-interference constraints."
+        ]
+      },
+      {
+        "name": "Economic and Rollout Governor",
+        "owner_surface": "C18 plus C22",
+        "responsibilities": [
+          "Meter substrate spend, GPU pool pressure, and leased-provider burn.",
+          "Define rollout waves and migration thresholds for native replacement.",
+          "Tie capacity expansion to funding reality and wave sequencing."
+        ]
+      }
+    ],
+    "new_authority_needed": true,
+    "new_authority_scope": "internal capacity arbitration only",
+    "forbidden_interpretations": [
+      "Not a public or enterprise-visible generic inference endpoint.",
+      "Not a replacement for C45 route authority.",
+      "Not a replacement for C42/C23 execution authority.",
+      "Not a replacement for C47 model promotion or training authority.",
+      "Not a new protocol family outside C39."
+    ]
+  },
+  "integration_consequences": [
+    "C45 must be narrowed so route wrappers stop hiding backend arbitration policy inside implementation details.",
+    "C42 and C23 must remain the only path from model work to lawful active execution.",
+    "C47 promotion states must become consumable scheduling inputs rather than passive documentation.",
+    "C39 may need additive backend-class disclosure, but not a new inference wire family.",
+    "C18 and C22 must explicitly govern capacity classes, migration thresholds, and cost ceilings for the new authority."
+  ],
+  "likely_downstream_task_shapes": [
+    "FULL PIPELINE: mint a new internal-only authority for sovereign cognition capacity governance if the operator wants the authority reset rather than a thin addendum.",
+    "DIRECT_SPEC: narrow C45 to ingress compilation and route legality, removing implicit ownership of fine-grained backend arbitration.",
+    "DIRECT_SPEC: extend C42/C23 interface language so capacity arbitration can request lawful handoff without owning execution rights.",
+    "DIRECT_SPEC: extend C47 output contracts so promoted-model readiness states become machine-consumable arbitration inputs.",
+    "DIRECT_SPEC: extend C18 and C22 with capacity classes, GPU pool governance, spend triggers, and migration gates.",
+    "DIRECT_SPEC: extend C39 only if backend-class disclosure is required for operator-visible provenance."
+  ],
+  "recommended_next_action": "If this idea is promoted, do not carry forward the phrase 'Independent Model Inference Microservice Layer' as the design target. Promote a new internal authority centered on sovereign cognition capacity governance, with explicit decomposition across C45, C42/C23, C47, C39, C36, C18, and C22, and reject any version that becomes a generic external model-serving plane."
+}

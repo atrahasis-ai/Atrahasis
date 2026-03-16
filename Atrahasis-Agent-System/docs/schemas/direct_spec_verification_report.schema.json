@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Direct Spec Verification Report",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "generated_at",
+    "scope_paths",
+    "forbidden_patterns",
+    "checked_files",
+    "match_count",
+    "matches",
+    "clean",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "DIRECT_SPEC_VERIFICATION_REPORT"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "scope_paths": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "forbidden_patterns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "checked_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "size_bytes"],
+        "properties": {
+          "path": {"type": "string"},
+          "size_bytes": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "match_count": {"type": "integer", "minimum": 0},
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "pattern", "line_number", "line_text"],
+        "properties": {
+          "path": {"type": "string"},
+          "pattern": {"type": "string"},
+          "line_number": {"type": "integer", "minimum": 1},
+          "line_text": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "clean": {"type": "boolean"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

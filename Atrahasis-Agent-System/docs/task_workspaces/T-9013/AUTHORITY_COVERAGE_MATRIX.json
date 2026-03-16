@@ -1,0 +1,108 @@
+{
+  "coverage_required": true,
+  "generated_at": "2026-03-16T07:12:00Z",
+  "named_authority_surfaces": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C18",
+    "C22",
+    "C39",
+    "T-300"
+  ],
+  "new_semantic_authority_test": {
+    "affected_modules": [
+      "C45",
+      "C42",
+      "C47",
+      "C36",
+      "C39",
+      "C18",
+      "C22",
+      "T-300"
+    ],
+    "follow_on_task_shapes": [
+      "reject literal independent microservice layer as doctrinally invalid",
+      "direct spec addendum for internal substrate routing under C45/C47/C42/C39/C18/C22",
+      "new internal-only full pipeline subsystem if capacity arbitration must become a distinct authority",
+      "cross-spec planning/addendum path if the objective is kept but formalized without minting a standalone subsystem"
+    ],
+    "rationale": "The swarm converged that the literal independent microservice-layer frame is invalid under current authority, but a narrower internal capacity-governance problem remains partially open.",
+    "verdict": "keep_objective_but_redesign"
+  },
+  "notes": [
+    "Every operator-named authority surface was reviewed and incorporated into the ideation convergence.",
+    "The literal historical framing is blocked most strongly by C36, C45, C39, and T-300."
+  ],
+  "recommendation_blocked_until_complete": false,
+  "stage": "IDEATION",
+  "surface_rows": [
+    {
+      "surface": "C45",
+      "current_authority_summary": "Owns sovereign route compilation, execution-mode locking, native-versus-leased posture, provider scrubbing, and route-level provenance.",
+      "coverage_status": "addressed",
+      "disposition": "needs_addendum_or_subordinate_internal_authority",
+      "new_authority_still_needed": true,
+      "reasoning_impact": "Blocked any peer or externalized inference layer and shifted viable options toward an internal substrate consumed beneath C45."
+    },
+    {
+      "surface": "C42",
+      "current_authority_summary": "Owns continuation, execution priming, and lawful runtime handoff while preserving C23 as runtime-start authority.",
+      "coverage_status": "addressed",
+      "disposition": "needs_addendum_only",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Prevented any option that grants ambient execution authority or shadow-lease behavior to an inference fabric."
+    },
+    {
+      "surface": "C47",
+      "current_authority_summary": "Owns model ingestion, adaptation, quarantine, promotion, and leased-to-native migration doctrine.",
+      "coverage_status": "addressed",
+      "disposition": "supports_new_internal_subsystem_only_if_subordinate",
+      "new_authority_still_needed": true,
+      "reasoning_impact": "Showed model lifecycle authority is already owned, so any new concept must consume promoted model families rather than duplicate Forge."
+    },
+    {
+      "surface": "C36",
+      "current_authority_summary": "Owns membrane-bound external exposure and rejects generic gateway or direct raw model access posture.",
+      "coverage_status": "addressed",
+      "disposition": "already_blocks_literal_layer",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Forced all viable options to remain internal-only and membrane-scoped."
+    },
+    {
+      "surface": "C18",
+      "current_authority_summary": "Owns the economics of sovereign compute, leased cognition, and Forge adaptation/quarantine.",
+      "coverage_status": "addressed",
+      "disposition": "needs_addendum_or_planning_expansion",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Supported the objective's efficiency rationale while arguing against a duplicate independent platform plane."
+    },
+    {
+      "surface": "C22",
+      "current_authority_summary": "Owns rollout sequencing, operational waves, and implementation decomposition across current architecture surfaces.",
+      "coverage_status": "addressed",
+      "disposition": "needs_addendum_or_planning_expansion",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Showed the program can absorb capacity-governance work, but the literal microservice framing is not the right sequencing unit."
+    },
+    {
+      "surface": "C39",
+      "current_authority_summary": "Owns delegated sampling, streaming, realized model provenance, and default-deny semantics for tool authority.",
+      "coverage_status": "addressed",
+      "disposition": "already_subsumes_protocol_layer",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Eliminated the need for a new inference protocol family and kept any viable solution on existing message semantics."
+    },
+    {
+      "surface": "T-300",
+      "current_authority_summary": "Fixes Alternative C as the only forward authority and blocks revival of old-stack service-plane assumptions.",
+      "coverage_status": "addressed",
+      "disposition": "already_blocks_literal_layer",
+      "new_authority_still_needed": false,
+      "reasoning_impact": "Ruled out literal restoration of the historical blueprint and forced redesign into an Alternative C-native internal concept."
+    }
+  ],
+  "task_id": "T-9013",
+  "type": "AUTHORITY_COVERAGE_MATRIX"
+}

@@ -1,0 +1,385 @@
+{
+  "adversarial_review": {
+    "contradiction_count": 3,
+    "enabled": false,
+    "recommended_only": false,
+    "record_ref": null,
+    "redesign_memory_signals": {
+      "adopt_count": 0,
+      "adversarial_issue_count": 0,
+      "adversarial_reviewed_count": 0,
+      "continue_count": 0,
+      "escalate_count": 0,
+      "full_branch_coverage_recommended": false,
+      "gamma_related_count": 0,
+      "historical_pressure_high": false,
+      "history_available": false,
+      "hybridize_count": 0,
+      "preferred_parent_action": null,
+      "promote_count": 0,
+      "proven_improvement_available": false,
+      "recurring_disagreement_signals": [],
+      "recurring_trigger_reasons": [],
+      "reject_count": 0,
+      "related_entry_count": 0,
+      "sample_size": 0,
+      "successful_count": 0
+    },
+    "required_before_stage_close": false,
+    "review_role": "adversarial_analyst",
+    "status": null,
+    "trigger_reasons": []
+  },
+  "artifacts": {
+    "adversarial_review_record": null,
+    "closeout_execution_record": null,
+    "controller_run_result": "docs/task_workspaces/T-9002/CONTROLLER_RUN_RESULT.json",
+    "convergence_gate_record": null,
+    "future_convergence_report": null,
+    "human_decision_record": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json",
+    "radical_redesign_report": null,
+    "review_gate_record": "docs/task_workspaces/T-9002/REVIEW_GATE_RECORD.json",
+    "task_improvement_report": null,
+    "workflow_run_record": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json"
+  },
+  "claim_status": "DONE",
+  "convergence": {
+    "branch_count": 0,
+    "completed_branch_count": 0,
+    "decision_options": [
+      "continue_exploration"
+    ],
+    "disagreement_signals": [],
+    "enabled": false,
+    "gamma_present": false,
+    "minimum_completed_branches": 0,
+    "missing_branch_count": 0,
+    "rationale": null,
+    "ready_for_decision": false,
+    "recommended_parent_action": null,
+    "record_ref": null,
+    "redesign_memory_signals": {
+      "adopt_count": 0,
+      "adversarial_issue_count": 0,
+      "adversarial_reviewed_count": 0,
+      "continue_count": 0,
+      "escalate_count": 0,
+      "full_branch_coverage_recommended": false,
+      "gamma_related_count": 0,
+      "historical_pressure_high": false,
+      "history_available": false,
+      "hybridize_count": 0,
+      "preferred_parent_action": null,
+      "promote_count": 0,
+      "proven_improvement_available": false,
+      "recurring_disagreement_signals": [],
+      "recurring_trigger_reasons": [],
+      "reject_count": 0,
+      "related_entry_count": 0,
+      "sample_size": 0,
+      "successful_count": 0
+    },
+    "required_before_stage_close": false,
+    "requires_gamma_disposition": false,
+    "satisfied": true,
+    "selected_disposition": null,
+    "source_refs": {
+      "future_convergence_report": null,
+      "radical_redesign_report": null,
+      "task_improvement_report": null
+    },
+    "status": "NOT_REQUIRED",
+    "trigger_reasons": []
+  },
+  "created_at": "2026-03-15T08:25:49Z",
+  "current_stage": "ASSESSMENT",
+  "dispatch": {
+    "auto_execute_allowed": false,
+    "auto_execute_ready": false,
+    "available": [
+      {
+        "action_label": "stage_team",
+        "approval_status": "POLICY_READY",
+        "auto_executable": false,
+        "child_roles": [
+          "assessment_council",
+          "critic"
+        ],
+        "dispatch_readiness": "READY",
+        "instruction": "stage:assessment",
+        "program_goal": "Run the bounded assessment stage team and merge in the parent session.",
+        "program_title": "Assessment Stage Team",
+        "source": "workflow_policy_engine",
+        "spawn_id": "stage:assessment",
+        "target_domain": "assessment",
+        "team_mode": "STAGE_TEAM"
+      }
+    ],
+    "dispatch_mode": "hook_only",
+    "dispatch_record_ref": null,
+    "last_executed": null,
+    "primary": {
+      "action_label": "stage_team",
+      "approval_status": "POLICY_READY",
+      "auto_executable": false,
+      "child_roles": [
+        "assessment_council",
+        "critic"
+      ],
+      "dispatch_readiness": "READY",
+      "instruction": "stage:assessment",
+      "program_goal": "Run the bounded assessment stage team and merge in the parent session.",
+      "program_title": "Assessment Stage Team",
+      "source": "workflow_policy_engine",
+      "spawn_id": "stage:assessment",
+      "target_domain": "assessment",
+      "team_mode": "STAGE_TEAM"
+    },
+    "team_plan_ref": null
+  },
+  "gate_state": "HITL_PENDING",
+  "lifecycle_status": "READY",
+  "next_actions": [
+    {
+      "action": "resolve_hitl",
+      "priority": "medium",
+      "reason": "Pending HITL queue entries remain unresolved."
+    },
+    {
+      "action": "dispatch_team",
+      "auto_execute_ready": false,
+      "instruction": "stage:assessment",
+      "priority": "medium",
+      "reason": "Dispatch candidate available for ASSESSMENT."
+    }
+  ],
+  "next_stage": null,
+  "operator_decision": "APPROVED",
+  "pending_hitl_count": 3,
+  "redesign_memory": {
+    "current_entry": null,
+    "policy_signals": {
+      "adopt_count": 0,
+      "adversarial_issue_count": 0,
+      "adversarial_reviewed_count": 0,
+      "continue_count": 0,
+      "escalate_count": 0,
+      "full_branch_coverage_recommended": false,
+      "gamma_related_count": 0,
+      "historical_pressure_high": false,
+      "history_available": false,
+      "hybridize_count": 0,
+      "preferred_parent_action": null,
+      "promote_count": 0,
+      "proven_improvement_available": false,
+      "recurring_disagreement_signals": [],
+      "recurring_trigger_reasons": [],
+      "reject_count": 0,
+      "related_entry_count": 0,
+      "sample_size": 0,
+      "successful_count": 0
+    },
+    "query_terms": [
+      "platform",
+      "atrahasis",
+      "built",
+      "t-9002",
+      "final",
+      "module",
+      "summary",
+      "agent",
+      "modules",
+      "analysis"
+    ],
+    "related_entries": [],
+    "related_entry_count": 0,
+    "task_id": "T-9002"
+  },
+  "review_status": "REVIEW_REVIEW_APPROVED",
+  "run_status": "REVIEW_REVIEW_APPROVED",
+  "settings": {
+    "auto_closeout": false,
+    "dispatch_mode": "hook_only",
+    "monitor_enabled": true
+  },
+  "stage_contract": {
+    "artifact_checks": {
+      "any_of_files": [
+        {
+          "exists": true,
+          "path": "CONTROLLER_RUN_RESULT.json"
+        },
+        {
+          "exists": true,
+          "path": "WORKFLOW_SUMMARY.md"
+        }
+      ],
+      "evidence_artifacts": [
+        {
+          "path": "ANALOGY_REPORT.json",
+          "size_bytes": 866
+        },
+        {
+          "path": "CROSS_INDUSTRY_DISCOVERY_REPORT.json",
+          "size_bytes": 32496
+        },
+        {
+          "path": "DECISION_RANKING_REPORT.json",
+          "size_bytes": 5311
+        },
+        {
+          "path": "DISCOVERY_GAP_REPORT.json",
+          "size_bytes": 160
+        },
+        {
+          "path": "IDEA_CLUSTER_REPORT.json",
+          "size_bytes": 336
+        },
+        {
+          "path": "KNOWLEDGE_DISTILLATION_REPORT.json",
+          "size_bytes": 32526
+        },
+        {
+          "path": "PLATFORM_ALIGNMENT_REPORT.json",
+          "size_bytes": 1874
+        },
+        {
+          "path": "PLATFORM_MODULE_SUMMARY.md",
+          "size_bytes": 6993
+        },
+        {
+          "path": "RESEARCH_INGESTION_REPORT.json",
+          "size_bytes": 1903623
+        },
+        {
+          "path": "RESEARCH_PROGRAM_REPORT.json",
+          "size_bytes": 43556
+        },
+        {
+          "path": "RESEARCH_QUALITY_REPORT.json",
+          "size_bytes": 1780262
+        },
+        {
+          "path": "RESEARCH_STRATEGY_REPORT.json",
+          "size_bytes": 2151
+        },
+        {
+          "path": "RESEARCH_SYNTHESIS_REPORT.json",
+          "size_bytes": 585
+        },
+        {
+          "path": "VALUE_ALIGNMENT_REPORT.json",
+          "size_bytes": 1039
+        }
+      ],
+      "evidence_count": 14,
+      "required_files": [
+        {
+          "exists": true,
+          "path": "REVIEW_GATE_RECORD.json"
+        },
+        {
+          "exists": true,
+          "path": "HUMAN_DECISION_RECORD.json"
+        }
+      ],
+      "required_globs": []
+    },
+    "contract": {
+      "any_of_files": [
+        "CONTROLLER_RUN_RESULT.json",
+        "WORKFLOW_SUMMARY.md"
+      ],
+      "minimum_evidence_artifacts": 2,
+      "required_files": [
+        "REVIEW_GATE_RECORD.json",
+        "HUMAN_DECISION_RECORD.json"
+      ],
+      "required_globs": [],
+      "validators": [
+        "workspace"
+      ]
+    },
+    "evaluated_at": "2026-03-15T12:46:48Z",
+    "missing_requirements": [],
+    "satisfied": true,
+    "stage": "ASSESSMENT",
+    "task_class": "ANALYSIS",
+    "task_id": "T-9002",
+    "type": "STAGE_CONTRACT_REPORT",
+    "validator_results": [
+      {
+        "exit_code": 0,
+        "name": "workspace",
+        "output": "[OK] COMMAND_REQUEST.yaml\n[OK] DISCOVERY_MAP.json\n[OK] TECHNOLOGY_FRONTIER_MODEL.json\n[OK] OPPORTUNITY_REPORT.json\n[OK] HYPOTHESIS_PACKET.json\n[OK] CONTRADICTION_MAP.json\n[OK] SOLUTION_PATH_SET.json\n[OK] NOVELTY_REPORT.json\n[OK] FEASIBILITY_REPORT.json\n[OK] EXPERIMENT_SIMULATION_REPORT.json\n[OK] HUMAN_DECISION_RECORD.json\n[OK] EXPLORATION_CONTROL_RECORD.json\n[OK] WORKFLOW_RUN_RECORD.json\n[OK] CROSS_INDUSTRY_DISCOVERY_REPORT.json\n[OK] KNOWLEDGE_DISTILLATION_REPORT.json\n[OK] VALUE_ALIGNMENT_REPORT.json\n[OK] PLATFORM_ALIGNMENT_REPORT.json\n[OK] DECISION_RANKING_REPORT.json\n[OK] RESEARCH_PROGRAM_REPORT.json\n[OK] RESEARCH_STRATEGY_REPORT.json\n[OK] REVIEW_GATE_RECORD.json\n[OK] CONTROLLER_RUN_RESULT.json\n[OK] STAGE_CONTRACT_REPORT.json",
+        "valid": true
+      }
+    ]
+  },
+  "stage_history": [
+    {
+      "closed_at": "2026-03-15T09:13:27Z",
+      "opened_at": "2026-03-15T08:25:49Z",
+      "stage": "RESEARCH",
+      "status": "COMPLETED",
+      "transition_reason": "review_and_operator_approved",
+      "updated_at": "2026-03-15T09:13:27Z"
+    },
+    {
+      "closed_at": "2026-03-15T09:14:13Z",
+      "opened_at": "2026-03-15T09:13:27Z",
+      "stage": "ASSESSMENT",
+      "status": "COMPLETED",
+      "transition_reason": "review_and_operator_approved",
+      "updated_at": "2026-03-15T09:14:13Z"
+    },
+    {
+      "closed_at": "2026-03-15T09:14:45Z",
+      "opened_at": "2026-03-15T09:14:13Z",
+      "stage": "ASSESSMENT",
+      "status": "COMPLETED",
+      "transition_reason": "review_and_operator_approved",
+      "updated_at": "2026-03-15T09:14:45Z"
+    },
+    {
+      "closed_at": "2026-03-15T09:14:45Z",
+      "opened_at": "2026-03-15T09:14:45Z",
+      "stage": "ASSESSMENT",
+      "status": "COMPLETED",
+      "transition_reason": "review_and_operator_approved",
+      "updated_at": "2026-03-15T09:14:45Z"
+    },
+    {
+      "closed_at": "2026-03-15T12:19:43Z",
+      "opened_at": "2026-03-15T09:14:45Z",
+      "stage": "ASSESSMENT",
+      "status": "COMPLETED",
+      "transition_reason": "review_and_operator_approved",
+      "updated_at": "2026-03-15T12:19:43Z"
+    },
+    {
+      "closed_at": null,
+      "opened_at": "2026-03-15T12:19:43Z",
+      "stage": "ASSESSMENT",
+      "status": "READY",
+      "transition_reason": "seeded",
+      "updated_at": "2026-03-15T12:46:48Z"
+    }
+  ],
+  "task_id": "T-9002",
+  "task_profile": {
+    "modifier": "AASA",
+    "scope": "full_system_analysis",
+    "stage_track": [
+      "RESEARCH",
+      "ASSESSMENT"
+    ],
+    "task_class": "ANALYSIS",
+    "task_id": "T-9002",
+    "title": null,
+    "todo_type": null
+  },
+  "type": "WORKFLOW_POLICY_STATE",
+  "updated_at": "2026-03-15T12:46:48Z",
+  "workflow_status": "READY_FOR_CLOSEOUT"
+}

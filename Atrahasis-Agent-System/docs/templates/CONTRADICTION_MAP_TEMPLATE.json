@@ -1,0 +1,19 @@
+{
+  "type": "CONTRADICTION_MAP",
+  "contradictions": [
+    {
+      "id": "X-001",
+      "hypothesis_id": "H-001",
+      "contradiction": "Key evidence gap remains unresolved",
+      "severity": "high"
+    }
+  ],
+  "affected_subsystems": [
+    "research",
+    "reasoning"
+  ],
+  "blocking_assumptions": [
+    "missing_prior_art"
+  ],
+  "severity": "high"
+}

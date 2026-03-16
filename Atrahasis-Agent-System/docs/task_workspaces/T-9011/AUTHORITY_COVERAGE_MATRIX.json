@@ -1,0 +1,97 @@
+{
+  "type": "AUTHORITY_COVERAGE_MATRIX",
+  "task_id": "T-9011",
+  "stage": "IDEATION",
+  "coverage_required": true,
+  "generated_at": "2026-03-15T16:35:00Z",
+  "named_authority_surfaces": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C18",
+    "C22",
+    "C39",
+    "T-300"
+  ],
+  "recommendation_blocked_until_complete": false,
+  "surface_rows": [
+    {
+      "surface": "C45",
+      "current_authority_summary": "Owns route execution posture and explicit split between native sovereign execution and leased cognition.",
+      "coverage_status": "partial",
+      "disposition": "Already covers agent-versus-model decoupling at the route level, but not a full internal model-pool scheduling control plane.",
+      "new_authority_still_needed": "maybe"
+    },
+    {
+      "surface": "C42",
+      "current_authority_summary": "Owns invocation priming, continuation contexts, runtime handoff, and inference-policy metadata.",
+      "coverage_status": "partial",
+      "disposition": "Provides runtime-facing hooks for inference selection, but not fleet-level batching, quota arbitration, or pool scheduling authority.",
+      "new_authority_still_needed": "maybe"
+    },
+    {
+      "surface": "C47",
+      "current_authority_summary": "Owns native model adaptation, intake, quarantine, and promotion into native model families.",
+      "coverage_status": "partial",
+      "disposition": "Supplies model families and promotion ladder, but does not define the live operational control plane that arbitrates among model pools after promotion.",
+      "new_authority_still_needed": "maybe"
+    },
+    {
+      "surface": "C36",
+      "current_authority_summary": "Owns the bounded externally reachable membrane and receptor surface.",
+      "coverage_status": "covered",
+      "disposition": "Blocks the idea from becoming a new external microservice ingress plane; any viable redesign must stay internal beneath existing membrane boundaries.",
+      "new_authority_still_needed": "no"
+    },
+    {
+      "surface": "C18",
+      "current_authority_summary": "Owns funding and operating-economics treatment for sovereign compute, leased cognition, and Forge adaptation.",
+      "coverage_status": "partial",
+      "disposition": "Already models compute and model-operations costs distinctly, but would need follow-on updates if a new internal orchestration authority changed cost allocation or capacity planning.",
+      "new_authority_still_needed": "no"
+    },
+    {
+      "surface": "C22",
+      "current_authority_summary": "Owns implementation sequencing, rollout waves, and infrastructure cost planning.",
+      "coverage_status": "partial",
+      "disposition": "Already assumes separate model-operations tracks, but lacks a first-class implementation authority for model-pool scheduling and GPU arbitration if that is promoted to a subsystem.",
+      "new_authority_still_needed": "maybe"
+    },
+    {
+      "surface": "C39",
+      "current_authority_summary": "Owns the bounded message-class inventory for prompt, sampling, and streaming semantics.",
+      "coverage_status": "covered",
+      "disposition": "No new message family is justified for this idea; a literal microservice layer that demanded new protocol semantics would duplicate existing capability classes.",
+      "new_authority_still_needed": "no"
+    },
+    {
+      "surface": "T-300",
+      "current_authority_summary": "Defines the supersession boundary that prevents reviving old C4/ASV-era architecture as forward authority.",
+      "coverage_status": "covered",
+      "disposition": "The old historical layer shape cannot simply be brought back; any forward design must be justified as a new Alternative C-native authority surface or a narrow direct-spec clarification.",
+      "new_authority_still_needed": "no"
+    }
+  ],
+  "new_semantic_authority_test": {
+    "verdict": "reframed_new_authority_optional",
+    "rationale": "The literal idea is mostly subsumed or colliding, but there may be a real missing internal authority for inference-capacity orchestration, batching, quota arbitration, and promotion-aware routing beneath C45 and alongside C47.",
+    "affected_modules": [
+      "C45",
+      "C47",
+      "C24",
+      "C18",
+      "C22",
+      "C42"
+    ],
+    "follow_on_task_shapes": [
+      "FULL PIPELINE task for an internal sovereign inference orchestration/control-plane subsystem",
+      "DIRECT SPEC follow-ons for C45, C47, C18, and C22 if the new subsystem is approved",
+      "Possible additive deployment/habitat refinements under C24"
+    ]
+  },
+  "notes": [
+    "Named authority surfaces were explicitly evaluated before recommendation.",
+    "The strongest rejection case applies to the literal historical microservice-layer framing, not necessarily to the narrower objective of explicit inference-capacity orchestration."
+  ]
+}

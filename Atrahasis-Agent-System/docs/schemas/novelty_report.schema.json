@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Novelty Report",
+  "type": "object",
+  "required": ["type", "closest_prior_art", "differentiators", "novelty_score", "collision_risk", "hypothesis_assessments"],
+  "properties": {
+    "type": {"const": "NOVELTY_REPORT"},
+    "closest_prior_art": {
+      "type": ["string", "null"]
+    },
+    "differentiators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "novelty_score": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "collision_risk": {
+      "type": "string"
+    },
+    "hypothesis_assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "hypothesis_id",
+          "novelty_score",
+          "collision_risk",
+          "closest_prior_art",
+          "differentiators",
+          "artifact_ref"
+        ],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "novelty_score": {"type": "integer", "minimum": 1, "maximum": 5},
+          "collision_risk": {"type": "string"},
+          "closest_prior_art": {"type": ["string", "null"]},
+          "differentiators": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "artifact_ref": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

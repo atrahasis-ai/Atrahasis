@@ -1,0 +1,51 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C42"
+title: "Lease-Primed Execution Mesh (LPEM)"
+domain: "agent communication / native tool connectivity / governed execution fabrics / performance-oriented protocol design"
+summary: >
+  LPEM defines the canonical Alternative B tool-connectivity invention as a
+  performance-first but trust-explicit execution fabric. Tool discovery yields
+  signed reusable inventory snapshots, invocation pins to snapshot and tool
+  identity under explicit authority context, and results may issue bounded
+  continuation or execution-ready contexts. Those contexts preserve policy hash,
+  provenance floor, expiry, and native-versus-bridge posture, allowing downstream
+  `C23` runtime leases to start from trusted invocation state without redoing the
+  full trust negotiation from scratch. Every `tool_result` remains a distinct
+  accountable artifact wrapped as `CLM + CNF + EVD + PRV`, and no primed context
+  may become ambient execution authority.
+novelty_score: 5
+feasibility_score: 4
+key_innovation: >
+  Treat native tool invocation as the lawful start of a governed execution mesh:
+  discovery, authority, continuation, and runtime readiness become one explicit
+  protocol sequence without erasing downstream lease ownership or accountable
+  result boundaries.
+technical_approach: >
+  Define signed tool inventory snapshots; authority-bound invocation bundles;
+  explicit invocation modes for immediate, continuation-ready, and
+  execution-primed work; continuation contexts carrying snapshot, policy, trust,
+  and expiry bindings; result accountability as mandatory semantic wrapping; and
+  a runtime handoff contract that lets `C23` derive execution leases from primed
+  contexts without ambient rights.
+potential_applications:
+  - "High-throughput native AACP tool fabrics with lower repeated setup cost"
+  - "Long-running or high-consequence tool operations that need lawful continuation"
+  - "MCP bridge translation targets for T-250 with honest native-versus-bridge posture"
+  - "Runtime/framework and SDK integration targets for T-260 and T-262"
+  - "Foundation for a future Atrahasis first-party tool suite"
+known_risks:
+  - "Continuation contexts may become a shadow lease system if boundaries with C23 are weak"
+  - "Snapshot invalidation and mid-flight revocation are operationally subtle"
+  - "Warm or primed paths can increase implementation complexity and debugging burden"
+  - "Advanced execution semantics may overweight simple tool cases if the cheap path is not preserved"
+prior_art_concerns:
+  - "Many component ideas already exist separately in MCP, gRPC, LSP, SPIFFE, and lease-based runtimes"
+  - "Novelty depends on the Atrahasis-specific composition of semantic tool identity, trust continuity, continuation contexts, and runtime handoff discipline"
+research_questions:
+  - "What minimum snapshot metadata is required for safe high-speed reuse?"
+  - "Which continuation-context fields must be mandatory for revocation and provenance safety?"
+  - "When should execution priming be allowed versus denied by policy?"
+  - "How should bridge-derived continuation contexts be visibly degraded compared with native contexts?"
+generated_at: "2026-03-13T06:21:37Z"
+refined_from: "IC-9"
+research_data_incorporated: true

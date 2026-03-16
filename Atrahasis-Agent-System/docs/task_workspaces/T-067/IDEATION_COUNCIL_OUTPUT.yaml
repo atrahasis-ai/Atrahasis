@@ -1,0 +1,318 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "Cognitive Control & Meta-Cognition for Sovereign AI Agents"
+  generated_at: "2026-03-12T16:30:00Z"
+  agent: "Enki"
+  consensus_level: "MAJORITY"
+
+  # === ROUND 0: Context Absorption ===
+  # Council reads:
+  #   - PRE_IDEATION_QUICK_SCAN.md (7 known solutions)
+  #   - PRE_IDEATION_ANALOGY_BRIEF.md (5 cross-domain analogies)
+  #   - Chronicler injection: C5 verifies reasoning post-hoc but doesn't guide it.
+  #     C6 EMA has temperature control for consolidation only. C7 RIF decomposes
+  #     intent but doesn't guide task-solving. C23 SCR meters inference but doesn't
+  #     allocate reasoning. C32 MIA forbids prescribing agent internals. C35 Sentinel
+  #     detects anomalies but doesn't provide reasoning feedback.
+  #
+  # Key constraint: Any solution must be ADVISORY (not prescriptive), compatible
+  # with agent sovereignty (C32), and must not shift the trust model from
+  # "verify outputs" (C5) to "trust process."
+
+  # === ROUND 1: Independent Positions ===
+
+  round_1:
+    visionary:
+      position: |
+        The current system has referees (C5) but no coaches. I propose the
+        **Epistemic Coaching Architecture (ECA)** — a sovereignty-respecting
+        advisory layer that provides three non-binding services:
+
+        1. **Reasoning Strategy Catalog (RSC):** A published library of proven
+           reasoning patterns indexed by claim class (D/C/P/R/E/S/K/H/N) and
+           complexity tier. Derived from statistical analysis of C5 verification
+           outcomes. Agents can consult or ignore — like clinical practice guidelines.
+
+        2. **Complexity-Aware Budget Signals (CABS):** When C7 RIF decomposes an
+           intent into tasks, each task receives a recommended reasoning budget
+           (token allocation) based on claim type, historical verification rates,
+           and stake level. Agents choose whether to follow. This integrates with
+           C23 SCR inference leases — the lease provides the resource envelope,
+           CABS suggests how to allocate within it.
+
+        3. **Verification Feedback Loop (VFL):** C5 verification results are
+           anonymized and aggregated into population-level reasoning quality signals.
+           Per-claim-class success rates, common failure modes, and reasoning
+           anti-patterns are published as an advisory feed. Agents that consistently
+           consume this feed show improved verification rates over time.
+
+        The key innovation is the **Advisory Membrane** — a deliberate architectural
+        boundary between coaching signals and agent cognition. Signals cross the
+        membrane only as published data, never as commands. The agent's sovereignty
+        (C32) is preserved because the membrane is one-way: the system publishes,
+        agents optionally consume.
+
+        Cross-domain anchor: Clinical Practice Guidelines (Analogy 1) + Coaching
+        (Analogy 3). The medical system improves reasoning quality across millions
+        of autonomous practitioners through published standards + outcome feedback.
+
+      concept_name: "Epistemic Coaching Architecture (ECA)"
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    systems_thinker:
+      position: |
+        The Visionary's ECA is architecturally sound but needs precise integration
+        points. Let me map the three services to the existing stack:
+
+        **RSC integration:** The Reasoning Strategy Catalog is essentially a new
+        artifact type within C6 EMA. Strategies are epistemic quanta — knowledge
+        about how to reason. They should follow the same metabolism lifecycle
+        (anabolism → active → catabolism) and be versioned via C5 credibility
+        tracking. This means RSC entries earn credibility over time as they
+        correlate with successful verification, and lose credibility when they
+        don't. The C6 coherence graph can track strategy derivation chains.
+
+        **CABS integration:** C23 SCR inference leases already specify resource
+        envelopes (max tokens, max duration). CABS adds an advisory field to the
+        lease metadata — not a constraint, but a recommendation. The C7 RIF
+        decomposition engine already estimates task complexity for resource
+        allocation; CABS extends this with reasoning-specific heuristics.
+        Implementation: add an optional `reasoning_budget_advisory` field to
+        the SCR ExecutionLease schema.
+
+        **VFL integration:** This is the most architecturally significant component.
+        Currently, C5 verification produces a VTD (Verification Trust Document)
+        that goes to C8 DSF for settlement. VFL adds a second consumer: an
+        aggregation service that distills VTDs into population statistics.
+        The critical constraint is PRIVACY — individual agent verification
+        results must be anonymized before aggregation. C32 MIA's identity
+        model must not be compromised by reasoning quality profiling.
+
+        **Concern:** The VFL aggregation service is a new runtime component.
+        Where does it live in the C22 wave plan? It requires C5 to be
+        operational (Wave 1) and C6 for strategy storage, so earliest
+        deployment is Wave 2.
+
+      integration_assessment: "Clean integration with 3 specs (C6, C23, C5). One new runtime component (VFL aggregator). Wave 2+ deployment."
+      feasibility_estimate: 4
+
+    critic:
+      position: |
+        I have three challenges and one analogy breakdown:
+
+        **Challenge 1: Is this a real gap or a feature?**
+        The TODO.md entry itself says: "This may be intentionally out of scope
+        because Atrahasis is infrastructure, not agent internals." The system
+        deliberately treats agents as black boxes. Adding a coaching layer —
+        even advisory — starts to impose assumptions about how agents should
+        reason. What if some agents use entirely different cognitive architectures
+        (symbolic, neural, hybrid)? A reasoning strategy catalog designed for
+        LLM-style chain-of-thought is useless for a symbolic planner.
+
+        **Challenge 2: The Advisory Membrane is a polite fiction.**
+        If the system publishes "recommended reasoning strategies" and then
+        statistically monitors whether agents follow them (via C17/C35
+        behavioral analytics), agents that deviate face implicit penalties —
+        higher scrutiny, lower trust scores. The coaching becomes de facto
+        mandatory through social pressure. This violates the sovereignty
+        promise in spirit even if not in letter.
+
+        **Challenge 3: Population-level feedback is too slow.**
+        The VFL operates on aggregated historical data. By the time a
+        reasoning anti-pattern is detected, published, and consumed, agents
+        have already submitted thousands of claims using the bad pattern.
+        Real-time coaching requires per-task feedback, which conflicts with
+        the sovereignty model.
+
+        **Analogy breakdown — Clinical Practice Guidelines (Analogy 1):**
+        CPGs work in medicine because physicians have years of training,
+        professional licensing, and malpractice liability. Atrahasis agents
+        have none of these. A physician who ignores CPGs faces career
+        consequences. An agent that ignores reasoning strategies faces...
+        nothing, unless the verification layer catches bad outputs. The
+        analogy's enforcement mechanism doesn't transfer. The correct
+        analogy is closer to publishing dietary guidelines for cats — the
+        cats don't read them.
+
+        **Analogy breakdown — Coaching (Analogy 3):**
+        Coaches have authority over players through the team structure.
+        Players who ignore the coach get benched. Atrahasis agents can't
+        be "benched" for ignoring advisory signals without violating
+        sovereignty. The escalation path (advisory → warning → intervention)
+        already exists in C35 Sentinel — this proposal duplicates it with
+        a reasoning-quality lens but doesn't add new enforcement power.
+
+      challenges:
+        - "Gap may be intentional — Atrahasis is infrastructure, not agent internals"
+        - "Advisory membrane becomes de facto mandatory through behavioral monitoring"
+        - "Population-level feedback too slow for real-time reasoning improvement"
+      analogy_breakdowns:
+        - analogy: "Clinical Practice Guidelines"
+          breakdown: "Enforcement mechanism doesn't transfer — agents have no licensing, liability, or career consequences for ignoring guidelines"
+        - analogy: "Coaching"
+          breakdown: "Coach-player authority doesn't exist in sovereign agent model — can't bench agents for ignoring advice without violating C32"
+
+  # === ROUND 2: Challenge ===
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      The Critic's Challenge 1 is the strongest. We need to decide: is this
+      infrastructure or agent-internal? I think the answer is NEITHER — it's
+      an **information service**. The RSC doesn't tell agents how to reason;
+      it publishes what reasoning patterns historically correlate with
+      successful verification. This is analogous to a performance benchmark
+      database, not a cognitive prescription.
+
+      However, Challenge 2 is partially valid. We must explicitly specify
+      that reasoning strategy consumption is NOT a factor in C17 behavioral
+      similarity analysis or C35 anomaly detection. Otherwise the advisory
+      membrane leaks.
+
+    critic_challenges_both: |
+      The "information service" framing is better, but it raises a new question:
+      is this just a feature of C6 EMA? If reasoning strategies are epistemic
+      quanta that follow the metabolism lifecycle, why do we need a separate
+      spec? This might be a C6 addendum, not a new invention.
+
+      Also: the VFL aggregator is architecturally significant enough to
+      warrant specification, but the RSC and CABS are essentially configuration
+      data. The real invention here might be narrower than ECA — it might be
+      just the Verification Feedback Loop plus the privacy-preserving
+      aggregation mechanism.
+
+  # === ROUND 3: Synthesis ===
+
+  round_3:
+    visionary_response: |
+      I accept the Critic's scope reduction partially. The RSC can indeed live
+      within C6 EMA as a new epistemic quantum type. But the CABS integration
+      with C23 SCR and the VFL aggregation pipeline are genuinely new
+      cross-layer coordination that doesn't fit in any single existing spec.
+
+      Revised proposal: **Epistemic Coaching Architecture (ECA)** — but scoped
+      to the cross-layer advisory system, not the individual components.
+
+      The core innovation is the **Advisory Membrane Pattern** itself: a
+      formalized architectural pattern for how Atrahasis provides non-binding
+      reasoning guidance across all layers without compromising sovereignty
+      or verification independence.
+
+    systems_thinker_response: |
+      AGREE with scope reduction. The real gap is not "agents can't reason well"
+      (that's their problem) but "the system has no mechanism to learn from
+      verification outcomes and make that learning available." The VFL is the
+      novel component. RSC is a C6 extension. CABS is a C23 extension.
+
+      I propose an alternative framing: **Epistemic Feedback Fabric (EFF)** —
+      focusing on the feedback loop from C5 verification outcomes back to
+      the knowledge layer (C6) as advisory signals, with the privacy-preserving
+      aggregation pipeline as the core specification.
+
+    critic_response: |
+      CONDITIONAL on the scope reduction. If this is purely an information
+      service with explicit non-enforcement guarantees, I can support it.
+      The monitoring flag should be: verify that reasoning strategy consumption
+      is never used as a behavioral similarity signal in C17.
+
+      I still think this could be a C6 addendum + C23 addendum + C5 addendum
+      rather than a standalone invention. But if the cross-layer coordination
+      is complex enough, a dedicated spec is justified.
+
+    contested_points:
+      - point: "Standalone spec vs. multi-spec addendum"
+        visionary: "CONDITIONAL"
+        systems_thinker: "CONDITIONAL"
+        critic: "CONDITIONAL"
+        resolution: "Defer to FEASIBILITY — if cross-layer complexity justifies standalone spec, proceed; otherwise, split into addenda"
+
+      - point: "Advisory membrane enforcement guarantee"
+        visionary: "AGREE"
+        systems_thinker: "AGREE"
+        critic: "AGREE"
+        resolution: "Must include explicit non-enforcement clause — reasoning strategy consumption must not factor into C17/C35 behavioral analysis"
+
+      - point: "Scope: full ECA vs. narrower EFF"
+        visionary: "CONDITIONAL"
+        systems_thinker: "AGREE with EFF"
+        critic: "AGREE with EFF"
+        resolution: "Proceed with narrower EFF framing; RSC and CABS are integration points, not core innovation"
+
+  # === CONCEPTS ===
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Epistemic Feedback Fabric (EFF)"
+      summary: |
+        A privacy-preserving, sovereignty-respecting feedback system that distills
+        C5 verification outcomes into population-level reasoning quality signals
+        and makes them available as advisory information. Core components:
+        (1) Verification Feedback Loop — aggregates VTD outcomes into per-claim-class
+        reasoning quality metrics with anonymization. (2) Reasoning Strategy Catalog —
+        published library of proven reasoning patterns as C6 epistemic quanta.
+        (3) Budget Advisory Signals — optional reasoning budget recommendations
+        attached to C23 SCR inference leases. All three are non-binding. An explicit
+        Advisory Membrane ensures signals cannot be used for behavioral enforcement.
+      novelty_score: 3
+      feasibility_score: 4
+      key_innovation: "Privacy-preserving verification feedback aggregation with explicit sovereignty guarantees (Advisory Membrane Pattern)"
+      technical_approach: |
+        - VFL aggregation pipeline: C5 VTDs → anonymizer → statistical aggregator → advisory feed
+        - RSC as new C6 epistemic quantum type with verification-derived credibility
+        - CABS as optional field in C23 ExecutionLease schema
+        - Advisory Membrane: formal non-enforcement clause in C17/C35 integration contracts
+      potential_applications:
+        - "System-level reasoning quality improvement without prescribing agent internals"
+        - "Reasoning anti-pattern detection and publication"
+        - "Claim-class-specific reasoning guidance for new agents"
+        - "Inference cost optimization through complexity-aware budget suggestions"
+      known_risks:
+        - "Advisory membrane could leak — behavioral monitoring might implicitly penalize non-consumers"
+        - "Population-level feedback may be too slow for rapidly evolving reasoning needs"
+        - "Heterogeneous agent architectures may not benefit equally from LLM-centric reasoning patterns"
+      prior_art_concerns:
+        - "Token-budget-aware reasoning (ACL 2025) covers budget allocation but not in multi-agent sovereign context"
+        - "Reflection agent pattern covers self-critique but assumes single-agent control"
+        - "Clinical Practice Guidelines analogy is strong but enforcement mechanism doesn't transfer"
+      research_questions:
+        - "What anonymization level preserves useful reasoning signal while protecting agent identity?"
+        - "Can reasoning strategies be expressed in a model-agnostic format that benefits both neural and symbolic agents?"
+        - "What is the minimum feedback latency needed for advisory signals to be useful?"
+        - "Should this be a standalone spec or multi-spec addendum?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Scoping Decision: Intentionally Out of Scope"
+      summary: |
+        The alternative is to formally declare cognitive control and meta-cognition
+        as OUT OF SCOPE for Atrahasis, documenting the architectural rationale:
+        agents are sovereign black boxes, the system verifies outputs not processes,
+        and reasoning guidance would shift the trust model. This closes T-067 with
+        a scoping ADR rather than an invention.
+      novelty_score: 1
+      feasibility_score: 5
+      key_innovation: "N/A — scoping decision, not invention"
+      technical_approach: "Write ADR documenting the out-of-scope decision with architectural rationale"
+      potential_applications:
+        - "Closes the gap in the TODO backlog cleanly"
+        - "Prevents future scope creep into agent internals"
+      known_risks:
+        - "System reasoning quality remains entirely dependent on agent providers"
+        - "No mechanism to learn from verification patterns at system level"
+        - "Competitive disadvantage if other multi-agent systems offer reasoning guidance"
+      prior_art_concerns: []
+      research_questions:
+        - "Is the sovereignty argument strong enough to justify leaving this gap permanently?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-1"]
+
+  dissent_record:
+    - point: "IC-1 may be over-scoped — could be three addenda to existing specs instead of a new invention"
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must evaluate standalone spec vs. multi-spec addendum approach"
+    - point: "Advisory signals may become de facto mandatory through social pressure"
+      minority: "Critic"
+      monitoring_flag: "Spec must include explicit non-enforcement guarantees with C17/C35 integration constraints"
+    - point: "Heterogeneous agent architectures may not benefit equally"
+      minority: "Critic"
+      monitoring_flag: "Reasoning strategies must be model-agnostic or clearly labeled by architecture type"

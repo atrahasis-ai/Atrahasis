@@ -1,0 +1,14 @@
+command_modifier: AASNI
+task_id: T-9007
+prompt: 'Run the updated merged doctrine document in AAT 2 through AAS4 again
+  as Anu, extrapolate where useful, and decide whether the doctrine changes or
+  should now be treated as locked.'
+scope: doctrine_lock_review
+operator_constraints:
+- Treat this as a third-pass synthesis over the merged AAT 2 document.
+- Commit to a direction even if there are no new inventions.
+- Keep the result separate from canonical backlog state until operator
+  promotion.
+hitl_requirements:
+- OPERATOR_APPROVAL_FOR_CANONICAL_REWRITE
+created_at: '2026-03-13T23:27:01Z'

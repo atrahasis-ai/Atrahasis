@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Research Strategy Report",
+  "type": "object",
+  "required": [
+    "type",
+    "strategy_summary",
+    "alignment_mode",
+    "alignment_score",
+    "telemetry_pressure",
+    "telemetry_metrics",
+    "priority_order",
+    "recommended_branch_budget",
+    "resource_allocations",
+    "recommended_actions",
+    "spawn_candidates"
+  ],
+  "properties": {
+    "type": {"const": "RESEARCH_STRATEGY_REPORT"},
+    "strategy_summary": {"type": "string"},
+    "alignment_mode": {"type": "string"},
+    "alignment_score": {"type": "number"},
+    "telemetry_pressure": {"type": "number"},
+    "telemetry_metrics": {"type": "object"},
+    "priority_order": {"type": "array", "items": {"type": "string"}},
+    "recommended_branch_budget": {"type": "integer", "minimum": 1},
+    "resource_allocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "program_id",
+          "program_title",
+          "allocation_ratio",
+          "branch_budget",
+          "recommended_action",
+          "rationale"
+        ],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "scope_level": {"type": ["string", "null"]},
+          "execution_state": {"type": ["string", "null"]},
+          "allocation_ratio": {"type": "number"},
+          "branch_budget": {"type": "integer", "minimum": 1},
+          "recommended_action": {"type": "string"},
+          "rationale": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action"],
+        "properties": {
+          "action": {"type": "string"},
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "scope_level": {"type": ["string", "null"]},
+          "execution_state": {"type": ["string", "null"]},
+          "allocation_ratio": {"type": "number"},
+          "branch_budget": {"type": "integer", "minimum": 1},
+          "opportunity_score": {"type": "number"},
+          "rationale": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "spawn_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["spawn_id", "program_title", "target_domain", "priority_score", "recommended_action"],
+        "properties": {
+          "spawn_id": {"type": "string"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "program_goal": {"type": "string"},
+          "priority_score": {"type": "number"},
+          "recommended_action": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

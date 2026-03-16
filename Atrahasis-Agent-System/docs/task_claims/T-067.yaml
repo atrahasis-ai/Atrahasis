@@ -1,0 +1,14 @@
+task_id: "T-067"
+invention_ids: ["C37"]
+target_specs: []
+title: "Cognitive Control & Meta-Cognition"
+platform: "CLAUDE"
+agent_name: "Enki"
+claimed_at: "2026-03-12T16:00:00Z"
+updated_at: "2026-03-12T21:00:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-067/"
+  pipeline_type: "AAS"
+notes: "C37 Epistemic Feedback Fabric (EFF) — APPROVE. Re-IDed from C36 (collision with Adapa's T-064 EMA-I). ADR-040."

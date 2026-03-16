@@ -1,0 +1,35 @@
+{
+  "clusters": [
+    {
+      "cluster": "agent",
+      "hypotheses": [
+        "H-001"
+      ]
+    },
+    {
+      "cluster": "agents",
+      "hypotheses": [
+        "H-002"
+      ]
+    },
+    {
+      "cluster": "model",
+      "hypotheses": [
+        "H-003"
+      ]
+    },
+    {
+      "cluster": "verification",
+      "hypotheses": [
+        "H-004"
+      ]
+    },
+    {
+      "cluster": "detection",
+      "hypotheses": [
+        "H-005"
+      ]
+    }
+  ],
+  "type": "IDEA_CLUSTER_REPORT"
+}

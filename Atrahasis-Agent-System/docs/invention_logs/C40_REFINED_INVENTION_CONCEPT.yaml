@@ -1,0 +1,49 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C40"
+title: "Dual-Anchor Authority Fabric (DAAF)"
+domain: "agent communication / protocol security / identity and authorization architecture / distributed trust"
+summary: >
+  DAAF defines the canonical L3 security model for Alternative B. It separates
+  two anchor families: sovereign Atrahasis-native agent identity rooted in C32
+  AgentID and Ed25519-backed keys, and federation/workload/bootstrap identity for
+  humans, institutions, services, bridges, and local tools. A bounded set of
+  security profiles maps these anchors into AACP sessions. Security-sensitive
+  actions bind to canonical message identity through an authority-binding
+  signature, replay and downgrade checks fail closed, and high-consequence
+  operations require explicit signed capability grants rather than ambient trust.
+  This gives Alternative B a sovereign but practical trust model without
+  replacing C5 verification, C36 translation, or C23 runtime enforcement.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  Separate identity anchoring from execution authority while binding both to one
+  canonical protocol-security surface: native agents remain rooted in MIA,
+  non-agent principals use standard ingress mechanisms, and sensitive AACP
+  actions carry explicit authority bindings and grants over canonical message
+  identity rather than transport-local trust alone.
+technical_approach: >
+  Specify four bounded security profiles, native and non-native trust anchors,
+  authority contexts, short-lived capability grants, canonical authority-binding
+  signatures over C38 message identity, replay and freshness checks, downgrade
+  refusal rules, and bridge/API-key trust ceilings. Keep manifest fields, tool
+  semantics, runtime materialization, and verification verdicts delegated to
+  their downstream owners.
+potential_applications:
+  - "Native AACP agent-to-agent security with sovereign identity continuity"
+  - "Manifest auth advertisement and signing authority for T-214"
+  - "Least-authority tool and bridge authorization substrate for T-240 and T-250/T-251"
+  - "SDK, conformance, and cross-layer security integration authority for T-262, T-281, and T-290"
+known_risks:
+  - "Federated ingress could still become the practical center of gravity if native tooling lags"
+  - "Session-attested signing keys can create confused-deputy risk if not tightly bound to authority contexts"
+  - "Capability grants can sprawl into downstream semantic detail if the L3 boundary is not enforced"
+prior_art_concerns:
+  - "The component mechanisms are well known, so novelty depends on the Atrahasis-specific dual-anchor composition and canonical authority binding"
+  - "The design must stay bounded enough to avoid looking like a standard gateway-plus-RBAC stack"
+research_questions:
+  - "What is the minimum bounded set of interoperable security profiles?"
+  - "When should native trust come from the public-key registry versus a signed Agent Manifest chain?"
+  - "Which message classes and operation families require mandatory capability grants by default?"
+generated_at: "2026-03-12T13:41:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

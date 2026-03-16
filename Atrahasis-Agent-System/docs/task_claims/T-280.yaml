@@ -1,0 +1,17 @@
+task_id: "T-280"
+invention_ids: []
+target_specs: []
+title: "AACP Developer Tooling Suite"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T23:20:00Z"
+updated_at: "2026-03-14T23:50:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/TODO.md"
+    - "docs/COMPLETED.md"
+    - "docs/task_workspaces/T-280/"
+    - "docs/task_claims/T-280.yaml"
+  pipeline_type: "DIRECT_SPEC"
+notes: "Completed on 2026-03-14. Authored docs/task_workspaces/T-280/TOOLING_SUITE_SPEC.md as the task-scoped direct specification for the native AACP tooling suite: aacp-cli, AACP Inspector, forgectl, and the AACP Language Server + Editor Pack over shared FlowCaptureBundle, SemanticFlowGraph, VectorWorkspace, and ForgeOperationRecord artifacts."

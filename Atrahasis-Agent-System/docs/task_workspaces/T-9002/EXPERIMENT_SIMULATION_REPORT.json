@@ -1,0 +1,41 @@
+{
+  "experiments": [
+    {
+      "experiment": "Validate Path for Agent invention pathway",
+      "failure_modes": [
+        "missing_task_workspace"
+      ],
+      "go_no_go_signals": [
+        "operator_review_required",
+        "prior_art_check_required"
+      ],
+      "path_id": "P-001",
+      "simulated_outcome": "promising"
+    },
+    {
+      "experiment": "Validate Path for Agents invention pathway",
+      "failure_modes": [
+        "missing_task_workspace"
+      ],
+      "go_no_go_signals": [
+        "operator_review_required",
+        "prior_art_check_required"
+      ],
+      "path_id": "P-002",
+      "simulated_outcome": "promising"
+    },
+    {
+      "experiment": "Validate Path for System invention pathway",
+      "failure_modes": [
+        "missing_task_workspace"
+      ],
+      "go_no_go_signals": [
+        "operator_review_required",
+        "prior_art_check_required"
+      ],
+      "path_id": "P-003",
+      "simulated_outcome": "promising"
+    }
+  ],
+  "type": "EXPERIMENT_SIMULATION_REPORT"
+}

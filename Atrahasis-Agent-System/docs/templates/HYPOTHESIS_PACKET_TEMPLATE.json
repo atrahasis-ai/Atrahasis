@@ -1,0 +1,55 @@
+{
+  "type": "HYPOTHESIS_PACKET",
+  "hypotheses": [
+    {
+      "id": "H-001",
+      "title": "Opportunity pathway",
+      "summary": "Hypothesis summary",
+      "statement": "Explore distributed coordination as an invention opportunity.",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/example.md",
+          "link_reason": "Evidence aligned with the priority signal."
+        }
+      ],
+      "contradiction": {
+        "id": "X-001",
+        "statement": "Key evidence gap remains unresolved.",
+        "severity": "high",
+        "artifact_ref": "CONTRADICTION_MAP.json#X-001"
+      },
+      "solution_paths": [
+        {
+          "id": "P-001",
+          "title": "Primary path",
+          "tradeoffs": [
+            "novelty_vs_feasibility"
+          ],
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-001"
+        }
+      ],
+      "novelty_score": 4,
+      "feasibility_score": 3,
+      "program_id": "RP-101",
+      "scope_level": "L2",
+      "domain": "distributed coordination",
+      "opportunity_zone": "distributed coordination",
+      "confidence": 0.72,
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-001",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-001"
+        ],
+        "novelty_report": "NOVELTY_REPORT.json#H-001",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-001"
+      }
+    }
+  ],
+  "supporting_evidence": [
+    "distributed coordination"
+  ],
+  "opportunity_zone_refs": [
+    "distributed coordination"
+  ],
+  "confidence": 0.72
+}

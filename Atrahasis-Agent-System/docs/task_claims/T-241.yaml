@@ -1,0 +1,15 @@
+task_id: "T-241"
+agent_name: "Nammu"
+invention_ids: []
+target_specs:
+  - "C39"
+title: "AACP Resource Access Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-12T17:28:42.0044206Z"
+updated_at: "2026-03-12T17:32:05.7749305Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C39/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C39 LCML to v1.0.1 with resource bundle refinements, bounded DS{} access-metadata overlay requirements, resource read provenance, stable subscription semantics, and canonical resource_update delivery via existing stream/status classes without expanding the 42-class inventory."

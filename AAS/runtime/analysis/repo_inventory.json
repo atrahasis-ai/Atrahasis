@@ -1,0 +1,21 @@
+{
+  "baseline_scripts": [
+    "validate_agent_state.py",
+    "validate_contribution_requests.py",
+    "validate_invention_concept.py"
+  ],
+  "documentation_file_count": 479,
+  "has_agent_capability_registry": false,
+  "has_cssm_store": false,
+  "has_proposal_registry": false,
+  "has_recovery_manifest": false,
+  "has_runtime_kernel": false,
+  "has_runtime_logs": false,
+  "has_swarm_state": false,
+  "has_task_graph": false,
+  "master_tech_spec_count": 32,
+  "platform_overlay_count": 9,
+  "prototype_directory_count": 0,
+  "repo_root": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+  "task_workspace_count": 23
+}

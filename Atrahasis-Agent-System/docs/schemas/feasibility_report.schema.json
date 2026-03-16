@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Feasibility Report",
+  "type": "object",
+  "required": [
+    "type",
+    "technical_feasibility",
+    "operational_feasibility",
+    "adoption_feasibility",
+    "blocking_unknowns",
+    "hypothesis_assessments"
+  ],
+  "properties": {
+    "type": {"const": "FEASIBILITY_REPORT"},
+    "technical_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+    "operational_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+    "adoption_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+    "blocking_unknowns": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hypothesis_assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "hypothesis_id",
+          "feasibility_score",
+          "technical_feasibility",
+          "operational_feasibility",
+          "adoption_feasibility",
+          "blocking_unknowns",
+          "artifact_ref"
+        ],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "feasibility_score": {"type": "integer", "minimum": 1, "maximum": 5},
+          "technical_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+          "operational_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+          "adoption_feasibility": {"type": "integer", "minimum": 1, "maximum": 5},
+          "blocking_unknowns": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "artifact_ref": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

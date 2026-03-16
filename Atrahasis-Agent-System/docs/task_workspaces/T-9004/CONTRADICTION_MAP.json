@@ -1,0 +1,85 @@
+{
+  "task_id": "T-9004",
+  "generated_at": "2026-03-13T23:08:06Z",
+  "contradictions": [
+    {
+      "contradiction_id": "X-001",
+      "title": "Open ecosystem posture vs closed capability containment",
+      "severity": "critical",
+      "current_specs": [
+        "C15",
+        "C18"
+      ],
+      "current_state": "The repo assumes public-facing marketplace and open publication pathways.",
+      "operator_direction": "Keep strongest capability layers private and internal.",
+      "proposed_resolution": "Replace open capability access with bounded products, supervised services, and selective licensing."
+    },
+    {
+      "contradiction_id": "X-002",
+      "title": "Broad AiDP citizenship vs closed institutional stewardship",
+      "severity": "critical",
+      "current_specs": [
+        "C14",
+        "C22"
+      ],
+      "current_state": "AiDP is framed as a broad constitutional AI governance body with phased authority expansion.",
+      "operator_direction": "Atrahasis should remain tightly controlled and not broadly accessible.",
+      "proposed_resolution": "Retain constitutional governance, but narrow operational governance participation to Atrahasis-recognized internal agents and trustees."
+    },
+    {
+      "contradiction_id": "X-003",
+      "title": "External task marketplace vs negotiated release membrane",
+      "severity": "high",
+      "current_specs": [
+        "C15",
+        "C18"
+      ],
+      "current_state": "Revenue assumes task marketplace, provider onboarding, and enterprise integration as standard channels.",
+      "operator_direction": "Outside parties should negotiate for outcomes, not drive the core system directly.",
+      "proposed_resolution": "Replace marketplace-first economics with consumer utility, enterprise bounded execution, invention brokerage, and selective licensing."
+    },
+    {
+      "contradiction_id": "X-004",
+      "title": "Founder reward aspiration vs founder non-dynasty rule",
+      "severity": "high",
+      "current_specs": [
+        "C14"
+      ],
+      "current_state": "The Joshua Dunn Principle prohibits permanent founder governance authority.",
+      "operator_direction": "Joshua Dunn should be rewarded for creating Atrahasis and advancing it.",
+      "proposed_resolution": "Separate founder reward from governance supremacy by using compensation, contracts, or board-approved economic rights rather than constitutional override."
+    },
+    {
+      "contradiction_id": "X-005",
+      "title": "Frontier bootstrap dependence vs native model sovereignty",
+      "severity": "high",
+      "current_specs": [
+        "C22",
+        "C23",
+        "C45",
+        "C47"
+      ],
+      "current_state": "Current implementation assumes multiple provider adapters and local model fallback.",
+      "operator_direction": "Atrahasis should eventually use models aligned to AASL and AACP.",
+      "proposed_resolution": "Treat provider APIs as transitional cognition leases while building native control planes, trace corpora, and eventually native models."
+    },
+    {
+      "contradiction_id": "X-006",
+      "title": "Private control vs public legitimacy",
+      "severity": "high",
+      "current_specs": [
+        "C14",
+        "C18"
+      ],
+      "current_state": "Current AiBC story depends partly on public-benefit transparency and participatory legitimacy.",
+      "operator_direction": "Core capability access should be closed and tightly controlled.",
+      "proposed_resolution": "Adopt open accountability even while keeping capability layers closed."
+    }
+  ],
+  "summary": {
+    "critical": 2,
+    "high": 4,
+    "medium": 0,
+    "core_finding": "The proposal is internally coherent, but it conflicts with current governance, economics, and publication assumptions strongly enough that it must be treated as a constitutional redesign."
+  }
+}

@@ -1,0 +1,16 @@
+task_id: "T-064"
+invention_ids: ["C36"]
+target_specs: []
+title: "Human & External Interface Layer (Website / Mobile / API / SDK / CLI)"
+platform: "CLAUDE"
+agent_name: "Adapa"
+claimed_at: "2026-03-12T09:00:00Z"
+updated_at: "2026-03-12T09:00:00Z"
+status: "COMPLETE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-064/"
+    - "docs/specifications/C36/"
+    - "docs/prior_art/C36/"
+  pipeline_type: "AAS"
+notes: "C36 EMA-I APPROVED. 3 operational conditions, 5 monitoring flags. 999-line MTS, 32 REQs, 16 params, 4 claims. Agent: Adapa."

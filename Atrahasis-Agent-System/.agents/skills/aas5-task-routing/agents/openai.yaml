@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Task Routing"
+  short_description: "Classify task type and execution path"
+  default_prompt: "Classify the task under AAS5 and choose the correct execution path, constraints, and artifacts."

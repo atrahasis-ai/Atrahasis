@@ -1,0 +1,32 @@
+{
+  "aep_id": "AEP-CYCLE028-BETA-001",
+  "affected_layers": [
+    "Registry",
+    "Runtime",
+    "Agent",
+    "Governance"
+  ],
+  "architecture_gap": "The current runtime can bootstrap and resume, but it still needs sustained self-improvement cycles to become a recursive architecture evolution engine.",
+  "authoring_agent": "Swarm Beta",
+  "cssm_version": "AAS-State-v1.28",
+  "data_model_changes": "Add cycle-scoped state, evolution deltas, and replayable improvement history to the runtime state graph.",
+  "date": "2026-03-13T10:18:58Z",
+  "governance_implications": "Councils gain repeated review cadence and explicit cycle history.",
+  "implementation_tasks": [
+    "AAS-TASK-CYCLE-028-BETA-001"
+  ],
+  "invention_concept": "Add execution scoring, adaptive task routing, and stronger machine-readable council replay surfaces.",
+  "migration_strategy": "Adopt cycle outputs incrementally by synthesizing a new canonical CSSM version after each meta-evaluation.",
+  "objective_profile": {
+    "capability": 0.9,
+    "feasibility": 0.9,
+    "governance_stability": 0.86
+  },
+  "problem_statement": "Pending architecture evolution pressure remains on: Apply merged delta for Cycle 026 Meta-Merge Architecture, Apply merged delta for Cycle 027 Meta-Merge Architecture.",
+  "proposed_architecture_change": "Add execution scoring, adaptive task routing, and stronger machine-readable council replay surfaces.",
+  "protocol_implications": "Proposal routing and council replay remain file-backed but gain persistent evolution cadence.",
+  "security_implications": "No external network surface is added; the improvement loop remains local and auditable through telemetry.",
+  "status": "submitted",
+  "swarm": "beta",
+  "title": "Cycle 028 Registry-Driven Autonomous Scheduling"
+}

@@ -1,40 +1,33 @@
-# Human-in-the-Loop Policy (v1.0)
-**Owner:** User (policy), Director (enforcement)
+# Human-in-the-Loop Policy
 
-## Principle
-The system runs autonomously by default, except for categories with outsized consequences for IP, direction, or resource commitment.
+## Core Rule
 
-## Mandatory Approval Categories
-Director must request explicit approval before proceeding when the work includes:
+AAS1 is human-guided. It may analyze, synthesize, hypothesize, simulate, and recommend, but it must not finalize major invention decisions without operator review.
 
-1. **Concept selection**
-   - Choosing which invention concepts to pursue further from Ideation Council output
+## Mandatory Review Gates
 
-2. **Pivot decisions**
-   - Fundamentally changing the invention direction after research or assessment
+- concept or path selection
+- pivots caused by contradiction or feasibility failure
+- external research escalation
+- resource-intensive implementation work
+- public disclosure or patent-sensitive decisions
+- abandonment or archival decisions
 
-3. **External research**
-   - Accessing external databases, APIs, or services for prior art searches
+## Required Operator Artifacts
 
-4. **Resource-intensive prototyping**
-   - Building prototypes requiring significant compute, external services, or paid APIs
+Every AAS1 run must produce:
 
-5. **Patent-related decisions**
-   - Any decision about patent claims, filing strategy, or IP ownership
+- `HUMAN_DECISION_RECORD.json`
+- `EXPLORATION_CONTROL_RECORD.json`
+- `WORKFLOW_SUMMARY.md`
 
-6. **Public disclosure risk**
-   - Any action that could constitute public disclosure of the invention (destroying patent novelty)
+## Disallowed Behaviors
 
-7. **Abandonment**
-   - Deciding to stop pursuing an invention line entirely
+- no subsystem may self-authorize execution changes
+- no automatic pivot may be applied without an operator decision
+- no solution path may be treated as selected until a human confirms it
+- no exploration budget recommendation may be treated as binding
 
-## Approval Payload
-Director presents:
-- the exact action or plan requiring approval
-- risks and implications
-- what will happen after approval
+## Control Ownership
 
-User responds with:
-- `APPROVED` or `REJECTED` (and optional constraints)
-
-Approval is recorded in `docs/AGENT_STATE.md` under `approvals_pending` / resolution notes.
+`InventionPipelineManager` controls the workflow. `ExplorationControlEngine` recommends. `HumanDecisionInterface` packages the decision packet. The operator decides.

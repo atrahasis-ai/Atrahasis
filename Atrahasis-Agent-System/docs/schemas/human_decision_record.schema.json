@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Human Decision Record",
+  "type": "object",
+  "required": ["decision_type", "evidence_summary", "options", "operator_decision", "constraints"],
+  "properties": {
+    "decision_type": {"const": "OPERATOR_GUIDANCE"},
+    "task_id": {"type": "string"},
+    "workflow_status": {"type": "string"},
+    "prompt": {"type": "string"},
+    "research_strategy_summary": {"type": "string"},
+    "evidence_summary": {
+      "type": "object",
+      "required": ["modifier", "priority_zones", "contradiction_count"],
+      "properties": {
+        "modifier": {"type": "string"},
+        "priority_zones": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "contradiction_count": {"type": "integer", "minimum": 0},
+        "strategy_summary": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "properties": {
+          "label": {"type": "string"},
+          "path_id": {"type": "string", "pattern": "^P-\\d{3}$"},
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "path_title": {"type": "string"},
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "top_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "title"],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "title": {"type": "string"},
+          "opportunity_zone": {"type": "string"},
+          "novelty_score": {"type": ["number", "integer", "null"]},
+          "feasibility_score": {"type": ["number", "integer", "null"]},
+          "opportunity_score": {"type": ["number", "null"]},
+          "candidate_label": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "active_research_programs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "program_id",
+          "program_title",
+          "scope_level",
+          "target_domain",
+          "hypothesis_list",
+          "opportunity_score",
+          "program_status"
+        ],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "scope_level": {"type": "string", "enum": ["L0", "L1", "L2", "L3", "L4"]},
+          "target_domain": {"type": "string"},
+          "program_goal": {"type": "string"},
+          "hypothesis_list": {"type": "array", "items": {"type": "string", "pattern": "^H-\\d{3}$"}},
+          "contradiction_list": {"type": "array", "items": {"type": "string"}},
+          "solution_path_list": {"type": "array", "items": {"type": "string"}},
+          "opportunity_score": {"type": "number"},
+          "program_status": {"type": "string"},
+          "execution_state": {"type": "string"},
+          "dependency_state": {"type": "string"},
+          "last_exploration_cycle": {"type": "integer", "minimum": 0},
+          "recommended_action": {"type": ["string", "null"]},
+          "allocation_ratio": {"type": ["number", "null"]},
+          "branch_budget": {"type": ["integer", "null"]},
+          "governance_notes": {"type": "array", "items": {"type": "string"}},
+          "cross_domain_candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["hypothesis_id", "title", "opportunity_score"],
+              "properties": {
+                "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+                "title": {"type": "string"},
+                "opportunity_score": {"type": "number"},
+                "candidate_label": {"type": "string"}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action"],
+        "properties": {
+          "action": {"type": "string"},
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "scope_level": {"type": "string"},
+          "execution_state": {"type": "string"},
+          "allocation_ratio": {"type": "number"},
+          "branch_budget": {"type": "integer"},
+          "opportunity_score": {"type": "number"},
+          "rationale": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "spawn_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["spawn_id", "program_title", "target_domain", "priority_score"],
+        "properties": {
+          "spawn_id": {"type": "string"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "program_goal": {"type": "string"},
+          "priority_score": {"type": "number"},
+          "recommended_action": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "dispatch_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "action_label",
+          "instruction",
+          "spawn_id",
+          "program_title",
+          "target_domain",
+          "team_mode",
+          "dispatch_readiness",
+          "approval_status",
+          "child_roles"
+        ],
+        "properties": {
+          "action_label": {"type": "string"},
+          "instruction": {"type": "string"},
+          "spawn_id": {"type": "string"},
+          "program_title": {"type": "string"},
+          "target_domain": {"type": "string"},
+          "team_mode": {"type": "string"},
+          "dispatch_readiness": {"type": "string"},
+          "approval_status": {"type": "string"},
+          "child_roles": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "core_contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["contradiction_id", "hypothesis_id", "statement", "severity"],
+        "properties": {
+          "contradiction_id": {"type": "string"},
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "statement": {"type": "string"},
+          "severity": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "cross_domain_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "title", "opportunity_score"],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "title": {"type": "string"},
+          "opportunity_score": {"type": "number"},
+          "candidate_label": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "operator_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "properties": {
+          "label": {"type": "string"},
+          "instruction": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "operator_decision": {"type": "string"},
+    "constraints": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,68 @@
+{
+  "task_id": "T-064",
+  "invention_id": "C36",
+  "agent": "Adapa",
+  "stage": "ASSESSMENT",
+  "verdict": "APPROVE",
+  "scores": {
+    "novelty": 3.5,
+    "feasibility": 4.0,
+    "impact": 4.5,
+    "risk": 4,
+    "risk_level": "MEDIUM"
+  },
+  "operational_conditions": [
+    {
+      "id": 1,
+      "condition": "Session type enforcement strategy must be defined before W1 receptor implementation begins",
+      "gate": "W1 entry"
+    },
+    {
+      "id": 2,
+      "condition": "Non-interference proof must be validated against all 5 persona families with concrete state examples before W5 Trustee deployment",
+      "gate": "W5 entry"
+    },
+    {
+      "id": 3,
+      "condition": "Write-behind evidence recovery must be demonstrated in W1 integration tests",
+      "gate": "W2 entry"
+    }
+  ],
+  "monitoring_flags": [
+    {
+      "id": "MF-1",
+      "flag": "Session type enforcement in Rust/TypeScript",
+      "trigger": "W1 implementation cannot achieve compile-time session type checking",
+      "owner": "C22 Implementation"
+    },
+    {
+      "id": "MF-2",
+      "flag": "Non-interference proof completeness",
+      "trigger": "Cross-epoch authorization changes violate non-interference",
+      "owner": "Formal methods review"
+    },
+    {
+      "id": "MF-3",
+      "flag": "Write-behind evidence durability",
+      "trigger": "Evidence loss detected between response emit and epoch boundary commit",
+      "owner": "Operations"
+    },
+    {
+      "id": "MF-4",
+      "flag": "Receptor composition side-effect detection",
+      "trigger": "Composed receptor chain produces inconsistent results due to shared state mutation",
+      "owner": "C9 Contract Tests"
+    },
+    {
+      "id": "MF-5",
+      "flag": "Receptor specification coverage",
+      "trigger": "More than 50% of receptors require significant redesign during implementation",
+      "owner": "C22 Implementation"
+    }
+  ],
+  "claims_count": 4,
+  "requirements_count": 32,
+  "parameters_count": 16,
+  "spec_lines": 999,
+  "rationale": "C36 EMA-I fills a critical architectural gap — every external interaction with Atrahasis was assumed but never specified. The four-component architecture (Receptors, STE, IEC, PPE) is formally grounded in session types, Galois connections, causal evidence chains, and non-interference proofs. Scope is correctly controlled: NL deferred to v2.0, receptor contract over receptor catalog, 3 exemplars rather than 35 full definitions. Integration density is highest in the stack (18 inbound + 4 outbound). 4-claim portfolio represents genuine intellectual contribution."
+}

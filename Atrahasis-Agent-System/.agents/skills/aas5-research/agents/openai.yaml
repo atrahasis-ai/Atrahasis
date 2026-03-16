@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Research"
+  short_description: "Run research and evidence gathering"
+  default_prompt: "Run the AAS5 research stage, gather prior art and evidence, and use bounded web search only when policy allows it."

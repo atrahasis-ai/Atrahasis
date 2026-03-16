@@ -1,0 +1,15 @@
+task_id: "T-212"
+invention_ids: []
+target_specs:
+  - "AASL"
+title: "AASL New Types: TL, PMT, SES"
+platform: "CODEX"
+agent_name: "Nammu"
+claimed_at: "2026-03-12T12:28:10Z"
+updated_at: "2026-03-12T12:38:22Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-212/"
+  pipeline_type: "DIRECT_SPEC"
+notes: "Completed by Nammu on 2026-03-12. Repo-side task workspace is the safe zone for this direct-spec task because the baseline AASL source corpus is external reference material, not the canonical write target. Output: docs/task_workspaces/T-212/TYPE_EXTENSION_SPEC.md."

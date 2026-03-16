@@ -1,0 +1,126 @@
+{
+  "confidence": 0.69,
+  "hypotheses": [
+    {
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-001",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-001",
+        "novelty_report": "NOVELTY_REPORT.json#H-001",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-001"
+        ]
+      },
+      "candidate_label": "Top Exploration Candidate",
+      "confidence": 0.72,
+      "contradiction": {
+        "artifact_ref": "CONTRADICTION_MAP.json#X-001",
+        "id": "X-001",
+        "severity": "high",
+        "statement": "High-opportunity zone with unresolved evidence gaps."
+      },
+      "cross_domain_source": null,
+      "cross_domain_strength": null,
+      "domain": "agent",
+      "feasibility_score": 4,
+      "id": "H-001",
+      "novelty_score": 2,
+      "opportunity_zone": "agent",
+      "origin": "domain",
+      "program_id": "RP-947",
+      "scope_level": "L2",
+      "solution_paths": [
+        {
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-001",
+          "id": "P-001",
+          "title": "Path for Agent invention pathway",
+          "tradeoffs": [
+            "novelty_vs_feasibility",
+            "breadth_vs_depth"
+          ]
+        }
+      ],
+      "statement": "Explore agent as an invention opportunity by transferring immune_system coordination patterns into the problem: spawn_program: spawn:agent",
+      "summary": "Use immune_system style reasoning to explore agent for prompt: spawn_program: spawn:agent",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/C1/landscape.md",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C3/landscape.md",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        }
+      ],
+      "title": "Agent invention pathway"
+    },
+    {
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-002",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-002",
+        "novelty_report": "NOVELTY_REPORT.json#H-002",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-002"
+        ]
+      },
+      "candidate_label": "Top Exploration Candidate",
+      "confidence": 0.66,
+      "contradiction": {
+        "artifact_ref": "CONTRADICTION_MAP.json#X-002",
+        "id": "X-002",
+        "severity": "high",
+        "statement": "High-opportunity zone with unresolved evidence gaps."
+      },
+      "cross_domain_source": null,
+      "cross_domain_strength": null,
+      "domain": "agents",
+      "feasibility_score": 4,
+      "id": "H-002",
+      "novelty_score": 1,
+      "opportunity_zone": "agents",
+      "origin": "domain",
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "solution_paths": [
+        {
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-002",
+          "id": "P-002",
+          "title": "Path for Agents invention pathway",
+          "tradeoffs": [
+            "novelty_vs_feasibility",
+            "breadth_vs_depth"
+          ]
+        }
+      ],
+      "statement": "Explore agents as an invention opportunity by transferring supply_chain coordination patterns into the problem: spawn_program: spawn:agent",
+      "summary": "Use supply_chain style reasoning to explore agents for prompt: spawn_program: spawn:agent",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/C1/landscape.md",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C3/landscape.md",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        }
+      ],
+      "title": "Agents invention pathway"
+    }
+  ],
+  "opportunity_zone_refs": [
+    "agent",
+    "agents"
+  ],
+  "supporting_evidence": [
+    "agent",
+    "agents"
+  ],
+  "type": "HYPOTHESIS_PACKET"
+}

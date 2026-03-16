@@ -1,0 +1,21 @@
+task_id: "T-240"
+agent_name: "Marduk"
+invention_ids:
+  - "C42"
+target_specs: []
+title: "AACP Tool Connectivity Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-12T17:28:13Z"
+updated_at: "2026-03-13T06:33:07Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-240/"
+    - "docs/prior_art/C42/"
+    - "docs/specifications/C42/"
+    - "docs/invention_logs/C42_IDEATION.md"
+    - "docs/invention_logs/C42_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C42_FEASIBILITY.md"
+    - "docs/invention_logs/C42_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "DONE. User approved IC-9 for promotion on 2026-03-13 ('proceed with IC-9 with the understand we will need to work on the other tasks as well to support and coexist with it'). T-240 completed the full pipeline as C42 Lease-Primed Execution Mesh (LPEM): signed tool inventory snapshots, authority-bound invocation priming levels, bounded continuation contexts, explicit runtime handoff contracts to C23, and mandatory accountable tool results. Shared-state updates remain deferred to handoff."

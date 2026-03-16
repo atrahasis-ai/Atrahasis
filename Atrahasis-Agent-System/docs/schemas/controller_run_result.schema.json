@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Controller Run Result",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "run_id",
+    "run_status",
+    "started_at",
+    "last_synced_at",
+    "thread_turns",
+    "review_turns",
+    "artifact_refs",
+    "source",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "CONTROLLER_RUN_RESULT"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "run_id": {"type": "string"},
+    "thread_id": {"type": ["string", "null"]},
+    "turn_id": {"type": ["string", "null"]},
+    "review_thread_id": {"type": ["string", "null"]},
+    "app_server_url": {"type": ["string", "null"]},
+    "run_status": {"type": "string"},
+    "thread_status": {"type": ["string", "null"]},
+    "review_status": {"type": ["string", "null"]},
+    "started_at": {"type": ["string", "null"], "format": "date-time"},
+    "last_synced_at": {"type": "string", "format": "date-time"},
+    "latest_user_text": {"type": ["string", "null"]},
+    "latest_assistant_text": {"type": ["string", "null"]},
+    "latest_review_text": {"type": ["string", "null"]},
+    "thread_turns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/turnSummary"}
+    },
+    "review_turns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/turnSummary"}
+    },
+    "artifact_refs": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "source": {"const": "operator_controller_service"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "turnSummary": {
+      "type": "object",
+      "required": ["turn_id", "status", "user_text", "assistant_text", "user_preview", "assistant_preview"],
+      "properties": {
+        "turn_id": {"type": ["string", "null"]},
+        "status": {"type": ["string", "null"]},
+        "user_text": {"type": ["string", "null"]},
+        "assistant_text": {"type": ["string", "null"]},
+        "user_preview": {"type": ["string", "null"]},
+        "assistant_preview": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

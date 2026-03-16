@@ -1,0 +1,37 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C24"
+title: "Federated Habitat Fabric (FHF)"
+domain: "distributed infrastructure / deployment topology / cross-region federation"
+summary: >
+  FHF defines the missing deployment primitive for Atrahasis: the Habitat, a region-scoped
+  infrastructure domain that hosts loci, parcel runtime hosts, state services, governance
+  relays, and explicit federation gateways. Most operations remain habitat-local. Cross-region
+  exchange is forced through typed Habitat Boundary Capsules and bounded federation windows,
+  preventing the logical coordination layer from degenerating into a global WAN mesh.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  The Habitat becomes the canonical boundary object that maps logical loci/parcels onto
+  concrete infrastructure while making cross-region exchange explicit, typed, and locality-first.
+technical_approach: >
+  Define Habitat Control, Data, State, Governance, and Federation planes. Map C3 loci to
+  habitat-local execution domains, place C23 Parcel Runtime Hosts within habitats, classify
+  state by residency/exportability, and route cross-habitat exchange only through Habitat
+  Boundary Gateways using typed capsules and federation windows.
+potential_applications:
+  - "canonical Atrahasis deployment architecture"
+  - "multi-region rollout with bounded WAN chatter"
+  - "clear failure-domain and data-residency boundaries"
+known_risks:
+  - "Habitat boundaries may become too rigid if migration rules are underspecified"
+  - "Federation windows can increase latency for cross-region workflows"
+  - "Operational teams may punch holes through the gateway model if locality rules are not strongly enforced"
+prior_art_concerns:
+  - "cell architectures, multi-cluster federation, and gateway-centric distributed systems each overlap with part of the design"
+research_questions:
+  - "What state must remain habitat-local versus exportable?"
+  - "How should cross-habitat movement interact with epoch semantics?"
+  - "What minimal bootstrap profile preserves the architecture without overbuilding Wave 1?"
+generated_at: "2026-03-12T04:40:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Feasibility"
+  short_description: "Run feasibility and failure analysis"
+  default_prompt: "Run the AAS5 feasibility stage, stress-test the concept, and produce clear advance/block conditions."

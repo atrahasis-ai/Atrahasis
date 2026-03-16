@@ -1,0 +1,15 @@
+task_id: "T-RENOVATE-009"
+invention_ids: []
+target_specs:
+  - "C47"
+title: "C47 Native Forge Expansion"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T18:52:00Z"
+updated_at: "2026-03-15T00:38:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C47/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Canonical authority comes from docs/specifications/STRATEGY/RENOVATION_TASKS.md and the staged sovereignty roadmap. Ninkasi expanded C47 from tool/server cross-compilation into a dual-lane forge that also ingests and fine-tunes open-source LLMs on Atrahasis-controlled infrastructure."

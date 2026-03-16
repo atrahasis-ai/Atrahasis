@@ -1,0 +1,197 @@
+{
+  "active_programs": [
+    {
+      "active_hypothesis_count": 3,
+      "archived_hypotheses": [],
+      "archived_hypothesis_count": 0,
+      "contradiction_list": [
+        "X-001",
+        "X-002",
+        "X-003"
+      ],
+      "created_cycle": 4,
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "feasibility_trend": 4.0,
+      "frontier_score": 0.76,
+      "governance_lock": "L2::agent",
+      "governance_notes": [
+        "Authoritative scope lock granted: L2::agent."
+      ],
+      "hypothesis_list": [
+        "H-001",
+        "H-002",
+        "H-003"
+      ],
+      "last_exploration_cycle": 4,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agent"
+      ],
+      "novelty_trend": 1.33,
+      "number_of_hypotheses": 3,
+      "number_of_resolved_contradictions": 3,
+      "opportunity_score": 0.626,
+      "program_goal": "Explore agent in a coordinated research program.",
+      "program_id": "RP-947",
+      "program_kind": "domain",
+      "program_status": "stabilizing",
+      "program_title": "Agent Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-251/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-260/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-270/HYPOTHESIS_PACKET.json",
+        "docs/prior_art/C1/landscape.md",
+        "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+        "docs/prior_art/C3/landscape.md",
+        "docs/task_workspaces/T-9002/HYPOTHESIS_PACKET.json"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-001",
+        "P-002",
+        "P-003"
+      ],
+      "target_domain": "agent"
+    },
+    {
+      "active_hypothesis_count": 0,
+      "archived_hypotheses": [
+        "H-001",
+        "H-002"
+      ],
+      "archived_hypothesis_count": 2,
+      "contradiction_list": [],
+      "created_cycle": 4,
+      "dependency_state": "clear",
+      "execution_state": "archived",
+      "feasibility_trend": 0.0,
+      "frontier_score": 0.74,
+      "governance_notes": [],
+      "hypothesis_list": [],
+      "last_exploration_cycle": 4,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "model"
+      ],
+      "novelty_trend": 0.0,
+      "number_of_hypotheses": 0,
+      "number_of_resolved_contradictions": 0,
+      "opportunity_score": 0.37,
+      "program_goal": "Systematically explore opportunity space around model.",
+      "program_id": "RP-104",
+      "program_kind": "domain",
+      "program_status": "archived",
+      "program_title": "Model Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-251/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-270/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-9002/HYPOTHESIS_PACKET.json"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [],
+      "target_domain": "model"
+    },
+    {
+      "active_hypothesis_count": 0,
+      "archived_hypotheses": [
+        "H-002",
+        "H-003"
+      ],
+      "archived_hypothesis_count": 2,
+      "contradiction_list": [],
+      "created_cycle": 4,
+      "dependency_state": "clear",
+      "execution_state": "archived",
+      "feasibility_trend": 0.0,
+      "frontier_score": 0.66,
+      "governance_notes": [],
+      "hypothesis_list": [],
+      "last_exploration_cycle": 4,
+      "master_tree_path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agents"
+      ],
+      "novelty_trend": 0.0,
+      "number_of_hypotheses": 0,
+      "number_of_resolved_contradictions": 0,
+      "opportunity_score": 0.33,
+      "program_goal": "Systematically explore opportunity space around agents.",
+      "program_id": "RP-191",
+      "program_kind": "domain",
+      "program_status": "archived",
+      "program_title": "Agents Research Program",
+      "research_artifacts": [
+        "docs/task_workspaces/T-251/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-260/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-270/HYPOTHESIS_PACKET.json",
+        "docs/task_workspaces/T-9002/HYPOTHESIS_PACKET.json"
+      ],
+      "scope_level": "L2",
+      "solution_path_list": [],
+      "target_domain": "agents"
+    }
+  ],
+  "governance_summary": {
+    "active_program_count": 1,
+    "archived_program_count": 2,
+    "authoritative_lock_count": 8,
+    "completed_program_count": 0,
+    "enforced_hypothesis_capacity": 10,
+    "governance_kernel": "active",
+    "l0_blockers": [],
+    "lock_keys": [
+      "L2::agent",
+      "L2::agents",
+      "L2::data",
+      "L2::data-center-cooling",
+      "L2::detection",
+      "L2::governance",
+      "L2::model",
+      "L2::verification"
+    ],
+    "paused_program_count": 0
+  },
+  "master_program_tree": [
+    {
+      "execution_state": "active",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agent"
+      ],
+      "program_id": "RP-947",
+      "scope_level": "L2",
+      "target_domain": "agent"
+    },
+    {
+      "execution_state": "archived",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "model"
+      ],
+      "program_id": "RP-104",
+      "scope_level": "L2",
+      "target_domain": "model"
+    },
+    {
+      "execution_state": "archived",
+      "path": [
+        "Atrahasis Master Program Tree",
+        "L2",
+        "agents"
+      ],
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "target_domain": "agents"
+    }
+  ],
+  "task_id": "T-9002",
+  "type": "PROGRAM_STATE_SNAPSHOT",
+  "updated_at": "2026-03-13T20:32:53Z",
+  "workflow_id": "T-9002-AASA-20260313T203253Z"
+}

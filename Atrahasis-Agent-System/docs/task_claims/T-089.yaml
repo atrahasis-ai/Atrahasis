@@ -1,0 +1,14 @@
+task_id: T-089
+title: "Compare ASV+A2A/MCP vs AASL+AACP Communication Architecture"
+type: ANALYSIS
+status: COMPLETE
+completed_at: "2026-03-12"
+priority: LOW
+agent_name: "Shamash"
+claimed_at: "2026-03-12"
+description: >
+  Produce a structured comparison of the current Atrahasis communication
+  architecture (C4 ASV semantic vocabulary + A2A/MCP transport delegation)
+  against the original design (AASL custom scripting language + AACP custom
+  wire protocol). Evaluate trade-offs across expressiveness, tooling,
+  complexity, maintainability, and alignment with the AAS architecture.

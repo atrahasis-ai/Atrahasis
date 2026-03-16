@@ -1,0 +1,78 @@
+{
+  "agent_name": null,
+  "claim_conflicts": [],
+  "dependency_ids": [],
+  "generated_at": "2026-03-16T06:44:25Z",
+  "next_dispatchable_summary": "`PARALLEL` - `T-303` + `T-306` + one of `T-305 / T-307`",
+  "notes": [
+    "This exploratory ideation run is still a real AAS4 task workspace and may not remain session-only.",
+    "Read the contents of current claim YAML files before ideation so the swarm has parallel-context awareness.",
+    "Run the full Alpha/Beta/Gamma/Radical future-branch swarm and persist one child artifact per branch before presenting a recommendation.",
+    "A noncanonical T-900x workspace is allowed here and does not count as canonical shared-state progression.",
+    "If validate_swarm_execution_record.py does not pass, do not present a recommendation; report noncompliance instead.",
+    "Update the placeholder ideation artifacts before presenting a final recommendation."
+  ],
+  "readiness_checks": {
+    "claim_conflict": false,
+    "dependencies_resolved": true,
+    "dispatchable_now": true,
+    "parallel_mode_active": false,
+    "task_listed": false
+  },
+  "required_artifacts": [
+    "README.md",
+    "TASK_BRIEF.md",
+    "TASK_START_CHECKLIST.json",
+    "COMMAND_REQUEST.yaml",
+    "HUMAN_DECISION_RECORD.json",
+    "WORKFLOW_RUN_RECORD.json",
+    "AUTHORITY_COVERAGE_MATRIX.json",
+    "TEAM_PLAN.yaml",
+    "FUTURE_BRANCH_REPORT.json",
+    "SWARM_EXECUTION_RECORD.json",
+    "CHILD_RESULT_MERGE_PACKAGE.json",
+    "children/alpha__visionary__conservative.json",
+    "children/beta__visionary__aggressive.json",
+    "children/gamma__visionary__radical.json",
+    "children/radical__visionary__frame_replacement.json",
+    "children/alpha__systems_thinker__minimal_change.json",
+    "children/beta__systems_thinker__modular.json",
+    "children/gamma__systems_thinker__full_restructure.json",
+    "children/radical__systems_thinker__authority_reset.json",
+    "children/alpha__critic__failure.json",
+    "children/beta__critic__abuse.json",
+    "children/gamma__critic__governance_break.json",
+    "children/radical__critic__foundational_invalidity.json"
+  ],
+  "source_refs": {
+    "claim": "",
+    "todo": "docs/TODO.md",
+    "workspace": "docs/task_workspaces/T-9013/"
+  },
+  "stop_rules": [
+    "Stop after IDEATION and wait for explicit concept approval before promotion.",
+    "Do not mint any C-xxx invention id before HITL approval is recorded.",
+    "Stop again if convergence or adversarial review is required by policy.",
+    "When ideation is architecture-heavy or operator-requested as a swarm, form a real child swarm; do not substitute internal roleplay.",
+    "Ordinary FULL PIPELINE / IDEATION defaults to a real Alpha/Beta/Gamma/Radical future-branch swarm rather than a smaller viewpoint-only readout.",
+    "Do not treat ideation as complete until FUTURE_BRANCH_REPORT.json and SWARM_EXECUTION_RECORD.json both record a satisfied real future-branch swarm.",
+    "Do not present an ideation recommendation or swarm readout until validate_swarm_execution_record.py passes.",
+    "Operator instructions such as 'do not edit shared state yet' do not prohibit a noncanonical analysis-band T-900x workspace; they prohibit canonical shared-state progression."
+  ],
+  "task_class": "FULL_PIPELINE",
+  "task_id": "T-9013",
+  "title": "Independent Model Inference Microservice Layer",
+  "type": "TASK_START_CHECKLIST",
+  "unresolved_dependencies": [],
+  "validators": [
+    "workspace",
+    "swarm_execution"
+  ],
+  "write_surface": {
+    "mode": "exploratory_task_workspace",
+    "paths": [
+      "docs/task_workspaces/T-9013/"
+    ],
+    "source": "AASNI_auto_mint"
+  }
+}

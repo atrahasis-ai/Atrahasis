@@ -1,0 +1,47 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C41"
+title: "Layered Semantic Capability Manifest (LSCM)"
+domain: "agent discovery / signed capability disclosure / semantic manifest architecture"
+summary: >
+  LSCM defines the canonical Alternative B discovery manifest as a signed,
+  endpoint-scoped capability contract. It declares durable trust posture,
+  discovery and transport endpoints, supported security profiles, supported
+  message families, supported AASL types and ontology snapshots, bounded
+  references to deeper capability surfaces, and explicit supersession lineage.
+  It replaces shallow agent-card patterns without collapsing runtime telemetry,
+  registry ranking, or downstream protocol internals into the same document.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  Unify signed trust posture, protocol message capability, semantic capability
+  disclosure, and manifest supersession in one bounded discovery document while
+  making native-versus-bridge posture explicit and keeping live runtime state out
+  of the canonical surface.
+technical_approach: >
+  Specify a layered manifest object model with required sections for subject,
+  trust posture, discovery metadata, endpoints, security, messaging, semantics,
+  supersession, and signatures, plus optional bounded capability references.
+  Bind signatures to canonical manifest identity, inherit fail-closed
+  registry/manifest conflict rules from C40, advertise discovery-family support
+  from C39, and apply explicit inline-versus-reference rules for TL, PMT, DS,
+  and SES capability disclosure.
+potential_applications:
+  - "Canonical Alternative B replacement for A2A Agent Cards"
+  - "Registry source document for T-261"
+  - "Manifest fetch and negotiation surface for T-262"
+  - "Conformance target for T-281 and cross-layer contract input for T-290"
+known_risks:
+  - "Manifest scope can bloat if deep capability detail is inlined indiscriminately"
+  - "Registry and endpoint truth can drift if supersession and conflict handling are weak"
+  - "Bridge posture can be obscured if native-versus-bridge disclosure is not mandatory"
+prior_art_concerns:
+  - "Manifest and discovery patterns already exist, so novelty depends on the Atrahasis-specific union of trust and semantic capability disclosure"
+  - "The design must stay bounded enough not to become a generic service catalog or operational ledger"
+research_questions:
+  - "Which fields are mandatory for all agents versus profile-specific?"
+  - "Which capability surfaces should be inline versus referenced?"
+  - "How should native, federated, and bridged manifests disclose trust posture without ambiguity?"
+  - "What supersession rules keep registry and endpoint truth aligned?"
+generated_at: "2026-03-12T14:10:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

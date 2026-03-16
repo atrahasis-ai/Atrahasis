@@ -1,0 +1,14 @@
+task_id: "T-202"
+invention_ids: []
+target_specs: []
+title: "Alternative B Task Ordering and Dependency Clarification"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T21:20:00Z"
+updated_at: "2026-03-12T21:34:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-202/"
+  pipeline_type: "GOVERNANCE"
+notes: "Completed ordering cleanup. TODO now organizes Alternative B by execution waves, states dependency hard-gate rules explicitly, and tightens practical prerequisites to reduce speculative downstream design."

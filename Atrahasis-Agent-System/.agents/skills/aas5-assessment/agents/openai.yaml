@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Assessment"
+  short_description: "Run assessment, review, and close decision"
+  default_prompt: "Run AAS5 assessment and review, identify defects or missing evidence, and produce an explicit decision recommendation."

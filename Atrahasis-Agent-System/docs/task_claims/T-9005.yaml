@@ -1,0 +1,17 @@
+task_id: T-9005
+invention_ids: []
+target_specs: []
+title: Closed Atrahasis Mission Pivot - Anu Round One
+platform: CODEX
+agent_name: Anu
+claimed_at: '2026-03-13T23:08:30Z'
+updated_at: '2026-03-13T23:12:51Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-9005/
+  pipeline_type: AAS
+notes: AASNI ad hoc idea-integration run for a constitutional mission-lock,
+  capability-embargo, and closed-product redesign of Atrahasis. Kept out of
+  docs/TODO.md per TASK_ID_POLICY until operator promotion. Workspace complete
+  with swarm output, merge packet, and impact map.

@@ -1,0 +1,10 @@
+{
+  "gap_count": 1,
+  "gaps": [
+    {
+      "gap": "missing_task_workspace",
+      "severity": "medium"
+    }
+  ],
+  "type": "DISCOVERY_GAP_REPORT"
+}

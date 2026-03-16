@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Solution Path Set",
+  "type": "object",
+  "required": ["type", "candidate_paths", "required_subsystems", "tradeoffs", "dependency_order"],
+  "properties": {
+    "type": {"const": "SOLUTION_PATH_SET"},
+    "candidate_paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "hypothesis_id", "title", "required_subsystems", "tradeoffs", "dependency_order"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^P-\\d{3}$"},
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "title": {"type": "string"},
+          "required_subsystems": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "tradeoffs": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "dependency_order": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required_subsystems": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "tradeoffs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "dependency_order": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Research Synthesis Report",
+  "type": "object",
+  "required": ["type", "research_clusters", "top_keywords", "synthesis_summary"],
+  "properties": {
+    "type": {"const": "RESEARCH_SYNTHESIS_REPORT"},
+    "research_clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cluster", "evidence_count"],
+        "properties": {
+          "cluster": {"type": "string"},
+          "evidence_count": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "top_keywords": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "synthesis_summary": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,60 @@
+{
+  "affected_subsystems": [
+    "research",
+    "reasoning",
+    "validation"
+  ],
+  "blocking_assumptions": [],
+  "contradictions": [
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-001",
+      "id": "X-001",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-002",
+      "id": "X-002",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-003",
+      "id": "X-003",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-004",
+      "id": "X-004",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-005",
+      "id": "X-005",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-006",
+      "id": "X-006",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-007",
+      "id": "X-007",
+      "severity": "high"
+    },
+    {
+      "contradiction": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead.",
+      "hypothesis_id": "H-008",
+      "id": "X-008",
+      "severity": "high"
+    }
+  ],
+  "severity": "medium",
+  "type": "CONTRADICTION_MAP"
+}

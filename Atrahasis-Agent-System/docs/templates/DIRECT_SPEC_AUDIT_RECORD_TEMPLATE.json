@@ -1,0 +1,31 @@
+{
+  "type": "DIRECT_SPEC_AUDIT_RECORD",
+  "task_id": "T-000",
+  "task_class": "DIRECT_SPEC",
+  "generated_at": "2026-03-15T00:00:00Z",
+  "target_specs": [
+    "C5"
+  ],
+  "scope_paths": [
+    "docs/specifications/C5 - Example/C5_Example_Master_Tech_Spec.md"
+  ],
+  "authority_inputs": [
+    "docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v5.md",
+    "docs/SESSION_BRIEF.md",
+    "docs/AGENT_STATE.md",
+    "docs/TODO.md",
+    "docs/DECISIONS.md",
+    "docs/platform_overlays/SHARED_OPERATING_MODEL.md",
+    "docs/platform_overlays/PARALLEL_EXECUTION_PROTOCOL.md",
+    "docs/platform_overlays/codex/RUNTIME.md"
+  ],
+  "forbidden_patterns": [
+    "bridge",
+    "A2A",
+    "MCP"
+  ],
+  "verification_rule": "All forbidden patterns must be absent from the exact claimed scope before the task may be marked clean or DONE.",
+  "notes": [
+    "Override forbidden patterns explicitly if the task needs a narrower lexical sweep."
+  ]
+}

@@ -1,0 +1,14 @@
+task_id: "T-301"
+invention_ids: []
+target_specs: []
+title: "Repo-Wide Communication Dependency Audit"
+platform: "CODEX"
+agent_name: "Inanna"
+claimed_at: "2026-03-12T12:07:11Z"
+updated_at: "2026-03-12T07:14:26Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-301/"
+  pipeline_type: "ANALYSIS"
+notes: "DONE. Produced a repo-wide audit of canonical ASV + A2A/MCP assumptions, mapped affected artifacts to T-300 through T-309, and defined the dependency-safe retrofit order for Alternative B. Shared-state updates deferred to handoff."

@@ -1,0 +1,21 @@
+task_id: "T-065"
+agent_name: "Ninsubur"
+invention_ids:
+  - "C24"
+target_specs: []
+title: "Infrastructure & Federation"
+platform: "CODEX"
+claimed_at: "2026-03-12T04:09:46Z"
+updated_at: "2026-03-12T05:49:33Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-065/"
+    - "docs/prior_art/C24/"
+    - "docs/specifications/C24/"
+    - "docs/invention_logs/C24_IDEATION.md"
+    - "docs/invention_logs/C24_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C24_FEASIBILITY.md"
+    - "docs/invention_logs/C24_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "IC-2 Federated Habitat Fabric (FHF) promoted as C24. Shared-state updates are now applied, and the closeout handoff is archived at docs/handoffs/applied/T-065_CODEX_HANDOFF.md."

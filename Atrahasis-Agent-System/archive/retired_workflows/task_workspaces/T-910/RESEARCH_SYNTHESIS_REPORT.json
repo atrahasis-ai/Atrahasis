@@ -1,0 +1,34 @@
+{
+  "research_clusters": [
+    {
+      "cluster": "specification",
+      "evidence_count": 24
+    },
+    {
+      "cluster": "prior_art",
+      "evidence_count": 16
+    }
+  ],
+  "synthesis_summary": [
+    "specification:24",
+    "prior_art:16"
+  ],
+  "top_keywords": [
+    "agent",
+    "agents",
+    "model",
+    "verification",
+    "detection",
+    "system",
+    "governance",
+    "epoch",
+    "tier",
+    "coordination",
+    "scheduling",
+    "architecture",
+    "layer",
+    "behavioral",
+    "data"
+  ],
+  "type": "RESEARCH_SYNTHESIS_REPORT"
+}

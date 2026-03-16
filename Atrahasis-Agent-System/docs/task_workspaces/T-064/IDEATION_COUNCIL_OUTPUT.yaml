@@ -1,0 +1,210 @@
+IDEATION_COUNCIL_OUTPUT:
+  task_id: "T-064"
+  agent: "Adapa"
+  date: "2026-03-12"
+  domain: "human-computer interaction / API architecture / distributed system interfaces"
+
+  # ============================================================
+  # ROUND 1 — OPENING POSITIONS
+  # ============================================================
+
+  round_1:
+    visionary: |
+      The Atrahasis stack has 14 complete architectural specs but zero user-facing surface.
+      Every spec that mentions human interaction — C14 trustee voting, C18 marketplace operations,
+      C33 incident management — assumes an interface exists without specifying one. This isn't
+      just an API design task. The interface layer is the system's sovereign membrane — the place
+      where Atrahasis's internal epistemic world meets the external human/machine world. It needs
+      its own architectural identity, not just a REST wrapper over internal services.
+
+    systems_thinker: |
+      The key constraint is that Atrahasis already has well-defined internal contracts. C4 ASV
+      provides the semantic substrate. C7 RIF handles orchestration. C23 SCR manages execution.
+      The interface layer must NOT become a second orchestrator or a shadow governance layer. It
+      should be a translation and access-control boundary that routes external requests to the
+      correct internal subsystem. The architecture must stay below C7 and C14 — it receives and
+      dispatches, it does not decide.
+
+    critic: |
+      The danger here is building "just an API gateway" — a thin REST/GraphQL layer that adds
+      nothing Atrahasis-specific. Every cloud platform has an API gateway. The invention bar
+      requires something that actually solves the unique challenge: how do you expose a
+      multi-layer epistemic system with 9 claim classes, tidal scheduling, verification proofs,
+      and constitutional governance to humans who think in forms, buttons, and dashboards? The
+      semantic gap between C4 ASV and a human trustee voting on a governance proposal is enormous.
+      That gap is the real problem.
+
+    domain_translator: |
+      Five cross-domain analogies converge on three structural properties: unified substrate
+      (one canonical interaction surface), persona specialization (different presentations per
+      audience), and sovereign boundary (authority to deny, transform, rate-limit, audit). The
+      biological membrane analogy is strongest — typed receptors that validate, transform, and
+      transduce rather than passthrough.
+
+  # ============================================================
+  # ROUND 2 — CONCEPT PROPOSALS
+  # ============================================================
+
+  round_2:
+    concepts:
+      - id: "IC-1"
+        title: "Unified API Gateway with Domain Facets"
+        proposer: "Systems Thinker"
+        description: |
+          A single OpenAPI 3.1-conformant API gateway that exposes the full Atrahasis interaction
+          surface through domain-organized endpoint groups (governance, marketplace, operations,
+          identity, knowledge). Each domain facet maps to its owning spec (C14→governance,
+          C18→marketplace, C33→operations). Authentication via OAuth 2.1 + C32 MIA AgentID.
+          Rate limiting per tier. SDK generation from OpenAPI spec. CLI wraps SDK.
+        strengths:
+          - "Standards-compliant, familiar to any developer"
+          - "SDK and CLI are mechanically derivable from the API spec"
+          - "Clear mapping: one domain facet per owning spec"
+        weaknesses:
+          - "No Atrahasis-specific innovation — could describe any cloud platform"
+          - "Doesn't solve the semantic gap between C4 ASV and human understanding"
+          - "REST/GraphQL may not map cleanly to tidal epoch semantics"
+
+      - id: "IC-2"
+        title: "Epistemic Membrane Architecture (EMA-I)"
+        proposer: "Visionary + Domain Translator"
+        description: |
+          A sovereign interface layer modeled on biological receptor membranes. Instead of
+          generic endpoints, the membrane exposes typed Interaction Receptors — each one binds
+          a specific class of external signal, validates it against internal state, transforms
+          it into C4 ASV operations, and returns a domain-appropriate response. Five receptor
+          families correspond to five personas (Trustee, Provider, Operator, Developer, Agent).
+
+          Key innovations:
+          1. Receptor Typing — each receptor declares what external signals it binds, what
+             internal operations it triggers, and what response envelope it emits. Receptors
+             are registered, versioned, and auditable.
+          2. Epistemic Translation Engine — bridges the semantic gap between human-native
+             formats (forms, dashboards, natural language) and C4 ASV epistemic objects.
+             Translates governance votes into G-class claims, marketplace tasks into
+             settlement operations, incident queries into OINC capsule retrievals.
+          3. Interaction Evidence Chain — every external interaction generates a first-class
+             evidence record (analogous to C23 EEB but for interface interactions), creating
+             an auditable trail of who accessed what, when, and what internal operations
+             resulted. Feeds C5 PCVM for verification and C33 OINC for monitoring.
+          4. Persona Projections — each persona gets a purpose-built view of the system state,
+             computed by projecting the internal epistemic state through persona-specific
+             rendering rules. Trustees see governance decisions in constitutional language.
+             Providers see tasks in marketplace terminology. Operators see incidents in
+             operational vocabulary.
+        strengths:
+          - "Genuinely novel architectural concept — not just 'API gateway with extra steps'"
+          - "Solves the semantic gap via Epistemic Translation Engine"
+          - "Interaction Evidence Chain integrates naturally with C5/C33"
+          - "Persona Projections address the radical UI divergence across audiences"
+        weaknesses:
+          - "Higher complexity than a standard gateway"
+          - "Receptor metaphor may be overengineered for simple CRUD operations"
+          - "Epistemic Translation Engine scope is ambitious — may be hard to bound"
+
+      - id: "IC-3"
+        title: "Schema-Driven Interface Compiler"
+        proposer: "Critic"
+        description: |
+          Rather than designing an interface architecture, design an interface *compiler* that
+          generates interfaces from the existing spec corpus. Input: C4 JSON Schema + C14/C18/C33
+          requirement tables + C9 cross-layer contracts. Output: OpenAPI spec, TypeScript SDK,
+          CLI tool, and Web UI component library — all mechanically derived from the specs
+          themselves. The invention is the compiler, not the compiled output.
+        strengths:
+          - "Self-updating — as specs evolve, interfaces regenerate"
+          - "Eliminates drift between specs and implementations"
+          - "Minimal new architecture — leverages existing schema investments"
+        weaknesses:
+          - "Specs don't contain enough information for UI generation (layouts, workflows, UX)"
+          - "A compiler doesn't solve the semantic gap — it just propagates schemas"
+          - "Governance and marketplace workflows have human-centric logic that can't be compiled"
+          - "Defers the hard design work to 'the compiler will figure it out'"
+
+  # ============================================================
+  # ROUND 3 — CHALLENGE AND DEBATE
+  # ============================================================
+
+  round_3:
+    challenges:
+      - target: "IC-1"
+        challenger: "Critic"
+        challenge: |
+          IC-1 is architecturally competent but inventively empty. Every cloud platform has an
+          API gateway with domain facets. The AAS pipeline exists to produce inventions that
+          advance the state of the art. IC-1 would pass a corporate architecture review but
+          fail the AAS novelty bar. The semantic gap between C4 ASV and a human trustee's
+          mental model is the hard problem — IC-1 doesn't even try to solve it.
+        response: |
+          Systems Thinker concedes: IC-1 is the correct fallback if IC-2 proves infeasible,
+          but it should not be the primary concept. It lacks the Atrahasis-specific innovation
+          that justifies a full AAS pipeline run.
+
+      - target: "IC-3"
+        challenger: "Systems Thinker"
+        challenge: |
+          A compiler that generates interfaces from schemas sounds elegant but is a category
+          error. The hard problem is not "generate endpoints from JSON Schema" — that's a
+          tooling exercise. The hard problem is "how does a human trustee vote on a
+          constitutional amendment in a system with 9 claim classes and tidal scheduling?"
+          That requires workflow design, not code generation. IC-3 also ignores the access
+          control and audit requirements that C14 and C18 explicitly need.
+        response: |
+          Critic partially concedes: the compiler is valuable as a tooling accelerator but
+          not as the primary invention. Schema-driven SDK generation should be a feature
+          within a broader architecture, not the architecture itself.
+
+      - target: "IC-2"
+        challenger: "Adversarial Analyst"
+        challenge: |
+          IC-2 is the most ambitious concept but risks scope explosion. Five persona families,
+          an Epistemic Translation Engine, Interaction Evidence Chains, and Persona Projections —
+          this could become a 5,000-line spec that tries to design every UI in the system. The
+          invention should define the architectural layer, not the pixel-level interfaces. How
+          do you bound it?
+        response: |
+          Visionary agrees on bounding: IC-2 should specify the architectural framework
+          (receptor model, translation engine contract, evidence chain format, projection
+          mechanism) but NOT the specific UI layouts, form fields, or dashboard widgets. Those
+          are implementation-level concerns for C22 Wave teams. The spec defines what the
+          membrane does, not what every screen looks like.
+
+  # ============================================================
+  # ROUND 3 — SYNTHESIS AND SELECTION
+  # ============================================================
+
+  synthesis:
+    selected_concept: "IC-2"
+    title: "Epistemic Membrane Architecture (EMA-I)"
+    decision: "ADVANCE"
+    consensus: "FULL"
+
+    rationale:
+      - "IC-2 is the only concept that addresses the semantic gap between internal epistemic architecture and external human/machine interaction"
+      - "The receptor model provides a structurally novel organizing principle that maps naturally to the existing multi-spec surface"
+      - "Interaction Evidence Chain integrates cleanly with C5 PCVM and C33 OINC — it's not bolted on"
+      - "IC-1 engineering patterns (OpenAPI, OAuth, SDK generation) are subsumed as implementation within IC-2"
+      - "IC-3 schema-driven generation is absorbed as a tooling feature within IC-2's receptor registration"
+
+    design_direction:
+      - "Bound the spec to architectural framework — receptor model, translation contracts, evidence format, projection mechanism"
+      - "Do NOT specify UI layouts, form fields, or dashboard widgets"
+      - "Define 5 receptor families but specify only the receptor contract — concrete receptors are implementation"
+      - "Epistemic Translation Engine should be specified as a contract with reference algorithms, not a monolithic system"
+      - "Interaction Evidence Chain format should extend C23 EEB pattern for interface context"
+      - "OpenAPI/GraphQL conformance as implementation requirement, not as the architectural model"
+
+    dissent_record: |
+      Systems Thinker notes that IC-2's novelty score depends entirely on execution — if the
+      spec devolves into "API gateway with fancy names," it's just IC-1 with extra vocabulary.
+      The test is whether the receptor model and translation engine add genuine architectural
+      value beyond what OpenAPI + middleware would provide.
+
+      Critic notes that IC-3's schema-driven generation capability should be preserved as a
+      design requirement within IC-2 — the receptor registry should be machine-readable enough
+      to support automated SDK and CLI generation.
+
+    monitoring_for_research:
+      - "Validate that 'typed receptor' model has real prior art differentiation from standard API gateway patterns"
+      - "Assess whether Epistemic Translation Engine is feasible at specification level or requires ML/NLP components"
+      - "Confirm that Interaction Evidence Chain overhead is acceptable at scale"

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Lane Convergence Report",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "run_key",
+    "lane_id",
+    "reporter_node_id",
+    "worker_node_ids",
+    "status",
+    "recommendation_authorized",
+    "blocking_gates",
+    "generated_at",
+    "updated_at"
+  ],
+  "properties": {
+    "type": {"const": "LANE_CONVERGENCE_REPORT"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "lane_id": {"type": "string"},
+    "lane_label": {"type": "string"},
+    "reporter_node_id": {"type": "string"},
+    "worker_node_ids": {"type": "array", "items": {"type": "string"}},
+    "status": {"type": "string"},
+    "recommendation_authorized": {"type": "boolean"},
+    "blocking_gates": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

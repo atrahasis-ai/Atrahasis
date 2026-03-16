@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Idea Cluster Report",
+  "type": "object",
+  "required": ["type", "clusters"],
+  "properties": {
+    "type": {"const": "IDEA_CLUSTER_REPORT"},
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cluster", "hypotheses"],
+        "properties": {
+          "cluster": {"type": "string"},
+          "hypotheses": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

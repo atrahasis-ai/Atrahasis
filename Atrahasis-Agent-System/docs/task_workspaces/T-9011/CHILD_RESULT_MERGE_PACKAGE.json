@@ -1,0 +1,54 @@
+{
+  "type": "CHILD_RESULT_MERGE_PACKAGE",
+  "task_id": "T-9011",
+  "workflow_id": "T-9011-AASNI-20260315T162443Z",
+  "dispatch_id": "T-9011-IDEATION-20260315T162443Z",
+  "dispatch_status": "COMPLETED",
+  "generated_at": "2026-03-15T16:35:00Z",
+  "merge_ready": true,
+  "child_results": [
+    {
+      "artifact_path": "docs/task_workspaces/T-9011/children/visionary.json",
+      "child_id": "019cf250-b24e-76d2-b855-5be5945c1bff",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "REFRAME_INTO_NEW_INTERNAL_SUBSYSTEM"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9011/children/systems_thinker.json",
+      "child_id": "019cf250-b291-7e33-a841-687e673bba9e",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "NEW_AUTHORITY_ONLY_IF_REFRAMED"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9011/children/critic.json",
+      "child_id": "019cf250-b2db-73d0-9eee-89b7cc7af6ed",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_LAYER"
+    }
+  ],
+  "disagreement_signals": [
+    "All children reject the literal historical layer framing.",
+    "Visionary and Systems Thinker support a narrower internal orchestration subsystem if the operator wants a new authority surface.",
+    "The main residual disagreement is whether the gap is large enough for a new subsystem or small enough for direct-spec clarification."
+  ],
+  "recommended_parent_actions": [
+    "Present 3-4 options that distinguish literal revival, reframed subsystem, direct-spec addendum, and rejection as subsumed.",
+    "Recommend the reframed internal orchestration/control-plane option if the operator wants a new subsystem.",
+    "Stop after ideation and wait for operator choice."
+  ],
+  "source_refs": {
+    "children": [
+      "docs/task_workspaces/T-9011/children/visionary.json",
+      "docs/task_workspaces/T-9011/children/systems_thinker.json",
+      "docs/task_workspaces/T-9011/children/critic.json"
+    ]
+  },
+  "synthesis_outline": [
+    "The objective of decoupled model capacity remains valid.",
+    "The literal independent microservice layer collides with C45, C36, C39, and the T-300 supersession posture.",
+    "The strongest upgrade path is a new internal sovereign inference orchestration/control-plane authority, or a narrower direct-spec clarification if no standalone authority is needed."
+  ]
+}

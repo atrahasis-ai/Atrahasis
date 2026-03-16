@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Task Start Checklist",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "task_class",
+    "generated_at",
+    "readiness_checks",
+    "write_surface",
+    "required_artifacts",
+    "validators",
+    "stop_rules",
+    "dependency_ids",
+    "unresolved_dependencies",
+    "claim_conflicts",
+    "source_refs",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "TASK_START_CHECKLIST"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "task_class": {
+      "type": "string",
+      "enum": ["FULL_PIPELINE", "DIRECT_SPEC", "GOVERNANCE", "ANALYSIS", "PACKAGING", "VALIDATION", "DEMO"]
+    },
+    "title": {"type": ["string", "null"]},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "agent_name": {"type": ["string", "null"]},
+    "next_dispatchable_summary": {"type": ["string", "null"]},
+    "readiness_checks": {
+      "type": "object",
+      "required": ["task_listed", "dependencies_resolved", "claim_conflict", "dispatchable_now", "parallel_mode_active"],
+      "properties": {
+        "task_listed": {"type": "boolean"},
+        "dependencies_resolved": {"type": "boolean"},
+        "claim_conflict": {"type": "boolean"},
+        "dispatchable_now": {"type": "boolean"},
+        "parallel_mode_active": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "write_surface": {
+      "type": "object",
+      "required": ["mode", "paths", "source"],
+      "properties": {
+        "mode": {"type": "string"},
+        "paths": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "source": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "required_artifacts": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "validators": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "stop_rules": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "dependency_ids": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^T-\\d+$"}
+    },
+    "unresolved_dependencies": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^T-\\d+$"}
+    },
+    "claim_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["task_id", "agent_name", "reason"],
+        "properties": {
+          "task_id": {"type": "string"},
+          "agent_name": {"type": ["string", "null"]},
+          "reason": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "source_refs": {
+      "type": "object",
+      "required": ["todo", "claim", "workspace"],
+      "properties": {
+        "todo": {"type": "string"},
+        "claim": {"type": "string"},
+        "workspace": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Task Improvement Report",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "dispatch_id",
+    "current_stage",
+    "generated_at",
+    "trigger_policy",
+    "lane_summaries",
+    "parent_decision_options",
+    "recommended_parent_action",
+    "summary",
+    "source_refs"
+  ],
+  "properties": {
+    "type": {"const": "TASK_IMPROVEMENT_REPORT"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "dispatch_id": {"type": "string"},
+    "current_stage": {"type": ["string", "null"]},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "trigger_policy": {
+      "type": "object",
+      "required": ["enabled", "trigger_reasons", "decision_options", "lane_ids", "lane_order"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "contradiction_count": {"type": "integer", "minimum": 0},
+        "highest_novelty_score": {"type": ["number", "null"]},
+        "trigger_reasons": {"type": "array", "items": {"type": "string"}},
+        "decision_options": {"type": "array", "items": {"type": "string"}},
+        "lane_ids": {"type": "array", "items": {"type": "string"}},
+        "lane_order": {"type": "array", "items": {"type": "string"}},
+        "redesign_memory_signals": {
+          "type": "object",
+          "properties": {
+            "history_available": {"type": "boolean"},
+            "sample_size": {"type": "integer", "minimum": 0},
+            "related_entry_count": {"type": "integer", "minimum": 0},
+            "successful_count": {"type": "integer", "minimum": 0},
+            "adopt_count": {"type": "integer", "minimum": 0},
+            "hybridize_count": {"type": "integer", "minimum": 0},
+            "promote_count": {"type": "integer", "minimum": 0},
+            "reject_count": {"type": "integer", "minimum": 0},
+            "continue_count": {"type": "integer", "minimum": 0},
+            "escalate_count": {"type": "integer", "minimum": 0},
+            "gamma_related_count": {"type": "integer", "minimum": 0},
+            "adversarial_reviewed_count": {"type": "integer", "minimum": 0},
+            "adversarial_issue_count": {"type": "integer", "minimum": 0},
+            "historical_pressure_high": {"type": "boolean"},
+            "proven_improvement_available": {"type": "boolean"},
+            "preferred_parent_action": {"type": ["string", "null"]},
+            "full_branch_coverage_recommended": {"type": "boolean"},
+            "recurring_trigger_reasons": {"type": "array", "items": {"type": "string"}},
+            "recurring_disagreement_signals": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "lane_summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "lane_id",
+          "lane_label",
+          "lane_strategy",
+          "branch_count",
+          "completed_branch_count",
+          "status",
+          "branch_ids",
+          "verdicts",
+          "recommended_next_actions"
+        ],
+        "properties": {
+          "lane_id": {"type": "string"},
+          "lane_label": {"type": "string"},
+          "lane_strategy": {"type": "string"},
+          "branch_count": {"type": "integer", "minimum": 0},
+          "completed_branch_count": {"type": "integer", "minimum": 0},
+          "status": {"type": "string"},
+          "branch_ids": {"type": "array", "items": {"type": "string"}},
+          "verdicts": {"type": "array", "items": {"type": "string"}},
+          "recommended_next_actions": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "advisory_considerations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_role", "summary", "recommended_use", "artifact_path"],
+        "properties": {
+          "source_role": {"type": "string"},
+          "summary": {"type": "string"},
+          "recommended_use": {"type": "string"},
+          "artifact_path": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "parent_decision_options": {"type": "array", "items": {"type": "string"}},
+    "recommended_parent_action": {"type": "string"},
+    "summary": {"type": "string"},
+    "source_refs": {"type": "object", "additionalProperties": {"type": ["string", "null"]}}
+  },
+  "additionalProperties": false
+}

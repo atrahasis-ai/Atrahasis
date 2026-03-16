@@ -1,0 +1,11 @@
+command_modifier: AASNI
+task_id: T-9013
+prompt: Treat the following as a candidate new FULL PIPELINE task, but do not add
+  it to docs/TODO.md, do not claim a canonical task, and do not edit shared state
+  yet.
+scope: new_idea_integration
+operator_constraints: []
+hitl_requirements:
+- CONCEPT_SELECTION
+- PIVOT
+created_at: '2026-03-16T06:44:25Z'

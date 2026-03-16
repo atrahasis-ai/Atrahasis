@@ -1,0 +1,25 @@
+task_id: T-300
+invention_ids: []
+target_specs:
+- C4
+- C38
+title: 'ADR: C4 Supersession Boundary and Compatibility Policy'
+platform: CODEX
+agent_name: Ninlil
+claimed_at: '2026-03-15T13:01:07Z'
+updated_at: '2026-03-15T13:04:19Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-300/
+  - docs/DECISIONS.md
+  - docs/TODO.md
+  - docs/SESSION_BRIEF.md
+  - docs/AGENT_STATE.md
+  - docs/COMPLETED.md
+  pipeline_type: GOVERNANCE
+notes: >-
+  Completed on 2026-03-15. Defined the canonical C4 supersession boundary:
+  C4 remains retained as historical and compatibility baseline for retrofit,
+  audit, and migration work, but Alternative C artifacts are now the forward
+  communication authority surfaces for downstream tasks T-302 through T-309.

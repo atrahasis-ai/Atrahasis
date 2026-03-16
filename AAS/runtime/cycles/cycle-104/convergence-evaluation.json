@@ -1,0 +1,23 @@
+{
+  "condition_count": 2,
+  "conditions": {
+    "aep_stagnation": false,
+    "capability_plateau": true,
+    "swarm_consensus": true
+  },
+  "conditions_met": [
+    "capability_plateau",
+    "swarm_consensus"
+  ],
+  "converged": true,
+  "generated_at": "2026-03-13T10:33:51Z",
+  "run_cycle_index": 4,
+  "selected_metrics": {
+    "adversarial_resilience": 0.909,
+    "capability_improvement": 0.045,
+    "consensus_score": 0.882,
+    "meaningful_change_score": 0.165,
+    "pressure_resilience": 0.975,
+    "selection_score": 0.61
+  }
+}

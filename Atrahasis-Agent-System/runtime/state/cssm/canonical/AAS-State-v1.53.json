@@ -1,0 +1,712 @@
+{
+  "approved_proposals": [
+    "AEP-ALPHA-001",
+    "AEP-BETA-001",
+    "AEP-GAMMA-001",
+    "META-MERGE-001",
+    "META-CYCLE001-MERGE-001",
+    "META-CYCLE002-MERGE-001",
+    "META-CYCLE003-MERGE-001",
+    "META-CYCLE004-MERGE-001",
+    "META-CYCLE005-MERGE-001",
+    "META-CYCLE006-MERGE-001",
+    "META-CYCLE007-MERGE-001",
+    "META-CYCLE008-MERGE-001",
+    "META-CYCLE009-MERGE-001",
+    "META-CYCLE010-MERGE-001",
+    "META-CYCLE011-MERGE-001",
+    "META-CYCLE012-MERGE-001",
+    "META-CYCLE013-MERGE-001",
+    "META-CYCLE014-MERGE-001",
+    "META-CYCLE015-MERGE-001",
+    "META-CYCLE016-MERGE-001",
+    "META-CYCLE017-MERGE-001",
+    "META-CYCLE018-MERGE-001",
+    "META-CYCLE019-MERGE-001",
+    "META-CYCLE020-MERGE-001",
+    "META-CYCLE021-MERGE-001",
+    "META-CYCLE022-MERGE-001",
+    "META-CYCLE023-MERGE-001",
+    "META-CYCLE024-MERGE-001",
+    "META-CYCLE025-MERGE-001",
+    "META-CYCLE026-MERGE-001",
+    "META-CYCLE027-MERGE-001",
+    "META-CYCLE028-MERGE-001",
+    "META-CYCLE029-MERGE-001",
+    "META-CYCLE030-MERGE-001",
+    "META-CYCLE031-MERGE-001",
+    "META-CYCLE032-MERGE-001",
+    "META-CYCLE033-MERGE-001",
+    "META-CYCLE034-MERGE-001",
+    "META-CYCLE035-MERGE-001",
+    "META-CYCLE036-MERGE-001",
+    "META-CYCLE037-MERGE-001",
+    "META-CYCLE038-MERGE-001",
+    "META-CYCLE039-MERGE-001",
+    "META-CYCLE040-MERGE-001",
+    "META-CYCLE041-MERGE-001",
+    "META-CYCLE042-MERGE-001",
+    "META-CYCLE043-MERGE-001",
+    "META-CYCLE044-MERGE-001",
+    "META-CYCLE045-MERGE-001",
+    "META-CYCLE046-MERGE-001",
+    "META-CYCLE047-MERGE-001",
+    "META-CYCLE048-MERGE-001",
+    "META-CYCLE049-MERGE-001",
+    "META-CYCLE050-MERGE-001",
+    "META-CYCLE051-MERGE-001",
+    "META-CYCLE052-MERGE-001"
+  ],
+  "architecture_map": {
+    "governing_principle": "The most capable invention should be preferred. If the architecture cannot support it, the architecture must evolve. If governance cannot support the evolution, governance must evolve.",
+    "layers": [
+      "Strategic Planning Layer",
+      "Parallel Architecture Evolution Engine",
+      "Coordination Kernel",
+      "Canonical System State Model",
+      "Agent Capability Registry",
+      "Global Context Memory Layer",
+      "Agent Teams",
+      "Innovation Market",
+      "Councils",
+      "Task Generation System"
+    ]
+  },
+  "config_snapshot": {
+    "aas_config": {
+      "allow_multi_terminal_spawn": true,
+      "cssm_initial_version": "AAS-State-v1.0",
+      "default_terminal_mode": "single",
+      "max_swarms": 3,
+      "paee_enabled": true,
+      "system_name": "Atrahasis Agent System"
+    },
+    "model_allocation": {
+      "architecture_agents": "gpt-5.4",
+      "code_intelligence_agents": "gpt-5.4",
+      "council_agents": "gpt-5.4-thinking",
+      "kernel_agents": "gpt-5.4",
+      "simulation_agents": "gpt-5.4",
+      "strategic_agents": "gpt-5.4-thinking"
+    },
+    "swarms": {
+      "alpha": {
+        "agent_target_count": 40,
+        "name": "Swarm Alpha",
+        "optimization": "minimal_architecture_disruption",
+        "philosophy": "stability-first"
+      },
+      "beta": {
+        "agent_target_count": 40,
+        "name": "Swarm Beta",
+        "optimization": "capability_vs_complexity_balance",
+        "philosophy": "balanced-evolution"
+      },
+      "gamma": {
+        "agent_target_count": 40,
+        "name": "Swarm Gamma",
+        "optimization": "maximum_long_term_capability",
+        "philosophy": "radical-innovation"
+      }
+    }
+  },
+  "cssm_version": "AAS-State-v1.53",
+  "cycle_history": [
+    {
+      "completed_at": "2026-03-13T10:16:23Z",
+      "completed_task_id": "AAS-TASK-NEXT-001",
+      "cycle_number": 1,
+      "new_task_id": "AAS-TASK-CYCLE-001-001",
+      "selected_proposal": "META-CYCLE001-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:48Z",
+      "completed_task_id": "AAS-TASK-NEXT-002",
+      "cycle_number": 2,
+      "new_task_id": "AAS-TASK-CYCLE-002-001",
+      "selected_proposal": "META-CYCLE002-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:53Z",
+      "completed_task_id": "AAS-TASK-CYCLE-001-001",
+      "cycle_number": 3,
+      "new_task_id": "AAS-TASK-CYCLE-003-001",
+      "selected_proposal": "META-CYCLE003-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:58Z",
+      "completed_task_id": "AAS-TASK-CYCLE-002-001",
+      "cycle_number": 4,
+      "new_task_id": "AAS-TASK-CYCLE-004-001",
+      "selected_proposal": "META-CYCLE004-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:03Z",
+      "completed_task_id": "AAS-TASK-CYCLE-003-001",
+      "cycle_number": 5,
+      "new_task_id": "AAS-TASK-CYCLE-005-001",
+      "selected_proposal": "META-CYCLE005-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:08Z",
+      "completed_task_id": "AAS-TASK-CYCLE-004-001",
+      "cycle_number": 6,
+      "new_task_id": "AAS-TASK-CYCLE-006-001",
+      "selected_proposal": "META-CYCLE006-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:13Z",
+      "completed_task_id": "AAS-TASK-CYCLE-005-001",
+      "cycle_number": 7,
+      "new_task_id": "AAS-TASK-CYCLE-007-001",
+      "selected_proposal": "META-CYCLE007-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:18Z",
+      "completed_task_id": "AAS-TASK-CYCLE-006-001",
+      "cycle_number": 8,
+      "new_task_id": "AAS-TASK-CYCLE-008-001",
+      "selected_proposal": "META-CYCLE008-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:23Z",
+      "completed_task_id": "AAS-TASK-CYCLE-007-001",
+      "cycle_number": 9,
+      "new_task_id": "AAS-TASK-CYCLE-009-001",
+      "selected_proposal": "META-CYCLE009-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:28Z",
+      "completed_task_id": "AAS-TASK-CYCLE-008-001",
+      "cycle_number": 10,
+      "new_task_id": "AAS-TASK-CYCLE-010-001",
+      "selected_proposal": "META-CYCLE010-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:33Z",
+      "completed_task_id": "AAS-TASK-CYCLE-009-001",
+      "cycle_number": 11,
+      "new_task_id": "AAS-TASK-CYCLE-011-001",
+      "selected_proposal": "META-CYCLE011-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:38Z",
+      "completed_task_id": "AAS-TASK-CYCLE-010-001",
+      "cycle_number": 12,
+      "new_task_id": "AAS-TASK-CYCLE-012-001",
+      "selected_proposal": "META-CYCLE012-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:43Z",
+      "completed_task_id": "AAS-TASK-CYCLE-011-001",
+      "cycle_number": 13,
+      "new_task_id": "AAS-TASK-CYCLE-013-001",
+      "selected_proposal": "META-CYCLE013-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:48Z",
+      "completed_task_id": "AAS-TASK-CYCLE-012-001",
+      "cycle_number": 14,
+      "new_task_id": "AAS-TASK-CYCLE-014-001",
+      "selected_proposal": "META-CYCLE014-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:53Z",
+      "completed_task_id": "AAS-TASK-CYCLE-013-001",
+      "cycle_number": 15,
+      "new_task_id": "AAS-TASK-CYCLE-015-001",
+      "selected_proposal": "META-CYCLE015-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:58Z",
+      "completed_task_id": "AAS-TASK-CYCLE-014-001",
+      "cycle_number": 16,
+      "new_task_id": "AAS-TASK-CYCLE-016-001",
+      "selected_proposal": "META-CYCLE016-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:03Z",
+      "completed_task_id": "AAS-TASK-CYCLE-015-001",
+      "cycle_number": 17,
+      "new_task_id": "AAS-TASK-CYCLE-017-001",
+      "selected_proposal": "META-CYCLE017-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:08Z",
+      "completed_task_id": "AAS-TASK-CYCLE-016-001",
+      "cycle_number": 18,
+      "new_task_id": "AAS-TASK-CYCLE-018-001",
+      "selected_proposal": "META-CYCLE018-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:13Z",
+      "completed_task_id": "AAS-TASK-CYCLE-017-001",
+      "cycle_number": 19,
+      "new_task_id": "AAS-TASK-CYCLE-019-001",
+      "selected_proposal": "META-CYCLE019-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:18Z",
+      "completed_task_id": "AAS-TASK-CYCLE-018-001",
+      "cycle_number": 20,
+      "new_task_id": "AAS-TASK-CYCLE-020-001",
+      "selected_proposal": "META-CYCLE020-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:23Z",
+      "completed_task_id": "AAS-TASK-CYCLE-019-001",
+      "cycle_number": 21,
+      "new_task_id": "AAS-TASK-CYCLE-021-001",
+      "selected_proposal": "META-CYCLE021-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:28Z",
+      "completed_task_id": "AAS-TASK-CYCLE-020-001",
+      "cycle_number": 22,
+      "new_task_id": "AAS-TASK-CYCLE-022-001",
+      "selected_proposal": "META-CYCLE022-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:33Z",
+      "completed_task_id": "AAS-TASK-CYCLE-021-001",
+      "cycle_number": 23,
+      "new_task_id": "AAS-TASK-CYCLE-023-001",
+      "selected_proposal": "META-CYCLE023-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:38Z",
+      "completed_task_id": "AAS-TASK-CYCLE-022-001",
+      "cycle_number": 24,
+      "new_task_id": "AAS-TASK-CYCLE-024-001",
+      "selected_proposal": "META-CYCLE024-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:43Z",
+      "completed_task_id": "AAS-TASK-CYCLE-023-001",
+      "cycle_number": 25,
+      "new_task_id": "AAS-TASK-CYCLE-025-001",
+      "selected_proposal": "META-CYCLE025-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:48Z",
+      "completed_task_id": "AAS-TASK-CYCLE-024-001",
+      "cycle_number": 26,
+      "new_task_id": "AAS-TASK-CYCLE-026-001",
+      "selected_proposal": "META-CYCLE026-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:53Z",
+      "completed_task_id": "AAS-TASK-CYCLE-025-001",
+      "cycle_number": 27,
+      "new_task_id": "AAS-TASK-CYCLE-027-001",
+      "selected_proposal": "META-CYCLE027-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:58Z",
+      "completed_task_id": "AAS-TASK-CYCLE-026-001",
+      "cycle_number": 28,
+      "new_task_id": "AAS-TASK-CYCLE-028-001",
+      "selected_proposal": "META-CYCLE028-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:03Z",
+      "completed_task_id": "AAS-TASK-CYCLE-027-001",
+      "cycle_number": 29,
+      "new_task_id": "AAS-TASK-CYCLE-029-001",
+      "selected_proposal": "META-CYCLE029-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:08Z",
+      "completed_task_id": "AAS-TASK-CYCLE-028-001",
+      "cycle_number": 30,
+      "new_task_id": "AAS-TASK-CYCLE-030-001",
+      "selected_proposal": "META-CYCLE030-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:13Z",
+      "completed_task_id": "AAS-TASK-CYCLE-029-001",
+      "cycle_number": 31,
+      "new_task_id": "AAS-TASK-CYCLE-031-001",
+      "selected_proposal": "META-CYCLE031-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:18Z",
+      "completed_task_id": "AAS-TASK-CYCLE-030-001",
+      "cycle_number": 32,
+      "new_task_id": "AAS-TASK-CYCLE-032-001",
+      "selected_proposal": "META-CYCLE032-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:23Z",
+      "completed_task_id": "AAS-TASK-CYCLE-031-001",
+      "cycle_number": 33,
+      "new_task_id": "AAS-TASK-CYCLE-033-001",
+      "selected_proposal": "META-CYCLE033-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:28Z",
+      "completed_task_id": "AAS-TASK-CYCLE-032-001",
+      "cycle_number": 34,
+      "new_task_id": "AAS-TASK-CYCLE-034-001",
+      "selected_proposal": "META-CYCLE034-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:33Z",
+      "completed_task_id": "AAS-TASK-CYCLE-033-001",
+      "cycle_number": 35,
+      "new_task_id": "AAS-TASK-CYCLE-035-001",
+      "selected_proposal": "META-CYCLE035-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:38Z",
+      "completed_task_id": "AAS-TASK-CYCLE-034-001",
+      "cycle_number": 36,
+      "new_task_id": "AAS-TASK-CYCLE-036-001",
+      "selected_proposal": "META-CYCLE036-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:43Z",
+      "completed_task_id": "AAS-TASK-CYCLE-035-001",
+      "cycle_number": 37,
+      "new_task_id": "AAS-TASK-CYCLE-037-001",
+      "selected_proposal": "META-CYCLE037-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:48Z",
+      "completed_task_id": "AAS-TASK-CYCLE-036-001",
+      "cycle_number": 38,
+      "new_task_id": "AAS-TASK-CYCLE-038-001",
+      "selected_proposal": "META-CYCLE038-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:53Z",
+      "completed_task_id": "AAS-TASK-CYCLE-037-001",
+      "cycle_number": 39,
+      "new_task_id": "AAS-TASK-CYCLE-039-001",
+      "selected_proposal": "META-CYCLE039-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:58Z",
+      "completed_task_id": "AAS-TASK-CYCLE-038-001",
+      "cycle_number": 40,
+      "new_task_id": "AAS-TASK-CYCLE-040-001",
+      "selected_proposal": "META-CYCLE040-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:03Z",
+      "completed_task_id": "AAS-TASK-CYCLE-039-001",
+      "cycle_number": 41,
+      "new_task_id": "AAS-TASK-CYCLE-041-001",
+      "selected_proposal": "META-CYCLE041-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:08Z",
+      "completed_task_id": "AAS-TASK-CYCLE-040-001",
+      "cycle_number": 42,
+      "new_task_id": "AAS-TASK-CYCLE-042-001",
+      "selected_proposal": "META-CYCLE042-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:13Z",
+      "completed_task_id": "AAS-TASK-CYCLE-041-001",
+      "cycle_number": 43,
+      "new_task_id": "AAS-TASK-CYCLE-043-001",
+      "selected_proposal": "META-CYCLE043-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:18Z",
+      "completed_task_id": "AAS-TASK-CYCLE-042-001",
+      "cycle_number": 44,
+      "new_task_id": "AAS-TASK-CYCLE-044-001",
+      "selected_proposal": "META-CYCLE044-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:23Z",
+      "completed_task_id": "AAS-TASK-CYCLE-043-001",
+      "cycle_number": 45,
+      "new_task_id": "AAS-TASK-CYCLE-045-001",
+      "selected_proposal": "META-CYCLE045-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:28Z",
+      "completed_task_id": "AAS-TASK-CYCLE-044-001",
+      "cycle_number": 46,
+      "new_task_id": "AAS-TASK-CYCLE-046-001",
+      "selected_proposal": "META-CYCLE046-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:33Z",
+      "completed_task_id": "AAS-TASK-CYCLE-045-001",
+      "cycle_number": 47,
+      "new_task_id": "AAS-TASK-CYCLE-047-001",
+      "selected_proposal": "META-CYCLE047-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:38Z",
+      "completed_task_id": "AAS-TASK-CYCLE-046-001",
+      "cycle_number": 48,
+      "new_task_id": "AAS-TASK-CYCLE-048-001",
+      "selected_proposal": "META-CYCLE048-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:43Z",
+      "completed_task_id": "AAS-TASK-CYCLE-047-001",
+      "cycle_number": 49,
+      "new_task_id": "AAS-TASK-CYCLE-049-001",
+      "selected_proposal": "META-CYCLE049-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:48Z",
+      "completed_task_id": "AAS-TASK-CYCLE-048-001",
+      "cycle_number": 50,
+      "new_task_id": "AAS-TASK-CYCLE-050-001",
+      "selected_proposal": "META-CYCLE050-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:54Z",
+      "completed_task_id": "AAS-TASK-CYCLE-049-001",
+      "cycle_number": 51,
+      "new_task_id": "AAS-TASK-CYCLE-051-001",
+      "selected_proposal": "META-CYCLE051-MERGE-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:59Z",
+      "completed_task_id": "AAS-TASK-CYCLE-050-001",
+      "cycle_number": 52,
+      "new_task_id": "AAS-TASK-CYCLE-052-001",
+      "selected_proposal": "META-CYCLE052-MERGE-001"
+    }
+  ],
+  "detected_gaps": [
+    {
+      "affected_layers": [
+        "Strategic Planning",
+        "Runtime",
+        "Agent",
+        "Governance"
+      ],
+      "baseline_status": "specified_only",
+      "evidence": [
+        "Repo exposes documentation and validators but no orchestration runtime.",
+        "Baseline scripts: validate_agent_state.py, validate_contribution_requests.py, validate_invention_concept.py"
+      ],
+      "gap_id": "GAP-001",
+      "impact": "The system cannot execute recursive architecture evolution as a program.",
+      "severity": "critical",
+      "title": "Missing executable coordination kernel"
+    },
+    {
+      "affected_layers": [
+        "CSSM",
+        "PAEE",
+        "GCML"
+      ],
+      "baseline_status": "missing",
+      "evidence": [
+        "No canonical state store existed under the legacy external runtime/state path.",
+        "No per-swarm CSSM isolation surfaces existed for Alpha/Beta/Gamma."
+      ],
+      "gap_id": "GAP-002",
+      "impact": "Agents cannot reason against versioned architecture state or compare futures.",
+      "severity": "critical",
+      "title": "No canonical CSSM snapshots or isolated swarm state"
+    },
+    {
+      "affected_layers": [
+        "Registry",
+        "Coordination Kernel",
+        "Task Generation"
+      ],
+      "baseline_status": "missing",
+      "evidence": [
+        "The repo had durable invention history but no machine-readable ACR.",
+        "No executable task dependency graph or proposal registry existed."
+      ],
+      "gap_id": "GAP-003",
+      "impact": "Capability-aware assignment and proposal-driven execution were impossible.",
+      "severity": "high",
+      "title": "No agent capability registry, proposal registry, or task graph runtime"
+    },
+    {
+      "affected_layers": [
+        "Monitoring",
+        "Failure Recovery",
+        "Governance"
+      ],
+      "baseline_status": "missing",
+      "evidence": [
+        "No legacy external runtime/logs directory existed.",
+        "No recovery manifest or deterministic resume source existed."
+      ],
+      "gap_id": "GAP-004",
+      "impact": "The system could not be observed, audited, or resumed after interruption.",
+      "severity": "high",
+      "title": "No telemetry or recovery control plane"
+    },
+    {
+      "affected_layers": [
+        "Configuration",
+        "Bootstrap"
+      ],
+      "baseline_status": "materialized",
+      "evidence": [
+        "AAS configuration existed in aas_configuration_pack.zip.",
+        "The expected legacy AAS config directory was absent before bootstrap."
+      ],
+      "gap_id": "GAP-005",
+      "impact": "Initialization depended on manual extraction rather than deterministic loading.",
+      "severity": "medium",
+      "title": "Configuration pack was archived but not materialized as a runtime directory"
+    }
+  ],
+  "document_manifest": [
+    {
+      "char_count": 4340,
+      "line_count": 153,
+      "name": "aas_system_architecture_document_regenerated.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_system_architecture_document_regenerated.md",
+      "sha256": "9f560bd8e379f0328a15af98bcce6dbbb1f07a6e7d54bb946a1106518cd58270"
+    },
+    {
+      "char_count": 4164,
+      "line_count": 145,
+      "name": "aas_master_documentation_pack_regenerated.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_master_documentation_pack_regenerated.md",
+      "sha256": "13cae476d17013497f2c02614baed1d33b0ce87cdca778f69f8a712eaef572e7"
+    },
+    {
+      "char_count": 4715,
+      "line_count": 194,
+      "name": "aas_cssm_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_cssm_spec.md",
+      "sha256": "691812f242bdf77f3759603679dcbe8de43bb6b9c1527d402f9bcdb7bf28dd9c"
+    },
+    {
+      "char_count": 4292,
+      "line_count": 170,
+      "name": "aas_paee_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_paee_spec.md",
+      "sha256": "1c9e6201079e600865b8b009de1cd95d97ffa64834483b4f5a2058b0fb8a2921"
+    },
+    {
+      "char_count": 3172,
+      "line_count": 115,
+      "name": "aas_model_allocation_matrix.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_model_allocation_matrix.md",
+      "sha256": "815cfa6863d83396278c78f66a353af2d48ef3e8630ae47d4afc8ec97e0c24c0"
+    },
+    {
+      "char_count": 4196,
+      "line_count": 175,
+      "name": "aas_agent_team_spec_regenerated.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_agent_team_spec_regenerated.md",
+      "sha256": "3dc664df8e03aed65bdf9cd67a6c2c8614c0a814fa7ebbcbf3d47caa3da58349"
+    },
+    {
+      "char_count": 4314,
+      "line_count": 179,
+      "name": "aas_agent_capability_registry_spec_regenerated.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_agent_capability_registry_spec_regenerated.md",
+      "sha256": "7968e57c949a229287fbbeacbe30361157e24de9acc5ef27f83672ee31e70e83"
+    },
+    {
+      "char_count": 4820,
+      "line_count": 206,
+      "name": "aas_council_governance_protocol.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_council_governance_protocol.md",
+      "sha256": "908cac7f9cc5cee48e90fcb0ee403c3f60ea6a6aca2ce6239b9b9b3a27ef38ab"
+    },
+    {
+      "char_count": 3416,
+      "line_count": 148,
+      "name": "aep_schema_regenerated.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aep_schema_regenerated.md",
+      "sha256": "398de8e9302b12a765c5477a02e4ca41c261efac7e1912bb694e190cbdccbadc"
+    },
+    {
+      "char_count": 1790,
+      "line_count": 94,
+      "name": "aep_schema_regenerated.json",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aep_schema_regenerated.json",
+      "sha256": "48d6b779fb68578a8c59ef60bfbf8e9d288faf967104a68ad5e23b33d60ca083"
+    },
+    {
+      "char_count": 5402,
+      "line_count": 236,
+      "name": "aas_task_generation_protocol.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_task_generation_protocol.md",
+      "sha256": "4bd228c10ce905aa014102bdf07e1f6e82944ff62a542e176a4367f1b806f8b1"
+    },
+    {
+      "char_count": 4607,
+      "line_count": 185,
+      "name": "innovation_market_protocol.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\innovation_market_protocol.md",
+      "sha256": "2f73f180deacb9c5206af2ae8d7bb9fb155aed9759e77fbe843c6dbf4ba2a3cd"
+    },
+    {
+      "char_count": 5591,
+      "line_count": 220,
+      "name": "aas_coordination_kernel_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_coordination_kernel_spec.md",
+      "sha256": "b6489e0cdb826ddc81a0277c3ffefa24d6b2bfcd4aec312a8e7aac5cf50ac485"
+    },
+    {
+      "char_count": 4948,
+      "line_count": 175,
+      "name": "aas_strategic_planning_layer_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_strategic_planning_layer_spec.md",
+      "sha256": "68f520952ecf68312ed1de5f8b56a03610e594c7becc2b8df12316c6d74882d1"
+    },
+    {
+      "char_count": 5077,
+      "line_count": 213,
+      "name": "aas_global_context_memory_layer_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_global_context_memory_layer_spec.md",
+      "sha256": "6cfda6daf4506e1f942dfa9b0176306f1a50e64fd57760ed92431cda31bd67a9"
+    },
+    {
+      "char_count": 3484,
+      "line_count": 169,
+      "name": "aas_monitoring_telemetry_spec.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_monitoring_telemetry_spec.md",
+      "sha256": "c4a1f7fafefdec4d31ab4ba68e8e8d907e7c376ccbbbc108f381263c9aaeb14a"
+    },
+    {
+      "char_count": 3239,
+      "line_count": 142,
+      "name": "aas_failure_recovery_protocol.md",
+      "path": "C:\\Users\\jever\\Atrahasis\\AAS\\aas_failure_recovery_protocol.md",
+      "sha256": "c2c62d68358575c55e840feb959727d25b2d2f43ae76e115a4284971475a7153"
+    }
+  ],
+  "generated_at": "2026-03-13T10:20:59Z",
+  "latest_cycle": {
+    "active_improvement_track": "Cycle 052 Meta-Merge Architecture",
+    "created_task": "AAS-TASK-CYCLE-052-001",
+    "cycle_number": 52,
+    "selected_proposal": "META-CYCLE052-MERGE-001"
+  },
+  "parent_cssm_version": "AAS-State-v1.52",
+  "repo_inventory": {
+    "baseline_scripts": [
+      "validate_agent_state.py",
+      "validate_contribution_requests.py",
+      "validate_invention_concept.py"
+    ],
+    "documentation_file_count": 479,
+    "has_agent_capability_registry": true,
+    "has_cssm_store": true,
+    "has_proposal_registry": true,
+    "has_recovery_manifest": true,
+    "has_runtime_kernel": true,
+    "has_runtime_logs": true,
+    "has_swarm_state": true,
+    "has_task_graph": true,
+    "master_tech_spec_count": 32,
+    "platform_overlay_count": 9,
+    "prototype_directory_count": 0,
+    "repo_root": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+    "task_workspace_count": 23
+  }
+}

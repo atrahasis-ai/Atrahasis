@@ -1,0 +1,44 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C38"
+title: "Five-Layer Sovereign Protocol Architecture (FSPA)"
+domain: "agent communication / protocol architecture / distributed systems / semantic interoperability / security"
+summary: >
+  FSPA defines AACP v2 as a sovereign five-layer stack: Transport, Session,
+  Security, Messaging, and Semantics. The central innovation is the semantic
+  integrity chain across these layers: canonical meaning originates in the
+  Semantics layer, Messaging packages lineage-bearing envelopes that reference
+  that meaning, Security binds authority and signatures to canonical references,
+  Session negotiates capabilities and recovery behavior, and Transport carries
+  framed bytes without semantic authority. This gives Alternative B the root
+  architectural boundary it was missing and prevents later tasks from improvising
+  or collapsing layer ownership.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  A sovereign cross-layer contract model in which canonical semantic identity is
+  defined once in the Semantics layer and preserved, signed, negotiated, and
+  transported by the other layers without being redefined by them.
+technical_approach: >
+  Specify per-layer ownership, forbidden behaviors, cross-layer invariants,
+  downgrade refusal rules, independent version surfaces, and native-versus-bridge
+  provenance posture. Keep message classes, type fields, handshake frames, and
+  transport wire details delegated to later tasks while making their architectural
+  authority boundaries explicit now.
+potential_applications:
+  - "Root architecture authority for the Alternative B AACP v2 buildout"
+  - "Stable basis for transport bindings, security modules, and tool connectivity"
+  - "End-to-end semantic integrity across verification, memory, runtime, federation, and interface layers"
+known_risks:
+  - "Layer contracts may drift if downstream tasks ignore forbidden-behavior rules"
+  - "Bridge compatibility paths may become de facto architecture if native surfaces remain underspecified"
+  - "Cross-encoding canonical identity may be implemented inconsistently without strong follow-on work in T-215"
+prior_art_concerns:
+  - "Layering itself is well known, so novelty depends on the Atrahasis-specific integrity contracts rather than the existence of layers"
+  - "The architecture must clearly outperform a compatibility overlay to justify Alternative B"
+research_questions:
+  - "Which negotiation failures must be mandatory hard-stops rather than profile-specific warnings?"
+  - "How should native and bridge provenance be represented so C5/C6/C8 can reason about degraded guarantees honestly?"
+  - "What is the minimal conformance surface that proves the five layers are real rather than decorative?"
+generated_at: "2026-03-12T12:55:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

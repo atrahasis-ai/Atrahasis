@@ -1,0 +1,72 @@
+{
+  "artifact_provenance": {
+    "notes": [
+      "Real child result produced from task-local ideation analysis.",
+      "Claim scan found no live CLAIMED or IN_PROGRESS canonical task claims in docs/task_claims at write time."
+    ],
+    "writer_agent_name": "Codex",
+    "writer_mode": "direct_child_analysis",
+    "writer_session_id": "codex-child-alpha-visionary-conservative-local"
+  },
+  "branch_id": "visionary:conservative",
+  "branch_kind": "conservative",
+  "branch_label": "Conservative Future",
+  "classification": "partially_subsumed_addendum_path",
+  "lane_id": "alpha",
+  "lane_label": "Alpha Lane",
+  "lane_strategy": "Improve the current task path without breaking core assumptions.",
+  "model_audit": {
+    "actual_runtime_model": "gpt-5.4",
+    "auditability": "direct_runtime_write",
+    "policy_target": "gpt-5.4",
+    "reasoning_effort": "high",
+    "routing_basis": "User-directed real future-branch child execution for T-9013 in Codex."
+  },
+  "objective": "Explore the highest-leverage minimal-change future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "one_sentence_thesis": "The idea should not become an independent microservice layer; the conservative high-leverage path is a narrow addendum that gives C45 a first-class internal inference-capacity and routing surface while leaving execution authority, membrane control, model promotion, and economics with their current owners.",
+  "parent_role": "visionary",
+  "role": "visionary",
+  "session_identity": {
+    "agent_name": "Codex",
+    "provider": "codex",
+    "role": "visionary",
+    "session_id": "codex-child-alpha-visionary-conservative-local"
+  },
+  "status": "COMPLETED",
+  "subsumption_assessment": "partially_subsumed",
+  "task_id": "T-9013",
+  "top_option_name": "Inference Capacity Addendum",
+  "type": "CHILD_AGENT_RESULT",
+  "verdict": "NEEDS_ADDENDUM",
+  "affected_modules": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C39",
+    "C22",
+    "C18",
+    "T-300"
+  ],
+  "key_upsides": [
+    "Closes the remaining gap around internal model-pool scheduling, batching, and route-to-capacity binding without minting a redundant subsystem.",
+    "Preserves the existing Alternative C authority split: C45 owns route execution posture, C42 owns priming and handoff, C47 owns native model promotion, and C36 owns external reachability.",
+    "Fits the already-budgeted and already-sequenced sovereign compute posture instead of inventing a new platform program."
+  ],
+  "key_risks": [
+    "Naming this as an independent microservice layer would drift back toward the old service-plane framing that T-300 bounded as non-forward authority.",
+    "A standalone layer could duplicate C45 execution-mode logic or blur C42/C23 authority boundaries.",
+    "If exposed directly, it would violate C36's derivative-only membrane posture and invite generic inference service creep."
+  ],
+  "evidence": [
+    "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md:22-29,59,68,72,153,210-221 - C45 already owns native-vs-leased execution mode, sovereign control-plane mediation, scrubbed leased cognition, and policy-locked route behavior.",
+    "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md:148-156,227-234,311,427-433,542,560-572 - C42 already owns invocation priming, bounded continuation, and runtime handoff while explicitly refusing to replace runtime lease authority.",
+    "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md:27-32,46,173-213,252-259,269-278,307 - C47 already defines the native model adaptation and quarantine-to-promotion path that should feed any internal inference substrate.",
+    "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md:42-50,79-91,185-187,247,520-527,727 - C36 already bounds all external interaction surfaces and permits only bounded derivative enterprise execution, not a generic externally reachable inference layer.",
+    "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md:42-46,237-238,377-392,592-616,968-975 - C39 already carries delegated sampling and model-provenance semantics, so a new message-family-level inference subsystem is unnecessary.",
+    "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md:23,429,939-953,994,1009 - C22 already budgets sovereign compute and bounded leased cognition and still flags full sequencing replacement as future work, which favors a scoped addendum over a new platform lane.",
+    "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md:37-42,494-512,557-560,793-805 - C18 already treats C45 leased cognition and C47 adaptation/quarantine as first-order operating costs, so the economics exist for an addendum but not for an independently justified subsystem.",
+    "docs/task_workspaces/T-300/BOUNDARY_POLICY_DRAFT.md:54-72,106-113,127-128 and docs/task_claims/T-300.yaml:22-24 - T-300 makes Alternative C surfaces the only forward authority and keeps C4-era assumptions only for retrofit, compatibility, and audit, which blocks reviving a historical microservice-style communication frame as a new forward subsystem."
+  ],
+  "recommended_next_action": "If the operator wants to preserve the idea, promote it only as a direct addendum concept: specify an internal inference-capacity surface under C45 with explicit hooks to C42 priming, C47 model-family supply, C22 sequencing, and C18 cost controls. Do not frame it as an independent subsystem."
+}

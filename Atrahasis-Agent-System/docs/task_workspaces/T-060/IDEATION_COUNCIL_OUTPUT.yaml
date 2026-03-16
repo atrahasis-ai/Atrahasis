@@ -1,0 +1,79 @@
+IDEATION_COUNCIL_OUTPUT:
+  task_id: "T-060"
+  domain: "graph-based security and anomaly detection for distributed multi-agent systems"
+  generated_at: "2026-03-12T03:30:00Z"
+  consensus_level: "MAJORITY"
+  concepts:
+    - concept_id: "IC-1"
+      title: "Counterpoint Graph — Independence-Violation Detection Architecture"
+      summary: "Inverts the anomaly detection problem by defining permitted correlation envelopes (PCM) for each structural cause of agent co-occurrence, then forming graph edges only from unexplained residual correlation. Three channels (verification co-occurrence, behavioral similarity, infrastructure fingerprint) each maintain independent PCMs with streaming incremental residual updates. Operates in two modes: Bootstrap (raw similarity, conservative thresholds, epochs 0-1000) and Calibrated (full PCM). Edges represent unexplained correlation; graph is sparse by construction in healthy systems."
+      novelty_score: 4.0
+      feasibility_score: 3.5
+      key_innovation: "Streaming incremental residual computation over a dynamic Permitted Correlation Model, where structural covariates change as committees rotate and epochs advance. Detection by independence violation rather than similarity search."
+      technical_approach: "Permitted Correlation Model computes E[corr(a_i, a_j)] = sum_k f_k(structural_overlap_k) for each channel. Residual R = observed - expected. Edges form when |R| exceeds threshold. LSH pre-filters candidate pairs (from C17). ETR outputs are deterministic mappings: skew_metric = temporal residual vs. system mean, starvation_flag = verification residual below negative threshold, divergence_metric = max behavioral residual vs. neighbors. Periodic cluster snapshots at consolidation cycle for graceful degradation. C12 AVAP edges treated as externally confirmed residuals."
+      potential_applications:
+        - "Sybil detection via unexplained behavioral correlation clusters"
+        - "Infrastructure collocation detection via infrastructure-channel residuals"
+        - "Committee manipulation detection via verification co-occurrence residuals that exceed structural expectation"
+        - "Bootstrapping attack detection when calibration-phase agents show unusual residual patterns"
+      known_risks:
+        - "PCM calibration quality determines detection quality — bad calibration creates false confidence"
+        - "Bootstrapping attack: adversary enters during calibration, normalizes anomalous patterns into baseline"
+        - "Cold-start: Bootstrap Mode (epochs 0-1000) uses conservative raw similarity, weaker detection"
+        - "Three-channel fusion requires 6+ hyperparameters (threshold + weight per channel) with limited training data"
+        - "At 100K agents, even 5% edge density = 500M edges; LSH constant factors may dominate"
+      prior_art_concerns:
+        - "Configuration-model residual networks (Newman 2010) compute structurally-adjusted co-occurrence — same technique, different domain"
+        - "Covariate-adjusted association networks (Ovaskainen et al., 2017) in ecology are direct methodological predecessors"
+        - "Novelty is in application domain (multi-agent verification) and streaming incremental update, not in the residual concept itself"
+      research_questions:
+        - "Can the PCM be made adversarially robust against agents who create structural cover for their correlation?"
+        - "What minimum observation period is needed for PCM calibration to produce reliable residuals?"
+        - "How does the streaming incremental residual update perform under adversarial perturbation of structural covariates?"
+        - "Can the bootstrapping attack mitigation (exclude flagged agents from calibration) overcome its circularity?"
+      hitl_required: true
+    - concept_id: "IC-2"
+      title: "Seismographic Sentinel — Hierarchical Trigger Architecture with Quorum-Enhanced Streaming Detection"
+      summary: "Three-tier detection pipeline inspired by seismograph network architecture, augmented with quorum-sensing multi-channel thresholds absorbed from IC-3. Tier 1: per-agent STA/LTA anomaly detection on local metric streams (O(1) per agent). Tier 2: regional correlation via MIDAS streaming edge detection within spectrally-clustered neighborhoods, with 4-channel quorum threshold (verification, behavioral, infrastructure, economic). Tier 3: epidemiological backward tracing from confirmed anomalies to common causal sources. Fixed-baseline augmentation prevents boiling-frog evasion. Neighborhoods cap at 2*log(V) with split-on-overflow."
+      novelty_score: 3.0
+      feasibility_score: 4.5
+      key_innovation: "Three-tier detection pipeline (local trigger, regional correlation with multi-channel quorum, causal traceback) adapted to verification economics with AAS-native cross-layer integration. Fixed-baseline + adaptive-baseline parallel detection prevents slow-ramp evasion."
+      technical_approach: "Tier 1: Each agent maintains sliding-window STA/LTA ratios for verification latency, claim acceptance rate, committee frequency, behavioral consistency (from C17). Fixed baseline established at agent registration, checked in parallel with adaptive STA/LTA. Trigger on either exceeding threshold. Tier 2: Graph partitioned via spectral clustering at each consolidation cycle. Neighborhoods capped at 2*log(V); overflow triggers sub-split. When >=k agents trigger in a neighborhood within 20 epochs, activate MIDAS streaming edge detection + 4-channel quorum (>=3 of 4 channels anomalous to confirm). C12 AVAP edges pre-confirm as regional triggers. Tier 3: Backward tracing from confirmed anomalies using overdispersion analysis to identify common sources. ETR outputs: skew_metric = scheduling STA/LTA ratio, starvation_flag = verification STA/LTA below threshold, divergence_metric = max behavioral deviation in neighborhood. Degradation: Tier 1 continues independently, last-known cluster assignments persist, new agents as singletons."
+      potential_applications:
+        - "Real-time per-agent anomaly detection with sub-second latency (Tier 1)"
+        - "Regional collusion detection via neighborhood-scoped multi-channel correlation (Tier 2)"
+        - "Root-cause identification for systemic anomalies via causal traceback (Tier 3)"
+        - "ETR trigger generation for C3 tidal scheduling (skew, starvation, divergence)"
+        - "Cross-layer cluster membership API for C3, C5, C6, C8, C14"
+      known_risks:
+        - "Boiling frog attack: slowly ramping anomalies evade adaptive STA/LTA (mitigated by fixed-baseline parallel check)"
+        - "Adversarial neighborhood concentration: attackers cluster in one neighborhood to overwhelm Tier 2 (mitigated by cap + split)"
+        - "Spectral clustering on adversarially-influenced graph may produce manipulated partitions"
+        - "Integration complexity across 3 tiers with 5+ cross-layer contracts"
+        - "Fixed baseline becomes stale as system evolves — need periodic recalibration with safeguards"
+      prior_art_concerns:
+        - "STA/LTA: standard seismological technique (Allen 1978)"
+        - "MIDAS: published streaming edge anomaly detector (Bhatia et al., 2020)"
+        - "Spectral clustering: standard graph partitioning (Ng et al., 2001)"
+        - "Epidemiological traceback: standard contact tracing methodology"
+        - "Novelty is in composition and AAS-specific adaptation, not in any individual algorithm"
+      research_questions:
+        - "What is the end-to-end latency from Tier 1 trigger to Tier 3 confirmed anomaly? Does it fit within 20-epoch detection window?"
+        - "How does the fixed-baseline + adaptive-baseline parallel detection perform against sophisticated evasion?"
+        - "What is the optimal neighborhood size and split policy under adversarial concentration?"
+        - "Can Tier 3 backward tracing reliably identify causal sources when adversaries use intermediaries?"
+      hitl_required: true
+  recommended_concepts: ["IC-2"]
+  dissent_record:
+    - point: "IC-3 (Quorum Resonance Graph) should proceed as an independent concept rather than being absorbed into IC-2"
+      minority: "Visionary"
+      monitoring_flag: "MF-1: If IC-2 Tier 2 quorum-threshold integration proves insufficient at DESIGN, revisit IC-3 adaptive topology as standalone architecture"
+    - point: "IC-1 PCM calibration may not converge within 1000 epochs in adversarial conditions"
+      minority: "Critic"
+      monitoring_flag: "MF-2: At RESEARCH, validate PCM convergence bounds analytically and via simulation. If >5000 epochs needed, IC-1 feasibility drops to 2.5"
+    - point: "IC-2 novelty score of 3.0 may be insufficient for AAS pipeline approval given no novel algorithmic contribution"
+      minority: "Critic"
+      monitoring_flag: "MF-3: At RESEARCH, determine if three-tier composition with AAS-native integration constitutes sufficient novelty, or whether IC-1 elements should merge into IC-2"
+    - point: "Fixed-baseline augmentation in IC-2 may create a new attack vector if adversary can infer calibration-time baseline"
+      minority: "Systems Thinker"
+      monitoring_flag: "MF-4: At FEASIBILITY, Red Team must evaluate whether fixed baseline is reconstructible by adversary with partial observability"

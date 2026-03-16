@@ -1,0 +1,113 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "unified agent identity, registration, lifecycle, and citizenship for multi-agent AI systems"
+  generated_at: "2026-03-12T05:30:00Z"
+  consensus_level: "MAJORITY"
+  concepts:
+    - concept_id: "IC-1"
+      title: "Metamorphic Identity Architecture (MIA)"
+      summary: >
+        A unified identity system built around the Identity Continuity Kernel (ICK) — a minimal
+        set of invariant anchors (root cryptographic key, verified work product graph, stake position,
+        governance commitments) that persist through any agent transformation, including model upgrades.
+        Model upgrades trigger a formal Metamorphic Re-attestation Protocol (MRP): the agent enters a
+        chrysalis state where behavioral classification is suspended but accumulated reputation provides
+        a non-zero floor. Upon exit, the agent undergoes graduated re-entry with decaying reputation floor
+        until new behavioral evidence is established. Incorporates Identity Presentation Tokens (IPTs) from
+        immune-system-inspired continuous self-attestation — lightweight model/config hash attestations
+        carried in CausalStamps. Defines the missing agent registration lifecycle: keypair generation →
+        C7 registration → C8 account opening → probation → Citicate eligibility. AgentID is canonically
+        defined as a 256-bit identifier derived from the agent's root Ed25519 public key. ICK is
+        non-forkable by protocol — concurrent instances trigger Sybil investigation.
+      novelty_score: 4
+      feasibility_score: 3.5
+      key_innovation: >
+        Metamorphic Re-attestation Protocol (MRP) — a formal model for identity continuity
+        through fundamental agent transformation (model upgrades), solving the previously
+        unaddressed C17 OQ-05. No existing identity system distinguishes between credential
+        rotation and nature rotation.
+      technical_approach: >
+        (1) Define canonical AgentID as SHA-256(Ed25519_pubkey), providing both a 256-bit
+        identifier for C31 tiebreaking and a cryptographic anchor for authentication.
+        (2) Identity Continuity Kernel (ICK) containing: root_pubkey, work_product_summary_chain
+        (hash-linked historical summaries), stake_position (C8 reference), governance_commitments
+        (C14 Citicate reference), and registration_epoch.
+        (3) Lifecycle state machine: PROBATION → ACTIVE → CHRYSALIS → ACTIVE → RETIRED, with
+        transitions triggered by registration (entry), model upgrade declaration (chrysalis entry),
+        behavioral re-attestation completion (chrysalis exit), and voluntary/involuntary departure.
+        (4) MRP: chrysalis entry requires signed model-change attestation (model provider signature
+        or verifiable model hash delta). During chrysalis: behavioral profile suspended, capability_score
+        reset to 1.0, reputation_floor = f(historical_credibility, decay). Chrysalis max duration
+        parameterized (CHRYSALIS_MAX_EPOCHS). Exceeded → Citicate suspension.
+        (5) IPTs: lightweight attestations (model_hash, config_hash, runtime_attestation) added to
+        CausalStamp. Not continuously verified but logged for forensic audit and anomaly detection.
+        (6) Non-forkable ICK: concurrent root-key usage triggers AiSIA Sybil investigation.
+        (7) Credential Composition Query API: a read-only aggregation endpoint that composes
+        C5 credibility + C7 capability + C8 stake + C14 Citicate + C17 behavioral status into
+        a unified identity view for any consumer.
+      potential_applications:
+        - "Fills the missing agent registration protocol across C7/C8/C5/C14"
+        - "Solves C17 OQ-05 (model upgrade identity continuity)"
+        - "Canonicalizes AgentID format across all 6 specs"
+        - "Defines agent lifecycle from creation through citizenship to retirement"
+        - "Provides the AiSIA identity governance substrate"
+        - "Enables C22 Wave 1 agent execution runtime to have a registration target"
+      known_risks:
+        - "Identity laundering via fake model upgrade declarations to reset adverse behavioral history"
+        - "Chrysalis duration gaming — agents remaining in chrysalis to avoid behavioral monitoring"
+        - "Root key compromise breaks entire identity continuity chain"
+        - "Reputation floor computation creates a 'warm body' trust gap during re-entry"
+        - "ICK non-forkability enforcement requires real-time concurrent-use detection"
+      prior_art_concerns:
+        - "W3C DID provides the identifier/key management substrate — but DID addresses credential rotation, not nature rotation"
+        - "SPIFFE/SPIRE provides workload attestation patterns — but for ephemeral runtime identity, not persistent reputation"
+        - "Substrate identity pallet provides on-chain registrar attestation — but for human participants, not AI agents"
+      research_questions:
+        - "What cryptographic proof-of-model-change is achievable? Can model providers sign attestations, or must the system rely on verifiable model hashes?"
+        - "What is the optimal reputation floor decay function? Exponential, linear, or step-wise?"
+        - "How does ICK interact with federated deployment (C3 Phase 4 deferred federation)? Can an ICK be valid across trust domains?"
+        - "What is the computational overhead of IPT generation and logging at CausalStamp frequency?"
+        - "How should the Credential Composition API handle conflicting signals (high credibility + MCSD FLAG)?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Layered Credential Architecture (LCA)"
+      summary: >
+        A conservative approach that formalizes the existing fragmentation rather than unifying it.
+        Defines a minimal permanent identity anchor (AgentID + public key) and a Credential Composition
+        Protocol (CCP) for assembling partial credentials from C5/C7/C8/C14/C17 into unified views.
+        Each issuing authority manages its own credential lifecycle independently. The unified identity
+        is computed at query time, never stored as a single record.
+      novelty_score: 2.5
+      feasibility_score: 4.5
+      key_innovation: >
+        Credential Composition Protocol (CCP) — a formal protocol for composing partial
+        credentials into a unified identity view with conflict resolution rules.
+      technical_approach: >
+        (1) Canonical AgentID format. (2) CCP defines composition rules for each credential type.
+        (3) Conflict resolution matrix (e.g., high credibility + MCSD FLAG = restricted status).
+        (4) Registration protocol as a simple multi-step enrollment.
+      potential_applications:
+        - "Unifies AgentID format"
+        - "Adds missing registration protocol"
+        - "Formalizes existing credential relationships"
+      known_risks:
+        - "Does not solve model upgrade identity continuity (C17 OQ-05)"
+        - "May be too conservative — formalizes fragmentation rather than fixing it"
+      prior_art_concerns:
+        - "Very close to W3C DID + Verifiable Credentials Presentation Exchange"
+        - "Novelty is primarily in the AI agent application domain, not the architecture"
+      research_questions:
+        - "Is this novel enough to justify a full invention pipeline, or should it be direct spec edits?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-1"]
+  dissent_record:
+    - point: "IC-2 (LCA) may not be novel enough for a full invention — could be implemented as direct spec edits to C7/C8/C14"
+      minority: "Critic"
+      monitoring_flag: "If IC-1 proves infeasible, IC-2's registration protocol and AgentID canonicalization should be extracted as T-063 direct spec edits rather than a new invention"
+    - point: "Identity laundering via fake chrysalis transitions is a critical risk requiring explicit cryptographic countermeasures"
+      minority: "Critic"
+      monitoring_flag: "MRP must include verifiable proof-of-model-change; design must address laundering vector before FEASIBILITY"
+    - point: "Reputation floor during chrysalis creates a trust gap that could be exploited"
+      minority: "Critic"
+      monitoring_flag: "Graduated re-entry protocol must define privilege restrictions during the trust gap period"

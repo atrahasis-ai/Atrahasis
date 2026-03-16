@@ -1,0 +1,15 @@
+task_id: "T-223"
+agent_name: "Nergal"
+invention_ids: []
+target_specs:
+  - "C38"
+title: "AACP-Stdio Transport Binding"
+platform: "CODEX"
+claimed_at: "2026-03-12T15:05:00Z"
+updated_at: "2026-03-12T15:20:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C38/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C38 FSPA to v1.0.6 with Section 5.1.4 AACP-Stdio transport binding, defining `AACP-STDIO-v1`, UTF-8 NDJSON over stdin/stdout, `AASL-J`-only local-process carriage, parent-managed spawn/handshake/shutdown semantics, stderr isolation, 6 stdio parameters, 9 formal requirements (FSPA-R64 through FSPA-R72), and 5 conformance vectors (CV-23 through CV-27). Shared-state updates deferred to handoff."

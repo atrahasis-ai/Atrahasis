@@ -1,0 +1,17 @@
+task_id: "T-262"
+invention_ids: []
+target_specs: []
+title: "AACP SDK Architecture"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T22:30:00Z"
+updated_at: "2026-03-14T23:05:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/TODO.md"
+    - "docs/COMPLETED.md"
+    - "docs/task_workspaces/T-262/"
+    - "docs/task_claims/T-262.yaml"
+  pipeline_type: "DIRECT_SPEC"
+notes: "Completed on 2026-03-14. Authored docs/task_workspaces/T-262/SDK_ARCHITECTURE_SPEC.md as the task-scoped direct specification for the canonical five-module AACP SDK architecture across Python, TypeScript, and Rust, with aacp.protocol / aacp.security / aacp.discovery / aacp.runtime / aacp.conformance, explicit AACPClient and AACPServer surfaces, generated-SDK overlay rules, and first-class vector and certification-bundle tooling."

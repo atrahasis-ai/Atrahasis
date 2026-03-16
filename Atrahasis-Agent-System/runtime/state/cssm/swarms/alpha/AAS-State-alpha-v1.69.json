@@ -1,0 +1,417 @@
+{
+  "agent_target_count": 40,
+  "cssm_version": "AAS-State-alpha-v1.69",
+  "cycle_history": [
+    {
+      "completed_at": "2026-03-13T10:16:23Z",
+      "cycle_number": 1,
+      "proposal_id": "AEP-CYCLE001-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:48Z",
+      "cycle_number": 2,
+      "proposal_id": "AEP-CYCLE002-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:53Z",
+      "cycle_number": 3,
+      "proposal_id": "AEP-CYCLE003-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:16:58Z",
+      "cycle_number": 4,
+      "proposal_id": "AEP-CYCLE004-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:03Z",
+      "cycle_number": 5,
+      "proposal_id": "AEP-CYCLE005-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:08Z",
+      "cycle_number": 6,
+      "proposal_id": "AEP-CYCLE006-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:13Z",
+      "cycle_number": 7,
+      "proposal_id": "AEP-CYCLE007-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:18Z",
+      "cycle_number": 8,
+      "proposal_id": "AEP-CYCLE008-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:23Z",
+      "cycle_number": 9,
+      "proposal_id": "AEP-CYCLE009-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:28Z",
+      "cycle_number": 10,
+      "proposal_id": "AEP-CYCLE010-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:33Z",
+      "cycle_number": 11,
+      "proposal_id": "AEP-CYCLE011-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:38Z",
+      "cycle_number": 12,
+      "proposal_id": "AEP-CYCLE012-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:43Z",
+      "cycle_number": 13,
+      "proposal_id": "AEP-CYCLE013-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:48Z",
+      "cycle_number": 14,
+      "proposal_id": "AEP-CYCLE014-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:53Z",
+      "cycle_number": 15,
+      "proposal_id": "AEP-CYCLE015-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:17:58Z",
+      "cycle_number": 16,
+      "proposal_id": "AEP-CYCLE016-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:03Z",
+      "cycle_number": 17,
+      "proposal_id": "AEP-CYCLE017-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:08Z",
+      "cycle_number": 18,
+      "proposal_id": "AEP-CYCLE018-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:13Z",
+      "cycle_number": 19,
+      "proposal_id": "AEP-CYCLE019-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:18Z",
+      "cycle_number": 20,
+      "proposal_id": "AEP-CYCLE020-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:23Z",
+      "cycle_number": 21,
+      "proposal_id": "AEP-CYCLE021-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:28Z",
+      "cycle_number": 22,
+      "proposal_id": "AEP-CYCLE022-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:33Z",
+      "cycle_number": 23,
+      "proposal_id": "AEP-CYCLE023-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:38Z",
+      "cycle_number": 24,
+      "proposal_id": "AEP-CYCLE024-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:43Z",
+      "cycle_number": 25,
+      "proposal_id": "AEP-CYCLE025-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:48Z",
+      "cycle_number": 26,
+      "proposal_id": "AEP-CYCLE026-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:53Z",
+      "cycle_number": 27,
+      "proposal_id": "AEP-CYCLE027-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:18:58Z",
+      "cycle_number": 28,
+      "proposal_id": "AEP-CYCLE028-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:03Z",
+      "cycle_number": 29,
+      "proposal_id": "AEP-CYCLE029-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:08Z",
+      "cycle_number": 30,
+      "proposal_id": "AEP-CYCLE030-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:13Z",
+      "cycle_number": 31,
+      "proposal_id": "AEP-CYCLE031-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:18Z",
+      "cycle_number": 32,
+      "proposal_id": "AEP-CYCLE032-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:23Z",
+      "cycle_number": 33,
+      "proposal_id": "AEP-CYCLE033-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:28Z",
+      "cycle_number": 34,
+      "proposal_id": "AEP-CYCLE034-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:33Z",
+      "cycle_number": 35,
+      "proposal_id": "AEP-CYCLE035-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:38Z",
+      "cycle_number": 36,
+      "proposal_id": "AEP-CYCLE036-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:43Z",
+      "cycle_number": 37,
+      "proposal_id": "AEP-CYCLE037-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:48Z",
+      "cycle_number": 38,
+      "proposal_id": "AEP-CYCLE038-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:53Z",
+      "cycle_number": 39,
+      "proposal_id": "AEP-CYCLE039-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:19:58Z",
+      "cycle_number": 40,
+      "proposal_id": "AEP-CYCLE040-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:03Z",
+      "cycle_number": 41,
+      "proposal_id": "AEP-CYCLE041-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:08Z",
+      "cycle_number": 42,
+      "proposal_id": "AEP-CYCLE042-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:13Z",
+      "cycle_number": 43,
+      "proposal_id": "AEP-CYCLE043-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:18Z",
+      "cycle_number": 44,
+      "proposal_id": "AEP-CYCLE044-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:23Z",
+      "cycle_number": 45,
+      "proposal_id": "AEP-CYCLE045-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:28Z",
+      "cycle_number": 46,
+      "proposal_id": "AEP-CYCLE046-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:33Z",
+      "cycle_number": 47,
+      "proposal_id": "AEP-CYCLE047-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:38Z",
+      "cycle_number": 48,
+      "proposal_id": "AEP-CYCLE048-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:43Z",
+      "cycle_number": 49,
+      "proposal_id": "AEP-CYCLE049-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:48Z",
+      "cycle_number": 50,
+      "proposal_id": "AEP-CYCLE050-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:54Z",
+      "cycle_number": 51,
+      "proposal_id": "AEP-CYCLE051-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:20:59Z",
+      "cycle_number": 52,
+      "proposal_id": "AEP-CYCLE052-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:04Z",
+      "cycle_number": 53,
+      "proposal_id": "AEP-CYCLE053-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:09Z",
+      "cycle_number": 54,
+      "proposal_id": "AEP-CYCLE054-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:14Z",
+      "cycle_number": 55,
+      "proposal_id": "AEP-CYCLE055-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:19Z",
+      "cycle_number": 56,
+      "proposal_id": "AEP-CYCLE056-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:24Z",
+      "cycle_number": 57,
+      "proposal_id": "AEP-CYCLE057-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:29Z",
+      "cycle_number": 58,
+      "proposal_id": "AEP-CYCLE058-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:34Z",
+      "cycle_number": 59,
+      "proposal_id": "AEP-CYCLE059-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:39Z",
+      "cycle_number": 60,
+      "proposal_id": "AEP-CYCLE060-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:44Z",
+      "cycle_number": 61,
+      "proposal_id": "AEP-CYCLE061-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:49Z",
+      "cycle_number": 62,
+      "proposal_id": "AEP-CYCLE062-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:54Z",
+      "cycle_number": 63,
+      "proposal_id": "AEP-CYCLE063-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:21:59Z",
+      "cycle_number": 64,
+      "proposal_id": "AEP-CYCLE064-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:22:04Z",
+      "cycle_number": 65,
+      "proposal_id": "AEP-CYCLE065-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:22:09Z",
+      "cycle_number": 66,
+      "proposal_id": "AEP-CYCLE066-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:22:14Z",
+      "cycle_number": 67,
+      "proposal_id": "AEP-CYCLE067-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:22:19Z",
+      "cycle_number": 68,
+      "proposal_id": "AEP-CYCLE068-ALPHA-001"
+    },
+    {
+      "completed_at": "2026-03-13T10:22:24Z",
+      "cycle_number": 69,
+      "proposal_id": "AEP-CYCLE069-ALPHA-001"
+    }
+  ],
+  "gap_subset": [
+    {
+      "affected_layers": [
+        "Strategic Planning",
+        "Runtime",
+        "Agent",
+        "Governance"
+      ],
+      "baseline_status": "specified_only",
+      "evidence": [
+        "Repo exposes documentation and validators but no orchestration runtime.",
+        "Baseline scripts: validate_agent_state.py, validate_contribution_requests.py, validate_invention_concept.py"
+      ],
+      "gap_id": "GAP-001",
+      "impact": "The system cannot execute recursive architecture evolution as a program.",
+      "severity": "critical",
+      "title": "Missing executable coordination kernel"
+    },
+    {
+      "affected_layers": [
+        "Monitoring",
+        "Failure Recovery",
+        "Governance"
+      ],
+      "baseline_status": "missing",
+      "evidence": [
+        "No legacy external runtime/logs directory existed.",
+        "No recovery manifest or deterministic resume source existed."
+      ],
+      "gap_id": "GAP-004",
+      "impact": "The system could not be observed, audited, or resumed after interruption.",
+      "severity": "high",
+      "title": "No telemetry or recovery control plane"
+    },
+    {
+      "affected_layers": [
+        "Configuration",
+        "Bootstrap"
+      ],
+      "baseline_status": "materialized",
+      "evidence": [
+        "AAS configuration existed in aas_configuration_pack.zip.",
+        "The expected legacy AAS config directory was absent before bootstrap."
+      ],
+      "gap_id": "GAP-005",
+      "impact": "Initialization depended on manual extraction rather than deterministic loading.",
+      "severity": "medium",
+      "title": "Configuration pack was archived but not materialized as a runtime directory"
+    }
+  ],
+  "generated_at": "2026-03-13T10:22:24Z",
+  "last_cycle": {
+    "cycle_number": 69,
+    "proposal_id": "AEP-CYCLE069-ALPHA-001"
+  },
+  "name": "Swarm Alpha",
+  "optimization": "minimal_architecture_disruption",
+  "philosophy": "stability-first",
+  "priority_gap_order": [
+    "GAP-001",
+    "GAP-005",
+    "GAP-004"
+  ],
+  "source_canonical_state": "AAS-State-v1.0",
+  "state_isolation": true,
+  "swarm": "alpha"
+}

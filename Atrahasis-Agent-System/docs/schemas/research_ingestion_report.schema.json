@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Research Ingestion Report",
+  "type": "object",
+  "required": ["type", "evidence", "task_workspace_records", "inventory"],
+  "properties": {
+    "type": {"const": "RESEARCH_INGESTION_REPORT"},
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "category", "summary", "word_count", "invention_ids", "task_ids", "text"],
+        "properties": {
+          "path": {"type": "string"},
+          "category": {"type": "string"},
+          "summary": {"type": "string"},
+          "word_count": {"type": "integer", "minimum": 0},
+          "invention_ids": {"type": "array", "items": {"type": "string"}},
+          "task_ids": {"type": "array", "items": {"type": "string"}},
+          "text": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "task_workspace_records": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "inventory": {
+      "type": "object",
+      "required": ["documents", "categories"],
+      "properties": {
+        "documents": {"type": "integer", "minimum": 0},
+        "categories": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

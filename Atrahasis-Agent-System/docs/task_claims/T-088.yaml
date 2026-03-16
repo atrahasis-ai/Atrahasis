@@ -1,0 +1,15 @@
+task_id: "T-088"
+invention_ids: []
+target_specs:
+  - "C4"
+title: "Specify Canonicalizer service"
+platform: "CODEX"
+agent_name: "Inanna"
+claimed_at: "2026-03-12T08:21:24Z"
+updated_at: "2026-03-12T08:23:12Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C4/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Completed by Inanna. Added C4 Section 6.1 Canonicalizer Service, extended conformance/test coverage, and updated glossary/changelog metadata."

@@ -1,0 +1,101 @@
+{
+  "closest_prior_art": "docs/prior_art/C1/landscape.md",
+  "collision_risk": "high",
+  "differentiators": [
+    "Microvascular cooling analog applied to data center thermal regulation",
+    "CPU package cooling analog scaled to dense rack thermal regulation",
+    "Multi-loop automotive thermal staging adapted to high-density data center cooling"
+  ],
+  "hypothesis_assessments": [
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-001",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Microvascular cooling analog applied to data center thermal regulation",
+        "If microvascular cooling in biological systems regulates heat efficiently, then microfluidic cooling channels may improve data center thermal management for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-001",
+      "novelty_score": 2
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-002",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "CPU package cooling analog scaled to dense rack thermal regulation",
+        "If CPU package cooling succeeds by minimizing thermal path length, then warm-water direct-to-chip loops may reduce facility cooling energy while supporting dense compute for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-002",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-003",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Multi-loop automotive thermal staging adapted to high-density data center cooling",
+        "If automotive thermal systems use staged loops to handle both transient and sustained heat loads, then a hybrid immersion and liquid cooling architecture may improve data center efficiency for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-003",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-004",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Microfluidic cooling channels embedded in server boards",
+        "Use microfluidic cooling channels embedded in server boards to remove heat locally while preserving high computational density for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-004",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-005",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Immersion cooling with dielectric fluids",
+        "Use immersion cooling with dielectric fluids to reduce airflow energy while supporting dense rack-scale compute for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-005",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-006",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Phase-change cooling plates integrated with processors",
+        "Use phase-change cooling plates integrated with processors to reduce active cooling energy while buffering heat spikes in high-density compute for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-006",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-007",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Hybrid liquid and immersion cooling architecture",
+        "Use a hybrid liquid and immersion cooling architecture to balance cooling energy, serviceability, and thermal density for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-007",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-008",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Warm-water direct-to-chip liquid cooling loops",
+        "Use warm-water direct-to-chip liquid cooling loops to reduce chiller energy while sustaining high processor density for the problem: Design a data center cooling architecture that reduces energy consumption while increasing computational density."
+      ],
+      "hypothesis_id": "H-008",
+      "novelty_score": 1
+    }
+  ],
+  "novelty_score": 1,
+  "type": "NOVELTY_REPORT"
+}

@@ -1,0 +1,14 @@
+task_id: "T-072"
+invention_ids: []
+target_specs: ["C5"]
+title: "Unify Attestation Engine references"
+agent_name: "Shamash"
+platform: "CLAUDE"
+claimed_at: "2026-03-12T13:00:00Z"
+updated_at: "2026-03-12T13:30:00Z"
+status: "COMPLETE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C5/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_SPEC_EDIT"
+notes: "COMPLETE. Added Section 6.5 'End-to-End Attestation Flow' — 110-line consolidated pipeline reference with ASCII flow diagram, 12-step reference table, ordering constraints, AVAP and C35 integration notes. C5 grew from 3,746 to 3,856 lines."

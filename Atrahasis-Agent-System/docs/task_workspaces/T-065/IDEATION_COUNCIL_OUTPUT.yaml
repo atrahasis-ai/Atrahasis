@@ -1,0 +1,96 @@
+IDEATION_COUNCIL_OUTPUT:
+  task_id: "T-065"
+  domain: "distributed infrastructure / deployment topology / cross-region federation"
+  generated_at: "2026-03-12T04:25:00Z"
+  consensus_level: "MAJORITY"
+  concepts:
+    - concept_id: "IC-1"
+      title: "Cloud-Native Monocluster"
+      summary: >
+        Treat Atrahasis as a conventional multi-service cluster deployment with generic
+        multi-zone high availability and postpone real federation until much later.
+      novelty_score: 2
+      feasibility_score: 5
+      key_innovation: >
+        Minimize invention surface by collapsing infrastructure into standard cluster practices.
+      technical_approach: >
+        Use one primary multi-zone cluster, generic service mesh, shared data stores, and
+        ordinary disaster-recovery replication.
+      potential_applications:
+        - "Wave 1 bootstrap"
+        - "single-region development deployments"
+      known_risks:
+        - "Weak match for C3 locality and federation assumptions"
+        - "Produces no canonical answer for cross-region growth"
+        - "Over-centralizes shared infrastructure"
+      prior_art_concerns:
+        - "Strong overlap with existing platform-engineering patterns"
+      research_questions:
+        - "Can a monocluster architecture evolve cleanly into planetary-scale federation?"
+      hitl_required: false
+
+    - concept_id: "IC-2"
+      title: "Federated Habitat Fabric (FHF)"
+      summary: >
+        Introduce a region-scoped infrastructure domain called a Habitat that hosts loci,
+        parcel runtime hosts, state services, and explicit federation gateways. Most traffic
+        stays inside a habitat; cross-region coordination occurs only through typed habitat
+        federation contracts.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: >
+        Make the Habitat the missing deployment primitive between logical loci/parcels and
+        physical/cloud infrastructure, then bind habitats together with locality-first
+        federation windows and explicit gateway semantics.
+      technical_approach: >
+        Define Habitat Control, Data, State, Governance, and Federation planes. Map C3 loci
+        onto habitat-local execution domains, use C23 Parcel Runtime Hosts inside habitats,
+        and introduce explicit Federation Capsules for cross-region movement of approved
+        state, governance, and coordination artifacts.
+      potential_applications:
+        - "Canonical Atrahasis deployment architecture"
+        - "multi-region rollout with bounded WAN chatter"
+        - "failure-domain isolation and legal/data-residency boundaries"
+      known_risks:
+        - "Additional control-plane complexity"
+        - "Federation windows can add latency for cross-region workflows"
+        - "Habitat boundary design could become too rigid if not scoped carefully"
+      prior_art_concerns:
+        - "Overlaps with cell architectures, multi-cluster federation, and edge-cloud fabrics"
+      research_questions:
+        - "How much cross-region traffic must be forced through federation gateways before latency dominates?"
+        - "What state should remain habitat-local versus globally discoverable?"
+      hitl_required: false
+
+    - concept_id: "IC-3"
+      title: "Planetary Flat Mesh"
+      summary: >
+        Treat every locus and parcel as first-class peers in one globally connected mesh with
+        no strong regional boundary abstraction.
+      novelty_score: 3
+      feasibility_score: 2
+      key_innovation: >
+        Maximize global flexibility by removing explicit region-domain boundaries.
+      technical_approach: >
+        Use global addressing, ubiquitous service discovery, and adaptive WAN routing across
+        all loci and parcels.
+      potential_applications:
+        - "highly fluid research environments"
+      known_risks:
+        - "Contradicts C3 locality assumptions"
+        - "Unbounded WAN chatter and diffuse failure domains"
+        - "Weak data-sovereignty and governance boundary story"
+      prior_art_concerns:
+        - "Large overlap with generic global mesh visions that fail in practice"
+      research_questions:
+        - "Can a flat planetary mesh keep epoch and governance semantics tractable?"
+      hitl_required: false
+
+  recommended_concept: "IC-2"
+  dissent_record:
+    - point: "IC-1 is still the best bootstrap deployment mode for a single-habitat Wave 1 implementation."
+      minority: "Systems Thinker"
+      monitoring_flag: "Keep a monocluster bootstrap profile inside FHF rather than treating it as a separate long-term architecture."
+    - point: "IC-3 retains value as a stress-test mental model because it exposes what must never be left unconstrained."
+      minority: "Critic"
+      monitoring_flag: "Use the flat-mesh concept as an adversarial benchmark for federation leakage and WAN chatter."

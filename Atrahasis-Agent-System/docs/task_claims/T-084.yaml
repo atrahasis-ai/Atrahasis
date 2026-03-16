@@ -1,0 +1,15 @@
+task_id: "T-084"
+invention_ids: []
+target_specs:
+  - "C5"
+title: "Specify Contestable Reliance Membrane"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T07:52:00Z"
+updated_at: "2026-03-12T07:57:44Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C5/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Completed direct C5 contestable reliance membrane update in safe zone. Shared-state closeout queued in docs/handoffs/T-084_CODEX_HANDOFF.md."

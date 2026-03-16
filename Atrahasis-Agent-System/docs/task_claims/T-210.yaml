@@ -1,0 +1,21 @@
+task_id: "T-210"
+agent_name: "Ninsubur"
+invention_ids:
+  - "C38"
+target_specs: []
+title: "AACP v2 Five-Layer Protocol Model"
+platform: "CODEX"
+claimed_at: "2026-03-12T12:07:34Z"
+updated_at: "2026-03-12T12:18:35Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-210/"
+    - "docs/prior_art/C38/"
+    - "docs/specifications/C38/"
+    - "docs/invention_logs/C38_IDEATION.md"
+    - "docs/invention_logs/C38_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C38_FEASIBILITY.md"
+    - "docs/invention_logs/C38_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "DONE. IC-2 Five-Layer Sovereign Protocol Architecture (FSPA) promoted as C38. Root Alternative B architecture task completed with full workspace, invention logs, prior-art summaries, and master technical spec. Shared-state updates applied and handoff archived at docs/handoffs/applied/T-210_CODEX_HANDOFF.md."

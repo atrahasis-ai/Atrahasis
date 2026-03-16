@@ -1,0 +1,21 @@
+task_id: "T-061"
+invention_ids:
+  - "C23"
+target_specs: []
+title: "Agent Execution Runtime"
+platform: "CODEX"
+claimed_at: "2026-03-12T03:14:22Z"
+updated_at: "2026-03-12T03:34:58Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-061/"
+    - "docs/prior_art/C23/"
+    - "docs/specifications/C23/"
+    - "docs/invention_logs/C23_IDEATION.md"
+    - "docs/invention_logs/C23_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C23_FEASIBILITY.md"
+    - "docs/invention_logs/C23_ASSESSMENT.md"
+    - "docs/handoffs/applied/T-061_CODEX_HANDOFF.md"
+  pipeline_type: "AAS"
+notes: "DONE. Promoted IC-2 to C23 Sovereign Cell Runtime (SCR), completed safe-zone artifacts, applied shared-state closeout on user command, and archived the handoff packet."

@@ -1,0 +1,21 @@
+task_id: T-270
+invention_ids:
+- C44
+target_specs: []
+title: LLM Generation and Constrained Decoding for AASL-T
+platform: CODEX
+agent_name: Anu
+claimed_at: '2026-03-13T21:17:42Z'
+updated_at: '2026-03-13T21:34:00Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-270/
+  - docs/specifications/C44/
+  - docs/invention_logs/C44*
+  - docs/prior_art/C44/
+  - docs/contribution_requests/C44.yaml
+  pipeline_type: AAS
+notes: Reopened at operator request for a full rerun under Codex because the prior
+  completion was considered abandoned/incomplete. Rerun complete; awaiting parallel
+  closeout for shared-state cleanup only.

@@ -1,0 +1,42 @@
+{
+  "aep_id": "AEP-CYCLE104-ALPHA-001",
+  "affected_layers": [
+    "Infrastructure",
+    "Runtime",
+    "Governance"
+  ],
+  "architecture_gap": "The current AAS runtime still needs a stable end-state architecture that can run self-improvement cycles without uncontrolled drift.",
+  "authoring_agent": "Swarm Alpha",
+  "candidate_metrics": {
+    "capability_gain": 0.03,
+    "consensus_alignment": 0.895,
+    "governance_stability": 0.87,
+    "meaningful_change_score": 0.155
+  },
+  "candidate_modules": [
+    "service-kernel",
+    "recovery-orchestrator",
+    "freeze-controller"
+  ],
+  "cssm_version": "AAS-State-v1.104",
+  "data_model_changes": "Add convergence-aware cycle metrics, pressure-test traces, adversarial review traces, and freeze-state metadata.",
+  "date": "2026-03-13T10:33:51Z",
+  "governance_implications": "Council deliberation now includes convergence and freeze decisions.",
+  "implementation_tasks": [
+    "AAS-TASK-CYCLE-104-ALPHA-001"
+  ],
+  "invention_concept": "Promote the bootstrap overlay into a durable service kernel with stronger recovery orchestration and freeze-state discipline.",
+  "migration_strategy": "Promote only the strongest, pressure-tested, adversarial-reviewed architecture into the next CSSM version.",
+  "objective_profile": {
+    "capability": 0.03,
+    "feasibility": 0.88,
+    "governance_stability": 0.87
+  },
+  "problem_statement": "Pending architecture pressure remains on: Apply selected architecture for Cycle 102 Converged Meta-Architecture, Apply selected architecture for Cycle 103 Converged Meta-Architecture.",
+  "proposed_architecture_change": "Promote the bootstrap overlay into a durable service kernel with stronger recovery orchestration and freeze-state discipline.",
+  "protocol_implications": "The PAEE loop becomes bounded by convergence and explicit finalization rather than running indefinitely.",
+  "security_implications": "Pressure and adversarial traces become explicit inputs to architecture selection.",
+  "status": "submitted",
+  "swarm": "alpha",
+  "title": "Cycle 104 Runtime Stability Spine"
+}

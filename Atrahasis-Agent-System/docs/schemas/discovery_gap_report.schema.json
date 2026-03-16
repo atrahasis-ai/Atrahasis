@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Discovery Gap Report",
+  "type": "object",
+  "required": ["type", "gaps", "gap_count"],
+  "properties": {
+    "type": {"const": "DISCOVERY_GAP_REPORT"},
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gap", "severity"],
+        "properties": {
+          "gap": {"type": "string"},
+          "severity": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "gap_count": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": true
+}

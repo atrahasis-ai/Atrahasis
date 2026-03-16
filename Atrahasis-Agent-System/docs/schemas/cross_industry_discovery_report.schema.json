@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Cross Industry Discovery Report",
+  "type": "object",
+  "required": ["type", "analogies", "generated_hypothesis_seeds", "updated_discovery_map"],
+  "properties": {
+    "type": {"const": "CROSS_INDUSTRY_DISCOVERY_REPORT"},
+    "analogies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_domain", "target_concept", "rationale", "strength"],
+        "properties": {
+          "source_domain": {"type": "string"},
+          "target_concept": {"type": "string"},
+          "rationale": {"type": "string"},
+          "strength": {"type": "number", "minimum": 0, "maximum": 1},
+          "generated_hypothesis_title": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "generated_hypothesis_seeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["focus", "title", "summary", "statement"],
+        "properties": {
+          "focus": {"type": "string"},
+          "title": {"type": "string"},
+          "summary": {"type": "string"},
+          "statement": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "high_value_candidates": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "updated_discovery_map": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

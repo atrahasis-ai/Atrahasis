@@ -1,0 +1,21 @@
+task_id: "T-214"
+agent_name: "Inanna"
+invention_ids:
+  - "C41"
+target_specs: []
+title: "Atrahasis Agent Manifest Specification"
+platform: "CODEX"
+claimed_at: "2026-03-12T19:20:00Z"
+updated_at: "2026-03-12T14:16:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-214/"
+    - "docs/prior_art/C41/"
+    - "docs/specifications/C41/"
+    - "docs/invention_logs/C41_IDEATION.md"
+    - "docs/invention_logs/C41_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C41_FEASIBILITY.md"
+    - "docs/invention_logs/C41_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "DONE. User approved IC-2 for promotion on 2026-03-12 ('IC-2 proceed'). T-214 completed as C41 Layered Semantic Capability Manifest (LSCM): signed endpoint-scoped discovery manifest with trust posture, binding matrix, message-family support, semantic capability disclosure, native-versus-bridge posture, and visible supersession. Shared-state closeout is queued in docs/handoffs/T-214_CODEX_HANDOFF.md."

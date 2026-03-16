@@ -1,0 +1,184 @@
+{
+  "confidence": 0.66,
+  "hypotheses": [
+    {
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-001",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-001",
+        "novelty_report": "NOVELTY_REPORT.json#H-001",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-001"
+        ]
+      },
+      "candidate_label": "Top Exploration Candidate",
+      "confidence": 0.72,
+      "contradiction": {
+        "artifact_ref": "CONTRADICTION_MAP.json#X-001",
+        "id": "X-001",
+        "severity": "high",
+        "statement": "High-opportunity zone with unresolved evidence gaps."
+      },
+      "cross_domain_source": null,
+      "cross_domain_strength": null,
+      "domain": "model",
+      "feasibility_score": 4,
+      "id": "H-001",
+      "novelty_score": 2,
+      "opportunity_zone": "agent",
+      "origin": "domain",
+      "program_id": "RP-104",
+      "scope_level": "L2",
+      "solution_paths": [
+        {
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-001",
+          "id": "P-001",
+          "title": "Path for Agent invention pathway",
+          "tradeoffs": [
+            "novelty_vs_feasibility",
+            "breadth_vs_depth"
+          ]
+        }
+      ],
+      "statement": "Explore agent as an invention opportunity by transferring immune_system coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and",
+      "summary": "Use immune_system style reasoning to explore agent for prompt: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, no",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/C1/landscape.md",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C3/landscape.md",
+          "link_reason": "Evidence aligned with agent for the active problem domain."
+        }
+      ],
+      "title": "Agent invention pathway"
+    },
+    {
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-002",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-002",
+        "novelty_report": "NOVELTY_REPORT.json#H-002",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-002"
+        ]
+      },
+      "candidate_label": "Top Exploration Candidate",
+      "confidence": 0.66,
+      "contradiction": {
+        "artifact_ref": "CONTRADICTION_MAP.json#X-002",
+        "id": "X-002",
+        "severity": "high",
+        "statement": "High-opportunity zone with unresolved evidence gaps."
+      },
+      "cross_domain_source": null,
+      "cross_domain_strength": null,
+      "domain": "agents",
+      "feasibility_score": 4,
+      "id": "H-002",
+      "novelty_score": 1,
+      "opportunity_zone": "agents",
+      "origin": "domain",
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "solution_paths": [
+        {
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-002",
+          "id": "P-002",
+          "title": "Path for Agents invention pathway",
+          "tradeoffs": [
+            "novelty_vs_feasibility",
+            "breadth_vs_depth"
+          ]
+        }
+      ],
+      "statement": "Explore agents as an invention opportunity by transferring supply_chain coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and",
+      "summary": "Use supply_chain style reasoning to explore agents for prompt: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, no",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/C1/landscape.md",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C3/landscape.md",
+          "link_reason": "Evidence aligned with agents for the active problem domain."
+        }
+      ],
+      "title": "Agents invention pathway"
+    },
+    {
+      "artifact_links": {
+        "contradiction_map": "CONTRADICTION_MAP.json#X-003",
+        "feasibility_report": "FEASIBILITY_REPORT.json#H-003",
+        "novelty_report": "NOVELTY_REPORT.json#H-003",
+        "solution_path_set": [
+          "SOLUTION_PATH_SET.json#P-003"
+        ]
+      },
+      "candidate_label": "Top Exploration Candidate",
+      "confidence": 0.6,
+      "contradiction": {
+        "artifact_ref": "CONTRADICTION_MAP.json#X-003",
+        "id": "X-003",
+        "severity": "high",
+        "statement": "High-opportunity zone with unresolved evidence gaps."
+      },
+      "cross_domain_source": null,
+      "cross_domain_strength": null,
+      "domain": "agents",
+      "feasibility_score": 4,
+      "id": "H-003",
+      "novelty_score": 1,
+      "opportunity_zone": "system",
+      "origin": "domain",
+      "program_id": "RP-191",
+      "scope_level": "L2",
+      "solution_paths": [
+        {
+          "artifact_ref": "SOLUTION_PATH_SET.json#P-003",
+          "id": "P-003",
+          "title": "Path for System invention pathway",
+          "tradeoffs": [
+            "novelty_vs_feasibility",
+            "breadth_vs_depth"
+          ]
+        }
+      ],
+      "statement": "Explore system as an invention opportunity by transferring capital_market coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and",
+      "summary": "Use capital_market style reasoning to explore system for prompt: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, no",
+      "supporting_research": [
+        {
+          "evidence_ref": "docs/prior_art/C1/landscape.md",
+          "link_reason": "Evidence aligned with system for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C1/PRIOR_ART_REPORT.json",
+          "link_reason": "Evidence aligned with system for the active problem domain."
+        },
+        {
+          "evidence_ref": "docs/prior_art/C3/landscape.md",
+          "link_reason": "Evidence aligned with system for the active problem domain."
+        }
+      ],
+      "title": "System invention pathway"
+    }
+  ],
+  "opportunity_zone_refs": [
+    "agent",
+    "agents",
+    "system"
+  ],
+  "supporting_evidence": [
+    "agent",
+    "agents",
+    "system"
+  ],
+  "type": "HYPOTHESIS_PACKET"
+}

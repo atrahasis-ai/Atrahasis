@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Experiment Simulation Report",
+  "type": "object",
+  "required": ["type", "experiments"],
+  "properties": {
+    "type": {"const": "EXPERIMENT_SIMULATION_REPORT"},
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path_id", "experiment", "simulated_outcome", "failure_modes", "go_no_go_signals"],
+        "properties": {
+          "path_id": {"type": "string", "pattern": "^P-\\d{3}$"},
+          "experiment": {"type": "string"},
+          "simulated_outcome": {"type": "string"},
+          "failure_modes": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "go_no_go_signals": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

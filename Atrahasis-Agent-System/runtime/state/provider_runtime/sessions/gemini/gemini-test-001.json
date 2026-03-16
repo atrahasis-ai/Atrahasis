@@ -1,0 +1,41 @@
+{
+  "agent_name": "Ishtar",
+  "available_models": [
+    "gemini-3.1-pro-preview",
+    "gemini-3-flash-preview",
+    "gemini-2.5-pro",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite"
+  ],
+  "current_task": null,
+  "display_name": "Gemini CLI",
+  "notes": "",
+  "provider": "gemini",
+  "registered_at": "2026-03-13T18:12:25Z",
+  "routing_manifest": [
+    {
+      "agent_type": "visionary",
+      "model": "gemini-3.1-pro-preview",
+      "notes": "Use for highest-capability research, architecture, and invention roles.",
+      "provider": "gemini",
+      "reasoning_effort": "high",
+      "tier": "primary"
+    },
+    {
+      "agent_type": "chronicler",
+      "model": "gemini-3-flash-preview",
+      "notes": "Default Gemini model for operational and analysis roles.",
+      "provider": "gemini",
+      "reasoning_effort": "medium",
+      "tier": "operational"
+    }
+  ],
+  "session_id": "gemini-test-001",
+  "status": "ACTIVE",
+  "supported_agent_types": [
+    "visionary",
+    "chronicler"
+  ],
+  "type": "PROVIDER_BACKEND_SESSION",
+  "updated_at": "2026-03-13T18:12:25Z"
+}

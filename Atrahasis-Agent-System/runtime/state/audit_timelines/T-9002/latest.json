@@ -1,0 +1,4348 @@
+{
+  "counter": 296,
+  "created_at": "2026-03-15T08:25:49Z",
+  "events": [
+    {
+      "event_id": 1,
+      "event_type": "workflow_policy_seeded",
+      "level": "INFO",
+      "payload": {
+        "workflow_policy": {
+          "artifacts": {
+            "closeout_execution_record": null,
+            "controller_run_result": "docs/task_workspaces/T-9002/CONTROLLER_RUN_RESULT.json",
+            "human_decision_record": "docs/task_workspaces/T-9002/HUMAN_DECISION_RECORD.json",
+            "review_gate_record": null,
+            "workflow_run_record": "docs/task_workspaces/T-9002/WORKFLOW_RUN_RECORD.json"
+          },
+          "claim_status": "DONE",
+          "created_at": "2026-03-15T08:25:49Z",
+          "current_stage": "RESEARCH",
+          "dispatch": {
+            "auto_execute_ready": false,
+            "available": [
+              {
+                "action_label": "stage_team",
+                "approval_status": "POLICY_READY",
+                "auto_executable": false,
+                "child_roles": [
+                  "prior_art_researcher",
+                  "landscape_analyst",
+                  "science_advisor"
+                ],
+                "dispatch_readiness": "READY",
+                "instruction": "stage:research",
+                "program_title": "Research Stage Team",
+                "source": "workflow_policy_engine",
+                "spawn_id": "stage:research",
+                "target_domain": "research",
+                "team_mode": "STAGE_TEAM"
+              }
+            ],
+            "dispatch_mode": "hook_only",
+            "dispatch_record_ref": null,
+            "last_executed": null,
+            "primary": {
+              "action_label": "stage_team",
+              "approval_status": "POLICY_READY",
+              "auto_executable": false,
+              "child_roles": [
+                "prior_art_researcher",
+                "landscape_analyst",
+                "science_advisor"
+              ],
+              "dispatch_readiness": "READY",
+              "instruction": "stage:research",
+              "program_title": "Research Stage Team",
+              "source": "workflow_policy_engine",
+              "spawn_id": "stage:research",
+              "target_domain": "research",
+              "team_mode": "STAGE_TEAM"
+            },
+            "team_plan_ref": null
+          },
+          "gate_state": "DECISION_PENDING",
+          "lifecycle_status": "RUNNING",
+          "next_actions": [
+            {
+              "action": "dispatch_team",
+              "auto_execute_ready": false,
+              "instruction": "stage:research",
+              "priority": "medium",
+              "reason": "Dispatch candidate available for RESEARCH."
+            }
+          ],
+          "next_stage": "ASSESSMENT",
+          "operator_decision": "PENDING",
+          "pending_hitl_count": 0,
+          "review_status": null,
+          "run_status": "THREAD_READY",
+          "settings": {
+            "auto_closeout": false,
+            "dispatch_mode": "hook_only",
+            "monitor_enabled": true
+          },
+          "stage_history": [
+            {
+              "closed_at": null,
+              "opened_at": "2026-03-15T08:25:49Z",
+              "stage": "RESEARCH",
+              "status": "IN_PROGRESS",
+              "transition_reason": "seeded",
+              "updated_at": "2026-03-15T08:25:49Z"
+            }
+          ],
+          "task_id": "T-9002",
+          "task_profile": {
+            "modifier": "AASA",
+            "scope": "full_system_analysis",
+            "stage_track": [
+              "RESEARCH",
+              "ASSESSMENT"
+            ],
+            "task_class": "ANALYSIS",
+            "task_id": "T-9002",
+            "title": null,
+            "todo_type": null
+          },
+          "type": "WORKFLOW_POLICY_STATE",
+          "updated_at": "2026-03-15T08:25:49Z",
+          "workflow_status": "PENDING_HUMAN_REVIEW"
+        }
+      },
+      "source": "controller",
+      "summary": "Workflow policy initialized at stage RESEARCH.",
+      "timestamp": "2026-03-15T08:25:49Z"
+    },
+    {
+      "event_id": 2,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T08:26:13Z"
+    },
+    {
+      "event_id": 3,
+      "event_type": "workflow_policy_configured",
+      "level": "INFO",
+      "payload": {
+        "auto_closeout": null,
+        "dispatch_mode": "manual",
+        "monitor_enabled": null
+      },
+      "source": "controller",
+      "summary": "Workflow policy settings updated.",
+      "timestamp": "2026-03-15T08:26:30Z"
+    },
+    {
+      "event_id": 4,
+      "event_type": "workflow_policy_configured",
+      "level": "INFO",
+      "payload": {
+        "auto_closeout": null,
+        "dispatch_mode": "hook_only",
+        "monitor_enabled": null
+      },
+      "source": "controller",
+      "summary": "Workflow policy settings updated.",
+      "timestamp": "2026-03-15T08:26:38Z"
+    },
+    {
+      "event_id": 5,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T08:27:13Z"
+    },
+    {
+      "event_id": 6,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:12:42Z"
+    },
+    {
+      "event_id": 7,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 8,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 9,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "THREAD_READY",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 10,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "THREAD_READY"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 11,
+      "event_type": "thread_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "thread_id": "019cf0c5-8dd1-7823-9151-f4019c1e0164"
+      },
+      "source": "controller",
+      "summary": "Controller bound App Server thread 019cf0c5-8dd1-7823-9151-f4019c1e0164.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 12,
+      "event_type": "turn_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "turn_id": "019cf0c5-8e07-7cc0-95e3-e86a0e78de06"
+      },
+      "source": "controller",
+      "summary": "Controller started a new turn.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 13,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "TURN_RUNNING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 14,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf0c5-8dd1-7823-9151-f4019c1e0164"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 15,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf0c5-8dd1-7823-9151-f4019c1e0164",
+          "turn": {
+            "error": null,
+            "id": "019cf0c5-8e07-7cc0-95e3-e86a0e78de06",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 16,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state in two sentences.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "35d379e7-22a8-41d9-9fc0-0bfec4777997",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c5-8dd1-7823-9151-f4019c1e0164",
+          "turnId": "019cf0c5-8e07-7cc0-95e3-e86a0e78de06"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 17,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state in two sentences.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "35d379e7-22a8-41d9-9fc0-0bfec4777997",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c5-8dd1-7823-9151-f4019c1e0164",
+          "turnId": "019cf0c5-8e07-7cc0-95e3-e86a0e78de06"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:13:24Z"
+    },
+    {
+      "event_id": 18,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": null,
+        "run_status": "TURN_RUNNING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:13:26Z"
+    },
+    {
+      "event_id": 19,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/started",
+        "params": {
+          "thread": {
+            "agentNickname": null,
+            "agentRole": null,
+            "cliVersion": "0.115.0-alpha.24",
+            "createdAt": 1773566006,
+            "cwd": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+            "ephemeral": false,
+            "gitInfo": {
+              "branch": "main",
+              "originUrl": "https://github.com/atrahasis-ai/Atrahasis.git",
+              "sha": "da11b2714e4b6fa0e4bb4738878349a77103e608"
+            },
+            "id": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+            "modelProvider": "openai",
+            "name": null,
+            "path": "\\\\?\\C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\runtime\\app_server_home\\sessions\\2026\\03\\15\\rollout-2026-03-15T04-13-26-019cf0c5-968a-7472-baf6-9ad06a5532dd.jsonl",
+            "preview": "Summarize the current task state in two sentences.",
+            "source": "vscode",
+            "status": {
+              "type": "idle"
+            },
+            "turns": [],
+            "updatedAt": 1773566006
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/started.",
+      "timestamp": "2026-03-15T09:13:26Z"
+    },
+    {
+      "event_id": 20,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "019cf0c5-96c3-7021-8057-1de8779e6800",
+            "review": "Apply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `RESEARCH`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+          "turnId": "019cf0c5-96c3-7021-8057-1de8779e6800"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 21,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "REVIEW_PENDING",
+        "current_stage": "RESEARCH",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to REVIEW_PENDING.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 22,
+      "event_type": "review_started",
+      "level": "INFO",
+      "payload": {
+        "review_thread_id": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+        "run_id": "T-9002-AASA-20260313T203253Z"
+      },
+      "source": "controller",
+      "summary": "Controller started a review gate.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 23,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "019cf0c5-96c3-7021-8057-1de8779e6800",
+            "review": "Apply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `RESEARCH`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c5-968a-7472-baf6-9ad06a5532dd",
+          "turnId": "019cf0c5-96c3-7021-8057-1de8779e6800"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 24,
+      "event_type": "review_finalized",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_APPROVED",
+        "verdict": "APPROVED"
+      },
+      "source": "controller",
+      "summary": "Review finalized with verdict APPROVED.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 25,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "AWAITING_HITL",
+        "current_stage": "RESEARCH",
+        "previous_lifecycle_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from REVIEW_PENDING to AWAITING_HITL.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 26,
+      "event_type": "human_decision_recorded",
+      "level": "INFO",
+      "payload": {
+        "constraints": null,
+        "notes": [
+          "Generated by validate_controller_flows.py"
+        ],
+        "workflow_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Operator decision recorded: APPROVED.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 27,
+      "event_type": "stage_transition",
+      "level": "INFO",
+      "payload": {
+        "current_stage": "ASSESSMENT",
+        "lifecycle_status": "NEXT_STAGE_READY",
+        "previous_stage": "RESEARCH"
+      },
+      "source": "controller",
+      "summary": "Workflow advanced from RESEARCH to ASSESSMENT.",
+      "timestamp": "2026-03-15T09:13:27Z"
+    },
+    {
+      "event_id": 28,
+      "event_type": "thread_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "thread_id": "019cf0c6-4b43-7980-a9ae-fe92cb8e1a64"
+      },
+      "source": "controller",
+      "summary": "Controller bound App Server thread 019cf0c6-4b43-7980-a9ae-fe92cb8e1a64.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 29,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY_FOR_CLOSEOUT",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "NEXT_STAGE_READY"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from NEXT_STAGE_READY to READY_FOR_CLOSEOUT.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 30,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf0c6-4b43-7980-a9ae-fe92cb8e1a64"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 31,
+      "event_type": "turn_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "turn_id": "019cf0c6-4c06-7242-82ec-d5d01da7ca25"
+      },
+      "source": "controller",
+      "summary": "Controller started a new turn.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 32,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY_FOR_CLOSEOUT to RUNNING.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 33,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf0c6-4b43-7980-a9ae-fe92cb8e1a64",
+          "turn": {
+            "error": null,
+            "id": "019cf0c6-4c06-7242-82ec-d5d01da7ca25",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 34,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY_FOR_CLOSEOUT to RUNNING.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 35,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the task state in one sentence.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "35329adc-299d-47c5-8268-2468058f49fb",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-4b43-7980-a9ae-fe92cb8e1a64",
+          "turnId": "019cf0c6-4c06-7242-82ec-d5d01da7ca25"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 36,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the task state in one sentence.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "35329adc-299d-47c5-8268-2468058f49fb",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-4b43-7980-a9ae-fe92cb8e1a64",
+          "turnId": "019cf0c6-4c06-7242-82ec-d5d01da7ca25"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 37,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/started",
+        "params": {
+          "thread": {
+            "agentNickname": null,
+            "agentRole": null,
+            "cliVersion": "0.115.0-alpha.24",
+            "createdAt": 1773566053,
+            "cwd": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+            "ephemeral": false,
+            "gitInfo": {
+              "branch": "main",
+              "originUrl": "https://github.com/atrahasis-ai/Atrahasis.git",
+              "sha": "da11b2714e4b6fa0e4bb4738878349a77103e608"
+            },
+            "id": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+            "modelProvider": "openai",
+            "name": null,
+            "path": "\\\\?\\C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\runtime\\app_server_home\\sessions\\2026\\03\\15\\rollout-2026-03-15T04-14-13-019cf0c6-4cba-7a23-94ab-a55c29a3c957.jsonl",
+            "preview": "Summarize the task state in one sentence.",
+            "source": "vscode",
+            "status": {
+              "type": "idle"
+            },
+            "turns": [],
+            "updatedAt": 1773566053
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/started.",
+      "timestamp": "2026-03-15T09:14:13Z"
+    },
+    {
+      "event_id": 38,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c",
+            "review": "## Additional Operator Instructions\nBe strict.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+          "turnId": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 39,
+      "event_type": "review_started",
+      "level": "INFO",
+      "payload": {
+        "review_thread_id": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+        "run_id": "T-9002-AASA-20260313T203253Z"
+      },
+      "source": "controller",
+      "summary": "Controller started a review gate.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 40,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "REVIEW_PENDING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to REVIEW_PENDING.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 41,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "REVIEW_PENDING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to REVIEW_PENDING.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 42,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c",
+            "review": "## Additional Operator Instructions\nBe strict.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+          "turnId": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 43,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 44,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+          "turn": {
+            "error": null,
+            "id": "019cf0c6-4cfa-7bc1-ab1d-8e457fb011af",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 45,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "## Additional Operator Instructions\nBe strict.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "e1780237-0643-43bc-94b9-5095e40bb6b3",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+          "turnId": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 46,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "## Additional Operator Instructions\nBe strict.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "e1780237-0643-43bc-94b9-5095e40bb6b3",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-4cba-7a23-94ab-a55c29a3c957",
+          "turnId": "019cf0c6-4cf5-7483-9a6e-5e6573618d9c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:14:14Z"
+    },
+    {
+      "event_id": 47,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:40Z"
+    },
+    {
+      "event_id": 48,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:40Z"
+    },
+    {
+      "event_id": 49,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_PENDING",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 50,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 51,
+      "event_type": "thread_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "thread_id": "019cf0c6-ba0b-75f3-934d-1dce0009297e"
+      },
+      "source": "controller",
+      "summary": "Controller bound App Server thread 019cf0c6-ba0b-75f3-934d-1dce0009297e.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 52,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf0c6-ba0b-75f3-934d-1dce0009297e"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 53,
+      "event_type": "turn_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "turn_id": "019cf0c6-babe-71e3-a5e2-bc2c21bdd16c"
+      },
+      "source": "controller",
+      "summary": "Controller started a new turn.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 54,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf0c6-ba0b-75f3-934d-1dce0009297e",
+          "turn": {
+            "error": null,
+            "id": "019cf0c6-babe-71e3-a5e2-bc2c21bdd16c",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T09:14:41Z"
+    },
+    {
+      "event_id": 55,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state in two sentences.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "77575805-7f89-497f-a6d3-06c3290dc80c",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-ba0b-75f3-934d-1dce0009297e",
+          "turnId": "019cf0c6-babe-71e3-a5e2-bc2c21bdd16c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:14:42Z"
+    },
+    {
+      "event_id": 56,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state in two sentences.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "77575805-7f89-497f-a6d3-06c3290dc80c",
+            "type": "userMessage"
+          },
+          "threadId": "019cf0c6-ba0b-75f3-934d-1dce0009297e",
+          "turnId": "019cf0c6-babe-71e3-a5e2-bc2c21bdd16c"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:14:42Z"
+    },
+    {
+      "event_id": 57,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:42Z"
+    },
+    {
+      "event_id": 58,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:43Z"
+    },
+    {
+      "event_id": 59,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_PENDING",
+        "run_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T09:14:44Z"
+    },
+    {
+      "event_id": 60,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "stream disconnected before completion: error sending request for url (https://api.openai.com/v1/responses)",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": null
+              }
+            },
+            "message": "Reconnecting... 1/5"
+          },
+          "threadId": "019cf0c6-ba0b-75f3-934d-1dce0009297e",
+          "turnId": "019cf0c6-babe-71e3-a5e2-bc2c21bdd16c",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T09:14:44Z"
+    },
+    {
+      "event_id": 61,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/started",
+        "params": {
+          "thread": {
+            "agentNickname": null,
+            "agentRole": null,
+            "cliVersion": "0.115.0-alpha.24",
+            "createdAt": 1773566084,
+            "cwd": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+            "ephemeral": false,
+            "gitInfo": {
+              "branch": "main",
+              "originUrl": "https://github.com/atrahasis-ai/Atrahasis.git",
+              "sha": "da11b2714e4b6fa0e4bb4738878349a77103e608"
+            },
+            "id": "019cf0c6-c65f-7670-b7e8-fbc431084e9d",
+            "modelProvider": "openai",
+            "name": null,
+            "path": "\\\\?\\C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\runtime\\app_server_home\\sessions\\2026\\03\\15\\rollout-2026-03-15T04-14-44-019cf0c6-c65f-7670-b7e8-fbc431084e9d.jsonl",
+            "preview": "Summarize the current task state in two sentences.",
+            "source": "vscode",
+            "status": {
+              "type": "idle"
+            },
+            "turns": [],
+            "updatedAt": 1773566084
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/started.",
+      "timestamp": "2026-03-15T09:14:44Z"
+    },
+    {
+      "event_id": 62,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "019cf0c6-c69a-70d0-b90c-7ce909e52f7e",
+            "review": "Apply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c6-c65f-7670-b7e8-fbc431084e9d",
+          "turnId": "019cf0c6-c69a-70d0-b90c-7ce909e52f7e"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 63,
+      "event_type": "review_started",
+      "level": "INFO",
+      "payload": {
+        "review_thread_id": "019cf0c6-c65f-7670-b7e8-fbc431084e9d",
+        "run_id": "T-9002-AASA-20260313T203253Z"
+      },
+      "source": "controller",
+      "summary": "Controller started a review gate.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 64,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "019cf0c6-c69a-70d0-b90c-7ce909e52f7e",
+            "review": "Apply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+            "type": "enteredReviewMode"
+          },
+          "threadId": "019cf0c6-c65f-7670-b7e8-fbc431084e9d",
+          "turnId": "019cf0c6-c69a-70d0-b90c-7ce909e52f7e"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 65,
+      "event_type": "review_finalized",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_APPROVED",
+        "verdict": "APPROVED"
+      },
+      "source": "controller",
+      "summary": "Review finalized with verdict APPROVED.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 66,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf0c6-c65f-7670-b7e8-fbc431084e9d"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 67,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY_FOR_CLOSEOUT",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from REVIEW_PENDING to READY_FOR_CLOSEOUT.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 68,
+      "event_type": "human_decision_recorded",
+      "level": "INFO",
+      "payload": {
+        "constraints": null,
+        "notes": [
+          "Generated by validate_controller_flows.py"
+        ],
+        "workflow_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Operator decision recorded: APPROVED.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 69,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY_FOR_CLOSEOUT",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from REVIEW_PENDING to READY_FOR_CLOSEOUT.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 70,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf0c6-c65f-7670-b7e8-fbc431084e9d",
+          "turn": {
+            "error": null,
+            "id": "019cf0c6-c6a0-7cb1-90e7-8824b0bf0133",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T09:14:45Z"
+    },
+    {
+      "event_id": 71,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_APPROVED",
+        "run_status": "REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:19:43Z"
+    },
+    {
+      "event_id": 72,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY_FOR_CLOSEOUT to READY.",
+      "timestamp": "2026-03-15T12:19:43Z"
+    },
+    {
+      "event_id": 73,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_APPROVED",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T12:19:43Z"
+    },
+    {
+      "event_id": 74,
+      "event_type": "thread_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "thread_id": "019cf179-9b6c-71d1-b82c-67e1b6924da5"
+      },
+      "source": "controller",
+      "summary": "Controller bound App Server thread 019cf179-9b6c-71d1-b82c-67e1b6924da5.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 75,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/started",
+        "params": {
+          "thread": {
+            "agentNickname": null,
+            "agentRole": null,
+            "cliVersion": "0.115.0-alpha.24",
+            "createdAt": 1773577804,
+            "cwd": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System",
+            "ephemeral": false,
+            "gitInfo": null,
+            "id": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+            "modelProvider": "openai",
+            "name": null,
+            "path": "\\\\?\\C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\runtime\\app_server_home\\sessions\\2026\\03\\15\\rollout-2026-03-15T07-30-04-019cf179-9b6c-71d1-b82c-67e1b6924da5.jsonl",
+            "preview": "",
+            "source": "vscode",
+            "status": {
+              "type": "idle"
+            },
+            "turns": [],
+            "updatedAt": 1773577804
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/started.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 76,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY to RUNNING.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 77,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY to RUNNING.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 78,
+      "event_type": "turn_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "turn_id": "019cf179-9c9e-7aa3-b0a8-7c98e5004331"
+      },
+      "source": "controller",
+      "summary": "Controller started a new turn.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 79,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T12:30:04Z"
+    },
+    {
+      "event_id": 80,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turn": {
+            "error": null,
+            "id": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 81,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state and the next controller action.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "cfdcd94d-deec-4e74-aa5b-1ac363e9577d",
+            "type": "userMessage"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 82,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "Summarize the current task state and the next controller action.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "cfdcd94d-deec-4e74-aa5b-1ac363e9577d",
+            "type": "userMessage"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 83,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb86fe3888876e-MCI, request id: req_39025118f98a452d845d9501f493b05b",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 1/5"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 84,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb87016c96d197-MCI, request id: req_2182c802c72b4ebd9a04b07ac9e09fcf",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 2/5"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 85,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_APPROVED",
+        "run_status": "REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:05Z"
+    },
+    {
+      "event_id": 86,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to READY.",
+      "timestamp": "2026-03-15T12:30:06Z"
+    },
+    {
+      "event_id": 87,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to READY.",
+      "timestamp": "2026-03-15T12:30:06Z"
+    },
+    {
+      "event_id": 88,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb87051aaad19a-MCI, request id: req_44ce0cc65e024b239f1674fd4f89ae40",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 3/5"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:06Z"
+    },
+    {
+      "event_id": 89,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb870b4a19b622-MCI, request id: req_c1dbddc01545422fbd978a7a8f224d48",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 4/5"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:07Z"
+    },
+    {
+      "event_id": 90,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_APPROVED",
+        "run_status": "REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 91,
+      "event_type": "review_started",
+      "level": "INFO",
+      "payload": {
+        "review_thread_id": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+        "run_id": "T-9002-AASA-20260313T203253Z"
+      },
+      "source": "controller",
+      "summary": "Controller started a review gate.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 92,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "activeFlags": [],
+            "type": "active"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 93,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "REVIEW_PENDING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY to REVIEW_PENDING.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 94,
+      "event_type": "review_finalized",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_REVIEW_APPROVED",
+        "verdict": "REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Review finalized with verdict REVIEW_APPROVED.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 95,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/started",
+        "params": {
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turn": {
+            "error": null,
+            "id": "019cf179-aaa9-79a3-b042-071d5d49120a",
+            "items": [],
+            "status": "inProgress"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/started.",
+      "timestamp": "2026-03-15T12:30:08Z"
+    },
+    {
+      "event_id": 96,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from REVIEW_PENDING to READY.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 97,
+      "event_type": "human_decision_recorded",
+      "level": "INFO",
+      "payload": {
+        "constraints": null,
+        "notes": [
+          "Generated by validate_controller_flows.py"
+        ],
+        "workflow_status": "READY_FOR_CLOSEOUT"
+      },
+      "source": "controller",
+      "summary": "Operator decision recorded: APPROVED.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 98,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "REVIEW_PENDING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from REVIEW_PENDING to RUNNING.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 99,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "## Additional Operator Instructions\nCheck whether the current task state and next action are coherent.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "ee00f84f-a971-4474-972d-c79e8063e9df",
+            "type": "userMessage"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 100,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to READY.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 101,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "content": [
+              {
+                "text": "## Additional Operator Instructions\nCheck whether the current task state and next action are coherent.\n\nApply the Atrahasis review template `critic` for task `T-9002`.\nCurrent workflow stage: `ASSESSMENT`.\nReturn findings first. Cite concrete artifact paths when possible. Respect HITL gates and do not assume canonical closeout authority.\n\n## Template\n# Critic Review\n\nStress-test the current output for correctness and risk.\n\n- Lead with concrete bugs, contradictions, regressions, or unsupported claims.\n- Prefer precise artifact references over general advice.\n- Call out missing tests, missing evidence, and edge cases that could fail under normal operation.\n- Keep the conclusion narrow: what must change before the work can be trusted.",
+                "text_elements": [],
+                "type": "text"
+              }
+            ],
+            "id": "ee00f84f-a971-4474-972d-c79e8063e9df",
+            "type": "userMessage"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 102,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb871598a6d31b-MCI, request id: req_1a612b961bc94663b3f11c1185a28d4e",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 1/5"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 103,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb871609f1a9dc-MCI, request id: req_a2515e937c1d4bfdb40ce6c9680ac599",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 5/5"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 104,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb8717aa166b02-MCI, request id: req_4c2d55d792024d1dabe3dedd0562a3d2",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 2/5"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:09Z"
+    },
+    {
+      "event_id": 105,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb871b3ff04e0c-MCI, request id: req_20c85cb03b934d50aa6a395de49e458f",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 3/5"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:10Z"
+    },
+    {
+      "event_id": 106,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb87211a374de4-MCI, request id: req_f948318b80ae41369fdffee5108da0cf",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 4/5"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:10Z"
+    },
+    {
+      "event_id": 107,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:11Z"
+    },
+    {
+      "event_id": 108,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb872b3f93d304-MCI, request id: req_69050b453a6845ddba9234a540e1ec05",
+            "codexErrorInfo": {
+              "responseStreamDisconnected": {
+                "httpStatusCode": 401
+              }
+            },
+            "message": "Reconnecting... 5/5"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": true
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:12Z"
+    },
+    {
+      "event_id": 109,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "type": "systemError"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T12:30:12Z"
+    },
+    {
+      "event_id": 110,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": null,
+            "codexErrorInfo": "other",
+            "message": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb872ceb724e05-MCI, request id: req_0270282a6f0d4278959dcca463afaf88"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turnId": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+          "willRetry": false
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:12Z"
+    },
+    {
+      "event_id": 111,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/completed",
+        "params": {
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5",
+          "turn": {
+            "error": {
+              "additionalDetails": null,
+              "codexErrorInfo": "other",
+              "message": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb872ceb724e05-MCI, request id: req_0270282a6f0d4278959dcca463afaf88"
+            },
+            "id": "019cf179-9c9e-7aa3-b0a8-7c98e5004331",
+            "items": [],
+            "status": "failed"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/completed.",
+      "timestamp": "2026-03-15T12:30:13Z"
+    },
+    {
+      "event_id": 112,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:13Z"
+    },
+    {
+      "event_id": 113,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to READY.",
+      "timestamp": "2026-03-15T12:30:13Z"
+    },
+    {
+      "event_id": 114,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "type": "systemError"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T12:30:15Z"
+    },
+    {
+      "event_id": 115,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "error",
+        "params": {
+          "error": {
+            "additionalDetails": null,
+            "codexErrorInfo": "other",
+            "message": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb87404a734ddc-MCI, request id: req_63a69ed4d7e94604ba62fe73f23556e3"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f",
+          "willRetry": false
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification error.",
+      "timestamp": "2026-03-15T12:30:15Z"
+    },
+    {
+      "event_id": 116,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "019cf179-aa96-7432-92e9-5884df10042f",
+            "review": "Reviewer failed to output a response.",
+            "type": "exitedReviewMode"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 117,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "019cf179-aa96-7432-92e9-5884df10042f",
+            "review": "Reviewer failed to output a response.",
+            "type": "exitedReviewMode"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 118,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "review_rollout_assistant",
+            "phase": null,
+            "text": "Review was interrupted. Please re-run /review and wait for it to complete.",
+            "type": "agentMessage"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/started.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 119,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "review_rollout_assistant",
+            "phase": null,
+            "text": "Review was interrupted. Please re-run /review and wait for it to complete.",
+            "type": "agentMessage"
+          },
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turnId": "019cf179-aa96-7432-92e9-5884df10042f"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification item/completed.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 120,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "turn/completed",
+        "params": {
+          "threadId": "019cf179-aa50-7a71-8193-5c0b8c9e06c3",
+          "turn": {
+            "error": {
+              "additionalDetails": null,
+              "codexErrorInfo": "other",
+              "message": "unexpected status 401 Unauthorized: Missing bearer or basic authentication in header, url: https://api.openai.com/v1/responses, cf-ray: 9dcb87404a734ddc-MCI, request id: req_63a69ed4d7e94604ba62fe73f23556e3"
+            },
+            "id": "019cf179-aa96-7432-92e9-5884df10042f",
+            "items": [],
+            "status": "failed"
+          }
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification turn/completed.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 121,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:16Z"
+    },
+    {
+      "event_id": 122,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:17Z"
+    },
+    {
+      "event_id": 123,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:22Z"
+    },
+    {
+      "event_id": 124,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:27Z"
+    },
+    {
+      "event_id": 125,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:32Z"
+    },
+    {
+      "event_id": 126,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:38Z"
+    },
+    {
+      "event_id": 127,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:43Z"
+    },
+    {
+      "event_id": 128,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:49Z"
+    },
+    {
+      "event_id": 129,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:54Z"
+    },
+    {
+      "event_id": 130,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:30:59Z"
+    },
+    {
+      "event_id": 131,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:04Z"
+    },
+    {
+      "event_id": 132,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:10Z"
+    },
+    {
+      "event_id": 133,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:15Z"
+    },
+    {
+      "event_id": 134,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:21Z"
+    },
+    {
+      "event_id": 135,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:26Z"
+    },
+    {
+      "event_id": 136,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:31Z"
+    },
+    {
+      "event_id": 137,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:37Z"
+    },
+    {
+      "event_id": 138,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:42Z"
+    },
+    {
+      "event_id": 139,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:47Z"
+    },
+    {
+      "event_id": 140,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:53Z"
+    },
+    {
+      "event_id": 141,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:31:58Z"
+    },
+    {
+      "event_id": 142,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:04Z"
+    },
+    {
+      "event_id": 143,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:09Z"
+    },
+    {
+      "event_id": 144,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:14Z"
+    },
+    {
+      "event_id": 145,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:20Z"
+    },
+    {
+      "event_id": 146,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:25Z"
+    },
+    {
+      "event_id": 147,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:30Z"
+    },
+    {
+      "event_id": 148,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:36Z"
+    },
+    {
+      "event_id": 149,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:41Z"
+    },
+    {
+      "event_id": 150,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:46Z"
+    },
+    {
+      "event_id": 151,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:52Z"
+    },
+    {
+      "event_id": 152,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:32:57Z"
+    },
+    {
+      "event_id": 153,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:02Z"
+    },
+    {
+      "event_id": 154,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:07Z"
+    },
+    {
+      "event_id": 155,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:13Z"
+    },
+    {
+      "event_id": 156,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:18Z"
+    },
+    {
+      "event_id": 157,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:23Z"
+    },
+    {
+      "event_id": 158,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:28Z"
+    },
+    {
+      "event_id": 159,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:34Z"
+    },
+    {
+      "event_id": 160,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:39Z"
+    },
+    {
+      "event_id": 161,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:45Z"
+    },
+    {
+      "event_id": 162,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:45Z"
+    },
+    {
+      "event_id": 163,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_REVIEW_APPROVED",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T12:33:45Z"
+    },
+    {
+      "event_id": 164,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:45Z"
+    },
+    {
+      "event_id": 165,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:50Z"
+    },
+    {
+      "event_id": 166,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:55Z"
+    },
+    {
+      "event_id": 167,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:58Z"
+    },
+    {
+      "event_id": 168,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_REVIEW_APPROVED",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T12:33:58Z"
+    },
+    {
+      "event_id": 169,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:33:58Z"
+    },
+    {
+      "event_id": 170,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:01Z"
+    },
+    {
+      "event_id": 171,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:09Z"
+    },
+    {
+      "event_id": 172,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_REVIEW_APPROVED",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T12:34:10Z"
+    },
+    {
+      "event_id": 173,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:10Z"
+    },
+    {
+      "event_id": 174,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:14Z"
+    },
+    {
+      "event_id": 175,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:16Z"
+    },
+    {
+      "event_id": 176,
+      "event_type": "run_recovered",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "status": "REVIEW_REVIEW_APPROVED",
+        "task_id": "T-9002"
+      },
+      "source": "controller",
+      "summary": "Controller recovered a non-terminal run after restart.",
+      "timestamp": "2026-03-15T12:34:16Z"
+    },
+    {
+      "event_id": 177,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:16Z"
+    },
+    {
+      "event_id": 178,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:19Z"
+    },
+    {
+      "event_id": 179,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:25Z"
+    },
+    {
+      "event_id": 180,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:30Z"
+    },
+    {
+      "event_id": 181,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:36Z"
+    },
+    {
+      "event_id": 182,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:45Z"
+    },
+    {
+      "event_id": 183,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:34:45Z"
+    },
+    {
+      "event_id": 184,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:36:47Z"
+    },
+    {
+      "event_id": 185,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:36:52Z"
+    },
+    {
+      "event_id": 186,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:36:58Z"
+    },
+    {
+      "event_id": 187,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:03Z"
+    },
+    {
+      "event_id": 188,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:08Z"
+    },
+    {
+      "event_id": 189,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:14Z"
+    },
+    {
+      "event_id": 190,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:19Z"
+    },
+    {
+      "event_id": 191,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:24Z"
+    },
+    {
+      "event_id": 192,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:30Z"
+    },
+    {
+      "event_id": 193,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:35Z"
+    },
+    {
+      "event_id": 194,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:40Z"
+    },
+    {
+      "event_id": 195,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:46Z"
+    },
+    {
+      "event_id": 196,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:51Z"
+    },
+    {
+      "event_id": 197,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:37:56Z"
+    },
+    {
+      "event_id": 198,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:02Z"
+    },
+    {
+      "event_id": 199,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:07Z"
+    },
+    {
+      "event_id": 200,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:12Z"
+    },
+    {
+      "event_id": 201,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:18Z"
+    },
+    {
+      "event_id": 202,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:23Z"
+    },
+    {
+      "event_id": 203,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:28Z"
+    },
+    {
+      "event_id": 204,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:33Z"
+    },
+    {
+      "event_id": 205,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:39Z"
+    },
+    {
+      "event_id": 206,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:44Z"
+    },
+    {
+      "event_id": 207,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:50Z"
+    },
+    {
+      "event_id": 208,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:38:55Z"
+    },
+    {
+      "event_id": 209,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:00Z"
+    },
+    {
+      "event_id": 210,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:05Z"
+    },
+    {
+      "event_id": 211,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:11Z"
+    },
+    {
+      "event_id": 212,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:16Z"
+    },
+    {
+      "event_id": 213,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:21Z"
+    },
+    {
+      "event_id": 214,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:27Z"
+    },
+    {
+      "event_id": 215,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:32Z"
+    },
+    {
+      "event_id": 216,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:37Z"
+    },
+    {
+      "event_id": 217,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:42Z"
+    },
+    {
+      "event_id": 218,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:48Z"
+    },
+    {
+      "event_id": 219,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:53Z"
+    },
+    {
+      "event_id": 220,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:39:59Z"
+    },
+    {
+      "event_id": 221,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:04Z"
+    },
+    {
+      "event_id": 222,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:09Z"
+    },
+    {
+      "event_id": 223,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:15Z"
+    },
+    {
+      "event_id": 224,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:20Z"
+    },
+    {
+      "event_id": 225,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:25Z"
+    },
+    {
+      "event_id": 226,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:31Z"
+    },
+    {
+      "event_id": 227,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:36Z"
+    },
+    {
+      "event_id": 228,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:41Z"
+    },
+    {
+      "event_id": 229,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:46Z"
+    },
+    {
+      "event_id": 230,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:52Z"
+    },
+    {
+      "event_id": 231,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:40:57Z"
+    },
+    {
+      "event_id": 232,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:02Z"
+    },
+    {
+      "event_id": 233,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:08Z"
+    },
+    {
+      "event_id": 234,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:13Z"
+    },
+    {
+      "event_id": 235,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:19Z"
+    },
+    {
+      "event_id": 236,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:24Z"
+    },
+    {
+      "event_id": 237,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:29Z"
+    },
+    {
+      "event_id": 238,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:35Z"
+    },
+    {
+      "event_id": 239,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:40Z"
+    },
+    {
+      "event_id": 240,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:45Z"
+    },
+    {
+      "event_id": 241,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:50Z"
+    },
+    {
+      "event_id": 242,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:41:55Z"
+    },
+    {
+      "event_id": 243,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:01Z"
+    },
+    {
+      "event_id": 244,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:06Z"
+    },
+    {
+      "event_id": 245,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:11Z"
+    },
+    {
+      "event_id": 246,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:17Z"
+    },
+    {
+      "event_id": 247,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:22Z"
+    },
+    {
+      "event_id": 248,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:27Z"
+    },
+    {
+      "event_id": 249,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:32Z"
+    },
+    {
+      "event_id": 250,
+      "event_type": "turn_started",
+      "level": "INFO",
+      "payload": {
+        "run_id": "T-9002-AASA-20260313T203253Z",
+        "turn_id": "019cf185-0abf-7ce0-a92b-d42bfe387176"
+      },
+      "source": "controller",
+      "summary": "Controller started a new turn.",
+      "timestamp": "2026-03-15T12:42:34Z"
+    },
+    {
+      "event_id": 251,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "RUNNING",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "READY"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from READY to RUNNING.",
+      "timestamp": "2026-03-15T12:42:34Z"
+    },
+    {
+      "event_id": 252,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:38Z"
+    },
+    {
+      "event_id": 253,
+      "event_type": "workflow_state_changed",
+      "level": "INFO",
+      "payload": {
+        "current_lifecycle_status": "READY",
+        "current_stage": "ASSESSMENT",
+        "previous_lifecycle_status": "RUNNING"
+      },
+      "source": "controller",
+      "summary": "Workflow state changed from RUNNING to READY.",
+      "timestamp": "2026-03-15T12:42:38Z"
+    },
+    {
+      "event_id": 254,
+      "event_type": "app_server_notification",
+      "level": "INFO",
+      "payload": {
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "type": "systemError"
+          },
+          "threadId": "019cf179-9b6c-71d1-b82c-67e1b6924da5"
+        }
+      },
+      "source": "controller",
+      "summary": "Observed App Server notification thread/status/changed.",
+      "timestamp": "2026-03-15T12:42:41Z"
+    },
+    {
+      "event_id": 255,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:43Z"
+    },
+    {
+      "event_id": 256,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:49Z"
+    },
+    {
+      "event_id": 257,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:49Z"
+    },
+    {
+      "event_id": 258,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:54Z"
+    },
+    {
+      "event_id": 259,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:42:59Z"
+    },
+    {
+      "event_id": 260,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:04Z"
+    },
+    {
+      "event_id": 261,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:10Z"
+    },
+    {
+      "event_id": 262,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:15Z"
+    },
+    {
+      "event_id": 263,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:20Z"
+    },
+    {
+      "event_id": 264,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:26Z"
+    },
+    {
+      "event_id": 265,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:31Z"
+    },
+    {
+      "event_id": 266,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:36Z"
+    },
+    {
+      "event_id": 267,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:42Z"
+    },
+    {
+      "event_id": 268,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:47Z"
+    },
+    {
+      "event_id": 269,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:53Z"
+    },
+    {
+      "event_id": 270,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:43:58Z"
+    },
+    {
+      "event_id": 271,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:03Z"
+    },
+    {
+      "event_id": 272,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:09Z"
+    },
+    {
+      "event_id": 273,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:14Z"
+    },
+    {
+      "event_id": 274,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:19Z"
+    },
+    {
+      "event_id": 275,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:25Z"
+    },
+    {
+      "event_id": 276,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:30Z"
+    },
+    {
+      "event_id": 277,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:35Z"
+    },
+    {
+      "event_id": 278,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:40Z"
+    },
+    {
+      "event_id": 279,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:46Z"
+    },
+    {
+      "event_id": 280,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:51Z"
+    },
+    {
+      "event_id": 281,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:44:56Z"
+    },
+    {
+      "event_id": 282,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:02Z"
+    },
+    {
+      "event_id": 283,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:07Z"
+    },
+    {
+      "event_id": 284,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:13Z"
+    },
+    {
+      "event_id": 285,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:18Z"
+    },
+    {
+      "event_id": 286,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:23Z"
+    },
+    {
+      "event_id": 287,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:29Z"
+    },
+    {
+      "event_id": 288,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:34Z"
+    },
+    {
+      "event_id": 289,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:39Z"
+    },
+    {
+      "event_id": 290,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:44Z"
+    },
+    {
+      "event_id": 291,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:50Z"
+    },
+    {
+      "event_id": 292,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:45:55Z"
+    },
+    {
+      "event_id": 293,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:46:00Z"
+    },
+    {
+      "event_id": 294,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:46:06Z"
+    },
+    {
+      "event_id": 295,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:46:11Z"
+    },
+    {
+      "event_id": 296,
+      "event_type": "run_synced",
+      "level": "INFO",
+      "payload": {
+        "review_status": "REVIEW_REVIEW_APPROVED",
+        "run_status": "REVIEW_REVIEW_APPROVED"
+      },
+      "source": "controller",
+      "summary": "Controller ingested the latest App Server thread state.",
+      "timestamp": "2026-03-15T12:46:48Z"
+    }
+  ],
+  "task_id": "T-9002",
+  "type": "AUDIT_TIMELINE",
+  "updated_at": "2026-03-15T12:46:48Z"
+}

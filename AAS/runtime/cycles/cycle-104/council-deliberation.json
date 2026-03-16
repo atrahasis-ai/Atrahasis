@@ -1,0 +1,40 @@
+{
+  "councils": [
+    "Meta-Evaluation Council",
+    "Governance Council",
+    "Runtime Council"
+  ],
+  "generated_at": "2026-03-13T10:33:51Z",
+  "ranked_proposals": [
+    {
+      "adversarial_score": 0.909,
+      "capability_gain": 0.03,
+      "consensus_alignment": 0.895,
+      "final_score": 0.61,
+      "governance_stability": 0.87,
+      "pressure_score": 0.975,
+      "proposal_id": "AEP-CYCLE104-ALPHA-001",
+      "swarm": "alpha"
+    },
+    {
+      "adversarial_score": 0.864,
+      "capability_gain": 0.044,
+      "consensus_alignment": 0.895,
+      "final_score": 0.592,
+      "governance_stability": 0.83,
+      "pressure_score": 0.929,
+      "proposal_id": "AEP-CYCLE104-BETA-001",
+      "swarm": "beta"
+    },
+    {
+      "adversarial_score": 0.795,
+      "capability_gain": 0.057,
+      "consensus_alignment": 0.855,
+      "final_score": 0.556,
+      "governance_stability": 0.77,
+      "pressure_score": 0.858,
+      "proposal_id": "AEP-CYCLE104-GAMMA-001",
+      "swarm": "gamma"
+    }
+  ]
+}

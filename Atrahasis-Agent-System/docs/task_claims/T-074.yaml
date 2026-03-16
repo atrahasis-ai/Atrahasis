@@ -1,0 +1,14 @@
+task_id: T-074
+title: "Add Membrane Certificate Engine spec"
+type: DIRECT_EDIT
+target_spec: C5
+status: COMPLETE
+priority: HIGH
+agent_name: "Shamash"
+claimed_at: "2026-03-12"
+description: >
+  Add explicit MCT lifecycle and Membrane Certificate Engine specification
+  to C5 PCVM Section 10. Resolve cross-spec MCT naming inconsistency
+  (Credibility Token vs Certification Token vs Clearance Token).
+  Define MCT state machine, revocation protocol, consumer verification,
+  and cross-layer consumption contracts.

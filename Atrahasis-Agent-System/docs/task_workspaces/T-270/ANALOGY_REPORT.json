@@ -1,0 +1,30 @@
+{
+  "analogies": [
+    {
+      "source_domain": "immune_system",
+      "target_zone": "agent",
+      "transfer_pattern": "distributed coordination under uncertainty"
+    },
+    {
+      "source_domain": "supply_chain",
+      "target_zone": "model",
+      "transfer_pattern": "distributed coordination under uncertainty"
+    },
+    {
+      "source_domain": "capital_market",
+      "target_zone": "agents",
+      "transfer_pattern": "distributed coordination under uncertainty"
+    },
+    {
+      "source_domain": "ecosystem",
+      "target_zone": "verification",
+      "transfer_pattern": "distributed coordination under uncertainty"
+    },
+    {
+      "source_domain": "navigation_network",
+      "target_zone": "governance",
+      "transfer_pattern": "distributed coordination under uncertainty"
+    }
+  ],
+  "type": "ANALOGY_REPORT"
+}

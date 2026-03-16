@@ -1,0 +1,73 @@
+{
+  "type": "SWARM_EXECUTION_RECORD",
+  "doctrine_version": "AAS5",
+  "topology_mode": "AAS5_25_AGENT_HIERARCHY",
+  "task_id": "T-0000",
+  "workflow_id": "wf-000",
+  "run_key": "T-0000::wf-000",
+  "stage": "IDEATION",
+  "generated_at": "2026-03-15T00:00:00Z",
+  "swarm_requirement": {
+    "required": true,
+    "reason": "Ordinary FULL PIPELINE / IDEATION now defaults to the real AAS5 25-agent ideation topology.",
+    "solo_mode_authorized": false,
+    "blocking_behavior_if_unavailable": "stop_and_report"
+  },
+  "runtime_capabilities": {
+    "multi_agent_enabled": false,
+    "real_child_sessions_available": false,
+    "child_result_tracking_available": true,
+    "notes": [
+      "This template is a blocked placeholder scaffold. Replace it with the real runtime state before ideation close."
+    ]
+  },
+  "execution_mode": "BLOCKED",
+  "execution_parallelism_mode": "batched_degraded",
+  "parent_session": {
+    "agent_name": "TBD",
+    "session_id": null,
+    "provider": "codex",
+    "role": "Master Orchestrator",
+    "model_audit": {
+      "requested_model": "gpt-5.4",
+      "requested_reasoning_effort": "xhigh",
+      "observed_runtime_model": null,
+      "observed_model_auditability": "runtime_not_exposed",
+      "routing_basis": "Codex MODEL_ROUTING primary director policy target"
+    }
+  },
+  "required_child_roles": ["lane_manager", "worker", "lane_convergence_reporter", "auditor"],
+  "required_manager_ids": ["mgr.alpha", "mgr.beta", "mgr.gamma", "mgr.radical"],
+  "required_reporter_ids": ["rep.alpha", "rep.beta", "rep.gamma", "rep.radical"],
+  "required_auditor_ids": ["aud.compliance", "aud.runtime", "aud.authority", "aud.adversarial"],
+  "required_worker_node_ids": [
+    "wrk.alpha.visionary",
+    "wrk.alpha.systems_thinker",
+    "wrk.alpha.critic",
+    "wrk.beta.visionary",
+    "wrk.beta.systems_thinker",
+    "wrk.beta.critic",
+    "wrk.gamma.visionary",
+    "wrk.gamma.systems_thinker",
+    "wrk.gamma.critic",
+    "wrk.radical.visionary",
+    "wrk.radical.systems_thinker",
+    "wrk.radical.critic"
+  ],
+  "spawned_children": [],
+  "internal_viewpoint_roles": [],
+  "merge_evidence": {
+    "team_plan_ref": "docs/task_workspaces/T-0000/TEAM_PLAN.yaml",
+    "topology_graph_ref": "docs/task_workspaces/T-0000/SWARM_TOPOLOGY_GRAPH.json",
+    "execution_parallelism_ref": "docs/task_workspaces/T-0000/EXECUTION_PARALLELISM_RECORD.json",
+    "child_result_merge_package_ref": "docs/task_workspaces/T-0000/CHILD_RESULT_MERGE_PACKAGE.json"
+  },
+  "blocking_reason": "Placeholder until the real AAS5 25-agent ideation swarm runs and persists per-node participant, lane, and audit artifacts.",
+  "recommendation_authorized": false,
+  "notes": [
+    "If this record remains BLOCKED, the ideation stage is not a valid AAS5 swarm result.",
+    "When the real swarm runs, every spawned participant must record node_id, model audit, and artifact provenance.",
+    "Batched execution is degraded and must not be described as equivalent to ideal simultaneous 25-agent execution."
+  ],
+  "satisfied": false
+}

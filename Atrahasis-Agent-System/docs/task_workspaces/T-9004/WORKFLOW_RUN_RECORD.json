@@ -1,0 +1,34 @@
+{
+  "workflow_id": "T-9004-AASNI-20260313T230806Z",
+  "task_id": "T-9004",
+  "command_modifier": "AASNI",
+  "agent_name": "Ashur",
+  "platform": "CODEX",
+  "status": "PENDING_HUMAN_REVIEW",
+  "artifacts": [
+    "README.md",
+    "TASK_BRIEF.md",
+    "COMMAND_REQUEST.yaml",
+    "SWARM_OUTPUT.md",
+    "CONTRADICTION_MAP.json",
+    "SOLUTION_PATH_SET.json",
+    "FEASIBILITY_REPORT.json",
+    "HUMAN_DECISION_RECORD.json",
+    "MERGE_PACKET.md",
+    "WORKFLOW_SUMMARY.md"
+  ],
+  "source_docs": [
+    "docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v4.md",
+    "docs/specifications/C14/MASTER_TECH_SPEC.md",
+    "docs/specifications/C15/MASTER_TECH_SPEC.md",
+    "docs/specifications/C18/MASTER_TECH_SPEC.md",
+    "docs/specifications/C22/MASTER_TECH_SPEC.md",
+    "docs/specifications/C23/MASTER_TECH_SPEC.md",
+    "docs/specifications/C45/MASTER_TECH_SPEC.md",
+    "docs/specifications/C47/MASTER_TECH_SPEC.md"
+  ],
+  "notes": [
+    "Independent Ashur analysis; did not modify T-9003.",
+    "Ad hoc task kept out of docs/TODO.md per task-ID policy."
+  ]
+}

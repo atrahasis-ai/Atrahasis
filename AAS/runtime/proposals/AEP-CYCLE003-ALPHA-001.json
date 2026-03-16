@@ -1,0 +1,31 @@
+{
+  "aep_id": "AEP-CYCLE003-ALPHA-001",
+  "affected_layers": [
+    "Infrastructure",
+    "Runtime",
+    "Governance"
+  ],
+  "architecture_gap": "The current runtime can bootstrap and resume, but it still needs sustained self-improvement cycles to become a recursive architecture evolution engine.",
+  "authoring_agent": "Swarm Alpha",
+  "cssm_version": "AAS-State-v1.3",
+  "data_model_changes": "Add cycle-scoped state, evolution deltas, and replayable improvement history to the runtime state graph.",
+  "date": "2026-03-13T10:16:53Z",
+  "governance_implications": "Councils gain repeated review cadence and explicit cycle history.",
+  "implementation_tasks": [
+    "AAS-TASK-CYCLE-003-ALPHA-001"
+  ],
+  "invention_concept": "Extract the bootstrap overlay into a long-running local coordination service without breaking the document canon.",
+  "migration_strategy": "Adopt cycle outputs incrementally by synthesizing a new canonical CSSM version after each meta-evaluation.",
+  "objective_profile": {
+    "capability": 0.78,
+    "feasibility": 0.95,
+    "governance_stability": 0.95
+  },
+  "problem_statement": "Pending architecture evolution pressure remains on: Apply merged delta for Cycle 001 Meta-Merge Architecture, Apply merged delta for Cycle 002 Meta-Merge Architecture.",
+  "proposed_architecture_change": "Extract the bootstrap overlay into a long-running local coordination service without breaking the document canon.",
+  "protocol_implications": "Proposal routing and council replay remain file-backed but gain persistent evolution cadence.",
+  "security_implications": "No external network surface is added; the improvement loop remains local and auditable through telemetry.",
+  "status": "submitted",
+  "swarm": "alpha",
+  "title": "Cycle 003 Non-Breaking Runtime Hardening"
+}

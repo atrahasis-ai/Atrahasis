@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Swarm Topology Graph",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "run_key",
+    "generated_at",
+    "topology_mode",
+    "ideal_agent_count",
+    "realized_node_count",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "type": {"const": "SWARM_TOPOLOGY_GRAPH"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "topology_mode": {"type": "string"},
+    "ideal_agent_count": {"type": "integer", "minimum": 1},
+    "realized_node_count": {"type": "integer", "minimum": 1},
+    "nodes": {"type": "array", "items": {"type": "object"}},
+    "edges": {"type": "array", "items": {"type": "object"}},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

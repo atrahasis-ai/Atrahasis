@@ -1,0 +1,46 @@
+{
+  "closest_prior_art": "docs/prior_art/C1/landscape.md",
+  "collision_risk": "high",
+  "differentiators": [
+    "Agent invention pathway",
+    "Agents invention pathway",
+    "System invention pathway"
+  ],
+  "hypothesis_assessments": [
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-001",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Agent invention pathway",
+        "Explore agent as an invention opportunity by transferring immune_system coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and"
+      ],
+      "hypothesis_id": "H-001",
+      "novelty_score": 2
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-002",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "Agents invention pathway",
+        "Explore agents as an invention opportunity by transferring supply_chain coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and"
+      ],
+      "hypothesis_id": "H-002",
+      "novelty_score": 1
+    },
+    {
+      "artifact_ref": "NOVELTY_REPORT.json#H-003",
+      "closest_prior_art": "docs/prior_art/C1/landscape.md",
+      "collision_risk": "high",
+      "differentiators": [
+        "System invention pathway",
+        "Explore system as an invention opportunity by transferring capital_market coordination patterns into the problem: Redirect exploration: produce the final built-vs-unbuilt platform module summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and"
+      ],
+      "hypothesis_id": "H-003",
+      "novelty_score": 1
+    }
+  ],
+  "novelty_score": 1,
+  "type": "NOVELTY_REPORT"
+}

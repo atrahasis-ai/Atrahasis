@@ -1,110 +1,126 @@
-# Atrahasis Agent System — v1.0 (March 9, 2026)
+# Atrahasis Agent System
 
-A multi-agent AI system for **inventing new technologies and software**. Agents collaborate through structured workflows to generate, research, validate, design, prototype, and formally specify novel inventions.
+The Atrahasis Agent System currently runs on the AAS3 architecture. It is a human-guided invention intelligence platform for the Atrahasis repository. It analyzes the repository as a research corpus, detects opportunity zones, generates invention hypotheses, evaluates solution paths, and produces structured artifacts for operator review.
 
-## What this system does
+## System Model
 
-- **Generates** novel technology concepts through adversarial ideation (Visionary vs. Systems Thinker vs. Critic)
-- **Researches** prior art, competitive landscape, and scientific feasibility
-- **Assesses** novelty, feasibility, impact, and commercial viability
-- **Designs** system architectures for new inventions
-- **Prototypes** proof-of-concept implementations
-- **Specifies** inventions to patent-ready level (claims, embodiments, figures)
-- **Evaluates** through adversarial assessment (Advocate vs. Skeptic vs. Arbiter)
+- `InventionPipelineManager` is the single workflow controller.
+- `CommandModifierRouter` normalizes requests but does not control execution.
+- Knowledge, reasoning, evaluation, and human-guidance modules run only through the orchestration layer.
+- Historical invention logs, prior art, and specifications remain available as evidence and portfolio memory.
 
-## Stage-Gate Lifecycle
+## Command Modifiers
 
-`IDEATION → RESEARCH → FEASIBILITY → DESIGN → PROTOTYPE → SPECIFICATION → ASSESSMENT`
+- `AASBT`: implementation and buildout tasks
+- `AASAQ`: architecture questions
+- `AASNI`: new idea integration
+- `AASA`: full system analysis
 
-Each stage transition requires an Assessment Council verdict: `ADVANCE | CONDITIONAL_ADVANCE | PIVOT | REJECT`
+## Task ID Policy
+
+- Canonical backlog work uses `T-001` to `T-7999`
+- Ad hoc `AASA`, `AASAQ`, and `AASNI` runs use `T-9000` to `T-9499`
+- Runtime/provider validation uses `T-9500` to `T-9799`
+- Demo/operator walkthroughs use `T-9800` to `T-9999`
+
+The runtime now auto-mints task IDs for `AASA`, `AASAQ`, and `AASNI` when no task ID is supplied. `AASBT` still requires an explicit canonical task ID. See `docs/TASK_ID_POLICY.md`.
 
 ## Quick Start
 
-1. Paste the **Director Activation Prompt** from `docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md` §15.1
-2. Director runs the Opening Brief (reads state + condensed docs)
-3. Provide a problem domain or invention prompt
-4. Agents take it from there through the stage-gate lifecycle
+### CLI-First AAS5 Evaluation
 
-## Validation
+If the goal is to test whether Codex performs better with the new Atrahasis Agent System than with the previous setup, use the terminal-first path and ignore the controller UI for now.
+
+Start Codex in the repo with the AAS5 repo-local configuration:
+
+```powershell
+pwsh -File scripts/start_aas5_codex.ps1
+```
+
+Useful variants:
+
+```powershell
+pwsh -File scripts/start_aas5_codex.ps1 -Alpha
+pwsh -File scripts/start_aas5_codex.ps1 -Search
+pwsh -File scripts/start_aas5_codex.ps1 -CodeMode
+pwsh -File scripts/start_aas5_codex.ps1 -MultiAgent
+```
+
+This keeps the workflow close to your normal Codex CLI usage:
+- same terminal conversation model
+- repo-local MCP enabled from `.codex/config.toml`
+- repo-canonical docs and runtime state available in the working directory
+
+For direct A/B testing guidance, see `docs/platform_overlays/codex/CLI_FIRST_TESTING.md`.
+
+Register a backend session:
+
+```bash
+python scripts/register_aas_backend.py codex Nergal session-001 --agent-type director
+```
+
+Run an AAS task:
+
+```bash
+python scripts/run_aas1.py AASBT T-260 "Design the native server framework, decorator model, schema validation, auto-wrapping, provenance generation, and FastAPI/Express/Actix adapters." --constraint "Keep human approval mandatory"
+```
+
+Run an ad hoc architecture question and let AAS3 mint the task ID:
+
+```bash
+python scripts/run_aas1.py AASAQ "Explain the current provider runtime architecture and supported backends."
+```
+
+Run a validation-band task explicitly:
+
+```bash
+python scripts/run_aas1.py AASAQ "Validate provider runtime registration flow." --task-class validation
+```
+
+Validate state and workspace artifacts:
 
 ```bash
 python scripts/validate_agent_state.py docs/AGENT_STATE.md
-python scripts/validate_contribution_requests.py docs/contribution_requests
-python scripts/validate_invention_concept.py <concept-file>
+python scripts/validate_aas1_task_workspace.py docs/task_workspaces/T-901
+```
+
+Validate one artifact:
+
+```bash
+python scripts/validate_aas1_artifact.py hypothesis_packet docs/task_workspaces/T-901/HYPOTHESIS_PACKET.json
 ```
 
 ## Repository Structure
 
-```
-├── README.md
-├── docs/
-│   ├── ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md    # System constitution
-│   ├── ATRAHASIS_SYSTEM_OVERVIEW_v1.md         # High-level overview
-│   ├── AGENT_STATE.md                          # Durable state (YAML)
-│   ├── SESSION_BRIEF.md                        # Read-first session summary
-│   ├── INVENTION_DASHBOARD.md                  # Invention status table
-│   ├── DECISIONS.md                            # ADR-style decision log
-│   ├── PATTERN_REGISTER.md                     # Recurring patterns
-│   ├── TRIBUNAL_LOG.md                         # Council transcript archive
-│   ├── INVENTION_CONTEXT.md                    # Institutional memory + conventions
-│   ├── GUARDRAILS.md                           # Safety and format guardrails
-│   ├── HITL_POLICY.md                          # Human-in-the-loop policy
-│   ├── RESEARCH_PROTOCOL.md                    # Prior art research workflow
-│   ├── PROTOTYPE_VALIDATOR_GUIDE.md            # Prototype validation guide
-│   ├── SYNTHESIS_PLAYBOOK.md                   # Shared artifact integration
-│   ├── TOOLS.md                                # Tooling conventions
-│   ├── schemas/
-│   │   ├── agent_state.schema.json
-│   │   ├── contribution_request.schema.json
-│   │   ├── invention_concept.schema.json
-│   │   ├── prior_art_report.schema.json
-│   │   └── assessment_verdict.schema.json
-│   ├── templates/
-│   │   ├── INVENTION_LOG_TEMPLATE.md
-│   │   ├── CONTRIBUTION_REQUEST_TEMPLATE.yaml
-│   │   └── ASSESSMENT_AND_SYNTHESIS_JSON_TEMPLATES.md
-│   ├── invention_logs/                         # Per-invention logs
-│   ├── contribution_requests/                  # Shared artifact change requests
-│   ├── prior_art/                              # Per-invention research
-│   └── specifications/                         # Per-invention formal specs
-├── prototypes/                                 # Per-invention proof-of-concept code
-└── scripts/
-    ├── validate_agent_state.py
-    ├── validate_contribution_requests.py
-    └── validate_invention_concept.py
+```text
+docs/
+  ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md
+  ATRAHASIS_SYSTEM_OVERVIEW_v1.md
+  AGENT_STATE.md
+  HITL_POLICY.md
+  RESEARCH_PROTOCOL.md
+  SYNTHESIS_PLAYBOOK.md
+  schemas/
+  templates/
+  task_workspaces/
+src/aas1/
+  invention_pipeline_manager.py
+  command_modifier_router.py
+  gcml_memory_interface.py
+  artifact_registry.py
+  telemetry.py
+  discovery/
+  reasoning/
+  validation/
+scripts/
+  run_aas1.py
+  register_aas_backend.py
+  claim_aas_task.py
+  validate_agent_state.py
+  validate_aas1_artifact.py
+  validate_aas1_task_workspace.py
 ```
 
-## Agent Roles
+## Human Guidance Rule
 
-### Coordinator Layer
-- **Director** — orchestrates everything; never generates invention content
-- **Chronicler** — owns state + memory artifacts
-
-### Ideation Layer (adversarial debate)
-- **Visionary** — bold, unconstrained concepts
-- **Systems Thinker** — technical architecture and feasibility
-- **Critic** — prior art risks, impossibilities, fatal flaws
-
-### Research Layer
-- **Prior Art Researcher** — patents, papers, products, open-source
-- **Landscape Analyst** — competitive and technology landscape
-- **Science Advisor** — scientific/engineering soundness
-
-### Execution Layer
-- **Prototype Engineer** — proof-of-concept code
-- **Specification Writer** — formal specs, patent-style claims
-- **Architecture Designer** — system architecture documents
-- **Synthesis Engineer** — integrates outputs, owns shared artifacts
-
-### Assurance Layer
-- **Technical Feasibility Assessor**
-- **Novelty Assessor**
-- **Impact Assessor**
-- **Specification Completeness Assessor**
-- **Commercial Viability Assessor**
-- **Prototype Validator**
-- **Assessment Council** (Advocate, Skeptic, Arbiter)
-
----
-
-*Built on the proven structural patterns of the Atrahasis Agent Team System v5.0, rewritten for invention rather than product development. Named after the Atrahasis distributed AI architecture.*
+The operator remains the final decision authority. The Atrahasis Agent System generates evidence, hypotheses, contradictions, solution paths, and decision packets. It does not self-authorize pivots or commitments.

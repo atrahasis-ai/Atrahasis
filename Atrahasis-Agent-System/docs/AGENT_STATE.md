@@ -1,12 +1,16 @@
 # NOTE: This file must contain YAML ONLY (no Markdown prose beyond YAML comments).
 # Validate with: python scripts/validate_agent_state.py docs/AGENT_STATE.md
+# Path policy:
+# - Repo docs are the canonical working state for all active AAS execution.
+# - Desktop Atrahasis Agent System paths in older entries are historical provenance or optional export/archive destinations.
+# - Platform-specific runtime/model behavior lives in docs/platform_overlays/, not in this shared state file.
 
 version: "1.0"
-stage: "IDLE"
-status: "AWAITING_TASK"
+stage: "ARCHITECTURE_REWRITE"
+status: "ALTERNATIVE_C_ZERO_BRIDGE_PIVOT"
 
-last_updated: "2026-03-10T12:00:00Z"
-last_updated_by: "Chronicler"
+last_updated: "2026-03-16T22:05:00Z"
+last_updated_by: "Director"
 
 session_brief: "docs/SESSION_BRIEF.md"
 invention_dashboard: "docs/INVENTION_DASHBOARD.md"
@@ -14,6 +18,204 @@ pattern_register: "docs/PATTERN_REGISTER.md"
 decisions_log: "docs/DECISIONS.md"
 tribunal_log: "docs/TRIBUNAL_LOG.md"
 
+active_sessions:
+  - agent_name: "Anu"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-anu-20260313-160114-legacy"
+    current_task: null
+    registered_at: "2026-03-13T21:03:42Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Ashur"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ashur-20260313-210939-legacy"
+    current_task: null
+    registered_at: "2026-03-13T21:09:39Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Nanshe"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-nanshe-20260313-161317-legacy"
+    current_task: "T-9003"
+    registered_at: "2026-03-13T21:13:17Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Dumuzi"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-dumuzi-20260313-190934-58406bfe"
+    current_task: null
+    registered_at: "2026-03-13T20:32:53Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Ereshkigal"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ereshkigal-20260313-132107-09113d2c"
+    current_task: null
+    registered_at: "2026-03-13T18:21:11Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "operational"
+      - "code_implementer"
+  - agent_name: "Nergal"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-live-001"
+    current_task: null
+    registered_at: "2026-03-13T18:13:43Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "chronicler"
+  - agent_name: "Ninurta"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ninurta-20260313-191201-e46ece3c"
+    current_task: null
+    registered_at: "2026-03-13T20:01:30Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "operational"
+      - "code_implementer"
+  - agent_name: "Nisaba"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-nisaba-20260313-140627-b7e88663"
+    current_task: null
+    registered_at: "2026-03-13T19:32:40Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "operational"
+      - "code_implementer"
+  - agent_name: "Nergal"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-test-001"
+    current_task: null
+    registered_at: "2026-03-13T18:12:25Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+      - "code_implementer"
+  - agent_name: "Enki"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-enki-20260313-001"
+    current_task: null
+    registered_at: "2026-03-13T19:51:36Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Enki"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-session-991"
+    current_task: null
+    registered_at: "2026-03-13T18:18:35Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Enki"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-session-992"
+    current_task: null
+    registered_at: "2026-03-13T18:59:01Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Enki"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-session-enki-001"
+    current_task: null
+    registered_at: "2026-03-13T19:03:51Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Nabu"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-session-nabu-001"
+    current_task: null
+    registered_at: "2026-03-13T19:49:10Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "primary"
+  - agent_name: "Ishtar"
+    cli_platform: "Gemini CLI"
+    provider: "gemini"
+    session_id: "gemini-test-001"
+    current_task: null
+    registered_at: "2026-03-13T18:12:25Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "visionary"
+      - "chronicler"
+  - agent_name: "Ninkasi"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ninkasi-20260314-233351-legacy"
+    current_task: null
+    registered_at: "2026-03-14T23:33:47Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Adad"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-adad-20260315-015251-legacy"
+    current_task: null
+    registered_at: "2026-03-15T01:52:51Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Ninlil"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ninlil-20260315-019cf189-legacy"
+    current_task: null
+    registered_at: "2026-03-15T13:00:37Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Tishpak"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-tishpak-20260315-bootstrap-local"
+    current_task: null
+    registered_at: "2026-03-15T14:09:10Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Zababa"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-zababa-20260315-bootstrap-local"
+    current_task: null
+    registered_at: "2026-03-15T14:19:09Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+  - agent_name: "Ningishzida"
+    cli_platform: "OpenAI Codex"
+    provider: "codex"
+    session_id: "codex-ningishzida-20260316-bootstrap-local"
+    current_task: null
+    registered_at: "2026-03-16T06:32:27Z"
+    status: "ACTIVE"
+    supported_agent_types:
+      - "director"
+# Legacy-entry interpretation:
+# - `output_folder` fields describe historical output/archive locations used in earlier runs.
+# - they do not override the repo-canonical working-state rule above.
 inventions:
   C1:
     title: "Predictive Tidal Architecture (PTA)"
@@ -1005,6 +1207,662 @@ inventions:
       - "C18 Funding Strategy must reach FEASIBILITY before W0 begins"
       - "Add missing formal requirements (disaster recovery, security audit, spec versioning)"
 
+  C23:
+    title: "Sovereign Cell Runtime (SCR)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C23/MASTER_TECH_SPEC.md"
+    domain: "agent execution / runtime systems / model-serving orchestration / secure multi-agent infrastructure"
+    created_at: "2026-03-12T03:45:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T03:45:00Z"
+    description: "Parcel-local execution substrate that separates persistent agent identity from lease-bound sovereign cells. SCR defines runtime profiles, cell isolation classes, inference leasing, tool capability tokens, and Execution Evidence Bundles for C5/C8."
+    novelty_score: 4
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+    log: "docs/invention_logs/C23_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C23/prior_art_report.md"
+      landscape: "docs/prior_art/C23/landscape.md"
+      science: "docs/prior_art/C23/science_assessment.md"
+    refined_concept: "docs/invention_logs/C23_REFINED_INVENTION_CONCEPT.yaml"
+    feasibility_verdict: "docs/invention_logs/C23_FEASIBILITY.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4
+      feasibility: 4
+      impact: 5
+      risk: 5
+      risk_level: "HIGH"
+    key_innovations:
+      - "Lease-bound sovereign cells separate persistent agent identity from transient execution"
+      - "Inference Lease Broker makes model access an explicit bounded right"
+      - "Tool Capability Broker eliminates ambient tool and network permissions"
+      - "Execution Evidence Bundles bind runtime provenance directly to C5 verification and C8 settlement"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "No ambient tool or network rights may exist outside leases"
+      - "Hosted-provider inference must be disclosed as provenance-rich but not automatically replayable"
+      - "Runtime backpressure must be surfaced to C7 through one admission signal"
+      - "Governance and verifier-critical work must use the strongest cell profile"
+
+  C24:
+    title: "Federated Habitat Fabric (FHF)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C24/MASTER_TECH_SPEC.md"
+    domain: "distributed infrastructure / deployment topology / cross-region federation"
+    created_at: "2026-03-12T04:25:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T04:25:00Z"
+    description: "Defines Habitat as the canonical region-scoped Atrahasis infrastructure domain. FHF aligns runtime, state, governance, and federation to shared habitat boundaries, forces cross-habitat exchange through Habitat Boundary Gateways, and uses typed Habitat Boundary Capsules plus state residency classes to keep federation explicit and locality-first."
+    novelty_score: 4
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+    log: "docs/invention_logs/C24_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C24/prior_art_report.md"
+      landscape: "docs/prior_art/C24/landscape.md"
+      science: "docs/prior_art/C24/science_assessment.md"
+    refined_concept: "docs/invention_logs/C24_REFINED_INVENTION_CONCEPT.yaml"
+    feasibility_verdict: "docs/invention_logs/C24_FEASIBILITY.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4
+      feasibility: 4
+      impact: 4
+      risk: 5
+      risk_level: "HIGH"
+    key_innovations:
+      - "Habitat is the missing deployment primitive between logical loci/parcels and concrete infrastructure"
+      - "Five-plane separation aligns control, data, state, governance, and federation to one shared regional boundary"
+      - "Habitat Boundary Gateways make direct inter-habitat traffic default-deny"
+      - "Habitat Boundary Capsules and state residency classes turn cross-region movement into typed, policy-bounded exchange"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "Direct inter-habitat traffic remains default-deny"
+      - "State residency classes must be implemented before production deployment"
+      - "Single-habitat bootstrap remains a first-class deployment profile"
+      - "Later recovery and monitoring specs must inherit the habitat failure-domain model rather than redefining it"
+
+  C31:
+    title: "Crystallographic Adaptive Topology (CAT)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C31/MASTER_TECH_SPEC.md"
+    domain: "multi-agent topology / deterministic coordination / intra-parcel organization"
+    created_at: "2026-03-11T23:10:00Z"
+    concept_selected: "C31-C"
+    concept_selected_at: "2026-03-11T23:20:00Z"
+    description: "Optional additive topology layer for C3 parcels. CAT forms Deterministic Affinity Neighborhoods (DANs) of 3-5 agents from hash-ring order and capability history, preserving trinity/tetrahedral heritage as a special case without restoring rigid global lattice structure."
+    novelty_score: 3.5
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+    log: "docs/invention_logs/C31_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C31/prior_art_report.md"
+      landscape: "docs/prior_art/C31/landscape.md"
+      science: "docs/prior_art/C31/science_assessment.md"
+    feasibility_verdict: "docs/invention_logs/C31_FEASIBILITY.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 3.5
+      feasibility: 4
+      impact: 3
+      risk: 3
+      risk_level: "LOW"
+    key_innovations:
+      - "Deterministic Affinity Neighborhoods (DANs) of 3-5 agents nested inside C3 parcels"
+      - "Capability-derived local role assignment without self-reported metadata"
+      - "Trinity/tetrahedral topology preserved as a flexible special case rather than a rigid global lattice"
+      - "Strict orthogonality between organizational topology and C5 VRF committee selection"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "Keep DAN_ENABLED false by default until shadow-mode validation passes"
+      - "No DAN membership, role, or affinity data may enter C5 VRF committee selection"
+      - "Coherence bonus remains disabled until separately ratified"
+
+  C32:
+    title: "Metamorphic Identity Architecture (MIA)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/task_workspaces/T-063/specifications/MASTER_TECH_SPEC.md"
+    domain: "agent identity / lifecycle management / identity continuity"
+    created_at: "2026-03-12T06:00:00Z"
+    concept_selected: "IC-1"
+    concept_selected_at: "2026-03-12T06:00:00Z"
+    description: "Unified agent identity substrate with Identity Continuity Kernel (ICK), Metamorphic Re-attestation Protocol (MRP) for model upgrade continuity, canonical AgentID = SHA-256(Ed25519_pubkey), lifecycle state machine (PROBATION → ACTIVE → CHRYSALIS → RETIRED), and Credential Composition across C5/C7/C8/C14/C17/C31."
+    novelty_score: 4
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+      - "Pre-Mortem Analyst"
+      - "Commercial Viability Assessor"
+    log: "docs/task_workspaces/T-063/ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/task_workspaces/T-063/PRIOR_ART_REPORT.md"
+      landscape: "docs/task_workspaces/T-063/LANDSCAPE_REPORT.md"
+      science: "docs/task_workspaces/T-063/SCIENCE_ASSESSMENT.md"
+    feasibility_verdict: "docs/task_workspaces/T-063/FEASIBILITY.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4
+      feasibility: 4
+      impact: 4
+      risk: 4
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Metamorphic Re-attestation Protocol (MRP) — identity continuity through model upgrades via chrysalis state"
+      - "Identity Continuity Kernel (ICK) — invariant anchors persisting through any transformation"
+      - "Canonical AgentID = SHA-256(Ed25519_pubkey) — 256-bit, cryptographically anchored"
+      - "Dual-trigger chrysalis — voluntary (signed attestation) + involuntary (behavioral divergence)"
+      - "Non-forkable identity with concurrent-use detection"
+      - "Credential Composition across C5/C7/C8/C14/C17/C31"
+    assessment_decision: "APPROVE"
+    monitoring_flags:
+      - "MF-1: MRP atomicity (saga pattern for cross-spec chrysalis transitions)"
+      - "MF-2: AiSIA dependency (C32 routes investigations to unspecified AiSIA)"
+      - "MF-3: Social Recovery Protocol (extension point, not specified in v1.0)"
+      - "MF-4: Registration fee calibration (depends on C15 AIC valuation)"
+      - "MF-5: Behavioral divergence threshold (0.40) calibration"
+    output_folder: "Atrahasis Agent System\\Identity Registry\\"
+    task_id: "T-063"
+
+  C33:
+    title: "Operational Integrity Nerve Center (OINC)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C33/MASTER_TECH_SPEC.md"
+    domain: "operational monitoring / incident response / runtime security audit / governance observability"
+    created_at: "2026-03-12T04:18:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T04:18:00Z"
+    description: "Cross-layer operational fabric that normalizes system signals into evidence-bearing incident capsules with explicit severity, scope, authority envelopes, bounded playbooks, and review artifacts."
+    novelty_score: 4
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+    log: "docs/invention_logs/C33_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C33/prior_art_report.md"
+      landscape: "docs/prior_art/C33/landscape.md"
+      science: "docs/prior_art/C33/science_assessment.md"
+    refined_concept: "docs/invention_logs/C33_REFINED_INVENTION_CONCEPT.yaml"
+    feasibility_verdict: "docs/invention_logs/C33_FEASIBILITY.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4
+      feasibility: 4
+      impact: 4
+      risk: 4
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Incident capsules bind source signals, severity, authority envelope, playbook state, evidence, and review output into one durable case"
+      - "Authority-bounded playbooks keep operations below governance, verification, settlement, and scheduling authority boundaries"
+      - "Cross-layer signal normalization unifies service, security, epistemic, economic, and governance incidents"
+      - "Critical and emergency incidents require both full evidence retention and review artifacts"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "OINC may never directly execute governance decisions"
+      - "Critical and emergency incidents must remain explainable and evidence-backed"
+      - "Delegated local playbooks must be explicitly granted by owning layers"
+      - "Review artifacts are mandatory for critical and emergency incidents"
+
+  C34:
+    title: "Black-Start Recovery Fabric (BSRF)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C34/MASTER_TECH_SPEC.md"
+    domain: "distributed recovery / cross-layer consistency / adversarial state reconstruction"
+    created_at: "2026-03-12T04:00:00Z"
+    concept_selected: "IC-1+IC-2+IC-3"
+    concept_selected_at: "2026-03-12T04:30:00Z"
+    description: "3-part cross-layer recovery architecture: (1) Black-Start Boot Sequence with dependency-ordered layer recovery (C8→C5→C3→C7→C6), per-epoch Merkle state digests, and 14 semantic synchronization predicates; (2) Recovery Witness Verification with authority-directed reconciliation and cross-layer witness corroboration; (3) Adversarial Reconstruction Fallback with declarative reference registry and causal traversal (registry+stub for Wave 4+). Consumer-side audit trail throughout."
+    novelty_score: 3.5
+    feasibility_score: 4
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+      - "Pre-Mortem Analyst"
+      - "Commercial Viability Assessor"
+    log: "docs/task_workspaces/T-062/ASSESSMENT_VERDICT.json"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C34/prior_art_report.md"
+      landscape: "docs/prior_art/C34/landscape.md"
+      science: "docs/prior_art/C34/science_assessment.md"
+    feasibility_verdict: "docs/task_workspaces/T-062/FEASIBILITY_OUTPUT.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 3.5
+      feasibility: 4
+      impact: 3.5
+      risk: 4
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Semantic synchronization predicates — verifiable contract obligations per layer, not just health checks"
+      - "Consumer-side audit trail — downstream layers verify upstream recovery quality"
+      - "Authority-directed reconciliation with cross-layer witness corroboration (soft-TMR)"
+      - "Declarative reference registry with causal traversal for adversarial state reconstruction"
+    assessment_decision: "ADVANCE"
+    monitoring_flags:
+      - "MF-1: Merkle digest storage overhead at scale (mitigated by configurable retention)"
+      - "MF-2: Authority corruption limitation (mitigated by witness corroboration + temporal trust gradient)"
+      - "MF-3: Part III Adversarial Reconstruction deferred to Wave 4+ (registry+stub only in v1.0)"
+    output_folder: "Atrahasis Agent System\\Recovery Fabric\\"
+    task_id: "T-062"
+
+  C35:
+    title: "Seismographic Sentinel (Security & Anomaly Detection)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C35/MASTER_TECH_SPEC.md"
+    domain: "security monitoring / anomaly detection / multi-agent systems"
+    created_at: "2026-03-12T03:00:00Z"
+    concept_selected: "IC-2+"
+    concept_selected_at: "2026-03-12T04:00:00Z"
+    description: "Three-tier hierarchical anomaly detection: Tier 1 STA/LTA dual baselines (fixed + adaptive) with OR-trigger confirmation window; Tier 2 Permitted Correlation Model (PCM) log-linear main-effects-only residuals within spectrally-clustered neighborhoods + 3-of-4 channel quorum (verification, behavioral, infrastructure, economic); Tier 3 epidemiological backward tracing using negative binomial overdispersion analysis from 2 sources (C17 behavioral similarity + C7 intent provenance). 6 cross-layer sentinel contracts. sentinel_health meta-signal for self-referential anomaly suppression."
+    novelty_score: 3.5
+    feasibility_score: 3.5
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+      - "Pre-Mortem Analyst"
+      - "Commercial Viability Assessor"
+    log: "docs/task_workspaces/T-060/ASSESSMENT_COUNCIL_VERDICT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C35/ (directory recreated; original research incorporated in MTS)"
+      landscape: "No direct competitor combining structural covariate correction + epoch-aware hierarchy + epidemiological attribution"
+      science: "PCM log-linear model: sound for main effects; convergence unproven (FC-1 experiment designed)"
+    feasibility_verdict: "docs/task_workspaces/T-060/FEASIBILITY_VERDICT.md"
+    feasibility_decision: "CONDITIONAL_ADVANCE"
+    scores:
+      novelty: 3.5
+      feasibility: 3.5
+      impact: 4.0
+      risk: 5
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Permitted Correlation Model (PCM) — log-linear structural covariate model for expected pairwise correlation, no direct precedent"
+      - "sentinel_health meta-signal (0.0-1.0) for self-referential anomaly suppression"
+      - "Three-tier hierarchical pipeline: STA/LTA detection → PCM-corrected regional correlation → epidemiological attribution"
+      - "Cluster Membership API — canonical structurally-grounded agent grouping consumed by 7 downstream specs"
+    assessment_decision: "CONDITIONAL_APPROVE"
+    blocking_conditions:
+      - "AC-1: PCM convergence experiment at V={1K,10K}"
+      - "AC-2: Cross-neighborhood Sybil swarm defense specified"
+      - "AC-3: Infrastructure-correlated anomaly suppression specified"
+      - "AC-4: C22 wave placement formally specified"
+      - "AC-5: C9 reconciliation updated with C35 contracts"
+    monitoring_flags:
+      - "MF-2: OPEN — PCM convergence bounds"
+      - "MF-5: OPEN — PCM calibration bias from coordinated poisoners"
+      - "MF-8: NEW — Infrastructure-correlated amplification"
+      - "MF-9: NEW — Nystrom approximation quality at 100K"
+      - "MF-10: NEW — Channel correlation impact on quorum FPR"
+    output_folder: "Atrahasis Agent System\\Sentinel Graph\\"
+    task_id: "T-060"
+    agent: "Shamash (6ecc7362)"
+    id_note: "Originally minted as C32 during IDEATION; re-IDed to C35 to resolve collision with C32 MIA (T-063)"
+
+  C36:
+    title: "Epistemic Membrane Architecture for Interfaces (EMA-I)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C36/MASTER_TECH_SPEC.md"
+    domain: "external interface architecture / session types / epistemic boundary layer"
+    created_at: "2026-03-12T09:00:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T09:00:00Z"
+    description: "Sovereign boundary layer between the Atrahasis internal epistemic stack and all external entities. 4 core components: Typed Interaction Receptors (session-typed, 5 persona families, 35 receptors), Structured Translation Engine (Galois connection, deterministic), Interaction Evidence Chain (causal, hash-chained, PCVM integration), Persona Projection Engine (non-interfering, epoch-bound). 18 inbound + 4 outbound integration points."
+    novelty_score: 3.5
+    feasibility_score: 4.0
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+      - "Pre-Mortem Analyst"
+      - "Commercial Viability Assessor"
+    log: "docs/task_workspaces/T-064/ASSESSMENT_TRANSCRIPT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/task_workspaces/T-064/PRIOR_ART_REPORT.md"
+      landscape: "docs/task_workspaces/T-064/LANDSCAPE_REPORT.md"
+      science: "docs/task_workspaces/T-064/SCIENCE_ASSESSMENT.md"
+    feasibility_verdict: "docs/task_workspaces/T-064/FEASIBILITY_VERDICT.json"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 3.5
+      feasibility: 4.0
+      impact: 4.5
+      risk: 4
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Session-typed epistemic receptors (Honda et al. 1998) binding to claim classes with compile-time protocol compliance"
+      - "Galois-connection translation (Cousot & Cousot 1977) with residual capture for auditable reconstruction"
+      - "Causal interaction evidence chain with hash chaining and PCVM commitments"
+      - "Non-interfering persona projections (Goguen & Meseguer 1982) over frozen epoch state"
+      - "Security ordering invariant: authenticate → validate → translate → authorize → dispatch"
+      - "Transport-agnostic architecture: REST, GraphQL, gRPC, WebSocket, MCP, A2A as bindings"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "Session type enforcement strategy defined before W1 receptor implementation"
+      - "Non-interference proof validated against all 5 persona families before W5"
+      - "Write-behind evidence recovery demonstrated in W1 integration tests"
+    monitoring_flags:
+      - "MF-1: Session type enforcement in Rust/TypeScript"
+      - "MF-2: Non-interference proof completeness"
+      - "MF-3: Write-behind evidence durability"
+      - "MF-4: Receptor composition side-effect detection"
+      - "MF-5: Receptor specification coverage"
+    task_id: "T-064"
+    agent: "Adapa (734bcdbf)"
+
+  C37:
+    title: "Epistemic Feedback Fabric (EFF)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/task_workspaces/T-067/specifications/MASTER_TECH_SPEC.md"
+    domain: "meta-cognitive feedback / verification learning / advisory systems"
+    created_at: "2026-03-12T10:00:00Z"
+    concept_selected: "IC-1"
+    concept_selected_at: "2026-03-12T10:00:00Z"
+    description: "Privacy-preserving advisory feedback from C5 verification outcomes to reasoning improvement. 4 components: VFL (population-level quality metrics with k-anonymity+DP+secure aggregation), RSC (reasoning strategy catalog as C6 epistemic quanta, 7-state lifecycle), CABS (optional budget advisories on C23 ExecutionLease), Advisory Membrane (formalized non-enforcement guarantee, ADVISORY_PRIVATE label). C17 RSC-aware whitelist for structural fingerprint discounting."
+    novelty_score: 3.5
+    feasibility_score: 4.0
+    assigned_roles:
+      - "Domain Translator"
+      - "Visionary"
+      - "Systems Thinker"
+      - "Critic"
+      - "Prior Art Researcher"
+      - "Landscape Analyst"
+      - "Science Advisor"
+      - "Adversarial Analyst"
+      - "Architecture Designer"
+      - "Specification Writer"
+      - "Simplification Agent"
+      - "Pre-Mortem Analyst"
+      - "Commercial Viability Assessor"
+    log: "docs/task_workspaces/T-067/ASSESSMENT.md"
+    research_status: "COMPLETE"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 3.5
+      feasibility: 4.0
+      impact: 4.0
+      risk: 5
+      risk_level: "MEDIUM"
+    key_innovations:
+      - "Advisory Membrane Pattern — formalized non-enforcement guarantee with no close prior art"
+      - "VFL population-level quality metrics with three-layer privacy (k-anonymity, DP, secure aggregation)"
+      - "RSC reasoning strategy catalog stored as C6 epistemic quanta with Subjective Logic credibility"
+      - "CABS complexity-aware budget signals on C23 ExecutionLease (advisory-only)"
+    assessment_decision: "APPROVE"
+    assessment_conditions:
+      - "C17 whitelist sync protocol formal review before W2"
+      - "VFL schema regex fix (claim class pattern)"
+      - "RSC convergence threshold calibration via W0 experiment"
+    monitoring_flags:
+      - "MF-1: RSC convergence"
+      - "MF-2: C17 side-channel"
+      - "MF-3: CABS non-monotonicity"
+      - "MF-4: VFL gaming"
+      - "MF-5: Agent stratification"
+      - "MF-6: VFL latency"
+    task_id: "T-067"
+    agent: "Enki (804ff0b6)"
+    id_note: "Originally minted as C36 during IDEATION; re-IDed to C37 to resolve collision with T-064 EMA-I"
+
+  C38:
+    title: "Five-Layer Sovereign Protocol Architecture (FSPA)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C38/MASTER_TECH_SPEC.md"
+    domain: "agent communication / protocol architecture / distributed systems / semantic interoperability / security"
+    created_at: "2026-03-12T12:40:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T12:40:00Z"
+    description: "Root Alternative B communication architecture defining AACP v2 as a sovereign five-layer stack: Transport, Session, Security, Messaging, and Semantics, with explicit semantic-integrity invariants, upgrade boundaries, and bridge compatibility-only posture."
+    novelty_score: 4.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C38_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4.0
+      feasibility: 4.0
+      impact: 5.0
+      risk: 6
+      risk_level: "MEDIUM"
+    assessment_decision: "APPROVE"
+    task_id: "T-210"
+    agent: "Ninsubur (019cdf98)"
+
+  C39:
+    title: "Lineage-Bearing Capability Message Lattice (LCML)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C39/MASTER_TECH_SPEC.md"
+    domain: "agent communication / protocol messaging / distributed systems / semantic interoperability"
+    created_at: "2026-03-12T12:46:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T12:46:00Z"
+    description: "Canonical Alternative B message-layer extension from 23 to 42 classes, using a bounded capability-family lattice with explicit lineage rules, header extensions, and class-economy constraints."
+    novelty_score: 4.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C39_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4.0
+      feasibility: 4.0
+      impact: 4.5
+      risk: 5
+      risk_level: "MEDIUM"
+    assessment_decision: "APPROVE"
+    task_id: "T-211"
+    agent: "Nergal (e97a74d352fb)"
+
+  C40:
+    title: "Dual-Anchor Authority Fabric (DAAF)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C40/MASTER_TECH_SPEC.md"
+    domain: "agent communication / protocol security / identity and authorization architecture / distributed trust"
+    created_at: "2026-03-12T13:32:05Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T13:32:05Z"
+    description: "Canonical Alternative B security architecture defining dual trust-anchor families, four bounded security profiles, canonical authority binding over C38 message identity, replay and downgrade defense, and explicit capability grants for sensitive operations."
+    novelty_score: 4.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C40_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4.0
+      feasibility: 4.0
+      impact: 5.0
+      risk: 6
+      risk_level: "MEDIUM"
+    assessment_decision: "APPROVE"
+    task_id: "T-230"
+    agent: "Marduk (e1b431d27d9f)"
+
+  C41:
+    title: "Layered Semantic Capability Manifest (LSCM)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C41/MASTER_TECH_SPEC.md"
+    domain: "agent discovery / signed capability disclosure / semantic manifest architecture"
+    created_at: "2026-03-12T14:10:00Z"
+    concept_selected: "IC-2"
+    concept_selected_at: "2026-03-12T14:10:00Z"
+    description: "Canonical Alternative B discovery manifest defining signed endpoint-scoped trust posture, binding and encoding support, message-family and semantic capability disclosure, native-versus-bridge posture, and visible manifest supersession."
+    novelty_score: 4.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C41_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4.0
+      feasibility: 4.0
+      impact: 4.5
+      risk: 5
+      risk_level: "MEDIUM"
+    assessment_decision: "APPROVE"
+    task_id: "T-214"
+    agent: "Inanna (019ce01c)"
+
+  C42:
+    title: "Lease-Primed Execution Mesh (LPEM)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C42/MASTER_TECH_SPEC.md"
+    domain: "agent communication / native tool connectivity / governed execution fabrics / performance-oriented protocol design"
+    created_at: "2026-03-13T06:21:37Z"
+    concept_selected: "IC-9"
+    concept_selected_at: "2026-03-13T06:21:37Z"
+    description: "Canonical Alternative B tool-connectivity invention defining signed tool inventory snapshots, explicit invocation priming levels, bounded continuation contexts, runtime handoff contracts to C23, and mandatory accountable tool results with visible native-versus-bridge posture."
+    novelty_score: 5.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C42_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C42/prior_art_report.md"
+      landscape: "docs/prior_art/C42/landscape.md"
+      science: "docs/prior_art/C42/science_assessment.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 5.0
+      feasibility: 4.0
+      impact: 5.0
+      risk: 7
+      risk_level: "HIGH"
+    assessment_decision: "APPROVE"
+    task_id: "T-240"
+    agent: "Marduk (e1b431d27d9f)"
+
+  C43:
+    title: "Custody-Bounded Semantic Bridge (CBSB)"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C43/MASTER_TECH_SPEC.md"
+    domain: "agent communication / protocol bridging / semantic provenance / migration architecture"
+    created_at: "2026-03-13T08:01:50Z"
+    concept_selected: "IC-4"
+    concept_selected_at: "2026-03-13T08:01:50Z"
+    description: "Canonical Alternative B MCP migration bridge defining signed bridge-scoped inventory snapshots, invocation pinned to snapshot/tool/policy identity, explicit source-versus-bridge semantic separation, accountable bridged results, bounded reusable bridge state, and derated continuation handles without native-equivalence claims."
+    novelty_score: 4.0
+    feasibility_score: 4.0
+    log: "docs/invention_logs/C43_ASSESSMENT.md"
+    research_status: "COMPLETE"
+    research_findings:
+      prior_art: "docs/prior_art/C43/prior_art_report.md"
+      landscape: "docs/prior_art/C43/landscape.md"
+      science: "docs/prior_art/C43/science_assessment.md"
+    feasibility_decision: "ADVANCE"
+    scores:
+      novelty: 4.0
+      feasibility: 4.0
+      impact: 5.0
+      risk: 6
+      risk_level: "HIGH"
+    assessment_decision: "APPROVE"
+    task_id: "T-250"
+    agent: "Nergal (e97a74d352fb)"
+
+  C44:
+    title: "AASL-T Constrained Generation Engine"
+    stage: "ASSESSMENT"
+    status: "COMPLETE"
+    master_tech_spec: "docs/specifications/C44/MASTER_TECH_SPEC.md"
+
 pending_contribution_requests: []
 pending_assessments: []
 
@@ -1012,13 +1870,36 @@ synthesis:
   active_invention_id: null
   contributions_pending: []
   consistency_checks_required: []
-  last_synthesis_result: "C10 COMPLETE — 49 engineering fixes + 13 hardening designs, all 62 findings addressed"
+  last_synthesis_result: null
 
 approvals_pending: []
 
 blockers: []
 
 notes:
+  - "Session closeout: Ningishzida completed exploratory FULL PIPELINE ideation task T-9013 and the external 25-agent swarm prompt brief without creating a canonical claim, editing TODO.md, or promoting shared canonical artifacts. T-9013 is now closed on operator instruction with no further stage advancement."
+  - "Policy update: T-300 defines the canonical C4 supersession boundary. C4 remains retained in-repo as historical/compatibility baseline for retrofit, audit, and migration work, but Alternative C artifacts are now the only forward communication-design authority for downstream tasks T-302 through T-309. Agent: Ninlil."
+  - "C43: ASSESSMENT complete - APPROVE. CBSB defines the canonical Alternative B MCP migration-bridge surface: signed bridge-scoped inventory snapshots, invocation pinned to snapshot/tool/policy identity, explicit source-versus-bridge semantic separation, accountable bridged results, bounded reusable bridge state, and derated continuation handles without native-equivalence claims. Resolves T-250. Agent: Nergal."
+  - "C42: ASSESSMENT complete - APPROVE. LPEM defines the canonical Alternative B tool-authority surface: signed tool inventory snapshots, explicit invocation priming levels (`IMMEDIATE_ONLY`, `CONTINUATION_READY`, `EXECUTION_PRIMED`), bounded continuation contexts, mandatory accountable tool results, and runtime handoff contracts to C23. Resolves T-240. Agent: Marduk."
+  - "C41: ASSESSMENT complete - APPROVE. LSCM defines the canonical Alternative B discovery manifest: signed endpoint-scoped capability disclosure for trust posture, transport/discovery endpoints, supported C40 security profiles, C39 message families, AASL semantic surfaces, native-versus-bridge posture, and visible supersession. Resolves T-214. Agent: Inanna."
+  - "C40: ASSESSMENT complete - APPROVE. DAAF defines the canonical Alternative B security model: dual-anchor trust rooted in C32 for native agents plus federated/workload ingress, four bounded security profiles, canonical authority binding (`ABP-v1` / `SIG-v1`), replay and downgrade defenses, and explicit capability grants. Resolves T-230. Agent: Marduk."
+  - "C39: ASSESSMENT complete - APPROVE. LCML defines the canonical Alternative B message-layer expansion: a normalized 23-class baseline plus 19 new discovery/tool/resource/prompt/stream/sampling classes for a bounded 42-class inventory, with header extensions, lineage rules, and class-economy constraints. Resolves T-211. Agent: Nergal."
+  - "C38: ASSESSMENT complete - APPROVE. FSPA defines the root Alternative B communication architecture: a sovereign five-layer AACP v2 stack with explicit layer ownership, forbidden behaviors, semantic-integrity invariants, downgrade refusal rules, and bridge compatibility-only posture. Resolves T-210. Agent: Ninsubur."
+  - "Policy update: T-201 defines the governance path for admitting TL, PMT, and SES into the canonical AASL registry under Alternative B. New type admissions require explicit proposal records, pinned registry snapshots, compatibility metadata, lifecycle-aware validator behavior, and no heuristic unknown-type acceptance. Agent: Nergal."
+  - "Policy update: C4 ASV is retained in-repo as historical baseline and compatibility reference. For T-200+ protocol-design work it is reference-only, not design authority; for T-300+ supersession/retrofit/migration work it remains required source material."
+  - "Program activation: Alternative B AACP/AASL Full Replacement is now active backlog. TODO tracks T-200-T-291 for sovereign protocol buildout and T-300-T-309 for repo-wide retrofit; standalone AASL/AACP work is no longer out of scope."
+  - "C4 ASV remains the historical communication baseline and compatibility reference until supersession tasks explicitly define retirement/adaptation boundaries."
+  - "C33: ASSESSMENT complete - APPROVE. OINC closes the missing operational monitoring and incident-response layer with incident capsules, authority-bounded playbooks, and audit-grade review artifacts. 20 requirements, 4 claims, 12 parameters. Resolves T-066."
+  - "C24: ASSESSMENT complete - APPROVE. FHF defines the missing infrastructure and federation boundary model with habitats, explicit gateways, typed capsules, and locality-first cross-region exchange."
+  - "C34: ASSESSMENT complete - ADVANCE. BSRF provides unified cross-layer recovery: dependency-ordered Black-Start Boot Sequence (C8→C5→C3→C7→C6), Recovery Witness Verification (authority-directed reconciliation with witness corroboration), Adversarial Reconstruction Fallback (registry+stub, Wave 4+). 35 requirements, 4 claims, 16 parameters. Resolves T-062."
+  - "C32: ASSESSMENT complete - APPROVE. MIA provides unified identity substrate with ICK, MRP for model upgrade continuity, canonical AgentID, 4-state lifecycle FSM, and Credential Composition. Resolves C17 OQ-05. 33 requirements, 5 claims, 16 parameters."
+  - "C23: ASSESSMENT complete - APPROVE. SCR closes the missing execution runtime gap with lease-bound sovereign cells, explicit inference and tool rights, and Execution Evidence Bundles for C5/C8 integration."
+  - "TODO cleanup: removed the deprecated display section, kept an explicit out-of-scope section, and removed the bottom summary block."
+  - "Policy update: task IDs and invention IDs are explicitly separated again. TODO tracks task/problem spaces only; C-IDs are minted only when concepts are approved past IDEATION; one task may spawn zero, one, or multiple inventions."
+  - "System update: active model routing is now platform-specific and lives in docs/platform_overlays/<platform>/MODEL_ROUTING.md; ADR-030 remains historical memory."
+  - "C31: Rerun complete - canonical closeout repaired after prior frozen session. Original desktop Atrahasis source folder was empty during recovery; provenance reconstructed from repo-side C1/C3/C31 artifacts."
+  - "T-083: Direct edit complete. Added C14 Section 4.4 Trustee Ratification Interface — authentication, notification protocol, proposal review surface, action vocabulary, emergency interface, accessibility, audit integration. 6 REQs (REQ-TRI-001–006), 7 params. C14 now 69 requirements, 96 parameters. Agent: Shamash."
+  - "C31: ASSESSMENT complete - APPROVE. CAT resolves the intra-parcel organizational gap with optional DANs of 3-5 agents, preserving topology heritage without reintroducing rigid lattice structure."
   - "C3: Ideation complete — C3-A Tidal Noosphere selected with FULL consensus"
   - "C3: RESEARCH complete — Prior Art (8 novelty gaps, confidence 4/5), Landscape (no direct competitor, 170x scale gap), Science (soundness 4/5, coherence 3/5)"
   - "C3: FEASIBILITY complete — CONDITIONAL_ADVANCE, Risk 7/10 (MEDIUM-HIGH), 3 hard gates, 3 required actions, 8 monitoring flags"
@@ -1102,3 +1983,6 @@ notes:
   - "C10: C3 emergency rollback (910 lines) — two-tier ETR (standard+critical), 3-channel governance redundancy, known-good version registry, SAFE_MODE state machine"
   - "C10: C6 SHREC+coherence (1,329 lines) — regime-based dual-controller (4 regimes), coherence graph sharding by locus, tiered edge updates (5x reduction), scale tiers T1-T4"
   - "C10: C5+C6 defense-in-depth (2,123 lines) — VTD forgery (5 mechanisms), collusion (4 mechanisms), consolidation poisoning (5 mechanisms), 14 mechanisms total, all 3 residuals downgraded HIGH→MEDIUM"
+  - "C35: ASSESSMENT complete — CONDITIONAL_APPROVE. Seismographic Sentinel fills the last CRITICAL architectural gap (T-060). 3-tier hierarchical anomaly detection with PCM-augmented Tier 2. 37 requirements, 7 claims, 66 parameters. 6 cross-layer contracts (C3, C5, C7, C8, C12, C17). Originally minted as C32, re-IDed to C35 (collision with C32 MIA). Agent: Shamash."
+  - "C36: ASSESSMENT complete — APPROVE. EMA-I defines the sovereign boundary layer for all external interactions. 4 components: Typed Interaction Receptors (session-typed, 5 persona families, 35 receptors), STE (Galois connection), IEC (causal evidence chain), PPE (non-interfering projections). 18 inbound + 4 outbound integration points. 32 requirements, 4 claims, 16 parameters. 3 operational conditions, 5 monitoring flags. Agent: Adapa."
+  - "C37: ASSESSMENT complete — APPROVE. EFF defines the meta-cognitive feedback layer. 4 components: VFL (population-level quality metrics, k-anonymity+DP+secure aggregation), RSC (reasoning strategy catalog as C6 quanta, 7-state lifecycle), CABS (optional budget advisories on C23 ExecutionLease), Advisory Membrane (non-enforcement guarantee, ADVISORY_PRIVATE). 27 requirements, 5 claims, 15 parameters. 3 operational conditions, 6 monitoring flags. Originally C36, re-IDed to C37 (collision with EMA-I). Agent: Enki."

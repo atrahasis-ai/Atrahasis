@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Opportunity Report",
+  "type": "object",
+  "required": [
+    "type",
+    "high_value_invention_targets",
+    "emerging_research_clusters",
+    "high_impact_hypothesis_zones",
+    "priority_rank"
+  ],
+  "properties": {
+    "type": {"const": "OPPORTUNITY_REPORT"},
+    "high_value_invention_targets": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "emerging_research_clusters": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "high_impact_hypothesis_zones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["zone", "priority_rank", "basis"],
+        "properties": {
+          "zone": {"type": "string"},
+          "priority_rank": {"type": "integer", "minimum": 1},
+          "basis": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "priority_rank": {"type": "integer", "minimum": 1}
+  },
+  "additionalProperties": true
+}

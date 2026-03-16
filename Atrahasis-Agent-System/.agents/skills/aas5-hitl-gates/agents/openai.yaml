@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 HITL Gates"
+  short_description: "Enforce human approval boundaries"
+  default_prompt: "Check approval requirements, stop at the right gate, and produce the exact decision packet or HITL artifact needed."

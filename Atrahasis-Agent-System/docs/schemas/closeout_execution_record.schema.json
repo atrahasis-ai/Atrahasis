@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Closeout Execution Record",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "run_id",
+    "executed_at",
+    "validation",
+    "artifact_refs",
+    "source",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "CLOSEOUT_EXECUTION_RECORD"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "run_id": {"type": "string"},
+    "executed_at": {"type": "string", "format": "date-time"},
+    "review_verdict": {"type": ["string", "null"]},
+    "review_summary": {"type": ["string", "null"]},
+    "human_decision": {"type": ["string", "null"]},
+    "workflow_status": {"type": ["string", "null"]},
+    "claim_status": {"type": ["string", "null"]},
+    "handoff_path": {"type": ["string", "null"]},
+    "validation": {
+      "type": "object",
+      "required": ["valid", "exit_code", "output"],
+      "properties": {
+        "valid": {"type": "boolean"},
+        "exit_code": {"type": ["integer", "null"]},
+        "output": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "artifact_refs": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "source": {"const": "operator_controller_service"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

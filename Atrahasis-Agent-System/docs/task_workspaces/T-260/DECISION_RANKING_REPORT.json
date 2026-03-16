@@ -1,0 +1,105 @@
+{
+  "candidate_count": 2,
+  "display_candidates": [
+    {
+      "base_opportunity_score": 0.631,
+      "candidate_label": "Top Exploration Candidate",
+      "display_to_operator": true,
+      "hypothesis_id": "H-001",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 1.0,
+        "discovery_gap_priority": 0.581,
+        "feasibility_score": 0.75,
+        "novelty_score": 0.25,
+        "research_support_strength": 0.902,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.64,
+      "opportunity_zone": "agent",
+      "origin": "domain",
+      "platform_alignment_score": 0.547,
+      "priority_adjustment": 0.009,
+      "rank": 1,
+      "recommended_path_id": "P-001",
+      "recommended_path_title": "Path for Agent invention pathway",
+      "title": "Agent invention pathway"
+    },
+    {
+      "base_opportunity_score": 0.536,
+      "candidate_label": "Top Exploration Candidate",
+      "display_to_operator": true,
+      "hypothesis_id": "H-002",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 0.5,
+        "discovery_gap_priority": 0.581,
+        "feasibility_score": 0.75,
+        "novelty_score": 0.0,
+        "research_support_strength": 0.902,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.545,
+      "opportunity_zone": "agents",
+      "origin": "domain",
+      "platform_alignment_score": 0.547,
+      "priority_adjustment": 0.009,
+      "rank": 2,
+      "recommended_path_id": "P-002",
+      "recommended_path_title": "Path for Agents invention pathway",
+      "title": "Agents invention pathway"
+    }
+  ],
+  "presentation_limit": 2,
+  "ranked_hypotheses": [
+    {
+      "base_opportunity_score": 0.631,
+      "candidate_label": "Top Exploration Candidate",
+      "display_to_operator": true,
+      "hypothesis_id": "H-001",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 1.0,
+        "discovery_gap_priority": 0.581,
+        "feasibility_score": 0.75,
+        "novelty_score": 0.25,
+        "research_support_strength": 0.902,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.64,
+      "opportunity_zone": "agent",
+      "origin": "domain",
+      "platform_alignment_score": 0.547,
+      "priority_adjustment": 0.009,
+      "rank": 1,
+      "recommended_path_id": "P-001",
+      "recommended_path_title": "Path for Agent invention pathway",
+      "title": "Agent invention pathway"
+    },
+    {
+      "base_opportunity_score": 0.536,
+      "candidate_label": "Top Exploration Candidate",
+      "display_to_operator": true,
+      "hypothesis_id": "H-002",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 0.5,
+        "discovery_gap_priority": 0.581,
+        "feasibility_score": 0.75,
+        "novelty_score": 0.0,
+        "research_support_strength": 0.902,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.545,
+      "opportunity_zone": "agents",
+      "origin": "domain",
+      "platform_alignment_score": 0.547,
+      "priority_adjustment": 0.009,
+      "rank": 2,
+      "recommended_path_id": "P-002",
+      "recommended_path_title": "Path for Agents invention pathway",
+      "title": "Agents invention pathway"
+    }
+  ],
+  "type": "DECISION_RANKING_REPORT"
+}

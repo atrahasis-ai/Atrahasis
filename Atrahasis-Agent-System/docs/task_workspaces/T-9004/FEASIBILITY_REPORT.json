@@ -1,0 +1,55 @@
+{
+  "task_id": "T-9004",
+  "generated_at": "2026-03-13T23:08:06Z",
+  "overall_judgment": "Feasible only as a constitutional and commercial redesign. Not feasible as a thin policy overlay on the current repository.",
+  "recommended_path": "PATH-B",
+  "feasibility_by_horizon": {
+    "0_to_3_months": {
+      "rating": "high",
+      "scope": "Doctrine, governance, economics, and release-architecture rewrite"
+    },
+    "3_to_12_months": {
+      "rating": "medium",
+      "scope": "Product membrane redesign, runtime gating, and enterprise licensing model"
+    },
+    "12_to_36_months": {
+      "rating": "medium_low",
+      "scope": "Native model sovereignty, internal-only novelty operations, and mature refusal architecture"
+    }
+  },
+  "components_to_preserve": [
+    "C14 anti-capture and anti-conversion principles",
+    "C23 attested runtime isolation",
+    "C45 sovereign compilation discipline",
+    "C47 zero-bridge native-first trajectory"
+  ],
+  "components_requiring_major_rewrite": [
+    "C14 governance participation and release authority",
+    "C15 task marketplace and provider economics",
+    "C18 open-source and IP publication posture",
+    "C22 commercialization and implementation sequencing"
+  ],
+  "top_risks": [
+    {
+      "risk": "Institutional opacity replaces external misuse with internal misuse",
+      "mitigation": "Adopt open accountability, external audit surfaces, and constitutional review mechanisms"
+    },
+    {
+      "risk": "Revenue collapse after abandoning the marketplace thesis",
+      "mitigation": "Define bounded consumer, enterprise, and licensing products before retiring marketplace assumptions"
+    },
+    {
+      "risk": "Founder-alignment language collides with the existing non-dynasty constitution",
+      "mitigation": "Separate founder reward mechanisms from governance authority"
+    },
+    {
+      "risk": "Native-model ambition outruns operational reality",
+      "mitigation": "Use frontier models as bootstrap cognition leases while building native control planes and trace corpora first"
+    },
+    {
+      "risk": "Dual-use classification proves too subjective",
+      "mitigation": "Create formal release classes, strategic-retention review, and red-team review instead of relying on broad moral language"
+    }
+  ],
+  "bottom_line": "Ashur recommends proceeding only if Atrahasis is willing to redesign governance, economics, publication posture, and commercialization together."
+}

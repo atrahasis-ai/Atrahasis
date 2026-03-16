@@ -1,0 +1,14 @@
+task_id: "T-080"
+invention_ids: []
+target_specs: ["C6"]
+title: "Define Four-Tier Memory Model"
+platform: "CLAUDE"
+agent_name: "Enki"
+claimed_at: "2026-03-12T23:00:00Z"
+updated_at: "2026-03-12T23:30:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C6/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Direct spec edit complete. Added Section 4.6 Four-Tier Memory Model to C6 — maps Working/Short-term/Long-term/Archival onto lifecycle states + coherence edge tiers + Archive Layer. 5 conformance requirements (CR-MTM-1–5), 5 glossary entries. C6 v2.0.2."

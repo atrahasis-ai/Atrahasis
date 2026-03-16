@@ -1,0 +1,15 @@
+task_id: "T-213"
+invention_ids: []
+target_specs:
+  - "C38"
+title: "AACP Handshake and Session Management Protocol"
+platform: "CODEX"
+agent_name: "Marduk"
+claimed_at: "2026-03-12T12:49:40Z"
+updated_at: "2026-03-12T12:55:31Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C38/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C38 FSPA with Section 5.2.1 AACP handshake and session management protocol, defining binding-independent SCF-v1 session control frames, explicit handshake negotiation, heartbeat/liveness, graceful shutdown, lineage-preserving session resume, and stateless single-exchange mode. Added 7 parameters, 10 formal requirements (FSPA-R27 through FSPA-R36), 4 conformance vectors, and advanced C38 to v1.0.2. Shared-state updates deferred to handoff."

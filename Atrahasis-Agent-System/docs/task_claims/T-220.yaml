@@ -1,0 +1,15 @@
+task_id: "T-220"
+invention_ids: []
+target_specs:
+  - "C38"
+title: "AACP-HTTP Transport Binding"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T13:10:13.8762804Z"
+updated_at: "2026-03-12T13:54:59.3126201Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C38/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C38 FSPA to v1.0.3 with Section 5.1.1 AACP-HTTP transport binding, defining canonical HTTP carrier paths, media-type mapping for AASL-T/J/B, TLS 1.3 and HSTS requirements, HTTP/2 baseline with optional HTTP/3, SSE carrier boundaries, 9 HTTP parameters, 8 formal requirements (FSPA-R37 through FSPA-R44), and 4 conformance vectors (CV-9 through CV-12). Shared-state updates were applied and the archived handoff is at docs/handoffs/applied/T-220_CODEX_HANDOFF.md."

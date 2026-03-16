@@ -1,0 +1,4 @@
+name: Swarm Alpha
+philosophy: stability-first
+optimization: minimal_architecture_disruption
+agent_target_count: 40

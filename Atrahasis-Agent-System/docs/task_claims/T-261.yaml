@@ -1,0 +1,18 @@
+task_id: T-261
+invention_ids: []
+target_specs: []
+title: AACP Server Registry
+platform: CODEX
+agent_name: Nanshe
+claimed_at: '2026-03-13T22:05:07Z'
+updated_at: '2026-03-13T22:22:17Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-261/
+  pipeline_type: DIRECT_SPEC
+notes: 'DONE. Authored docs/task_workspaces/T-261/SERVER_REGISTRY_SPEC.md as the
+  task-scoped direct spec for the AACP Server Registry: native trust registry,
+  immutable manifest registry, capability and tool indexing, factorized trust
+  vectors, AACP-native global manifest-query discovery, usage documentation descriptors,
+  and Alternative C compatibility-only handling for non-native records.'

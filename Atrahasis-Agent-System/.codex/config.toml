@@ -1,0 +1,8 @@
+web_search = "disabled"
+
+[mcp_servers.atrahasis]
+command = "python"
+args = ["scripts/atrahasis_mcp_server.py"]
+cwd = "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System"
+enabled = true
+startup_timeout_sec = 20

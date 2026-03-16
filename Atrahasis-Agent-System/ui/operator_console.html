@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Atrahasis Operator Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        --bg: #f3efe6;
+        --panel: #fffaf2;
+        --ink: #1d1b18;
+        --muted: #6b6258;
+        --line: #d8ccbb;
+        --accent: #245a4e;
+        --warn: #8a5b12;
+        --danger: #8d2f2f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font: 14px/1.5 Georgia, "Palatino Linotype", serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #f6f1e8 0%, #eee6d8 100%);
+      }
+      header, section { padding: 16px 20px; }
+      h1, h2, h3 { margin: 0 0 10px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 18px; }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 8px 22px rgba(40, 31, 18, 0.06);
+      }
+      .toolbar, .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      label {
+        display: grid;
+        gap: 6px;
+        font-weight: 600;
+      }
+      input, textarea, select, button {
+        font: inherit;
+      }
+      input, textarea, select {
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+      textarea { min-height: 88px; resize: vertical; }
+      button {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #f8f1e3;
+        cursor: pointer;
+      }
+      button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+      button.warn { color: #fff; background: var(--warn); border-color: var(--warn); }
+      button.danger { color: #fff; background: var(--danger); border-color: var(--danger); }
+      .pill {
+        display: inline-flex;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: #e7ddd0;
+        color: var(--muted);
+      }
+      .mono, pre { font-family: Consolas, "Courier New", monospace; }
+      pre {
+        white-space: pre-wrap;
+        background: #f7f1e8;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        max-height: 320px;
+        overflow: auto;
+      }
+      .list article {
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+      .list article:first-child { border-top: 0; padding-top: 0; }
+      .muted { color: var(--muted); }
+      .compact textarea { min-height: 60px; }
+      .hero-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1.3fr 1fr;
+      }
+      .summary-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+      .summary-card,
+      .notice-card,
+      .timeline-card,
+      .health-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.58);
+        padding: 12px;
+      }
+      .summary-card strong,
+      .health-card strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 20px;
+      }
+      .mini-label {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .stack {
+        display: grid;
+        gap: 12px;
+      }
+      .notice-card[data-level="warning"] {
+        border-left: 4px solid var(--warn);
+      }
+      .notice-card[data-level="critical"] {
+        border-left: 4px solid var(--danger);
+      }
+      .notice-card[data-level="ok"] {
+        border-left: 4px solid var(--accent);
+      }
+      .task-tile {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.48);
+        padding: 12px;
+      }
+      .task-tile h3 {
+        margin-bottom: 6px;
+        font-size: 16px;
+      }
+      .task-tile .toolbar {
+        margin-top: 10px;
+      }
+      .badge-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .timeline-list {
+        display: grid;
+        gap: 10px;
+      }
+      .section-note {
+        margin-top: -4px;
+        margin-bottom: 12px;
+        color: var(--muted);
+      }
+      @media (max-width: 980px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Atrahasis Operator Console</h1>
+      <div class="toolbar">
+        <span id="service-status" class="pill">service: loading</span>
+        <span id="app-status" class="pill">app-server: unknown</span>
+        <button id="refresh-overview">Refresh</button>
+        <button id="start-app-server" class="primary">Start App Server</button>
+        <button id="stop-app-server" class="danger">Stop App Server</button>
+        <button id="start-daemon">Start Daemon</button>
+        <button id="stop-daemon">Stop Daemon</button>
+        <button id="recover-state">Recover State</button>
+      </div>
+    </header>
+
+    <section class="hero-grid">
+      <div class="panel">
+        <h2>Operator Dashboard</h2>
+        <p class="section-note">Active task focus, queue pressure, audit activity, and refresh health for the current controller surface.</p>
+        <div id="overview-summary" class="summary-grid"></div>
+        <div id="repo-dashboard-cards" class="stack" style="margin-top: 12px;"></div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <h2>Notifications</h2>
+          <p class="section-note">Derived from current health, HITL pressure, workflow policy, and recent audit activity.</p>
+          <div id="notifications-list" class="stack"></div>
+        </div>
+        <div class="panel">
+          <h2>AAS5 Update Window</h2>
+          <p class="section-note">Major controller-observed update advisories for AAS5 itself. These are advisory only and do not interrupt task agents.</p>
+          <div id="improvement-advisories-list" class="stack"></div>
+        </div>
+        <div class="panel">
+          <h2>Service &amp; App Health</h2>
+          <p class="section-note">Controller, App Server, event stream, and provider-session visibility.</p>
+          <div id="health-summary" class="summary-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Canonical Dispatchable Queue</h2>
+        <p class="section-note">These tiles come from <code>docs/TODO.md</code>. Task workspaces that are not in the canonical backlog, such as validation tasks, can still be loaded with the Task ID field on the right.</p>
+        <div id="dispatchable-list" class="list"></div>
+      </div>
+      <div class="panel">
+        <h2>Task Runtime &amp; Focus</h2>
+        <p class="section-note">Selected-task bindings, stage posture, next actions, and raw run state.</p>
+        <div id="active-task-summary" class="summary-grid"></div>
+        <div class="row">
+          <label style="flex: 1 1 120px;">
+            Task ID
+            <input id="task-id" value="T-9002">
+          </label>
+          <label style="flex: 1 1 140px;">
+            Model
+            <input id="thread-model" placeholder="optional model">
+          </label>
+        </div>
+        <label>
+          Turn Prompt
+          <textarea id="turn-prompt" class="mono" placeholder="Prompt for controller-owned turn start"></textarea>
+        </label>
+        <label>
+          Review Instructions
+          <textarea id="review-instructions" placeholder="Optional custom review instructions"></textarea>
+        </label>
+        <div class="toolbar">
+          <button id="load-task" class="primary">Load Task</button>
+          <button id="start-thread">Start Thread</button>
+          <button id="start-turn">Start Turn</button>
+          <button id="sync-run">Sync Run</button>
+          <button id="start-review">Start Review</button>
+          <button id="start-adversarial-review" class="warn">Start Adversarial Review</button>
+          <button id="start-convergence-decision">Start Convergence</button>
+          <button id="evaluate-policy">Evaluate Policy</button>
+          <button id="monitor-cycle">Monitor Cycle</button>
+        </div>
+        <pre id="run-state" class="mono"></pre>
+      </div>
+      <div class="panel compact">
+        <h2>Workflow Policy</h2>
+        <p class="section-note">Controller policy settings and surfaced next actions for the selected task.</p>
+        <div id="policy-next-actions" class="stack"></div>
+        <label>Dispatch Mode
+          <select id="policy-dispatch-mode">
+            <option value="manual">manual</option>
+            <option value="hook_only">hook_only</option>
+            <option value="auto_execute">auto_execute</option>
+          </select>
+        </label>
+        <label><input id="policy-auto-closeout" type="checkbox"> Auto closeout</label>
+        <label><input id="policy-monitor-enabled" type="checkbox" checked> Monitor enabled</label>
+        <div class="toolbar">
+          <button id="save-policy">Save Policy</button>
+        </div>
+        <pre id="workflow-policy" class="mono"></pre>
+      </div>
+      <div class="panel compact">
+        <h2>Option Set</h2>
+        <p class="section-note">Synthesized task-path choices surfaced to the operator from the current path plus any discovered improvements.</p>
+        <div id="operator-option-set" class="stack"></div>
+      </div>
+      <div class="panel compact">
+        <h2>Redesign Memory</h2>
+        <p class="section-note">Distilled prior redesign cycles related to the current task, kept separate from the raw branch artifacts.</p>
+        <div id="redesign-memory" class="stack"></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel compact">
+        <h2>Review Form</h2>
+        <label>Review Role
+          <select id="review-role">
+            <option value="">auto</option>
+            <option value="assessment_council">assessment_council</option>
+            <option value="adversarial_analyst">adversarial_analyst</option>
+            <option value="critic">critic</option>
+            <option value="systems_thinker">systems_thinker</option>
+            <option value="prior_art_researcher">prior_art_researcher</option>
+            <option value="specification_writer">specification_writer</option>
+            <option value="code_implementer">code_implementer</option>
+          </select>
+        </label>
+        <label>Verdict
+          <select id="review-verdict">
+            <option value="APPROVED">APPROVED</option>
+            <option value="CHANGES_REQUESTED">CHANGES_REQUESTED</option>
+            <option value="BLOCKED">BLOCKED</option>
+          </select>
+        </label>
+        <label>Summary<textarea id="review-summary"></textarea></label>
+        <label>Findings, one per line<textarea id="review-findings"></textarea></label>
+        <label>Notes, one per line<textarea id="review-notes"></textarea></label>
+        <div class="toolbar">
+          <button id="finalize-review" class="primary">Finalize Review</button>
+          <button id="finalize-adversarial-review" class="warn">Finalize Adversarial</button>
+        </div>
+      </div>
+      <div class="panel compact">
+        <h2>Convergence Gate</h2>
+        <label>Disposition
+          <select id="convergence-disposition">
+            <option value="adopt">adopt</option>
+            <option value="hybridize">hybridize</option>
+            <option value="reject">reject</option>
+            <option value="escalate_to_hitl">escalate_to_hitl</option>
+            <option value="promote">promote</option>
+            <option value="continue_exploration">continue_exploration</option>
+          </select>
+        </label>
+        <label>Rationale<textarea id="convergence-rationale"></textarea></label>
+        <label>Notes, one per line<textarea id="convergence-notes"></textarea></label>
+        <div class="toolbar">
+          <button id="finalize-convergence-decision">Finalize Convergence</button>
+        </div>
+      </div>
+      <div class="panel compact">
+        <h2>Human Decision Form</h2>
+        <label>Decision<input id="decision-value" value="APPROVE"></label>
+        <label>Workflow Status<input id="decision-status" value="COMPLETED"></label>
+        <label>Constraints, one per line<textarea id="decision-constraints"></textarea></label>
+        <label>Notes, one per line<textarea id="decision-notes"></textarea></label>
+        <div class="toolbar"><button id="record-decision" class="primary">Record Decision</button></div>
+      </div>
+      <div class="panel compact">
+        <h2>Claim Form</h2>
+        <label>Agent Name<input id="claim-agent" placeholder="Anu"></label>
+        <label>Title<input id="claim-title"></label>
+        <label>Platform<input id="claim-platform" value="CODEX"></label>
+        <label>Safe Zones, one per line<textarea id="claim-safe-zones"></textarea></label>
+        <label>Invention IDs, one per line<textarea id="claim-inventions"></textarea></label>
+        <label>Target Specs, one per line<textarea id="claim-specs"></textarea></label>
+        <label>Notes<textarea id="claim-notes"></textarea></label>
+        <div class="toolbar"><button id="create-claim">Create Claim</button></div>
+      </div>
+      <div class="panel compact">
+        <h2>Handoff Form</h2>
+        <label>Title<input id="handoff-title"></label>
+        <label>Platform<input id="handoff-platform" value="CODEX"></label>
+        <label>Pipeline Verdict<input id="handoff-verdict" value="APPLY"></label>
+        <label>Artifacts as `path | description`, one per line<textarea id="handoff-artifacts"></textarea></label>
+        <label>Notes<textarea id="handoff-notes"></textarea></label>
+        <div class="toolbar"><button id="write-handoff">Write Handoff</button></div>
+      </div>
+      <div class="panel compact">
+        <h2>Closeout</h2>
+        <label>Claim Status Update<input id="closeout-claim-status" value="DONE"></label>
+        <label>Claim Notes<textarea id="closeout-claim-notes"></textarea></label>
+        <label><input id="closeout-validate" type="checkbox" checked> Run workspace validator</label>
+        <div class="toolbar"><button id="execute-closeout" class="warn">Execute Closeout</button></div>
+        <pre id="closeout-result" class="mono"></pre>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>HITL Queue</h2>
+        <p class="section-note">Pending approvals and user-input requests, summarized by queue pressure before the raw entry list.</p>
+        <div id="hitl-summary" class="summary-grid"></div>
+        <div id="hitl-queue" class="list"></div>
+      </div>
+      <div class="panel">
+        <h2>Event Stream</h2>
+        <pre id="event-log" class="mono"></pre>
+      </div>
+      <div class="panel">
+        <h2>Audit Timeline</h2>
+        <p class="section-note">Recent timeline rollup for the selected task plus the raw payload.</p>
+        <div id="audit-summary" class="summary-grid"></div>
+        <div id="audit-timeline-summary" class="timeline-list"></div>
+        <pre id="audit-timeline" class="mono"></pre>
+      </div>
+    </section>
+
+    <script>
+      const state = {
+        currentTaskId: "T-9002",
+        eventSource: null,
+        eventLines: [],
+        lastRefresh: null,
+        healthPayload: {},
+        providerSessions: [],
+        dispatchableTasks: [],
+        dashboardPayload: {},
+        notificationsPayload: {},
+        improvementAdvisoriesPayload: {},
+        hitlEntries: [],
+        timelineEntries: [],
+        timelinePayload: {},
+        runPayload: {},
+        workflowPayload: {},
+      };
+      const $ = (id) => document.getElementById(id);
+      const EVENT_NAMES = ["run_state_changed", "review_gate_changed", "adversarial_review_changed", "convergence_gate_changed", "hitl_queue_changed", "recovery_completed", "closeout_completed", "controller_warning", "app_server_status", "app_server_event", "workflow_policy_changed", "audit_timeline_changed", "monitor_cycle_completed", "improvement_advisories_changed"];
+
+      function lines(text) {
+        return (text || "").split(/\r?\n/).map((item) => item.trim()).filter(Boolean);
+      }
+
+      function artifactRows(text) {
+        return lines(text).map((row) => {
+          const parts = row.split("|");
+          return { path: (parts[0] || "").trim(), description: (parts[1] || "").trim() };
+        }).filter((item) => item.path);
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function firstValue(...values) {
+        for (const value of values) {
+          if (value !== undefined && value !== null && value !== "") return value;
+        }
+        return null;
+      }
+
+      function asArray(value, keys = []) {
+        if (Array.isArray(value)) return value;
+        for (const key of keys) {
+          if (Array.isArray(value?.[key])) return value[key];
+        }
+        return [];
+      }
+
+      function toneFor(value) {
+        const text = String(value || "").toLowerCase();
+        if (/(ok|healthy|running|ready|active|complete|completed|approved)/.test(text)) return "ok";
+        if (/(warn|pending|review|paused|manual|hook|idle|draft)/.test(text)) return "warning";
+        if (/(error|failed|blocked|stop|denied|critical)/.test(text)) return "critical";
+        return "neutral";
+      }
+
+      function badgeHtml(label) {
+        return `<span class="pill">${escapeHtml(label)}</span>`;
+      }
+
+      async function fetchJson(url, options) {
+        const response = await fetch(url, options);
+        const text = await response.text();
+        let payload = {};
+        if (text) {
+          try {
+            payload = JSON.parse(text);
+          } catch (error) {
+            payload = { raw: text };
+          }
+        }
+        if (!response.ok) throw new Error(payload.message || response.statusText);
+        return payload;
+      }
+
+      async function safeFetchJson(url, options) {
+        try {
+          return await fetchJson(url, options);
+        } catch (error) {
+          return { _failed: true, message: error.message };
+        }
+      }
+
+      function logEvent(label, payload) {
+        const line = `[${new Date().toLocaleTimeString()}] ${label}\n${JSON.stringify(payload, null, 2)}`;
+        state.eventLines = [line, ...state.eventLines].slice(0, 20);
+        $("event-log").textContent = state.eventLines.join("\n\n");
+      }
+
+      function setPill(id, text) {
+        $(id).textContent = text;
+      }
+
+      function currentTask() {
+        return ($("task-id").value || "").trim().toUpperCase();
+      }
+
+      function taskSummary() {
+        const run = state.runPayload.run || state.runPayload.state || state.runPayload.record || state.runPayload || {};
+        const policy = state.workflowPayload.policy || state.workflowPayload.result || state.workflowPayload || {};
+        const settings = policy.settings || {};
+        return {
+          taskId: currentTask(),
+          status: firstValue(run.status, run.run_status, run.lifecycle_status, policy.lifecycle_status, policy.status, "idle"),
+          stage: firstValue(policy.current_stage, run.current_stage, run.stage, "unknown"),
+          nextStage: firstValue(policy.next_stage, run.next_stage, "n/a"),
+          threadId: firstValue(run.thread_id, run.binding?.thread_id, "unbound"),
+          turnId: firstValue(run.turn_id, run.binding?.turn_id, "none"),
+          reviewThreadId: firstValue(run.review_thread_id, run.binding?.review_thread_id, "none"),
+          dispatchMode: firstValue(settings.dispatch_mode, "hook_only"),
+          autoCloseout: !!settings.auto_closeout,
+          monitorEnabled: settings.monitor_enabled !== false,
+          nextActions: asArray(policy, ["next_actions", "actions", "recommendations"]),
+          warnings: asArray(run, ["warnings", "issues"]).concat(asArray(policy, ["warnings", "issues"])),
+        };
+      }
+
+      function renderOverview(health) {
+        const summary = taskSummary();
+        const dashboard = state.dashboardPayload.dashboard || {};
+        const notifications = buildNotifications(health);
+        const advisories = asArray(state.improvementAdvisoriesPayload, ["advisories"]);
+        $("overview-summary").innerHTML = `
+          <article class="summary-card">
+            <span class="mini-label">Focus Task</span>
+            <strong>${escapeHtml(summary.taskId)}</strong>
+            <div class="muted">${escapeHtml(summary.stage)} stage | ${escapeHtml(summary.status)}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Tracked Tasks</span>
+            <strong>${escapeHtml(dashboard.task_count || state.dispatchableTasks.length)}</strong>
+            <div class="muted">Controller-known tasks in the repo-wide dashboard.</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Pending HITL</span>
+            <strong>${escapeHtml(dashboard.pending_hitl_count ?? state.hitlEntries.length)}</strong>
+            <div class="muted">Repo-wide unresolved controller approvals.</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Notifications</span>
+            <strong>${notifications.length}</strong>
+            <div class="muted">${escapeHtml(notifications[0]?.title || "No active alerts.")}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">AAS5 Updates</span>
+            <strong>${escapeHtml(state.improvementAdvisoriesPayload.open_count ?? advisories.filter((item) => item.status === "OPEN").length)}</strong>
+            <div class="muted">${escapeHtml(advisories[0]?.headline || "No major system updates currently suggested.")}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Active Runs</span>
+            <strong>${escapeHtml(dashboard.active_run_count || 0)}</strong>
+            <div class="muted">${state.lastRefresh ? `Refreshed ${state.lastRefresh.toLocaleTimeString()}` : "Waiting for refresh."}</div>
+          </article>
+        `;
+        renderRepoDashboard(dashboard.task_cards || []);
+      }
+
+      function renderHealth(health) {
+        const appRunning = !!health?.app_server?.running;
+        const daemon = state.dashboardPayload.daemon || {};
+        setPill("service-status", `service: ${health?._failed ? "unreachable" : health.status}`);
+        setPill("app-status", `app-server: ${appRunning ? "running" : "stopped"}`);
+        $("health-summary").innerHTML = `
+          <article class="health-card">
+            <span class="mini-label">Controller</span>
+            <strong>${escapeHtml(health?._failed ? "unreachable" : (health.status || "ok"))}</strong>
+            <div class="muted">${escapeHtml(health?.message || "Health endpoint responding.")}</div>
+          </article>
+          <article class="health-card">
+            <span class="mini-label">App Server</span>
+            <strong>${appRunning ? "running" : "stopped"}</strong>
+            <div class="muted">${appRunning ? "Ready for turns and reviews." : "Start the App Server for runtime work."}</div>
+          </article>
+          <article class="health-card">
+            <span class="mini-label">Provider Sessions</span>
+            <strong>${state.providerSessions.length}</strong>
+            <div class="muted">Sessions visible from the controller.</div>
+          </article>
+          <article class="health-card">
+            <span class="mini-label">Daemon</span>
+            <strong>${daemon.running ? "running" : "stopped"}</strong>
+            <div class="muted">${escapeHtml(daemon.pid ? `PID ${daemon.pid}` : "Detached controller not active.")}</div>
+          </article>
+          <article class="health-card">
+            <span class="mini-label">Event Stream</span>
+            <strong>${state.eventSource ? ["connecting", "open", "closed"][state.eventSource.readyState] || "unknown" : "idle"}</strong>
+            <div class="muted">${state.lastRefresh ? `Updated ${state.lastRefresh.toLocaleTimeString()}` : "No refresh yet."}</div>
+          </article>
+        `;
+      }
+
+      function buildNotifications(health) {
+        const serverNotifications = asArray(state.notificationsPayload, ["notifications"]);
+        if (serverNotifications.length) {
+          $("notifications-list").innerHTML = serverNotifications.map((item) => `
+            <article class="notice-card" data-level="${escapeHtml(item.severity || toneFor(item.category || ""))}">
+              <strong>${escapeHtml(item.summary || item.category || item.notification_id)}</strong>
+              <div class="muted">${escapeHtml(item.task_id || "repo-wide")} | ${escapeHtml(item.action || "observe")}</div>
+              <div class="toolbar" style="margin-top: 8px;">
+                ${item.status === "OPEN" ? `<button data-note-id="${escapeHtml(item.notification_id)}">Acknowledge</button>` : ""}
+              </div>
+            </article>
+          `).join("");
+          for (const button of $("notifications-list").querySelectorAll("button[data-note-id]")) {
+            button.addEventListener("click", () => acknowledgeNotification(button.dataset.noteId));
+          }
+          return serverNotifications.map((item) => ({
+            level: item.severity || "warning",
+            title: item.summary || item.category || item.notification_id,
+            detail: `${item.task_id || "repo-wide"} | ${item.action || "observe"}`,
+          }));
+        }
+        const summary = taskSummary();
+        const notifications = [];
+        if (health?._failed) {
+          notifications.push({ level: "critical", title: "Controller health unavailable", detail: health.message || "The health endpoint did not return successfully." });
+        } else {
+          if (health?.status && String(health.status).toLowerCase() !== "ok") {
+            notifications.push({ level: "warning", title: `Controller reports ${health.status}`, detail: "Inspect service health before starting new work." });
+          }
+          if (health?.app_server && !health.app_server.running) {
+            notifications.push({ level: "warning", title: "App Server is stopped", detail: "New controller-mediated turns and reviews remain blocked until it is started." });
+          }
+        }
+        if (state.hitlEntries.length) {
+          notifications.push({ level: "critical", title: `${state.hitlEntries.length} pending HITL item(s)`, detail: "The selected task has unresolved approvals or questions." });
+        }
+        if (summary.nextActions.length) {
+          notifications.push({ level: "warning", title: "Workflow policy surfaced next actions", detail: summary.nextActions.slice(0, 2).map((item) => typeof item === "string" ? item : JSON.stringify(item)).join(" | ") });
+        }
+        if (summary.warnings.length) {
+          notifications.push({ level: "warning", title: "Run-state warnings present", detail: summary.warnings.slice(0, 2).map((item) => typeof item === "string" ? item : JSON.stringify(item)).join(" | ") });
+        }
+        if (!notifications.length) {
+          notifications.push({ level: "ok", title: "No urgent operator alerts", detail: "Current health, HITL, and policy state look stable from the exposed endpoints." });
+        }
+        $("notifications-list").innerHTML = notifications.map((item) => `
+          <article class="notice-card" data-level="${escapeHtml(item.level)}">
+            <strong>${escapeHtml(item.title)}</strong>
+            <div class="muted">${escapeHtml(item.detail)}</div>
+          </article>
+        `).join("");
+        return notifications;
+      }
+
+      function renderRepoDashboard(taskCards) {
+        $("repo-dashboard-cards").innerHTML = taskCards.length
+          ? taskCards.slice(0, 6).map((item) => `
+              <article class="timeline-card">
+                <strong>${escapeHtml(item.task_id)}</strong>
+                <div class="muted">${escapeHtml(item.current_stage || "unknown")} | ${escapeHtml(item.lifecycle_status || item.run_status || "idle")}</div>
+                <div class="badge-row">
+                  ${badgeHtml(`run ${item.run_status || "n/a"}`)}
+                  ${badgeHtml(`hitl ${item.pending_hitl_count ?? 0}`)}
+                  ${item.last_event_type ? badgeHtml(item.last_event_type) : ""}
+                </div>
+              </article>
+            `).join("")
+          : `<div class="muted">No repo-wide task cards are available yet.</div>`;
+      }
+
+      function renderImprovementAdvisories() {
+        const advisories = asArray(state.improvementAdvisoriesPayload, ["advisories"]);
+        const host = $("improvement-advisories-list");
+        if (!advisories.length) {
+          host.innerHTML = `<div class="muted">No major AAS5 update advisories are active right now.</div>`;
+          return;
+        }
+        host.innerHTML = advisories.map((item) => `
+          <article class="notice-card" data-level="${escapeHtml(item.status === "RESOLVED" ? "ok" : (item.confidence === "high" ? "critical" : "warning"))}">
+            <strong>${escapeHtml(item.headline || item.category || item.advisory_id)}</strong>
+            <div class="muted">${escapeHtml(item.category || "update")} | ${escapeHtml(item.status || "OPEN")} | confidence ${escapeHtml(item.confidence || "medium")}</div>
+            <div>${escapeHtml(item.summary || "")}</div>
+            ${item.recommended_change ? `<div class="muted">Recommended change: ${escapeHtml(item.recommended_change)}</div>` : ""}
+            ${item.expected_benefit ? `<div class="muted">Expected benefit: ${escapeHtml(item.expected_benefit)}</div>` : ""}
+            ${Array.isArray(item.evidence) && item.evidence.length ? `<div class="muted">Evidence: ${escapeHtml(item.evidence.slice(0, 3).join(" | "))}</div>` : ""}
+            <div class="toolbar" style="margin-top: 8px;">
+              ${item.status === "OPEN" ? `<button data-update-id="${escapeHtml(item.advisory_id)}">Acknowledge</button>` : ""}
+            </div>
+          </article>
+        `).join("");
+        for (const button of host.querySelectorAll("button[data-update-id]")) {
+          button.addEventListener("click", () => acknowledgeImprovementAdvisory(button.dataset.updateId));
+        }
+      }
+
+      function renderDispatchable() {
+        const host = $("dispatchable-list");
+        host.innerHTML = "";
+        if (!state.dispatchableTasks.length) {
+          host.innerHTML = `<div class="muted">No dispatchable tasks were returned by the current controller endpoint.</div>`;
+          return;
+        }
+        for (const task of state.dispatchableTasks) {
+          const article = document.createElement("article");
+          article.className = "task-tile";
+          article.innerHTML = `
+            <h3>${escapeHtml(task.task_id)}</h3>
+            <div>${escapeHtml(task.title || "")}</div>
+            <div class="badge-row">
+              ${task.type ? badgeHtml(task.type) : ""}
+              ${task.priority ? badgeHtml(task.priority) : ""}
+              ${task.stage ? badgeHtml(task.stage) : ""}
+            </div>
+            <div class="toolbar">
+              <button class="primary" data-task-id="${escapeHtml(task.task_id)}">Load Task</button>
+            </div>
+          `;
+          article.querySelector("button")?.addEventListener("click", () => {
+            $("task-id").value = task.task_id;
+            loadTask();
+          });
+          host.appendChild(article);
+        }
+      }
+
+      function renderTaskFocus() {
+        const summary = taskSummary();
+        $("active-task-summary").innerHTML = `
+          <article class="summary-card">
+            <span class="mini-label">Status</span>
+            <strong>${escapeHtml(summary.status)}</strong>
+            <div class="muted">${escapeHtml(summary.stage)} -> ${escapeHtml(summary.nextStage)}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Thread Binding</span>
+            <strong>${escapeHtml(summary.threadId)}</strong>
+            <div class="muted">turn ${escapeHtml(summary.turnId)} | review ${escapeHtml(summary.reviewThreadId)}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Dispatch Mode</span>
+            <strong>${escapeHtml(summary.dispatchMode)}</strong>
+            <div class="muted">auto closeout ${summary.autoCloseout ? "enabled" : "disabled"} | monitor ${summary.monitorEnabled ? "on" : "off"}</div>
+          </article>
+        `;
+        renderOperatorOptionSet();
+        renderRedesignMemory();
+      }
+
+      function renderOperatorOptionSet() {
+        const options = asArray(state.runPayload, ["operator_option_set"]);
+        $("operator-option-set").innerHTML = options.length
+          ? options.map((item) => `
+              <article class="notice-card" data-level="${item.recommended ? "ok" : "warning"}">
+                <strong>${escapeHtml(item.title || item.label)}</strong>
+                <div class="muted">${escapeHtml(item.label || "option")}${item.source ? ` | ${escapeHtml(item.source)}` : ""}${item.recommended ? " | recommended" : ""}</div>
+                <div>${escapeHtml(item.summary || "")}</div>
+                ${item.main_upside ? `<div class="muted">Upside: ${escapeHtml(item.main_upside)}</div>` : ""}
+                ${item.main_risk ? `<div class="muted">Risk: ${escapeHtml(item.main_risk)}</div>` : ""}
+              </article>
+            `).join("")
+          : `<div class="muted">No synthesized path options are currently surfaced for the selected task.</div>`;
+      }
+
+      function renderRedesignMemory() {
+        const memory = state.runPayload.redesign_memory || {};
+        const currentEntry = memory.current_entry;
+        const relatedEntries = asArray(memory, ["related_entries"]);
+        const queryTerms = asArray(memory, ["query_terms"]);
+        const currentHtml = currentEntry
+          ? `
+              <article class="notice-card" data-level="ok">
+                <strong>Current Memory Cycle</strong>
+                <div class="muted">${escapeHtml(currentEntry.task_id || "")} | ${escapeHtml(currentEntry.current_stage || "")}${currentEntry.selected_disposition ? ` | ${escapeHtml(currentEntry.selected_disposition)}` : ""}</div>
+                <div>${escapeHtml(currentEntry.summary || "No distilled summary recorded yet.")}</div>
+              </article>
+            `
+          : `<div class="muted">No redesign-memory entry has been distilled yet for the current task.</div>`;
+        const relatedHtml = relatedEntries.length
+          ? relatedEntries.map((item) => `
+              <article class="notice-card" data-level="warning">
+                <strong>${escapeHtml(item.task_id || "memory")}</strong>
+                <div class="muted">${escapeHtml(item.task_title || "")} | ${escapeHtml(item.current_stage || "")}${item.score !== undefined ? ` | score ${escapeHtml(item.score)}` : ""}</div>
+                <div>${escapeHtml(item.summary || "No summary recorded.")}</div>
+              </article>
+            `).join("")
+          : `<div class="muted">No related redesign-memory entries were surfaced for the current task context.</div>`;
+        $("redesign-memory").innerHTML = `
+          ${currentHtml}
+          <article class="notice-card" data-level="neutral">
+            <strong>Query Terms</strong>
+            <div class="badge-row">${queryTerms.length ? queryTerms.map((item) => badgeHtml(item)).join("") : "<span class=\"muted\">No query terms available.</span>"}</div>
+          </article>
+          ${relatedHtml}
+        `;
+      }
+
+      function renderWorkflowPolicy() {
+        $("workflow-policy").textContent = JSON.stringify(state.workflowPayload, null, 2);
+        const policy = state.workflowPayload.policy || state.workflowPayload.result || state.workflowPayload || {};
+        const settings = policy.settings || {};
+        $("policy-dispatch-mode").value = settings.dispatch_mode || "hook_only";
+        $("policy-auto-closeout").checked = !!settings.auto_closeout;
+        $("policy-monitor-enabled").checked = settings.monitor_enabled !== false;
+        const nextActions = asArray(policy, ["next_actions", "actions", "recommendations"]);
+        $("policy-next-actions").innerHTML = nextActions.length
+          ? nextActions.map((item) => `<article class="notice-card" data-level="warning"><strong>${escapeHtml(typeof item === "string" ? item : (item.title || item.action || "Next action"))}</strong><div class="muted">${escapeHtml(typeof item === "string" ? "Controller surfaced next step." : JSON.stringify(item))}</div></article>`).join("")
+          : `<div class="muted">The workflow policy did not expose additional next actions for the selected task.</div>`;
+      }
+
+      function renderAuditTimeline() {
+        $("audit-timeline").textContent = JSON.stringify(state.timelinePayload || {}, null, 2);
+        const counts = state.timelineEntries.reduce((accumulator, entry) => {
+          const label = firstValue(entry.event, entry.event_type, entry.type, entry.label, "event");
+          accumulator[label] = (accumulator[label] || 0) + 1;
+          return accumulator;
+        }, {});
+        const topLabel = Object.entries(counts)[0];
+        $("audit-summary").innerHTML = `
+          <article class="summary-card">
+            <span class="mini-label">Visible Events</span>
+            <strong>${state.timelineEntries.length}</strong>
+            <div class="muted">Returned by the controller endpoint.</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Latest Event</span>
+            <strong>${escapeHtml(firstValue(state.timelineEntries[0]?.event, state.timelineEntries[0]?.event_type, state.timelineEntries[0]?.type, state.timelineEntries[0]?.label, "none"))}</strong>
+            <div class="muted">${escapeHtml(firstValue(state.timelineEntries[0]?.timestamp, state.timelineEntries[0]?.created_at, "No timestamp"))}</div>
+          </article>
+          <article class="summary-card">
+            <span class="mini-label">Dominant Category</span>
+            <strong>${escapeHtml(topLabel?.[0] || "none")}</strong>
+            <div class="muted">${topLabel ? `${topLabel[1]} occurrence(s)` : "No categorized events."}</div>
+          </article>
+        `;
+        $("audit-timeline-summary").innerHTML = state.timelineEntries.slice(0, 6).map((entry) => `
+          <article class="timeline-card">
+            <strong>${escapeHtml(firstValue(entry.event, entry.event_type, entry.type, entry.label, "event"))}</strong>
+            <div class="muted">${escapeHtml(firstValue(entry.summary, entry.message, entry.description, entry.note, "No summary provided."))}</div>
+          </article>
+        `).join("") || `<div class="muted">No audit events were returned for the selected task.</div>`;
+      }
+
+      function renderHitlQueue(entries) {
+        state.hitlEntries = entries;
+        const counts = entries.reduce((accumulator, entry) => {
+          const key = entry.category || "uncategorized";
+          accumulator[key] = (accumulator[key] || 0) + 1;
+          return accumulator;
+        }, {});
+        $("hitl-summary").innerHTML = entries.length
+          ? Object.entries(counts).map(([category, count]) => `
+              <article class="summary-card">
+                <span class="mini-label">${escapeHtml(category)}</span>
+                <strong>${count}</strong>
+                <div class="muted">Pending ${escapeHtml(category)} entries.</div>
+              </article>
+            `).join("")
+          : `<div class="muted">No pending HITL items for the selected task.</div>`;
+        const host = $("hitl-queue");
+        host.innerHTML = "";
+        for (const entry of entries) {
+          const article = document.createElement("article");
+          const details = document.createElement("pre");
+          details.textContent = JSON.stringify(entry, null, 2);
+          article.className = "notice-card";
+          article.dataset.level = entry.category === "request_user_input" ? "critical" : "warning";
+          article.innerHTML = `<strong>${escapeHtml(entry.entry_id)}</strong> <span class="muted">${escapeHtml(entry.category)}</span><div>${escapeHtml(entry.summary)}</div>`;
+          article.appendChild(details);
+          const bar = document.createElement("div");
+          bar.className = "toolbar";
+          if (entry.request_id) {
+            const questionForm = entry.category === "request_user_input" ? buildQuestionForm(entry) : null;
+            if (questionForm) article.appendChild(questionForm);
+            const approve = document.createElement("button");
+            approve.textContent = "Approve";
+            approve.addEventListener("click", () => respondHitl(entry.entry_id, entry.category === "request_user_input" ? collectQuestionAnswers(questionForm, entry.request_payload?.questions || []) : { approved: true }));
+            const deny = document.createElement("button");
+            deny.textContent = "Deny";
+            deny.className = "danger";
+            deny.addEventListener("click", () => respondHitl(entry.entry_id, { approved: false }));
+            bar.append(approve, deny);
+          } else {
+            const resolve = document.createElement("button");
+            resolve.textContent = "Acknowledge";
+            resolve.addEventListener("click", () => respondHitl(entry.entry_id, { acknowledged: true }));
+            bar.append(resolve);
+          }
+          article.appendChild(bar);
+          host.appendChild(article);
+        }
+      }
+
+      async function refreshOverview() {
+        const [health, dispatchable, dashboardSummary, notifications, advisories] = await Promise.all([
+          safeFetchJson("/api/health"),
+          safeFetchJson("/api/controller/dispatchable?limit=10"),
+          safeFetchJson("/api/controller/dashboard-summary?limit_tasks=12"),
+          safeFetchJson("/api/controller/notifications?limit=100"),
+          safeFetchJson("/api/controller/improvement-advisories?limit=20&high_confidence_only=true"),
+        ]);
+        state.healthPayload = health;
+        state.dispatchableTasks = dispatchable.tasks || [];
+        state.dashboardPayload = dashboardSummary || {};
+        state.notificationsPayload = notifications || {};
+        state.improvementAdvisoriesPayload = advisories || {};
+        state.providerSessions = asArray(dashboardSummary?.provider_sessions || {}, ["sessions", "active_sessions", "items"]);
+        state.lastRefresh = new Date();
+        renderDispatchable();
+        renderOverview(health);
+        renderHealth(health);
+        renderImprovementAdvisories();
+      }
+
+      async function refreshRunState() {
+        const taskId = currentTask();
+        if (!taskId) return;
+        state.runPayload = await safeFetchJson(`/api/controller/run-state?task_id=${encodeURIComponent(taskId)}`);
+        $("run-state").textContent = JSON.stringify(state.runPayload, null, 2);
+        renderTaskFocus();
+      }
+
+      async function refreshWorkflowPolicy(refresh = false) {
+        const taskId = currentTask();
+        if (!taskId) return;
+        state.workflowPayload = await safeFetchJson(`/api/controller/workflow-policy?task_id=${encodeURIComponent(taskId)}&refresh=${refresh ? "true" : "false"}`);
+        renderWorkflowPolicy();
+      }
+
+      async function refreshAuditTimeline() {
+        const taskId = currentTask();
+        if (!taskId) return;
+        state.timelinePayload = await safeFetchJson(`/api/controller/audit-timeline?task_id=${encodeURIComponent(taskId)}&limit=50`);
+        state.timelineEntries = asArray(state.timelinePayload, ["entries", "events", "timeline", "items"]);
+        renderAuditTimeline();
+      }
+
+      async function refreshHitlQueue() {
+        const taskId = currentTask();
+        state.hitlPayload = await safeFetchJson(`/api/controller/hitl-queue?task_id=${encodeURIComponent(taskId)}`);
+        renderHitlQueue(state.hitlPayload.entries || []);
+      }
+
+      function buildQuestionForm(entry) {
+        const questions = entry.request_payload?.questions || [];
+        if (!questions.length) return null;
+        const wrap = document.createElement("div");
+        wrap.className = "grid";
+        for (const question of questions) {
+          const block = document.createElement("label");
+          block.textContent = question.question || question.header || question.id;
+          if (Array.isArray(question.options) && question.options.length) {
+            const select = document.createElement("select");
+            select.dataset.questionId = question.id;
+            const empty = document.createElement("option");
+            empty.value = "";
+            empty.textContent = "-- choose --";
+            select.appendChild(empty);
+            for (const option of question.options) {
+              const node = document.createElement("option");
+              node.value = option.label;
+              node.textContent = option.label;
+              select.appendChild(node);
+            }
+            block.appendChild(select);
+          } else {
+            const input = document.createElement("input");
+            input.dataset.questionId = question.id;
+            block.appendChild(input);
+          }
+          wrap.appendChild(block);
+        }
+        return wrap;
+      }
+
+      function collectQuestionAnswers(form, questions) {
+        const answers = {};
+        for (const question of questions) {
+          const field = form.querySelector(`[data-question-id="${question.id}"]`);
+          const value = field ? (field.value || "").trim() : "";
+          answers[question.id] = value ? [value] : [];
+        }
+        return { answers };
+      }
+
+      async function post(path, payload) {
+        const result = await fetchJson(path, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        logEvent(path, result);
+        await Promise.all([refreshOverview(), refreshRunState(), refreshHitlQueue(), refreshWorkflowPolicy(), refreshAuditTimeline()]);
+        return result;
+      }
+
+      async function loadTask() {
+        state.currentTaskId = currentTask();
+        await Promise.all([refreshRunState(), refreshHitlQueue(), refreshWorkflowPolicy(), refreshAuditTimeline()]);
+        renderOverview(state.healthPayload || {});
+        renderHealth(state.healthPayload || {});
+        startEventStream();
+      }
+
+      function startEventStream() {
+        if (state.eventSource) state.eventSource.close();
+        const taskId = currentTask();
+        const url = new URL("/api/controller/events", window.location.origin);
+        if (taskId) url.searchParams.set("task_id", taskId);
+        state.eventSource = new EventSource(url);
+        for (const name of EVENT_NAMES) {
+          state.eventSource.addEventListener(name, async (event) => {
+            const payload = JSON.parse(event.data || "{}");
+            logEvent(name, payload);
+            await Promise.all([refreshOverview(), refreshRunState(), refreshHitlQueue(), refreshWorkflowPolicy(), refreshAuditTimeline()]);
+          });
+        }
+        state.eventSource.onerror = () => {
+          logEvent("event_stream_error", { task_id: taskId });
+        };
+      }
+
+      async function respondHitl(entryId, responsePayload) {
+        await post("/api/controller/respond-hitl", { entry_id: entryId, response_payload: responsePayload });
+      }
+
+      async function startThread() {
+        await post("/api/controller/start-task-thread", {
+          task_id: currentTask(),
+          model: $("thread-model").value.trim() || null,
+        });
+      }
+
+      async function startTurn() {
+        await post("/api/controller/start-task-turn", {
+          task_id: currentTask(),
+          prompt: $("turn-prompt").value,
+          effort: "high",
+        });
+      }
+
+      async function syncRun() {
+        await post("/api/controller/sync-task-run", { task_id: currentTask() });
+      }
+
+      async function evaluateWorkflowPolicy() {
+        await post("/api/controller/evaluate-workflow-policy", { task_id: currentTask() });
+      }
+
+      async function saveWorkflowPolicy() {
+        await post("/api/controller/configure-workflow-policy", {
+          task_id: currentTask(),
+          dispatch_mode: $("policy-dispatch-mode").value,
+          auto_closeout: $("policy-auto-closeout").checked,
+          monitor_enabled: $("policy-monitor-enabled").checked,
+        });
+      }
+
+      async function runMonitorCycle() {
+        await post("/api/controller/monitor-cycle", { task_id: currentTask() || null });
+      }
+
+      async function startReview() {
+        await post("/api/controller/start-review", {
+          task_id: currentTask(),
+          instructions: $("review-instructions").value.trim() || null,
+          delivery: "detached",
+          review_role: $("review-role").value || null,
+        });
+      }
+
+      async function startAdversarialReview() {
+        await post("/api/controller/start-adversarial-review", {
+          task_id: currentTask(),
+          instructions: $("review-instructions").value.trim() || null,
+          delivery: "detached",
+        });
+      }
+
+      async function startConvergenceDecision() {
+        await post("/api/controller/start-convergence-decision", {
+          task_id: currentTask(),
+          notes: lines($("convergence-notes").value),
+        });
+      }
+
+      async function finalizeReview() {
+        await post("/api/controller/finalize-review", {
+          task_id: currentTask(),
+          verdict: $("review-verdict").value,
+          summary: $("review-summary").value,
+          findings: lines($("review-findings").value).map((item) => ({ finding: item })),
+          notes: lines($("review-notes").value),
+        });
+      }
+
+      async function finalizeAdversarialReview() {
+        await post("/api/controller/finalize-adversarial-review", {
+          task_id: currentTask(),
+          verdict: $("review-verdict").value,
+          summary: $("review-summary").value,
+          findings: lines($("review-findings").value).map((item) => ({ finding: item })),
+          notes: lines($("review-notes").value),
+        });
+      }
+
+      async function finalizeConvergenceDecision() {
+        await post("/api/controller/finalize-convergence-decision", {
+          task_id: currentTask(),
+          selected_disposition: $("convergence-disposition").value,
+          rationale: $("convergence-rationale").value,
+          notes: lines($("convergence-notes").value),
+        });
+      }
+
+      async function recordDecision() {
+        await post("/api/controller/record-human-decision", {
+          task_id: currentTask(),
+          operator_decision: $("decision-value").value,
+          workflow_status: $("decision-status").value || null,
+          constraints: lines($("decision-constraints").value),
+          notes: lines($("decision-notes").value),
+        });
+      }
+
+      async function createClaim() {
+        await post("/api/controller/create-claim", {
+          task_id: currentTask(),
+          agent_name: $("claim-agent").value,
+          title: $("claim-title").value || null,
+          platform: $("claim-platform").value || "CODEX",
+          safe_zone_paths: lines($("claim-safe-zones").value),
+          invention_ids: lines($("claim-inventions").value),
+          target_specs: lines($("claim-specs").value),
+          notes: $("claim-notes").value,
+        });
+      }
+
+      async function writeHandoff() {
+        await post("/api/controller/write-handoff", {
+          task_id: currentTask(),
+          title: $("handoff-title").value,
+          platform: $("handoff-platform").value,
+          pipeline_verdict: $("handoff-verdict").value,
+          artifacts: artifactRows($("handoff-artifacts").value),
+          notes: $("handoff-notes").value,
+        });
+      }
+
+      async function executeCloseout() {
+        const payload = await post("/api/controller/execute-closeout", {
+          task_id: currentTask(),
+          review: {
+            verdict: $("review-verdict").value,
+            summary: $("review-summary").value,
+            findings: lines($("review-findings").value).map((item) => ({ finding: item })),
+            notes: lines($("review-notes").value),
+          },
+          human_decision: {
+            operator_decision: $("decision-value").value,
+            workflow_status: $("decision-status").value || null,
+            constraints: lines($("decision-constraints").value),
+            notes: lines($("decision-notes").value),
+          },
+          claim_update: $("closeout-claim-status").value ? {
+            status: $("closeout-claim-status").value,
+            notes: $("closeout-claim-notes").value,
+          } : null,
+          handoff: {
+            title: $("handoff-title").value,
+            platform: $("handoff-platform").value,
+            pipeline_verdict: $("handoff-verdict").value,
+            artifacts: artifactRows($("handoff-artifacts").value),
+            notes: $("handoff-notes").value,
+          },
+          validate_workspace: $("closeout-validate").checked,
+        });
+        $("closeout-result").textContent = JSON.stringify(payload, null, 2);
+      }
+
+      async function startAppServer() {
+        await post("/api/app-server/start", {});
+      }
+
+      async function stopAppServer() {
+        await post("/api/app-server/stop", {});
+      }
+
+      async function recoverState() {
+        await post("/api/controller/recover-state", {});
+      }
+
+      async function acknowledgeNotification(notificationId) {
+        await post("/api/controller/acknowledge-notification", { notification_id: notificationId });
+      }
+
+      async function acknowledgeImprovementAdvisory(advisoryId) {
+        await post("/api/controller/acknowledge-improvement-advisory", { advisory_id: advisoryId });
+      }
+
+      async function startDaemon() {
+        await post("/api/controller/daemon-start", {});
+      }
+
+      async function stopDaemon() {
+        await post("/api/controller/daemon-stop", {});
+      }
+
+      $("refresh-overview").addEventListener("click", async () => { await Promise.all([refreshOverview(), refreshRunState(), refreshHitlQueue(), refreshWorkflowPolicy(), refreshAuditTimeline()]); });
+      $("start-app-server").addEventListener("click", startAppServer);
+      $("stop-app-server").addEventListener("click", stopAppServer);
+      $("start-daemon").addEventListener("click", startDaemon);
+      $("stop-daemon").addEventListener("click", stopDaemon);
+      $("recover-state").addEventListener("click", recoverState);
+      $("load-task").addEventListener("click", loadTask);
+      $("start-thread").addEventListener("click", startThread);
+      $("start-turn").addEventListener("click", startTurn);
+      $("sync-run").addEventListener("click", syncRun);
+      $("start-review").addEventListener("click", startReview);
+      $("start-adversarial-review").addEventListener("click", startAdversarialReview);
+      $("start-convergence-decision").addEventListener("click", startConvergenceDecision);
+      $("evaluate-policy").addEventListener("click", evaluateWorkflowPolicy);
+      $("monitor-cycle").addEventListener("click", runMonitorCycle);
+      $("save-policy").addEventListener("click", saveWorkflowPolicy);
+      $("finalize-review").addEventListener("click", finalizeReview);
+      $("finalize-adversarial-review").addEventListener("click", finalizeAdversarialReview);
+      $("finalize-convergence-decision").addEventListener("click", finalizeConvergenceDecision);
+      $("record-decision").addEventListener("click", recordDecision);
+      $("create-claim").addEventListener("click", createClaim);
+      $("write-handoff").addEventListener("click", writeHandoff);
+      $("execute-closeout").addEventListener("click", executeCloseout);
+
+      (async function boot() {
+        await refreshOverview();
+        await loadTask();
+      })();
+    </script>
+  </body>
+</html>

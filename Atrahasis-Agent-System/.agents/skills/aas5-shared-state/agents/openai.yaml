@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Shared State"
+  short_description: "Handle claims, handoffs, and closeout"
+  default_prompt: "Operate safely against shared state, claims, handoffs, and closeout rules without corrupting canonical repo state."

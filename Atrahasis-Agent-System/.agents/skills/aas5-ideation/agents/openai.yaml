@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Ideation"
+  short_description: "Run ideation stage output"
+  default_prompt: "Run the AAS5 ideation stage, generate candidate concepts, and stop for concept approval when required."

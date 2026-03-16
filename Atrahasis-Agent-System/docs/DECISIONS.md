@@ -657,6 +657,69 @@
 
 ---
 
+## ADR-030 — AAS Model Routing Policy: GPT-5.4-pro Primary, GPT-5.4 Fallback, GPT-5.2-codex Code-Only
+**Date:** 2026-03-11
+**Status:** ACCEPTED
+**Context:**
+- The AAS had no explicit model-routing policy in the operating manual, which left high-stakes invention work vulnerable to inconsistent model selection across sessions.
+- User direction is to optimize for maximum invention quality, solution quality, and reasoning performance rather than cost.
+- Some tasks inside the Atrahasis workflow are code-heavy and implementation-specific, especially future C22 execution/tooling work, and should be separated from primary invention judgment.
+**Decision:**
+- `gpt-5.4-pro` is the primary model for Director, Visionary, Systems Thinker, Critic, Science Advisor, Adversarial Analyst, Pre-Mortem Analyst, Synthesis Engineer, and the full Assessment Council.
+- `gpt-5.4` is the operational fallback and default for roles not explicitly assigned elsewhere.
+- `gpt-5.2-codex` is restricted to code-heavy execution, tooling, validators, and future implementation work from C22.
+- `gpt-5.2-codex` is explicitly disallowed as the primary model for IDEATION, FEASIBILITY, ASSESSMENT, or final invention/specification judgment.
+**Consequences:**
+- The Master Prompt advances from v2.1 to v2.2 with mandatory model-routing enforcement.
+- Opening briefs must now state the model routing for the next executable step.
+- Future `AAS: <Task ID>` runs should begin with this routing policy unless the user overrides it.
+**References:** docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md, docs/SESSION_BRIEF.md
+**Invention:** N/A (system-level)
+
+---
+
+## ADR-031 — Agent Organizational Topology: APPROVE (C31)
+**Date:** 2026-03-11
+**Status:** ACCEPTED
+**Context:**
+- `T-068` investigated whether the original trinity / tetrahedral / lattice topology still belonged in the post-C3 Atrahasis architecture.
+- The recovered C31 spec showed a substantive invention had already been drafted, but the canonical Chronicler closeout never landed.
+- Repo-side lineage confirmed the architectural problem: C1 preserved tetrahedral cells, C3 preserved elastic parcels, but no canonical artifact before C31 defined the missing intra-parcel organizational model.
+**Decision:**
+- APPROVE: C31 adopts **Crystallographic Adaptive Topology (CAT)** as the canonical answer to the topology gap.
+- CAT introduces **Deterministic Affinity Neighborhoods (DANs)** of 3-5 agents inside C3 parcels, with deterministic membership, capability-derived roles, and explicit separation from C5 VRF verification.
+- The historical trinity/tetrahedral/lattice motif is preserved as special cases inside CAT rather than restored as a rigid global topology.
+**Consequences:**
+- Trinity, tetrahedral clusters, and lattice connectivity are now treated as resolved by C31 rather than under review.
+- CAT remains optional and disabled by default until shadow-mode validation and governance approval.
+- Canonical memory for C31 must include prior-art artifacts, tribunal record, dashboard/state entry, and task reconciliation.
+**References:** docs/specifications/C31/MASTER_TECH_SPEC.md, docs/invention_logs/C31_IDEATION.md, docs/invention_logs/C31_FEASIBILITY.md, docs/invention_logs/C31_ASSESSMENT.md
+**Invention:** C31
+
+---
+
+## ADR-032 — Task IDs vs Invention IDs: Re-Separate Identity and Allow Multi-Invention Tasks
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- The backlog and parallel-execution docs had drifted into treating future invention IDs as if they were already known, preassigning `C23-C30` to unresolved task spaces.
+- `C31` exposed the mismatch: it was a real invention record, while `C23-C30` were still only anticipated problem spaces.
+- The AAS ideation workflow can generate multiple viable concepts, and some tasks may require multiple inventions to progress the Atrahasis system coherently.
+**Decision:**
+- Re-separate identity: `T-xxx` tracks tasks / problem spaces / execution requests; `C-xxx` tracks actual inventions only.
+- Do not reserve future `C` IDs in `TODO.md` or task claims before ideation has produced promotable concepts.
+- A single task may yield zero, one, or multiple inventions. Each promoted concept receives a new `C` ID only when explicitly approved to advance past `IDEATION`.
+- Parallel claim files track `invention_ids` as a list and may start empty while work remains task-scoped.
+**Consequences:**
+- `TODO.md` now lists unresolved task spaces without preassigned invention numbers.
+- `INVENTION_DASHBOARD.md` remains an actual-inventions view rather than a future-planning board.
+- Task-scoped ideation artifacts now belong in `docs/task_workspaces/<TASK_ID>/` until invention IDs are minted.
+- If multiple inventions emerge from one task, they may proceed independently as separate invention records and later be synthesized back into the originating task context.
+**References:** docs/ATRAHASIS_SYSTEM_MASTER_PROMPT_v1.md, docs/TODO.md, docs/platform_overlays/PARALLEL_EXECUTION_PROTOCOL.md, docs/task_claims/CLAIM_TEMPLATE.yaml
+**Invention:** N/A (system-level)
+
+---
+
 ## ADR-000 — Template
 **Date:** 2026-03-09
 **Status:** ACCEPTED | SUPERSEDED
@@ -667,3 +730,440 @@
 **Invention:** (INVENTION_ID if applicable)
 
 ---
+## ADR-034 — Metamorphic Identity Architecture: APPROVE (C32)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- T-063 Identity & Citizenship Registry — HIGH priority gap: identity fragmented across C5/C7/C8/C14/C17/C31 with no agent registration protocol, no canonical AgentID format, and no model upgrade identity handling
+- IC-1 (Metamorphic Identity Architecture) selected from 2 concepts (IC-2 Layered Credential Architecture not advanced — too close to W3C DID+VC prior art)
+- Scores: Novelty 4, Feasibility 4, Impact 4, Risk 4/10 (MEDIUM)
+- Prior art search confirmed: ERC-8004 (Ethereum), Signet, W3C DID+VC are closest; none addresses model upgrade identity continuity
+**Decision:**
+- APPROVE: C32 MIA as the unified cross-cutting identity substrate for the AAS
+- Core innovations: Identity Continuity Kernel (ICK), Metamorphic Re-attestation Protocol (MRP), canonical AgentID = SHA-256(Ed25519_pubkey), 4-state lifecycle FSM (PROBATION → ACTIVE → CHRYSALIS → RETIRED), Credential Composition, dual-trigger chrysalis, non-forkable identity with CUD
+- Resolves C17 OQ-05 (model upgrade identity continuity) — the only known solution
+- 33 formal requirements, 5 patent-style claims, 16 parameters
+- 5 monitoring flags: MRP atomicity, AiSIA dependency, Social Recovery deferral, registration fee calibration, behavioral divergence threshold calibration
+**Consequences:**
+- AgentID format canonicalized across C5/C7/C8/C14/C17/C31 as SHA-256(Ed25519_pubkey)
+- C22 Wave 1 has a registration target for agent identity
+- C17 OQ-05 is RESOLVED via MRP chrysalis protocol
+- AiSIA dependency grows — may warrant future task space
+- C7 needs minor extension: register_agent operation + CHRYSALIS status value
+- C8 needs minor extension: open_account + registration fee operations
+**References:** docs/task_workspaces/T-063/specifications/MASTER_TECH_SPEC.md, docs/task_workspaces/T-063/ASSESSMENT.md
+**Invention:** C32
+
+---
+## ADR-033 - Agent Execution Runtime: APPROVE (C23)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- C7 Parcel Executor and C3 Agent Runtime Architecture assumed an execution substrate that was never actually specified.
+- C22 Wave 1 also assumed provider adapters and runtime components without a canonical runtime contract.
+- The missing gap included agent runtime types, execution isolation, inference provisioning, and the cell execution layer.
+**Decision:**
+- APPROVE: C23 adopts **Sovereign Cell Runtime (SCR)** as the canonical agent execution runtime for Atrahasis.
+- SCR separates persistent agent identity from transient sovereign cells instantiated under explicit execution leases.
+- Model access, tool rights, and runtime evidence are lease-bound; SCR remains subordinate to C3 scheduling and C7 orchestration.
+**Consequences:**
+- Atrahasis now has a canonical runtime substrate between C7 leaf intents and actual execution.
+- Execution Evidence Bundles become the normative runtime provenance contract for downstream C5 and C8 integration.
+- Additive host-spec integration text is still needed in C3, C5, and C7 before implementation planning consumes SCR directly.
+**References:** docs/specifications/C23/MASTER_TECH_SPEC.md, docs/invention_logs/C23_IDEATION.md, docs/invention_logs/C23_FEASIBILITY.md, docs/invention_logs/C23_ASSESSMENT.md
+**Invention:** C23
+
+---
+
+## ADR-035 — Black-Start Recovery Fabric: ADVANCE (C34)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- T-062 Recovery & State Assurance — HIGH priority gap: no unified cross-layer recovery architecture. C3 has Emergency Tidal Rollback and C8 has deterministic EABS, but no coordinated boot sequence, no post-recovery verification, and no adversarial reconstruction fallback
+- Combined IC-1+IC-2+IC-3 selected: Black-Start Boot Sequence + Recovery Witness Verification + Adversarial Reconstruction Fallback
+- Scores: Novelty 3.5, Feasibility 4.0, Impact 3.5, Risk 4/10 (MEDIUM)
+- Prior art: 7 patents, 12 papers, 10 systems, 8 open source projects surveyed; no existing system combines dependency-ordered multi-layer boot with semantic synchronization predicates and consumer-side audit
+**Decision:**
+- ADVANCE: C34 BSRF adopted as the canonical cross-layer recovery architecture for Atrahasis
+- Part I: Black-Start Boot Sequence — dependency-ordered recovery (C8→C5→C3→C7→C6), per-epoch Merkle state digests, 14 semantic synchronization predicates with contract binding, consumer-side audit trail
+- Part II: Recovery Witness Verification — post-recovery cross-layer Merkle consistency checks, authority-directed reconciliation with witness corroboration (soft-TMR), multi-layer signed attestation
+- Part III: Adversarial Reconstruction Fallback — declarative reference registry (15 types), causal traversal for state reconstruction from surviving digests; specified as registry+stub for Wave 4+ implementation
+- Key innovations: semantic sync predicates (not just health checks), consumer-side audit trail, authority-directed reconciliation with cross-layer witness corroboration
+- 35 conformance requirements (REQ-01 through REQ-35), 16 parameters, 4 patent-style claims
+**Consequences:**
+- All 6 core layers (C3/C5/C6/C7/C8) gain recovery integration points: digest emission, predicate satisfaction, witness participation
+- C9 contract test suite should be extended with recovery-path integration tests
+- C22 Wave 2-3 is the earliest implementation target; Part III deferred to Wave 4+
+- Known limitation: authority-directed reconciliation cannot detect subtle corruption of the authoritative layer itself; mitigated by cross-layer witness corroboration and temporal trust gradient
+**References:** docs/specifications/C34/MASTER_TECH_SPEC.md, docs/task_workspaces/T-062/ASSESSMENT_VERDICT.json
+**Invention:** C34
+
+---
+
+## ADR-036 - Infrastructure & Federation: APPROVE (C24)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- C3 defines logical locality and eventual federation, and C22 assumes a deployable stack, but no canonical infrastructure boundary model existed for region scoping, state placement, or cross-region exchange.
+- C23 defines parcel runtime hosts and execution leases, but not the region-scoped deployment domain that should contain those hosts or bound their cross-region movement.
+- Without a deployment primitive, implementation would drift into ad hoc cluster assumptions, weak failure-domain definitions, and inconsistent federation behavior.
+**Decision:**
+- APPROVE: C24 adopts **Federated Habitat Fabric (FHF)** as the canonical deployment and federation architecture for Atrahasis.
+- A Habitat is the region-scoped infrastructure domain that hosts loci, parcel runtime hosts, state services, governance relays, and explicit boundary gateways.
+- Cross-habitat movement is restricted to Habitat Boundary Gateways and typed Habitat Boundary Capsules under explicit policy.
+**Consequences:**
+- Atrahasis now has a canonical deployment boundary below the logical stack and above substrate tooling.
+- C23 runtime hosts, C3 locality rules, and future T-066 operational tooling inherit the same habitat failure-domain model.
+- T-062 recovery work remains compatible because habitats align runtime, state, governance, and federation to the same regional boundary.
+- Backend-specific product choices remain implementation-level decisions rather than architecture gaps.
+**References:** docs/specifications/C24/MASTER_TECH_SPEC.md, docs/invention_logs/C24_IDEATION.md, docs/invention_logs/C24_FEASIBILITY.md, docs/invention_logs/C24_ASSESSMENT.md
+**Invention:** C24
+
+---
+## ADR-037 - Operational Monitoring & Incident Response: APPROVE (C33)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- The Atrahasis stack already emitted many layer-local metrics, alerts, degraded modes, and governance thresholds, but had no canonical operational subsystem that turned those signals into coherent incidents and bounded response.
+- C14 AiSIA governance monitoring and C22 implementation planning both implied dashboarding, security-audit readiness, and escalation workflows without specifying the operational fabric that should own them.
+- The gap included signal normalization, cross-layer incident correlation, authority-bounded response playbooks, and audit-grade post-incident evidence.
+**Decision:**
+- APPROVE: C33 adopts **Operational Integrity Nerve Center (OINC)** as the canonical operational monitoring and incident-response layer for Atrahasis.
+- OINC makes the **Incident Capsule** the first-class operational object, binding source signals, severity, scope, authority envelope, playbook state, evidence, and review output into one durable case.
+- OINC remains subordinate to C3, C5, C7, C8, and C14; it may observe, contain locally where delegated, request layer actions, and escalate to governance, but it does not directly execute governance decisions.
+**Consequences:**
+- Atrahasis now has a canonical operational substrate for dashboards, incident handling, external security-audit evidence export, and post-incident review.
+- C14's monitoring concepts and C22's dashboard/audit expectations now have a normative home.
+- Additive host-spec integration text is still needed if owning layers expose new delegated local playbook actions to OINC.
+**References:** docs/specifications/C33/MASTER_TECH_SPEC.md, docs/invention_logs/C33_IDEATION.md, docs/invention_logs/C33_FEASIBILITY.md, docs/invention_logs/C33_ASSESSMENT.md
+**Invention:** C33
+
+---
+
+## ADR-038 - Sentinel Graph Security & Anomaly Detection: CONDITIONAL_APPROVE (C35)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- T-060 was the highest-priority CRITICAL task in the AAS backlog, referenced by 10+ existing specs (C3, C5, C7, C8, C11, C12, C13, C14, C17) as unspecified infrastructure for anomaly detection, behavioral clustering, and infrastructure fingerprinting.
+- No dedicated security monitoring substrate existed despite many specs assuming sentinel-like detection capabilities.
+- Full AAS pipeline (IDEATION→RESEARCH→FEASIBILITY→DESIGN→SPECIFICATION→ASSESSMENT) completed by agent Shamash (6ecc7362).
+- Originally minted as C32 during IDEATION; re-IDed to C35 to resolve collision with C32 MIA (T-063, ADR-034).
+**Decision:**
+- CONDITIONAL_APPROVE: C35 adopts **Seismographic Sentinel** — a three-tier hierarchical anomaly detection pipeline with PCM-augmented Tier 2.
+- Tier 1: Per-agent STA/LTA with fixed + adaptive dual baselines, OR-trigger with confirmation window.
+- Tier 2: Permitted Correlation Model (PCM) — log-linear main-effects-only residuals within spectrally-clustered neighborhoods + 3-of-4 channel quorum (verification, behavioral, infrastructure, economic).
+- Tier 3: Epidemiological backward tracing using overdispersion analysis (2 sources: C17 behavioral similarity + C7 intent provenance).
+- Scores: Novelty 3.5, Feasibility 3.5, Impact 4.0, Risk 5/10 (MEDIUM).
+- 5 blocking conditions (AC-1 PCM convergence experiment, AC-2 cross-neighborhood Sybil defense, AC-3 infrastructure-correlated suppression, AC-4 C22 wave placement, AC-5 C9 contract update) + 5 operational conditions.
+- 37 requirements, 66 parameters, 7 patent-style claims.
+**Consequences:**
+- Atrahasis now has a canonical security monitoring substrate consumed by C3, C5, C7, C8, C12, and C17.
+- Cross-layer integration via 6 sentinel contracts defining signal exchange, thresholds, and response authority.
+- Key innovations: PCM (no direct precedent — log-linear structural covariate model for expected correlation), sentinel_health meta-signal for self-referential anomaly suppression.
+- Simplifications applied: main-effects-only PCM (interactions deferred), quorum-only fusion (Bayesian deferred), C6 integration removed, Tier 3 limited to 2 trace sources.
+- No remaining CRITICAL architectural gaps in the AAS backlog.
+**References:** docs/specifications/C35/MASTER_TECH_SPEC.md, docs/specifications/C35/C35_ARCHITECTURE.md, docs/task_workspaces/T-060/ASSESSMENT_COUNCIL_VERDICT.md
+**Invention:** C35
+
+---
+
+## ADR-039 — C36 Epistemic Membrane Architecture for Interfaces (EMA-I)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- T-064 identified that no spec in the Atrahasis stack defines how humans, external AI agents, enterprise systems, or developer tools interact with the system.
+- Full AAS pipeline run (IDEATION through ASSESSMENT).
+- Ideation Council produced 3 concepts: IC-1 (API Gateway), IC-2 (EMA-I — selected with FULL consensus), IC-3 (Schema Compiler).
+- Scores: Novelty 3.5, Feasibility 4.0, Impact 4.5, Risk 4/10 (MEDIUM).
+- Agent: Adapa (734bcdbf).
+**Decision:**
+- APPROVE: C36 adopts **Epistemic Membrane Architecture for Interfaces (EMA-I)** — a sovereign boundary layer with 4 core components.
+- **Typed Interaction Receptors**: Session-typed (Honda et al. 1998) interface points organized into 5 persona families (Trustee, Provider, Operator, Developer, Agent), 35 receptors total, 3 detailed exemplars.
+- **Structured Translation Engine (STE)**: Deterministic bidirectional translation formalized as Galois connection (Cousot & Cousot 1977). All v1.0 translations structured; NL deferred to v2.0.
+- **Interaction Evidence Chain (IEC)**: Causal (not temporal) evidence records for every membrane interaction, hash-chained, with PCVM commitments at SIGNIFICANT+ classification.
+- **Persona Projection Engine (PPE)**: Non-interfering (Goguen & Meseguer 1982) persona-specific views of frozen epoch state. Proven via persona privilege lattice.
+- 3 operational conditions: (1) session type enforcement strategy before W1; (2) non-interference proof validated before W5; (3) write-behind evidence recovery demonstrated before W2.
+- 5 monitoring flags: session type enforcement in Rust/TS, non-interference proof completeness, write-behind durability, composition side-effect detection, receptor specification coverage.
+- 32 conformance requirements, 16 parameters, 4 patent-style claims.
+**Consequences:**
+- Atrahasis now has a canonical external interface layer consumed by and producing for 18+4 integration points.
+- Critical security invariant: authenticate → validate → translate → authorize → dispatch. Translation never confers authority.
+- C22 wave integration: W1 Developer receptors → W2 Agent → W3 Operator → W4 Provider → W5 Trustee.
+- Transport-agnostic: REST, GraphQL, gRPC, WebSocket, MCP, A2A are bindings, not architecture.
+- No remaining MEDIUM-priority AAS pipeline task spaces. Only T-067 (LOW) remains.
+**References:** docs/specifications/C36/MASTER_TECH_SPEC.md, docs/task_workspaces/T-064/ASSESSMENT_VERDICT.json, docs/task_workspaces/T-064/ASSESSMENT_TRANSCRIPT.md
+**Invention:** C36
+
+---
+
+## ADR-040 — C37 Epistemic Feedback Fabric (EFF)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- T-067 identified that the Atrahasis system verifies agent reasoning (C5 PCVM) but does not learn from its own verification data. The system has referees but no coaches. Verification outcomes flow to settlement and are discarded.
+- Full AAS pipeline run (IDEATION through ASSESSMENT).
+- Ideation Council produced 2 concepts: IC-1 (EFF — selected with MAJORITY consensus), IC-2 (Out-of-scope scoping decision — not selected).
+- Scores: Novelty 3.5, Feasibility 4.0, Impact 4.0, Risk 5/10 (MEDIUM).
+- Originally minted as C36; re-IDed to C37 due to collision with Adapa's T-064 EMA-I (ADR-039).
+- Agent: Enki (804ff0b6).
+**Decision:**
+- APPROVE: C37 adopts **Epistemic Feedback Fabric (EFF)** — a privacy-preserving, sovereignty-respecting feedback system with 4 components and the Advisory Membrane Pattern.
+- **Verification Feedback Loop (VFL)**: Aggregates C5 VTDs into per-claim-class quality metrics with three-layer privacy (k-anonymity k=10, differential privacy epsilon=2.0, secure aggregation). Dual-cadence publication (CONSOLIDATION_CYCLE normal + chi-squared anomaly-triggered). Hierarchical Bayesian estimation (James-Stein shrinkage) for rare claim classes.
+- **Reasoning Strategy Catalog (RSC)**: Published library of reasoning patterns stored as C6 EMA epistemic quanta (type="reasoning_strategy"). Three declarative format types only: decompositions, anti-patterns, verification checklists. Subjective logic credibility tracking. 7-state lifecycle FSM. ~27 seed patterns at v1.0.
+- **Complexity-Aware Budget Signals (CABS)**: Optional `reasoning_budget_advisory` on C23 ExecutionLease. Range format: {min_sufficient, recommended, max_useful, strategy_label, confidence}. Three-source fusion: C9 class weights, C7 RIF complexity, VFL historical calibration (p75).
+- **Advisory Membrane**: Formalized architectural guarantee that no enforcement or surveillance mechanism may use advisory consumption data as input. ADVISORY_PRIVATE label with access control matrix. C17 RSC-aware whitelist for structural fingerprint discounting. Voluntariness paradox explicitly acknowledged.
+- 3 operational conditions: (1) C17 whitelist sync protocol formal review before W2; (2) VFL schema regex fix (claim class pattern); (3) RSC convergence threshold calibration via W0 experiment.
+- 6 monitoring flags: RSC convergence, C17 side-channel, CABS non-monotonicity, VFL gaming, agent stratification, VFL latency.
+- 27 conformance requirements, 15 parameters, 5 patent-style claims.
+**Consequences:**
+- Atrahasis now has a meta-cognitive feedback layer that closes the information lifecycle gap between verification and reasoning improvement.
+- Advisory Membrane Pattern has no close prior art — first formalized non-enforcement guarantee in multi-agent governance.
+- C22 wave integration: Wave 2 placement (13-18 weeks, 1 engineer).
+- No remaining AAS pipeline task spaces. All CRITICAL/HIGH/MEDIUM/LOW items complete (C1-C37). Only direct spec edits (T-070–T-088) remain.
+**References:** docs/task_workspaces/T-067/specifications/MASTER_TECH_SPEC.md, docs/task_workspaces/T-067/ASSESSMENT.md
+**Invention:** C37
+
+---
+## ADR-041 â€” AACP/AASL Full Replacement Program Activation (Alternative B)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-006 and ADR-007 narrowed the communication layer to C4 ASV over JSON / A2A / MCP and explicitly killed standalone AACP as a sovereign protocol direction.
+- The user directed a fresh review of that choice and supplied a March 12, 2026 strategy packet under `C:\Users\jever\Atrahasis\AACP-AASL\` arguing for Alternative B: full sovereign replacement of A2A and MCP with AACP v2 plus extended AASL.
+- `T-089` compared `ASV + A2A/MCP` against `AASL + AACP` and reopened the architecture question by showing the trade-off explicitly instead of treating the C4 direction as permanently settled.
+- The supplied strategy packet also makes clear that the protocol buildout alone is insufficient: large parts of the Atrahasis repo, including planning and funding assumptions, currently depend on the C4 ASV + A2A/MCP operating model and will need follow-on retrofit.
+**Decision:**
+- Approve Alternative B as the active Atrahasis communication program: a sovereign `AACP v2 + extended AASL` stack is now the intended end-state architecture for future communication-layer work.
+- Reverse the prior TODO out-of-scope designation for standalone AASL/AACP compiler/runtime/protocol work.
+- Treat A2A and MCP bridges as migration scaffolding, not as the architectural end state.
+- Preserve C4 ASV, ADR-006, and ADR-007 as historical lineage and compatibility baseline until explicit supersession tasks define the final retirement / adaptation boundary.
+- Add two coordinated backlog tranches: `T-200` through `T-291` for protocol buildout, and `T-300` through `T-309` for repo-wide retrofit of specs, funding, implementation planning, and packaging assumptions built on C4.
+**Consequences:**
+- `TODO.md` now tracks Alternative B as active work rather than deferred/out-of-scope work.
+- Future communication-layer tasks must read the March 12, 2026 AACP/AASL source packet before execution.
+- The rest of the Atrahasis repo can no longer assume that `ASV + A2A/MCP` is the uncontested future direction; retrofit work is now part of the canonical backlog.
+- Funding strategy, implementation planning, developer experience, cross-layer integration, and external review packaging all require follow-on updates once the new protocol architecture stabilizes.
+**References:** C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replacement_Strategy.md, C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replace_Council_Briefing.md, C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replace_AAS_Tasks.md, docs/TODO.md, docs/COMPLETED.md
+**Invention:** N/A (system-level)
+
+---
+## ADR-042 - ASV Retention and Authority Boundary During Alternative B
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- Alternative B activates a sovereign `AACP v2 + extended AASL` end-state, but the Atrahasis system still exists only as documentation in the repo, not as an independently running implementation.
+- `C4 ASV` is therefore still the canonical record of the old communication architecture and the assumptions many other specs were written against.
+- Deleting or globally forbidding access to ASV-era materials would remove the baseline needed for supersession, dependency audit, retrofit, migration, and compatibility decisions.
+**Decision:**
+- Retain `C4 ASV` and related communication-era materials in the working repo as historical baseline and compatibility reference.
+- For `T-200`+ protocol buildout tasks, ASV-era materials are reference-only and MUST NOT be treated as normative design authority unless the assigned task explicitly requires old-stack comparison or compatibility analysis.
+- For `T-300`+ supersession / audit / retrofit / migration tasks, ASV-era materials remain required source material.
+- Do not delete, archive out of working reach, or otherwise hide ASV materials until the Alternative B retrofit program has completed and a later governance decision defines the final archive boundary.
+**Consequences:**
+- New protocol design work stays anchored on the Alternative B source packet rather than drifting back toward C4 assumptions.
+- Repo-wide retrofit work retains the baseline needed to rewrite documents coherently instead of guessing what the old stack meant.
+- Future agents have an explicit rule for when ASV should influence work and when it should not.
+**References:** docs/DECISIONS.md, docs/SESSION_BRIEF.md, docs/TODO.md, C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replacement_Strategy.md
+**Invention:** N/A (system-level)
+
+---
+## ADR-043 - AASL Type Registry Extension Policy for Alternative B
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-041 activated Alternative B and identified three new AASL type families as required for the sovereign communication stack: `TL{}` for tools, `PMT{}` for prompt templates, and `SES{}` for sessions.
+- ADR-042 established that old ASV/C4 materials remain historical and compatibility reference only for `T-200+` protocol-design work, so the governing authority for this task is the Alternative B packet plus the existing AASL semantic-governance corpus.
+- Existing AASL governance artifacts already define namespace discipline, compatibility classes, lifecycle states, pinned registry snapshots, and a ban on ambient unknown-term invention, but no task-specific policy yet stated how `TL`, `PMT`, and `SES` must enter the canonical registry.
+- Without an explicit policy, downstream tasks such as `T-210` and `T-212` would be forced to guess admission rules and could fragment the registry through implementation-led semantics.
+**Decision:**
+- `TL{}`, `PMT{}`, and `SES{}` SHALL enter the canonical AASL registry only through the formal ontology proposal and admission workflow; ad hoc implementation extension is not sufficient.
+- Admissions in this family SHALL be treated as non-editorial changes, with compatibility class metadata (`C1`/`C2` or higher as appropriate), migration impact, and affected validator/compiler/runtime/tooling surfaces recorded at the registry level.
+- Validators and runtimes that do not recognize these types MUST NOT silently reinterpret them as older known constructs. Unknown-type handling must follow explicit profile, lifecycle, and sandbox rules instead of heuristic guessing.
+- Experimental use is permitted only through explicit experimental namespace or profile controls and MUST NOT silently promote to stable canonical status.
+- This task defines the governance envelope only. Concrete field definitions, canonical forms, and ontology placement remain downstream work for `T-212`, while the five-layer architectural role of these types remains downstream work for `T-210`.
+**Consequences:**
+- `T-210` can proceed without inventing missing registry-governance rules for new Alternative B type families.
+- `T-212` is constrained to a pinned-snapshot, compatibility-labeled extension path rather than a free-form schema addition.
+- Registry, validator, compiler, runtime, and tooling work must record exact registry snapshots and preserve the no-ambient-term-invention rule when these types appear.
+- Alternative B gains the required type-growth path for tools, prompt templates, and sessions without violating AASL semantic closure.
+**References:** docs/task_workspaces/T-201/POLICY_DRAFT.md, C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replacement_Strategy.md, C:\Users\jever\Atrahasis\AACP-AASL\AACP_AASL_Full_Replace_Council_Briefing.md, C:\Users\jever\Atrahasis\Atrahasis Conception Documentation\AASL_SPECIFICATION.md, C:\Users\jever\Atrahasis\Atrahasis Conception Documentation\Atrahasis_AASL_Ontology_Registry_and_Governance_Operations.md
+**Invention:** N/A (system-level)
+
+---
+## ADR-044 - C38 Five-Layer Sovereign Protocol Architecture (FSPA)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-041 activated Alternative B and created a sovereign AACP/AASL buildout backlog, but the repo still lacked a root architectural authority explaining how AACP v2 should be partitioned across transport, session, security, messaging, and semantics.
+- ADR-042 kept C4/ASV as historical baseline and compatibility reference only, which preserved lineage but did not answer the architecture question for the new sovereign stack.
+- ADR-043 defined the governance path for new semantics-layer type growth (`TL`, `PMT`, `SES`), but not the broader cross-layer contract model.
+- Without a root architecture, downstream tasks such as `T-211`, `T-212`, `T-213`, `T-215`, `T-220+`, and `T-230+` would be forced to invent or assume missing layer boundaries.
+**Decision:**
+- Accept C38 Five-Layer Sovereign Protocol Architecture (FSPA) as the root architecture for Alternative B.
+- AACP v2 SHALL be treated as a five-layer stack: Transport, Session, Security, Messaging, and Semantics.
+- Canonical semantic identity SHALL originate in the Semantics layer and remain authoritative across encodings and bindings.
+- Messaging SHALL own lineage-bearing envelopes and message taxonomy without redefining payload meaning.
+- Security SHALL bind identity, authorization, signatures, and replay protection to canonical references without replacing semantic or verification authority.
+- Session SHALL own capability negotiation, liveness, and recovery, and SHALL fail closed when negotiation would break required invariants.
+- Bridges to A2A/MCP SHALL remain compatibility-only migration scaffolding and MUST disclose degraded or translated provenance state explicitly.
+**Consequences:**
+- `T-211`, `T-212`, `T-213`, `T-215`, `T-220+`, `T-230+`, `T-240+`, and `T-290` now have a root architecture boundary to refine instead of guessing layer ownership.
+- Future Alternative B tasks must refine or extend the defined layer contracts rather than silently collapsing responsibilities across layers.
+- Retrofit tasks gain a stable target architecture for replacing old `C4 ASV + A2A/MCP` end-state assumptions across the rest of the repo.
+**References:** docs/specifications/C38/MASTER_TECH_SPEC.md, docs/task_workspaces/T-210/IDEATION_COUNCIL_OUTPUT.yaml, docs/task_workspaces/T-210/FEASIBILITY.md, docs/task_workspaces/T-210/ASSESSMENT.md
+**Invention:** C38
+
+---
+## ADR-045 - C39 Lineage-Bearing Capability Message Lattice (LCML)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-044 accepted C38 Five-Layer Sovereign Protocol Architecture as the root Alternative B communication architecture and explicitly deferred message-class design to `T-211`.
+- The Alternative B source packet requires the message layer to expand from the current 23-class AACP lineage to 42 classes, covering discovery, tools, resources, prompting, streaming/push, and sampling.
+- The legacy Atrahasis/AACP corpus contains more than one draft-era message inventory, so downstream tasks needed a normalized canonical baseline before extension.
+- Without a message-layer authority, tasks such as `T-214`, `T-240`, `T-241`, `T-242`, `T-243`, `T-244`, and `T-281` would be forced to invent or duplicate class surfaces inconsistently.
+**Decision:**
+- Accept C39 Lineage-Bearing Capability Message Lattice (LCML) as the canonical L4 Messaging inventory extension for Alternative B.
+- Normalize the pre-extension AACP baseline to 23 canonical classes: 11 runtime lifecycle classes, 7 coordination/control classes, and 5 tidal-extension classes.
+- Add exactly 19 new classes across six capability families: Discovery, Tool, Resource, Prompt, Stream, and Sampling.
+- Adopt the LCML class-economy rule: dual-phase classes are allowed when request and response share one semantic contract, while distinct result classes are reserved for materially different downstream semantic/provenance consequences.
+- Model push-style delivery through stream-family response-channel semantics rather than extra push-only message classes.
+- Preserve semantic object internals (`TL`, `PMT`, `SES`) and Agent Manifest field structure as downstream work for `T-212` and `T-214`.
+**Consequences:**
+- `T-214`, `T-240`, `T-241`, `T-242`, `T-243`, `T-244`, and `T-281` now have a canonical message inventory to refine instead of guessing class boundaries.
+- Growth beyond 42 canonical classes now requires later governance review rather than silent downstream inflation.
+- Bridge tasks (`T-250`, `T-251`) inherit an explicit message-layer provenance posture for native versus translated flows.
+**References:** docs/specifications/C39/MASTER_TECH_SPEC.md, docs/task_workspaces/T-211/IDEATION_COUNCIL_OUTPUT.yaml, docs/task_workspaces/T-211/FEASIBILITY.md, docs/task_workspaces/T-211/ASSESSMENT.md
+**Invention:** C39
+
+---
+
+## ADR-046 - C40 Dual-Anchor Authority Fabric (DAAF)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-044 accepted `C38` Five-Layer Sovereign Protocol Architecture and defined that L3 Security must bind identity, authorization, signatures, and replay protection to canonical references without replacing semantic or verification authority.
+- The Alternative B source packet explicitly required `T-230` to define a native auth module covering OAuth 2.1, mTLS, API keys, Ed25519 agent identity tokens, message-level signing over canonical hashes, replay detection, identity verification, and role-based plus capability-based authorization.
+- Existing Atrahasis specs already provided pieces of the answer (`C32` native identity anchoring, `C23` no-ambient-rights runtime enforcement, `C36` authenticate -> validate -> authorize -> dispatch ordering), but no canonical Alternative B security invention unified those pieces into one bounded L3 contract.
+- Without this task, downstream work such as `T-214`, `T-231`, `T-240`, `T-262`, `T-281`, and `T-290` would be forced to guess what counts as native identity, what must be signed, how replay/downgrade must fail closed, and how explicit grants differ from ordinary authentication.
+**Decision:**
+- Accept `C40` Dual-Anchor Authority Fabric (DAAF) as the canonical L3 security architecture for Alternative B.
+- AACP v2 SHALL distinguish two trust-anchor families: native Atrahasis agent identity rooted in `C32` AgentID plus Ed25519-backed keys, and non-native ingress identity for humans, institutions, services, bridges, and local tools admitted through bounded federation, mTLS, or API-key profiles.
+- AACP v2 SHALL use the bounded four-profile set defined by DAAF: `SP-NATIVE-ATTESTED`, `SP-FEDERATED-SESSION`, `SP-WORKLOAD-MTLS`, and `SP-BRIDGE-LIMITED`, unless later governance explicitly extends it.
+- Security-sensitive actions SHALL bind to canonical message identity through `ABP-v1` / `SIG-v1` authority binding rather than transport bytes alone.
+- Replay detection SHALL use message freshness plus a seen-message cache keyed by signer anchor, `message_id`, and canonical hash, and invariant-breaking downgrade SHALL fail closed.
+- Sensitive actions SHALL require explicit signed capability grants; DAAF defines the generic grant model but does not replace downstream runtime enforcement, manifest schema design, or tool semantics.
+- Bridge-limited and API-key-only paths SHALL remain visibly bounded and MUST NOT silently satisfy native-only or other high-trust policy.
+**Consequences:**
+- `T-214` now has a concrete auth-scheme and manifest-signing authority surface to consume.
+- `T-240` now has a generic capability-grant and no-ambient-authority substrate rather than inventing L3 behavior ad hoc.
+- `T-231`, `T-262`, `T-281`, and `T-290` now have a concrete security posture for threat-model extension, SDK design, conformance, and cross-layer integration.
+- Alternative B security now remains sovereign without forcing all principals into one gateway-centered trust model or collapsing into runtime-specific authorization semantics too early.
+**References:** docs/specifications/C40/MASTER_TECH_SPEC.md, docs/task_workspaces/T-230/HITL_APPROVAL.md, docs/task_workspaces/T-230/FEASIBILITY.md, docs/task_workspaces/T-230/ASSESSMENT.md
+**Invention:** C40
+
+---
+## ADR-047 - C41 Layered Semantic Capability Manifest (LSCM)
+**Date:** 2026-03-12
+**Status:** ACCEPTED
+**Context:**
+- ADR-044 accepted `C38` Five-Layer Sovereign Protocol Architecture and left manifest semantics to `T-214`.
+- ADR-045 accepted `C39` LCML and defined discovery-family manifest publish, query, and update classes, but deferred the full manifest object model.
+- ADR-046 accepted `C40` DAAF and set the trust rule for signed manifests, security profile disclosure, endpoint-scoped operational keys, and fail-closed registry/manifest conflicts.
+- Without `T-214`, Alternative B would still lack the canonical document that lets clients, registries, bridges, SDKs, and conformance tooling discover what an endpoint is, how it should be trusted, and which protocol-semantic surfaces it actually supports.
+**Decision:**
+- Accept `C41` Layered Semantic Capability Manifest (LSCM) as the canonical Alternative B discovery manifest.
+- LSCM SHALL be published at `/.well-known/atrahasis.json` as the signed endpoint-scoped capability disclosure surface.
+- LSCM SHALL disclose bounded durable truth only: subject identity, trust posture, discovery and transport endpoints, supported `C40` security profiles and auth schemes, supported `C39` message families, supported `AASL` types and ontology snapshots, optional bounded references to deeper capability surfaces, and visible supersession lineage.
+- LSCM SHALL make native-versus-bridge posture explicit and machine-readable.
+- LSCM SHALL keep runtime telemetry, live health, and registry ranking behavior out of the canonical manifest surface.
+- Registry and manifest conflicts on native trust posture SHALL fail closed rather than be heuristically reconciled.
+**Consequences:**
+- `T-251` now has a canonical A2A Agent Card replacement target.
+- `T-261` now has a registry source document and searchable capability sections.
+- `T-262` now has a manifest fetch and parsing surface for the SDK architecture.
+- `T-281` now has a manifest conformance target.
+- `T-290` now has a stable external capability contract for cross-layer integration.
+**References:** docs/specifications/C41/MASTER_TECH_SPEC.md, docs/task_workspaces/T-214/HITL_APPROVAL.md, docs/task_workspaces/T-214/FEASIBILITY.md, docs/task_workspaces/T-214/ASSESSMENT.md
+**Invention:** C41
+
+---
+## ADR-048 - C42 Lease-Primed Execution Mesh (LPEM)
+**Date:** 2026-03-13
+**Status:** ACCEPTED
+**Context:**
+- Alternative B had message authority (`C39`), security authority (`C40`), manifest authority (`C41`), and runtime lease authority (`C23`), but no canonical invention defining how trusted tool invocation becomes high-performance, policy-visible continuation and execution-ready context.
+**Decision:**
+- Accept `C42` Lease-Primed Execution Mesh as the canonical Alternative B tool-authority surface.
+- `C42` defines signed tool inventory snapshots, explicit invocation priming levels (`IMMEDIATE_ONLY`, `CONTINUATION_READY`, `EXECUTION_PRIMED`), bounded continuation contexts, mandatory accountable tool results, and runtime handoff contracts that can feed `C23` lease derivation without bypassing `C23`.
+**Consequences:**
+- `T-250` must translate MCP tools into the `C42` native-versus-bridge posture.
+- `T-260` must expose `C42` continuation and execution-priming hooks.
+- `T-262` must model snapshot reuse, continuation lifecycle, and runtime handoff as first-class SDK surfaces.
+- `T-243` remains the owner of actual stream/push carriage for continuation-heavy flows.
+- `C23` remains runtime authority; `C42` primes but does not replace lease issuance.
+**References:** docs/specifications/C42/MASTER_TECH_SPEC.md, docs/task_workspaces/T-240/HITL_APPROVAL.md, docs/task_workspaces/T-240/FEASIBILITY.md, docs/task_workspaces/T-240/ASSESSMENT.md
+**Invention:** C42
+
+---
+## ADR-049 - C43 Custody-Bounded Semantic Bridge (CBSB)
+**Date:** 2026-03-13
+**Status:** ACCEPTED
+**Context:**
+- Alternative B already had message authority (`C39`), security authority (`C40`), manifest authority (`C41`), and native tool authority (`C42`), but no canonical migration bridge explaining how MCP servers enter the new stack without dishonest native-equivalence claims.
+- `T-089` and `T-301` reopened communication architecture and retrofit sequencing, but neither task defined the bridge-specific custody, provenance, or reusable-state boundary.
+- Without `T-250`, downstream work such as `T-251`, `T-260`, `T-262`, `T-281`, `T-303`, and `T-307` would be forced to guess how translated inventories, invocation identity, bridge inference, and non-native continuation posture should work.
+**Decision:**
+- Accept `C43` Custody-Bounded Semantic Bridge (CBSB) as the canonical Alternative B MCP migration bridge.
+- `C43` defines signed bridge-scoped inventory snapshots, invocation pinned to snapshot/tool/policy identity, explicit separation of source-observed facts from bridge-normalized structure and bridge-inferred semantics, accountable bridged results, bounded reusable bridge state, and optional derated continuation handles.
+- `C43` remains migration scaffolding and SHALL NOT be treated as native `C42` tool authority or `C23` runtime authority.
+**Consequences:**
+- `T-251` now has a symmetry reference for bridge honesty and non-native posture.
+- `T-260` must keep native framework behavior distinct from migration-bridge behavior.
+- `T-262` must model bridge snapshots, translation identity, and derated continuation surfaces without treating bridged tools as native.
+- `T-281` now has a canonical MCP bridge conformance target.
+- `T-303` and `T-307` must preserve native-vs-bridge provenance boundaries and bridge-retirement discipline.
+**References:** docs/specifications/C43/MASTER_TECH_SPEC.md, docs/task_workspaces/T-250/HITL_APPROVAL.md, docs/task_workspaces/T-250/ASSESSMENT.md
+**Invention:** C43
+
+---
+## ADR-050 - C44 AASL-T Constrained Generation Engine
+**Date:** 2026-03-13
+**Status:** ACCEPTED
+**Context:**
+- `T-270` required specifying the constrained decoding rules, few-shot prompt structures, and datasets needed to force LLMs to emit valid `AASL-T`.
+- Without a canonical constrained-generation authority, downstream AACP clients and toolchains would rely on ad hoc parser recovery layers.
+**Decision:**
+- Accept `C44` as the canonical constrained-generation authority for `AASL-T`.
+- `C44` defines strict EBNF grammars, benchmark targets, and dataset expectations for syntactically valid, schema-conformant `AASL-T` output.
+**Consequences:**
+- `T-252` may consume `C44` as the generation target for Forge-mediated semantic upgrades.
+- `T-291` now has a normative generation-validity surface for justification and benchmark gates.
+- AACP clients can verify native `AASL-T` generation against one shared constrained-decoding authority.
+**References:** docs/specifications/C44/MASTER_TECH_SPEC.md
+**Invention:** C44
+
+---
+## ADR-051 - C4 Supersession Boundary and Compatibility Policy
+**Date:** 2026-03-15
+**Status:** ACCEPTED
+**Context:**
+- ADR-006 and ADR-007 made `C4 ASV + A2A/MCP` the active communication direction and explicitly retired sovereign `AACP` as the end-state protocol posture.
+- ADR-041 activated the sovereign replacement program and preserved `C4`, ADR-006, and ADR-007 until an explicit supersession task defined the final boundary.
+- ADR-042 retained `C4` as historical baseline and compatibility reference, but did not yet define the exact line between retained baseline and superseded forward authority.
+- T-301 audited the repo-wide old-stack footprint and identified `T-300` as the required governance task before downstream retrofit work could rewrite cross-layer, roadmap, and packaging surfaces coherently.
+- C38 and the downstream Alternative C authority surfaces now exist, so the replacement side of the boundary is no longer speculative.
+**Decision:**
+- Accept `T-300` as the canonical supersession boundary for `C4`.
+- `C4 ASV`, its companion architecture/spec artifacts, and ADR-006 / ADR-007 remain retained in-repo as historical lineage and compatibility baseline for retrofit, audit, migration, bridge policy, and old-stack comparison work.
+- `C4` is no longer normative forward design authority for Atrahasis communication architecture.
+- Alternative C forward communication authority now resolves through `C38`, `C39`, `C40`, `C41`, `C42`, `C45`, `C46`, `C47`, and `T-290` / `AXIP-v1` rather than through `C4 ASV + A2A/MCP`.
+- Statements that define Atrahasis's future communication posture as `ASV` over `A2A/MCP`, or that treat sovereign `AACP` as retired doctrine, are superseded.
+- No task may delete or hide `C4` from the working repo until the retrofit program is complete and a later governance decision defines final archive posture.
+**Consequences:**
+- `T-302` through `T-309` now have a fixed governance boundary for replacing old-stack assumptions instead of improvising where `C4` still applies.
+- Downstream retrofit tasks must read `C4` directly when rewriting legacy assumptions, but must not treat it as the target architecture.
+- `UNIFIED_ARCHITECTURE.md` and the remaining old-stack references are now governed as superseded narrative or compatibility surfaces rather than current doctrine.
+- The repo preserves the old baseline without allowing it to compete with Alternative C as future authority.
+**References:** docs/task_workspaces/T-300/TASK_BRIEF.md, docs/task_workspaces/T-300/BOUNDARY_POLICY_DRAFT.md, docs/task_workspaces/T-301/TASK_BRIEF.md, docs/task_workspaces/T-301/COMM_DEPENDENCY_AUDIT.md, docs/task_workspaces/T-301/COMM_DEPENDENCY_INVENTORY.md, docs/specifications/C4 - Agent Abstraction and Control Protocol/C4_Agent_Abstraction_and_Control_Protocol_Master_Tech_Spec.md, docs/specifications/C38 - AACP Full Sovereign Protocol Architecture/C38_AACP_Full_Sovereign_Protocol_Architecture_Master_Tech_Spec.md, docs/specifications/UNIFIED_ARCHITECTURE.md
+**Invention:** N/A (system-level)

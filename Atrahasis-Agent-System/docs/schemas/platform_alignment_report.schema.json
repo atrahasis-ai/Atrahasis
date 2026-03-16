@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Platform Alignment Report",
+  "type": "object",
+  "required": ["type", "platform_objectives", "hypothesis_assessments", "program_recommendations"],
+  "properties": {
+    "type": {"const": "PLATFORM_ALIGNMENT_REPORT"},
+    "platform_objectives": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hypothesis_assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "platform_alignment_score", "priority_adjustment", "alignment_status"],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "program_id": {"type": ["string", "null"], "pattern": "^RP-\\d{3}$"},
+          "platform_alignment_score": {"type": "number", "minimum": 0, "maximum": 1},
+          "priority_adjustment": {"type": "number", "minimum": -1, "maximum": 1},
+          "alignment_status": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "filtered_hypotheses": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^H-\\d{3}$"}
+    },
+    "program_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["program_id", "program_title", "platform_alignment_score", "recommended_action"],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "platform_alignment_score": {"type": "number", "minimum": 0, "maximum": 1},
+          "recommended_action": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

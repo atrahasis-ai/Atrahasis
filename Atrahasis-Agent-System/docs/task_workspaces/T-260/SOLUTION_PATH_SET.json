@@ -1,0 +1,67 @@
+{
+  "candidate_paths": [
+    {
+      "dependency_order": [
+        "discovery",
+        "opportunity",
+        "hypothesis",
+        "validation",
+        "human_review"
+      ],
+      "hypothesis_id": "H-001",
+      "id": "P-001",
+      "required_subsystems": [
+        "discovery",
+        "reasoning",
+        "validation",
+        "governance"
+      ],
+      "title": "Path for Agent invention pathway",
+      "tradeoffs": [
+        "novelty_vs_feasibility",
+        "breadth_vs_depth"
+      ]
+    },
+    {
+      "dependency_order": [
+        "discovery",
+        "opportunity",
+        "hypothesis",
+        "validation",
+        "human_review"
+      ],
+      "hypothesis_id": "H-002",
+      "id": "P-002",
+      "required_subsystems": [
+        "discovery",
+        "reasoning",
+        "validation",
+        "governance"
+      ],
+      "title": "Path for Agents invention pathway",
+      "tradeoffs": [
+        "novelty_vs_feasibility",
+        "breadth_vs_depth"
+      ]
+    }
+  ],
+  "dependency_order": [
+    "intake",
+    "discovery",
+    "reasoning",
+    "validation",
+    "governance"
+  ],
+  "required_subsystems": [
+    "discovery",
+    "reasoning",
+    "validation",
+    "governance"
+  ],
+  "tradeoffs": [
+    "evidence_depth",
+    "operator_time",
+    "portfolio_complexity"
+  ],
+  "type": "SOLUTION_PATH_SET"
+}

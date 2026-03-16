@@ -1,0 +1,190 @@
+IDEATION_COUNCIL_HYBRID_FOLLOWUP:
+  domain: "hybrid native tool protocol concepts combining bounded tool exchange with selective negotiated-session advantages"
+  generated_at: "2026-03-13T05:58:16Z"
+  agent: "Marduk"
+  basis_concepts: ["IC-2", "IC-3"]
+  trigger: |
+    User requested a second council pass that hybridizes the strengths of IC-2
+    and IC-3, while preserving downstream room for T-243, T-260, and C23 to
+    refine advanced streaming, runtime, and execution semantics later.
+  consensus_level: "MAJORITY"
+
+  synthesis_principles:
+    - "Keep IC-2's bounded four-part lifecycle as the canonical default path."
+    - "Admit selected IC-3 capabilities only as explicit, opt-in advanced profiles."
+    - "Do not force all tools to become session-heavy or continuation-heavy."
+    - "Preserve deterministic result accountability (`CLM + CNF + EVD + PRV`) in every mode."
+    - "Push streaming transport, long-lived continuation handling, and runtime lease execution details downward to T-243, T-260, and C23 rather than hard-coding them into T-240."
+
+  round_1:
+    visionary:
+      concept_name: "Progressive Tool Protocol Stack"
+      position: |
+        Use IC-2 as the universal base but let tools advertise advanced
+        interaction profiles that unlock richer negotiated workflows when they
+        truly need them. This keeps simple tools simple while allowing complex
+        tools to feel natively conversational.
+      novelty_estimate: 5
+      feasibility_estimate: 4
+
+    systems_thinker:
+      concept_name: "Layered Continuation-Aware Tool Exchange"
+      position: |
+        The safest hybrid is one where the default semantics stay identical to
+        IC-2, but invocation and result bundles may optionally reference
+        continuation handles, escalation hooks, or stream bindings. Those hooks
+        are promises of later coordination, not full in-task redefinition of
+        streaming or runtime execution.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Constrained Advanced Modes"
+      position: |
+        Any hybrid only works if advanced features are profile-gated, optional,
+        and rare. If the base protocol cannot remain mentally modelable as
+        discovery -> invoke -> result -> inventory-change, the design has failed.
+      novelty_estimate: 4
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      The hybrid must not quietly turn every tool invocation into a latent
+      session protocol. Advanced behaviors need explicit negotiation markers and
+      conformance boundaries so implementers know what is mandatory versus
+      optional.
+
+    critic_challenges_both: |
+      Do not solve future task scope by stuffing placeholders everywhere. Hooks
+      are only useful if they name a bounded handoff point to T-243, T-260, and
+      C23, rather than vague "extensions later" language.
+
+    visionary_response: |
+      Agreed. The hybrid should create a ladder: strong default bounded mode,
+      selective upgrade path, and visible downstream authority for richer
+      execution semantics.
+
+  concepts:
+    - concept_id: "IC-4"
+      title: "Bounded Core with Optional Continuation Hooks"
+      summary: |
+        Preserve IC-2 as the normative tool protocol, but allow invocation and
+        result bundles to advertise or return explicit continuation handles for
+        advanced tools. The base protocol remains bounded and fully interoperable;
+        continuation handling is optional and delegated to later streaming/runtime
+        tasks.
+      novelty_score: 4
+      feasibility_score: 5
+      key_innovation: "A strict default tool protocol with narrowly bounded escalation points for complex workflows"
+      technical_approach: |
+        Define the mandatory core around `tool_discovery`, `tool_invocation`,
+        `tool_result`, and `tool_change_notification`. Add optional continuation
+        references, escalation markers, and deferred-completion handles that can
+        be consumed later by T-243 and T-260 without changing the base tool
+        contract or weakening result accountability.
+      performance_profile: |
+        Near-IC-2 performance for common-case tools because advanced hooks stay
+        absent unless needed. Small additional complexity appears only when a
+        tool explicitly advertises continuation support.
+      benefits:
+        - "Best preservation of IC-2 efficiency and bridge friendliness"
+        - "Creates a clean future path for complex tools without overburdening simple ones"
+        - "Easiest hybrid for later SDK and server framework adoption"
+      known_risks:
+        - "If hook semantics are too vague, later tasks may interpret them inconsistently"
+        - "Advanced tools may still require profile negotiation rules to avoid fragmentation"
+      downstream_task_guidance:
+        - "T-243 should define how continuation handles map onto stream begin/data/end or push delivery without redefining core tool identity"
+        - "T-260 should expose continuation support as an optional framework capability, not the default developer path"
+        - "C23 should define how continuation-bearing tool work hands rights into runtime leases and capability brokers"
+      hitl_required: true
+
+    - concept_id: "IC-5"
+      title: "Dual-Mode Tool Interaction Profiles"
+      summary: |
+        Standardize two explicit interaction modes inside one protocol:
+        `bounded_mode` for ordinary tools and `negotiated_mode` for interactive
+        or long-running tools. Discovery advertises which mode each tool
+        supports, while accountability wrapping and authorization remain common
+        across both modes.
+      novelty_score: 5
+      feasibility_score: 4
+      key_innovation: "A single sovereign tool protocol with two conformance-grade interaction profiles instead of one overloaded behavior model"
+      technical_approach: |
+        Keep one message-family vocabulary, one accountability contract, and one
+        authorization posture, but define two protocol profiles. `bounded_mode`
+        behaves like refined IC-2. `negotiated_mode` allows step-up auth,
+        progressive parameter completion, and explicit deferred execution stages
+        through profile-specific fields and state rules.
+      performance_profile: |
+        Common-case performance stays strong for bounded-mode tools, while
+        negotiated-mode tools accept higher coordination cost in exchange for
+        richer behavior. Operational complexity rises because clients and servers
+        must implement profile discrimination.
+      benefits:
+        - "Most explicit hybrid; avoids hidden feature creep"
+        - "Makes advanced behavior discoverable and testable at conformance level"
+        - "Allows future ecosystems to grow without forcing one-size-fits-all semantics"
+      known_risks:
+        - "Two modes may split the ecosystem if negotiated mode becomes too attractive or too underspecified"
+        - "SDK and certification burden increases because both modes need distinct validation paths"
+      downstream_task_guidance:
+        - "T-243 should specify transport/stream behavior for negotiated-mode continuations only where the profile requires it"
+        - "T-260 should implement bounded mode as the zero-boilerplate default and negotiated mode as an advanced framework surface"
+        - "C23 should define how negotiated-mode authority transitions become concrete runtime leases without ambient rights"
+      hitl_required: true
+
+    - concept_id: "IC-6"
+      title: "Lease-Aware Progressive Tool Fabric"
+      summary: |
+        Treat the initial tool invocation as a bounded sovereign act, but allow it
+        to mint an explicit execution-continuation context that can later be
+        attached to streams, runtime leases, and step-up authorization paths.
+        This keeps the first call lean while making complex tool operations a
+        first-class extension path.
+      novelty_score: 5
+      feasibility_score: 3
+      key_innovation: "A tool protocol that starts bounded but can lawfully unfold into downstream lease- and stream-aware execution contexts"
+      technical_approach: |
+        The first invocation remains IC-2-like, including schema pinning and
+        mandatory accountability wrapping. When advanced execution is required,
+        the result can issue a continuation context with explicit policy and
+        provenance bindings. T-243 later defines stream carriage, and C23 later
+        defines lease enforcement semantics for that context.
+      performance_profile: |
+        Better than full IC-3 for ordinary tool calls, but heavier than IC-4 and
+        IC-5 because the continuation context is designed more explicitly around
+        later runtime and streaming handoff.
+      benefits:
+        - "Most novel path for integrating tool work with runtime leases and advanced execution control"
+        - "Creates a strong conceptual bridge from protocol invocation to execution governance"
+        - "Could yield a distinctive Atrahasis-native model for high-consequence tool operations"
+      known_risks:
+        - "Greatest risk of scope spill into C23 and T-243"
+        - "Harder to explain and certify than IC-4 or IC-5"
+        - "May still be too ambitious for the immediate MCP-replacement need"
+      downstream_task_guidance:
+        - "T-243 should treat continuation contexts as inputs to stream/push orchestration, not as a new tool protocol"
+        - "T-260 should decide whether continuation-context issuance is framework-native or provided by advanced adapters"
+        - "C23 should own the concrete lease semantics, revocation behavior, and broker enforcement for continuation contexts"
+      hitl_required: true
+
+  recommended_concepts: ["IC-4", "IC-5"]
+
+  dissent_record:
+    - point: "The base protocol must remain understandable without advanced-session machinery"
+      minority: "Critic"
+      monitoring_flag: "Any chosen hybrid must keep a mandatory simple path that preserves IC-2 operability"
+    - point: "Advanced behaviors should be profile-gated, not hidden as optional chaos"
+      minority: "Systems Thinker"
+      monitoring_flag: "FEASIBILITY must define conformance boundaries for every advanced hook"
+    - point: "T-240 should intentionally leave room for later task refinement instead of pretending to finish all workflow semantics now"
+      minority: "Visionary"
+      monitoring_flag: "DESIGN should document explicit handoff boundaries to T-243, T-260, and C23"
+
+  task_routing_note: |
+    Per current parallel-execution and shared-state rules, these downstream
+    references are recorded only in the T-240 workspace for now. If a hybrid
+    concept is approved and later completed, serialized closeout can queue the
+    corresponding TODO / handoff guidance for T-243, T-260, and C23-facing
+    consumers without editing shared-state task backlog details live.

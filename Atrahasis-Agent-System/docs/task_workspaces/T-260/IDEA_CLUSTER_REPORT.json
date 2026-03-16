@@ -1,0 +1,17 @@
+{
+  "clusters": [
+    {
+      "cluster": "agent",
+      "hypotheses": [
+        "H-001"
+      ]
+    },
+    {
+      "cluster": "agents",
+      "hypotheses": [
+        "H-002"
+      ]
+    }
+  ],
+  "type": "IDEA_CLUSTER_REPORT"
+}

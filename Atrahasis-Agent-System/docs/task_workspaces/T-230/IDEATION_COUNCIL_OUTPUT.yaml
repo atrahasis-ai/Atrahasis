@@ -1,0 +1,170 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "sovereign protocol security / identity and authorization architecture / multi-agent trust control"
+  generated_at: "2026-03-12T13:14:17Z"
+  agent: "Marduk"
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Capability-Lease Security Mesh"
+      position: |
+        Push sovereignty to its limit: treat every meaningful protocol action as
+        requiring an explicit short-lived capability grant. Identity proves who is
+        asking; the grant proves exactly what may happen. Reuse the C23 lease
+        mindset at the protocol edge so no bearer has ambient authority.
+      novelty_estimate: 5
+      feasibility_estimate: 2
+
+    systems_thinker:
+      concept_name: "Dual-Anchor Authority Fabric"
+      position: |
+        Separate identity anchors by principal family, then unify them under one
+        bounded L3 security contract. Atrahasis-native agents authenticate through
+        C32 AgentID and Ed25519-rooted security artifacts. Humans, institutions,
+        and external systems use OAuth 2.1, OIDC/SAML federation, mTLS, or API
+        keys as appropriate. Authorization is layered: persona/role access first,
+        operation-scoped capability grants second, canonical-hash signatures and
+        replay controls throughout.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Federated Security Gateway"
+      position: |
+        Centralize trust through one external-facing auth gateway. Put OAuth 2.1,
+        OIDC, mTLS, API keys, manifest signing, and coarse authorization policy in
+        one standard perimeter service. This is easiest to explain and ship, but
+        it risks recreating a conventional gateway center of gravity inside a
+        stack that claims sovereign agent-native authority.
+      novelty_estimate: 3
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      Full capability-lease purity is attractive, but it over-couples L3 to C23
+      runtime semantics and downstream tool behavior that T-240 has not designed
+      yet. T-230 must define protocol security authority, not re-specify the whole
+      execution-rights model at the wire edge.
+
+    critic_challenges_both: |
+      A centralized gateway is operationally clean but undermines sovereignty if it
+      becomes the real trust root. The dual-anchor model is stronger, but only if
+      it keeps the profile set bounded and refuses profile sprawl, token sprawl,
+      and hidden translation-based authorization.
+
+    visionary_response: |
+      The key insight is preserved even without total capability purity: identity
+      must not imply execution authority by itself. The selected concept should
+      keep explicit capability grants for sensitive actions while avoiding
+      premature dependence on runtime/tool details.
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Federated Security Gateway"
+      summary: |
+        A centralized security perimeter that standardizes OAuth 2.1, OIDC/SAML,
+        mTLS, API keys, and manifest-signing policy through one conventional auth
+        plane. It is rollout-friendly and easiest for external partners to reason
+        about, but it risks concentrating authority in a gateway rather than in the
+        sovereign protocol's own identity and capability surfaces.
+      novelty_score: 3
+      feasibility_score: 5
+      key_innovation: "One compatibility-first security perimeter for all principal types"
+      technical_approach: |
+        Define one auth gateway and shared token model, use manifest-declared auth
+        schemes, enforce coarse role-based access centrally, and add message
+        signing and replay checks as gateway-enforced adjuncts.
+      potential_applications:
+        - "Fastest partner onboarding path"
+        - "Simple story for HTTP-facing providers and enterprise clients"
+      known_risks:
+        - "Gateway becomes a shadow architectural center instead of sovereign L3"
+        - "Native agent identity degrades into another external client type"
+        - "Least-authority becomes coarse unless a second capability system is added later"
+      prior_art_concerns:
+        - "Resembles conventional API gateway and service-mesh security patterns"
+      research_questions:
+        - "Can a centralized auth plane avoid becoming the real trust root?"
+        - "How much native provenance survives if authority is mediated through one perimeter?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Dual-Anchor Authority Fabric"
+      summary: |
+        AACP security uses two anchor families: sovereign agent-native identity for
+        Atrahasis agents (`C32` AgentID + Ed25519-rooted artifacts), and federation
+        / transport identity for humans, institutions, and external systems (OAuth
+        2.1, OIDC/SAML, mTLS, API keys). L3 then unifies them through explicit
+        security profiles, canonical-hash signatures, replay windows, downgrade
+        refusal, and layered authorization: persona/role admission first,
+        operation-scoped capability grants second.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: "Separate identity anchoring from operation authority while binding both to canonical protocol references"
+      technical_approach: |
+        Define a bounded set of negotiable security profiles; map principal classes
+        to anchor types; use Ed25519-rooted agent tokens and manifest/public-key
+        trust anchors for native agents; admit federation and workload identity for
+        non-agent principals; require canonical-reference signatures and replay
+        protection on security-sensitive message classes; keep capability grants as
+        explicit L3 artifacts for sensitive operations without collapsing into full
+        runtime-lease dependence.
+      potential_applications:
+        - "Concrete auth scheme inventory for T-214 Agent Manifest"
+        - "Foundation for T-240 tool invocation and T-260 server framework policy"
+        - "Bridge-aware native-vs-translated trust handling for T-250 and T-251"
+        - "Cross-habitat and membrane-facing trust integration for T-290"
+      known_risks:
+        - "Security-profile proliferation could make negotiation brittle"
+        - "Revocation and rotation may be complex across federation plus sovereign agent keys"
+        - "Capability grants could drift into downstream runtime/tool semantics if not bounded tightly"
+      prior_art_concerns:
+        - "OAuth, mTLS, and signature schemes are known; novelty must come from the Atrahasis-specific authority split and canonical-reference binding"
+      research_questions:
+        - "What is the minimal bounded set of L3 security profiles?"
+        - "When should trust anchors come from a public-key registry versus signed Agent Manifests?"
+        - "Which message classes require mandatory canonical-reference signatures versus transport-only trust?"
+        - "How should revocation and replay windows interact with resumable sessions from T-213?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Capability-Lease Security Mesh"
+      summary: |
+        Every meaningful protocol action requires a short-lived attenuable
+        capability artifact. Identity proves subject continuity, but authority is
+        always granted transactionally through signed grants with expiry, context,
+        and narrow operation scope. This maximizes least-authority and aligns with
+        `C23`, but it may pull too much runtime and tool semantics into T-230.
+      novelty_score: 5
+      feasibility_score: 2
+      key_innovation: "Protocol-wide no-ambient-authority mesh built from signed capability grants"
+      technical_approach: |
+        Make most access decisions capability-first rather than role-first;
+        minimize long-lived bearer rights; derive operation authority from explicit
+        signed grants tied to message lineage, expiry, and target surfaces.
+      potential_applications:
+        - "Strongest least-authority posture for native AACP operations"
+        - "Natural fit for high-stakes tool execution and bridge containment"
+      known_risks:
+        - "May over-specify downstream runtime and tool semantics before T-240/T-260"
+        - "Onboarding complexity could be materially worse than OAuth/mTLS-centered peers"
+        - "Profile and token churn may degrade operability for external partners"
+      prior_art_concerns:
+        - "Capability systems and attenuated grants are known; the risk is complexity without enough incremental architectural gain at this stage"
+      research_questions:
+        - "Can the capability model stay bounded without depending on unfinished T-240 semantics?"
+        - "What minimum fallback path exists for external systems that cannot issue fine-grained grants?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-2"]
+
+  dissent_record:
+    - point: "Identity must not imply execution authority by itself"
+      minority: "Visionary"
+      monitoring_flag: "Selected concept must retain explicit capability grants for sensitive operations"
+    - point: "Security-profile count must stay bounded or negotiation will become brittle"
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must set a constrained profile taxonomy and downgrade rules"
+    - point: "Gateway convenience must not become shadow centralization"
+      minority: "Critic"
+      monitoring_flag: "DESIGN must keep sovereign agent identity and local trust anchors first-class"

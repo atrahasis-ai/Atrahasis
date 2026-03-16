@@ -1,0 +1,172 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "native tool connectivity / semantically typed invocation / sovereign MCP replacement"
+  generated_at: "2026-03-12T17:31:28Z"
+  agent: "Marduk"
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Negotiated Tool Session Mesh"
+      position: |
+        Treat tool use as a rich session-oriented protocol, not a single request.
+        Discovery would advertise not only tools but policy modes, reservation
+        options, progressive parameter negotiation, async completion patterns,
+        and step-up authorization paths. This maximizes future flexibility and
+        makes tools feel native to sovereign AACP rather than retrofitted RPC.
+      novelty_estimate: 5
+      feasibility_estimate: 2
+
+    systems_thinker:
+      concept_name: "Capability-Bound Semantic Tool Exchange"
+      position: |
+        Keep the core lifecycle crisp: discover `TL{}` inventory, invoke a named
+        tool against pinned `AASL` schemas with canonicalized parameters, bind
+        authorization through `C40` capability grants when policy requires, and
+        always emit a distinct `tool_result` artifact wrapped as `CLM + CNF + EVD
+        + PRV`. Add explicit change notifications for catalog evolution, but do
+        not absorb full streaming, runtime leasing, or manifest redesign.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Manifest-Centric Tool Gateway"
+      position: |
+        Keep the protocol minimal and compatibility-first: manifest or one
+        catalog document discloses tools, one generic call envelope invokes them,
+        and the server handles wrapping internally. This is easiest to explain
+        and fastest to implement, but it risks turning the sovereign tool layer
+        into another thin RPC gateway with weak lifecycle boundaries.
+      novelty_estimate: 3
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      A session-heavy mesh overreaches for this task. `T-240` must define the
+      native tool contract, not pre-specify the richer streaming, runtime, and
+      reservation behaviors that belong to `T-243`, `T-260`, and downstream
+      enforcement in `C23`.
+
+    critic_challenges_both: |
+      The design only works if the accountability layer stays bounded. If every
+      tool result forces clients to understand a sprawling semantic stack or if
+      discovery becomes a second manifest language, adoption will suffer and the
+      bridge story will become fragile.
+
+    visionary_response: |
+      The useful insight is that tools are not plain methods. They are governed
+      operations with lifecycle state, authority boundaries, and observable
+      consequences. The chosen concept should preserve that without dragging in
+      unfinished transport or runtime semantics.
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Manifest-Centric Tool Gateway"
+      summary: |
+        A compatibility-first tool surface where discovery mostly rides on
+        manifest or catalog fetches, invocation uses one generic request shape,
+        and semantic wrapping is largely a server-side post-processing concern.
+        This is the easiest rollout path, but it risks making the native tool
+        protocol too shallow and too dependent on endpoint-specific conventions.
+      novelty_score: 3
+      feasibility_score: 5
+      key_innovation: "Low-friction sovereign tool gateway with minimal protocol surface"
+      technical_approach: |
+        Reuse manifest-disclosed tool catalogs, keep invocation as a simple
+        request/response pattern, let servers map tool names to schemas, and
+        require only a thin result-wrapping contract above the execution layer.
+      potential_applications:
+        - "Fastest baseline replacement for simple MCP-style servers"
+        - "Low-friction onboarding for external tool providers"
+      known_risks:
+        - "Discovery and invocation lifecycle boundaries remain too coarse"
+        - "Catalog changes may force manifest churn or out-of-band conventions"
+        - "Weak native-versus-bridge distinction could undermine provenance"
+      prior_art_concerns:
+        - "Resembles conventional RPC plus endpoint metadata patterns"
+      research_questions:
+        - "How much tool detail can stay in manifest references before the native protocol becomes underspecified?"
+        - "Can bounded result wrapping still be interoperable if invocation remains generic?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Capability-Bound Semantic Tool Exchange"
+      summary: |
+        A native `AACP` tool protocol with four clean lifecycle surfaces:
+        `tool_discovery`, `tool_invocation`, `tool_result`, and
+        `tool_change_notification`. Discovery yields `TL{}` inventory or
+        references under a stable snapshot. Invocation pins to a specific tool
+        identity and schema context, canonicalizes typed inputs, and binds
+        explicit authority through `C40` grants when needed. Every result is a
+        distinct accountability artifact wrapped as `CLM + CNF + EVD + PRV`,
+        with clear lineage and native-versus-bridge provenance posture.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: "A bounded sovereign tool protocol that fuses typed contracts, explicit authority, and deterministic accountability wrapping"
+      technical_approach: |
+        Define discovery queries and inventory responses around `TL{}` objects
+        and snapshot/version references; define invocation bundles that pin tool
+        identity, input schema, provider context, canonicalized parameters, and
+        capability-grant references where policy requires; define result bundles
+        that always produce the semantic accountability quartet; and define change
+        notifications for tool add, update, revoke, and availability transitions
+        without collapsing the protocol into a live manifest or runtime stream.
+      potential_applications:
+        - "Canonical native replacement for MCP tool listing and calling"
+        - "Foundation for `T-250` MCP bridging and `T-260` server framework auto-wrapping"
+        - "Clean trust integration with `C40` security and `C23` runtime lease enforcement"
+        - "Future SDK and cross-layer integration surface for `T-262` and `T-290`"
+      known_risks:
+        - "Wrapper requirements could become too heavy if the minimum accountable result surface is not tightly bounded"
+        - "Schema and ontology pinning may create interoperability friction across independently evolving tool catalogs"
+        - "Grant presentation rules must not duplicate downstream runtime lease semantics"
+      prior_art_concerns:
+        - "Typed RPC and capability-scoped execution are known; novelty must come from the Atrahasis-specific fusion of `AASL` typing, lineage, grant binding, and deterministic result accountability"
+      research_questions:
+        - "What is the minimum mandatory `tool_result` wrapper contract before accountability loses value?"
+        - "How should discovery snapshot/version semantics work for large or fast-changing tool inventories?"
+        - "Which invocation cases stay synchronous versus handing off to `T-243` streaming or push surfaces?"
+        - "How should native and bridged tool executions expose provenance differences without fragmenting the client contract?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Negotiated Tool Session Mesh"
+      summary: |
+        A richer protocol where each tool interaction can open its own negotiated
+        session with progressive parameter filling, reservations, step-up
+        authorization, partial outputs, and lifecycle continuations. This is the
+        most ambitious and native-feeling option, but it risks pulling too much
+        of the runtime, streaming, and orchestration stack into `T-240`.
+      novelty_score: 5
+      feasibility_score: 2
+      key_innovation: "Tool use as a first-class negotiated protocol session rather than a bounded call-and-result exchange"
+      technical_approach: |
+        Extend discovery to advertise session modes and capability negotiation
+        paths; make invocation capable of creating tool-local sub-sessions;
+        attach step-up auth and continuation references to the invocation/result
+        lifecycle; and support richer partial or resumable completion semantics.
+      potential_applications:
+        - "High-trust, high-complexity tool ecosystems with long-running operations"
+        - "Strong future fit for interactive tools and capability-sensitive workflows"
+      known_risks:
+        - "Overlaps too heavily with `T-243`, `T-260`, and downstream runtime policy"
+        - "Raises implementation burden sharply for simple tools"
+        - "Could delay the core MCP-replacement goal by over-designing edge cases"
+      prior_art_concerns:
+        - "Negotiated workflow/session models are known; the risk is architectural overreach before simpler native tool semantics are stabilized"
+      research_questions:
+        - "Can a session-heavy design stay within `T-240` without redefining transport and runtime layers?"
+        - "What subset of reservation and continuation semantics truly belongs in the core tool protocol?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-2"]
+
+  dissent_record:
+    - point: "Tools must not collapse into generic RPC methods with weak accountability"
+      minority: "Visionary"
+      monitoring_flag: "Selected concept must preserve explicit lifecycle boundaries and authority-aware execution"
+    - point: "Result wrapping must stay bounded enough for real interoperability"
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must define a minimal mandatory wrapper contract and optional extensions"
+    - point: "Session-heavy behaviors should not be pre-baked into the core protocol"
+      minority: "Systems Thinker"
+      monitoring_flag: "DESIGN must separate core tool exchange from streaming, push, and runtime continuation surfaces"

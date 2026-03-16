@@ -1,0 +1,15 @@
+task_id: "T-RENOVATE-006"
+invention_ids: []
+target_specs:
+  - "C36"
+title: "C36 EMA-I Four-Membrane Isolation Rewrite"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T18:20:00Z"
+updated_at: "2026-03-15T00:20:39Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C36/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Canonical authority comes from docs/specifications/STRATEGY/RENOVATION_TASKS.md. Ninkasi rewrote C36 around the strict Sanctum/Foundry/Enterprise/Public membrane topology, introduced membrane-typed receptors and zero-Sanctum-exposure rules, and removed stale marketplace-first interface assumptions."

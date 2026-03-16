@@ -1,0 +1,32 @@
+{
+  "affected_subsystems": [
+    "research",
+    "reasoning",
+    "validation"
+  ],
+  "blocking_assumptions": [
+    "missing_task_workspace"
+  ],
+  "contradictions": [
+    {
+      "contradiction": "High-opportunity zone with unresolved evidence gaps.",
+      "hypothesis_id": "H-001",
+      "id": "X-001",
+      "severity": "high"
+    },
+    {
+      "contradiction": "High-opportunity zone with unresolved evidence gaps.",
+      "hypothesis_id": "H-002",
+      "id": "X-002",
+      "severity": "high"
+    },
+    {
+      "contradiction": "High-opportunity zone with unresolved evidence gaps.",
+      "hypothesis_id": "H-003",
+      "id": "X-003",
+      "severity": "high"
+    }
+  ],
+  "severity": "high",
+  "type": "CONTRADICTION_MAP"
+}

@@ -1,0 +1,383 @@
+{
+  "active_research_programs": [
+    {
+      "allocation_ratio": 0.51,
+      "branch_budget": 3,
+      "contradiction_list": [
+        "X-001",
+        "X-002",
+        "X-003"
+      ],
+      "cross_domain_candidates": [
+        {
+          "base_opportunity_score": 0.669,
+          "candidate_label": "Cross-Domain Opportunity",
+          "display_to_operator": true,
+          "hypothesis_id": "H-001",
+          "normalized_signals": {
+            "contradiction_importance": 0.9,
+            "cross_domain_analogy_strength": 0.92,
+            "discovery_gap_priority": 0.804,
+            "feasibility_score": 1.0,
+            "novelty_score": 0.25,
+            "research_support_strength": 0.771,
+            "technology_frontier_proximity": 0.35
+          },
+          "opportunity_score": 0.681,
+          "opportunity_zone": "microvascular cooling analog",
+          "origin": "cross_domain",
+          "platform_alignment_score": 0.559,
+          "priority_adjustment": 0.012,
+          "rank": 1,
+          "recommended_path_id": "P-001",
+          "recommended_path_title": "Localized microfluidic cooling channels",
+          "title": "Microvascular cooling analog applied to data center thermal regulation"
+        },
+        {
+          "base_opportunity_score": 0.601,
+          "candidate_label": "Cross-Domain Opportunity",
+          "display_to_operator": true,
+          "hypothesis_id": "H-002",
+          "normalized_signals": {
+            "contradiction_importance": 0.9,
+            "cross_domain_analogy_strength": 0.81,
+            "discovery_gap_priority": 0.804,
+            "feasibility_score": 1.0,
+            "novelty_score": 0.0,
+            "research_support_strength": 0.771,
+            "technology_frontier_proximity": 0.35
+          },
+          "opportunity_score": 0.613,
+          "opportunity_zone": "direct-to-chip cooling analog",
+          "origin": "cross_domain",
+          "platform_alignment_score": 0.558,
+          "priority_adjustment": 0.012,
+          "rank": 2,
+          "recommended_path_id": "P-002",
+          "recommended_path_title": "Passive phase-change cooling plates",
+          "title": "CPU package cooling analog scaled to dense rack thermal regulation"
+        },
+        {
+          "base_opportunity_score": 0.599,
+          "candidate_label": "Cross-Domain Opportunity",
+          "display_to_operator": true,
+          "hypothesis_id": "H-003",
+          "normalized_signals": {
+            "contradiction_importance": 0.9,
+            "cross_domain_analogy_strength": 0.78,
+            "discovery_gap_priority": 0.804,
+            "feasibility_score": 1.0,
+            "novelty_score": 0.0,
+            "research_support_strength": 0.771,
+            "technology_frontier_proximity": 0.35
+          },
+          "opportunity_score": 0.611,
+          "opportunity_zone": "thermal loop staging analog",
+          "origin": "cross_domain",
+          "platform_alignment_score": 0.558,
+          "priority_adjustment": 0.012,
+          "rank": 3,
+          "recommended_path_id": "P-003",
+          "recommended_path_title": "Immersion cooling with dielectric fluids",
+          "title": "Multi-loop automotive thermal staging adapted to high-density data center cooling"
+        }
+      ],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [],
+      "hypothesis_list": [
+        "H-001",
+        "H-002",
+        "H-003"
+      ],
+      "last_exploration_cycle": 4,
+      "opportunity_score": 0.674,
+      "program_goal": "Transfer high-efficiency thermal patterns from adjacent industries into data center cooling.",
+      "program_id": "RP-181",
+      "program_status": "stabilizing",
+      "program_title": "Cross-Domain Thermal Analogies",
+      "recommended_action": "continue_program",
+      "scope_level": "L3",
+      "solution_path_list": [
+        "P-001",
+        "P-002",
+        "P-003"
+      ],
+      "target_domain": "cross-domain cooling analogies"
+    },
+    {
+      "allocation_ratio": 0.49,
+      "branch_budget": 3,
+      "contradiction_list": [
+        "X-004",
+        "X-005",
+        "X-006",
+        "X-007",
+        "X-008"
+      ],
+      "cross_domain_candidates": [],
+      "dependency_state": "clear",
+      "execution_state": "active",
+      "governance_notes": [],
+      "hypothesis_list": [
+        "H-004",
+        "H-005",
+        "H-006",
+        "H-007",
+        "H-008"
+      ],
+      "last_exploration_cycle": 4,
+      "opportunity_score": 0.647,
+      "program_goal": "Develop low-energy thermal architectures for high-density compute environments.",
+      "program_id": "RP-401",
+      "program_status": "stabilizing",
+      "program_title": "Data Center Thermal Systems",
+      "recommended_action": "continue_program",
+      "scope_level": "L2",
+      "solution_path_list": [
+        "P-004",
+        "P-005",
+        "P-006",
+        "P-007",
+        "P-008"
+      ],
+      "target_domain": "data center cooling"
+    }
+  ],
+  "constraints": [
+    "Keep human approval mandatory"
+  ],
+  "core_contradictions": [
+    {
+      "contradiction_id": "X-001",
+      "hypothesis_id": "H-001",
+      "severity": "high",
+      "statement": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead."
+    },
+    {
+      "contradiction_id": "X-002",
+      "hypothesis_id": "H-002",
+      "severity": "high",
+      "statement": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead."
+    },
+    {
+      "contradiction_id": "X-003",
+      "hypothesis_id": "H-003",
+      "severity": "high",
+      "statement": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead."
+    },
+    {
+      "contradiction_id": "X-004",
+      "hypothesis_id": "H-004",
+      "severity": "high",
+      "statement": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead."
+    },
+    {
+      "contradiction_id": "X-005",
+      "hypothesis_id": "H-005",
+      "severity": "high",
+      "statement": "Increasing computational density raises thermal load, while reducing cooling energy requires minimizing active heat-removal overhead."
+    }
+  ],
+  "cross_domain_candidates": [
+    {
+      "base_opportunity_score": 0.669,
+      "candidate_label": "Cross-Domain Opportunity",
+      "display_to_operator": true,
+      "hypothesis_id": "H-001",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 0.92,
+        "discovery_gap_priority": 0.804,
+        "feasibility_score": 1.0,
+        "novelty_score": 0.25,
+        "research_support_strength": 0.771,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.681,
+      "opportunity_zone": "microvascular cooling analog",
+      "origin": "cross_domain",
+      "platform_alignment_score": 0.559,
+      "priority_adjustment": 0.012,
+      "rank": 1,
+      "recommended_path_id": "P-001",
+      "recommended_path_title": "Localized microfluidic cooling channels",
+      "title": "Microvascular cooling analog applied to data center thermal regulation"
+    },
+    {
+      "base_opportunity_score": 0.601,
+      "candidate_label": "Cross-Domain Opportunity",
+      "display_to_operator": true,
+      "hypothesis_id": "H-002",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 0.81,
+        "discovery_gap_priority": 0.804,
+        "feasibility_score": 1.0,
+        "novelty_score": 0.0,
+        "research_support_strength": 0.771,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.613,
+      "opportunity_zone": "direct-to-chip cooling analog",
+      "origin": "cross_domain",
+      "platform_alignment_score": 0.558,
+      "priority_adjustment": 0.012,
+      "rank": 2,
+      "recommended_path_id": "P-002",
+      "recommended_path_title": "Passive phase-change cooling plates",
+      "title": "CPU package cooling analog scaled to dense rack thermal regulation"
+    },
+    {
+      "base_opportunity_score": 0.599,
+      "candidate_label": "Cross-Domain Opportunity",
+      "display_to_operator": true,
+      "hypothesis_id": "H-003",
+      "normalized_signals": {
+        "contradiction_importance": 0.9,
+        "cross_domain_analogy_strength": 0.78,
+        "discovery_gap_priority": 0.804,
+        "feasibility_score": 1.0,
+        "novelty_score": 0.0,
+        "research_support_strength": 0.771,
+        "technology_frontier_proximity": 0.35
+      },
+      "opportunity_score": 0.611,
+      "opportunity_zone": "thermal loop staging analog",
+      "origin": "cross_domain",
+      "platform_alignment_score": 0.558,
+      "priority_adjustment": 0.012,
+      "rank": 3,
+      "recommended_path_id": "P-003",
+      "recommended_path_title": "Immersion cooling with dielectric fluids",
+      "title": "Multi-loop automotive thermal staging adapted to high-density data center cooling"
+    }
+  ],
+  "decision_type": "OPERATOR_GUIDANCE",
+  "evidence_summary": {
+    "contradiction_count": 8,
+    "modifier": "AASBT",
+    "priority_zones": [
+      "cross-domain cooling analogies",
+      "data center cooling"
+    ],
+    "strategy_summary": "Focus on Cross-Domain Thermal Analogies with continue_program and branch budget 3."
+  },
+  "operator_actions": [
+    {
+      "instruction": "<new exploration instruction>",
+      "label": "redirect"
+    }
+  ],
+  "operator_decision": "PENDING",
+  "options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-181",
+      "program_title": "Cross-Domain Thermal Analogies"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-181",
+      "program_title": "Cross-Domain Thermal Analogies"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-181",
+      "program_title": "Cross-Domain Thermal Analogies"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-181",
+      "program_title": "Cross-Domain Thermal Analogies"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-401",
+      "program_title": "Data Center Thermal Systems"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-401",
+      "program_title": "Data Center Thermal Systems"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-401",
+      "program_title": "Data Center Thermal Systems"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-401",
+      "program_title": "Data Center Thermal Systems"
+    }
+  ],
+  "prompt": "Design a data center cooling architecture that reduces energy consumption while increasing computational density.",
+  "recommended_actions": [
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.51,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.674,
+      "program_id": "RP-181",
+      "program_title": "Cross-Domain Thermal Analogies",
+      "rationale": "Cross-Domain Thermal Analogies has opportunity score 0.674 and allocation ratio 0.51, so the recommended action is continue_program.",
+      "scope_level": "L3",
+      "target_domain": "cross-domain cooling analogies"
+    },
+    {
+      "action": "continue_program",
+      "allocation_ratio": 0.49,
+      "branch_budget": 3,
+      "execution_state": "active",
+      "opportunity_score": 0.647,
+      "program_id": "RP-401",
+      "program_title": "Data Center Thermal Systems",
+      "rationale": "Data Center Thermal Systems has opportunity score 0.647 and allocation ratio 0.49, so the recommended action is continue_program.",
+      "scope_level": "L2",
+      "target_domain": "data center cooling"
+    }
+  ],
+  "research_strategy_summary": "Focus on Cross-Domain Thermal Analogies with continue_program and branch budget 3.",
+  "spawn_candidates": [],
+  "task_id": "T-903",
+  "top_hypotheses": [
+    {
+      "candidate_label": "Cross-Domain Opportunity",
+      "hypothesis_id": "H-001",
+      "opportunity_score": 0.681,
+      "opportunity_zone": "microvascular cooling analog",
+      "title": "Microvascular cooling analog applied to data center thermal regulation"
+    },
+    {
+      "candidate_label": "Cross-Domain Opportunity",
+      "hypothesis_id": "H-002",
+      "opportunity_score": 0.613,
+      "opportunity_zone": "direct-to-chip cooling analog",
+      "title": "CPU package cooling analog scaled to dense rack thermal regulation"
+    },
+    {
+      "candidate_label": "Cross-Domain Opportunity",
+      "hypothesis_id": "H-003",
+      "opportunity_score": 0.611,
+      "opportunity_zone": "thermal loop staging analog",
+      "title": "Multi-loop automotive thermal staging adapted to high-density data center cooling"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-004",
+      "opportunity_score": 0.597,
+      "opportunity_zone": "microfluidic cooling",
+      "title": "Microfluidic cooling channels embedded in server boards"
+    },
+    {
+      "candidate_label": "Top Exploration Candidate",
+      "hypothesis_id": "H-005",
+      "opportunity_score": 0.588,
+      "opportunity_zone": "immersion cooling",
+      "title": "Immersion cooling with dielectric fluids"
+    }
+  ],
+  "workflow_status": "PENDING_HUMAN_REVIEW"
+}

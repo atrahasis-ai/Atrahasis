@@ -1,0 +1,14 @@
+task_id: "T-075"
+invention_ids: []
+target_specs: ["C14"]
+title: "Define Proposal System Lifecycle"
+platform: "CLAUDE"
+agent_name: "Enki"
+claimed_at: "2026-03-12T21:30:00Z"
+updated_at: "2026-03-12T22:00:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C14/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Direct spec edit complete. Added Section 6.4 Proposal System Lifecycle to C14 — 9-state FSM, ProposalRecord data model, amendment/withdrawal rules, quorum, timeouts, integration points. 8 new requirements (REQ-G-011–018), 8 new parameters."

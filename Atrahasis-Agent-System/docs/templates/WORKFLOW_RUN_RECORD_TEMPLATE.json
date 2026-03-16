@@ -1,0 +1,35 @@
+{
+  "type": "WORKFLOW_RUN_RECORD",
+  "workflow_id": "T-000-AASBT-20260313T000000Z",
+  "task_id": "T-000",
+  "modifier": "AASBT",
+  "status": "PENDING_HUMAN_REVIEW",
+  "started_at": "2026-03-13T00:00:00Z",
+  "completed_at": "2026-03-13T00:05:00Z",
+  "orchestrator": "InventionPipelineManager",
+  "gcml_documents_loaded": 5,
+  "manifest_document_count": 10,
+  "artifacts": {
+    "command_request": "docs/task_workspaces/T-000/COMMAND_REQUEST.yaml"
+  },
+  "stage_records": [
+    {
+      "stage": "knowledge_infrastructure",
+      "status": "COMPLETED",
+      "produced_artifacts": [
+        "research_ingestion_report"
+      ]
+    }
+  ],
+  "hitl_requirements": [
+    "PIVOT"
+  ],
+  "operator_constraints": [
+    "Preserve human-guided review"
+  ],
+  "recommended_next_actions": [
+    "Respond to the surfaced human review prompt",
+    "Approve, pause, terminate, or redirect the active research program",
+    "Use the exploration guidance to choose the next invention branch"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "task_class",
+    "stage",
+    "evaluated_at",
+    "contract",
+    "artifact_checks",
+    "validator_results",
+    "satisfied",
+    "missing_requirements"
+  ],
+  "properties": {
+    "type": {"const": "STAGE_CONTRACT_REPORT"},
+    "task_id": {"type": "string"},
+    "task_class": {"type": "string"},
+    "stage": {"type": "string"},
+    "evaluated_at": {"type": "string"},
+    "contract": {"type": "object"},
+    "artifact_checks": {"type": "object"},
+    "validator_results": {"type": "array", "items": {"type": "object"}},
+    "satisfied": {"type": "boolean"},
+    "missing_requirements": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

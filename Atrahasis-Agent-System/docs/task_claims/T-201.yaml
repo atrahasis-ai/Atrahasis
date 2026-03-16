@@ -1,0 +1,14 @@
+task_id: "T-201"
+invention_ids: []
+target_specs: []
+title: "ADR: AASL Type Registry Extension Policy"
+platform: "CODEX"
+agent_name: "Nergal"
+claimed_at: "2026-03-12T11:45:00Z"
+updated_at: "2026-03-12T11:57:56Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-201/"
+  pipeline_type: "GOVERNANCE"
+notes: "DONE. Defined the Alternative B governance policy for admitting TL{}, PMT{}, and SES{} into the canonical AASL registry, including compatibility classification, pinned snapshot discipline, lifecycle-aware validator behavior, and no heuristic unknown-type acceptance. Shared-state updates deferred to handoff."

@@ -1,0 +1,42 @@
+{
+  "task_id": "T-9004",
+  "decision_type": "OPERATOR_GUIDANCE",
+  "operator_decision": "PENDING",
+  "workflow_status": "PENDING_HUMAN_REVIEW",
+  "prompt": "Run the operator's Atrahasis redesign proposal through AAS4 as Ashur and produce a decision-grade recommendation.",
+  "recommended_path": {
+    "path_id": "PATH-B",
+    "label": "Closed Core, Accountable Membrane"
+  },
+  "required_decisions": [
+    {
+      "decision_id": "D-001",
+      "question": "Should Atrahasis replace the external marketplace thesis with bounded products, supervised services, and selective licensing?",
+      "ashur_recommendation": "Yes"
+    },
+    {
+      "decision_id": "D-002",
+      "question": "Should AiDP remain broad in principle or be narrowed to internal institutional governance?",
+      "ashur_recommendation": "Narrow it to internal institutional governance"
+    },
+    {
+      "decision_id": "D-003",
+      "question": "Should open-source publication remain default policy?",
+      "ashur_recommendation": "No. Replace with selective disclosure plus open accountability"
+    },
+    {
+      "decision_id": "D-004",
+      "question": "Should external parties ever receive direct access to the novelty engine or recursive self-improvement layers?",
+      "ashur_recommendation": "No"
+    },
+    {
+      "decision_id": "D-005",
+      "question": "Should founder reward be represented as governance authority?",
+      "ashur_recommendation": "No. Reward should be economic or contractual, not constitutional supremacy"
+    }
+  ],
+  "notes": [
+    "This packet is intended for comparison with parallel terminal outputs before any canonical redesign work is promoted.",
+    "Approval of the doctrine does not approve implementation; a later compatibility audit is still required."
+  ]
+}

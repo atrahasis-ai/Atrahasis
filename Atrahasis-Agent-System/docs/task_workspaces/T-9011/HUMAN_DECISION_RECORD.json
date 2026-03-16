@@ -1,0 +1,61 @@
+{
+  "task_id": "T-9011",
+  "decision_type": "OPERATOR_GUIDANCE",
+  "workflow_status": "PENDING_IDEATION_SELECTION",
+  "operator_decision": "PENDING",
+  "constraints": [
+    "Do not promote this exploratory idea into canonical shared work without explicit operator direction."
+  ],
+  "prompt": "Candidate FULL PIPELINE idea for ideation-only evaluation:\n\nIndependent Model Inference Microservice Layer.\n\nThe original Atrahasis blueprint strictly separated the Agent Swarm (millions of lightweight software processes) from the Model Inference Layer (centralized GPU clusters hosting hundreds of specialized AI models exposed as microservices).\n\nReasoning for bringing it back:\nTreating agents and the heavy LLMs they use as a single coupled unit wastes massive computational resources. By maintaining a strictly independent model inference layer, the system can scale its components separately based on actual need. Millions of lightweight agents can scale dynamically with task workloads, while the heavy GPU models only need to scale with actual inference demand. This prevents the agents from becoming bloated and preserves the system's economic and thermodynamic efficiency.",
+  "evidence_summary": {
+    "modifier": "AASNI",
+    "priority_zones": [
+      "architecture"
+    ],
+    "contradiction_count": 0,
+    "strategy_summary": "Run a real child swarm, evaluate the named authority surfaces, present concrete ideation options, recommend one, and stop for operator choice."
+  },
+  "options": [
+    {
+      "option_id": "O1",
+      "short_name": "Reject As Subsumed",
+      "summary": "Treat the idea as already covered well enough by the current architecture's route-level decoupling, model adaptation path, and compute-economics treatment.",
+      "main_upside": "No new subsystem or broad redesign is needed.",
+      "main_risk": "Leaves internal model-pool scheduling and GPU arbitration implicit rather than first-class.",
+      "integration_posture": "Integrates cleanly because it changes nothing; at most it suggests clarifying language in existing specs."
+    },
+    {
+      "option_id": "O2",
+      "short_name": "Inference Orchestration Fabric",
+      "summary": "Keep the objective but redesign it into an internal sovereign control plane for model pools, batching, routing, quota arbitration, and promotion-aware scheduling beneath C45 and alongside C47.",
+      "main_upside": "Preserves the efficiency objective without reviving the old external microservice-layer topology.",
+      "main_risk": "Requires careful boundary discipline to avoid duplicating C45, C47, C42, and C24 responsibilities.",
+      "integration_posture": "Requires a new subsystem plus localized redesign of existing modules."
+    },
+    {
+      "option_id": "O3",
+      "short_name": "Direct-Spec Clarification",
+      "summary": "Do not add a new subsystem; instead, explicitly define pooled model-service semantics, GPU habitat allocation, and inference-cost controls inside C45, C47, C22, and optionally C18.",
+      "main_upside": "Closes the most obvious gap with lower structural cost.",
+      "main_risk": "May overload C45 and related specs with control-plane concerns that deserve their own authority.",
+      "integration_posture": "Integrates moderately cleanly but requires direct redesign of existing modules."
+    },
+    {
+      "option_id": "O4",
+      "short_name": "Literal Layer Revival",
+      "summary": "Add back the historical independent model inference microservice layer as a real separate subsystem.",
+      "main_upside": "Makes model-serving independence explicit and easy to reason about in old-stack terms.",
+      "main_risk": "Collides with current C45/C36/C39/T-300 authority boundaries and risks creating a duplicate service plane.",
+      "integration_posture": "Requires broad redesign of existing modules and is not cleanly compatible with the present architecture."
+    }
+  ],
+  "recommended_option_id": "O2",
+  "recommendation_summary": "If you want a real new subsystem, the only strong path is a redesigned internal inference orchestration/control-plane authority; the literal historical layer should not be revived.",
+  "operator_actions": [
+    {
+      "label": "choose_path",
+      "instruction": "Select one ideation path or reject the candidate entirely."
+    }
+  ],
+  "research_strategy_summary": "Stop after ideation and wait for operator path selection before any research, promotion, or specification work."
+}

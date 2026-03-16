@@ -1,0 +1,42 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C23"
+title: "Sovereign Cell Runtime (SCR)"
+domain: "agent execution / runtime systems / model-serving orchestration / secure multi-agent infrastructure"
+summary: >
+  SCR defines the missing execution substrate between C7 Parcel Executors and actual agent work.
+  Instead of treating execution as a generic process or container launch, SCR introduces
+  lease-bound sovereign cells that carry an agent's runtime profile, allowed tools, model
+  rights, resource budget, evidence obligations, and settlement metering. Persistent agent
+  identity remains outside the cell. Each leaf intent executes inside a parcel-local host
+  under a derived isolation profile, with model access brokered through explicit inference
+  leases and all runtime activity sealed into an Execution Evidence Bundle for C5 and C8.
+novelty_score: 4
+feasibility_score: 4
+key_innovation: >
+  The runtime's first-class object is a lease-bound sovereign cell that separates identity
+  from execution while binding tool rights, model rights, isolation, evidence, and budget
+  into one policy-carrying unit.
+technical_approach: >
+  Add a Locus Runtime Controller for admission and backpressure, Parcel Runtime Hosts for
+  local execution, an Inference Lease Broker, a Tool Capability Broker, and an Execution
+  Evidence Bundle pipeline. Runtime profiles classify agents by workload semantics rather
+  than constitutional role, while cell profiles derive isolation strength from operation
+  class, risk, and external access. The runtime stays subordinate to C3 scheduling and C7
+  orchestration rather than replacing either layer.
+potential_applications:
+  - "Canonical Atrahasis runtime substrate for reasoning, tool execution, verification, synthesis, and governance actions"
+  - "Provider-agnostic model access across local and hosted inference backends"
+  - "Evidence-carrying execution for high-integrity multi-agent systems"
+known_risks:
+  - "Warm-pool overprovisioning can fragment scarce compute, especially GPU capacity"
+  - "Execution evidence can be misread as deterministic replay unless provenance and reproducibility are separated"
+  - "Lease policy complexity can hide bottlenecks unless admission and backpressure stay unified"
+prior_art_concerns:
+  - "Workflow engines, actor runtimes, container orchestrators, microVM substrates, and inference servers each overlap with a subset of the design"
+research_questions:
+  - "Which cell profile must be mandatory for each operation class and trust boundary?"
+  - "How much parcel-local warming improves latency before it becomes wasteful?"
+  - "What minimum evidence set is sufficient for C5 and C8 consumption?"
+generated_at: "2026-03-12T04:05:00Z"
+refined_from: "IC-2"
+research_data_incorporated: true

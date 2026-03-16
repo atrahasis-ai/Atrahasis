@@ -1,0 +1,66 @@
+{
+  "task_id": "T-9012",
+  "decision_type": "OPERATOR_GUIDANCE",
+  "workflow_status": "PENDING_IDEATION_SELECTION",
+  "operator_decision": "PENDING",
+  "constraints": [
+    "Do not promote this exploratory idea into canonical shared work without explicit operator direction."
+  ],
+  "evidence_summary": {
+    "modifier": "AASNI",
+    "contradiction_count": 0,
+    "priority_zones": [
+      "C45",
+      "C42",
+      "C47",
+      "C36",
+      "C18",
+      "C22",
+      "C39",
+      "T-300"
+    ],
+    "strategy_summary": "Real swarm evidence and authority coverage both indicate that the objective is valid but the original subsystem form is obsolete under current authority."
+  },
+  "operator_actions": [
+    {
+      "label": "choose_path",
+      "instruction": "Select one ideation option or reject the candidate entirely."
+    }
+  ],
+  "options": [
+    {
+      "id": "O1",
+      "name": "Reject As Subsumed",
+      "summary": "Do not add a new subsystem because the core separation is already sufficiently covered by C45 plus C47, with economics already modeled in C18 and C22.",
+      "main_upside": "No architectural churn and no risk of reviving superseded old-stack topology.",
+      "main_risk": "Leaves the remaining internal model-capacity scheduling gap implicit rather than explicit.",
+      "integration_posture": "integrates_cleanly"
+    },
+    {
+      "id": "O2",
+      "name": "Model Capacity Control Plane",
+      "summary": "Keep the objective but redesign it into a narrower internal control plane for model-serving allocation, placement, caching, and admission under C45 and C47.",
+      "main_upside": "Preserves the efficiency goal without creating a free-floating inference authority.",
+      "main_risk": "Requires coordinated redesign across C45, C47, C18, and C22.",
+      "integration_posture": "requires_redesign"
+    },
+    {
+      "id": "O3",
+      "name": "Sovereign Inference Fabric",
+      "summary": "Add a real new internal subsystem that unifies leased and native inference substrates as schedulable sovereign capacity beneath current wrappers and membrane controls.",
+      "main_upside": "Creates a durable internal serving substrate that cleanly spans Phase 1 leased cognition and Phase 2/3 native model operation.",
+      "main_risk": "This is the heaviest option and would force downstream redesign tasks before it becomes coherent.",
+      "integration_posture": "requires_redesign"
+    },
+    {
+      "id": "O4",
+      "name": "C45-C47 Addendum Path",
+      "summary": "Do not create a new subsystem; instead patch the existing architecture with direct-spec addenda that make backend-pool semantics and model-promotion handoff explicit.",
+      "main_upside": "Cheapest path that still makes the decoupling objective concrete.",
+      "main_risk": "May under-specify the problem if the real need is a cross-cutting capacity allocator rather than a few addenda.",
+      "integration_posture": "integrates_cleanly_with_targeted_edits"
+    }
+  ],
+  "recommended_option_id": "O2",
+  "research_strategy_summary": "Stop after ideation and wait for operator path selection. No research or specification is authorized yet."
+}

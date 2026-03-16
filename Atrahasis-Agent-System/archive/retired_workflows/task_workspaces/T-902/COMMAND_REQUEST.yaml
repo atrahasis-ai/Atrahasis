@@ -1,0 +1,11 @@
+command_modifier: AASBT
+task_id: T-902
+prompt: Refactor Atrahasis into a stronger invention intelligence pipeline
+scope: buildout_task
+operator_constraints:
+- Keep human approval mandatory
+hitl_requirements:
+- PIVOT
+- RESOURCE_INTENSIVE
+- PATENT_RELATED
+created_at: '2026-03-13T13:31:25Z'

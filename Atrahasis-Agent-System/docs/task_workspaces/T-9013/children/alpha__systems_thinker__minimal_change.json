@@ -1,0 +1,100 @@
+{
+  "artifact_provenance": {
+    "notes": [
+      "Alpha lane systems_thinker minimal-change child result for T-9013.",
+      "Written directly inside the assigned child artifact without shared-state edits."
+    ],
+    "writer_agent_name": "codex-alpha-systems-thinker-minimal-change",
+    "writer_mode": "direct_child_write",
+    "writer_session_id": "codex-t9013-alpha-systems-thinker-minimal-change-20260316"
+  },
+  "branch_id": "systems_thinker:minimal_change",
+  "branch_kind": "minimal_change",
+  "branch_label": "Minimal-Change Topology",
+  "evidence": [
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md",
+      "finding": "C45 already owns route-level execution mode selection, leased-cognition containment, provider scrubbing, fallback behavior, and lease-bound provenance graphs. The missing seam is internal backend selection, not a new top-level inference authority."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md",
+      "finding": "C42 makes execution priming explicit but keeps runtime authority out of the tool path. Any inference backend change must remain subordinate to C42/C23 lease issuance rather than becoming an ambient microservice runtime."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md",
+      "finding": "C47 already owns native model adaptation, quarantine, and promotion. A separate independent inference layer would duplicate the model-supply authority that C47 already defines."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md",
+      "finding": "C36 routes enterprise execution through C45 and forbids direct Sanctum exposure. A new externally visible inference microservice layer would create a membrane surface that current interface authority does not authorize."
+    },
+    {
+      "path": "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md",
+      "finding": "C39 already provides delegated sampling request/result classes with model provenance disclosure. Backend-class visibility should ride these existing semantics instead of adding a parallel inference protocol."
+    },
+    {
+      "path": "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md",
+      "finding": "C18 cost posture already assumes C45 leased cognition and C47 native adaptation. Capacity pooling, GPU scheduling, and substrate migration costs belong in that economics model rather than in a freestanding service layer."
+    },
+    {
+      "path": "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md",
+      "finding": "C22 already carries leased-provider instability, sovereign compute operations, and staged rollout constraints. The implementation gap is a control-plane refinement and sequencing update, not a new independent stack layer."
+    },
+    {
+      "path": "docs/task_workspaces/T-300/BOUNDARY_POLICY_DRAFT.md",
+      "finding": "T-300 forbids reviving blended old-stack forward authority. A literal independent inference microservice layer risks reintroducing a new cross-cutting protocol surface instead of extending Alternative C authorities."
+    }
+  ],
+  "lane_id": "alpha",
+  "lane_label": "Alpha Lane",
+  "lane_strategy": "Improve the current task path without breaking core assumptions.",
+  "model_audit": {
+    "actual_runtime_model": "gpt-5",
+    "auditability": "runtime_self_reported",
+    "policy_target": "gpt-5.4",
+    "reasoning_effort": "high",
+    "routing_basis": "AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target."
+  },
+  "objective": "Explore the smallest viable topology shift that still resolves the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "parent_role": "systems_thinker",
+  "problem_reframing": "The real problem is not lack of a separately deployed inference microservice. It is lack of an explicit internal seam for backend-class selection, capacity routing, and provenance-visible substrate switching across leased and promoted native model pools.",
+  "smallest_viable_topology_shift": "Keep all external and route authority in C45, but add a private substrate-routing plane inside C45 that binds each execution request to an approved backend class: leased provider capsule, promoted native model family, or deterministic local fallback. C47 remains the supplier of promoted native models, C42 remains the execution-priming boundary, C39 remains the provenance-visible delegated sampling surface, and C36 remains the membrane owner.",
+  "affected_modules": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C39",
+    "C18",
+    "C22"
+  ],
+  "architectural_fit": "Strong fit as a subordinate refinement, weak fit as a new subsystem. The smallest viable change is an internal C45 control-plane extension, not an independent layer.",
+  "required_integrations": [
+    "C45 must remain the single authority for route-level execution mode and backend selection.",
+    "C42 must remain the authority for continuation and execution-primed handoff semantics.",
+    "C47 must remain the owner of model ingestion, adaptation, quarantine, and promotion.",
+    "C36 must continue to expose inference only through existing ENTERPRISE or FOUNDRY receptors, never a fresh direct inference membrane.",
+    "C39 should carry any backend provenance or realized model disclosure needed at the message layer.",
+    "C18 and C22 must absorb pool economics, GPU capacity planning, rollout sequencing, and fallback cost posture."
+  ],
+  "likely_downstream_task_shapes": [
+    "DIRECT_SPEC: extend C45 with substrate-routing semantics, backend classes, capacity policy hooks, and backend selection evidence.",
+    "DIRECT_SPEC: extend C47 with promoted-model handoff contracts into the C45 substrate-routing plane.",
+    "DIRECT_SPEC: extend C39 only if current sampling provenance needs explicit backend-class disclosure.",
+    "DIRECT_SPEC: extend C18 and C22 with pooled inference economics, native migration milestones, and staged rollout gates.",
+    "No new FULL PIPELINE task unless the scope expands beyond routing and capacity control into a genuinely new cross-cutting authority."
+  ],
+  "integration_posture": "Do not create an independent model inference microservice layer. Solve the problem by inserting one thin internal substrate-routing seam under C45 and keeping every other authority boundary intact.",
+  "recommended_next_action": "If the idea advances, promote a narrower concept centered on C45 internal substrate routing and C47 promotion handoff, then test whether direct-spec extensions eliminate the need for any new authority at all.",
+  "role": "systems_thinker",
+  "session_identity": {
+    "agent_name": "codex-alpha-systems-thinker-minimal-change",
+    "provider": "codex",
+    "role": "systems_thinker",
+    "session_id": "codex-t9013-alpha-systems-thinker-minimal-change-20260316"
+  },
+  "status": "COMPLETED",
+  "task_id": "T-9013",
+  "type": "CHILD_AGENT_RESULT",
+  "verdict": "DO_NOT_CREATE_INDEPENDENT_LAYER"
+}

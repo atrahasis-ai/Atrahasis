@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS Authority Coverage Matrix",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "stage",
+    "generated_at",
+    "coverage_required",
+    "recommendation_blocked_until_complete",
+    "named_authority_surfaces",
+    "surface_rows",
+    "new_semantic_authority_test",
+    "notes"
+  ],
+  "properties": {
+    "type": {"const": "AUTHORITY_COVERAGE_MATRIX"},
+    "doctrine_version": {"type": "string"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "stage": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "coverage_required": {"type": "boolean"},
+    "recommendation_blocked_until_complete": {"type": "boolean"},
+    "named_authority_surfaces": {"type": "array", "items": {"type": "string"}},
+    "surface_rows": {"type": "array", "items": {"type": "object"}},
+    "new_semantic_authority_test": {"type": "object"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

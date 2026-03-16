@@ -1,0 +1,11 @@
+command_modifier: AASNI
+task_id: T-9004
+prompt: 'Run the operator''s Atrahasis redesign proposal through AAS4 as Ashur: evaluate a closed, mission-locked, private Atrahasis model with internal novelty embargo, bounded public and enterprise products, strict anti-abuse controls, and a transition from frontier API dependence toward an AASL/AACP-native model stack.'
+scope: closed_mission_pivot
+operator_constraints:
+- Treat this as Ashur's independent round-one output for comparison with Enki, Nanshe, and Anu.
+- Ground conclusions in current Atrahasis governance, economics, implementation, runtime, and compiler specs.
+- Do not modify shared backlog state beyond this ad hoc claim and workspace.
+hitl_requirements:
+- OPERATOR_APPROVAL_FOR_CANONICAL_REWRITE
+created_at: '2026-03-13T23:08:06Z'

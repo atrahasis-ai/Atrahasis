@@ -1,0 +1,7 @@
+command_modifier: AASAQ
+task_id: T-911
+prompt: Explain the current provider runtime architecture and supported backends.
+scope: architecture_question
+operator_constraints: []
+hitl_requirements: []
+created_at: '2026-03-13T18:13:43Z'

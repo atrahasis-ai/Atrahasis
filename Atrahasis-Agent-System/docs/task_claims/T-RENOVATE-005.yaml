@@ -1,0 +1,16 @@
+task_id: "T-RENOVATE-005"
+invention_ids: []
+target_specs:
+  - "C3"
+title: "C3 Noosphere Osmosis Boundary and Data Quarantine Filter"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T23:42:34Z"
+updated_at: "2026-03-14T23:53:15Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-RENOVATE-005/"
+    - "docs/specifications/C3/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Recovered after user-confirmed terminal failure on the prior Enki session. The stale claim incorrectly targeted C22, but the canonical renovation authority defines T-RENOVATE-005 as the C3 Noosphere severed-topology and quarantine-boundary rewrite. The task is now complete: C3 gained the closed-core osmotic intake boundary, quarantine/provenance/toxic-filter conformance rules, deployment overlays, and completion notes in docs/task_workspaces/T-RENOVATE-005/COMPLETION_NOTE.md."

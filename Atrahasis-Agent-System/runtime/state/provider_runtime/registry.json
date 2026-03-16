@@ -1,0 +1,231 @@
+{
+  "active_sessions": [
+    {
+      "agent_name": "Anu",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T22:19:28Z",
+      "session_id": "codex-anu-20260313-160114-legacy",
+      "supported_agent_types": [
+        "director"
+      ]
+    },
+    {
+      "agent_name": "Dumuzi",
+      "current_task": "T-9002",
+      "provider": "codex",
+      "registered_at": "2026-03-13T20:32:53Z",
+      "session_id": "codex-dumuzi-20260313-190934-58406bfe",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Ereshkigal",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T18:21:11Z",
+      "session_id": "codex-ereshkigal-20260313-132107-09113d2c",
+      "supported_agent_types": [
+        "operational",
+        "code_implementer"
+      ]
+    },
+    {
+      "agent_name": "Nergal",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T18:13:43Z",
+      "session_id": "codex-live-001",
+      "supported_agent_types": [
+        "chronicler"
+      ]
+    },
+    {
+      "agent_name": "Nanshe",
+      "current_task": "T-9003",
+      "provider": "codex",
+      "registered_at": "2026-03-13T23:01:24Z",
+      "session_id": "codex-nanshe-20260313-161317-legacy",
+      "supported_agent_types": [
+        "director"
+      ]
+    },
+    {
+      "agent_name": "Ninkasi",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-14T23:34:08Z",
+      "session_id": "codex-ninkasi-20260314-233351-legacy",
+      "supported_agent_types": [
+        "director"
+      ]
+    },
+    {
+      "agent_name": "Ninurta",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T20:01:30Z",
+      "session_id": "codex-ninurta-20260313-191201-e46ece3c",
+      "supported_agent_types": [
+        "operational",
+        "code_implementer"
+      ]
+    },
+    {
+      "agent_name": "Nisaba",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T19:32:40Z",
+      "session_id": "codex-nisaba-20260313-140627-b7e88663",
+      "supported_agent_types": [
+        "operational",
+        "code_implementer"
+      ]
+    },
+    {
+      "agent_name": "Nergal",
+      "current_task": null,
+      "provider": "codex",
+      "registered_at": "2026-03-13T18:12:25Z",
+      "session_id": "codex-test-001",
+      "supported_agent_types": [
+        "director",
+        "code_implementer"
+      ]
+    },
+    {
+      "agent_name": "Enki",
+      "current_task": "T-260",
+      "provider": "gemini",
+      "registered_at": "2026-03-13T19:51:36Z",
+      "session_id": "gemini-enki-20260313-001",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Enki",
+      "current_task": null,
+      "provider": "gemini",
+      "registered_at": "2026-03-13T18:18:35Z",
+      "session_id": "gemini-session-991",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Enki",
+      "current_task": null,
+      "provider": "gemini",
+      "registered_at": "2026-03-13T18:59:01Z",
+      "session_id": "gemini-session-992",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Enki",
+      "current_task": null,
+      "provider": "gemini",
+      "registered_at": "2026-03-13T19:03:51Z",
+      "session_id": "gemini-session-enki-001",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Nabu",
+      "current_task": "T-270",
+      "provider": "gemini",
+      "registered_at": "2026-03-13T19:49:10Z",
+      "session_id": "gemini-session-nabu-001",
+      "supported_agent_types": [
+        "primary"
+      ]
+    },
+    {
+      "agent_name": "Ishtar",
+      "current_task": null,
+      "provider": "gemini",
+      "registered_at": "2026-03-13T18:12:25Z",
+      "session_id": "gemini-test-001",
+      "supported_agent_types": [
+        "visionary",
+        "chronicler"
+      ]
+    }
+  ],
+  "supported_backends": {
+    "codex": {
+      "available_models": [
+        "gpt-5.4",
+        "gpt-5.3-codex",
+        "gpt-5.3-codex-spark",
+        "gpt-5.2-codex",
+        "gpt-5.2",
+        "gpt-5.1-codex-max",
+        "gpt-5.1-codex-mini"
+      ],
+      "cli_command": "codex",
+      "display_name": "OpenAI Codex",
+      "routing": {
+        "code_only": {
+          "model": "gpt-5.3-codex",
+          "notes": "Codex-optimized path for code-heavy implementation and validation work.",
+          "reasoning_effort": "high"
+        },
+        "fast_background": {
+          "model": "gpt-5.3-codex-spark",
+          "notes": "Use only for low-risk background or acceleration tasks.",
+          "reasoning_effort": "low"
+        },
+        "operational": {
+          "model": "gpt-5.4",
+          "notes": "Default Codex model for non-peak roles that still need strong reasoning.",
+          "reasoning_effort": "medium"
+        },
+        "primary": {
+          "model": "gpt-5.4",
+          "notes": "Use for highest-capability invention, architecture, and council roles.",
+          "reasoning_effort": "xhigh"
+        }
+      }
+    },
+    "gemini": {
+      "available_models": [
+        "gemini-3.1-pro-preview",
+        "gemini-3-flash-preview",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash",
+        "gemini-2.5-flash-lite"
+      ],
+      "cli_command": "gemini",
+      "display_name": "Gemini CLI",
+      "routing": {
+        "code_only": {
+          "model": "gemini-3-flash-preview",
+          "notes": "Gemini does not have a separate code-only family in the current routing policy.",
+          "reasoning_effort": "medium"
+        },
+        "fast_background": {
+          "model": "gemini-2.5-flash-lite",
+          "notes": "Use for low-cost background fan-out only.",
+          "reasoning_effort": "low"
+        },
+        "operational": {
+          "model": "gemini-3-flash-preview",
+          "notes": "Default Gemini model for operational and analysis roles.",
+          "reasoning_effort": "medium"
+        },
+        "primary": {
+          "model": "gemini-3.1-pro-preview",
+          "notes": "Use for highest-capability research, architecture, and invention roles.",
+          "reasoning_effort": "high"
+        }
+      }
+    }
+  },
+  "type": "PROVIDER_RUNTIME_REGISTRY",
+  "updated_at": "2026-03-14T23:34:08Z"
+}

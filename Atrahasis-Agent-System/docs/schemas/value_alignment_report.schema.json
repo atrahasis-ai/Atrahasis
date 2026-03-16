@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Value Alignment Report",
+  "type": "object",
+  "required": ["type", "alignment_mode", "hypothesis_alignment", "program_alignment"],
+  "properties": {
+    "type": {"const": "VALUE_ALIGNMENT_REPORT"},
+    "alignment_mode": {"type": "string"},
+    "mission_profile": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hypothesis_alignment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "value_alignment_score"],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "value_alignment_score": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "program_alignment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["program_id", "value_alignment_score"],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "value_alignment_score": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

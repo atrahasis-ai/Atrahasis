@@ -1,0 +1,18 @@
+task_id: T-9004
+invention_ids: []
+target_specs: []
+title: Atrahasis Mission Lock and Closed Capability Pivot
+platform: CODEX
+agent_name: Ninkasi
+claimed_at: '2026-03-14T23:42:34Z'
+updated_at: '2026-03-14T23:42:34Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-9004/
+  pipeline_type: AAS
+notes: Recovered by Ninkasi after user-confirmed terminal failure on the prior Ashur
+  session. Existing workflow and swarm outputs were preserved and consolidated
+  with T-9003 in docs/task_workspaces/T-9004/RECOVERY_CONSOLIDATED_SYNTHESIS.md.
+  This ad hoc run is complete again and remains out of docs/TODO.md per TASK_ID_POLICY
+  unless later promoted.

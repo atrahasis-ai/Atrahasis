@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Specification"
+  short_description: "Write canonical specs and schemas"
+  default_prompt: "Write approved AAS5 design and specification artifacts in canonical repo locations with the correct structure and validation."

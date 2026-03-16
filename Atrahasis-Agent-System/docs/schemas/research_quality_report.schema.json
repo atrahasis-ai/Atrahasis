@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Research Quality Report",
+  "type": "object",
+  "required": ["type", "ranked_evidence", "high_quality_count"],
+  "properties": {
+    "type": {"const": "RESEARCH_QUALITY_REPORT"},
+    "ranked_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "category", "quality_score"],
+        "properties": {
+          "path": {"type": "string"},
+          "category": {"type": "string"},
+          "quality_score": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "high_quality_count": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": true
+}

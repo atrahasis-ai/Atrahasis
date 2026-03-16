@@ -1,0 +1,27 @@
+command_modifier: AASNI
+task_id: T-9011
+prompt: 'Candidate FULL PIPELINE idea for ideation-only evaluation:
+
+
+  Independent Model Inference Microservice Layer.
+
+
+  The original Atrahasis blueprint strictly separated the Agent Swarm (millions of
+  lightweight software processes) from the Model Inference Layer (centralized GPU
+  clusters hosting hundreds of specialized AI models exposed as microservices).
+
+
+  Reasoning for bringing it back:
+
+  Treating agents and the heavy LLMs they use as a single coupled unit wastes massive
+  computational resources. By maintaining a strictly independent model inference layer,
+  the system can scale its components separately based on actual need. Millions of
+  lightweight agents can scale dynamically with task workloads, while the heavy GPU
+  models only need to scale with actual inference demand. This prevents the agents
+  from becoming bloated and preserves the system''s economic and thermodynamic efficiency.'
+scope: new_idea_integration
+operator_constraints: []
+hitl_requirements:
+- CONCEPT_SELECTION
+- PIVOT
+created_at: '2026-03-15T16:24:43Z'

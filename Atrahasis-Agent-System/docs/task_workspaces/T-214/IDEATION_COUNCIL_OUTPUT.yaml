@@ -1,0 +1,165 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "agent discovery / signed capability disclosure / semantic manifest architecture"
+  generated_at: "2026-03-12T13:58:35Z"
+  agent: "Inanna"
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Dynamic Operational Manifest Ledger"
+      position: |
+        Make the manifest the living control-plane record for the agent: identity,
+        endpoint capabilities, trust posture, live health, quotas, supported tools,
+        prompt templates, resources, session surfaces, and operational status.
+        Clients and registries would consume one always-current signed document.
+      novelty_estimate: 5
+      feasibility_estimate: 2
+
+    systems_thinker:
+      concept_name: "Layered Semantic Capability Manifest"
+      position: |
+        Keep the manifest authoritative for durable capability and trust facts,
+        but explicitly separate it into bounded sections: subject identity and
+        posture, discovery and transport endpoints, security profiles and keys,
+        message-class support, semantic object support, and optional capability
+        references for tools, prompts, resources, and sessions. Dynamic runtime
+        state stays outside the manifest. Supersession and signature rules are
+        first-class.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Signed Endpoint Capability Card"
+      position: |
+        Stay close to an A2A-style card: one signed endpoint document with basic
+        metadata, supported auth schemes, endpoint URLs, and a short capability
+        summary. It is easier to ship and easier for external adopters, but it
+        may underspecify semantic support and force later tasks to invent missing
+        structure independently.
+      novelty_estimate: 3
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      A living manifest that carries health, quotas, and live status would blur
+      durable capability truth with transient operations. That would duplicate
+      registry, session, and observability surfaces and make signatures churn
+      for the wrong reasons.
+
+    critic_challenges_both: |
+      The layered concept is only defensible if the sections stay bounded. If it
+      tries to inline every tool schema, resource descriptor, and runtime detail,
+      the manifest becomes an unreadable omnibus object rather than a stable
+      discovery contract.
+
+    visionary_response: |
+      I accept the durability boundary. The key value is a richer machine-
+      readable capability contract than legacy agent cards, not live telemetry.
+      The chosen concept should still preserve strong native-versus-bridge
+      disclosure and update lineage.
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Signed Endpoint Capability Card"
+      summary: |
+        A compact signed manifest published at `/.well-known/atrahasis.json`
+        that focuses on endpoint identity, auth schemes, transport URLs, supported
+        encodings, and high-level capability summaries. Lowest rollout risk, but
+        leaves later tasks to define more semantic detail elsewhere.
+      novelty_score: 3
+      feasibility_score: 5
+      key_innovation: "Low-friction signed discovery card with explicit trust chain"
+      technical_approach: |
+        Define one endpoint-scoped document with issuer/signature rules, endpoint
+        bindings, profile support, message-family declarations, and summary-level
+        capability metadata.
+      potential_applications:
+        - "Fast replacement for A2A Agent Cards"
+        - "Simple endpoint onboarding for registries and bridge adapters"
+      known_risks:
+        - "Too shallow for semantic-capability discovery"
+        - "Pushes schema burden downstream into registry and bridge tasks"
+        - "May underspecify native-versus-bridge posture and verification support"
+      prior_art_concerns:
+        - "Resembles existing plugin and agent-card patterns with stronger signing"
+      research_questions:
+        - "What is the minimal mandatory field set before the manifest stops being useful?"
+        - "How much semantic support can remain summary-only before later tasks fragment?"
+      hitl_required: true
+
+    - concept_id: "IC-2"
+      title: "Layered Semantic Capability Manifest"
+      summary: |
+        A signed, endpoint-scoped manifest with explicit sections for identity and
+        trust posture, transport and discovery endpoints, `C40` security profiles,
+        `C39` message-family support, supported `AASL` types and ontology
+        snapshots, and optional capability references for `TL`, `PMT`, `DS`, and
+        `SES` surfaces. Dynamic runtime state stays out of scope; updates happen
+        through visible supersession.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: "One bounded manifest that unifies trust, message capability, and semantic support without collapsing runtime state into discovery"
+      technical_approach: |
+        Define a layered manifest object model with required and optional sections,
+        a signed trust chain rooted in native or accepted issuer identity, native-
+        versus-bridge disclosure, supersession/update rules for publish and update
+        flows, and explicit compatibility references to message families, AASL
+        types, ontology snapshots, and downstream capability objects.
+      potential_applications:
+        - "Canonical discovery document for Alternative B endpoints"
+        - "Trustworthy input for later registry, bridge, SDK, and conformance work"
+        - "Machine-readable capability disclosure for tools, prompts, resources,
+          sessions, and verification support"
+      known_risks:
+        - "Could become too large if every downstream schema is inlined"
+        - "Trust and capability sections must stay bounded or adoption will suffer"
+        - "Supersession and registry conflict rules may be operationally subtle"
+      prior_art_concerns:
+        - "Manifest patterns are known; novelty must come from the Atrahasis-specific fusion of signed trust posture, semantic capability disclosure, and bounded layering"
+      research_questions:
+        - "Which fields are mandatory for all agents versus profile-specific?"
+        - "Which capability surfaces should be inline versus referenced?"
+        - "How should native, federated, and bridged manifests disclose trust posture without ambiguity?"
+        - "What update and supersession rules keep registry and endpoint truth aligned?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Dynamic Operational Manifest Ledger"
+      summary: |
+        A richer manifest that combines durable capability facts with live
+        operational state such as health, quotas, maintenance windows, availability,
+        and capability deltas. Highest ambition and strongest marketplace value,
+        but it risks overloading the discovery surface and duplicating later
+        registry and observability layers.
+      novelty_score: 5
+      feasibility_score: 2
+      key_innovation: "Single signed discovery and operations ledger for agents"
+      technical_approach: |
+        Extend the manifest into a snapshot-plus-delta model with signed updates
+        covering both enduring capability and near-live operational posture.
+      potential_applications:
+        - "Richest discovery input for registries and marketplaces"
+        - "Potential foundation for ranking and routing decisions"
+      known_risks:
+        - "Blurs durable capability truth with transient runtime state"
+        - "Signature churn and update complexity increase sharply"
+        - "Overlaps registry, session, and observability responsibilities"
+      prior_art_concerns:
+        - "Could collapse too many established control-plane functions into one document"
+      research_questions:
+        - "Can live operational deltas be signed and distributed without turning the manifest into telemetry?"
+        - "What belongs in discovery truth versus later registry or observability lanes?"
+      hitl_required: true
+
+  recommended_concepts: ["IC-2"]
+
+  dissent_record:
+    - point: "Manifests must not absorb live runtime state or observability semantics"
+      minority: "Critic"
+      monitoring_flag: "FEASIBILITY must keep durable capability truth separate from dynamic status"
+    - point: "Native-versus-bridge posture must remain first-class and machine-readable"
+      minority: "Visionary"
+      monitoring_flag: "Selected concept must expose trust posture without collapsing bridge identity into native identity"
+    - point: "Tool, prompt, resource, and session capability detail must stay bounded"
+      minority: "Critic"
+      monitoring_flag: "DESIGN must decide which surfaces are inline versus referenced"

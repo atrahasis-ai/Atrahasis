@@ -1,0 +1,52 @@
+type: "INVENTION_CONCEPT"
+invention_id: "C43"
+title: "Custody-Bounded Semantic Bridge (CBSB)"
+domain: "agent communication / protocol bridging / semantic provenance / migration architecture"
+summary: >
+  CBSB defines the canonical Alternative B MCP migration bridge as a visible
+  custody boundary rather than a thin proxy or fake native endpoint. The bridge
+  emits signed bridge-scoped inventory snapshots, translates tool invocations
+  against pinned snapshot and tool identity, and returns accountable semantic
+  bundles with explicit `BRIDGE_ENRICHED` or `BRIDGE_DEGRADED` posture.
+  Bridge-side state is allowed only in bounded form for snapshot caching,
+  translation-policy reuse, and explicitly derated continuation handles. The
+  invention separates source-observed MCP facts from bridge-normalized
+  structure and bridge-inferred accountability semantics so downstream Atrahasis
+  components can consume bridged tools honestly without granting them native
+  `C42` authority or `C23` runtime rights.
+novelty_score: 4.0
+feasibility_score: 4.0
+key_innovation: >
+  Treat the universal MCP bridge as a signed, policy-visible custody boundary:
+  translated tool state, translated invocation identity, and semantic
+  accountability are made explicit and non-native by design rather than hidden
+  behind convenience wrappers.
+technical_approach: >
+  Define signed bridge inventory snapshots; pinned translation contexts for
+  discovery and invocation; explicit separation between source-observed,
+  bridge-normalized, and bridge-inferred semantics; accountable bridged result
+  wrapping with provenance-floor labels; and bounded bridge-side cache or
+  continuation state that remains visibly below native `C42` and `C23`
+  authority.
+potential_applications:
+  - "Universal migration bridge for broad MCP ecosystem coverage"
+  - "Native-versus-bridge conformance target for T-281"
+  - "Migration and bridge retirement anchor for T-307"
+  - "Cross-layer provenance input for T-290 and T-303"
+  - "Operational coexistence surface while native AACP tool servers grow"
+known_risks:
+  - "Highly variable MCP servers may challenge the zero-config bridge claim"
+  - "Semantic enrichment can become dishonest if source-observed and bridge-inferred fields are not kept separate"
+  - "Bridge-side warm state may drift toward shadow framework behavior if not bounded strictly"
+  - "Snapshot invalidation and source inventory drift are operationally subtle"
+prior_art_concerns:
+  - "Protocol gateways, caching adapters, and schema-mapping wrappers are known patterns"
+  - "Novelty depends on the Atrahasis-specific composition of signed translated state, explicit custody semantics, and bounded non-native accountability wrapping"
+research_questions:
+  - "What minimum MCP metadata is sufficient to derive stable bridge snapshots generically?"
+  - "Which bridged result fields may be source-observed versus bridge-inferred?"
+  - "What exact degraded continuation posture is safe without claiming native priming?"
+  - "Where should zero-config conformance fail closed for non-standard MCP servers?"
+generated_at: "2026-03-13T03:14:30.1590866-05:00"
+refined_from: "IC-4"
+research_data_incorporated: true

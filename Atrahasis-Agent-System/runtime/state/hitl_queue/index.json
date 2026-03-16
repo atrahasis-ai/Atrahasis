@@ -1,0 +1,46 @@
+{
+  "by_request_id": {},
+  "by_task": {
+    "T-9002": [
+      "HITL-00002",
+      "HITL-00003",
+      "HITL-00005",
+      "HITL-00004",
+      "HITL-00006",
+      "HITL-00001"
+    ]
+  },
+  "counter": 6,
+  "entries": {
+    "HITL-00001": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "PENDING",
+      "task_id": "T-9002"
+    },
+    "HITL-00002": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "RESOLVED",
+      "task_id": "T-9002"
+    },
+    "HITL-00003": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "PENDING",
+      "task_id": "T-9002"
+    },
+    "HITL-00004": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "PENDING",
+      "task_id": "T-9002"
+    },
+    "HITL-00005": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "RESOLVED",
+      "task_id": "T-9002"
+    },
+    "HITL-00006": {
+      "run_id": "T-9002-AASA-20260313T203253Z",
+      "status": "RESOLVED",
+      "task_id": "T-9002"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+task_id: "T-060"
+invention_ids: ["C35"]
+target_specs: []
+title: "Sentinel Graph (Security & Anomaly Detection)"
+platform: "CLAUDE"
+claimed_at: "2026-03-12T03:00:00Z"
+updated_at: "2026-03-12T12:00:00Z"
+status: "COMPLETE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-060/"
+    - "docs/specifications/C35/"
+    - "docs/invention_logs/C35.md"
+    - "docs/invention_logs/C35_*"
+    - "docs/prior_art/C35/"
+    - "docs/contribution_requests/C35.yaml"
+  pipeline_type: "AAS"
+notes: "CRITICAL priority. Full AAS pipeline COMPLETE. C35 Seismographic Sentinel — 3-tier hierarchical anomaly detection with PCM-augmented Tier 2. CONDITIONAL_APPROVE. Originally minted as C32, re-IDed to C35 to resolve collision with C32 MIA (T-063)."

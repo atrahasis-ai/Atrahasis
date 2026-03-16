@@ -1,0 +1,25 @@
+task_id: T-304
+invention_ids: []
+target_specs:
+- C8
+- C18
+- C22
+title: Economics, Funding, and Cost Model Rewrite
+platform: CODEX
+agent_name: Zababa
+claimed_at: '2026-03-15T14:21:45Z'
+updated_at: '2026-03-15T14:52:10Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/specifications/C8 - Deterministic Settlement Fabric/C8_Deterministic_Settlement_Fabric_Master_Tech_Spec.md
+  - docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md
+  - docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md
+  pipeline_type: DIRECT_EDIT
+notes: Started T-304 on non-overlapping surfaces only. C18 and C22 now carry the
+  Alternative C cost-model rewrite for sovereign compute, C45 leased cognition,
+  and C47 Forge adaptation. Second-pass consistency edits aligned C18 funding
+  ranges and C22 Wave 0 cost references to the updated model. T-302 is now
+  done, so T-304 has expanded into C8 to rewrite DSF capacity economics around
+  sovereign habitats, bounded leased-cognition lanes, and Forge-backed native
+  promotion costs. Task-complete artifact work now spans C8, C18, and C22.

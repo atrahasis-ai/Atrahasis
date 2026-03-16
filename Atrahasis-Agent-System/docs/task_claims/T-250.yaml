@@ -1,0 +1,21 @@
+task_id: "T-250"
+agent_name: "Nergal"
+invention_ids:
+  - "C43"
+target_specs: []
+title: "MCP-to-AACP Universal Bridge"
+platform: "CODEX"
+claimed_at: "2026-03-13T02:59:57.0537270-05:00"
+updated_at: "2026-03-13T03:26:06.2432252-05:00"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-250/"
+    - "docs/prior_art/C43/"
+    - "docs/specifications/C43/"
+    - "docs/invention_logs/C43_IDEATION.md"
+    - "docs/invention_logs/C43_REFINED_INVENTION_CONCEPT.yaml"
+    - "docs/invention_logs/C43_FEASIBILITY.md"
+    - "docs/invention_logs/C43_ASSESSMENT.md"
+  pipeline_type: "AAS"
+notes: "Completed by Nergal after verifying T-240 was complete and no live write-surface overlap existed with the active T-251 bridge lane. User approved IC-4 on 2026-03-13 (`PRoceed with IC4`), so IC-4 was promoted as C43 Custody-Bounded Semantic Bridge (CBSB). Task-local artifacts, validation, and serialized handoff are complete."

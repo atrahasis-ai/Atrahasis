@@ -1,0 +1,815 @@
+FEASIBILITY_COUNCIL_OUTPUT:
+  task_id: "T-060"
+  invention_id: "C35"
+  title: "Seismographic Sentinel with PCM-Augmented Tier 2"
+  stage: "FEASIBILITY"
+  prior_stage: "IDEATION (IC-2+ merged)"
+  generated_at: "2026-03-11T22:00:00Z"
+  consensus_level: "UNANIMOUS"
+
+  # ============================================================
+  # SECTION 1: COUNCIL RECONVENTION — INDIVIDUAL POSITIONS
+  # ============================================================
+
+  council_positions:
+
+    visionary:
+      position: "ADVANCE with refined architecture"
+      statement: |
+        Research confirms the strongest novelty claim in the AAS pipeline since PCM itself:
+        no existing system combines permitted-correlation residuals with hierarchical
+        seismographic detection in an adversarial multi-agent context. The three
+        contradictions identified by the Science Advisor are not architectural flaws —
+        they are calibration and fusion details that have well-understood solutions in
+        adjacent fields. The core insight (detect by independence violation, not by
+        similarity search) survives research intact.
+
+        The PCM independence assumption was always a simplification. Moving to a
+        log-linear model with interaction terms is the standard ecological correction
+        (Ovaskainen et al. 2017). This increases PCM expressiveness at moderate
+        computational cost, and the precomputed-lookup constraint (D-1) still holds
+        because log-linear models produce closed-form expectations.
+
+        For multi-channel fusion, the quorum was a placeholder. The research correctly
+        identifies Dempster-Shafer as over-complex for this application. I advocate for
+        a Bayesian network with empirically-estimated conditional dependencies between
+        channels — this is the principled replacement that accounts for
+        verification-behavioral correlation while remaining computationally tractable.
+
+        The dual-baseline fusion rule should use a Bayesian combination with
+        confirmation delay: OR-trigger with mandatory 3-epoch confirmation window where
+        BOTH baselines must agree on the anomaly direction before Tier 2 escalation.
+        This captures the best of OR (sensitivity) and AND (specificity) with temporal
+        gating.
+
+      key_refinements:
+        - "Log-linear PCM with pairwise interaction terms"
+        - "Bayesian network fusion replacing 3-of-4 quorum"
+        - "OR-trigger with 3-epoch confirmation delay for dual-baseline fusion"
+      vote: "ADVANCE"
+
+    systems_thinker:
+      position: "ADVANCE with explicit computational budget constraints"
+      statement: |
+        The three contradictions map cleanly to three well-bounded design problems:
+
+        1. PCM model class: The linear additive assumption E[corr] = sum_k f_k(x_k)
+        fails because structural covariates interact — agents sharing BOTH a parcel
+        AND a committee exhibit more correlation than the sum of each effect alone.
+        The log-linear form log E[corr] = sum_k beta_k * x_k + sum_{j<k} gamma_{jk}
+        * x_j * x_k resolves this while preserving closed-form computation. With 5
+        structural covariates, this adds C(5,2) = 10 interaction terms — 15 parameters
+        total per channel. At CONSOLIDATION_CYCLE refresh (36,000s), this is
+        computationally trivial even at 100K agents. The key constraint: interaction
+        terms must be restricted to WITHIN-NEIGHBORHOOD pairs only (per SA-6 scaling
+        finding) to avoid the hidden O(V^2) term.
+
+        2. Multi-channel fusion: The 3-of-4 quorum assumes channel independence, which
+        SA-4 refutes. The channels have a known dependency structure: verification
+        anomalies correlate with behavioral anomalies (an agent gaming verification
+        will show behavioral fingerprint changes); infrastructure anomalies are
+        relatively independent (same datacenter is observable regardless of behavior);
+        economic anomalies correlate with verification (gaming verification affects
+        settlement). This structure maps naturally to a 4-node Bayesian network:
+        Infrastructure -> [independent]; Verification -> Behavioral [strong];
+        Verification -> Economic [moderate]; Behavioral -> Economic [weak].
+        The network produces a posterior P(anomaly | channel evidence) that replaces
+        the binary quorum with a continuous confidence score. Threshold at the
+        posterior, not at channel count.
+
+        3. Dual-baseline fusion: I concur with the Visionary's OR-with-confirmation
+        approach but add a structural constraint. The confirmation window must be
+        adaptive: 3 epochs when system load is normal, expanding to 5 epochs under
+        high trigger density (to suppress cascade false positives during legitimate
+        system stress events like large-scale committee rotations). The expansion
+        trigger should be the Tier 1 trigger density across the full population
+        exceeding 2 standard deviations above the rolling 100-epoch mean.
+
+        For spectral clustering hardening, I propose a dual-graph approach: compute
+        spectral clustering on BOTH the raw interaction graph AND a randomly-perturbed
+        copy (Gaussian noise on edge weights, sigma = 0.1). If the two clusterings
+        diverge by more than 15% Normalized Mutual Information, flag the clustering
+        as potentially manipulated and fall back to the previous epoch's partition.
+        This is a lightweight robustness check that catches the O(sqrt(V)) edge
+        perturbation attack identified in SA-3 without requiring the full certified
+        robustness machinery (Zugner et al. 2020), which would exceed computational
+        budget.
+
+      key_refinements:
+        - "Log-linear PCM with 10 pairwise interaction terms, within-neighborhood only"
+        - "4-node Bayesian network with empirical conditional dependencies"
+        - "Adaptive confirmation window (3-5 epochs based on trigger density)"
+        - "Dual-graph spectral clustering with NMI divergence check"
+      vote: "ADVANCE"
+
+    critic:
+      position: "ADVANCE with new monitoring flags"
+      statement: |
+        The research findings validate the architecture but expose three areas where
+        the original design was under-specified. The proposed refinements are sound
+        in principle but introduce their own assumptions that must be tracked.
+
+        On the PCM log-linear model: Accepted. The interaction terms are the standard
+        ecological correction and the computation remains tractable. However, I flag a
+        new concern — the log-linear model assumes a SPECIFIC functional form for
+        covariate interactions (multiplicative in log-space). If the true interaction
+        structure is more complex (e.g., threshold effects where correlation jumps
+        discontinuously when agents share 3+ covariates simultaneously), the log-linear
+        model will produce biased residuals. This is unlikely to be worse than the
+        current linear model, but it is not guaranteed to be sufficient. I recommend
+        MF-5: monitor PCM residual calibration against held-out data at each
+        CONSOLIDATION_CYCLE to detect systematic bias.
+
+        On the Bayesian network fusion: Accepted as superior to 3-of-4 quorum. But the
+        conditional probability tables must be estimated from data, and during early
+        deployment (C22 W0-W1) there will be insufficient anomaly data to estimate
+        them reliably. The system needs a fallback: during the calibration phase, use
+        the simplified 3-of-4 quorum as a conservative prior, then transition to the
+        Bayesian network once sufficient anomaly observations accumulate. I recommend a
+        minimum of 50 confirmed Tier 2 anomalies before transitioning. This creates
+        MF-6: Bayesian network calibration sample size.
+
+        On the dual-baseline fusion: The OR-with-confirmation approach is pragmatic but
+        the 3-epoch confirmation window introduces latency. In the worst case (anomaly
+        appears at epoch boundary), detection latency is 3 * TIDAL_EPOCH = 10,800
+        seconds (3 hours). This may be acceptable for slow-ramp evasion (which is
+        inherently slow) but must be documented as a design trade-off. I also note
+        that MF-4 (fixed-baseline reconstructibility) remains OPEN — the confirmation
+        window does not resolve it, because an adversary who reconstructs the fixed
+        baseline can still evade by staying below both thresholds. The Red Team
+        evaluation at DESIGN is still required.
+
+        On spectral clustering hardening: The dual-graph NMI check is a reasonable
+        heuristic but is not a formal guarantee. An adversary who understands the
+        perturbation distribution can craft edge modifications that survive the NMI
+        check. I accept this as a pragmatic first-line defense but flag that
+        adversarial spectral clustering robustness requires game-theoretic analysis
+        at DESIGN (per SA-7).
+
+      key_refinements:
+        - "Calibration-phase fallback to 3-of-4 quorum before Bayesian network"
+        - "Minimum 50 confirmed anomalies before Bayesian transition"
+        - "Document 3-epoch detection latency as explicit design trade-off"
+        - "Retain Red Team evaluation of fixed-baseline reconstructibility for DESIGN"
+      new_monitoring_flags:
+        - "MF-5: PCM log-linear residual calibration — monitor for systematic bias at each CONSOLIDATION_CYCLE"
+        - "MF-6: Bayesian network calibration sample size — minimum 50 confirmed Tier 2 anomalies before transition from quorum fallback"
+      vote: "ADVANCE"
+
+    skeptic:
+      position: "CONDITIONAL ADVANCE — require formal specification of all three fusion rules before DESIGN entry"
+      statement: |
+        I accept the research findings and the proposed refinements. The architecture
+        survives scrutiny. My concern is not with the WHAT but with the HOW MUCH.
+
+        The original IC-2 was elegantly simple: STA/LTA, MIDAS, overdispersion. Three
+        well-understood algorithms in a pipeline. The merged IC-2+ added PCM from IC-1
+        and the 4-channel quorum from IC-3, significantly increasing complexity. Now at
+        FEASIBILITY, we are adding: log-linear interaction terms, a Bayesian network,
+        adaptive confirmation windows, and dual-graph NMI checks. Each individually
+        justified. Collectively, we have built a system with:
+
+        - 15 PCM parameters per channel (5 main effects + 10 interactions)
+        - 4 channels x 15 = 60 PCM parameters total
+        - 4-node Bayesian network with ~12 conditional probability parameters
+        - 2 STA/LTA baselines with fusion rule and adaptive confirmation window
+        - Spectral clustering with NMI robustness check
+        - 3 tiers with distinct escalation logic
+
+        This is approximately 80+ tunable parameters before counting thresholds.
+        C22 Wave 0 (the validation wave) cannot meaningfully tune 80 parameters with
+        the proposed team of 6-8 engineers.
+
+        I do NOT recommend rejection. The architecture is sound and the novelty is
+        genuine. But I require that the DESIGN stage explicitly specify:
+        (a) A parameter initialization strategy using principled defaults from the
+        ecological and seismological literature, so that zero-data performance is
+        reasonable.
+        (b) A staged parameter tuning plan that identifies which parameters are
+        tuned at W0, W1, W2, and which remain at defaults until sufficient data
+        accumulates.
+        (c) A sensitivity analysis identifying the top-10 most impactful parameters,
+        so that limited tuning effort is concentrated where it matters.
+
+        If these three deliverables are required at DESIGN entry, I vote ADVANCE.
+
+      key_refinements:
+        - "Require parameter initialization strategy from literature defaults"
+        - "Require staged tuning plan across W0/W1/W2"
+        - "Require sensitivity analysis identifying top-10 parameters"
+      conditions_for_advance:
+        - "DESIGN must produce: (a) parameter initialization defaults, (b) staged tuning plan, (c) sensitivity analysis"
+      vote: "CONDITIONAL ADVANCE"
+
+  # ============================================================
+  # SECTION 2: CONTRADICTION RESOLUTIONS
+  # ============================================================
+
+  contradiction_resolutions:
+
+    contradiction_C1_pcm_model:
+      original_problem: |
+        Linear additive PCM model E[corr] = sum_k f_k(overlap_k) assumes covariate
+        independence. Science Assessment SA-2 finds this unlikely to hold — agents
+        sharing multiple structural covariates exhibit super-additive correlation.
+      resolution: "Log-linear PCM with pairwise interaction terms"
+      technical_specification: |
+        REPLACE the linear additive model:
+          E[corr(a_i, a_j)] = sum_k f_k(structural_overlap_k)
+
+        WITH the log-linear model:
+          log E[corr(a_i, a_j)] = beta_0
+            + sum_{k=1}^{K} beta_k * x_k(a_i, a_j)
+            + sum_{j<k} gamma_{jk} * x_j(a_i, a_j) * x_k(a_i, a_j)
+
+        Where:
+          K = 5 structural covariates:
+            x_1 = committee co-assignment frequency (C5/C7)
+            x_2 = parcel co-assignment frequency (C3)
+            x_3 = infrastructure proximity score (C17 L2 resource modality)
+            x_4 = temporal epoch overlap (C9 settlement tick alignment)
+            x_5 = economic bracket similarity (C8 staking tier)
+
+          beta_k = main effect coefficients (5 parameters)
+          gamma_{jk} = pairwise interaction coefficients (C(5,2) = 10 parameters)
+          beta_0 = intercept (1 parameter)
+          Total: 16 parameters per channel, 64 parameters across 4 channels.
+
+        Residual computation:
+          R(a_i, a_j) = observed_corr(a_i, a_j) - exp(log_E[corr(a_i, a_j)])
+
+        The exp() transform ensures E[corr] >= 0 (non-negative expected correlation).
+
+        Estimation: Maximum likelihood estimation at each CONSOLIDATION_CYCLE
+        (36,000s = 10 hours) using within-neighborhood agent pairs only. Sufficient
+        statistics are accumulated incrementally during the cycle; MLE is computed
+        once at refresh. With neighborhood size capped at 2*log(V) ~ 34 agents at
+        V=100K, each neighborhood has at most C(34,2) = 561 pairs. With
+        V/log(V) ~ 5,882 neighborhoods, total pairs ~ 3.3M — tractable for MLE.
+
+        Computational budget: PCM refresh MLE computation at CONSOLIDATION_CYCLE
+        must complete within 60 seconds (1 SETTLEMENT_TICK). At 3.3M pairs with
+        16 parameters, standard iteratively-reweighted least squares converges in
+        <10 iterations, each O(pairs * params) ~ O(50M) — well within budget on
+        modern hardware.
+      scope_constraint: "Within-neighborhood pairs ONLY (per SA-6 scaling finding)"
+      preserves_condition: "D-1 (precomputed lookup at CONSOLIDATION_CYCLE cadence) — YES"
+      preserves_condition_C1: "C-1 (raw + residual emission) — YES, both log-E[corr] and R are emitted"
+      preserves_condition_C2: "C-2 (unmodeled correlation category) — YES, residuals with |R| < unmodeled_threshold classified as UNMODELED rather than ANOMALOUS"
+      preserves_condition_C3: "C-3 (coverage fallback) — YES, if PCM coverage < 0.70, fall back to raw correlation"
+      council_agreement: "UNANIMOUS"
+
+    contradiction_C2_channel_fusion:
+      original_problem: |
+        The 4-channel quorum (>=3 of 4 channels anomalous) assumes channel
+        independence. Science Assessment SA-4 finds channels are correlated:
+        verification anomaly implies behavioral anomaly; economic anomaly correlates
+        with verification. Under correlation, 3-of-4 does not provide the
+        independence-based false positive reduction the design assumes.
+      resolution: "Two-phase fusion: Bayesian network (calibrated) with 3-of-4 quorum fallback (bootstrap)"
+      technical_specification: |
+        PHASE 1 — Bootstrap Fusion (epochs 0 until 50 confirmed Tier 2 anomalies):
+          Retain the 3-of-4 quorum as a conservative heuristic. The quorum over-counts
+          correlated evidence, producing HIGHER false positive rates than theoretically
+          optimal, which is the SAFE direction during calibration (more investigation,
+          fewer missed attacks).
+
+          Output: binary ANOMALOUS / CLEAR per neighborhood-epoch.
+
+        PHASE 2 — Calibrated Bayesian Network Fusion:
+          4-node directed acyclic graph modeling channel dependencies:
+
+          Infrastructure (I) — root node, approximately independent
+          Verification (V) — root node, approximately independent
+          Behavioral (B) — child of V, strong conditional dependency
+          Economic (E) — child of V, moderate conditional dependency
+
+          Graph structure:
+            I --> [independent]
+            V --> B  (P(B|V) estimated from data)
+            V --> E  (P(E|V) estimated from data)
+            B --> E  (weak link, P(E|B,V) estimated but B->E edge pruned if
+                      conditional mutual information < 0.05 nats)
+
+          Inference: Compute posterior probability of genuine anomaly given
+          channel evidence:
+            P(anomaly | I_obs, V_obs, B_obs, E_obs)
+
+          Using exact inference (4 nodes, enumeration is O(2^4) = 16 states —
+          trivial computation).
+
+          Prior P(anomaly) initialized at the base rate of confirmed anomalies
+          from Phase 1 data. Default: 0.01 (1% of neighborhood-epochs are
+          anomalous).
+
+          Decision threshold: P(anomaly | evidence) >= theta_fusion.
+          Default theta_fusion = 0.80 (HIGH confidence required for Tier 2
+          confirmation).
+
+          Transition criterion: >= 50 confirmed Tier 2 anomalies with known
+          channel states. Confirmed = validated by Tier 3 backward tracing OR
+          by C12 AVAP external confirmation.
+
+          Fallback: If Bayesian network posterior is unavailable (missing channel
+          data), fall back to quorum over available channels (>=2 of 3 if 1
+          channel missing, >=2 of 2 if 2 channels missing, always escalate if
+          only 1 channel available and it is anomalous).
+
+        Output for both phases:
+          - Per-channel anomaly indicator (binary)
+          - Per-channel anomaly score (continuous, 0-1)
+          - Fusion result: {decision: ANOMALOUS|CLEAR, confidence: float,
+            method: QUORUM|BAYESIAN, channel_contributions: dict}
+
+        This satisfies condition C-1 (auditability) — all raw values, residuals,
+        per-channel scores, and fusion internals are emitted.
+      parameter_count: |
+        Phase 1: 0 parameters (fixed 3-of-4 rule)
+        Phase 2: ~12 conditional probability parameters
+          - P(B=1|V=1), P(B=1|V=0): 2 parameters
+          - P(E=1|V=1), P(E=1|V=0): 2 parameters
+          - P(E=1|B=1,V=1), P(E=1|B=1,V=0), P(E=1|B=0,V=1), P(E=1|B=0,V=0): 4 params
+            (only if B->E edge retained; otherwise 0)
+          - P(I=1): 1 parameter (marginal)
+          - P(V=1): 1 parameter (marginal)
+          - P(anomaly): 1 parameter (prior)
+          - theta_fusion: 1 parameter (decision threshold)
+          Total: 8-12 parameters depending on edge pruning.
+      council_agreement: "UNANIMOUS"
+
+    contradiction_C3_dual_baseline_fusion:
+      original_problem: |
+        The dual-baseline scheme (fixed + adaptive STA/LTA) has no formally specified
+        decision fusion rule. OR maximizes recall but increases false positives. AND
+        minimizes false positives but misses single-baseline detections.
+      resolution: "OR-trigger with adaptive confirmation window and directional agreement"
+      technical_specification: |
+        The dual-baseline fusion operates in two stages:
+
+        STAGE A — Trigger (OR logic):
+          Either baseline exceeding its threshold generates a PROVISIONAL trigger.
+          - Fixed baseline trigger: STA/LTA_fixed > theta_fixed
+          - Adaptive baseline trigger: STA/LTA_adaptive > theta_adaptive
+          - Provisional trigger = fixed_trigger OR adaptive_trigger
+
+          This maximizes SENSITIVITY — no anomaly visible to either baseline is missed.
+
+        STAGE B — Confirmation (directional agreement with adaptive window):
+          A provisional trigger must be CONFIRMED within a confirmation window before
+          escalating to Tier 2.
+
+          Confirmation rule: Within the confirmation window, BOTH baselines must show
+          anomaly-direction deviation (not necessarily exceeding threshold, but moving
+          in the same direction). Formally:
+
+            confirmed = (STA/LTA_fixed > theta_fixed * alpha_confirm)
+                    AND (STA/LTA_adaptive > theta_adaptive * alpha_confirm)
+
+          Where alpha_confirm is a RELAXED threshold multiplier. Default: 0.7
+          (i.e., the non-triggering baseline must show at least 70% of its threshold
+          in the anomaly direction).
+
+          This rejects cases where one baseline triggers due to noise while the other
+          shows no anomaly-direction movement at all.
+
+        CONFIRMATION WINDOW (adaptive):
+          - Base window: W_confirm = 3 epochs (3 * TIDAL_EPOCH = 10,800s)
+          - Under high system stress (population trigger density > mu + 2*sigma
+            over rolling 100-epoch window): W_confirm = 5 epochs (18,000s)
+          - Minimum window: 1 epoch (3,600s) — never shorter, to prevent
+            single-tick noise from escalating
+
+        ESCALATION LOGIC:
+          - If confirmed within window: escalate to Tier 2 with
+            {trigger_source: DUAL_BASELINE, trigger_epoch: N, confirm_epoch: M,
+             fixed_ratio: float, adaptive_ratio: float, confirm_latency: int}
+          - If NOT confirmed within window: cancel provisional trigger, log as
+            UNCONFIRMED with full telemetry for offline analysis
+          - If BOTH baselines trigger simultaneously (both exceed full threshold
+            in same epoch): IMMEDIATE escalation, no confirmation window needed.
+            This handles sudden-onset anomalies that are unambiguous.
+
+        DESIGN TRADE-OFF (documented per Critic requirement):
+          - Worst-case detection latency: 5 epochs * 3,600s = 18,000s (5 hours)
+            under high system stress for slow-ramp anomalies visible to only one
+            baseline initially.
+          - Best-case: 0 epochs (both baselines trigger simultaneously).
+          - Expected case for genuine anomalies: 1-2 epochs (genuine anomalies
+            typically affect both baselines within a few epochs).
+          - This latency is ACCEPTABLE for the threat model: slow-ramp evasion
+            (the primary target of dual-baseline) is inherently slow (weeks to
+            months of gradual shift). A 5-hour confirmation window is negligible
+            relative to the attack timeline.
+      parameter_count: |
+        - theta_fixed: 1 (fixed baseline STA/LTA threshold)
+        - theta_adaptive: 1 (adaptive baseline STA/LTA threshold)
+        - alpha_confirm: 1 (relaxed confirmation multiplier, default 0.7)
+        - W_confirm_base: 1 (base confirmation window, default 3 epochs)
+        - W_confirm_stress: 1 (stress confirmation window, default 5 epochs)
+        - stress_sigma_multiplier: 1 (default 2.0)
+        Total: 6 parameters.
+      council_agreement: "UNANIMOUS (Skeptic notes latency trade-off is acceptable for stated threat model)"
+
+  # ============================================================
+  # SECTION 3: ADDITIONAL REFINEMENTS
+  # ============================================================
+
+  spectral_clustering_hardening:
+    original_problem: |
+      SA-3 identifies adversarial vulnerability: an attacker controlling O(sqrt(V))
+      edges can significantly alter spectral clustering boundaries (Bojchevski &
+      Gunnemann 2019). The 2*log(V) cap mitigates concentration but not boundary
+      manipulation.
+    resolution: "Dual-graph NMI divergence check with temporal persistence fallback"
+    technical_specification: |
+      At each CONSOLIDATION_CYCLE, compute spectral clustering TWICE:
+        1. C_primary = spectral_cluster(G_interaction)
+        2. C_perturbed = spectral_cluster(G_interaction + N(0, sigma_perturb^2))
+           where sigma_perturb = 0.1 * median(edge_weights)
+
+      Compute NMI(C_primary, C_perturbed).
+
+      Decision rule:
+        - If NMI >= 0.85: Accept C_primary. Clustering is robust to small
+          perturbations, unlikely to be adversarially manipulated.
+        - If 0.70 <= NMI < 0.85: Accept C_primary but flag as LOW_CONFIDENCE.
+          Log for offline review. Increase perturbation sigma by 50% next cycle
+          to probe further.
+        - If NMI < 0.70: REJECT C_primary. Fall back to previous cycle's
+          clustering partition. If previous partition is also flagged, use a
+          UNIFORM RANDOM partition as a safe default (eliminates adversarial
+          advantage at cost of detection efficiency).
+
+      Computational cost: One additional spectral clustering computation per
+      CONSOLIDATION_CYCLE. At V=100K with sparse graph, spectral clustering
+      via ARPACK on the normalized Laplacian is O(V * k * iterations) where
+      k ~ sqrt(V) ~ 316 clusters and iterations ~ 30. Total ~ 10^9 operations,
+      completing in <10 seconds on modern hardware. Acceptable within the
+      36,000-second cycle budget.
+
+      Adversarial game-theoretic analysis: DEFERRED to DESIGN per SA-7. The
+      NMI check is a pragmatic first-line defense, not a formal guarantee.
+      DESIGN must include a game-theoretic analysis of the attacker's optimal
+      strategy against the dual-graph check and determine whether additional
+      hardening (e.g., certified robustness bounds) is warranted.
+    council_agreement: "MAJORITY (Critic accepts as pragmatic but flags need for game-theoretic analysis at DESIGN)"
+
+  tier3_sample_size_mitigation:
+    original_problem: |
+      SA-5 identifies that overdispersion analysis requires >= 30 confirmed
+      anomalies per analysis window. At low anomaly rates, Tier 3 may not
+      accumulate sufficient samples.
+    resolution: "Hybrid sample pool with synthetic calibration anomalies"
+    technical_specification: |
+      Tier 3 backward tracing operates on a HYBRID sample pool:
+
+      1. CONFIRMED anomalies from Tier 2 (primary data source)
+      2. SYNTHETIC calibration anomalies injected by the system at a controlled
+         rate (secondary data source, labeled, excluded from real detection metrics)
+      3. HISTORICAL anomalies from previous analysis windows (decaying weight,
+         half-life = 3 CONSOLIDATION_CYCLEs)
+
+      Synthetic anomaly injection:
+        - Rate: max(5, 0.01 * V) synthetic anomalies per CONSOLIDATION_CYCLE
+        - At V=100K: 1,000 synthetic anomalies per cycle
+        - At V=1K: 10 synthetic anomalies per cycle
+        - Synthetics are LABELED and excluded from Tier 2 statistics
+        - Synthetics serve dual purpose: (a) provide sample floor for
+          overdispersion calibration, (b) validate Tier 3 pipeline end-to-end
+
+      Minimum sample rule:
+        - If confirmed + historical anomalies >= 30: use real data only for
+          overdispersion analysis (synthetics for validation only)
+        - If confirmed + historical < 30: include synthetic data in
+          overdispersion calibration with reduced weight (w_synthetic = 0.5)
+        - If confirmed anomalies = 0 for 3 consecutive cycles: emit
+          TIER3_DORMANT status; Tier 3 remains available but does not produce
+          active causal attribution (insufficient signal)
+    council_agreement: "UNANIMOUS"
+
+  # ============================================================
+  # SECTION 4: PARAMETER BUDGET (per Skeptic requirement)
+  # ============================================================
+
+  parameter_budget:
+    total_estimated: 86
+    breakdown:
+      pcm_log_linear:
+        count: 64
+        detail: "16 parameters (5 main + 10 interaction + 1 intercept) x 4 channels"
+        tuning_phase: "W1 (defaults from ecological literature at W0)"
+        sensitivity: "HIGH — beta_1 (committee co-assignment) and gamma_{12} (committee x parcel interaction) expected to dominate"
+      bayesian_network:
+        count: 12
+        detail: "Conditional probabilities + prior + threshold (see contradiction_C2)"
+        tuning_phase: "Phase 2 transition after 50 confirmed anomalies (likely W1-W2)"
+        sensitivity: "MEDIUM — theta_fusion (decision threshold) is the single most impactful parameter"
+      dual_baseline_fusion:
+        count: 6
+        detail: "Two thresholds + confirmation multiplier + window sizes + stress multiplier"
+        tuning_phase: "W0 (seismological defaults: theta_fixed = 3.0, theta_adaptive = 4.0, alpha_confirm = 0.7)"
+        sensitivity: "MEDIUM — theta_fixed and theta_adaptive are the primary tuning targets"
+      spectral_clustering:
+        count: 3
+        detail: "sigma_perturb (0.1), NMI threshold high (0.85), NMI threshold low (0.70)"
+        sensitivity: "LOW — these are robustness parameters, not detection parameters"
+      tier3_overdispersion:
+        count: 1
+        detail: "Synthetic injection rate (0.01 * V)"
+        sensitivity: "LOW — calibration parameter"
+    initialization_strategy: |
+      All parameters have principled defaults from literature:
+      - PCM: Ecological covariate-adjusted network defaults (Ovaskainen et al. 2017)
+      - STA/LTA thresholds: Seismological convention (STA/LTA = 3-5, Allen 1978)
+      - Bayesian network: Uniform priors until calibration data available
+      - NMI thresholds: Standard clustering stability literature (Vinh et al. 2010)
+
+      ZERO parameters require hand-tuning before first deployment. The system
+      operates on defaults and self-calibrates through accumulated observations.
+    staged_tuning_plan:
+      W0: "STA/LTA thresholds (2 params) and alpha_confirm (1 param) tuned via 3 pre-registered experiments per C22 W0 kill criteria"
+      W1: "PCM coefficients (64 params) estimated via MLE on accumulated data. Bayesian network CPTs if 50+ anomalies reached."
+      W2: "Full system tuning with sensitivity analysis. NMI thresholds adjusted if adversarial clustering attacks observed."
+    sensitivity_analysis_required: true
+    sensitivity_analysis_deliverable: "DESIGN must produce ranked sensitivity analysis of all 86 parameters, identifying top-10 most impactful for detection performance (FAR/FRR)"
+
+  # ============================================================
+  # SECTION 5: UPDATED SCORES
+  # ============================================================
+
+  scores:
+    novelty:
+      value: 3.5
+      justification: |
+        Confirmed at 3.5 (within the 3.5-4.0 range from promotion). PCM with
+        log-linear interaction terms has NO direct precedent in multi-agent security
+        (confirmed by Prior Art). The Bayesian network fusion over heterogeneous
+        security channels is novel in this domain. STA/LTA cross-domain transfer is
+        novel. The 6-innovation composition (STA/LTA + dual-baseline + PCM +
+        Bayesian fusion + spectral neighborhoods + epidemiological traceback) is
+        unique.
+
+        Not 4.0 because: (a) log-linear covariate models are standard in ecology,
+        (b) Bayesian network fusion is well-established in sensor fusion literature,
+        (c) spectral clustering and overdispersion analysis are mature techniques.
+        Novelty is in the COMPOSITION and DOMAIN APPLICATION, not in any single
+        algorithmic component.
+      prior_art_delta: "None — research confirmed novelty claims"
+    feasibility:
+      value: 3.5
+      justification: |
+        Reduced from 4.0 at promotion to 3.5. The refinements (log-linear PCM,
+        Bayesian network, adaptive confirmation window, NMI check) increase system
+        complexity relative to the original IC-2. The parameter budget of 86
+        is manageable but requires disciplined staged tuning. All computational
+        bounds verified (PCM refresh <60s, Bayesian inference O(16), NMI check
+        <10s, all within CONSOLIDATION_CYCLE budget).
+
+        Key feasibility concerns:
+        - 86 parameters with limited early-deployment data for calibration
+        - Two-phase fusion transition (quorum -> Bayesian) adds deployment complexity
+        - Spectral clustering hardening is pragmatic but lacks formal guarantees
+        - PCM convergence bounds still unproven (MF-2 remains OPEN)
+
+        Not lower than 3.5 because: (a) all individual algorithms are well-
+        understood and implemented in standard libraries, (b) computational
+        budgets are verified, (c) staged deployment plan mitigates calibration
+        risk, (d) fallback mechanisms exist for every component.
+      risk_factors:
+        - "Parameter calibration with limited data in W0-W1"
+        - "PCM convergence bounds unproven"
+        - "Spectral clustering adversarial robustness lacks formal guarantees"
+        - "Fixed-baseline reconstructibility by adversary (MF-4)"
+    impact:
+      value: 4.0
+      justification: |
+        C35 provides the ONLY proposed detection layer for the AAS that combines
+        per-agent monitoring, regional correlation, and causal traceback. Without
+        C35, the AAS relies on C12 AVAP (reactive, post-hoc) and C17 MCSD L2
+        (pairwise behavioral similarity only, no hierarchical detection or causal
+        attribution). C35 fills the gap between C17's pairwise fingerprinting and
+        C12's confirmed collusion response.
+
+        Cross-layer integration with 7 existing specs (C3, C5, C6, C7, C8, C12,
+        C17) makes C35 a high-value architectural component. ETR outputs (skew,
+        starvation, divergence) feed directly into C3 tidal scheduling, making C35
+        the primary feedback loop from detection to scheduling remediation.
+    risk:
+      value: 5
+      level: "MEDIUM"
+      justification: |
+        Risk increased from 4/10 to 5/10 reflecting:
+        - 86-parameter system with staged calibration dependency
+        - Two-phase fusion transition complexity
+        - Unproven PCM convergence bounds (MF-2)
+        - Fixed-baseline reconstructibility (MF-4)
+        - Spectral clustering adversarial vulnerability (SA-3)
+
+        Mitigated by:
+        - All components have literature defaults (zero hand-tuning at launch)
+        - Fallback mechanisms at every tier (quorum fallback, previous-cycle
+          clustering, raw correlation below PCM coverage threshold)
+        - Staged deployment aligned with C22 waves
+
+  # ============================================================
+  # SECTION 6: MONITORING FLAGS (UPDATED)
+  # ============================================================
+
+  monitoring_flags:
+    - flag_id: "MF-1"
+      status: "RESOLVED"
+      original: "Quorum integration sufficiency — if Tier 2 quorum integration insufficient at DESIGN, revisit IC-3 adaptive topology"
+      resolution: "Replaced 3-of-4 quorum with two-phase Bayesian network fusion. IC-3 adaptive topology no longer needed. The Bayesian network subsumes the quorum's intent with principled statistical treatment of channel correlation."
+
+    - flag_id: "MF-2"
+      status: "OPEN"
+      original: "PCM convergence bounds — validate analytically and via simulation"
+      update: |
+        Log-linear model does not resolve convergence concern — it adds parameters
+        (16 vs 6), potentially increasing convergence time. MLE convergence for
+        log-linear models with 16 parameters on ~500 pairs per neighborhood is
+        expected within 100-500 CONSOLIDATION_CYCLEs (~40-200 days) by analogy to
+        ecological networks (Ovaskainen et al. 2017). Formal proof or simulation
+        validation remains BLOCKING for DESIGN advancement.
+      action: "EXP-3 simulation at DESIGN stage"
+
+    - flag_id: "MF-3"
+      status: "RESOLVED"
+      original: "Composition novelty sufficiency"
+      resolution: "Confirmed HIGH by Prior Art. PCM log-linear residuals in multi-agent security have no direct precedent. 6-innovation composition is unique."
+
+    - flag_id: "MF-4"
+      status: "OPEN"
+      original: "Fixed-baseline reconstructibility by adversary"
+      update: |
+        The confirmation window mechanism does NOT resolve this risk. If an adversary
+        reconstructs the fixed baseline parameters, they can craft evasion that stays
+        below both baselines' thresholds. The OR-with-confirmation fusion only helps
+        when the adversary evades ONE baseline — it does not help when both are
+        compromised.
+
+        Potential mitigations to evaluate at DESIGN:
+        (a) Noise injection into fixed baseline (add calibrated random offset)
+        (b) Multiple fixed baselines from different calibration windows
+        (c) Encrypted fixed baseline (agent cannot observe its own threshold)
+        (d) Periodic fixed-baseline rotation with overlap period
+      action: "Red Team evaluation at DESIGN. DESIGN must select and specify a mitigation from (a)-(d) or propose alternative."
+
+    - flag_id: "MF-5"
+      status: "NEW"
+      original: "PCM log-linear residual calibration"
+      description: |
+        The log-linear model assumes a specific functional form for covariate
+        interactions (multiplicative in log-space). If true interactions are
+        non-multiplicative (e.g., threshold effects at 3+ shared covariates),
+        the model will produce systematically biased residuals. Monitor residual
+        calibration against held-out data at each CONSOLIDATION_CYCLE.
+      action: "DESIGN must specify a residual calibration diagnostic (e.g., residual QQ-plot, Hosmer-Lemeshow goodness-of-fit) and a remediation protocol if calibration degrades below threshold."
+
+    - flag_id: "MF-6"
+      status: "NEW"
+      original: "Bayesian network calibration sample size"
+      description: |
+        The Bayesian network fusion requires >= 50 confirmed Tier 2 anomalies for
+        reliable conditional probability estimation. At low anomaly rates, this may
+        take months to accumulate. During this period, the system operates on the
+        3-of-4 quorum fallback, which over-counts correlated evidence.
+      action: "DESIGN must specify the quorum-to-Bayesian transition protocol, including: (a) minimum sample criterion, (b) cross-validation of CPT estimates, (c) rollback criterion if Bayesian performance degrades."
+
+    - flag_id: "MF-7"
+      status: "NEW"
+      original: "Adversarial spectral clustering game-theoretic analysis"
+      description: |
+        The dual-graph NMI divergence check is a heuristic defense. An adversary who
+        understands the perturbation distribution can craft edge modifications that
+        survive the NMI check. SA-7 requires formal game-theoretic analysis.
+      action: "DESIGN must include a game-theoretic analysis of attacker vs. defender strategies for spectral clustering manipulation, and determine whether the NMI check provides sufficient robustness or whether certified bounds (Zugner et al. 2020) are required."
+
+  # ============================================================
+  # SECTION 7: CONDITIONS CARRIED FORWARD
+  # ============================================================
+
+  conditions:
+    from_promotion:
+      - id: "C-1"
+        text: "Tier 2 emits raw + residual values (auditability)"
+        status: "PRESERVED — both log-E[corr] and R are emitted in refined PCM; Bayesian network emits per-channel scores and fusion internals"
+      - id: "C-2"
+        text: "PCM includes unmodeled correlation category at reduced severity"
+        status: "PRESERVED — residuals below unmodeled_threshold classified as UNMODELED"
+      - id: "C-3"
+        text: "PCM coverage fallback to raw IC-2 below 0.70 threshold"
+        status: "PRESERVED — unchanged"
+      - id: "D-1"
+        text: "PCM is precomputed lookup, refreshed at CONSOLIDATION_CYCLE cadence"
+        status: "PRESERVED — log-linear MLE computed at refresh, lookup table updated"
+
+    new_from_feasibility:
+      - id: "C-4"
+        text: "DESIGN must produce parameter initialization strategy with literature defaults for all 86 parameters"
+      - id: "C-5"
+        text: "DESIGN must produce staged tuning plan (W0/W1/W2) identifying which parameters are tuned at each wave"
+      - id: "C-6"
+        text: "DESIGN must produce sensitivity analysis ranking all parameters by impact on FAR/FRR, identifying top-10"
+      - id: "C-7"
+        text: "DESIGN must include game-theoretic analysis of adversarial spectral clustering manipulation"
+      - id: "C-8"
+        text: "DESIGN must specify quorum-to-Bayesian transition protocol with cross-validation and rollback criteria"
+      - id: "C-9"
+        text: "DESIGN must select and specify a mitigation for fixed-baseline reconstructibility from candidate set or alternative"
+
+  # ============================================================
+  # SECTION 8: REFINED CONCEPT SUMMARY
+  # ============================================================
+
+  refined_concept:
+    title: "Seismographic Sentinel with PCM-Augmented Tier 2"
+    invention_id: "C35"
+    summary: |
+      Three-tier hierarchical detection pipeline for security and anomaly detection
+      in the AAS multi-agent verification ecosystem. Refined at FEASIBILITY to address
+      three research-identified contradictions (covariate dependence, channel correlation,
+      decision fusion ambiguity) and one adversarial vulnerability (spectral clustering
+      manipulation).
+
+    tier_1_refined: |
+      Per-agent STA/LTA anomaly detection on 4 metric streams (verification latency,
+      claim acceptance rate, committee frequency, behavioral consistency). DUAL BASELINE:
+      fixed (calibrated at agent registration) + adaptive (rolling window). Fusion via
+      OR-trigger with adaptive confirmation window (3-5 epochs). Simultaneous dual-trigger
+      bypasses confirmation for immediate escalation. 6 parameters.
+
+    tier_2_refined: |
+      Regional correlation within spectrally-clustered neighborhoods (cap 2*log(V),
+      split-on-overflow). PCM UPGRADED to log-linear model with 5 main effects and
+      10 pairwise interaction terms per channel (64 parameters total). Residuals
+      R = observed - exp(log-linear prediction) isolate unexplained correlation.
+
+      MULTI-CHANNEL FUSION UPGRADED from 3-of-4 quorum to two-phase system:
+      Phase 1 (bootstrap): 3-of-4 quorum (conservative, safe under limited data).
+      Phase 2 (calibrated): 4-node Bayesian network with empirical conditional
+      dependencies (I independent; V->B strong; V->E moderate). Threshold on
+      posterior P(anomaly|evidence) >= 0.80. Transition after 50 confirmed anomalies.
+      12 parameters.
+
+      SPECTRAL CLUSTERING HARDENED via dual-graph NMI divergence check. Gaussian
+      perturbation of edge weights; if NMI < 0.70, fall back to previous partition.
+      3 parameters.
+
+    tier_3_refined: |
+      Epidemiological backward tracing via overdispersion analysis. SAMPLE SIZE
+      MITIGATED via hybrid pool: confirmed anomalies + historical (decaying weight)
+      + synthetic calibration anomalies (labeled, rate = max(5, 0.01*V) per cycle).
+      1 parameter.
+
+    total_parameters: 86
+    computational_budget:
+      tier_1: "O(V) per SETTLEMENT_TICK — unchanged"
+      tier_2_pcm_refresh: "<60 seconds per CONSOLIDATION_CYCLE — verified"
+      tier_2_bayesian: "O(16) per neighborhood-epoch — trivial"
+      tier_2_nmi_check: "<10 seconds per CONSOLIDATION_CYCLE — verified"
+      tier_3: "On-demand, O(anomalies * neighborhoods) — unchanged"
+
+    cross_layer_integration:
+      - "C3: scheduling data -> STA/LTA inputs; ETR outputs (skew, starvation, divergence) -> C3 remediation"
+      - "C5: verification outcomes -> Tier 1 primary metric; PCM committee covariate"
+      - "C6: knowledge consolidation events -> PCM temporal covariate"
+      - "C7: saga status -> agent lifecycle awareness"
+      - "C8: settlement data -> economic channel; PCM staking tier covariate"
+      - "C9: epoch hierarchy -> temporal alignment (SETTLEMENT_TICK/TIDAL_EPOCH/CONSOLIDATION_CYCLE)"
+      - "C12: AVAP confirmed edges -> pre-confirmed Tier 2 triggers + Bayesian CPT training data"
+      - "C17: B(a_i, a_j) behavioral similarity -> behavioral channel input; LSH pre-filtering"
+
+  # ============================================================
+  # SECTION 9: COUNCIL VOTES
+  # ============================================================
+
+  votes:
+    visionary: "ADVANCE"
+    systems_thinker: "ADVANCE"
+    critic: "ADVANCE"
+    skeptic: "CONDITIONAL ADVANCE (conditions C-4, C-5, C-6 accepted by full council)"
+    consensus: "UNANIMOUS ADVANCE with 6 new conditions (C-4 through C-9) and 3 new monitoring flags (MF-5, MF-6, MF-7)"
+
+  recommendation: "ADVANCE to DESIGN"
+  recommendation_rationale: |
+    All three research contradictions have been resolved with principled, well-grounded
+    solutions:
+    1. PCM: log-linear model with interaction terms (standard ecological correction)
+    2. Channel fusion: two-phase Bayesian network with quorum bootstrap (standard
+       sensor fusion with calibration-aware phasing)
+    3. Dual-baseline fusion: OR-with-confirmation and adaptive window (novel but
+       well-motivated by the detection theory trade-off)
+
+    Spectral clustering hardening and Tier 3 sample size concerns are addressed with
+    pragmatic solutions (NMI check, synthetic calibration) that are sufficient for
+    DESIGN entry while flagging formal guarantees as DESIGN deliverables.
+
+    The Skeptic's concern about parameter complexity (86 parameters) is valid but
+    mitigated by: (a) all parameters have literature defaults, (b) staged tuning
+    plan, (c) mandatory sensitivity analysis at DESIGN. These are carried as
+    conditions C-4, C-5, C-6.
+
+    No fatal flaws identified. All risks are MEDIUM and have identified mitigations.
+    MF-2 (PCM convergence) and MF-4 (fixed-baseline reconstructibility) remain the
+    two highest-priority open items for DESIGN resolution.

@@ -1,0 +1,82 @@
+[
+  {
+    "affected_layers": [
+      "Strategic Planning",
+      "Runtime",
+      "Agent",
+      "Governance"
+    ],
+    "baseline_status": "specified_only",
+    "evidence": [
+      "Repo exposes documentation and validators but no orchestration runtime.",
+      "Baseline scripts: validate_agent_state.py, validate_contribution_requests.py, validate_invention_concept.py"
+    ],
+    "gap_id": "GAP-001",
+    "impact": "The system cannot execute recursive architecture evolution as a program.",
+    "severity": "critical",
+    "title": "Missing executable coordination kernel"
+  },
+  {
+    "affected_layers": [
+      "CSSM",
+      "PAEE",
+      "GCML"
+    ],
+    "baseline_status": "missing",
+    "evidence": [
+      "No canonical state store existed under /AAS/runtime/state.",
+      "No per-swarm CSSM isolation surfaces existed for Alpha/Beta/Gamma."
+    ],
+    "gap_id": "GAP-002",
+    "impact": "Agents cannot reason against versioned architecture state or compare futures.",
+    "severity": "critical",
+    "title": "No canonical CSSM snapshots or isolated swarm state"
+  },
+  {
+    "affected_layers": [
+      "Registry",
+      "Coordination Kernel",
+      "Task Generation"
+    ],
+    "baseline_status": "missing",
+    "evidence": [
+      "The repo had durable invention history but no machine-readable ACR.",
+      "No executable task dependency graph or proposal registry existed."
+    ],
+    "gap_id": "GAP-003",
+    "impact": "Capability-aware assignment and proposal-driven execution were impossible.",
+    "severity": "high",
+    "title": "No agent capability registry, proposal registry, or task graph runtime"
+  },
+  {
+    "affected_layers": [
+      "Monitoring",
+      "Failure Recovery",
+      "Governance"
+    ],
+    "baseline_status": "missing",
+    "evidence": [
+      "No /AAS/runtime/logs directory existed.",
+      "No recovery manifest or deterministic resume source existed."
+    ],
+    "gap_id": "GAP-004",
+    "impact": "The system could not be observed, audited, or resumed after interruption.",
+    "severity": "high",
+    "title": "No telemetry or recovery control plane"
+  },
+  {
+    "affected_layers": [
+      "Configuration",
+      "Bootstrap"
+    ],
+    "baseline_status": "materialized",
+    "evidence": [
+      "AAS configuration existed in aas_configuration_pack.zip.",
+      "The expected /AAS/config directory was absent before bootstrap."
+    ],
+    "gap_id": "GAP-005",
+    "impact": "Initialization depended on manual extraction rather than deterministic loading.",
+    "severity": "medium",
+    "title": "Configuration pack was archived but not materialized as a runtime directory"
+  }
+]

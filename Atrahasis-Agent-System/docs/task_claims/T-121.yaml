@@ -1,0 +1,16 @@
+task_id: "T-121"
+invention_ids: []
+target_specs: []
+title: "TODO board structure cleanup"
+platform: "CODEX"
+claimed_at: "2026-03-12T02:30:49Z"
+updated_at: "2026-03-12T02:34:59Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/TODO.md"
+    - "docs/AGENT_STATE.md"
+    - "docs/COMPLETED.md"
+    - "docs/task_claims/T-121.yaml"
+  pipeline_type: "GOVERNANCE"
+notes: "Remove deprecated display from TODO, keep an out-of-scope section, and remove the bottom summary block."

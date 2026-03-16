@@ -1,0 +1,14 @@
+task_id: "T-204"
+invention_ids: []
+target_specs: []
+title: "Remove Completed T-200 from Open Alternative B Backlog"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T22:05:00Z"
+updated_at: "2026-03-12T22:10:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-204/"
+  pipeline_type: "GOVERNANCE"
+notes: "Completed cleanup. Removed stale T-200 row from the open Alternative B backlog and recorded the correction in COMPLETED.md."

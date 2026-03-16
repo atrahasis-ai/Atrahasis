@@ -1,0 +1,15 @@
+task_id: "T-087"
+invention_ids: []
+target_specs:
+  - "C6"
+title: "Specify Bundle Compaction Engine"
+platform: "CODEX"
+agent_name: "Ninsubur"
+claimed_at: "2026-03-12T08:17:45Z"
+updated_at: "2026-03-12T08:22:14Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C6/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Completed direct C6 bundle compaction engine update in safe zone. Shared-state closeout queued in docs/handoffs/T-087_CODEX_HANDOFF.md."

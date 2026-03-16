@@ -1,0 +1,15 @@
+task_id: "T-242"
+agent_name: "Nammu"
+invention_ids: []
+target_specs:
+  - "C39"
+title: "AACP Elicitation and Prompting Protocol"
+platform: "CODEX"
+claimed_at: "2026-03-13T13:28:00Z"
+updated_at: "2026-03-13T06:54:26.7054420Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C39/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Extended C39 LCML to v1.0.2 with prompt bundle refinements, PMT-bound parameter resolution rules, typed clarification schemas, a canonical multi-turn clarification loop, prompt-family examples, new prompt parameters, LCML-R27 through LCML-R35, and prompt-specific risk/open-question updates."

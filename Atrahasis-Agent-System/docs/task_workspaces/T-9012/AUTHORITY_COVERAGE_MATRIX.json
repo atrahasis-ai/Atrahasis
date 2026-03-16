@@ -1,0 +1,123 @@
+{
+  "task_id": "T-9012",
+  "type": "AUTHORITY_COVERAGE_MATRIX",
+  "stage": "IDEATION",
+  "coverage_required": true,
+  "generated_at": "2026-03-15T17:39:00Z",
+  "named_authority_surfaces": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C18",
+    "C22",
+    "C39",
+    "T-300"
+  ],
+  "recommendation_blocked_until_complete": false,
+  "surface_rows": [
+    {
+      "surface": "C45",
+      "coverage_status": "COVERED_PARTIAL",
+      "current_authority": "C45 already formalizes route-level execution mode split between NATIVE_SOVEREIGN and LEASED_COGNITION behind Atrahasis-owned control planes.",
+      "disposition": "partially_subsumed_reframe_needed",
+      "new_authority_needed": false,
+      "notes": [
+        "The old idea is not missing in its raw form because C45 already decouples route execution from underlying provider or native substrate.",
+        "A future addition would need to sit under C45 as a backend substrate scheduler rather than above it as a peer layer."
+      ]
+    },
+    {
+      "surface": "C42",
+      "coverage_status": "COVERED_PARTIAL",
+      "current_authority": "C42 owns bounded execution priming and runtime handoff semantics.",
+      "disposition": "partially_subsumed_reframe_needed",
+      "new_authority_needed": false,
+      "notes": [
+        "Any expensive inference flow that becomes execution-capable must remain visible through C42 rather than invent a second control plane.",
+        "A restored ambient inference bus would conflict with C42's anti-ambient-authority posture."
+      ]
+    },
+    {
+      "surface": "C47",
+      "coverage_status": "COVERED_PARTIAL",
+      "current_authority": "C47 already owns native model adaptation, quarantine, and promotion on Atrahasis-controlled hardware.",
+      "disposition": "partially_subsumed_reframe_needed",
+      "new_authority_needed": false,
+      "notes": [
+        "The long-term independent model lane already exists.",
+        "A valid gap would be only the internal serving-plane handoff after promotion, not model adaptation itself."
+      ]
+    },
+    {
+      "surface": "C36",
+      "coverage_status": "COVERED",
+      "current_authority": "C36 governs all externally reachable membrane surfaces and forbids direct Sanctum exposure.",
+      "disposition": "constraint_only",
+      "new_authority_needed": false,
+      "notes": [
+        "Any inference substrate must remain internal and membrane-bounded.",
+        "A generic shared inference microservice plane with public or cross-membrane reach would violate C36."
+      ]
+    },
+    {
+      "surface": "C18",
+      "coverage_status": "COVERED_PARTIAL",
+      "current_authority": "C18 already budgets sovereign compute, leased cognition, and Forge-backed native promotion as first-order costs.",
+      "disposition": "partially_subsumed_reframe_needed",
+      "new_authority_needed": false,
+      "notes": [
+        "The economics already acknowledge separated model operations as real costs.",
+        "A narrower design could justify more explicit pooled GPU accounting, but not a return to the original subsystem verbatim."
+      ]
+    },
+    {
+      "surface": "C22",
+      "coverage_status": "COVERED_PARTIAL",
+      "current_authority": "C22 already plans bounded leased-provider wrappers, local/native runtimes, and separate service boundaries, but still needs future sequencing rewrite under T-305.",
+      "disposition": "partially_subsumed_reframe_needed",
+      "new_authority_needed": false,
+      "notes": [
+        "The implementation plan recognizes separate model operations, but not a first-class internal model-capacity control plane.",
+        "This is the strongest place where a downstream redesign could become concrete."
+      ]
+    },
+    {
+      "surface": "C39",
+      "coverage_status": "COVERED",
+      "current_authority": "C39 already owns prompting, streaming, sampling, and model provenance message semantics.",
+      "disposition": "constraint_only",
+      "new_authority_needed": false,
+      "notes": [
+        "A new subsystem should not invent a parallel inference protocol.",
+        "At most, a redesign might require small provenance or backend-class disclosure additions."
+      ]
+    },
+    {
+      "surface": "T-300",
+      "coverage_status": "COVERED",
+      "current_authority": "T-300 fixes Alternative C as the only forward authority and keeps old C4-era concepts as historical baseline only.",
+      "disposition": "reject_verbatim_restoration",
+      "new_authority_needed": false,
+      "notes": [
+        "The original blueprint cannot be restored as-is as forward design authority.",
+        "Any salvage path must be translated into current Alternative C surfaces."
+      ]
+    }
+  ],
+  "new_semantic_authority_test": {
+    "verdict": "not_yet_required",
+    "rationale": "The candidate does not justify a verbatim new subsystem. The only viable gap is a narrower internal model-capacity or sovereign inference substrate subordinate to C45 and C47.",
+    "affected_modules": [
+      "C45",
+      "C47",
+      "C18",
+      "C22",
+      "C39"
+    ],
+    "follow_on_task_shapes": [
+      "DIRECT_SPEC addenda to C45, C47, C18, and C22",
+      "Possible new FULL_PIPELINE task only if the scope expands into a genuinely cross-cutting model-capacity fabric"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "notifications": [
+    {
+      "action": "resolve_hitl",
+      "category": "pending_hitl",
+      "created_at": "2026-03-15T09:12:41Z",
+      "notification_id": "note-t-9002-pending_hitl",
+      "severity": "high",
+      "status": "OPEN",
+      "summary": "T-9002 has pending HITL entries.",
+      "task_id": "T-9002",
+      "updated_at": "2026-03-15T12:46:48Z"
+    },
+    {
+      "action": "execute_closeout",
+      "category": "closeout_ready",
+      "created_at": "2026-03-15T09:14:13Z",
+      "notification_id": "note-t-9002-closeout_ready",
+      "severity": "medium",
+      "status": "RESOLVED",
+      "summary": "T-9002 is ready for closeout.",
+      "task_id": "T-9002",
+      "updated_at": "2026-03-15T12:19:43Z"
+    }
+  ],
+  "updated_at": "2026-03-15T12:46:48Z"
+}

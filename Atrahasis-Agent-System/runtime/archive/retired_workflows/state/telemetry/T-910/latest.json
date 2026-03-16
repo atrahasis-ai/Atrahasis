@@ -1,0 +1,99 @@
+{
+  "artifact_count": 25,
+  "event_counts": {
+    "artifact_written": 105,
+    "operator_session_updated": 3,
+    "pipeline_run_completed": 1,
+    "pipeline_run_started": 4,
+    "pipeline_stage_completed": 10
+  },
+  "recent_events": [
+    {
+      "artifact": "docs/task_workspaces/T-910/DECISION_RANKING_REPORT.json",
+      "event": "artifact_written",
+      "schema": "decision_ranking_report",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/HYPOTHESIS_PACKET.json",
+      "event": "artifact_written",
+      "schema": "hypothesis_packet",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/RESEARCH_PROGRAM_REPORT.json",
+      "event": "artifact_written",
+      "schema": "research_program_report",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/DISCOVERY_MAP.json",
+      "event": "artifact_written",
+      "schema": "discovery_map",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/EXPERIMENT_SIMULATION_REPORT.json",
+      "event": "artifact_written",
+      "schema": "experiment_simulation_report",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/RESEARCH_STRATEGY_REPORT.json",
+      "event": "artifact_written",
+      "schema": "research_strategy_report",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "event": "pipeline_stage_completed",
+      "stage": "reasoning_and_evaluation",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/HUMAN_DECISION_RECORD.json",
+      "event": "artifact_written",
+      "schema": "human_decision_record",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/EXPLORATION_CONTROL_RECORD.json",
+      "event": "artifact_written",
+      "schema": "exploration_control_record",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "event": "operator_session_updated",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z",
+      "workflow_id": "T-910-AASBT-20260313T171622Z"
+    },
+    {
+      "event": "pipeline_stage_completed",
+      "stage": "human_guidance",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    },
+    {
+      "artifact": "docs/task_workspaces/T-910/WORKFLOW_RUN_RECORD.json",
+      "event": "artifact_written",
+      "schema": "workflow_run_record",
+      "task_id": "T-910",
+      "timestamp": "2026-03-13T17:16:22Z"
+    }
+  ],
+  "stage_count": 3,
+  "status": "PENDING_HUMAN_REVIEW",
+  "task_id": "T-910",
+  "type": "TELEMETRY_SUMMARY",
+  "updated_at": "2026-03-13T17:16:22Z",
+  "workflow_id": "T-910-AASBT-20260313T171622Z"
+}

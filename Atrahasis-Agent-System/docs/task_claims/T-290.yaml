@@ -1,0 +1,15 @@
+task_id: T-290
+invention_ids: []
+target_specs: []
+title: AACP v2 Cross-Layer Integration with Atrahasis Stack
+platform: CODEX
+agent_name: Anu
+claimed_at: '2026-03-13T22:04:37Z'
+updated_at: '2026-03-13T22:19:28Z'
+status: DONE
+scope:
+  safe_zone_paths:
+  - docs/task_workspaces/T-290/
+  pipeline_type: DIRECT_SPEC
+notes: DONE. Produced AXIP-v1 in docs/task_workspaces/T-290/CROSS_LAYER_INTEGRATION_SPEC.md.
+  Shared-state backlog cleanup deferred because T-261 remains actively claimed.

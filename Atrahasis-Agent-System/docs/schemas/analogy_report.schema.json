@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Analogy Report",
+  "type": "object",
+  "required": ["type", "analogies"],
+  "properties": {
+    "type": {"const": "ANALOGY_REPORT"},
+    "analogies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["target_zone", "source_domain", "transfer_pattern"],
+        "properties": {
+          "target_zone": {"type": "string"},
+          "source_domain": {"type": "string"},
+          "transfer_pattern": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

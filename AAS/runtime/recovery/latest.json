@@ -1,0 +1,27 @@
+{
+  "agent_capability_registry": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\registries\\agent_capability_registry.json",
+  "council_decisions": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\councils\\council_decisions.json",
+  "generated_at": "2026-03-13T10:33:51Z",
+  "knowledge_graph": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\memory\\knowledge_graph.json",
+  "latest_canonical_cssm": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\canonical\\AAS-State-v1.105.json",
+  "latest_cycle_dir": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\cycles\\cycle-104",
+  "logs": {
+    "adversarial": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\adversarial.log",
+    "council": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\council.log",
+    "pressure": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\pressure.log",
+    "proposals": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\proposals.log",
+    "swarm_alpha": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\swarm-alpha.log",
+    "swarm_beta": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\swarm-beta.log",
+    "swarm_gamma": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\swarm-gamma.log",
+    "system": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\system.log",
+    "tasks": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\logs\\tasks.log"
+  },
+  "previous_canonical_cssm": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\canonical\\AAS-State-v1.104.json",
+  "proposal_registry": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\registries\\proposal_registry.json",
+  "swarms": {
+    "alpha": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\swarms\\alpha\\AAS-State-alpha-v1.104.json",
+    "beta": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\swarms\\beta\\AAS-State-beta-v1.104.json",
+    "gamma": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\cssm\\swarms\\gamma\\AAS-State-gamma-v1.104.json"
+  },
+  "task_graph": "C:\\Users\\jever\\Atrahasis\\AAS\\runtime\\state\\registries\\task_graph.json"
+}

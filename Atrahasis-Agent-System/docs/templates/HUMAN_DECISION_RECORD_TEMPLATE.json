@@ -1,0 +1,102 @@
+{
+  "decision_type": "OPERATOR_GUIDANCE",
+  "task_id": "T-000",
+  "workflow_status": "PENDING_HUMAN_REVIEW",
+  "prompt": "Design a higher-capability cooling architecture.",
+  "research_strategy_summary": "Focus on the highest-opportunity governed program and keep one spawn candidate in reserve.",
+  "evidence_summary": {
+    "modifier": "AASBT",
+    "priority_zones": [
+      "distributed coordination"
+    ],
+    "contradiction_count": 1,
+    "strategy_summary": "Focus on the highest-opportunity governed program and keep one spawn candidate in reserve."
+  },
+  "active_research_programs": [
+    {
+      "program_id": "RP-101",
+      "program_title": "Distributed Coordination Systems",
+      "scope_level": "L2",
+      "target_domain": "distributed coordination",
+      "program_goal": "Develop higher-capability coordination mechanisms.",
+      "hypothesis_list": [
+        "H-001"
+      ],
+      "contradiction_list": [
+        "X-001"
+      ],
+      "solution_path_list": [
+        "P-001"
+      ],
+      "opportunity_score": 0.81,
+      "program_status": "active",
+      "execution_state": "active",
+      "dependency_state": "clear",
+      "last_exploration_cycle": 8,
+      "recommended_action": "continue_program",
+      "allocation_ratio": 0.55,
+      "branch_budget": 3,
+      "governance_notes": []
+    }
+  ],
+  "top_hypotheses": [
+    {
+      "hypothesis_id": "H-001",
+      "title": "Microfluidic cooling channels embedded in server boards",
+      "opportunity_zone": "microfluidic cooling",
+      "opportunity_score": 0.81,
+      "candidate_label": "Top Exploration Candidate"
+    }
+  ],
+  "recommended_actions": [
+    {
+      "action": "continue_program",
+      "program_id": "RP-101",
+      "program_title": "Distributed Coordination Systems",
+      "target_domain": "distributed coordination",
+      "scope_level": "L2",
+      "execution_state": "active",
+      "allocation_ratio": 0.55,
+      "branch_budget": 3,
+      "opportunity_score": 0.81,
+      "rationale": "Highest opportunity score under current constraints."
+    }
+  ],
+  "spawn_candidates": [],
+  "dispatch_recommendations": [],
+  "core_contradictions": [
+    {
+      "contradiction_id": "X-001",
+      "hypothesis_id": "H-001",
+      "statement": "Increasing computational density raises thermal load while reducing energy consumption shrinks the cooling budget.",
+      "severity": "high"
+    }
+  ],
+  "options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-101",
+      "program_title": "Distributed Coordination Systems"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-101",
+      "program_title": "Distributed Coordination Systems"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-101",
+      "program_title": "Distributed Coordination Systems"
+    }
+  ],
+  "operator_actions": [
+    {
+      "label": "redirect",
+      "instruction": "<new exploration instruction>"
+    }
+  ],
+  "operator_decision": "PENDING",
+  "constraints": [
+    "Preserve human-guided review"
+  ]
+}

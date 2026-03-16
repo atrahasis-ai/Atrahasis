@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS3 Research Program Report",
+  "type": "object",
+  "required": [
+    "type",
+    "cycle_count",
+    "active_programs",
+    "master_program_tree",
+    "governance_summary",
+    "updated_discovery_map"
+  ],
+  "properties": {
+    "type": {"const": "RESEARCH_PROGRAM_REPORT"},
+    "cycle_count": {"type": "integer", "minimum": 0},
+    "active_programs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "program_id",
+          "program_title",
+          "scope_level",
+          "target_domain",
+          "program_goal",
+          "hypothesis_list",
+          "contradiction_list",
+          "solution_path_list",
+          "research_artifacts",
+          "opportunity_score",
+          "program_status",
+          "execution_state",
+          "last_exploration_cycle"
+        ],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "program_title": {"type": "string"},
+          "scope_level": {"type": "string", "enum": ["L0", "L1", "L2", "L3", "L4"]},
+          "target_domain": {"type": "string"},
+          "program_goal": {"type": "string"},
+          "hypothesis_list": {"type": "array", "items": {"type": "string"}},
+          "contradiction_list": {"type": "array", "items": {"type": "string"}},
+          "solution_path_list": {"type": "array", "items": {"type": "string"}},
+          "research_artifacts": {"type": "array", "items": {"type": "string"}},
+          "opportunity_score": {"type": "number"},
+          "program_status": {"type": "string", "enum": ["proposed", "active", "stabilizing", "completed", "archived"]},
+          "execution_state": {"type": "string"},
+          "last_exploration_cycle": {"type": "integer", "minimum": 0},
+          "number_of_hypotheses": {"type": "integer", "minimum": 0},
+          "number_of_resolved_contradictions": {"type": "integer", "minimum": 0},
+          "novelty_trend": {"type": "number"},
+          "feasibility_trend": {"type": "number"},
+          "frontier_score": {"type": "number"},
+          "active_hypothesis_count": {"type": "integer", "minimum": 0},
+          "archived_hypothesis_count": {"type": "integer", "minimum": 0},
+          "archived_hypotheses": {"type": "array", "items": {"type": "string"}},
+          "master_tree_path": {"type": "array", "items": {"type": "string"}},
+          "dependency_state": {"type": "string"},
+          "governance_notes": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "master_program_tree": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["program_id", "scope_level", "target_domain", "path", "execution_state"],
+        "properties": {
+          "program_id": {"type": "string", "pattern": "^RP-\\d{3}$"},
+          "scope_level": {"type": "string", "enum": ["L0", "L1", "L2", "L3", "L4"]},
+          "target_domain": {"type": "string"},
+          "path": {"type": "array", "items": {"type": "string"}},
+          "execution_state": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "governance_summary": {
+      "type": "object",
+      "required": [
+        "active_program_count",
+        "paused_program_count",
+        "completed_program_count",
+        "archived_program_count",
+        "enforced_hypothesis_capacity",
+        "l0_blockers"
+      ],
+      "properties": {
+        "active_program_count": {"type": "integer", "minimum": 0},
+        "paused_program_count": {"type": "integer", "minimum": 0},
+        "completed_program_count": {"type": "integer", "minimum": 0},
+        "archived_program_count": {"type": "integer", "minimum": 0},
+        "enforced_hypothesis_capacity": {"type": "integer", "minimum": 1},
+        "l0_blockers": {"type": "array", "items": {"type": "string", "pattern": "^RP-\\d{3}$"}},
+        "authoritative_lock_count": {"type": "integer", "minimum": 0},
+        "governance_kernel": {"type": "string"},
+        "lock_keys": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "updated_discovery_map": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

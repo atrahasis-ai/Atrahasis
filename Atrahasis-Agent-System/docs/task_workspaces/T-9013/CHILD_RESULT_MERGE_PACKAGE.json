@@ -1,0 +1,355 @@
+{
+  "child_results": [
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/alpha__visionary__conservative.json",
+      "artifact_provenance": {
+        "writer_agent_name": "Codex",
+        "writer_mode": "direct_child_analysis",
+        "writer_session_id": "codex-child-alpha-visionary-conservative-local"
+      },
+      "branch_id": "visionary:conservative",
+      "branch_kind": "conservative",
+      "branch_label": "Conservative Future",
+      "child_id": "019cf564-eb3b-73a3-aaf3-ffac4bba70e3",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "model_audit": {
+        "actual_runtime_model": "gpt-5.4",
+        "auditability": "direct_runtime_write",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "visionary",
+      "recommended_next_action": "Use only as a direct-spec addendum path if the operator wants the smallest valid change.",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "NEEDS_ADDENDUM"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/beta__visionary__aggressive.json",
+      "artifact_provenance": {
+        "writer_agent_name": "codex-beta-visionary-aggressive",
+        "writer_mode": "future_branch_child_direct_write",
+        "writer_session_id": "codex-t9013-beta-visionary-aggressive-20260316"
+      },
+      "branch_id": "visionary:aggressive",
+      "branch_kind": "aggressive",
+      "branch_label": "Aggressive Future",
+      "child_id": "019cf564-eb4b-74c2-a603-99883a2ca00c",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "model_audit": {
+        "actual_runtime_model": "gpt-5",
+        "auditability": "runtime_self_reported",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "visionary",
+      "recommended_next_action": "Promote only if reframed as an internal Sovereign Inference Fabric beneath existing authority.",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "IMPLIES_NEW_INTERNAL_SUBSYSTEM"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/gamma__visionary__radical.json",
+      "artifact_provenance": {
+        "writer_agent_name": "gamma-visionary-radical-child",
+        "writer_mode": "future_branch_child_direct_write",
+        "writer_session_id": null
+      },
+      "branch_id": "visionary:radical",
+      "branch_kind": "radical",
+      "branch_label": "Radical Future",
+      "child_id": "019cf564-eb57-76a0-badb-359a3e75039a",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "not_runtime_verified_in_artifact",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "visionary",
+      "recommended_next_action": "If kept, transform it into a non-endpoint cognition substrate rather than a service layer.",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "TRANSFORM_INTO_MORE_RADICAL_INTERNAL_SUBSYSTEM"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/radical__visionary__frame_replacement.json",
+      "artifact_provenance": {
+        "writer_agent_name": "radical-visionary-frame_replacement",
+        "writer_mode": "direct_child_execution",
+        "writer_session_id": null
+      },
+      "branch_id": "visionary:frame_replacement",
+      "branch_kind": "frame_replacement",
+      "branch_label": "Frame-Replacement Future",
+      "child_id": "019cf564-eb6e-7640-8063-2f3691e7fd22",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "visionary",
+      "recommended_next_action": "Prefer as a planning-frame option if the operator wants the objective preserved without minting a subsystem yet.",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "replace_with_cross_spec_substrate_planning_frame"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/alpha__systems_thinker__minimal_change.json",
+      "artifact_provenance": {
+        "writer_agent_name": "codex-alpha-systems-thinker-minimal-change",
+        "writer_mode": "direct_child_write",
+        "writer_session_id": "codex-t9013-alpha-systems-thinker-minimal-change-20260316"
+      },
+      "branch_id": "systems_thinker:minimal_change",
+      "branch_kind": "minimal_change",
+      "branch_label": "Minimal-Change Topology",
+      "child_id": "019cf564-eb84-77b1-a6e2-35fd3875e01e",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "model_audit": {
+        "actual_runtime_model": "gpt-5",
+        "auditability": "runtime_self_reported",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "systems_thinker",
+      "recommended_next_action": "Use if the operator wants direct-spec change instead of subsystem invention.",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "DO_NOT_CREATE_INDEPENDENT_LAYER"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/beta__systems_thinker__modular.json",
+      "artifact_provenance": {
+        "writer_agent_name": "beta-systems_thinker-modular",
+        "writer_mode": "child_session",
+        "writer_session_id": null
+      },
+      "branch_id": "systems_thinker:modular",
+      "branch_kind": "modular",
+      "branch_label": "Modular Topology",
+      "child_id": "019cf564-eba8-77a2-b983-6b7f0a1b7eb8",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "systems_thinker",
+      "recommended_next_action": "Use if the operator wants a bounded internal modular fabric subordinate to current authorities.",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "REFRAME_AS_SUBORDINATE_MODULAR_INFERENCE_FABRIC"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/gamma__systems_thinker__full_restructure.json",
+      "artifact_provenance": {
+        "writer_agent_name": "gamma-systems_thinker-full_restructure",
+        "writer_mode": "child_session",
+        "writer_session_id": null
+      },
+      "branch_id": "systems_thinker:full_restructure",
+      "branch_kind": "full_restructure",
+      "branch_label": "Full-Restructure Topology",
+      "child_id": "019cf567-b05f-74c3-b153-98679040951d",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "systems_thinker",
+      "recommended_next_action": "Use if the operator wants a deeper internal substrate rewrite without external service semantics.",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "REWRITE_AS_INTERNAL_SOVEREIGN_COGNITION_SUBSTRATE"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/radical__systems_thinker__authority_reset.json",
+      "artifact_provenance": {
+        "writer_agent_name": "radical-systems_thinker-authority_reset",
+        "writer_mode": "child_session",
+        "writer_session_id": null
+      },
+      "branch_id": "systems_thinker:authority_reset",
+      "branch_kind": "authority_reset",
+      "branch_label": "Authority-Reset Topology",
+      "child_id": "019cf567-b066-7f40-8426-e2f7e2142d1e",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "systems_thinker",
+      "recommended_next_action": "Use if the operator wants a real new internal authority seam for capacity arbitration.",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "RESET_AROUND_INTERNAL_CAPACITY_AUTHORITY"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/alpha__critic__failure.json",
+      "artifact_provenance": {
+        "writer_agent_name": "codex-alpha-critic-failure",
+        "writer_mode": "future_branch_child_direct_write",
+        "writer_session_id": "codex-t9013-alpha-critic-failure-20260316"
+      },
+      "branch_id": "critic:failure",
+      "branch_kind": "failure",
+      "branch_label": "Failure Future",
+      "child_id": "019cf567-b084-77d1-ae42-7bf5e624b8bf",
+      "lane_id": "alpha",
+      "lane_label": "Alpha Lane",
+      "lane_strategy": "Improve the current task path without breaking core assumptions.",
+      "model_audit": {
+        "actual_runtime_model": "gpt-5",
+        "auditability": "runtime_self_reported",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "critic",
+      "recommended_next_action": "Keep as core negative evidence against any literal independent layer.",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_LAYER"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/beta__critic__abuse.json",
+      "artifact_provenance": {
+        "writer_agent_name": "beta-critic-abuse-child",
+        "writer_mode": "direct_child_write",
+        "writer_session_id": null
+      },
+      "branch_id": "critic:abuse",
+      "branch_kind": "abuse",
+      "branch_label": "Abuse Future",
+      "child_id": "019cf567-e52c-7641-b178-d4e6d559b2e2",
+      "lane_id": "beta",
+      "lane_label": "Beta Lane",
+      "lane_strategy": "Explore a materially different framing or topology for the current task.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "critic",
+      "recommended_next_action": "Carry forward as the strongest abuse-path objection to a service-layer revival.",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_INFERENCE_MICROSERVICE_LAYER"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/gamma__critic__governance_break.json",
+      "artifact_provenance": {
+        "writer_agent_name": "Codex",
+        "writer_mode": "child_session",
+        "writer_session_id": null
+      },
+      "branch_id": "critic:governance_break",
+      "branch_kind": "governance_break",
+      "branch_label": "Governance-Break Future",
+      "child_id": "019cf568-1cef-7830-8790-651781124406",
+      "lane_id": "gamma",
+      "lane_label": "Gamma Lane",
+      "lane_strategy": "Break one core assumption and test a high-novelty replacement for the current task.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "critic",
+      "recommended_next_action": "Carry forward as authority-boundary evidence against the literal frame.",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_MICROSERVICE_LAYER_AS_SHADOW_AUTHORITY_BREAK"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9013/children/radical__critic__foundational_invalidity.json",
+      "artifact_provenance": {
+        "writer_agent_name": "radical-critic-foundational-invalidity",
+        "writer_mode": "direct_child_execution",
+        "writer_session_id": null
+      },
+      "branch_id": "critic:foundational_invalidity",
+      "branch_kind": "foundational_invalidity",
+      "branch_label": "Foundational-Invalidity Future",
+      "child_id": "019cf568-3fed-7d10-8636-69542462d32a",
+      "lane_id": "radical",
+      "lane_label": "Radical Lane",
+      "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+      "model_audit": {
+        "actual_runtime_model": null,
+        "auditability": "runtime_not_exposed_in_environment",
+        "policy_target": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "parent_role": "critic",
+      "recommended_next_action": "Carry forward as the strongest rejection of the literal frame.",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "REJECT_LITERAL_FRAME_AS_FOUNDATIONALLY_INVALID"
+    }
+  ],
+  "disagreement_signals": [
+    "The swarm did not support literal revival of the independent microservice layer in any branch.",
+    "There is live disagreement over whether the valid redesign is only a direct-spec addendum, a new subordinate internal subsystem, or a broader cross-spec planning frame."
+  ],
+  "dispatch_id": "T-9013-IDEATION-20260316T064425Z",
+  "dispatch_status": "COMPLETED",
+  "generated_at": "2026-03-16T07:12:00Z",
+  "merge_ready": true,
+  "recommended_parent_actions": [
+    "Reject the literal independent microservice-layer frame.",
+    "Present a small option set spanning rejection, direct-spec addendum, internal subordinate subsystem, and broader planning-frame redesign.",
+    "Recommend the subordinate internal subsystem path only if the operator wants a real new full-pipeline invention rather than direct-spec refinement."
+  ],
+  "source_refs": {
+    "children": [
+      "docs/task_workspaces/T-9013/children/alpha__visionary__conservative.json",
+      "docs/task_workspaces/T-9013/children/beta__visionary__aggressive.json",
+      "docs/task_workspaces/T-9013/children/gamma__visionary__radical.json",
+      "docs/task_workspaces/T-9013/children/radical__visionary__frame_replacement.json",
+      "docs/task_workspaces/T-9013/children/alpha__systems_thinker__minimal_change.json",
+      "docs/task_workspaces/T-9013/children/beta__systems_thinker__modular.json",
+      "docs/task_workspaces/T-9013/children/gamma__systems_thinker__full_restructure.json",
+      "docs/task_workspaces/T-9013/children/radical__systems_thinker__authority_reset.json",
+      "docs/task_workspaces/T-9013/children/alpha__critic__failure.json",
+      "docs/task_workspaces/T-9013/children/beta__critic__abuse.json",
+      "docs/task_workspaces/T-9013/children/gamma__critic__governance_break.json",
+      "docs/task_workspaces/T-9013/children/radical__critic__foundational_invalidity.json"
+    ],
+    "future_branch_report": "docs/task_workspaces/T-9013/FUTURE_BRANCH_REPORT.json"
+  },
+  "synthesis_outline": [
+    "Literal restoration is rejected by the critic branches and bounded by C36, C45, C39, and T-300.",
+    "Conservative and minimal-change branches support a direct-spec addendum path under existing authority.",
+    "Aggressive and modular branches support a new internal-only subordinate subsystem for capacity governance.",
+    "Radical branches support either a broader non-endpoint substrate or a planning-frame replacement rather than literal subsystem revival."
+  ],
+  "task_id": "T-9013",
+  "type": "CHILD_RESULT_MERGE_PACKAGE",
+  "workflow_id": "T-9013-AASNI-20260316T064425Z"
+}

@@ -1,0 +1,170 @@
+{
+  "artifact_provenance": {
+    "notes": [
+      "Replaced bootstrap placeholder with a task-local child result.",
+      "Runtime session id is not exposed in the current Codex environment; evidence is anchored through named source paths and line references."
+    ],
+    "writer_agent_name": "radical-visionary-frame_replacement",
+    "writer_mode": "direct_child_execution",
+    "writer_session_id": null
+  },
+  "branch_id": "visionary:frame_replacement",
+  "branch_kind": "frame_replacement",
+  "branch_label": "Frame-Replacement Future",
+  "classification": "planning_frame_replacement",
+  "claim_context": {
+    "active_claims_present": false,
+    "summary": "No active task claims were present at analysis time; repo claim registry returned zero active claims."
+  },
+  "evidence": [
+    "C45 already treats model execution as a bounded substrate choice inside a sovereign execution wrapper rather than as a peer architectural layer.",
+    "C47 already owns the long-term independent native model lane, so the future problem is promotion and substrate adoption, not inventing a second model-serving doctrine.",
+    "C36 blocks any move that turns the idea into a new external ingress plane.",
+    "C39 already owns delegated sampling semantics, so a new inference protocol family would be duplication.",
+    "C18 and C22 already model compute, provider dependence, and rollout burden as program-level planning surfaces.",
+    "T-300 forbids reviving old-stack architectural shapes as forward authority."
+  ],
+  "evidence_paths": [
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md",
+      "lines": "20-29,40,105,170,211",
+      "relevance": "C45 already owns route execution posture, native-versus-leased substrate split, provider non-equivalence, and membrane-bounded leased cognition."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md",
+      "lines": "43-47,134-169,582",
+      "relevance": "C42 already owns priming, runtime handoff, and anti-ambient-authority constraints; a generic inference bus would violate that posture."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md",
+      "lines": "20,29,46,110,209-213",
+      "relevance": "C47 already defines the staged sovereignty roadmap and the native model adaptation lane that replaces provider dependence over time."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md",
+      "lines": "44-46,87,179",
+      "relevance": "C36 is the canonical external boundary and explicitly rejects generic gateway thinking, so the idea cannot become a new externally legible service plane."
+    },
+    {
+      "path": "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md",
+      "lines": "40-46,72,106,237",
+      "relevance": "C39 already covers delegated sampling and keeps message semantics distinct from transport or service-topology invention."
+    },
+    {
+      "path": "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md",
+      "lines": "21,42,494,638,793,805",
+      "relevance": "C18 already prices sovereign compute, leased cognition, and Forge promotion as first-order economic realities, which points toward a planning frame instead of a new revenue-neutral layer."
+    },
+    {
+      "path": "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md",
+      "lines": "23,443,690,1163,1329",
+      "relevance": "C22 already acknowledges bounded leased/native model operations, but treats implementation by specification boundary rather than by reviving a standalone inference microservice architecture."
+    },
+    {
+      "path": "docs/task_workspaces/T-300/TASK_BRIEF.md",
+      "lines": "15-19,22,37,59,63-65",
+      "relevance": "T-300 fixes Alternative C as forward authority and requires replacement rather than reinterpretation of old-stack architectural frames."
+    }
+  ],
+  "lane_id": "radical",
+  "lane_label": "Radical Lane",
+  "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+  "model_audit": {
+    "actual_runtime_model": null,
+    "auditability": "runtime_not_exposed",
+    "policy_target": "gpt-5.4",
+    "reasoning_effort": "high",
+    "routing_basis": "AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target."
+  },
+  "objective": "Challenge the current architectural frame itself and explore a replacement future for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "one_sentence_thesis": "The real missing answer is not an independent inference microservice layer at all, but a cross-spec sovereign cognition substrate planning frame that binds route selection, execution priming, model promotion, capacity classes, and compute economics without creating a second service plane.",
+  "option_shapes": [
+    {
+      "name": "Sovereign Cognition Substrate Planning Frame",
+      "summary": "Replace the candidate subsystem with a cross-spec planning frame that defines execution substrate classes, route-to-substrate binding, promotion handoff, capacity quotas, and cost triggers across C45, C47, C18, and C22.",
+      "main_upside": "Solves the real scale-separation problem without violating current authority boundaries.",
+      "main_risk": "Cross-spec scope can blur ownership unless the frame is tightly partitioned into direct-spec obligations."
+    },
+    {
+      "name": "Internal Inference Utility Plane",
+      "summary": "If a new module is still desired, narrow it to an internal-only placement, batching, caching, and quota control plane beneath C45 and downstream of C47.",
+      "main_upside": "Creates an explicit operational substrate while remaining inside the membrane and protocol boundaries.",
+      "main_risk": "Still risks duplicating C45, C42, and C47 unless the authority seam is defined with unusual precision."
+    },
+    {
+      "name": "Reject As Already Good Enough",
+      "summary": "Treat the current architecture as sufficient and solve any residual pain through scattered direct-spec clarifications only.",
+      "main_upside": "Minimum architectural churn.",
+      "main_risk": "Leaves substrate orchestration implicit and pushes a real capacity-management problem back into ad hoc implementation."
+    }
+  ],
+  "parent_role": "visionary",
+  "recommended_next_action": "Do not promote 'Independent Model Inference Microservice Layer' as a new standalone FULL PIPELINE invention. Replace it first with a cross-spec planning frame for sovereign cognition substrate management, and only mint a new subsystem later if that planning pass reveals a genuinely independent authority seam that cannot live inside C45/C47/C18/C22.",
+  "role": "visionary",
+  "session_identity": {
+    "agent_name": "radical-visionary-frame_replacement",
+    "provider": "codex",
+    "role": "visionary",
+    "session_id": null
+  },
+  "status": "COMPLETED",
+  "subsumption_assessment": "literal_layer_invalid_under_current_authority",
+  "task_id": "T-9013",
+  "top_option_name": "Sovereign Cognition Substrate Planning Frame",
+  "type": "CHILD_AGENT_RESULT",
+  "verdict": "replace_with_cross_spec_substrate_planning_frame",
+  "affected_authority_surfaces": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C18",
+    "C22",
+    "C39",
+    "T-300"
+  ],
+  "authority_surface_readout": [
+    {
+      "surface": "C45",
+      "disposition": "Keep as the route-level authority; do not create a peer inference layer above it."
+    },
+    {
+      "surface": "C42",
+      "disposition": "Treat expensive model execution as lease-visible priming and handoff, not as ambient substrate access."
+    },
+    {
+      "surface": "C47",
+      "disposition": "Keep long-term model independence in the Forge promotion lane rather than splitting it into a second doctrine."
+    },
+    {
+      "surface": "C36",
+      "disposition": "Any viable answer must remain internal and membrane-bounded."
+    },
+    {
+      "surface": "C18",
+      "disposition": "Model the idea as compute-planning and cost-allocation work, not as a free-standing neutral service."
+    },
+    {
+      "surface": "C22",
+      "disposition": "Sequence it as spec-boundary planning and rollout change, not as revival of a literal microservice layer."
+    },
+    {
+      "surface": "C39",
+      "disposition": "Reuse existing sampling and stream semantics; do not invent a new inference protocol family."
+    },
+    {
+      "surface": "T-300",
+      "disposition": "Reject verbatim restoration of old-stack framing as forward authority."
+    }
+  ],
+  "key_upsides": [
+    "Preserves the real objective: separating lightweight agent behavior from heavy model-capacity management.",
+    "Aligns the idea with the existing sovereignty roadmap instead of fighting it.",
+    "Converts an architecture collision into an explicit planning and cost-discipline surface."
+  ],
+  "key_risks": [
+    "A planning-frame answer can feel less tangible than a new subsystem and may be under-scoped by default.",
+    "If the operator actually needs live placement and batching authority, direct-spec work may still expose a later need for a real module.",
+    "Historical microservice language in C22 can tempt an invalid old-stack interpretation if T-300 is not enforced aggressively."
+  ]
+}

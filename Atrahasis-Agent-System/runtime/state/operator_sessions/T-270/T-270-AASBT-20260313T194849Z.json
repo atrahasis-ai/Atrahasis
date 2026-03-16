@@ -1,0 +1,151 @@
+{
+  "artifact_refs": {
+    "analogy_report": "docs/task_workspaces/T-270/ANALOGY_REPORT.json",
+    "contradiction_map": "docs/task_workspaces/T-270/CONTRADICTION_MAP.json",
+    "cross_industry_discovery_report": "docs/task_workspaces/T-270/CROSS_INDUSTRY_DISCOVERY_REPORT.json",
+    "decision_ranking_report": "docs/task_workspaces/T-270/DECISION_RANKING_REPORT.json",
+    "discovery_gap_report": "docs/task_workspaces/T-270/DISCOVERY_GAP_REPORT.json",
+    "discovery_map": "docs/task_workspaces/T-270/DISCOVERY_MAP.json",
+    "experiment_simulation_report": "docs/task_workspaces/T-270/EXPERIMENT_SIMULATION_REPORT.json",
+    "exploration_control_record": "docs/task_workspaces/T-270/EXPLORATION_CONTROL_RECORD.json",
+    "feasibility_report": "docs/task_workspaces/T-270/FEASIBILITY_REPORT.json",
+    "human_decision_record": "docs/task_workspaces/T-270/HUMAN_DECISION_RECORD.json",
+    "hypothesis_packet": "docs/task_workspaces/T-270/HYPOTHESIS_PACKET.json",
+    "idea_cluster_report": "docs/task_workspaces/T-270/IDEA_CLUSTER_REPORT.json",
+    "knowledge_distillation_report": "docs/task_workspaces/T-270/KNOWLEDGE_DISTILLATION_REPORT.json",
+    "novelty_report": "docs/task_workspaces/T-270/NOVELTY_REPORT.json",
+    "opportunity_report": "docs/task_workspaces/T-270/OPPORTUNITY_REPORT.json",
+    "platform_alignment_report": "docs/task_workspaces/T-270/PLATFORM_ALIGNMENT_REPORT.json",
+    "research_ingestion_report": "docs/task_workspaces/T-270/RESEARCH_INGESTION_REPORT.json",
+    "research_program_report": "docs/task_workspaces/T-270/RESEARCH_PROGRAM_REPORT.json",
+    "research_quality_report": "docs/task_workspaces/T-270/RESEARCH_QUALITY_REPORT.json",
+    "research_strategy_report": "docs/task_workspaces/T-270/RESEARCH_STRATEGY_REPORT.json",
+    "research_synthesis_report": "docs/task_workspaces/T-270/RESEARCH_SYNTHESIS_REPORT.json",
+    "solution_path_set": "docs/task_workspaces/T-270/SOLUTION_PATH_SET.json",
+    "technology_frontier_model": "docs/task_workspaces/T-270/TECHNOLOGY_FRONTIER_MODEL.json",
+    "value_alignment_report": "docs/task_workspaces/T-270/VALUE_ALIGNMENT_REPORT.json"
+  },
+  "decision_options": [
+    {
+      "label": "continue_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-947",
+      "program_title": "Agent Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-104",
+      "program_title": "Model Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-362",
+      "program_title": "Data"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-362",
+      "program_title": "Data"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-362",
+      "program_title": "Data"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-362",
+      "program_title": "Data"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-191",
+      "program_title": "Agents Research Program"
+    },
+    {
+      "label": "continue_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "explore_new_hypothesis",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "pause_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    },
+    {
+      "label": "terminate_program",
+      "program_id": "RP-075",
+      "program_title": "Verification"
+    }
+  ],
+  "operator_actions": [
+    {
+      "instruction": "<new exploration instruction>",
+      "label": "redirect"
+    }
+  ],
+  "priority_order": [
+    "RP-947",
+    "RP-104",
+    "RP-362",
+    "RP-191",
+    "RP-075",
+    "RP-579"
+  ],
+  "recommended_branch_budget": 1,
+  "rendered_prompt": "Human Review Required\n\nTask: T-270\nStatus: PENDING_HUMAN_REVIEW\nCommand: AASBT\n\nPrompt:\ncontinue_program: RP-947\n\nResearch Strategy:\nFocus on Agent Research Program with continue_program and branch budget 1.\n\nActive Research Programs:\n- Program RP-947: Agent Research Program (L2, score 0.688, status stabilizing, execution active)\n  Hypotheses: H-001\n  Contradictions: X-001\n  Recommended action: continue_program (branch budget 1, allocation 0.194)\n  Governance: Authoritative scope lock granted: L2::agent.\n- Program RP-104: Model Research Program (L2, score 0.613, status stabilizing, execution active)\n  Hypotheses: H-002\n  Contradictions: X-002\n  Recommended action: continue_program (branch budget 1, allocation 0.172)\n  Governance: Authoritative scope lock granted: L2::model.\n- Program RP-362: Data (L2, score 0.593, status stabilizing, execution active)\n  Hypotheses: H-001\n  Contradictions: X-001\n  Recommended action: continue_program (branch budget 1, allocation 0.167)\n  Governance: Authoritative scope lock granted: L2::data.\n- Program RP-191: Agents Research Program (L2, score 0.582, status stabilizing, execution active)\n  Hypotheses: H-003\n  Contradictions: X-003\n  Recommended action: continue_program (branch budget 1, allocation 0.164)\n  Governance: Authoritative scope lock granted: L2::agents.\n- Program RP-075: Verification (L2, score 0.551, status stabilizing, execution active)\n  Hypotheses: H-004\n  Contradictions: X-004\n  Recommended action: continue_program (branch budget 1, allocation 0.155)\n  Governance: Authoritative scope lock granted: L2::verification.\n\nCore Contradictions:\n- X-001 [high]: High-opportunity zone with unresolved evidence gaps.\n- X-002 [high]: High-opportunity zone with unresolved evidence gaps.\n- X-003 [high]: High-opportunity zone with unresolved evidence gaps.\n- X-004 [high]: High-opportunity zone with unresolved evidence gaps.\n\nOperator Action Required:\n- continue_program: RP-947\n- explore_new_hypothesis: RP-947\n- pause_program: RP-947\n- terminate_program: RP-947\n- continue_program: RP-104\n- explore_new_hypothesis: RP-104\n- pause_program: RP-104\n- terminate_program: RP-104\n- continue_program: RP-362\n- explore_new_hypothesis: RP-362\n- pause_program: RP-362\n- terminate_program: RP-362\n- continue_program: RP-191\n- explore_new_hypothesis: RP-191\n- pause_program: RP-191\n- terminate_program: RP-191\n- continue_program: RP-075\n- explore_new_hypothesis: RP-075\n- pause_program: RP-075\n- terminate_program: RP-075\n- redirect: <new exploration instruction>\n\nExploration Guidance:\n- Escalate to human: true\n- Recommended branch budget: 1\n- Priority order: RP-947, RP-104, RP-362, RP-191, RP-075\n\nRespond with one of:\n- continue_program: RP-947\n- explore_new_hypothesis: RP-947\n- pause_program: RP-947\n- terminate_program: RP-947\n- continue_program: RP-104\n- explore_new_hypothesis: RP-104\n- pause_program: RP-104\n- terminate_program: RP-104\n- continue_program: RP-362\n- explore_new_hypothesis: RP-362\n- pause_program: RP-362\n- terminate_program: RP-362\n- continue_program: RP-191\n- explore_new_hypothesis: RP-191\n- pause_program: RP-191\n- terminate_program: RP-191\n- continue_program: RP-075\n- explore_new_hypothesis: RP-075\n- pause_program: RP-075\n- terminate_program: RP-075\n- redirect: <new exploration instruction>",
+  "status": "PENDING_HUMAN_REVIEW",
+  "task_id": "T-270",
+  "type": "OPERATOR_SESSION",
+  "updated_at": "2026-03-13T19:48:50Z",
+  "workflow_id": "T-270-AASBT-20260313T194849Z"
+}

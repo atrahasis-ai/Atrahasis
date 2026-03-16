@@ -1,0 +1,45 @@
+{
+  "task_id": "T-9012",
+  "type": "CHILD_RESULT_MERGE_PACKAGE",
+  "workflow_id": "T-9012-AASNI-20260315T172504Z",
+  "dispatch_id": "T-9012-IDEATION-20260315T172504Z",
+  "dispatch_status": "COMPLETED",
+  "generated_at": "2026-03-15T17:39:00Z",
+  "merge_ready": true,
+  "child_results": [
+    {
+      "artifact_path": "docs/task_workspaces/T-9012/children/visionary.json",
+      "child_id": "019cf288-05b3-7601-9944-b2a639ce5e58",
+      "role": "visionary",
+      "status": "COMPLETED",
+      "verdict": "needs_redesign_into_different_module"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9012/children/systems_thinker.json",
+      "child_id": "019cf288-0610-7950-a5c1-20cc47f52506",
+      "role": "systems_thinker",
+      "status": "COMPLETED",
+      "verdict": "keep_objective_but_redesign_into_different_module"
+    },
+    {
+      "artifact_path": "docs/task_workspaces/T-9012/children/critic.json",
+      "child_id": "019cf288-0668-7593-90f8-2d02a3469531",
+      "role": "critic",
+      "status": "COMPLETED",
+      "verdict": "reframe_into_narrower_module"
+    }
+  ],
+  "disagreement_signals": [
+    "No child supported restoring the original subsystem verbatim.",
+    "All children agreed the efficiency objective is real but the original framing is obsolete under current authority."
+  ],
+  "parent_synthesis": {
+    "consensus": "reject original form and preserve only the scale-separation objective in a subordinate internal redesign",
+    "strongest_salvage_path": "Sovereign Inference Fabric or Model Capacity and Placement Control Plane under C45 and C47",
+    "operator_facing_recommendation": "Do not add the original subsystem back as written."
+  },
+  "recommended_parent_actions": [
+    "Present 3-4 ideation options to the operator and stop for choice.",
+    "If the operator wants promotion, narrow the concept before any research stage."
+  ]
+}

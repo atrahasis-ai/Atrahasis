@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Decision Ranking Report",
+  "type": "object",
+  "required": ["type", "candidate_count", "presentation_limit", "ranked_hypotheses", "display_candidates"],
+  "properties": {
+    "type": {"const": "DECISION_RANKING_REPORT"},
+    "candidate_count": {"type": "integer", "minimum": 0},
+    "presentation_limit": {"type": "integer", "minimum": 0},
+    "ranked_hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hypothesis_id", "title", "opportunity_score", "rank", "display_to_operator"],
+        "properties": {
+          "hypothesis_id": {"type": "string", "pattern": "^H-\\d{3}$"},
+          "title": {"type": "string"},
+          "opportunity_zone": {"type": "string"},
+          "candidate_label": {"type": "string"},
+          "origin": {"type": "string"},
+          "opportunity_score": {"type": "number"},
+          "base_opportunity_score": {"type": "number"},
+          "platform_alignment_score": {"type": "number"},
+          "priority_adjustment": {"type": "number"},
+          "recommended_path_id": {"type": ["string", "null"]},
+          "recommended_path_title": {"type": ["string", "null"]},
+          "rank": {"type": "integer", "minimum": 1},
+          "display_to_operator": {"type": "boolean"},
+          "normalized_signals": {"type": "object"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "display_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,223 @@
+IDEATION_COUNCIL_PERFORMANCE_PRIORITIZED_FOLLOWUP:
+  domain: "performance-biased sovereign tool protocol design with trust-preserving advanced workflow power"
+  generated_at: "2026-03-13T06:14:30Z"
+  agent: "Marduk"
+  trigger: |
+    User requested a new council pass that explicitly prioritizes:
+    speed, efficiency, trust quality, and future power. Simplicity is not a
+    goal by itself, and scope spill into later tasks is acceptable if the result
+    materially improves the architecture.
+  priority_model:
+    speed: "MAXIMIZE"
+    efficiency: "MAXIMIZE"
+    simplicity: "LOW PRIORITY"
+    trust_quality: "HIGH PRIORITY"
+    scope_fit: "NOT GATING"
+    future_power: "HIGH PRIORITY"
+  basis_concepts: ["IC-2", "IC-3", "IC-4", "IC-5", "IC-6"]
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Lease-Primed Performance Fabric"
+      position: |
+        Stop optimizing for bounded scope and optimize for dominant-path speed.
+        The best design front-loads trust, tool-state knowledge, and execution
+        readiness so actual work launches with as few turns as possible. If that
+        pulls in future task surfaces, that is acceptable because the speed and
+        workflow power gains are strategic.
+      novelty_estimate: 5
+      feasibility_estimate: 4
+
+    systems_thinker:
+      concept_name: "Persistent Capability Channel Mesh"
+      position: |
+        The fastest real architecture is one that avoids repeated cold starts.
+        Keep signed tool inventory snapshots, warm authenticated channels,
+        reusable authority contexts, and multiplexed invocation flow. This
+        reduces repeated discovery, repeated authorization, and repeated setup
+        cost while preserving strong trust posture.
+      novelty_estimate: 5
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Signed Snapshot Fast Path"
+      position: |
+        Pure speed claims are meaningless if stale trust state or weak invalidation
+        rules create hidden risk. The winning design must aggressively cut turns
+        and overhead without sacrificing provable freshness, revocation behavior,
+        or accountable result boundaries.
+      novelty_estimate: 4
+      feasibility_estimate: 5
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      Performance optimization must distinguish common-case latency from total
+      architectural cost. A design that is fast only after heavy warm-state
+      setup may underperform unless warm-state reuse is a first-class and
+      durable assumption.
+
+    critic_challenges_both: |
+      If scope fit is deprioritized, trust boundaries must become stricter, not
+      looser. Any aggressive performance path needs explicit snapshot freshness,
+      grant expiry discipline, replay protection, and provenance floors, or it
+      becomes a fast path to invalid state.
+
+    visionary_response: |
+      Agreed. The new target is not "simple." It is "fast, efficient, and
+      powerful without trust ambiguity." That justifies deeper coupling across
+      protocol, stream, and runtime handoff surfaces.
+
+  concepts:
+    - concept_id: "IC-7"
+      title: "Signed Snapshot Fast Path"
+      summary: |
+        Optimize the common path by treating tool discovery as a signed,
+        cacheable inventory-snapshot problem. Clients pin to fresh signed tool
+        snapshots, reuse them across calls, and go directly to invocation unless
+        invalidation or policy requires refresh. Authority contexts remain
+        explicit, and `tool_change_notification` becomes the freshness and
+        invalidation backbone.
+      novelty_score: 4
+      feasibility_score: 5
+      key_innovation: "A high-speed tool protocol built around signed inventory snapshots and direct-dispatch invocation"
+      technical_approach: |
+        Discovery responses carry aggressively cacheable signed inventory
+        snapshots with version, expiry, and invalidation semantics. Clients pin
+        invocation to snapshot IDs and tool/version identifiers, avoid repeated
+        catalog negotiation, and use change notifications to maintain freshness.
+        Capability grants or authority references are attached only where needed,
+        and result wrapping remains mandatory.
+      metrics:
+        speed: 5
+        efficiency: 5
+        simplicity: 3
+        trust_quality: 4
+        scope_fit: 3
+        future_power: 4
+      major_benefits:
+        - "Minimizes discovery-related protocol turns for repeated tool use"
+        - "Cuts wire overhead by reusing signed inventory state instead of re-fetching catalog detail"
+        - "Improves throughput for high-frequency tool callers"
+        - "Preserves trust through explicit freshness and invalidation rules"
+      trust_posture:
+        - "Requires signed snapshot validity windows"
+        - "Requires clear invalidation and revocation handling"
+        - "Keeps deterministic result accountability intact"
+      spillover_implications:
+        - "T-243 may need to align snapshot invalidation or push freshness signals with stream/push design"
+        - "T-260 may need first-class support for snapshot publication and invalidation"
+        - "C23 impact is limited compared with other performance concepts"
+      known_risks:
+        - "Bad cache invalidation design could undercut trust quality"
+        - "Future interactive/continuation-heavy tools may find the model too static by itself"
+      hitl_required: true
+
+    - concept_id: "IC-8"
+      title: "Persistent Capability Channel Mesh"
+      summary: |
+        Optimize for repeated high-speed tool use by establishing long-lived
+        authenticated and multiplexed channels between tool clients and tool
+        providers. Tool inventory state, authority context, and negotiated
+        execution posture remain warm across calls, which cuts repeated setup
+        cost sharply while preserving strong trust checks and provenance.
+      novelty_score: 5
+      feasibility_score: 4
+      key_innovation: "Warm, trusted, multiplexed tool channels that collapse repeated setup cost without ambient authority"
+      technical_approach: |
+        Establish persistent channels that bind authenticated peer identity,
+        admitted tool inventory state, capability context references, and
+        message-order guarantees. Invocation flows across the warm channel with
+        minimal rediscovery and reduced re-auth churn. Step-up authorization and
+        continuation hooks can be attached when required, but the default value
+        is hot-path throughput and low repeated overhead.
+      metrics:
+        speed: 5
+        efficiency: 4
+        simplicity: 2
+        trust_quality: 5
+        scope_fit: 2
+        future_power: 5
+      major_benefits:
+        - "Best balance of low-latency repeated invocation and high future extensibility"
+        - "Reduces repeated authentication, discovery, and transport setup overhead"
+        - "Supports advanced tools without forcing every call into a cold-start pattern"
+        - "Creates a strong substrate for future stream, continuation, and high-throughput use"
+      trust_posture:
+        - "Warm channels still require bounded authority contexts and replay discipline"
+        - "Strong fit for provenance floors and capability-grant references"
+        - "Clearer trust than ad hoc long-lived sessions because the channel itself is a governed protocol object"
+      spillover_implications:
+        - "T-243 will likely need to treat warm channels as a primary stream/push substrate"
+        - "T-260 will likely need channel lifecycle APIs and state-management support"
+        - "C23 may need tighter runtime handoff semantics for warm-channel initiated execution"
+      known_risks:
+        - "Server state and lifecycle management become materially more complex"
+        - "Idle-channel retention and revocation semantics need careful design"
+        - "Implementer burden is high"
+      hitl_required: true
+
+    - concept_id: "IC-9"
+      title: "Lease-Primed Execution Mesh"
+      summary: |
+        Optimize for both speed and future power by collapsing tool invocation,
+        advanced continuation, and runtime readiness into one performance-first
+        fabric. Discovery establishes tool identity and trust once, then
+        invocation can mint or bind directly to execution-ready contexts so
+        complex operations launch with minimal extra coordination.
+      novelty_score: 5
+      feasibility_score: 3
+      key_innovation: "A tool protocol that pre-binds runtime readiness and continuation power into the invocation path itself"
+      technical_approach: |
+        Couple tool invocation more directly to continuation contexts, stream
+        readiness, and execution-lease handoff. The first trusted invocation can
+        establish downstream-executable context, allowing later steps to bypass
+        repeated setup and move immediately into high-consequence or long-running
+        work with explicit provenance and policy linkage.
+      metrics:
+        speed: 4
+        efficiency: 3
+        simplicity: 1
+        trust_quality: 5
+        scope_fit: 1
+        future_power: 5
+      major_benefits:
+        - "Highest future power for complex, long-running, or high-consequence tool operations"
+        - "Strongest bridge from protocol invocation into governed execution"
+        - "Can minimize coordination delay for advanced workflows once context is established"
+        - "Most differentiated Atrahasis-native architecture"
+      trust_posture:
+        - "Can enforce strong policy continuity from invocation into runtime leases"
+        - "Supports rigorous provenance and no-ambient-rights posture if designed well"
+        - "Potentially strongest trust model for sensitive operations"
+      spillover_implications:
+        - "T-243 would likely need to absorb continuation/stream semantics anchored here"
+        - "T-260 would likely need runtime-aware framework surfaces"
+        - "C23 would likely need explicit redesign or addenda for lease-primed invocation handoff"
+      known_risks:
+        - "Largest scope spill into later tasks"
+        - "Highest implementation and certification complexity"
+        - "May overfit advanced workflows at the expense of lean common-case behavior"
+      hitl_required: true
+
+  recommended_concepts: ["IC-8", "IC-7"]
+
+  dissent_record:
+    - point: "Speed wins only if freshness and revocation remain first-class"
+      minority: "Critic"
+      monitoring_flag: "Any approved concept must specify invalidation, replay, and expiry rules early"
+    - point: "Warm-state performance paths should be treated as architecture, not opportunistic optimization"
+      minority: "Systems Thinker"
+      monitoring_flag: "FEASIBILITY should measure whether persistent state is mandatory, optional, or profile-gated"
+    - point: "Scope spill is acceptable if it produces a strategically superior tool fabric"
+      minority: "Visionary"
+      monitoring_flag: "Later tasks should consume T-240 authority rather than forcing T-240 back into a narrow box"
+
+  council_judgment: |
+    Under the user's new priorities, the council no longer optimizes for bounded
+    task scope or minimal complexity. The leading concept becomes IC-8 because
+    it gives the strongest combined performance, trust quality, and future power
+    without becoming as totalizing as IC-9. IC-7 remains the best raw
+    efficiency/latency concept for standard repeated tool use. IC-9 is the most
+    ambitious option and may become the superior long-term architecture if the
+    user wants T-240 to intentionally shape T-243, T-260, and C23 downstream.

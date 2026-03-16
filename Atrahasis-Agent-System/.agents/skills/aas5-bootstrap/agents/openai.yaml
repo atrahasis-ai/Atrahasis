@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAS5 Bootstrap"
+  short_description: "Initialize an Atrahasis Codex session"
+  default_prompt: "Initialize under AAS5, read the required surfaces, register if needed, and stop after reporting status."

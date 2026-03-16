@@ -1,0 +1,49 @@
+{
+  "type": "CHILD_AGENT_RESULT",
+  "doctrine_version": "AAS5",
+  "task_id": "T-0000",
+  "workflow_id": "wf-000",
+  "run_key": "T-0000::wf-000",
+  "node_id": "wrk.alpha.systems_thinker",
+  "parent_node_id": "mgr.alpha",
+  "role": "systems_thinker",
+  "role_label": "Alpha systems_thinker",
+  "objective": "Map dependencies and integration surfaces for the assigned lane-local branch.",
+  "status": "COMPLETED",
+  "branch_id": "systems_thinker:minimal_change",
+  "branch_label": "Minimal-Change Topology",
+  "parent_role": "systems_thinker",
+  "branch_kind": "minimal_change",
+  "lane_id": "alpha",
+  "lane_label": "Alpha Lane",
+  "lane_strategy": "Improve the current task path without breaking core assumptions.",
+  "session_identity": {
+    "agent_name": "TBD",
+    "session_id": "not_exposed",
+    "provider": "codex",
+    "role": "systems_thinker"
+  },
+  "model_audit": {
+    "requested_model": "gpt-5.4",
+    "requested_reasoning_effort": "high",
+    "observed_runtime_model": "gpt-5.4",
+    "observed_model_auditability": "verified_exact",
+    "routing_basis": "AAS5 ordinary ideation routing"
+  },
+  "artifact_provenance": {
+    "writer_mode": "child_session",
+    "writer_agent_name": "TBD",
+    "writer_session_id": "not_exposed",
+    "notes": [
+      "Set writer_mode to parent_proxy only if the parent persisted this artifact after receiving the child output."
+    ]
+  },
+  "verdict": "Summarize the participant conclusion here.",
+  "evidence": [
+    {
+      "path": "docs/TODO.md",
+      "note": "Reference the strongest supporting artifact."
+    }
+  ],
+  "recommended_next_action": "Parent merges or requests adjudication."
+}

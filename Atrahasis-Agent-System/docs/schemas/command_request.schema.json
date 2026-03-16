@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Command Request",
+  "type": "object",
+  "required": [
+    "command_modifier",
+    "task_id",
+    "prompt",
+    "scope",
+    "operator_constraints",
+    "hitl_requirements",
+    "created_at"
+  ],
+  "properties": {
+    "command_modifier": {
+      "type": "string",
+      "enum": ["AASBT", "AASAQ", "AASNI", "AASA"]
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^T-\\d+$"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string"
+    },
+    "operator_constraints": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "hitl_requirements": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

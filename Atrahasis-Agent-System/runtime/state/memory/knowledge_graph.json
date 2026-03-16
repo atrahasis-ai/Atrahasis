@@ -1,0 +1,4869 @@
+{
+  "edges": [
+    {
+      "from": "layer:spl",
+      "to": "layer:paee",
+      "type": "directs"
+    },
+    {
+      "from": "layer:paee",
+      "to": "layer:ck",
+      "type": "feeds"
+    },
+    {
+      "from": "layer:ck",
+      "to": "layer:cssm",
+      "type": "coordinates"
+    },
+    {
+      "from": "layer:ck",
+      "to": "layer:acr",
+      "type": "queries"
+    },
+    {
+      "from": "layer:cssm",
+      "to": "layer:gcml",
+      "type": "persists_to"
+    },
+    {
+      "from": "layer:ck",
+      "to": "layer:council",
+      "type": "routes_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:AEP-ALPHA-001",
+      "to": "task:AAS-TASK-BOOT-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:AEP-ALPHA-001",
+      "to": "task:AAS-TASK-BOOT-002",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:AEP-BETA-001",
+      "to": "task:AAS-TASK-BOOT-003",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:AEP-BETA-001",
+      "to": "task:AAS-TASK-BOOT-004",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:AEP-GAMMA-001",
+      "to": "task:AAS-TASK-BOOT-005",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:META-MERGE-001",
+      "to": "task:AAS-TASK-NEXT-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "proposal:META-MERGE-001",
+      "to": "task:AAS-TASK-NEXT-002",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE001-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE001-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE001-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE001-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-001-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE002-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE002-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE002-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE002-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-002-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE003-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE003-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE003-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE003-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-003-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE004-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE004-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE004-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE004-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-004-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE005-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE005-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE005-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE005-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-005-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE006-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE006-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE006-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE006-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-006-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE007-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE007-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE007-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE007-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-007-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE008-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE008-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE008-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE008-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-008-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE009-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE009-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE009-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE009-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-009-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE010-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE010-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE010-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE010-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-010-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE011-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE011-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE011-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE011-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-011-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE012-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE012-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE012-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE012-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-012-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE013-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE013-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE013-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE013-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-013-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE014-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE014-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE014-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE014-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-014-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE015-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE015-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE015-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE015-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-015-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE016-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE016-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE016-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE016-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-016-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE017-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE017-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE017-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE017-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-017-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE018-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE018-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE018-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE018-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-018-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE019-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE019-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE019-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE019-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-019-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE020-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE020-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE020-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE020-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-020-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE021-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE021-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE021-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE021-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-021-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE022-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE022-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE022-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE022-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-022-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE023-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE023-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE023-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE023-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-023-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE024-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE024-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE024-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE024-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-024-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE025-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE025-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE025-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE025-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-025-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE026-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE026-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE026-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE026-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-026-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE027-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE027-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE027-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE027-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-027-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE028-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE028-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE028-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE028-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-028-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE029-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE029-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE029-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE029-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-029-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE030-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE030-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE030-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE030-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-030-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE031-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE031-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE031-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE031-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-031-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE032-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE032-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE032-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE032-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-032-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE033-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE033-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE033-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE033-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-033-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE034-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE034-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE034-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE034-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-034-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE035-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE035-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE035-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE035-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-035-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE036-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE036-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE036-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE036-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-036-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE037-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE037-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE037-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE037-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-037-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE038-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE038-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE038-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE038-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-038-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE039-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE039-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE039-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE039-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-039-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE040-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE040-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE040-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE040-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-040-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE041-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE041-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE041-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE041-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-041-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE042-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE042-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE042-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE042-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-042-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE043-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE043-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE043-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE043-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-043-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE044-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE044-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE044-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE044-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-044-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE045-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE045-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE045-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE045-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-045-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE046-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE046-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE046-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE046-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-046-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE047-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE047-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE047-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE047-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-047-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE048-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE048-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE048-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE048-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-048-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE049-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE049-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE049-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE049-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-049-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE050-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE050-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE050-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE050-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-050-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE051-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE051-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE051-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE051-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-051-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE052-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE052-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE052-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE052-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-052-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE053-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE053-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE053-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE053-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-053-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE054-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE054-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE054-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE054-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-054-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE055-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE055-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE055-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE055-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-055-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE056-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE056-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE056-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE056-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-056-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE057-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE057-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE057-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE057-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-057-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE058-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE058-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE058-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE058-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-058-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE059-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE059-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE059-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE059-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-059-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE060-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE060-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE060-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE060-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-060-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE061-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE061-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE061-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE061-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-061-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE062-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE062-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE062-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE062-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-062-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE063-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE063-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE063-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE063-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-063-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE064-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE064-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE064-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE064-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-064-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE065-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE065-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE065-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE065-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-065-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE066-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE066-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE066-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE066-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-066-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE067-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE067-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE067-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE067-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-067-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE068-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE068-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE068-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE068-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-068-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE069-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE069-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE069-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE069-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-069-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE070-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE070-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE070-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE070-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-070-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE071-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE071-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE071-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE071-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-071-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE072-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE072-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE072-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE072-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-072-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE073-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE073-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE073-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE073-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-073-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE074-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE074-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE074-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE074-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-074-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE075-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE075-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE075-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE075-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-075-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE076-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE076-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE076-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE076-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-076-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE077-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE077-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE077-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE077-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-077-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE078-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE078-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE078-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE078-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-078-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE079-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE079-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE079-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE079-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-079-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE080-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE080-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE080-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE080-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-080-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE081-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE081-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE081-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE081-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-081-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE082-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE082-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE082-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE082-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-082-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE083-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE083-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE083-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE083-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-083-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE084-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE084-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE084-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE084-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-084-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE085-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE085-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE085-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE085-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-085-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE086-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE086-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE086-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE086-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-086-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE087-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE087-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE087-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE087-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-087-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE088-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE088-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE088-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE088-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-088-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE089-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE089-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE089-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE089-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-089-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE090-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE090-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE090-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE090-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-090-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE091-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE091-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE091-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE091-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-091-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE092-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE092-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE092-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE092-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-092-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE093-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE093-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE093-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE093-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-093-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE094-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE094-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE094-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE094-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-094-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE095-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE095-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE095-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE095-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-095-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE096-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE096-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE096-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE096-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-096-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE097-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE097-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE097-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE097-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-097-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE098-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE098-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE098-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE098-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-098-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE099-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE099-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE099-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE099-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-099-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE100-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE100-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE100-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE100-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-100-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE101-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE101-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE101-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE101-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-101-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE102-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE102-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE102-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE102-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-102-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE103-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE103-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE103-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE103-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-103-001",
+      "type": "expands_to"
+    },
+    {
+      "from": "swarm:alpha",
+      "to": "proposal:AEP-CYCLE104-ALPHA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:beta",
+      "to": "proposal:AEP-CYCLE104-BETA-001",
+      "type": "authors"
+    },
+    {
+      "from": "swarm:gamma",
+      "to": "proposal:AEP-CYCLE104-GAMMA-001",
+      "type": "authors"
+    },
+    {
+      "from": "proposal:META-CYCLE104-MERGE-001",
+      "to": "task:AAS-TASK-CYCLE-104-001",
+      "type": "expands_to"
+    }
+  ],
+  "generated_at": "2026-03-13T10:06:21Z",
+  "graph_version": "AAS-KG-v1.0",
+  "nodes": [
+    {
+      "id": "layer:spl",
+      "label": "Strategic Planning Layer",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:paee",
+      "label": "Parallel Architecture Evolution Engine",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:ck",
+      "label": "Coordination Kernel",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:cssm",
+      "label": "Canonical System State Model",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:acr",
+      "label": "Agent Capability Registry",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:gcml",
+      "label": "Global Context Memory Layer",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "layer:council",
+      "label": "Council Governance",
+      "type": "architecture_layer"
+    },
+    {
+      "id": "swarm:alpha",
+      "label": "Swarm Alpha",
+      "type": "swarm"
+    },
+    {
+      "id": "swarm:beta",
+      "label": "Swarm Beta",
+      "type": "swarm"
+    },
+    {
+      "id": "swarm:gamma",
+      "label": "Swarm Gamma",
+      "type": "swarm"
+    },
+    {
+      "id": "proposal:AEP-ALPHA-001",
+      "label": "Bootstrap Coordination Kernel Overlay",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-BETA-001",
+      "label": "Stateful Registry and Task Graph Core",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-GAMMA-001",
+      "label": "Event-Sourced Recursive Evolution Control Plane",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-BOOT-001",
+      "label": "Materialize runtime configuration directory",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-BOOT-002",
+      "label": "Build canonical CSSM and isolated swarm state",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-BOOT-003",
+      "label": "Create bootstrap ACR and proposal registry",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-BOOT-004",
+      "label": "Activate council decision records and dependency graph",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-BOOT-005",
+      "label": "Launch isolated PAEE swarms with event telemetry",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-NEXT-001",
+      "label": "Refactor bootstrap kernel into a long-running coordination service",
+      "type": "task"
+    },
+    {
+      "id": "task:AAS-TASK-NEXT-002",
+      "label": "Add executable council policy modules and replay-based recovery",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE001-ALPHA-001",
+      "label": "Cycle 001 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE001-BETA-001",
+      "label": "Cycle 001 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE001-GAMMA-001",
+      "label": "Cycle 001 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE001-MERGE-001",
+      "label": "Cycle 001 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-001-001",
+      "label": "AAS-TASK-CYCLE-001-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE002-ALPHA-001",
+      "label": "Cycle 002 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE002-BETA-001",
+      "label": "Cycle 002 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE002-GAMMA-001",
+      "label": "Cycle 002 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE002-MERGE-001",
+      "label": "Cycle 002 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-002-001",
+      "label": "AAS-TASK-CYCLE-002-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE003-ALPHA-001",
+      "label": "Cycle 003 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE003-BETA-001",
+      "label": "Cycle 003 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE003-GAMMA-001",
+      "label": "Cycle 003 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE003-MERGE-001",
+      "label": "Cycle 003 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-003-001",
+      "label": "AAS-TASK-CYCLE-003-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE004-ALPHA-001",
+      "label": "Cycle 004 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE004-BETA-001",
+      "label": "Cycle 004 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE004-GAMMA-001",
+      "label": "Cycle 004 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE004-MERGE-001",
+      "label": "Cycle 004 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-004-001",
+      "label": "AAS-TASK-CYCLE-004-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE005-ALPHA-001",
+      "label": "Cycle 005 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE005-BETA-001",
+      "label": "Cycle 005 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE005-GAMMA-001",
+      "label": "Cycle 005 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE005-MERGE-001",
+      "label": "Cycle 005 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-005-001",
+      "label": "AAS-TASK-CYCLE-005-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE006-ALPHA-001",
+      "label": "Cycle 006 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE006-BETA-001",
+      "label": "Cycle 006 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE006-GAMMA-001",
+      "label": "Cycle 006 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE006-MERGE-001",
+      "label": "Cycle 006 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-006-001",
+      "label": "AAS-TASK-CYCLE-006-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE007-ALPHA-001",
+      "label": "Cycle 007 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE007-BETA-001",
+      "label": "Cycle 007 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE007-GAMMA-001",
+      "label": "Cycle 007 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE007-MERGE-001",
+      "label": "Cycle 007 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-007-001",
+      "label": "AAS-TASK-CYCLE-007-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE008-ALPHA-001",
+      "label": "Cycle 008 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE008-BETA-001",
+      "label": "Cycle 008 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE008-GAMMA-001",
+      "label": "Cycle 008 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE008-MERGE-001",
+      "label": "Cycle 008 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-008-001",
+      "label": "AAS-TASK-CYCLE-008-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE009-ALPHA-001",
+      "label": "Cycle 009 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE009-BETA-001",
+      "label": "Cycle 009 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE009-GAMMA-001",
+      "label": "Cycle 009 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE009-MERGE-001",
+      "label": "Cycle 009 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-009-001",
+      "label": "AAS-TASK-CYCLE-009-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE010-ALPHA-001",
+      "label": "Cycle 010 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE010-BETA-001",
+      "label": "Cycle 010 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE010-GAMMA-001",
+      "label": "Cycle 010 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE010-MERGE-001",
+      "label": "Cycle 010 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-010-001",
+      "label": "AAS-TASK-CYCLE-010-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE011-ALPHA-001",
+      "label": "Cycle 011 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE011-BETA-001",
+      "label": "Cycle 011 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE011-GAMMA-001",
+      "label": "Cycle 011 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE011-MERGE-001",
+      "label": "Cycle 011 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-011-001",
+      "label": "AAS-TASK-CYCLE-011-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE012-ALPHA-001",
+      "label": "Cycle 012 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE012-BETA-001",
+      "label": "Cycle 012 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE012-GAMMA-001",
+      "label": "Cycle 012 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE012-MERGE-001",
+      "label": "Cycle 012 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-012-001",
+      "label": "AAS-TASK-CYCLE-012-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE013-ALPHA-001",
+      "label": "Cycle 013 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE013-BETA-001",
+      "label": "Cycle 013 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE013-GAMMA-001",
+      "label": "Cycle 013 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE013-MERGE-001",
+      "label": "Cycle 013 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-013-001",
+      "label": "AAS-TASK-CYCLE-013-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE014-ALPHA-001",
+      "label": "Cycle 014 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE014-BETA-001",
+      "label": "Cycle 014 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE014-GAMMA-001",
+      "label": "Cycle 014 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE014-MERGE-001",
+      "label": "Cycle 014 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-014-001",
+      "label": "AAS-TASK-CYCLE-014-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE015-ALPHA-001",
+      "label": "Cycle 015 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE015-BETA-001",
+      "label": "Cycle 015 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE015-GAMMA-001",
+      "label": "Cycle 015 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE015-MERGE-001",
+      "label": "Cycle 015 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-015-001",
+      "label": "AAS-TASK-CYCLE-015-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE016-ALPHA-001",
+      "label": "Cycle 016 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE016-BETA-001",
+      "label": "Cycle 016 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE016-GAMMA-001",
+      "label": "Cycle 016 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE016-MERGE-001",
+      "label": "Cycle 016 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-016-001",
+      "label": "AAS-TASK-CYCLE-016-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE017-ALPHA-001",
+      "label": "Cycle 017 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE017-BETA-001",
+      "label": "Cycle 017 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE017-GAMMA-001",
+      "label": "Cycle 017 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE017-MERGE-001",
+      "label": "Cycle 017 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-017-001",
+      "label": "AAS-TASK-CYCLE-017-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE018-ALPHA-001",
+      "label": "Cycle 018 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE018-BETA-001",
+      "label": "Cycle 018 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE018-GAMMA-001",
+      "label": "Cycle 018 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE018-MERGE-001",
+      "label": "Cycle 018 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-018-001",
+      "label": "AAS-TASK-CYCLE-018-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE019-ALPHA-001",
+      "label": "Cycle 019 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE019-BETA-001",
+      "label": "Cycle 019 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE019-GAMMA-001",
+      "label": "Cycle 019 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE019-MERGE-001",
+      "label": "Cycle 019 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-019-001",
+      "label": "AAS-TASK-CYCLE-019-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE020-ALPHA-001",
+      "label": "Cycle 020 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE020-BETA-001",
+      "label": "Cycle 020 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE020-GAMMA-001",
+      "label": "Cycle 020 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE020-MERGE-001",
+      "label": "Cycle 020 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-020-001",
+      "label": "AAS-TASK-CYCLE-020-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE021-ALPHA-001",
+      "label": "Cycle 021 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE021-BETA-001",
+      "label": "Cycle 021 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE021-GAMMA-001",
+      "label": "Cycle 021 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE021-MERGE-001",
+      "label": "Cycle 021 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-021-001",
+      "label": "AAS-TASK-CYCLE-021-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE022-ALPHA-001",
+      "label": "Cycle 022 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE022-BETA-001",
+      "label": "Cycle 022 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE022-GAMMA-001",
+      "label": "Cycle 022 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE022-MERGE-001",
+      "label": "Cycle 022 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-022-001",
+      "label": "AAS-TASK-CYCLE-022-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE023-ALPHA-001",
+      "label": "Cycle 023 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE023-BETA-001",
+      "label": "Cycle 023 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE023-GAMMA-001",
+      "label": "Cycle 023 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE023-MERGE-001",
+      "label": "Cycle 023 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-023-001",
+      "label": "AAS-TASK-CYCLE-023-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE024-ALPHA-001",
+      "label": "Cycle 024 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE024-BETA-001",
+      "label": "Cycle 024 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE024-GAMMA-001",
+      "label": "Cycle 024 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE024-MERGE-001",
+      "label": "Cycle 024 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-024-001",
+      "label": "AAS-TASK-CYCLE-024-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE025-ALPHA-001",
+      "label": "Cycle 025 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE025-BETA-001",
+      "label": "Cycle 025 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE025-GAMMA-001",
+      "label": "Cycle 025 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE025-MERGE-001",
+      "label": "Cycle 025 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-025-001",
+      "label": "AAS-TASK-CYCLE-025-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE026-ALPHA-001",
+      "label": "Cycle 026 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE026-BETA-001",
+      "label": "Cycle 026 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE026-GAMMA-001",
+      "label": "Cycle 026 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE026-MERGE-001",
+      "label": "Cycle 026 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-026-001",
+      "label": "AAS-TASK-CYCLE-026-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE027-ALPHA-001",
+      "label": "Cycle 027 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE027-BETA-001",
+      "label": "Cycle 027 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE027-GAMMA-001",
+      "label": "Cycle 027 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE027-MERGE-001",
+      "label": "Cycle 027 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-027-001",
+      "label": "AAS-TASK-CYCLE-027-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE028-ALPHA-001",
+      "label": "Cycle 028 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE028-BETA-001",
+      "label": "Cycle 028 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE028-GAMMA-001",
+      "label": "Cycle 028 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE028-MERGE-001",
+      "label": "Cycle 028 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-028-001",
+      "label": "AAS-TASK-CYCLE-028-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE029-ALPHA-001",
+      "label": "Cycle 029 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE029-BETA-001",
+      "label": "Cycle 029 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE029-GAMMA-001",
+      "label": "Cycle 029 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE029-MERGE-001",
+      "label": "Cycle 029 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-029-001",
+      "label": "AAS-TASK-CYCLE-029-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE030-ALPHA-001",
+      "label": "Cycle 030 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE030-BETA-001",
+      "label": "Cycle 030 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE030-GAMMA-001",
+      "label": "Cycle 030 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE030-MERGE-001",
+      "label": "Cycle 030 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-030-001",
+      "label": "AAS-TASK-CYCLE-030-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE031-ALPHA-001",
+      "label": "Cycle 031 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE031-BETA-001",
+      "label": "Cycle 031 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE031-GAMMA-001",
+      "label": "Cycle 031 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE031-MERGE-001",
+      "label": "Cycle 031 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-031-001",
+      "label": "AAS-TASK-CYCLE-031-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE032-ALPHA-001",
+      "label": "Cycle 032 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE032-BETA-001",
+      "label": "Cycle 032 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE032-GAMMA-001",
+      "label": "Cycle 032 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE032-MERGE-001",
+      "label": "Cycle 032 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-032-001",
+      "label": "AAS-TASK-CYCLE-032-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE033-ALPHA-001",
+      "label": "Cycle 033 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE033-BETA-001",
+      "label": "Cycle 033 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE033-GAMMA-001",
+      "label": "Cycle 033 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE033-MERGE-001",
+      "label": "Cycle 033 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-033-001",
+      "label": "AAS-TASK-CYCLE-033-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE034-ALPHA-001",
+      "label": "Cycle 034 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE034-BETA-001",
+      "label": "Cycle 034 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE034-GAMMA-001",
+      "label": "Cycle 034 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE034-MERGE-001",
+      "label": "Cycle 034 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-034-001",
+      "label": "AAS-TASK-CYCLE-034-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE035-ALPHA-001",
+      "label": "Cycle 035 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE035-BETA-001",
+      "label": "Cycle 035 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE035-GAMMA-001",
+      "label": "Cycle 035 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE035-MERGE-001",
+      "label": "Cycle 035 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-035-001",
+      "label": "AAS-TASK-CYCLE-035-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE036-ALPHA-001",
+      "label": "Cycle 036 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE036-BETA-001",
+      "label": "Cycle 036 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE036-GAMMA-001",
+      "label": "Cycle 036 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE036-MERGE-001",
+      "label": "Cycle 036 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-036-001",
+      "label": "AAS-TASK-CYCLE-036-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE037-ALPHA-001",
+      "label": "Cycle 037 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE037-BETA-001",
+      "label": "Cycle 037 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE037-GAMMA-001",
+      "label": "Cycle 037 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE037-MERGE-001",
+      "label": "Cycle 037 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-037-001",
+      "label": "AAS-TASK-CYCLE-037-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE038-ALPHA-001",
+      "label": "Cycle 038 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE038-BETA-001",
+      "label": "Cycle 038 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE038-GAMMA-001",
+      "label": "Cycle 038 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE038-MERGE-001",
+      "label": "Cycle 038 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-038-001",
+      "label": "AAS-TASK-CYCLE-038-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE039-ALPHA-001",
+      "label": "Cycle 039 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE039-BETA-001",
+      "label": "Cycle 039 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE039-GAMMA-001",
+      "label": "Cycle 039 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE039-MERGE-001",
+      "label": "Cycle 039 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-039-001",
+      "label": "AAS-TASK-CYCLE-039-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE040-ALPHA-001",
+      "label": "Cycle 040 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE040-BETA-001",
+      "label": "Cycle 040 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE040-GAMMA-001",
+      "label": "Cycle 040 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE040-MERGE-001",
+      "label": "Cycle 040 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-040-001",
+      "label": "AAS-TASK-CYCLE-040-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE041-ALPHA-001",
+      "label": "Cycle 041 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE041-BETA-001",
+      "label": "Cycle 041 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE041-GAMMA-001",
+      "label": "Cycle 041 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE041-MERGE-001",
+      "label": "Cycle 041 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-041-001",
+      "label": "AAS-TASK-CYCLE-041-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE042-ALPHA-001",
+      "label": "Cycle 042 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE042-BETA-001",
+      "label": "Cycle 042 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE042-GAMMA-001",
+      "label": "Cycle 042 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE042-MERGE-001",
+      "label": "Cycle 042 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-042-001",
+      "label": "AAS-TASK-CYCLE-042-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE043-ALPHA-001",
+      "label": "Cycle 043 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE043-BETA-001",
+      "label": "Cycle 043 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE043-GAMMA-001",
+      "label": "Cycle 043 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE043-MERGE-001",
+      "label": "Cycle 043 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-043-001",
+      "label": "AAS-TASK-CYCLE-043-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE044-ALPHA-001",
+      "label": "Cycle 044 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE044-BETA-001",
+      "label": "Cycle 044 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE044-GAMMA-001",
+      "label": "Cycle 044 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE044-MERGE-001",
+      "label": "Cycle 044 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-044-001",
+      "label": "AAS-TASK-CYCLE-044-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE045-ALPHA-001",
+      "label": "Cycle 045 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE045-BETA-001",
+      "label": "Cycle 045 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE045-GAMMA-001",
+      "label": "Cycle 045 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE045-MERGE-001",
+      "label": "Cycle 045 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-045-001",
+      "label": "AAS-TASK-CYCLE-045-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE046-ALPHA-001",
+      "label": "Cycle 046 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE046-BETA-001",
+      "label": "Cycle 046 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE046-GAMMA-001",
+      "label": "Cycle 046 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE046-MERGE-001",
+      "label": "Cycle 046 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-046-001",
+      "label": "AAS-TASK-CYCLE-046-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE047-ALPHA-001",
+      "label": "Cycle 047 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE047-BETA-001",
+      "label": "Cycle 047 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE047-GAMMA-001",
+      "label": "Cycle 047 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE047-MERGE-001",
+      "label": "Cycle 047 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-047-001",
+      "label": "AAS-TASK-CYCLE-047-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE048-ALPHA-001",
+      "label": "Cycle 048 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE048-BETA-001",
+      "label": "Cycle 048 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE048-GAMMA-001",
+      "label": "Cycle 048 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE048-MERGE-001",
+      "label": "Cycle 048 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-048-001",
+      "label": "AAS-TASK-CYCLE-048-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE049-ALPHA-001",
+      "label": "Cycle 049 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE049-BETA-001",
+      "label": "Cycle 049 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE049-GAMMA-001",
+      "label": "Cycle 049 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE049-MERGE-001",
+      "label": "Cycle 049 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-049-001",
+      "label": "AAS-TASK-CYCLE-049-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE050-ALPHA-001",
+      "label": "Cycle 050 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE050-BETA-001",
+      "label": "Cycle 050 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE050-GAMMA-001",
+      "label": "Cycle 050 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE050-MERGE-001",
+      "label": "Cycle 050 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-050-001",
+      "label": "AAS-TASK-CYCLE-050-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE051-ALPHA-001",
+      "label": "Cycle 051 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE051-BETA-001",
+      "label": "Cycle 051 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE051-GAMMA-001",
+      "label": "Cycle 051 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE051-MERGE-001",
+      "label": "Cycle 051 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-051-001",
+      "label": "AAS-TASK-CYCLE-051-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE052-ALPHA-001",
+      "label": "Cycle 052 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE052-BETA-001",
+      "label": "Cycle 052 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE052-GAMMA-001",
+      "label": "Cycle 052 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE052-MERGE-001",
+      "label": "Cycle 052 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-052-001",
+      "label": "AAS-TASK-CYCLE-052-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE053-ALPHA-001",
+      "label": "Cycle 053 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE053-BETA-001",
+      "label": "Cycle 053 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE053-GAMMA-001",
+      "label": "Cycle 053 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE053-MERGE-001",
+      "label": "Cycle 053 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-053-001",
+      "label": "AAS-TASK-CYCLE-053-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE054-ALPHA-001",
+      "label": "Cycle 054 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE054-BETA-001",
+      "label": "Cycle 054 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE054-GAMMA-001",
+      "label": "Cycle 054 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE054-MERGE-001",
+      "label": "Cycle 054 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-054-001",
+      "label": "AAS-TASK-CYCLE-054-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE055-ALPHA-001",
+      "label": "Cycle 055 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE055-BETA-001",
+      "label": "Cycle 055 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE055-GAMMA-001",
+      "label": "Cycle 055 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE055-MERGE-001",
+      "label": "Cycle 055 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-055-001",
+      "label": "AAS-TASK-CYCLE-055-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE056-ALPHA-001",
+      "label": "Cycle 056 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE056-BETA-001",
+      "label": "Cycle 056 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE056-GAMMA-001",
+      "label": "Cycle 056 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE056-MERGE-001",
+      "label": "Cycle 056 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-056-001",
+      "label": "AAS-TASK-CYCLE-056-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE057-ALPHA-001",
+      "label": "Cycle 057 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE057-BETA-001",
+      "label": "Cycle 057 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE057-GAMMA-001",
+      "label": "Cycle 057 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE057-MERGE-001",
+      "label": "Cycle 057 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-057-001",
+      "label": "AAS-TASK-CYCLE-057-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE058-ALPHA-001",
+      "label": "Cycle 058 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE058-BETA-001",
+      "label": "Cycle 058 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE058-GAMMA-001",
+      "label": "Cycle 058 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE058-MERGE-001",
+      "label": "Cycle 058 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-058-001",
+      "label": "AAS-TASK-CYCLE-058-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE059-ALPHA-001",
+      "label": "Cycle 059 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE059-BETA-001",
+      "label": "Cycle 059 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE059-GAMMA-001",
+      "label": "Cycle 059 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE059-MERGE-001",
+      "label": "Cycle 059 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-059-001",
+      "label": "AAS-TASK-CYCLE-059-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE060-ALPHA-001",
+      "label": "Cycle 060 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE060-BETA-001",
+      "label": "Cycle 060 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE060-GAMMA-001",
+      "label": "Cycle 060 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE060-MERGE-001",
+      "label": "Cycle 060 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-060-001",
+      "label": "AAS-TASK-CYCLE-060-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE061-ALPHA-001",
+      "label": "Cycle 061 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE061-BETA-001",
+      "label": "Cycle 061 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE061-GAMMA-001",
+      "label": "Cycle 061 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE061-MERGE-001",
+      "label": "Cycle 061 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-061-001",
+      "label": "AAS-TASK-CYCLE-061-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE062-ALPHA-001",
+      "label": "Cycle 062 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE062-BETA-001",
+      "label": "Cycle 062 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE062-GAMMA-001",
+      "label": "Cycle 062 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE062-MERGE-001",
+      "label": "Cycle 062 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-062-001",
+      "label": "AAS-TASK-CYCLE-062-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE063-ALPHA-001",
+      "label": "Cycle 063 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE063-BETA-001",
+      "label": "Cycle 063 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE063-GAMMA-001",
+      "label": "Cycle 063 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE063-MERGE-001",
+      "label": "Cycle 063 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-063-001",
+      "label": "AAS-TASK-CYCLE-063-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE064-ALPHA-001",
+      "label": "Cycle 064 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE064-BETA-001",
+      "label": "Cycle 064 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE064-GAMMA-001",
+      "label": "Cycle 064 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE064-MERGE-001",
+      "label": "Cycle 064 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-064-001",
+      "label": "AAS-TASK-CYCLE-064-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE065-ALPHA-001",
+      "label": "Cycle 065 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE065-BETA-001",
+      "label": "Cycle 065 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE065-GAMMA-001",
+      "label": "Cycle 065 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE065-MERGE-001",
+      "label": "Cycle 065 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-065-001",
+      "label": "AAS-TASK-CYCLE-065-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE066-ALPHA-001",
+      "label": "Cycle 066 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE066-BETA-001",
+      "label": "Cycle 066 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE066-GAMMA-001",
+      "label": "Cycle 066 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE066-MERGE-001",
+      "label": "Cycle 066 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-066-001",
+      "label": "AAS-TASK-CYCLE-066-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE067-ALPHA-001",
+      "label": "Cycle 067 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE067-BETA-001",
+      "label": "Cycle 067 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE067-GAMMA-001",
+      "label": "Cycle 067 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE067-MERGE-001",
+      "label": "Cycle 067 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-067-001",
+      "label": "AAS-TASK-CYCLE-067-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE068-ALPHA-001",
+      "label": "Cycle 068 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE068-BETA-001",
+      "label": "Cycle 068 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE068-GAMMA-001",
+      "label": "Cycle 068 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE068-MERGE-001",
+      "label": "Cycle 068 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-068-001",
+      "label": "AAS-TASK-CYCLE-068-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE069-ALPHA-001",
+      "label": "Cycle 069 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE069-BETA-001",
+      "label": "Cycle 069 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE069-GAMMA-001",
+      "label": "Cycle 069 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE069-MERGE-001",
+      "label": "Cycle 069 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-069-001",
+      "label": "AAS-TASK-CYCLE-069-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE070-ALPHA-001",
+      "label": "Cycle 070 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE070-BETA-001",
+      "label": "Cycle 070 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE070-GAMMA-001",
+      "label": "Cycle 070 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE070-MERGE-001",
+      "label": "Cycle 070 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-070-001",
+      "label": "AAS-TASK-CYCLE-070-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE071-ALPHA-001",
+      "label": "Cycle 071 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE071-BETA-001",
+      "label": "Cycle 071 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE071-GAMMA-001",
+      "label": "Cycle 071 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE071-MERGE-001",
+      "label": "Cycle 071 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-071-001",
+      "label": "AAS-TASK-CYCLE-071-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE072-ALPHA-001",
+      "label": "Cycle 072 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE072-BETA-001",
+      "label": "Cycle 072 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE072-GAMMA-001",
+      "label": "Cycle 072 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE072-MERGE-001",
+      "label": "Cycle 072 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-072-001",
+      "label": "AAS-TASK-CYCLE-072-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE073-ALPHA-001",
+      "label": "Cycle 073 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE073-BETA-001",
+      "label": "Cycle 073 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE073-GAMMA-001",
+      "label": "Cycle 073 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE073-MERGE-001",
+      "label": "Cycle 073 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-073-001",
+      "label": "AAS-TASK-CYCLE-073-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE074-ALPHA-001",
+      "label": "Cycle 074 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE074-BETA-001",
+      "label": "Cycle 074 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE074-GAMMA-001",
+      "label": "Cycle 074 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE074-MERGE-001",
+      "label": "Cycle 074 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-074-001",
+      "label": "AAS-TASK-CYCLE-074-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE075-ALPHA-001",
+      "label": "Cycle 075 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE075-BETA-001",
+      "label": "Cycle 075 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE075-GAMMA-001",
+      "label": "Cycle 075 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE075-MERGE-001",
+      "label": "Cycle 075 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-075-001",
+      "label": "AAS-TASK-CYCLE-075-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE076-ALPHA-001",
+      "label": "Cycle 076 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE076-BETA-001",
+      "label": "Cycle 076 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE076-GAMMA-001",
+      "label": "Cycle 076 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE076-MERGE-001",
+      "label": "Cycle 076 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-076-001",
+      "label": "AAS-TASK-CYCLE-076-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE077-ALPHA-001",
+      "label": "Cycle 077 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE077-BETA-001",
+      "label": "Cycle 077 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE077-GAMMA-001",
+      "label": "Cycle 077 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE077-MERGE-001",
+      "label": "Cycle 077 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-077-001",
+      "label": "AAS-TASK-CYCLE-077-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE078-ALPHA-001",
+      "label": "Cycle 078 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE078-BETA-001",
+      "label": "Cycle 078 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE078-GAMMA-001",
+      "label": "Cycle 078 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE078-MERGE-001",
+      "label": "Cycle 078 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-078-001",
+      "label": "AAS-TASK-CYCLE-078-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE079-ALPHA-001",
+      "label": "Cycle 079 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE079-BETA-001",
+      "label": "Cycle 079 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE079-GAMMA-001",
+      "label": "Cycle 079 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE079-MERGE-001",
+      "label": "Cycle 079 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-079-001",
+      "label": "AAS-TASK-CYCLE-079-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE080-ALPHA-001",
+      "label": "Cycle 080 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE080-BETA-001",
+      "label": "Cycle 080 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE080-GAMMA-001",
+      "label": "Cycle 080 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE080-MERGE-001",
+      "label": "Cycle 080 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-080-001",
+      "label": "AAS-TASK-CYCLE-080-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE081-ALPHA-001",
+      "label": "Cycle 081 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE081-BETA-001",
+      "label": "Cycle 081 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE081-GAMMA-001",
+      "label": "Cycle 081 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE081-MERGE-001",
+      "label": "Cycle 081 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-081-001",
+      "label": "AAS-TASK-CYCLE-081-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE082-ALPHA-001",
+      "label": "Cycle 082 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE082-BETA-001",
+      "label": "Cycle 082 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE082-GAMMA-001",
+      "label": "Cycle 082 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE082-MERGE-001",
+      "label": "Cycle 082 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-082-001",
+      "label": "AAS-TASK-CYCLE-082-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE083-ALPHA-001",
+      "label": "Cycle 083 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE083-BETA-001",
+      "label": "Cycle 083 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE083-GAMMA-001",
+      "label": "Cycle 083 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE083-MERGE-001",
+      "label": "Cycle 083 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-083-001",
+      "label": "AAS-TASK-CYCLE-083-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE084-ALPHA-001",
+      "label": "Cycle 084 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE084-BETA-001",
+      "label": "Cycle 084 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE084-GAMMA-001",
+      "label": "Cycle 084 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE084-MERGE-001",
+      "label": "Cycle 084 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-084-001",
+      "label": "AAS-TASK-CYCLE-084-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE085-ALPHA-001",
+      "label": "Cycle 085 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE085-BETA-001",
+      "label": "Cycle 085 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE085-GAMMA-001",
+      "label": "Cycle 085 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE085-MERGE-001",
+      "label": "Cycle 085 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-085-001",
+      "label": "AAS-TASK-CYCLE-085-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE086-ALPHA-001",
+      "label": "Cycle 086 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE086-BETA-001",
+      "label": "Cycle 086 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE086-GAMMA-001",
+      "label": "Cycle 086 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE086-MERGE-001",
+      "label": "Cycle 086 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-086-001",
+      "label": "AAS-TASK-CYCLE-086-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE087-ALPHA-001",
+      "label": "Cycle 087 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE087-BETA-001",
+      "label": "Cycle 087 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE087-GAMMA-001",
+      "label": "Cycle 087 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE087-MERGE-001",
+      "label": "Cycle 087 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-087-001",
+      "label": "AAS-TASK-CYCLE-087-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE088-ALPHA-001",
+      "label": "Cycle 088 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE088-BETA-001",
+      "label": "Cycle 088 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE088-GAMMA-001",
+      "label": "Cycle 088 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE088-MERGE-001",
+      "label": "Cycle 088 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-088-001",
+      "label": "AAS-TASK-CYCLE-088-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE089-ALPHA-001",
+      "label": "Cycle 089 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE089-BETA-001",
+      "label": "Cycle 089 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE089-GAMMA-001",
+      "label": "Cycle 089 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE089-MERGE-001",
+      "label": "Cycle 089 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-089-001",
+      "label": "AAS-TASK-CYCLE-089-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE090-ALPHA-001",
+      "label": "Cycle 090 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE090-BETA-001",
+      "label": "Cycle 090 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE090-GAMMA-001",
+      "label": "Cycle 090 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE090-MERGE-001",
+      "label": "Cycle 090 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-090-001",
+      "label": "AAS-TASK-CYCLE-090-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE091-ALPHA-001",
+      "label": "Cycle 091 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE091-BETA-001",
+      "label": "Cycle 091 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE091-GAMMA-001",
+      "label": "Cycle 091 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE091-MERGE-001",
+      "label": "Cycle 091 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-091-001",
+      "label": "AAS-TASK-CYCLE-091-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE092-ALPHA-001",
+      "label": "Cycle 092 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE092-BETA-001",
+      "label": "Cycle 092 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE092-GAMMA-001",
+      "label": "Cycle 092 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE092-MERGE-001",
+      "label": "Cycle 092 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-092-001",
+      "label": "AAS-TASK-CYCLE-092-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE093-ALPHA-001",
+      "label": "Cycle 093 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE093-BETA-001",
+      "label": "Cycle 093 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE093-GAMMA-001",
+      "label": "Cycle 093 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE093-MERGE-001",
+      "label": "Cycle 093 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-093-001",
+      "label": "AAS-TASK-CYCLE-093-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE094-ALPHA-001",
+      "label": "Cycle 094 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE094-BETA-001",
+      "label": "Cycle 094 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE094-GAMMA-001",
+      "label": "Cycle 094 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE094-MERGE-001",
+      "label": "Cycle 094 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-094-001",
+      "label": "AAS-TASK-CYCLE-094-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE095-ALPHA-001",
+      "label": "Cycle 095 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE095-BETA-001",
+      "label": "Cycle 095 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE095-GAMMA-001",
+      "label": "Cycle 095 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE095-MERGE-001",
+      "label": "Cycle 095 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-095-001",
+      "label": "AAS-TASK-CYCLE-095-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE096-ALPHA-001",
+      "label": "Cycle 096 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE096-BETA-001",
+      "label": "Cycle 096 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE096-GAMMA-001",
+      "label": "Cycle 096 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE096-MERGE-001",
+      "label": "Cycle 096 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-096-001",
+      "label": "AAS-TASK-CYCLE-096-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE097-ALPHA-001",
+      "label": "Cycle 097 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE097-BETA-001",
+      "label": "Cycle 097 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE097-GAMMA-001",
+      "label": "Cycle 097 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE097-MERGE-001",
+      "label": "Cycle 097 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-097-001",
+      "label": "AAS-TASK-CYCLE-097-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE098-ALPHA-001",
+      "label": "Cycle 098 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE098-BETA-001",
+      "label": "Cycle 098 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE098-GAMMA-001",
+      "label": "Cycle 098 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE098-MERGE-001",
+      "label": "Cycle 098 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-098-001",
+      "label": "AAS-TASK-CYCLE-098-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE099-ALPHA-001",
+      "label": "Cycle 099 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE099-BETA-001",
+      "label": "Cycle 099 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE099-GAMMA-001",
+      "label": "Cycle 099 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE099-MERGE-001",
+      "label": "Cycle 099 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-099-001",
+      "label": "AAS-TASK-CYCLE-099-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE100-ALPHA-001",
+      "label": "Cycle 100 Non-Breaking Runtime Hardening",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE100-BETA-001",
+      "label": "Cycle 100 Registry-Driven Autonomous Scheduling",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE100-GAMMA-001",
+      "label": "Cycle 100 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE100-MERGE-001",
+      "label": "Cycle 100 Meta-Merge Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-100-001",
+      "label": "AAS-TASK-CYCLE-100-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE101-ALPHA-001",
+      "label": "Cycle 101 Runtime Stability Spine",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE101-BETA-001",
+      "label": "Cycle 101 Registry-Governed Autonomy",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE101-GAMMA-001",
+      "label": "Cycle 101 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE101-MERGE-001",
+      "label": "Cycle 101 Converged Meta-Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-101-001",
+      "label": "AAS-TASK-CYCLE-101-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE102-ALPHA-001",
+      "label": "Cycle 102 Runtime Stability Spine",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE102-BETA-001",
+      "label": "Cycle 102 Registry-Governed Autonomy",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE102-GAMMA-001",
+      "label": "Cycle 102 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE102-MERGE-001",
+      "label": "Cycle 102 Converged Meta-Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-102-001",
+      "label": "AAS-TASK-CYCLE-102-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE103-ALPHA-001",
+      "label": "Cycle 103 Runtime Stability Spine",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE103-BETA-001",
+      "label": "Cycle 103 Registry-Governed Autonomy",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE103-GAMMA-001",
+      "label": "Cycle 103 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE103-MERGE-001",
+      "label": "Cycle 103 Converged Meta-Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-103-001",
+      "label": "AAS-TASK-CYCLE-103-001",
+      "type": "task"
+    },
+    {
+      "id": "proposal:AEP-CYCLE104-ALPHA-001",
+      "label": "Cycle 104 Runtime Stability Spine",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE104-BETA-001",
+      "label": "Cycle 104 Registry-Governed Autonomy",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:AEP-CYCLE104-GAMMA-001",
+      "label": "Cycle 104 Recursive Evolution Compiler",
+      "type": "proposal"
+    },
+    {
+      "id": "proposal:META-CYCLE104-MERGE-001",
+      "label": "Cycle 104 Converged Meta-Architecture",
+      "type": "proposal"
+    },
+    {
+      "id": "task:AAS-TASK-CYCLE-104-001",
+      "label": "AAS-TASK-CYCLE-104-001",
+      "type": "task"
+    }
+  ],
+  "updated_at": "2026-03-13T10:33:51Z"
+}

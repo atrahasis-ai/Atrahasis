@@ -1,0 +1,13 @@
+task_id: "T-063"
+invention_ids: ["C32"]
+target_specs: []
+title: "Identity & Citizenship Registry"
+platform: "CLAUDE"
+claimed_at: "2026-03-12T05:00:00Z"
+updated_at: "2026-03-12T07:00:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/task_workspaces/T-063/"
+  pipeline_type: "AAS"
+notes: "C32 Metamorphic Identity Architecture — full AAS pipeline COMPLETE. APPROVE verdict. Novelty 4, Feasibility 4, Impact 4, Risk 4 (MEDIUM). 5 monitoring flags."

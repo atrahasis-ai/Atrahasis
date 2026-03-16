@@ -1,0 +1,132 @@
+IDEATION_COUNCIL_OUTPUT:
+  domain: "sovereign agent communication / message taxonomy / protocol design / semantic interoperability"
+  generated_at: "2026-03-12T12:46:00Z"
+  agent: "Nergal"
+  consensus_level: "MAJORITY"
+
+  round_1:
+    visionary:
+      concept_name: "Universal Verb Envelope"
+      position: |
+        Replace the 19-class expansion with a tiny generic verb set such as
+        DISCOVER, INVOKE, READ, STREAM, and SAMPLE. Put capability-specific
+        detail inside payload metadata and let handlers branch on embedded
+        schemas. This minimizes visible class count but shifts meaning into
+        payload conventions.
+      novelty_estimate: 3
+      feasibility_estimate: 3
+
+    systems_thinker:
+      concept_name: "Lineage-Bearing Capability Message Lattice"
+      position: |
+        Extend AACP through a bounded message lattice organized by capability
+        family, interaction mode, and lineage rules. Normalize the current
+        baseline to 23 canonical classes, then add exactly 19 new classes for
+        discovery, tools, resources, prompting, streaming, and sampling.
+        Use dual-phase classes where request and response share one semantic
+        contract. Reserve distinct result classes only where the reply has
+        materially different downstream consequences.
+      novelty_estimate: 4
+      feasibility_estimate: 4
+
+    critic:
+      concept_name: "Capability Patch Table"
+      position: |
+        Append one new class for every new surface named in the Alternative B
+        packet and leave the old baseline untouched. This is mechanically simple
+        but likely overshoots 42 classes, duplicates transport-level push
+        behavior, and leaves class boundaries inconsistent.
+      novelty_estimate: 2
+      feasibility_estimate: 4
+
+  round_2:
+    systems_thinker_challenges_visionary: |
+      A generic verb set weakens L4 authority because handlers must infer
+      semantics from payload shape and side agreements. That recreates the
+      ambiguity Alternative B is trying to eliminate.
+
+    critic_challenges_both: |
+      The extension must prove why some surfaces deserve dedicated classes while
+      others are delivery modes or responses within an existing class. Without a
+      principled economy rule, the count target becomes arbitrary.
+
+    visionary_response: |
+      I accept that the class system needs stronger external shape than a generic
+      verb envelope. The right compromise is a family lattice with explicit rules
+      for when a new result or notification class is justified.
+
+  concepts:
+    - concept_id: "IC-1"
+      title: "Universal Verb Envelope"
+      summary: |
+        Collapse capability differences into a small generic verb set. Flexible,
+        but too much meaning moves into payload-level conventions and handler
+        heuristics.
+      novelty_score: 3
+      feasibility_score: 3
+      key_innovation: "Minimal visible message inventory with payload-parametric behavior"
+      technical_approach: "5-7 generic verbs plus payload-side capability selectors"
+      known_risks:
+        - "Weakens explicit L4 message authority"
+        - "Encourages semantic drift and payload overloading"
+        - "Makes conformance harder because meaning is less visible in the class layer"
+      prior_art_concerns:
+        - "Looks too much like generic RPC wrapped in semantic payloads"
+
+    - concept_id: "IC-2"
+      title: "Lineage-Bearing Capability Message Lattice (LCML)"
+      summary: |
+        Define six new capability families at the message layer and place each
+        class in a bounded lattice shaped by family, interaction mode, and
+        lineage rules. Normalize the current AACP baseline to 23 canonical
+        classes, add exactly 19 new classes, and keep push and some query
+        responses as modes rather than separate class proliferation.
+      novelty_score: 4
+      feasibility_score: 4
+      key_innovation: "Capability-family message lattice with explicit class economy and lineage-bearing request/response discipline"
+      technical_approach: |
+        Normalize the legacy 23-class baseline, define 19 new classes across
+        six families, add message-layer header extensions, and specify which
+        classes are dual-phase versus which need distinct response classes.
+      potential_applications:
+        - "Canonical 42-class inventory for Alternative B"
+        - "Upstream message authority for T-214, T-240, T-241, T-242, T-243, and T-244"
+        - "Native-versus-bridge message provenance visibility across tool and discovery flows"
+      known_risks:
+        - "Legacy baseline normalization may be contested if draft-era message lists are treated as canonical"
+        - "Class economy rules could become inconsistent without explicit criteria"
+        - "Too much payload detail here could pre-design T-212 or T-214"
+      prior_art_concerns:
+        - "Request/response and notification families are familiar patterns, so novelty depends on the Atrahasis-specific lineage and class-economy synthesis"
+      research_questions:
+        - "Which surfaces must receive dedicated result classes because their responses have distinct downstream semantics?"
+        - "How should push behavior be represented without spending extra class count on transport-bound variants?"
+        - "What is the cleanest normalized 23-class baseline compatible with the current repo lineage?"
+      hitl_required: true
+
+    - concept_id: "IC-3"
+      title: "Capability Patch Table"
+      summary: |
+        Add one message class for every newly named capability surface and avoid
+        any baseline normalization work. Fastest path, but likely inconsistent and
+        too large.
+      novelty_score: 2
+      feasibility_score: 4
+      key_innovation: "Fast additive extension with minimal re-interpretation"
+      technical_approach: "Append capability surfaces directly as new classes"
+      known_risks:
+        - "Breaks the 42-class target"
+        - "Duplicates push and update surfaces unnecessarily"
+        - "Leaves the legacy baseline underspecified"
+      prior_art_concerns:
+        - "Looks like an ad hoc feature list rather than an architecture"
+
+  recommended_concepts: ["IC-2"]
+
+  dissent_record:
+    - point: "The normalized 23-class legacy baseline must be justified explicitly"
+      minority: "Critic"
+      monitoring_flag: "RESEARCH and SPECIFICATION must cite the legacy-source ambiguity and explain the chosen normalization"
+    - point: "Push must not become hidden transport leakage"
+      minority: "Visionary"
+      monitoring_flag: "SPECIFICATION must define push as a message-layer delivery mode without preempting T-243 transport details"

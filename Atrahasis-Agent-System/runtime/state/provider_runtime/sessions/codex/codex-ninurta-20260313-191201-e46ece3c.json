@@ -1,0 +1,43 @@
+{
+  "agent_name": "Ninurta",
+  "available_models": [
+    "gpt-5.4",
+    "gpt-5.3-codex",
+    "gpt-5.3-codex-spark",
+    "gpt-5.2-codex",
+    "gpt-5.2",
+    "gpt-5.1-codex-max",
+    "gpt-5.1-codex-mini"
+  ],
+  "current_task": null,
+  "display_name": "OpenAI Codex",
+  "notes": "Task T-251 abandoned at operator request.",
+  "provider": "codex",
+  "registered_at": "2026-03-13T20:01:30Z",
+  "routing_manifest": [
+    {
+      "agent_type": "operational",
+      "model": "gpt-5.4",
+      "notes": "Default Codex model for non-peak roles that still need strong reasoning.",
+      "provider": "codex",
+      "reasoning_effort": "medium",
+      "tier": "operational"
+    },
+    {
+      "agent_type": "code_implementer",
+      "model": "gpt-5.3-codex",
+      "notes": "Codex-optimized path for code-heavy implementation and validation work.",
+      "provider": "codex",
+      "reasoning_effort": "high",
+      "tier": "code_only"
+    }
+  ],
+  "session_id": "codex-ninurta-20260313-191201-e46ece3c",
+  "status": "ACTIVE",
+  "supported_agent_types": [
+    "operational",
+    "code_implementer"
+  ],
+  "type": "PROVIDER_BACKEND_SESSION",
+  "updated_at": "2026-03-13T20:27:11Z"
+}

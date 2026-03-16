@@ -1,0 +1,51 @@
+{
+  "blocking_gates": [
+    "This is still ideation only. No research, feasibility, design, specification, canonical claim, or shared-state promotion is authorized yet."
+  ],
+  "constraints": [
+    "Do not promote this exploratory idea into canonical shared work without explicit operator direction."
+  ],
+  "decision_type": "OPERATOR_GUIDANCE",
+  "evidence_summary": {
+    "contradiction_count": 3,
+    "modifier": "AASNI",
+    "priority_zones": [
+      "architecture"
+    ],
+    "strategy_summary": "Real ABGR swarm completed. The swarm rejected the literal independent microservice-layer frame and converged on redesign options ranging from direct-spec addendum to a new internal-only capacity-governance subsystem."
+  },
+  "operator_actions": [
+    {
+      "instruction": "Choose one ideation path or reject the candidate entirely.",
+      "label": "choose_path"
+    }
+  ],
+  "operator_decision": "CLOSE_OUT_WITHOUT_ADVANCEMENT",
+  "options": [
+    {
+      "label": "Reject As Subsumed/Invalid",
+      "summary": "Reject the literal independent microservice-layer idea because current authority already covers execution, inference semantics, external boundaries, model promotion, and economics well enough.",
+      "recommended_for": "operator wants no new subsystem and no major addendum"
+    },
+    {
+      "label": "Inference Capacity Addendum",
+      "summary": "Keep the objective but solve it as direct-spec addenda centered on a thin internal substrate-routing seam under C45 with C47/C42/C39/C18/C22 follow-ons.",
+      "recommended_for": "operator wants the smallest valid architectural move"
+    },
+    {
+      "label": "Sovereign Inference Fabric",
+      "summary": "Promote a real new internal-only subsystem for pooled model-capacity governance, placement, batching, and leased-to-native migration beneath C45 and fed by C47.",
+      "recommended_for": "operator wants a real new subsystem rather than scattered addenda"
+    },
+    {
+      "label": "Sovereign Cognition Planning Frame",
+      "summary": "Keep the objective but redesign it as a cross-spec planning frame or capacity-authority reset before deciding whether a standalone subsystem is actually warranted.",
+      "recommended_for": "operator wants a broader redesign pass before subsystem commitment"
+    }
+  ],
+  "prompt": "Treat the following as a candidate new FULL PIPELINE task, but do not add it to docs/TODO.md, do not claim a canonical task, and do not edit shared state yet.",
+  "recommendation_authorized": true,
+  "research_strategy_summary": "Ideation is complete and now closed on operator instruction. No follow-on stage is authorized unless the operator explicitly reopens or redispatches the idea.",
+  "task_id": "T-9013",
+  "workflow_status": "CLOSED_ON_OPERATOR_INSTRUCTION"
+}

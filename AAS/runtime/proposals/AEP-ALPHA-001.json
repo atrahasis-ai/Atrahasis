@@ -1,0 +1,33 @@
+{
+  "aep_id": "AEP-ALPHA-001",
+  "affected_layers": [
+    "Infrastructure",
+    "Runtime",
+    "Agent",
+    "Governance"
+  ],
+  "architecture_gap": "The system has specifications and validators but no executable orchestrator, no runtime state, and no swarm activation path.",
+  "authoring_agent": "Swarm Alpha",
+  "cssm_version": "AAS-State-v1.0",
+  "data_model_changes": "Introduce machine-readable CSSM snapshots, runtime status manifests, and initialization metadata.",
+  "date": "2026-03-13T10:06:21Z",
+  "governance_implications": "Councils remain authoritative; runtime merely routes proposals and records decisions.",
+  "implementation_tasks": [
+    "AAS-TASK-BOOT-001",
+    "AAS-TASK-BOOT-002"
+  ],
+  "invention_concept": "Preserve the repo's document canon as GCML while layering a deterministic local coordination kernel on top of it.",
+  "migration_strategy": "Non-breaking overlay. Existing docs remain authoritative while runtime files are introduced under /AAS/runtime.",
+  "objective_profile": {
+    "capability": 0.72,
+    "feasibility": 0.96,
+    "governance_stability": 0.94
+  },
+  "problem_statement": "The system cannot execute recursive architecture evolution as a program.",
+  "proposed_architecture_change": "Add a local bootstrap kernel that loads the AAS spec pack, materializes configuration, builds CSSM snapshots, and treats repo documentation as the canonical memory substrate.",
+  "protocol_implications": "No shared repo workflow breaks; runtime derives state from existing docs without replacing them.",
+  "security_implications": "Keeps execution local and file-backed. No new external attack surface is introduced.",
+  "status": "submitted",
+  "swarm": "alpha",
+  "title": "Bootstrap Coordination Kernel Overlay"
+}

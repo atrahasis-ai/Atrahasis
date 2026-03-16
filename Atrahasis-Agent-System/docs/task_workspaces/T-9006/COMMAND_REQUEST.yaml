@@ -1,0 +1,14 @@
+command_modifier: AASNI
+task_id: T-9006
+prompt: 'Run the operator-merged doctrine document through AAS4 again as Anu,
+  extrapolate across Enki/Nanshe/Ashur/Anu, decide the preferred direction,
+  and commit to that choice even if no new inventions emerge.'
+scope: combined_doctrine_reconciliation
+operator_constraints:
+- Treat this as a second-pass synthesis over the merged AAT document.
+- Commit to a direction rather than leaving the result open-ended.
+- Keep the result separate from canonical backlog state until operator
+  promotion.
+hitl_requirements:
+- OPERATOR_APPROVAL_FOR_CANONICAL_REWRITE
+created_at: '2026-03-13T23:21:42Z'

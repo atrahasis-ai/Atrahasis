@@ -1,0 +1,15 @@
+task_id: "T-085"
+invention_ids: []
+target_specs:
+  - "C6"
+title: "Add Heuristic Family Store to C6"
+platform: "CODEX"
+agent_name: "Inanna"
+claimed_at: "2026-03-12T08:49:24Z"
+updated_at: "2026-03-12T08:53:56Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C6/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Completed by Inanna. Added C6 heuristic family store sections, retrieval/archive hooks, appendix material, and v2.0.4 metadata."

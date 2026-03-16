@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Review Gate Record",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "run_id",
+    "review_status",
+    "started_at",
+    "completed_at",
+    "verdict",
+    "summary",
+    "findings",
+    "source",
+    "artifact_refs",
+    "notes",
+    "updated_at"
+  ],
+  "properties": {
+    "type": {"const": "REVIEW_GATE_RECORD"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "run_id": {"type": "string"},
+    "thread_id": {"type": ["string", "null"]},
+    "review_thread_id": {"type": ["string", "null"]},
+    "review_turn_id": {"type": ["string", "null"]},
+    "review_status": {"type": "string"},
+    "review_target": {"type": ["object", "null"], "additionalProperties": true},
+    "review_delivery": {"type": ["string", "null"]},
+    "custom_instructions": {"type": ["string", "null"]},
+    "started_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": ["string", "null"], "format": "date-time"},
+    "verdict": {"type": ["string", "null"]},
+    "summary": {"type": ["string", "null"]},
+    "findings": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"type": "string"},
+          {"type": "object", "additionalProperties": true}
+        ]
+      }
+    },
+    "source": {"type": "string"},
+    "review_response": {"type": ["object", "null"], "additionalProperties": true},
+    "artifact_refs": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

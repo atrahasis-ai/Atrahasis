@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS5 Convergence Gate Record",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "current_stage",
+    "required_before_stage_close",
+    "convergence_status",
+    "ready_for_decision",
+    "satisfied",
+    "branch_count",
+    "minimum_completed_branches",
+    "completed_branch_count",
+    "disagreement_signals",
+    "recommended_parent_action",
+    "decision_options",
+    "gamma_present",
+    "requires_gamma_disposition",
+    "selected_disposition",
+    "rationale",
+    "started_at",
+    "completed_at",
+    "source_refs",
+    "source",
+    "notes",
+    "updated_at"
+  ],
+  "properties": {
+    "type": {"const": "CONVERGENCE_GATE_RECORD"},
+    "task_id": {"type": "string", "pattern": "^T-\\d+$"},
+    "workflow_id": {"type": ["string", "null"]},
+    "run_id": {"type": ["string", "null"]},
+    "current_stage": {"type": ["string", "null"]},
+    "required_before_stage_close": {"type": "boolean"},
+    "convergence_status": {"type": "string"},
+    "ready_for_decision": {"type": "boolean"},
+    "satisfied": {"type": "boolean"},
+    "branch_count": {"type": "integer", "minimum": 0},
+    "minimum_completed_branches": {"type": "integer", "minimum": 0},
+    "completed_branch_count": {"type": "integer", "minimum": 0},
+    "disagreement_signals": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "recommended_parent_action": {"type": ["string", "null"]},
+    "decision_options": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "gamma_present": {"type": "boolean"},
+    "requires_gamma_disposition": {"type": "boolean"},
+    "selected_disposition": {"type": ["string", "null"]},
+    "rationale": {"type": ["string", "null"]},
+    "started_at": {"type": "string", "format": "date-time"},
+    "completed_at": {"type": ["string", "null"], "format": "date-time"},
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": {"type": ["string", "null"]}
+    },
+    "source": {"type": "string"},
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

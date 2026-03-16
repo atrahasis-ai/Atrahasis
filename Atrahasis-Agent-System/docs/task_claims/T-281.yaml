@@ -1,0 +1,16 @@
+task_id: "T-281"
+agent_name: "Ashur"
+invention_ids: []
+target_specs:
+  - "C38"
+title: "AACP Conformance and Certification Framework"
+platform: "CODEX"
+claimed_at: "2026-03-13T21:17:19Z"
+updated_at: "2026-03-13T22:13:05Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C38/CONFORMANCE_AND_CERTIFICATION_FRAMEWORK.md"
+    - "docs/specifications/C38/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "DONE. Added the canonical C38 companion conformance framework covering certification tiers, a 1,240-vector corpus, interoperability methodology, transport binding matrices, and the zero-external-runtime gate. Shared-state closeout is queued in docs/handoffs/T-281_CODEX_HANDOFF.md."

@@ -1,0 +1,2912 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atrahasis TODO</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --viewport-pad: 16px;
+      --bg: #01030a;
+      --bg-soft: #02070c;
+      --bg-deep: #071016;
+      --terminal-bg: #000205;
+      --ink: #ecfdff;
+      --text: #e6fbff;
+      --muted: #78b7c6;
+      --line: rgba(14, 241, 255, 0.18);
+      --line-strong: rgba(133, 247, 255, 0.34);
+      --accent: #0ef1ff;
+      --accent-strong: #85f7ff;
+      --accent-soft: rgba(14, 241, 255, 0.14);
+      --cool: #00bfff;
+      --cool-soft: rgba(0, 191, 255, 0.14);
+      --panel-alt: #0b1821;
+      --warn: #ffd05b;
+      --error: #ff4786;
+      --panel: transparent;
+      --panel-strong: transparent;
+      --panel-glow: none;
+      --shadow: none;
+      --shadow-soft: none;
+      --font-ui: "JetBrains Mono", "Consolas", "Courier New", monospace;
+      --font-display: "JetBrains Mono", "Consolas", "Courier New", monospace;
+      --font-mono: "JetBrains Mono", "Consolas", "Courier New", monospace;
+      --font-weight-ui: 800;
+      --font-weight-strong: 800;
+      --uniform-text-size: 2rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      color: var(--ink);
+      background: #000000;
+      font: var(--font-weight-ui) 16px/1.65 var(--font-ui);
+      font-synthesis-weight: none;
+      font-variation-settings: "wght" 800;
+    }
+
+    body::before {
+      display: none;
+    }
+
+    body::after {
+      display: none;
+    }
+
+    .viewport-shell {
+      width: 100vw;
+      min-height: 100vh;
+      height: auto;
+      overflow: visible;
+      padding: var(--viewport-pad);
+    }
+
+    main {
+      width: calc(100vw - (var(--viewport-pad) * 2));
+      display: grid;
+      gap: 12px;
+    }
+
+    .dashboard-overview,
+    .dashboard-spotlight {
+      width: 100%;
+    }
+
+    .console-banner {
+      display: grid;
+      gap: 5px;
+      padding: 6px 8px 10px;
+      border: 0;
+      border-bottom: 1px solid rgba(76, 198, 211, 0.24);
+      background: transparent;
+      box-shadow: none;
+      overflow: hidden;
+    }
+
+    .console-banner-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font: var(--font-weight-strong) 0.88rem/1 var(--font-display);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .console-banner-bar {
+      color: var(--accent);
+    }
+
+    .console-banner-name {
+      color: var(--accent);
+    }
+
+    .console-banner-rule {
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(14, 241, 255, 0.4), transparent 78%);
+    }
+
+    .console-banner-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      color: var(--muted);
+      font: var(--font-weight-strong) 0.76rem/1.25 var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+
+    .console-banner-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      min-height: auto;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: uppercase;
+    }
+
+    .console-banner-chip--time {
+      color: var(--accent);
+    }
+
+    .console-banner-chip--node {
+      color: var(--accent-strong);
+    }
+
+    .console-banner-chip--user {
+      color: var(--cool);
+    }
+
+    .console-banner-chip--target {
+      color: var(--accent-strong);
+    }
+
+    .console-banner-chip--state {
+      color: var(--muted);
+    }
+
+    .console-banner-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(76, 198, 211, 0.55), transparent 92%);
+    }
+
+    .dashboard-overview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .metric-card {
+      position: relative;
+      min-height: 76px;
+      padding: 10px 14px 10px 18px;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      border: 1px solid rgba(14, 241, 255, 0.14);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: hidden;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .metric-card::before {
+      display: none;
+    }
+
+    .metric-card::after {
+      display: none;
+    }
+
+    .metric-card--wide {
+      grid-column: span 2;
+    }
+
+    .metric-label {
+      margin: 0;
+      color: var(--accent-strong);
+      font-size: 0.68rem;
+      font-weight: var(--font-weight-strong);
+      font-family: var(--font-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      margin: 7px 0 3px;
+      color: var(--ink);
+      font-size: clamp(1.18rem, 1.75vw, 1.58rem);
+      font-weight: var(--font-weight-strong);
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    .metric-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .metric-card--live {
+      border-color: rgba(14, 241, 255, 0.28);
+    }
+
+    .metric-card--delta {
+      border-color: rgba(0, 191, 255, 0.24);
+    }
+
+    .dashboard-overview .metric-card:nth-child(1) {
+      border-color: rgba(14, 241, 255, 0.34);
+      background: transparent;
+    }
+
+    .dashboard-overview .metric-card:nth-child(3) {
+      border-color: rgba(255, 71, 134, 0.34);
+      background: transparent;
+    }
+
+    .dashboard-overview .metric-card:nth-child(4) {
+      border-color: rgba(0, 191, 255, 0.34);
+      background: transparent;
+    }
+
+    .dashboard-overview .metric-card:nth-child(5) {
+      border-color: rgba(133, 247, 255, 0.34);
+      background: transparent;
+    }
+
+    .dashboard-overview .metric-card:nth-child(1) .metric-label,
+    .dashboard-overview .metric-card:nth-child(1) .metric-value,
+    .dashboard-overview .metric-card:nth-child(1) .metric-meta,
+    .dashboard-overview .metric-card:nth-child(3) .metric-label,
+    .dashboard-overview .metric-card:nth-child(3) .metric-value,
+    .dashboard-overview .metric-card:nth-child(3) .metric-meta,
+    .dashboard-overview .metric-card:nth-child(4) .metric-label,
+    .dashboard-overview .metric-card:nth-child(4) .metric-value,
+    .dashboard-overview .metric-card:nth-child(4) .metric-meta,
+    .dashboard-overview .metric-card:nth-child(5) .metric-label,
+    .dashboard-overview .metric-card:nth-child(5) .metric-value,
+    .dashboard-overview .metric-card:nth-child(5) .metric-meta {
+      color: var(--accent-strong);
+    }
+
+    .dashboard-spotlight {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow);
+    }
+
+    .spotlight-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .spotlight-kicker {
+      display: none;
+    }
+
+    .spotlight-title {
+      margin: 0;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font: var(--font-weight-strong) clamp(0.94rem, 1.35vw, 1.1rem)/1.15 var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .spotlight-title::before {
+      content: "PS>";
+      color: var(--accent);
+      font: var(--font-weight-strong) 0.72rem/1 var(--font-mono);
+      letter-spacing: 0.14em;
+    }
+
+    .spotlight-meta {
+      margin: 0;
+      color: var(--accent-strong);
+      font-size: 0.72rem;
+      text-align: right;
+      padding: 3px 10px;
+      clip-path: polygon(9px 0, 100% 0, calc(100% - 9px) 100%, 0 100%);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+    }
+
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 12px;
+    }
+
+    .focus-card {
+      position: relative;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      border-left-width: 2px;
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .focus-card::before {
+      display: none;
+    }
+
+    .focus-context {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: var(--font-weight-strong);
+      font-family: var(--font-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .focus-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: var(--font-weight-strong);
+      line-height: 1.45;
+    }
+
+    .focus-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .dashboard-overview[hidden],
+    .dashboard-spotlight[hidden] {
+      display: none !important;
+    }
+
+    #document-shell {
+      width: 100%;
+      position: relative;
+      isolation: isolate;
+    }
+
+    #document-shell::before,
+    #document-shell::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    #document-shell::before {
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(14, 241, 255, 0.34), transparent 86%);
+      opacity: 1;
+    }
+
+    #document-shell::after {
+      inset: auto 0 0 auto;
+      width: 140px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.22));
+      opacity: 0.9;
+    }
+
+    #document-shell.refreshed {
+      animation: flash 420ms ease-out;
+    }
+
+    .markdown-body {
+      min-height: auto;
+      width: 100%;
+      color: var(--ink);
+      font-size: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 10px;
+    }
+
+    .markdown-body > * {
+      min-width: 0;
+    }
+
+    .markdown-body > h1,
+    .markdown-body > .dispatch-section {
+      grid-column: 1 / -1;
+    }
+
+    .dashboard-section {
+      padding: 12px 14px 14px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow);
+      display: grid;
+      align-self: start;
+      gap: 10px;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .dispatch-section {
+      border-color: rgba(14, 241, 255, 0.28);
+      box-shadow: inset 2px 0 0 rgba(14, 241, 255, 0.64);
+    }
+
+    .dispatch-section .dashboard-section-header > h2 {
+      gap: 14px;
+      font-size: clamp(1.2rem, 1.7vw, 1.42rem);
+      letter-spacing: 0.12em;
+    }
+
+    .dispatch-section .heading-prefix {
+      min-height: 34px;
+      padding: 6px 14px;
+      font-size: 0.96rem;
+      letter-spacing: 0.12em;
+    }
+
+    .dispatch-section .dashboard-section-body {
+      gap: 14px;
+    }
+
+    .dashboard-section-header > h2 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      border: 0;
+      color: var(--accent-strong);
+      font-size: 0.7rem;
+      font-weight: var(--font-weight-strong);
+      font-family: var(--font-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .dashboard-section-header > h2::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(14, 241, 255, 0.3), transparent 84%);
+    }
+
+    .dashboard-section-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .heading-prefix {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px;
+      padding: 3px 8px;
+      clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+      border: 1px solid rgba(14, 241, 255, 0.2);
+      background: transparent;
+      color: var(--accent);
+      font: var(--font-weight-strong) 0.62rem/1 var(--font-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .heading-value {
+      color: inherit;
+      min-width: 0;
+    }
+
+    .markdown-body h1 .heading-prefix {
+      background: transparent;
+      border-color: rgba(0, 191, 255, 0.24);
+      color: var(--cool);
+    }
+
+    .dispatch-section .heading-prefix {
+      background: transparent;
+      border-color: rgba(14, 241, 255, 0.28);
+      color: var(--accent-strong);
+    }
+
+    .subsection-card {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 10px;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .subsection-header > h3 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: clamp(0.94rem, 1.3vw, 1.02rem);
+      position: relative;
+      overflow: visible;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .subsection-header > h3::before {
+      display: none;
+    }
+
+    .subsection-body {
+      display: grid;
+      gap: 10px;
+    }
+
+    .wave-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    .wave-card[open] {
+      border-color: rgba(14, 241, 255, 0.24);
+      box-shadow: inset 0 1px 0 rgba(133, 247, 255, 0.04);
+    }
+
+    .wave-summary {
+      position: relative;
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      gap: 6px;
+      padding: 10px 12px;
+      transition: background 160ms ease;
+    }
+
+    .wave-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .wave-summary::marker {
+      display: none;
+    }
+
+    .wave-summary::after {
+      content: "[+]";
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      color: var(--accent);
+      font: var(--font-weight-strong) 0.7rem/1 var(--font-mono);
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .wave-card[open] .wave-summary::after {
+      content: "[-]";
+      color: var(--accent-strong);
+    }
+
+    .wave-summary-main {
+      display: grid;
+      gap: 6px;
+    }
+
+    .wave-summary .wave-title {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: clamp(0.94rem, 1.35vw, 1.06rem);
+      position: relative;
+      overflow: visible;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .wave-summary .wave-title::before {
+      display: none;
+    }
+
+    .wave-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .wave-progress-track {
+      height: 4px;
+      border: 1px solid rgba(14, 241, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+
+    .wave-progress-fill {
+      display: block;
+      width: 24%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--cool));
+      transition: width 220ms ease;
+    }
+
+    .wave-body {
+      display: grid;
+      gap: 10px;
+      padding: 0 14px 14px;
+      border-top: 1px solid rgba(14, 241, 255, 0.08);
+    }
+
+    .markdown-body > :first-child {
+      margin-top: 0;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4 {
+      color: #ffffff;
+      line-height: 1.16;
+      letter-spacing: 0.05em;
+      text-wrap: balance;
+      font-family: var(--font-display);
+    }
+
+    .markdown-body h1 {
+      margin: 0 0 0.5rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow);
+      font-size: clamp(1.48rem, 2.2vw, 1.98rem);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    .markdown-body h1::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(133, 247, 255, 0.34), transparent 90%);
+    }
+
+    .markdown-body h2 {
+      margin: 0.45rem 0 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 2px 0 0;
+      border: 0;
+      color: var(--accent-strong);
+      font-size: 0.7rem;
+      font-weight: var(--font-weight-strong);
+      font-family: var(--font-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .markdown-body h2::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(14, 241, 255, 0.24), transparent 88%);
+    }
+
+    .markdown-body h3 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+      font-size: clamp(1rem, 1.2vw, 1.1rem);
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    .markdown-body h3::before {
+      display: none;
+    }
+
+    .markdown-body h4 {
+      margin: 1rem 0 0.55rem;
+      font-size: 0.98rem;
+      color: var(--accent-strong);
+    }
+
+    .markdown-body p,
+    .markdown-body li,
+    .markdown-body td,
+    .markdown-body th {
+      color: var(--ink);
+    }
+
+    .markdown-body hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 2rem 0;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      padding-left: 0;
+    }
+
+    .markdown-body ol,
+    .markdown-body ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin: 0 0 4px;
+    }
+
+    .markdown-body ol {
+      counter-reset: task-lane;
+    }
+
+    .markdown-body li.task-entry {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+      overflow-wrap: anywhere;
+      transition: border-color 160ms ease, background 160ms ease, opacity 160ms ease;
+    }
+
+    .markdown-body li.task-entry .task-copy {
+      display: block;
+      min-width: 0;
+      flex: 1 1 auto;
+      font-size: 1.04rem;
+      line-height: 1.55;
+    }
+
+    .dispatch-section .markdown-body li.task-entry .task-copy,
+    .dispatch-section li.task-entry .task-copy {
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    .markdown-body ol > li.task-entry {
+      padding: 12px 14px 12px 58px;
+      font-weight: var(--font-weight-strong);
+    }
+
+    .dispatch-section .markdown-body ol > li.task-entry,
+    .dispatch-section ol > li.task-entry {
+      padding: 18px 20px 18px 82px;
+    }
+
+    .markdown-body ul > li.task-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      font-weight: var(--font-weight-strong);
+    }
+
+    .dispatch-section .markdown-body ul > li.task-entry,
+    .dispatch-section ul > li.task-entry {
+      gap: 14px;
+      padding: 18px 20px;
+    }
+
+    .markdown-body ol > li.task-entry::before {
+      counter-increment: task-lane;
+      content: counter(task-lane, decimal-leading-zero);
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      min-width: 36px;
+      padding: 5px 6px;
+      clip-path: polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%);
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--accent-strong);
+      font: var(--font-weight-strong) 0.76rem/1 var(--font-mono);
+      letter-spacing: 0.1em;
+    }
+
+    .dispatch-section .markdown-body ol > li.task-entry::before,
+    .dispatch-section ol > li.task-entry::before {
+      top: 18px;
+      left: 18px;
+      min-width: 48px;
+      padding: 7px 8px;
+      font: var(--font-weight-strong) 1rem/1 var(--font-mono);
+    }
+
+    .check-indicator {
+      position: relative;
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      border: 1px solid var(--line-strong);
+      border-radius: 2px;
+      background: rgba(14, 241, 255, 0.05);
+    }
+
+    .check-indicator--done {
+      background: rgba(14, 241, 255, 0.06);
+    }
+
+    .check-indicator--done::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 4px;
+      height: 8px;
+      border-right: 2px solid #f3feff;
+      border-bottom: 2px solid #f3feff;
+      transform: rotate(40deg);
+    }
+
+    .markdown-body li.task-entry[data-is-active="true"] {
+      border-color: rgba(14, 241, 255, 0.32);
+      box-shadow: inset 2px 0 0 rgba(14, 241, 255, 0.64), inset 0 1px 0 rgba(133, 247, 255, 0.04);
+    }
+
+    .markdown-body li.task-entry[data-is-critical="true"] {
+      border-color: rgba(0, 191, 255, 0.34);
+      box-shadow: inset 2px 0 0 rgba(0, 191, 255, 0.72), inset 0 1px 0 rgba(133, 247, 255, 0.04);
+    }
+
+    .markdown-body li.task-entry[data-is-complete="true"] {
+      opacity: 0.6;
+      border-color: rgba(133, 247, 255, 0.1);
+      background: transparent;
+    }
+
+    .markdown-body li.task-entry[data-is-complete="true"] .task-copy {
+      text-decoration: line-through;
+      text-decoration-color: rgba(133, 247, 255, 0.34);
+    }
+
+    .markdown-body a {
+      color: var(--accent);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .markdown-body strong {
+      color: #ffffff;
+    }
+
+    .markdown-body code {
+      padding: 0.16em 0.42em;
+      border-radius: 2px;
+      background: transparent;
+      border: 1px solid rgba(14, 241, 255, 0.16);
+      color: var(--accent-strong);
+      font-family: var(--font-mono);
+      font-size: 0.92em;
+    }
+
+    .markdown-body pre {
+      overflow-x: auto;
+      margin: 1rem 0 1.3rem;
+      padding: 14px 16px;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+      background: transparent;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .markdown-body pre code {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+    }
+
+    .markdown-body blockquote {
+      margin: 1.25rem 0;
+      padding: 0.5rem 0.9rem;
+      border-left: 2px solid var(--accent);
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .markdown-body table {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      margin: 0 0 8px;
+      background: transparent;
+      table-layout: auto;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .markdown-body thead {
+      display: none;
+    }
+
+    .markdown-body tbody {
+      display: grid;
+      gap: 10px;
+    }
+
+    .markdown-body th,
+    .markdown-body td {
+      width: auto;
+      min-width: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .markdown-body th {
+      white-space: nowrap;
+    }
+
+    .markdown-body td[data-label="ID"],
+    .markdown-body td[data-label="Status"],
+    .markdown-body td[data-label="Priority"],
+    .markdown-body td[data-label="Type"],
+    .markdown-body td[data-label="AAS"] {
+      white-space: nowrap;
+    }
+
+    .markdown-body td[data-label="Task"],
+    .markdown-body td[data-label="Notes"],
+    .markdown-body td[data-label="Dependencies"],
+    .markdown-body td[data-label="Target Spec"] {
+      min-width: 0;
+    }
+
+    .markdown-body th {
+      border: 0;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: var(--font-weight-strong);
+      font-family: var(--font-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .markdown-body tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 10px 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(14, 241, 255, 0.18);
+      border-radius: 4px;
+      transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .markdown-body tbody td {
+      position: relative;
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      transition: color 160ms ease;
+    }
+
+    .markdown-body tbody td::before {
+      content: attr(data-label);
+      color: var(--muted);
+      font: var(--font-weight-strong) 0.74rem/1.1 var(--font-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
+
+    .markdown-body tbody td[data-label="ID"] {
+      order: 0;
+      flex: 0 0 auto;
+    }
+
+    .markdown-body tbody td[data-label="Status"],
+    .markdown-body tbody td[data-label="Priority"],
+    .markdown-body tbody td[data-label="Type"],
+    .markdown-body tbody td[data-label="AAS"] {
+      order: 1;
+      flex: 0 0 auto;
+    }
+
+    .markdown-body tbody td[data-label="Task"] {
+      order: 2;
+      flex: 1 1 100%;
+      margin-top: 2px;
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: #ffffff;
+    }
+
+    .markdown-body tbody td[data-label="Task"]::before {
+      color: var(--accent-strong);
+    }
+
+    .markdown-body tbody td[data-label="Dependencies"],
+    .markdown-body tbody td[data-label="Target"],
+    .markdown-body tbody td[data-label="Target Spec"] {
+      order: 3;
+      flex: 1 1 280px;
+    }
+
+    .markdown-body tbody td:not([data-label="ID"]):not([data-label="Status"]):not([data-label="Priority"]):not([data-label="Type"]):not([data-label="AAS"]):not([data-label="Task"]):not([data-label="Dependencies"]):not([data-label="Target"]):not([data-label="Target Spec"]) {
+      order: 4;
+      flex: 1 1 220px;
+    }
+
+    .markdown-body tbody tr:hover {
+      border-color: rgba(14, 241, 255, 0.28);
+      background: rgba(14, 241, 255, 0.02);
+    }
+
+    .markdown-body tbody tr[data-is-active="true"] {
+      border-color: rgba(14, 241, 255, 0.3);
+      box-shadow: inset 3px 0 0 rgba(14, 241, 255, 0.72);
+    }
+
+    .markdown-body tbody tr[data-is-critical="true"] {
+      border-color: rgba(0, 191, 255, 0.28);
+      box-shadow: inset 3px 0 0 rgba(0, 191, 255, 0.7);
+    }
+
+    .markdown-body tbody tr[data-is-complete="true"] {
+      opacity: 0.58;
+      border-color: rgba(133, 247, 255, 0.08);
+    }
+
+    .error-block {
+      max-width: 900px;
+      padding: 24px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 120, 120, 0.24);
+      background: rgba(50, 8, 8, 0.92);
+    }
+
+    .error-block h2 {
+      margin: 0 0 10px;
+      color: #ff9d9d;
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .error-block p {
+      margin: 0.4rem 0;
+      color: #ffffff;
+    }
+
+    .task-id,
+    .artifact-id,
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      padding: 4px 10px;
+      clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+      border-radius: 0;
+      border: 1px solid transparent;
+      font-size: 0.7rem;
+      font-weight: var(--font-weight-strong);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .dispatch-section .task-id,
+    .dispatch-section .artifact-id,
+    .dispatch-section .badge {
+      min-height: 34px;
+      padding: 6px 14px;
+      font-size: 0.96rem;
+      letter-spacing: 0.08em;
+    }
+
+    .task-id {
+      background: transparent;
+      border-color: rgba(14, 241, 255, 0.18);
+      color: var(--accent-strong);
+      font-family: var(--font-mono);
+    }
+
+    .artifact-id {
+      background: transparent;
+      border-color: rgba(0, 191, 255, 0.18);
+      color: #c5f4ff;
+      font-family: var(--font-mono);
+    }
+
+    .badge {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .badge--critical {
+      background: transparent;
+      border-color: rgba(255, 71, 134, 0.28);
+      color: #ffdbe8;
+    }
+
+    .badge--high,
+    .badge--active {
+      background: transparent;
+      border-color: rgba(14, 241, 255, 0.2);
+      color: var(--accent-strong);
+    }
+
+    .badge--medium,
+    .badge--pipeline,
+    .badge--analysis,
+    .badge--parallel,
+    .badge--spec {
+      background: transparent;
+      border-color: rgba(0, 191, 255, 0.2);
+      color: #caf5ff;
+    }
+
+    .badge--low,
+    .badge--packaging,
+    .badge--neutral {
+      background: transparent;
+      border-color: rgba(133, 247, 255, 0.12);
+      color: #d1eef5;
+    }
+
+    .badge--governance,
+    .badge--aas {
+      background: transparent;
+      border-color: rgba(133, 247, 255, 0.18);
+      color: #e7feff;
+    }
+
+    .badge--complete {
+      background: transparent;
+      border-color: rgba(133, 247, 255, 0.12);
+      color: rgba(133, 247, 255, 0.76);
+    }
+
+    .dashboard-table--status thead th {
+      color: rgba(255, 255, 255, 0.58);
+    }
+
+    .task-state--new,
+    .task-state--updated {
+      position: relative;
+    }
+
+    .markdown-body li.task-state--new,
+    .markdown-body tr.task-state--new {
+      box-shadow: inset 0 0 0 1px rgba(14, 241, 255, 0.24);
+      animation: taskGlowNew 1.8s ease-out;
+    }
+
+    .markdown-body li.task-state--updated,
+    .markdown-body tr.task-state--updated {
+      box-shadow: inset 0 0 0 1px rgba(0, 191, 255, 0.22);
+      animation: taskGlowUpdated 1.6s ease-out;
+    }
+
+    @keyframes flash {
+      0% {
+        transform: translateY(2px);
+        opacity: 0.88;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes taskGlowNew {
+      0% {
+        box-shadow: inset 0 0 0 1px rgba(14, 241, 255, 0.42);
+      }
+      100% {
+        box-shadow: inset 0 0 0 1px rgba(14, 241, 255, 0.24);
+      }
+    }
+
+    @keyframes taskGlowUpdated {
+      0% {
+        box-shadow: inset 0 0 0 1px rgba(0, 191, 255, 0.34);
+      }
+      100% {
+        box-shadow: inset 0 0 0 1px rgba(0, 191, 255, 0.22);
+      }
+    }
+
+    .metric-card:hover,
+    .focus-card:hover,
+    .dashboard-section:hover,
+    .subsection-card:hover,
+    .wave-card:hover,
+    .markdown-body li.task-entry:hover {
+      border-color: rgba(14, 241, 255, 0.28);
+      background: transparent;
+    }
+
+    .wave-summary:hover,
+    .wave-summary:focus-visible {
+      background: transparent;
+      outline: none;
+    }
+
+    .dashboard-section:focus-within,
+    .subsection-card:focus-within,
+    .wave-card:focus-within,
+    .focus-card:focus-within,
+    .metric-card:focus-within,
+    .markdown-body li.task-entry:focus-within {
+      border-color: rgba(14, 241, 255, 0.32);
+      box-shadow: inset 0 0 0 1px rgba(14, 241, 255, 0.08);
+    }
+
+    body.fit-v1 {
+      line-height: 1.46;
+    }
+
+    body.fit-v1 main,
+    body.fit-v1 .markdown-body,
+    body.fit-v1 .dashboard-section,
+    body.fit-v1 .dashboard-section-body,
+    body.fit-v1 .subsection-card,
+    body.fit-v1 .subsection-body {
+      row-gap: 8px;
+    }
+
+    body.fit-v1 .dashboard-overview,
+    body.fit-v1 .spotlight-grid,
+    body.fit-v1 .focus-meta,
+    body.fit-v1 .wave-metrics,
+    body.fit-v1 .markdown-body ol {
+      row-gap: 8px;
+    }
+
+    body.fit-v1 .metric-card {
+      padding-top: 12px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v1 .dashboard-spotlight,
+    body.fit-v1 .dashboard-section,
+    body.fit-v1 .subsection-card {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    body.fit-v1 .wave-summary {
+      row-gap: 6px;
+      padding-top: 12px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v1 .wave-body {
+      row-gap: 6px;
+      padding-bottom: 12px;
+    }
+
+    body.fit-v1 .markdown-body h1 {
+      padding-top: 16px;
+      padding-bottom: 18px;
+    }
+
+    body.fit-v1 .markdown-body h2 {
+      margin-top: 0.55rem;
+    }
+
+    body.fit-v1 .markdown-body h3,
+    body.fit-v1 .markdown-body li.task-entry {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v1 .markdown-body ol > li.task-entry::before {
+      top: 10px;
+    }
+
+    body.fit-v1 .markdown-body table {
+      border-spacing: 0 6px;
+      margin-bottom: 6px;
+    }
+
+    body.fit-v1 .markdown-body th,
+    body.fit-v1 .markdown-body td {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v2 {
+      line-height: 1.4;
+    }
+
+    body.fit-v2 main,
+    body.fit-v2 .markdown-body,
+    body.fit-v2 .dashboard-section,
+    body.fit-v2 .dashboard-section-body,
+    body.fit-v2 .subsection-card,
+    body.fit-v2 .subsection-body {
+      row-gap: 6px;
+    }
+
+    body.fit-v2 .dashboard-overview,
+    body.fit-v2 .spotlight-grid,
+    body.fit-v2 .focus-meta,
+    body.fit-v2 .wave-metrics,
+    body.fit-v2 .markdown-body ol {
+      row-gap: 6px;
+    }
+
+    body.fit-v2 .metric-card {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v2 .dashboard-spotlight,
+    body.fit-v2 .dashboard-section,
+    body.fit-v2 .subsection-card {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v2 .wave-summary {
+      row-gap: 4px;
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v2 .wave-body {
+      row-gap: 4px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v2 .markdown-body h1 {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+
+    body.fit-v2 .markdown-body h2 {
+      margin-top: 0.4rem;
+      padding-top: 0;
+    }
+
+    body.fit-v2 .markdown-body h3 {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v2 .markdown-body li.task-entry {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v2 .markdown-body ol > li.task-entry::before {
+      top: 8px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    body.fit-v2 .markdown-body table {
+      border-spacing: 0 4px;
+      margin-bottom: 4px;
+    }
+
+    body.fit-v2 .markdown-body th,
+    body.fit-v2 .markdown-body td {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    body.fit-v3 {
+      line-height: 1.32;
+    }
+
+    body.fit-v3 main {
+      row-gap: 4px;
+    }
+
+    body.fit-v3 .dashboard-overview,
+    body.fit-v3 .spotlight-grid,
+    body.fit-v3 .focus-meta,
+    body.fit-v3 .wave-metrics,
+    body.fit-v3 .markdown-body,
+    body.fit-v3 .dashboard-section,
+    body.fit-v3 .dashboard-section-body,
+    body.fit-v3 .subsection-card,
+    body.fit-v3 .subsection-body,
+    body.fit-v3 .markdown-body ol,
+    body.fit-v3 .wave-body {
+      row-gap: 4px;
+    }
+
+    body.fit-v3 .metric-card,
+    body.fit-v3 .dashboard-spotlight,
+    body.fit-v3 .dashboard-section,
+    body.fit-v3 .subsection-card {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    body.fit-v3 .wave-summary {
+      row-gap: 3px;
+      padding-top: 8px;
+      padding-bottom: 6px;
+    }
+
+    body.fit-v3 .wave-body {
+      padding-bottom: 8px;
+    }
+
+    body.fit-v3 .markdown-body h1 {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    body.fit-v3 .markdown-body h2 {
+      margin-top: 0.25rem;
+    }
+
+    body.fit-v3 .markdown-body h3 {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    body.fit-v3 .markdown-body li.task-entry {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    body.fit-v3 .markdown-body ol > li.task-entry::before {
+      top: 6px;
+    }
+
+    body.fit-v3 .markdown-body table {
+      border-spacing: 0 2px;
+      margin-bottom: 2px;
+    }
+
+    body.fit-v3 .markdown-body th,
+    body.fit-v3 .markdown-body td {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+
+    body.fit-v4 {
+      line-height: 1.26;
+    }
+
+    body.fit-v4 main,
+    body.fit-v4 .markdown-body,
+    body.fit-v4 .dashboard-section,
+    body.fit-v4 .dashboard-section-body,
+    body.fit-v4 .subsection-card,
+    body.fit-v4 .subsection-body,
+    body.fit-v4 .dashboard-overview,
+    body.fit-v4 .spotlight-grid,
+    body.fit-v4 .focus-meta,
+    body.fit-v4 .wave-metrics,
+    body.fit-v4 .markdown-body ol,
+    body.fit-v4 .wave-body {
+      row-gap: 2px;
+    }
+
+    body.fit-v4 .metric-card,
+    body.fit-v4 .dashboard-spotlight,
+    body.fit-v4 .dashboard-section,
+    body.fit-v4 .subsection-card {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    body.fit-v4 .wave-summary {
+      row-gap: 2px;
+      padding-top: 6px;
+      padding-bottom: 4px;
+    }
+
+    body.fit-v4 .wave-body {
+      padding-bottom: 6px;
+    }
+
+    body.fit-v4 .markdown-body h1 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    body.fit-v4 .markdown-body h2 {
+      margin-top: 0.15rem;
+    }
+
+    body.fit-v4 .markdown-body h3,
+    body.fit-v4 .markdown-body li.task-entry {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    body.fit-v4 .markdown-body ol > li.task-entry::before {
+      top: 5px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    body.fit-v4 .markdown-body table {
+      border-spacing: 0 1px;
+      margin-bottom: 1px;
+    }
+
+    body.fit-v4 .markdown-body th,
+    body.fit-v4 .markdown-body td {
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    @media (max-width: 1180px) {
+      .dashboard-overview {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .metric-card--wide {
+        grid-column: span 3;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .dashboard-overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .markdown-body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric-card--wide {
+        grid-column: span 2;
+      }
+
+      .spotlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .markdown-body tbody tr {
+        padding: 12px 14px;
+      }
+
+      .markdown-body tbody td[data-label="Task"] {
+        font-size: 1.02rem;
+      }
+
+      .markdown-body tbody td[data-label="Dependencies"],
+      .markdown-body tbody td[data-label="Target"],
+      .markdown-body tbody td[data-label="Target Spec"],
+      .markdown-body tbody td:not([data-label="ID"]):not([data-label="Status"]):not([data-label="Priority"]):not([data-label="Type"]):not([data-label="AAS"]):not([data-label="Task"]):not([data-label="Dependencies"]):not([data-label="Target"]):not([data-label="Target Spec"]) {
+        flex-basis: 100%;
+      }
+
+      .dispatch-section .dashboard-section-header > h2 {
+        font-size: clamp(1.04rem, 1.9vw, 1.2rem);
+      }
+
+      .dispatch-section .heading-prefix,
+      .dispatch-section .task-id,
+      .dispatch-section .artifact-id,
+      .dispatch-section .badge {
+        min-height: 30px;
+        padding: 5px 12px;
+        font-size: 0.84rem;
+      }
+
+      .dispatch-section .markdown-body li.task-entry .task-copy,
+      .dispatch-section li.task-entry .task-copy {
+        font-size: 0.98rem;
+      }
+
+      .dispatch-section .markdown-body ol > li.task-entry,
+      .dispatch-section ol > li.task-entry {
+        padding: 16px 16px 16px 72px;
+      }
+
+      .dispatch-section .markdown-body ul > li.task-entry,
+      .dispatch-section ul > li.task-entry {
+        padding: 16px;
+      }
+
+      .dispatch-section .markdown-body ol > li.task-entry::before,
+      .dispatch-section ol > li.task-entry::before {
+        top: 16px;
+        left: 16px;
+        min-width: 42px;
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --viewport-pad: 10px;
+      }
+
+      .console-banner {
+        padding: 6px 6px 8px;
+      }
+
+      .console-banner-title {
+        gap: 8px;
+        font-size: 0.82rem;
+      }
+
+      .console-banner-rule {
+        display: none;
+      }
+
+      .console-banner-meta {
+        gap: 8px;
+      }
+
+      .console-banner-chip {
+        font-size: 0.68rem;
+      }
+
+      .dashboard-overview {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metric-card--wide {
+        grid-column: span 2;
+      }
+
+      .dashboard-spotlight {
+        padding: 12px;
+        border-radius: 4px;
+      }
+
+      .spotlight-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .markdown-body {
+        min-height: auto;
+        font-size: 0.96rem;
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-section {
+        padding: 12px;
+        border-radius: 4px;
+      }
+
+      .markdown-body h1 {
+        padding: 14px 14px 16px;
+        border-radius: 4px;
+      }
+
+      .markdown-body h3,
+      .markdown-body li.task-entry {
+        padding-right: 16px;
+      }
+
+      .metric-card {
+        min-height: 68px;
+        padding: 9px 12px 9px 16px;
+      }
+
+      .markdown-body ol > li.task-entry {
+        padding-left: 58px;
+      }
+
+      .markdown-body tbody {
+        gap: 8px;
+      }
+
+      .markdown-body tbody tr {
+        gap: 8px 10px;
+        padding: 12px;
+      }
+
+      .markdown-body tbody td {
+        flex-basis: 100%;
+      }
+
+      .markdown-body tbody td[data-label="Task"] {
+        font-size: 1rem;
+      }
+
+      .dispatch-section .dashboard-section-header > h2 {
+        font-size: 0.96rem;
+      }
+
+      .dispatch-section .heading-prefix,
+      .dispatch-section .task-id,
+      .dispatch-section .artifact-id,
+      .dispatch-section .badge {
+        min-height: 28px;
+        padding: 4px 10px;
+        font-size: 0.78rem;
+      }
+
+      .dispatch-section .markdown-body li.task-entry .task-copy,
+      .dispatch-section li.task-entry .task-copy {
+        font-size: 0.96rem;
+        line-height: 1.46;
+      }
+
+      .dispatch-section .markdown-body ol > li.task-entry,
+      .dispatch-section ol > li.task-entry {
+        padding: 14px 14px 14px 64px;
+      }
+
+      .dispatch-section .markdown-body ul > li.task-entry,
+      .dispatch-section ul > li.task-entry {
+        padding: 14px;
+      }
+
+      .dispatch-section .markdown-body ol > li.task-entry::before,
+      .dispatch-section ol > li.task-entry::before {
+        top: 14px;
+        left: 14px;
+        min-width: 38px;
+        padding: 5px 6px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .dashboard-overview {
+        grid-template-columns: 1fr;
+      }
+
+      .markdown-body {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-card--wide {
+        grid-column: span 1;
+      }
+    }
+
+    .console-banner-title,
+    .console-banner-meta,
+    .console-banner-chip,
+    .metric-label,
+    .metric-value,
+    .metric-meta,
+    .spotlight-title,
+    .spotlight-title::before,
+    .spotlight-meta,
+    .focus-context,
+    .focus-title,
+    .dashboard-section-header > h2,
+    .heading-prefix,
+    .subsection-header > h3,
+    .wave-summary::after,
+    .wave-summary .wave-title,
+    .markdown-body,
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body li.task-entry .task-copy,
+    .markdown-body code,
+    .markdown-body th,
+    .markdown-body td,
+    .markdown-body tbody td::before,
+    .task-id,
+    .artifact-id,
+    .badge,
+    .error-block h2,
+    .error-block p {
+      font-size: var(--uniform-text-size);
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport-shell" id="viewport-shell">
+    <main id="fit-stage">
+      <header class="console-banner" id="console-banner" hidden></header>
+      <section class="dashboard-overview" id="summary-strip" hidden></section>
+      <section class="dashboard-spotlight" id="spotlight" hidden></section>
+      <article id="document-shell">
+        <div class="markdown-body" id="content">
+          <p>Loading TODO...</p>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    const elements = {
+      viewport: document.getElementById("viewport-shell"),
+      stage: document.getElementById("fit-stage"),
+      consoleBanner: document.getElementById("console-banner"),
+      summaryStrip: document.getElementById("summary-strip"),
+      spotlight: document.getElementById("spotlight"),
+      content: document.getElementById("content"),
+      documentShell: document.getElementById("document-shell")
+    };
+
+    const consoleTheme = {
+      banner: "ATRAHASIS",
+      shell: "POWERSHELL",
+      node: "DESKTOP-GQ81HUE",
+      user: "jever"
+    };
+
+    const state = {
+      fingerprint: null,
+      stream: null,
+      pollTimer: null,
+      fitFrame: null,
+      taskSnapshot: new Map(),
+      lastDelta: {
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0
+      }
+    };
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>\"']/g, (character) => {
+        const map = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          "\"": "&quot;",
+          "'": "&#39;"
+        };
+        return map[character];
+      });
+    }
+
+    function normalizeText(value) {
+      return value.replace(/\s+/g, " ").trim();
+    }
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat().format(value || 0);
+    }
+
+    function formatShortTime(value) {
+      const parsed = new Date(value);
+      if (Number.isNaN(parsed.getTime())) {
+        return "Unknown";
+      }
+
+      return parsed.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }
+
+    function formatConsoleStamp(value) {
+      const parsed = new Date(value);
+      if (Number.isNaN(parsed.getTime())) {
+        return "UNKNOWN";
+      }
+
+      const year = parsed.getFullYear();
+      const month = String(parsed.getMonth() + 1).padStart(2, "0");
+      const day = String(parsed.getDate()).padStart(2, "0");
+      const hour = String(parsed.getHours()).padStart(2, "0");
+      const minute = String(parsed.getMinutes()).padStart(2, "0");
+      const second = String(parsed.getSeconds()).padStart(2, "0");
+      return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    }
+
+    function renderConsoleBanner(timestamp, stateLabel = "SYS://READY", targetLabel = "docs/TODO.md") {
+      if (!elements.consoleBanner) {
+        return;
+      }
+
+      elements.consoleBanner.hidden = true;
+      elements.consoleBanner.innerHTML = "";
+    }
+
+    function taskIdsFromText(value) {
+      return Array.from(new Set((value.match(/\bT-[A-Z0-9-]+\b/gi) || []).map((item) => item.toUpperCase())));
+    }
+
+    function flashDocument() {
+      elements.documentShell.classList.remove("refreshed");
+      void elements.documentShell.offsetWidth;
+      elements.documentShell.classList.add("refreshed");
+    }
+
+    function clearAdaptiveLayout() {
+      document.body.classList.remove("fit-v1", "fit-v2", "fit-v3", "fit-v4");
+
+      for (const wave of elements.content.querySelectorAll(".wave-card[data-auto-collapsed='true']")) {
+        wave.open = true;
+        wave.removeAttribute("data-auto-collapsed");
+      }
+
+      if (elements.spotlight.dataset.autoHidden === "true") {
+        elements.spotlight.hidden = false;
+        elements.spotlight.dataset.autoHidden = "false";
+      }
+    }
+
+    function contentFitsViewport() {
+      return true;
+    }
+
+    function fitDashboardToViewport() {
+      clearAdaptiveLayout();
+    }
+
+    function scheduleFit() {
+      if (state.fitFrame) {
+        cancelAnimationFrame(state.fitFrame);
+      }
+
+      state.fitFrame = requestAnimationFrame(() => {
+        fitDashboardToViewport();
+        state.fitFrame = null;
+      });
+    }
+
+    function isHeading(node) {
+      return node && node.nodeType === Node.ELEMENT_NODE && /^H[1-6]$/.test(node.tagName);
+    }
+
+    function hasTaskListMarker(text) {
+      return /\bT-[A-Z0-9-]+\b/i.test(text) || /\bPARALLEL\b/.test(text) || /^\s*\[[ xX]\]\s+/i.test(text);
+    }
+
+    function isTaskList(node) {
+      if (!node || node.nodeType !== Node.ELEMENT_NODE) {
+        return false;
+      }
+
+      if (!["OL", "UL"].includes(node.tagName)) {
+        return false;
+      }
+
+      const items = Array.from(node.querySelectorAll(":scope > li"));
+      return items.some((item) => hasTaskListMarker(item.textContent));
+    }
+
+    function cloneActiveTaskList(node) {
+      if (!isTaskList(node)) {
+        return null;
+      }
+
+      const clone = node.cloneNode(false);
+      const items = Array.from(node.querySelectorAll(":scope > li"));
+      for (const item of items) {
+        if (hasTaskListMarker(item.textContent)) {
+          clone.appendChild(item.cloneNode(true));
+        }
+      }
+
+      return clone.children.length > 0 ? clone : null;
+    }
+
+    function isClosedSummaryRow(row) {
+      const text = row.textContent.replace(/\s+/g, " ").trim();
+      return /\bno remaining open\b/i.test(text) || /\bwave\b.+\bis complete\b/i.test(text) || /\bcompleted as\b/i.test(text);
+    }
+
+    function isRealtimeStatusTable(node) {
+      if (!node || node.nodeType !== Node.ELEMENT_NODE || node.tagName !== "TABLE") {
+        return false;
+      }
+
+      const headerCells = Array.from(node.querySelectorAll(":scope > thead > tr > th"));
+      const headers = headerCells.map((cell) => cell.textContent.replace(/\s+/g, " ").trim());
+      const expected = ["ID", "Task", "Status", "Priority", "AAS", "Notes"];
+
+      if (headers.length !== expected.length) {
+        return false;
+      }
+
+      return headers.every((header, index) => header === expected[index]);
+    }
+
+    function isSuppressedRealtimeStatusRow(row) {
+      const text = row.textContent.replace(/\s+/g, " ").trim();
+      return /^System note:/i.test(text);
+    }
+
+    function isCompletedStatusValue(value) {
+      return /\bDONE\b|\bCOMPLETE(?:D)?\b|\bCLOSED\b/i.test(value);
+    }
+
+    function suppressTableColumns(table, suppressedHeaders = ["Notes"]) {
+      if (!table) {
+        return;
+      }
+
+      const headerCells = Array.from(table.querySelectorAll(":scope > thead > tr > th"));
+      if (headerCells.length === 0) {
+        return;
+      }
+
+      const suppressed = new Set(suppressedHeaders.map((header) => header.trim().toUpperCase()));
+      const indexesToRemove = headerCells
+        .map((cell, index) => ({
+          index,
+          text: cell.textContent.replace(/\s+/g, " ").trim().toUpperCase()
+        }))
+        .filter((entry) => suppressed.has(entry.text))
+        .map((entry) => entry.index)
+        .sort((left, right) => right - left);
+
+      if (indexesToRemove.length === 0) {
+        return;
+      }
+
+      for (const index of indexesToRemove) {
+        headerCells[index]?.remove();
+      }
+
+      for (const row of table.querySelectorAll("tbody tr")) {
+        const cells = Array.from(row.children);
+        for (const index of indexesToRemove) {
+          cells[index]?.remove();
+        }
+      }
+    }
+
+    function isActiveTaskRow(row, headers = []) {
+      if (isClosedSummaryRow(row)) {
+        return false;
+      }
+
+      const cells = Array.from(row.querySelectorAll(":scope > td, :scope > th"));
+      if (cells.length === 0) {
+        return false;
+      }
+
+      const firstCell = cells[0].textContent.replace(/\s+/g, " ").trim();
+      if (!/^T-[A-Z0-9-]+$/i.test(firstCell)) {
+        return false;
+      }
+
+      const statusIndex = headers.findIndex((header) => /^Status$/i.test(header));
+      if (statusIndex >= 0 && cells[statusIndex]) {
+        const statusValue = cells[statusIndex].textContent.replace(/\s+/g, " ").trim();
+        if (isCompletedStatusValue(statusValue)) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function cloneActiveTaskTable(node) {
+      if (!node || node.nodeType !== Node.ELEMENT_NODE || node.tagName !== "TABLE") {
+        return null;
+      }
+
+      if (isRealtimeStatusTable(node)) {
+        const clone = node.cloneNode(false);
+        const thead = node.querySelector(":scope > thead");
+        const tbody = document.createElement("tbody");
+        const rows = Array.from(node.querySelectorAll(":scope > tbody > tr"));
+
+        if (thead) {
+          clone.appendChild(thead.cloneNode(true));
+        }
+
+        for (const row of rows) {
+          if (!isSuppressedRealtimeStatusRow(row)) {
+            tbody.appendChild(row.cloneNode(true));
+          }
+        }
+
+        clone.appendChild(tbody);
+        suppressTableColumns(clone, ["Notes"]);
+        return clone;
+      }
+
+      const rows = Array.from(node.querySelectorAll("tbody tr"));
+      if (rows.length === 0) {
+        return null;
+      }
+
+      const headers = Array.from(node.querySelectorAll(":scope > thead > tr > th")).map((cell) =>
+        cell.textContent.replace(/\s+/g, " ").trim()
+      );
+      const activeRows = rows.filter((row) => isActiveTaskRow(row, headers));
+      if (activeRows.length === 0) {
+        return null;
+      }
+
+      const clone = node.cloneNode(false);
+      const thead = node.querySelector(":scope > thead");
+      const tbody = document.createElement("tbody");
+
+      if (thead) {
+        clone.appendChild(thead.cloneNode(true));
+      }
+
+      for (const row of activeRows) {
+        tbody.appendChild(row.cloneNode(true));
+      }
+
+      clone.appendChild(tbody);
+      suppressTableColumns(clone, ["Notes"]);
+      return clone;
+    }
+
+    function headingEntry(node) {
+      return {
+        level: Number(node.tagName.slice(1)),
+        text: node.textContent.trim(),
+        html: node.outerHTML
+      };
+    }
+
+    function sameHeading(a, b) {
+      return a && b && a.level === b.level && a.text === b.text;
+    }
+
+    function isUserDispatchSection(headingStack) {
+      return headingStack.some((heading) => /^User Dispatch\b/i.test(heading.text));
+    }
+
+    function decorateHeading(heading, prefix) {
+      if (!heading || heading.dataset.decorated === "true") {
+        return;
+      }
+
+      const text = heading.textContent.trim();
+      heading.textContent = "";
+
+      const prefixNode = document.createElement("span");
+      prefixNode.className = "heading-prefix";
+      prefixNode.textContent = prefix;
+
+      const valueNode = document.createElement("span");
+      valueNode.className = "heading-value";
+      valueNode.textContent = text;
+
+      heading.append(prefixNode, valueNode);
+      heading.dataset.decorated = "true";
+    }
+
+    function buildTaskOnlyHtml(rawHtml) {
+      const source = document.createElement("div");
+      source.innerHTML = rawHtml;
+
+      let headingStack = [];
+      const blocks = [];
+
+      for (const child of Array.from(source.children)) {
+        if (isHeading(child)) {
+          const entry = headingEntry(child);
+          headingStack = headingStack.filter((heading) => heading.level < entry.level);
+          headingStack.push(entry);
+          continue;
+        }
+
+        const taskBlock = cloneActiveTaskTable(child) || cloneActiveTaskList(child);
+        if (!taskBlock) {
+          continue;
+        }
+
+        blocks.push({
+          headings: headingStack.map((heading) => ({ ...heading })),
+          taskBlock
+        });
+      }
+
+      if (blocks.length === 0) {
+        return rawHtml;
+      }
+
+      const output = document.createElement("div");
+      const orderedBlocks = [
+        ...blocks.filter((block) => isUserDispatchSection(block.headings)),
+        ...blocks.filter((block) => !isUserDispatchSection(block.headings))
+      ];
+
+      let emittedHeadings = [];
+
+      for (const block of orderedBlocks) {
+        let commonPrefix = 0;
+        while (
+          commonPrefix < emittedHeadings.length &&
+          commonPrefix < block.headings.length &&
+          sameHeading(emittedHeadings[commonPrefix], block.headings[commonPrefix])
+        ) {
+          commonPrefix += 1;
+        }
+
+        for (const heading of block.headings.slice(commonPrefix)) {
+          output.insertAdjacentHTML("beforeend", heading.html);
+        }
+
+        output.appendChild(block.taskBlock);
+        emittedHeadings = block.headings.map((heading) => ({ ...heading }));
+      }
+
+      return output.innerHTML;
+    }
+
+    function buildSectionShell(heading) {
+      const section = document.createElement("section");
+      section.className = "dashboard-section";
+      section.dataset.sectionTitle = heading.textContent.trim();
+
+      if (/^User Dispatch\b/i.test(section.dataset.sectionTitle)) {
+        section.classList.add("dispatch-section");
+      }
+
+      decorateHeading(heading, section.classList.contains("dispatch-section") ? "USER://" : "SECTION://");
+
+      const header = document.createElement("div");
+      header.className = "dashboard-section-header";
+      header.appendChild(heading);
+
+      const body = document.createElement("div");
+      body.className = "dashboard-section-body";
+
+      section.append(header, body);
+      return { section, body };
+    }
+
+    function buildSubsectionShell(heading) {
+      const card = document.createElement("section");
+      card.className = "subsection-card";
+      card.dataset.blockTitle = heading.textContent.trim();
+      decorateHeading(heading, "GROUP://");
+
+      const header = document.createElement("div");
+      header.className = "subsection-header";
+      header.appendChild(heading);
+
+      const body = document.createElement("div");
+      body.className = "subsection-body";
+
+      card.append(header, body);
+      return { card, body };
+    }
+
+    function buildWaveShell(heading) {
+      const card = document.createElement("details");
+      card.className = "wave-card";
+      card.dataset.blockTitle = heading.textContent.trim();
+      card.open = true;
+      decorateHeading(heading, "WAVE://");
+
+      const summary = document.createElement("summary");
+      summary.className = "wave-summary";
+
+      const main = document.createElement("div");
+      main.className = "wave-summary-main";
+
+      heading.classList.add("wave-title");
+      main.append(heading);
+
+      const metrics = document.createElement("div");
+      metrics.className = "wave-metrics";
+
+      const progress = document.createElement("div");
+      progress.className = "wave-progress-track";
+      progress.innerHTML = '<span class="wave-progress-fill"></span>';
+
+      summary.append(main, metrics, progress);
+
+      const body = document.createElement("div");
+      body.className = "wave-body";
+
+      card.append(summary, body);
+      return { card, body };
+    }
+
+    function composeDashboardLayout() {
+      const sourceChildren = Array.from(elements.content.children);
+      const fragment = document.createDocumentFragment();
+      let currentSectionBody = null;
+      let currentBlockBody = null;
+
+      for (const child of sourceChildren) {
+        if (child.tagName === "H1") {
+          decorateHeading(child, "BOARD://");
+          fragment.appendChild(child);
+          currentSectionBody = null;
+          currentBlockBody = null;
+          continue;
+        }
+
+        if (child.tagName === "H2") {
+          const { section, body } = buildSectionShell(child);
+          fragment.appendChild(section);
+          currentSectionBody = body;
+          currentBlockBody = null;
+          continue;
+        }
+
+        if (child.tagName === "H3") {
+          if (!currentSectionBody) {
+            const fallbackSection = document.createElement("section");
+            fallbackSection.className = "dashboard-section";
+            const fallbackBody = document.createElement("div");
+            fallbackBody.className = "dashboard-section-body";
+            fallbackSection.appendChild(fallbackBody);
+            fragment.appendChild(fallbackSection);
+            currentSectionBody = fallbackBody;
+          }
+
+          if (/^Wave\b/i.test(child.textContent.trim())) {
+            const { card, body } = buildWaveShell(child);
+            currentSectionBody.appendChild(card);
+            currentBlockBody = body;
+          } else {
+            const { card, body } = buildSubsectionShell(child);
+            currentSectionBody.appendChild(card);
+            currentBlockBody = body;
+          }
+
+          continue;
+        }
+
+        (currentBlockBody || currentSectionBody || fragment).appendChild(child);
+      }
+
+      elements.content.replaceChildren(fragment);
+    }
+
+    function badgeTone(label, value) {
+      const normalizedLabel = label.trim().toUpperCase();
+      const normalizedValue = value.trim().toUpperCase();
+
+      if (normalizedLabel === "PRIORITY") {
+        if (normalizedValue.includes("CRITICAL")) {
+          return "critical";
+        }
+        if (normalizedValue.includes("HIGH")) {
+          return "high";
+        }
+        if (normalizedValue.includes("MEDIUM")) {
+          return "medium";
+        }
+        if (normalizedValue.includes("LOW")) {
+          return "low";
+        }
+      }
+
+      if (normalizedLabel === "STATUS") {
+        if (normalizedValue.includes("COMPLETE") || normalizedValue.includes("DONE")) {
+          return "complete";
+        }
+        if (normalizedValue.includes("IN_PROGRESS") || normalizedValue.includes("ACTIVE")) {
+          return "active";
+        }
+        return "neutral";
+      }
+
+      if (normalizedLabel === "TYPE") {
+        if (normalizedValue.includes("FULL PIPELINE")) {
+          return "pipeline";
+        }
+        if (normalizedValue.includes("DIRECT SPEC")) {
+          return "spec";
+        }
+        if (normalizedValue.includes("GOVERNANCE")) {
+          return "governance";
+        }
+        if (normalizedValue.includes("PACKAGING")) {
+          return "packaging";
+        }
+        if (normalizedValue.includes("ANALYSIS")) {
+          return "analysis";
+        }
+      }
+
+      if (normalizedLabel === "AAS") {
+        return "aas";
+      }
+
+      return "neutral";
+    }
+
+    function decorateTaskListItem(item) {
+      const rawText = normalizeText(item.textContent);
+      const checklistMatch = rawText.match(/^\[([ xX])\]\s+(.+)$/);
+      const text = checklistMatch ? checklistMatch[2] : rawText;
+      const ids = taskIdsFromText(text);
+      const isComplete = checklistMatch
+        ? /x/i.test(checklistMatch[1])
+        : /\bCOMPLETE(?:D)?\b|\bDONE\b/i.test(text);
+      const isActive = /\bIN_PROGRESS\b|\bACTIVE\b/i.test(text);
+      const isCritical = /\bCRITICAL\b/i.test(text);
+
+      item.classList.add("task-entry");
+      item.dataset.taskKey = ids.join("|") || text.toLowerCase();
+      item.dataset.taskSignature = text;
+      item.dataset.taskIds = ids.join("|");
+      item.dataset.isActive = String(isActive);
+      item.dataset.isComplete = String(isComplete);
+      item.dataset.isCritical = String(isCritical);
+
+      let html = escapeHtml(text);
+      html = html.replace(/\bPARALLEL\b/g, '<span class="badge badge--parallel">PARALLEL</span>');
+      html = html.replace(/\bSOLO\b/g, '<span class="badge badge--neutral">SOLO</span>');
+      html = html.replace(/\bIN_PROGRESS\b/g, '<span class="badge badge--active">IN_PROGRESS</span>');
+      html = html.replace(/\bCOMPLETE(?:D)?\b|\bDONE\b/g, '<span class="badge badge--complete">$&</span>');
+      html = html.replace(/\bT-[A-Z0-9-]+\b/g, '<span class="task-id">$&</span>');
+      html = html.replace(/\bC\d+\b/g, '<span class="artifact-id">$&</span>');
+      if (checklistMatch) {
+        const indicatorClass = isComplete ? "check-indicator check-indicator--done" : "check-indicator";
+        item.innerHTML = `<span class="${indicatorClass}" aria-hidden="true"></span><span class="task-copy">${html}</span>`;
+      } else {
+        item.innerHTML = `<span class="task-copy">${html}</span>`;
+      }
+    }
+
+    function enhanceDashboard() {
+      const taskLists = elements.content.querySelectorAll("ol, ul");
+      for (const list of taskLists) {
+        for (const item of list.querySelectorAll(":scope > li")) {
+          decorateTaskListItem(item);
+        }
+      }
+
+      const tables = elements.content.querySelectorAll("table");
+      for (const table of tables) {
+        const headers = Array.from(table.querySelectorAll("thead th")).map((cell) => cell.textContent.trim());
+        if (headers.join("|") === "ID|Task|Status|Priority|AAS|Notes" || headers.join("|") === "ID|Task|Status|Priority|AAS") {
+          table.classList.add("dashboard-table--status");
+        }
+
+        for (const row of table.querySelectorAll("tbody tr")) {
+          const cells = Array.from(row.children);
+          const rowData = {};
+          for (const [index, cell] of cells.entries()) {
+            const label = headers[index] || "";
+            if (label) {
+              cell.dataset.label = label;
+              rowData[label] = normalizeText(cell.textContent);
+            }
+
+            const text = cell.textContent.trim();
+            if (!text) {
+              continue;
+            }
+
+            if (label === "ID" && /^T-[A-Z0-9-]+$/i.test(text)) {
+              cell.innerHTML = `<span class="task-id">${escapeHtml(text)}</span>`;
+              continue;
+            }
+
+            if (["Priority", "Status", "Type", "AAS"].includes(label)) {
+              const tone = badgeTone(label, text);
+              cell.innerHTML = `<span class="badge badge--${tone}">${escapeHtml(text)}</span>`;
+            }
+          }
+
+          const rowText = normalizeText(row.textContent);
+          const rowIds = taskIdsFromText(Object.values(rowData).join(" "));
+          row.dataset.taskKey = rowIds.join("|") || rowText.toLowerCase();
+          row.dataset.taskSignature = rowText;
+          row.dataset.taskIds = rowIds.join("|");
+          row.dataset.priority = rowData.Priority || "";
+          row.dataset.status = rowData.Status || "";
+          row.dataset.isActive = String(/\bIN_PROGRESS\b|\bACTIVE\b/i.test(rowData.Status || ""));
+          row.dataset.isComplete = String(/\bCOMPLETE(?:D)?\b|\bDONE\b/i.test(rowData.Status || rowText));
+          row.dataset.isCritical = String(/\bCRITICAL\b/i.test(rowData.Priority || rowText));
+        }
+      }
+    }
+
+    function contextPathFor(element) {
+      const parts = [];
+      const section = element.closest(".dashboard-section");
+      const block = element.closest(".wave-card, .subsection-card");
+
+      if (section && section.dataset.sectionTitle) {
+        parts.push(section.dataset.sectionTitle);
+      }
+
+      if (block && block.dataset.blockTitle) {
+        parts.push(block.dataset.blockTitle);
+      }
+
+      return parts.join(" / ");
+    }
+
+    function buildDashboardState(payload) {
+      const records = [];
+
+      for (const item of elements.content.querySelectorAll("li.task-entry")) {
+        const rawText = normalizeText(item.textContent);
+        const ids = taskIdsFromText(rawText);
+        records.push({
+          key: item.dataset.taskKey || ids.join("|") || rawText.toLowerCase(),
+          signature: item.dataset.taskSignature || rawText,
+          ids,
+          active: item.dataset.isActive === "true",
+          critical: /\bCRITICAL\b/i.test(rawText),
+          element: item,
+          title: rawText,
+          context: contextPathFor(item),
+          kind: "lane"
+        });
+      }
+
+      for (const table of elements.content.querySelectorAll("table")) {
+        const headers = Array.from(table.querySelectorAll("thead th")).map((cell) => cell.textContent.trim());
+        for (const row of table.querySelectorAll("tbody tr")) {
+          const data = {};
+          const cells = Array.from(row.children);
+          for (const [index, cell] of cells.entries()) {
+            const label = headers[index] || `COL_${index}`;
+            data[label] = normalizeText(cell.textContent);
+          }
+
+          const rowText = normalizeText(row.textContent);
+          const ids = taskIdsFromText(Object.values(data).join(" "));
+          const title = [data.ID, data.Task].filter(Boolean).join(" - ") || rowText;
+          records.push({
+            key: row.dataset.taskKey || ids.join("|") || rowText.toLowerCase(),
+            signature: row.dataset.taskSignature || rowText,
+            ids,
+            active: row.dataset.isActive === "true",
+            critical: /\bCRITICAL\b/i.test(data.Priority || ""),
+            element: row,
+            title,
+            context: contextPathFor(row),
+            kind: "row",
+            fields: data
+          });
+        }
+      }
+
+      const uniqueTaskIds = new Set(records.flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key])));
+      const activeTaskIds = new Set(
+        records.filter((record) => record.active).flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key]))
+      );
+      const criticalTaskIds = new Set(
+        records.filter((record) => record.critical).flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key]))
+      );
+
+      const waves = Array.from(elements.content.querySelectorAll(".wave-card")).map((wave) => {
+        const waveRecords = records.filter((record) => wave.contains(record.element));
+        const openIds = new Set(waveRecords.flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key])));
+        const activeIds = new Set(
+          waveRecords.filter((record) => record.active).flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key]))
+        );
+        const criticalIds = new Set(
+          waveRecords.filter((record) => record.critical).flatMap((record) => (record.ids.length > 0 ? record.ids : [record.key]))
+        );
+
+        return {
+          element: wave,
+          title: wave.dataset.blockTitle || "Wave",
+          openCount: openIds.size,
+          activeCount: activeIds.size,
+          criticalCount: criticalIds.size
+        };
+      });
+
+      return {
+        payload,
+        records,
+        uniqueTaskIds,
+        activeTaskIds,
+        criticalTaskIds,
+        waves,
+        inProgressRecords: records.filter((record) => record.active)
+      };
+    }
+
+    function renderSummaryStrip(dashboardState, payload) {
+      elements.summaryStrip.hidden = true;
+      elements.summaryStrip.innerHTML = "";
+      return;
+
+      const changedCount = state.lastDelta.newCount + state.lastDelta.updatedCount + state.lastDelta.removedCount;
+      const metricCards = [
+        {
+          label: "OPEN_IDS",
+          value: formatNumber(dashboardState.uniqueTaskIds.size),
+          meta: `ROWS://${formatNumber(dashboardState.records.length)}`
+        },
+        {
+          label: "LIVE_IDS",
+          value: formatNumber(dashboardState.activeTaskIds.size),
+          meta:
+            dashboardState.activeTaskIds.size > 0
+              ? `ITEMS://${formatNumber(dashboardState.inProgressRecords.length)}`
+              : "STATE://IDLE"
+        },
+        {
+          label: "CRITICAL",
+          value: formatNumber(dashboardState.criticalTaskIds.size),
+          meta: dashboardState.criticalTaskIds.size > 0 ? "STATE://ATTN" : "STATE://CLEAR"
+        },
+        {
+          label: "WAVES",
+          value: formatNumber(dashboardState.waves.length),
+          meta: dashboardState.waves.length > 0 ? "MODE://VISIBLE" : "MODE://NONE"
+        },
+        {
+          label: "LAST_SYNC",
+          value: formatShortTime(payload.updated_at),
+          meta:
+            changedCount > 0
+              ? `DELTA://${formatNumber(changedCount)}`
+              : "SYS://STABLE",
+          className: "metric-card--live"
+        }
+      ];
+
+      elements.summaryStrip.innerHTML = metricCards
+        .map((card) => {
+          const className = card.className ? `metric-card ${card.className}` : "metric-card";
+          return `
+            <section class="${className}">
+              <p class="metric-label">${escapeHtml(card.label)}</p>
+              <p class="metric-value">${escapeHtml(card.value)}</p>
+              ${card.meta ? `<p class="metric-meta">${escapeHtml(card.meta)}</p>` : ""}
+            </section>
+          `;
+        })
+        .join("");
+      elements.summaryStrip.hidden = false;
+    }
+
+    function renderSpotlight(dashboardState) {
+      const spotlightRecords = dashboardState.inProgressRecords.slice(0, 4);
+      if (spotlightRecords.length === 0) {
+        elements.spotlight.hidden = true;
+        elements.spotlight.innerHTML = "";
+        return;
+      }
+
+      const overflowCount = Math.max(0, dashboardState.inProgressRecords.length - spotlightRecords.length);
+      const spotlightMeta = overflowCount > 0
+        ? `ACTIVE://${formatNumber(dashboardState.activeTaskIds.size)} | MORE://${formatNumber(overflowCount)}`
+        : `ACTIVE://${formatNumber(dashboardState.activeTaskIds.size)}`;
+
+      elements.spotlight.innerHTML = `
+        <div class="spotlight-head">
+          <div>
+            <h2 class="spotlight-title">Live Session</h2>
+          </div>
+          <p class="spotlight-meta">${escapeHtml(spotlightMeta)}</p>
+        </div>
+        <div class="spotlight-grid">
+          ${spotlightRecords
+            .map((record) => {
+              const idChips = record.ids
+                .slice(0, 3)
+                .map((id) => `<span class="task-id">${escapeHtml(id)}</span>`)
+                .join("");
+              return `
+                <article class="focus-card">
+                  <p class="focus-title">${escapeHtml(record.title)}</p>
+                  <p class="focus-context">${escapeHtml(`CTX://${record.context || "ACTIVE WORK"}`)}</p>
+                  <div class="focus-meta">
+                    ${idChips}
+                  </div>
+                </article>
+              `;
+            })
+            .join("")}
+        </div>
+      `;
+      elements.spotlight.hidden = false;
+    }
+
+    function renderWaveMetrics(dashboardState) {
+      const maxOpenCount = Math.max(1, ...dashboardState.waves.map((wave) => wave.openCount));
+      for (const wave of dashboardState.waves) {
+        const metricsHost = wave.element.querySelector(".wave-metrics");
+        const progressFill = wave.element.querySelector(".wave-progress-fill");
+        if (!metricsHost || !progressFill) {
+          continue;
+        }
+
+        const metricBadges = [
+          `<span class="badge badge--pipeline">${escapeHtml(`${wave.openCount} open`)}</span>`
+        ];
+        if (wave.activeCount > 0) {
+          metricBadges.push(`<span class="badge badge--active">${escapeHtml(`${wave.activeCount} active`)}</span>`);
+        }
+        if (wave.criticalCount > 0) {
+          metricBadges.push(`<span class="badge badge--critical">${escapeHtml(`${wave.criticalCount} critical`)}</span>`);
+        }
+
+        metricsHost.innerHTML = metricBadges.join("");
+        progressFill.style.width = `${Math.max(16, Math.round((wave.openCount / maxOpenCount) * 100))}%`;
+      }
+    }
+
+    function applyLiveDelta(dashboardState) {
+      const nextSnapshot = new Map();
+      const firstPass = state.taskSnapshot.size === 0;
+      let newCount = 0;
+      let updatedCount = 0;
+
+      for (const record of dashboardState.records) {
+        record.element.classList.remove("task-state--new", "task-state--updated");
+        nextSnapshot.set(record.key, record.signature);
+
+        if (firstPass) {
+          continue;
+        }
+
+        const previousSignature = state.taskSnapshot.get(record.key);
+        if (!previousSignature) {
+          record.element.classList.add("task-state--new");
+          newCount += 1;
+        } else if (previousSignature !== record.signature) {
+          record.element.classList.add("task-state--updated");
+          updatedCount += 1;
+        }
+      }
+
+      const removedCount = firstPass
+        ? 0
+        : Array.from(state.taskSnapshot.keys()).filter((key) => !nextSnapshot.has(key)).length;
+
+      state.taskSnapshot = nextSnapshot;
+      state.lastDelta = { newCount, updatedCount, removedCount };
+    }
+
+    function renderPayload(payload) {
+      if (!payload || !payload.html) {
+        throw new Error("Preview payload was missing rendered HTML.");
+      }
+
+      document.title = payload.title;
+      renderConsoleBanner(payload.updated_at, "SYS://READY", payload.source_relpath || "docs/TODO.md");
+      const taskOnlyHtml = buildTaskOnlyHtml(payload.html);
+
+      if (payload.fingerprint !== state.fingerprint) {
+        elements.content.innerHTML = taskOnlyHtml;
+        composeDashboardLayout();
+        enhanceDashboard();
+        const dashboardState = buildDashboardState(payload);
+        applyLiveDelta(dashboardState);
+        renderWaveMetrics(dashboardState);
+        renderSummaryStrip(dashboardState, payload);
+        renderSpotlight(dashboardState);
+        flashDocument();
+        scheduleFit();
+      }
+
+      state.fingerprint = payload.fingerprint;
+    }
+
+    function renderError(message) {
+      const safeMessage = escapeHtml(message);
+      state.fingerprint = null;
+      state.taskSnapshot = new Map();
+      state.lastDelta = { newCount: 0, updatedCount: 0, removedCount: 0 };
+      renderConsoleBanner(new Date().toISOString(), "SYS://OFFLINE", "docs/TODO.md");
+      elements.summaryStrip.hidden = true;
+      elements.summaryStrip.innerHTML = "";
+      elements.spotlight.hidden = true;
+      elements.spotlight.innerHTML = "";
+      elements.content.innerHTML = `
+        <section class="error-block">
+          <h2>Preview server not reachable</h2>
+          <p>${safeMessage}</p>
+          <p>Run <code>python scripts/serve_todo_preview.py --open</code> from the repository root, then reload this page.</p>
+        </section>
+      `;
+      scheduleFit();
+    }
+
+    async function loadTodo() {
+      const response = await fetch("/api/todo", { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`Preview request failed with HTTP ${response.status}.`);
+      }
+
+      const payload = await response.json();
+      renderPayload(payload);
+    }
+
+    function startPolling(intervalMs = 2500) {
+      if (state.pollTimer) {
+        return;
+      }
+
+      state.pollTimer = window.setInterval(async () => {
+        try {
+          await loadTodo();
+        } catch (error) {
+          renderError(error.message);
+        }
+      }, intervalMs);
+    }
+
+    function stopPolling() {
+      if (!state.pollTimer) {
+        return;
+      }
+
+      window.clearInterval(state.pollTimer);
+      state.pollTimer = null;
+    }
+
+    function connectStream() {
+      if (!("EventSource" in window)) {
+        startPolling();
+        return;
+      }
+
+      state.stream = new EventSource("/events");
+
+      state.stream.onopen = () => {
+        stopPolling();
+      };
+
+      state.stream.addEventListener("todo", async () => {
+        try {
+          await loadTodo();
+        } catch (error) {
+          renderError(error.message);
+          startPolling();
+        }
+      });
+
+      state.stream.onerror = () => {
+        startPolling();
+      };
+    }
+
+    (async () => {
+      try {
+        await loadTodo();
+      } catch (error) {
+        renderError(error.message);
+        startPolling();
+      }
+
+      connectStream();
+    })();
+
+    window.addEventListener("resize", scheduleFit);
+  </script>
+</body>
+</html>

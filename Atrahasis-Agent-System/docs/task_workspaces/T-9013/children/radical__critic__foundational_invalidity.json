@@ -1,0 +1,109 @@
+{
+  "artifact_provenance": {
+    "notes": [
+      "Replaced bootstrap placeholder with a real Radical-lane critic result.",
+      "Write confined to the assigned child artifact; no shared-state surfaces were modified.",
+      "Current claim review found no active claim YAML files at write time."
+    ],
+    "writer_agent_name": "radical-critic-foundational-invalidity",
+    "writer_mode": "direct_child_execution",
+    "writer_session_id": null
+  },
+  "branch_id": "critic:foundational_invalidity",
+  "branch_kind": "foundational_invalidity",
+  "branch_label": "Foundational-Invalidity Future",
+  "classification": "literal_frame_invalid_under_current_atrahasis_authority",
+  "claim_context": {
+    "active_claims_present": false,
+    "summary": "Inspection of the current claim registry found zero active claim YAML files; existing task claims in docs/task_claims are closed as DONE or COMPLETE."
+  },
+  "evidence": [
+    {
+      "path": "docs/specifications/C45 - AACP Sovereign Compiler Framework/C45_AACP_Sovereign_Compiler_Framework_Master_Tech_Spec.md",
+      "lines": "20-29,59,105-112,170-171,221",
+      "finding": "C45 already defines route-level execution as a sovereign wrapper with two execution modes, keeps providers non-native, and forbids ad hoc external execution paths. A standalone inference microservice would duplicate or dilute this execution authority."
+    },
+    {
+      "path": "docs/specifications/C42 - Lease-Primed Execution Mesh/C42_Lease-Primed_Execution_Mesh_Master_Tech_Spec.md",
+      "lines": "43-47,149-157,381-385,607-609",
+      "finding": "C42 allows execution-primed context and runtime handoff only as explicit, bounded adjuncts to tool results while keeping C23 as the sole runtime authority. An independent inference layer would pressure the system back toward ambient execution authority."
+    },
+    {
+      "path": "docs/specifications/C47 - AACP Automated Cross-Compilation Forge/C47_AACP_Automated_Cross-Compilation_Forge_Master_Tech_Spec.md",
+      "lines": "20-29,209-213,269-279,307-308",
+      "finding": "C47 already owns the independence roadmap through native model adaptation, quarantine, and promotion. The long-term answer to provider dependence is Forge-mediated promotion, not a separate inference-service doctrine."
+    },
+    {
+      "path": "docs/specifications/C36 - EMA-I External Integration/C36_EMA-I_External_Integration_Master_Tech_Spec.md",
+      "lines": "44,113-115,163-179",
+      "finding": "C36 explicitly rejects generic gateway framing and requires all external interaction to pass membrane-typed receptors with fail-closed membrane gating. A new externally legible inference microservice plane is not authorized."
+    },
+    {
+      "path": "docs/specifications/C39 - AACP Layered Capability Metadata Language/C39_AACP_Layered_Capability_Metadata_Language_Master_Tech_Spec.md",
+      "lines": "40-46,237-238,592-606,969-975",
+      "finding": "C39 already owns delegated sampling semantics, result provenance, and streaming behavior. The message-level inference contract already exists, so a new protocol-facing inference layer would be duplication rather than gap closure."
+    },
+    {
+      "path": "docs/specifications/C18 - Funding Strategy/C18_Funding_Strategy_Master_Tech_Spec.md",
+      "lines": "42,494-512,793-805",
+      "finding": "C18 already treats leased cognition, sovereign compute, and Forge adaptation as first-order economic surfaces. The unresolved problem is compute-capacity planning and reinvestment discipline, not absence of an independent service layer."
+    },
+    {
+      "path": "docs/specifications/C22 - Implementation Plan/C22_Implementation_Plan_Master_Tech_Spec.md",
+      "lines": "23,429-443,690,1329-1331",
+      "finding": "C22 already assumes bounded leased-provider wrappers plus local/native fallback and states that decomposition is by specification boundary, not by service boundary. The microservice framing is therefore implementation detail at most, not candidate top-level authority."
+    },
+    {
+      "path": "docs/task_workspaces/T-300/TASK_BRIEF.md",
+      "lines": "16-19,24,59-65",
+      "finding": "T-300 fixes the supersession boundary by requiring replacement rather than reinterpretation of old-stack authority and forbids a blended posture. A literal 'independent microservice layer' risks reviving the old service-plane frame under a new name."
+    }
+  ],
+  "foundational_test": {
+    "question": "Is 'Independent Model Inference Microservice Layer' itself a valid new Atrahasis architectural frame under current doctrine and authority?",
+    "result": "no",
+    "why": [
+      "Execution-mode authority is already owned by C45.",
+      "Delegated model-invocation semantics are already owned by C39.",
+      "Execution priming and lawful runtime handoff are already bounded by C42 and C23.",
+      "Model independence is already owned by C47's promotion pipeline.",
+      "External exposure is already bounded by C36's membrane architecture.",
+      "Program cost and rollout burden already live in C18 and C22.",
+      "T-300 blocks drift back toward old-stack blended service-plane doctrine."
+    ]
+  },
+  "invalidity_axes": [
+    "duplicate_authority",
+    "unauthorized_service_plane",
+    "ambient_runtime_regression",
+    "old_stack_backslide",
+    "wrong_problem_abstraction"
+  ],
+  "lane_id": "radical",
+  "lane_label": "Radical Lane",
+  "lane_strategy": "Challenge topology, authority boundaries, or core primitives instead of merely optimizing the current frame.",
+  "model_audit": {
+    "actual_runtime_model": null,
+    "auditability": "runtime_not_exposed_in_environment",
+    "policy_target": "gpt-5.4",
+    "reasoning_effort": "high",
+    "routing_basis": "AAS4 ordinary FULL_PIPELINE / IDEATION default future-branch routing target."
+  },
+  "objective": "Challenge whether the current architectural frame is fundamentally invalid for the current ideation problem. Apply that branch specifically to 'Independent Model Inference Microservice Layer'.",
+  "one_sentence_thesis": "The candidate frame is foundationally invalid as a new Atrahasis subsystem because current doctrine already distributes inference authority across C45, C42, C39, C47, C36, C18, and C22, making a literal independent microservice layer a duplicate and regressive service-plane invention.",
+  "parent_role": "critic",
+  "recommended_next_action": "Reject the literal frame. If the operator wants to preserve the underlying problem space, reframe it as a subordinate internal control-plane or planning-surface refinement under existing authorities instead of promoting a new standalone FULL PIPELINE layer.",
+  "replacement_direction": "internal_subordinate_refinement_or_cross_spec_planning_surface",
+  "role": "critic",
+  "session_identity": {
+    "agent_name": "radical-critic-foundational-invalidity",
+    "provider": "codex",
+    "role": "critic",
+    "session_id": null
+  },
+  "status": "COMPLETED",
+  "subsumption_assessment": "literal_independent_inference_layer_invalid_because_current_authority_already_covers_execution_sampling_boundary_promotion_and_economics",
+  "task_id": "T-9013",
+  "type": "CHILD_AGENT_RESULT",
+  "verdict": "REJECT_LITERAL_FRAME_AS_FOUNDATIONALLY_INVALID"
+}

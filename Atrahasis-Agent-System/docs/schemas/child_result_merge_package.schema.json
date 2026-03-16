@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "dispatch_id",
+    "dispatch_status",
+    "generated_at",
+    "merge_ready",
+    "child_results",
+    "disagreement_signals",
+    "recommended_parent_actions",
+    "synthesis_outline",
+    "source_refs"
+  ],
+  "properties": {
+    "type": {"const": "CHILD_RESULT_MERGE_PACKAGE"},
+    "doctrine_version": {"type": "string"},
+    "topology_mode": {"type": "string"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": ["string", "null"]},
+    "run_key": {"type": "string"},
+    "dispatch_id": {"type": "string"},
+    "dispatch_status": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "merge_ready": {"type": "boolean"},
+    "child_results": {"type": "array", "items": {"type": "object"}},
+    "lane_report_refs": {"type": "object"},
+    "audit_refs": {"type": "object"},
+    "disagreement_signals": {"type": "array", "items": {"type": "string"}},
+    "recommended_parent_actions": {"type": "array", "items": {"type": "string"}},
+    "synthesis_outline": {"type": "array", "items": {"type": "string"}},
+    "source_refs": {"type": "object"}
+  },
+  "additionalProperties": true
+}

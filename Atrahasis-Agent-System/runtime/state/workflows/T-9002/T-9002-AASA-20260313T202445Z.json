@@ -1,0 +1,41 @@
+{
+  "artifacts": {},
+  "created_at": "2026-03-13T20:24:45Z",
+  "execution_profile": {
+    "focus": "broad_repository_analysis",
+    "profile_id": "full_system_analysis",
+    "stage_order": [
+      "knowledge_infrastructure",
+      "reasoning_and_evaluation",
+      "human_guidance"
+    ]
+  },
+  "hitl_requirements": [
+    "EXTERNAL_RESEARCH"
+  ],
+  "modifier": "AASA",
+  "operator_constraints": [
+    "Analyze the Atrahasis platform, not the Atrahasis Agent System itself."
+  ],
+  "prompt": "Continue research program RP-947. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and create a summary of every module needed to be built out. Include modules already built and modules still left to build for the Atrahasis platform to be fully built out.",
+  "request": {
+    "command_modifier": "AASA",
+    "created_at": "2026-03-13T20:24:45Z",
+    "hitl_requirements": [
+      "EXTERNAL_RESEARCH"
+    ],
+    "operator_constraints": [
+      "Analyze the Atrahasis platform, not the Atrahasis Agent System itself."
+    ],
+    "prompt": "Continue research program RP-947. Analyze the Atrahasis platform, not the Atrahasis Agent System itself, and create a summary of every module needed to be built out. Include modules already built and modules still left to build for the Atrahasis platform to be fully built out.",
+    "scope": "full_system_analysis",
+    "task_id": "T-9002"
+  },
+  "scope": "full_system_analysis",
+  "stages": {},
+  "status": "RUNNING",
+  "task_id": "T-9002",
+  "type": "WORKFLOW_CONTEXT",
+  "updated_at": "2026-03-13T20:24:45Z",
+  "workflow_id": "T-9002-AASA-20260313T202445Z"
+}

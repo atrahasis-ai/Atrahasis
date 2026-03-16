@@ -1,0 +1,15 @@
+task_id: "T-RENOVATE-007"
+invention_ids: []
+target_specs:
+  - "C40"
+title: "C40 Sanctum Trust-Anchor Ban"
+platform: "CODEX"
+agent_name: "Ninkasi"
+claimed_at: "2026-03-14T18:32:00Z"
+updated_at: "2026-03-15T00:29:00Z"
+status: "DONE"
+scope:
+  safe_zone_paths:
+    - "docs/specifications/C40/MASTER_TECH_SPEC.md"
+  pipeline_type: "DIRECT_EDIT"
+notes: "Canonical authority comes from docs/specifications/STRATEGY/RENOVATION_TASKS.md. Ninkasi hardened C40 so external, federated, workload, API-key, and bridge identities are permanently barred from Sanctum-tier loci and cannot regain access through grants, manifests, or translation paths."

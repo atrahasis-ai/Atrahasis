@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS Team Dispatch Record",
+  "type": "object",
+  "required": [
+    "type",
+    "task_id",
+    "workflow_id",
+    "dispatch_id",
+    "status",
+    "execution_mode",
+    "selection",
+    "team_plan_ref",
+    "children",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "type": {"const": "TEAM_DISPATCH_RECORD"},
+    "doctrine_version": {"type": "string"},
+    "topology_mode": {"type": "string"},
+    "task_id": {"type": "string"},
+    "workflow_id": {"type": "string"},
+    "run_key": {"type": "string"},
+    "dispatch_id": {"type": "string"},
+    "status": {"type": "string"},
+    "execution_mode": {"type": "string"},
+    "selection": {"type": "object"},
+    "team_plan_ref": {"type": "string"},
+    "children": {"type": "array", "items": {"type": "object"}},
+    "future_exploration": {"type": "object"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

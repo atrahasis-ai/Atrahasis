@@ -1,0 +1,49 @@
+{
+  "type": "AUTHORITY_COVERAGE_MATRIX",
+  "task_id": "T-000",
+  "stage": "IDEATION",
+  "generated_at": "2026-03-15T00:00:00Z",
+  "coverage_required": true,
+  "recommendation_blocked_until_complete": true,
+  "named_authority_surfaces": [
+    "C45",
+    "C42",
+    "C47",
+    "C36",
+    "C18",
+    "C22",
+    "C39",
+    "T-300"
+  ],
+  "surface_rows": [
+    {
+      "surface": "C45",
+      "current_authority": "Leased vs native cognition execution routing.",
+      "coverage_status": "ADDRESSED",
+      "disposition": "partially_absorbs",
+      "new_authority_needed": false,
+      "notes": [
+        "C45 already separates execution routes from model substrates."
+      ]
+    },
+    {
+      "surface": "C42",
+      "current_authority": "Tool execution and lease-primed execution semantics.",
+      "coverage_status": "ADDRESSED",
+      "disposition": "requires_direct_spec_addendum",
+      "new_authority_needed": false,
+      "notes": [
+        "Need explicit coverage instead of silent omission."
+      ]
+    }
+  ],
+  "new_semantic_authority_test": {
+    "verdict": "pending",
+    "rationale": "Replace this placeholder once ideation has completed the authority coverage pass.",
+    "affected_modules": [],
+    "follow_on_task_shapes": []
+  },
+  "notes": [
+    "Recommendation must remain blocked until every named surface has an explicit row."
+  ]
+}

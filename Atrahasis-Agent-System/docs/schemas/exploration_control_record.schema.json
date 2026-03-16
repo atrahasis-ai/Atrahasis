@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAS1 Exploration Control Record",
+  "type": "object",
+  "required": ["type", "recommended_branch_budget", "priority_order", "escalate_to_human"],
+  "properties": {
+    "type": {"const": "EXPLORATION_CONTROL_RECOMMENDATION"},
+    "recommended_branch_budget": {"type": "integer", "minimum": 1},
+    "priority_order": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action"],
+        "properties": {
+          "action": {"type": "string"},
+          "program_id": {"type": "string"},
+          "program_title": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "strategy_summary": {"type": "string"},
+    "escalate_to_human": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

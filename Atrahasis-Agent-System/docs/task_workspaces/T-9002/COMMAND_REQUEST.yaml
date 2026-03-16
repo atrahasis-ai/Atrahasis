@@ -1,0 +1,13 @@
+command_modifier: AASA
+task_id: T-9002
+prompt: 'Redirect exploration: produce the final built-vs-unbuilt platform module
+  summary now. Analyze the Atrahasis platform, not the Atrahasis Agent System itself,
+  and create the final summary of every module needed to be built out, including modules
+  already built and modules still left to build for the Atrahasis platform to be fully
+  built out.'
+scope: full_system_analysis
+operator_constraints:
+- Analyze the Atrahasis platform, not the Atrahasis Agent System itself.
+hitl_requirements:
+- EXTERNAL_RESEARCH
+created_at: '2026-03-13T20:32:53Z'

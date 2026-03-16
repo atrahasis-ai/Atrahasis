@@ -1,0 +1,83 @@
+{
+  "task_id": "T-9004",
+  "generated_at": "2026-03-13T23:08:06Z",
+  "paths": [
+    {
+      "path_id": "PATH-A",
+      "label": "Hard Full Closure",
+      "summary": "Close both capability and accountability surfaces as much as possible.",
+      "advantages": [
+        "Maximum control over internal capability surfaces",
+        "Minimum external misuse exposure"
+      ],
+      "costs": [
+        "Legitimacy collapse risk",
+        "Weak external trust",
+        "High internal blind-spot risk"
+      ],
+      "judgment": "Too brittle. Safety gains are offset by accountability loss."
+    },
+    {
+      "path_id": "PATH-B",
+      "label": "Closed Core, Accountable Membrane",
+      "summary": "Keep recursive capability and novelty generation internal while exposing bounded products and a visible accountability surface.",
+      "advantages": [
+        "Preserves strong capability containment",
+        "Maintains institutional legitimacy through auditable doctrine",
+        "Supports revenue through products, services, and selective licensing"
+      ],
+      "costs": [
+        "Requires major rewrites in governance, economics, and public narrative",
+        "Demands real release-review and refusal infrastructure"
+      ],
+      "judgment": "Recommended. Best fit for the operator's intent and the strongest salvage path from the current architecture."
+    },
+    {
+      "path_id": "PATH-C",
+      "label": "Open Platform With Stronger Filters",
+      "summary": "Keep marketplace and broad platform posture, but add policy filters and abuse controls.",
+      "advantages": [
+        "Lower rewrite cost",
+        "Faster adoption path"
+      ],
+      "costs": [
+        "Does not solve the operator's core concern about capability diffusion",
+        "Leaves raw novelty and misuse surfaces too exposed"
+      ],
+      "judgment": "Rejected. Misaligned with the stated mission pivot."
+    }
+  ],
+  "selected_path": {
+    "path_id": "PATH-B",
+    "reason": "It preserves the operator's requirement for a closed capability core while avoiding the governance and legitimacy failure mode of total opacity."
+  },
+  "execution_stages": [
+    {
+      "stage": "Stage 1",
+      "title": "Doctrine and constitutional rewrite",
+      "outcomes": [
+        "Mission doctrine clarified",
+        "Governance model narrowed",
+        "Release classes defined"
+      ]
+    },
+    {
+      "stage": "Stage 2",
+      "title": "Economic and product membrane rewrite",
+      "outcomes": [
+        "Marketplace thesis removed or narrowed",
+        "Bounded product tiers defined",
+        "Licensing and invention brokerage rules defined"
+      ]
+    },
+    {
+      "stage": "Stage 3",
+      "title": "Native model sovereignty program",
+      "outcomes": [
+        "AASL and AACP data/control planes stabilized",
+        "Trace corpus and eval program created",
+        "Atrahasis-native model roadmap formalized"
+      ]
+    }
+  ]
+}
