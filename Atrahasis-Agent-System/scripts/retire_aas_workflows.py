@@ -8,9 +8,11 @@ from pathlib import Path
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Archive ad hoc AAS3 workflows out of the active runtime.")
+    parser = argparse.ArgumentParser(
+        description="Retire workflow tasks by removing active workspace/state and recording them in the retired-task registry."
+    )
     parser.add_argument("task_ids", nargs="+", help="Task IDs to retire, e.g. T-901 T-903 T-9500")
-    parser.add_argument("--reason", default="Operator-requested retirement of ad hoc workflow tasks.")
+    parser.add_argument("--reason", default="Operator-requested retirement of workflow tasks.")
     return parser
 
 

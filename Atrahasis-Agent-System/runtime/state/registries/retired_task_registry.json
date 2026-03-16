@@ -1,0 +1,172 @@
+{
+  "batches": [
+    {
+      "knowledge_index_entries_pruned": 195,
+      "provider_sessions_cleared": [
+        {
+          "agent_name": "Nergal",
+          "provider": "codex",
+          "session_id": "codex-live-001"
+        },
+        {
+          "agent_name": "Nergal",
+          "provider": "codex",
+          "session_id": "codex-test-001"
+        },
+        {
+          "agent_name": "Enki",
+          "provider": "gemini",
+          "session_id": "gemini-session-992"
+        }
+      ],
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "task_ids": [
+        "T-901",
+        "T-902",
+        "T-903",
+        "T-910",
+        "T-911",
+        "T-9000",
+        "T-9001",
+        "T-9500"
+      ]
+    }
+  ],
+  "retired_tasks": [
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [],
+      "task_class": "canonical",
+      "task_id": "T-901",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-901",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [],
+      "task_class": "canonical",
+      "task_id": "T-902",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-902",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [],
+      "task_class": "canonical",
+      "task_id": "T-903",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-903",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [
+        "workflows",
+        "operator_sessions",
+        "programs",
+        "discovery_graphs",
+        "governance",
+        "telemetry"
+      ],
+      "task_class": "canonical",
+      "task_id": "T-910",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-910",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [
+        "workflows",
+        "operator_sessions",
+        "programs",
+        "discovery_graphs",
+        "governance",
+        "telemetry"
+      ],
+      "task_class": "canonical",
+      "task_id": "T-911",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-911",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [
+        "workflows",
+        "operator_sessions",
+        "programs",
+        "discovery_graphs",
+        "governance",
+        "telemetry"
+      ],
+      "task_class": "analysis",
+      "task_id": "T-9000",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-9000",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [
+        "workflows",
+        "operator_sessions",
+        "programs",
+        "discovery_graphs",
+        "governance",
+        "telemetry"
+      ],
+      "task_class": "analysis",
+      "task_id": "T-9001",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-9001",
+      "workspace_removed": true
+    },
+    {
+      "claim_path": null,
+      "claim_removed": false,
+      "reason": "Operator requested removal of ad hoc pending workflows and allocator verification runs from active AAS3 state.",
+      "retired_at": "2026-03-13T18:59:53Z",
+      "source": "legacy_archive_migration",
+      "state_buckets_removed": [
+        "workflows",
+        "operator_sessions",
+        "programs",
+        "discovery_graphs",
+        "governance",
+        "telemetry"
+      ],
+      "task_class": "validation",
+      "task_id": "T-9500",
+      "workspace_path": "C:\\Users\\jever\\Atrahasis\\Atrahasis-Agent-System\\docs\\task_workspaces\\T-9500",
+      "workspace_removed": true
+    }
+  ],
+  "type": "RETIRED_TASK_REGISTRY",
+  "updated_at": "2026-03-13T18:59:53Z"
+}

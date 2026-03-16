@@ -4,6 +4,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from aas1.retired_task_registry import RetiredTaskRegistry
+
 
 TASK_ID_RE = re.compile(r"^T-(\d+)$")
 
@@ -20,7 +22,7 @@ class TaskBand:
 
 
 class TaskIdPolicy:
-    """Central task-ID allocation and validation policy for AAS3."""
+    """Central task-ID allocation and validation policy for AAS5."""
 
     BANDS = {
         "canonical": TaskBand(
@@ -60,10 +62,7 @@ class TaskIdPolicy:
         self.repo_root = repo_root
         self.workspaces_root = repo_root / "docs" / "task_workspaces"
         self.claims_root = repo_root / "docs" / "task_claims"
-        self.archived_workspaces_root = repo_root / "archive" / "retired_workflows" / "task_workspaces"
-        self.runtime_archived_workflows_root = (
-            repo_root.parent / "AAS" / "runtime" / "archive" / "retired_workflows" / "state" / "workflows"
-        )
+        self.retired_task_registry = RetiredTaskRegistry(repo_root)
 
     def resolve(
         self,
@@ -100,8 +99,10 @@ class TaskIdPolicy:
         task_class: str,
     ) -> None:
         number = self._task_number(task_id)
-        if self._task_exists(task_id):
+        if self._task_is_active(task_id):
             return
+        if self._task_is_retired(task_id):
+            raise ValueError(f"{task_id} is retired and cannot be reused.")
 
         if modifier == "AASBT":
             band = self.BANDS["canonical"]
@@ -123,7 +124,7 @@ class TaskIdPolicy:
         band = self.BANDS[task_class]
         for number in range(band.start, band.end + 1):
             candidate = f"T-{number}"
-            if not self._task_exists(candidate):
+            if not self._task_is_used(candidate):
                 return candidate
         raise ValueError(
             f"No free task IDs remain in the {task_class} band "
@@ -140,13 +141,17 @@ class TaskIdPolicy:
             raise ValueError("AASBT may only use the canonical task class.")
         return normalized
 
-    def _task_exists(self, task_id: str) -> bool:
+    def _task_is_used(self, task_id: str) -> bool:
+        return self._task_is_active(task_id) or self._task_is_retired(task_id)
+
+    def _task_is_active(self, task_id: str) -> bool:
         return (
             (self.workspaces_root / task_id).exists()
             or (self.claims_root / f"{task_id}.yaml").exists()
-            or (self.archived_workspaces_root / task_id).exists()
-            or (self.runtime_archived_workflows_root / task_id).exists()
         )
+
+    def _task_is_retired(self, task_id: str) -> bool:
+        return self.retired_task_registry.contains(task_id)
 
     def _normalize_task_id(self, value: str) -> str:
         token = value.strip().upper()
