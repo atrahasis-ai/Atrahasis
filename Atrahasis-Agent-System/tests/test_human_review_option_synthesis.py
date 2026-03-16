@@ -17,12 +17,7 @@ from aas1.human_decision_interface import HumanDecisionInterface
 from aas1.invention_pipeline_manager import InventionPipelineManager
 
 
-class _FakeOperatorSessions:
-    def load_latest_prompt(self, task_id: str) -> str:
-        return "STALE PROMPT"
-
-
-class OperatorOptionSynthesisTests(unittest.TestCase):
+class HumanReviewOptionSynthesisTests(unittest.TestCase):
     def setUp(self) -> None:
         root = Path.home() / ".codex" / "memories" / "option_synthesis_tests"
         root.mkdir(parents=True, exist_ok=True)
@@ -144,7 +139,7 @@ class OperatorOptionSynthesisTests(unittest.TestCase):
         self.assertIn("Respond with one of:", prompt)
         self.assertIn("- hybrid_path: Hybrid Path", prompt)
 
-    def test_manager_regenerates_prompt_when_improvement_artifacts_exist(self) -> None:
+    def test_manager_regenerates_prompt_from_task_local_artifacts(self) -> None:
         self._write_json(
             "HUMAN_DECISION_RECORD.json",
             {
@@ -199,11 +194,10 @@ class OperatorOptionSynthesisTests(unittest.TestCase):
         manager = object.__new__(InventionPipelineManager)
         manager.repo_root = self.repo_root
         manager.human_decision = HumanDecisionInterface()
-        manager.operator_sessions = _FakeOperatorSessions()
 
         prompt = InventionPipelineManager.render_operator_prompt(manager, task_id="T-9002")
-        self.assertNotEqual(prompt, "STALE PROMPT")
         self.assertIn("Improved Path", prompt)
+        self.assertIn("Respond with one of:", prompt)
 
     def _write_json(self, filename: str, payload: dict[str, object]) -> None:
         (self.task_root / filename).write_text(json.dumps(payload, indent=2), encoding="utf-8")

@@ -6,16 +6,10 @@ from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
-from aas1.audit_analytics import AuditAnalytics
 from aas1.audit_timeline_store import AuditTimelineStore
 from aas1.artifact_registry import ArtifactRegistry
 from aas1.common import keyword_profile, load_json, load_yaml, summarize_text, utc_now, write_text
-from aas1.controller_daemon import ControllerDaemonManager
-from aas1.controller_run_registry import ControllerRunRegistry
 from aas1.gcml_memory_interface import GCMLMemoryInterface
-from aas1.hitl_queue_store import HitlQueueStore
-from aas1.notification_center import NotificationCenter
-from aas1.operator_session_manager import OperatorSessionManager
 from aas1.provider_runtime import ProviderRuntimeRegistry
 from aas1.redesign_memory_store import RedesignMemoryStore
 from aas1.spec_path_resolver import resolve_spec_path, resolve_spec_ref
@@ -26,7 +20,7 @@ from aas1.workflow_context_store import WorkflowContextStore
 
 
 class AtrahasisControlPlane:
-    """Read-mostly control-plane accessors for MCP and operator tooling."""
+    """Read-mostly control-plane accessors for MCP and repo tooling."""
 
     ADR_HEADING_RE = re.compile(r"^## (ADR-\d+)\s+—\s+(.+)$", re.MULTILINE)
     TASK_ROW_RE = re.compile(r"^\|\s*`?(T-[A-Z0-9-]+)`?\s*\|", re.IGNORECASE)
@@ -37,16 +31,10 @@ class AtrahasisControlPlane:
         self.memory = GCMLMemoryInterface(repo_root)
         self.registry = ArtifactRegistry(repo_root)
         self.provider_runtime = ProviderRuntimeRegistry(repo_root)
-        self.operator_sessions = OperatorSessionManager(repo_root)
         self.workflow_context = WorkflowContextStore(repo_root)
         self.task_claims = TaskClaimCoordinator(repo_root)
-        self.run_registry = ControllerRunRegistry(repo_root)
-        self.hitl_queue = HitlQueueStore(repo_root)
         self.workflow_policy = WorkflowPolicyEngine(repo_root)
         self.audit_timeline = AuditTimelineStore(repo_root)
-        self.audit_analytics = AuditAnalytics(repo_root)
-        self.notifications = NotificationCenter(repo_root)
-        self.daemon = ControllerDaemonManager(repo_root)
         self.redesign_memory = RedesignMemoryStore(repo_root)
 
     def get_session_brief(self) -> dict[str, Any]:
@@ -155,18 +143,24 @@ class AtrahasisControlPlane:
 
     def get_latest_workflow_context(self, *, task_id: str) -> dict[str, Any]:
         workflow = self.workflow_context.load_latest(task_id)
-        operator_session = self.operator_sessions.load_latest_session(task_id)
         task_root = self.docs_root / "task_workspaces" / task_id
         workflow_record = load_json(task_root / "WORKFLOW_RUN_RECORD.json") if (task_root / "WORKFLOW_RUN_RECORD.json").exists() else None
         team_plan = load_yaml(task_root / "TEAM_PLAN.yaml") if (task_root / "TEAM_PLAN.yaml").exists() else None
         dispatch_record = load_json(task_root / "TEAM_DISPATCH_RECORD.json") if (task_root / "TEAM_DISPATCH_RECORD.json").exists() else None
+        human_decision_record = load_json(task_root / "HUMAN_DECISION_RECORD.json") if (task_root / "HUMAN_DECISION_RECORD.json").exists() else None
+        exploration_control_record = (
+            load_json(task_root / "EXPLORATION_CONTROL_RECORD.json")
+            if (task_root / "EXPLORATION_CONTROL_RECORD.json").exists()
+            else None
+        )
         return {
             "task_id": task_id,
             "workflow": workflow,
-            "operator_session": operator_session,
             "workflow_record": workflow_record,
             "team_plan": team_plan,
             "dispatch_record": dispatch_record,
+            "human_decision_record": human_decision_record,
+            "exploration_control_record": exploration_control_record,
         }
 
     def get_active_provider_sessions(self) -> dict[str, Any]:
@@ -174,37 +168,6 @@ class AtrahasisControlPlane:
         return {
             "session_count": len(sessions),
             "sessions": sessions,
-        }
-
-    def get_controller_run_state(self, *, task_id: str) -> dict[str, Any]:
-        workflow_context = self.get_latest_workflow_context(task_id=task_id)
-        workflow_policy = self.workflow_policy.load(task_id)
-        return {
-            "task_id": task_id,
-            "run": self.run_registry.load_latest(task_id),
-            "workflow_context": workflow_context,
-            "redesign_memory": self.redesign_memory.snapshot_for_task(
-                task_id=task_id,
-                workflow_context=workflow_context,
-                workflow_policy=workflow_policy,
-                human_decision_record=load_json(self.docs_root / "task_workspaces" / task_id / "HUMAN_DECISION_RECORD.json")
-                if (self.docs_root / "task_workspaces" / task_id / "HUMAN_DECISION_RECORD.json").exists()
-                else None,
-            ),
-        }
-
-    def get_hitl_queue(
-        self,
-        *,
-        task_id: str | None = None,
-        include_resolved: bool = False,
-        limit: int = 100,
-    ) -> dict[str, Any]:
-        entries = self.hitl_queue.list_entries(task_id=task_id, include_resolved=include_resolved, limit=limit)
-        return {
-            "task_id": task_id,
-            "entry_count": len(entries),
-            "entries": entries,
         }
 
     def get_workflow_policy(self, *, task_id: str) -> dict[str, Any] | None:
@@ -216,14 +179,6 @@ class AtrahasisControlPlane:
             "task_id": task_id,
             "event_count": len(events),
             "events": events,
-        }
-
-    def get_dashboard_summary(self, *, limit_tasks: int = 25) -> dict[str, Any]:
-        return {
-            "dashboard": self.audit_analytics.summary(limit_tasks=limit_tasks),
-            "notifications": self.notifications.list_notifications(limit=100),
-            "provider_sessions": self.get_active_provider_sessions(),
-            "daemon": self.daemon.status(),
         }
 
     def get_redesign_memory(
@@ -273,13 +228,6 @@ class AtrahasisControlPlane:
             "current_stage": current_stage,
             "match_count": len(matches),
             "matches": matches,
-        }
-
-    def get_notifications(self, *, open_only: bool = True, limit: int = 100) -> dict[str, Any]:
-        items = self.notifications.list_notifications(open_only=open_only, limit=limit)
-        return {
-            "notification_count": len(items),
-            "notifications": items,
         }
 
     def search_canonical_artifacts(
@@ -339,20 +287,15 @@ class AtrahasisControlPlane:
     def get_task_status(self, *, task_id: str) -> dict[str, Any]:
         workflow_context = self.get_latest_workflow_context(task_id=task_id)
         workspace = self.get_task_workspace_manifest(task_id=task_id, include_text=False, limit=200)
-        run_state = self.run_registry.load_latest(task_id)
         return {
             "task_id": task_id,
             "workspace_exists": workspace["workspace_exists"],
             "workspace_document_count": workspace["document_count"],
             "latest_workflow_status": (workflow_context.get("workflow") or {}).get("status"),
-            "operator_session_status": (workflow_context.get("operator_session") or {}).get("status"),
+            "human_review_status": (workflow_context.get("human_decision_record") or {}).get("workflow_status"),
             "team_plan_status": (workflow_context.get("team_plan") or {}).get("status"),
             "dispatch_record_status": (workflow_context.get("dispatch_record") or {}).get("status"),
-            "artifact_refs": (workflow_context.get("operator_session") or {}).get("artifact_refs", {}),
-            "controller_run_status": (run_state or {}).get("status"),
-            "thread_id": (run_state or {}).get("thread_id"),
-            "turn_id": (run_state or {}).get("turn_id"),
-            "review_thread_id": (run_state or {}).get("review_thread_id"),
+            "artifact_refs": ((workflow_context.get("workflow_record") or {}).get("artifacts") or {}),
         }
 
     def create_claim(
@@ -478,14 +421,6 @@ class AtrahasisControlPlane:
                 status=resolved_status,
                 artifact_updates={"human_decision_record": f"docs/task_workspaces/{task_id}/HUMAN_DECISION_RECORD.json"},
             )
-        self.operator_sessions.update_latest_session(
-            task_id=task_id,
-            status=resolved_status,
-            artifact_refs={"human_decision_record": f"docs/task_workspaces/{task_id}/HUMAN_DECISION_RECORD.json"},
-        )
-        latest_run = self.run_registry.load_latest(task_id)
-        if latest_run:
-            self.run_registry.update_status(task_id=task_id, run_id=latest_run["run_id"], status=resolved_status)
         return {
             "task_id": task_id,
             "workflow_status": resolved_status,

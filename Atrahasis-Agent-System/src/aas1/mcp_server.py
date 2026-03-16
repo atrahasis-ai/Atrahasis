@@ -155,7 +155,7 @@ class AtrahasisMcpServer:
             "get_latest_workflow_context": ToolSpec(
                 name="get_latest_workflow_context",
                 title="Get Latest Workflow Context",
-                description="Return the latest runtime workflow and operator-session state for a task id.",
+                description="Return the latest workflow context and task-local decision artifacts for a task id.",
                 input_schema={
                     "type": "object",
                     "properties": {"task_id": {"type": "string"}},
@@ -209,18 +209,6 @@ class AtrahasisMcpServer:
                 input_schema={"type": "object", "additionalProperties": False},
                 handler=lambda _args: self.control.get_active_provider_sessions(),
             ),
-            "get_controller_run_state": ToolSpec(
-                name="get_controller_run_state",
-                title="Get Controller Run State",
-                description="Return the latest controller-owned thread, turn, review, and workflow binding state for a task id.",
-                input_schema={
-                    "type": "object",
-                    "properties": {"task_id": {"type": "string"}},
-                    "required": ["task_id"],
-                    "additionalProperties": False,
-                },
-                handler=lambda args: self.control.get_controller_run_state(task_id=str(args["task_id"]).upper()),
-            ),
             "get_redesign_memory": ToolSpec(
                 name="get_redesign_memory",
                 title="Get Redesign Memory",
@@ -261,29 +249,10 @@ class AtrahasisMcpServer:
                     limit=int(args.get("limit", 10)),
                 ),
             ),
-            "get_hitl_queue": ToolSpec(
-                name="get_hitl_queue",
-                title="Get HITL Queue",
-                description="Return controller-owned approval and review queue entries, optionally filtered to a task id.",
-                input_schema={
-                    "type": "object",
-                    "properties": {
-                        "task_id": {"type": "string"},
-                        "include_resolved": {"type": "boolean"},
-                        "limit": {"type": "integer", "minimum": 1, "maximum": 200},
-                    },
-                    "additionalProperties": False,
-                },
-                handler=lambda args: self.control.get_hitl_queue(
-                    task_id=str(args["task_id"]).upper() if args.get("task_id") else None,
-                    include_resolved=bool(args.get("include_resolved", False)),
-                    limit=int(args.get("limit", 100)),
-                ),
-            ),
             "get_workflow_policy": ToolSpec(
                 name="get_workflow_policy",
                 title="Get Workflow Policy",
-                description="Return the latest controller-owned workflow policy state for a task id.",
+                description="Return the latest workflow policy state for a task id.",
                 input_schema={
                     "type": "object",
                     "properties": {"task_id": {"type": "string"}},
@@ -295,7 +264,7 @@ class AtrahasisMcpServer:
             "get_audit_timeline": ToolSpec(
                 name="get_audit_timeline",
                 title="Get Audit Timeline",
-                description="Return the controller audit timeline for a task id.",
+                description="Return the audit timeline for a task id.",
                 input_schema={
                     "type": "object",
                     "properties": {
@@ -310,36 +279,6 @@ class AtrahasisMcpServer:
                     task_id=str(args["task_id"]).upper(),
                     after_id=int(args.get("after_id", 0)),
                     limit=int(args.get("limit", 200)),
-                ),
-            ),
-            "get_dashboard_summary": ToolSpec(
-                name="get_dashboard_summary",
-                title="Get Dashboard Summary",
-                description="Return the repo-wide controller dashboard summary, notifications, provider sessions, and daemon state.",
-                input_schema={
-                    "type": "object",
-                    "properties": {
-                        "limit_tasks": {"type": "integer", "minimum": 1, "maximum": 100},
-                    },
-                    "additionalProperties": False,
-                },
-                handler=lambda args: self.control.get_dashboard_summary(limit_tasks=int(args.get("limit_tasks", 25))),
-            ),
-            "get_notifications": ToolSpec(
-                name="get_notifications",
-                title="Get Notifications",
-                description="Return controller-authored notification records.",
-                input_schema={
-                    "type": "object",
-                    "properties": {
-                        "open_only": {"type": "boolean"},
-                        "limit": {"type": "integer", "minimum": 1, "maximum": 500},
-                    },
-                    "additionalProperties": False,
-                },
-                handler=lambda args: self.control.get_notifications(
-                    open_only=bool(args.get("open_only", True)),
-                    limit=int(args.get("limit", 100)),
                 ),
             ),
             "create_claim": ToolSpec(
@@ -418,7 +357,7 @@ class AtrahasisMcpServer:
             "record_human_decision": ToolSpec(
                 name="record_human_decision",
                 title="Record Human Decision",
-                description="Update HUMAN_DECISION_RECORD, WORKFLOW_RUN_RECORD, and runtime status with an operator decision.",
+                description="Update HUMAN_DECISION_RECORD, WORKFLOW_RUN_RECORD, and workflow status with a human decision.",
                 input_schema={
                     "type": "object",
                     "properties": {
@@ -457,7 +396,7 @@ class AtrahasisMcpServer:
                     "serverInfo": {"name": "atrahasis-mcp", "version": "0.1.0"},
                     "instructions": (
                         "Use these tools for structured Atrahasis state access. "
-                        "Phase 2 adds narrow writes for claims, handoffs, and operator decisions."
+                        "Phase 2 adds narrow writes for claims, handoffs, and human decisions."
                     ),
                 },
             }

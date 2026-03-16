@@ -35,7 +35,6 @@ SCHEMA_ARTIFACTS = {
     "REVIEW_GATE_RECORD.json": "review_gate_record",
     "ADVERSARIAL_REVIEW_RECORD.json": "adversarial_review_record",
     "CONVERGENCE_GATE_RECORD.json": "convergence_gate_record",
-    "CONTROLLER_RUN_RESULT.json": "controller_run_result",
     "CLOSEOUT_EXECUTION_RECORD.json": "closeout_execution_record",
     "CLOSEOUT_CONSISTENCY_REPORT.json": "closeout_consistency_report",
     "DIRECT_SPEC_AUDIT_RECORD.json": "direct_spec_audit_record",

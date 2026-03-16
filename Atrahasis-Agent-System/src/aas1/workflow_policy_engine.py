@@ -889,9 +889,6 @@ class WorkflowPolicyEngine:
                     "convergence_gate_record": f"docs/task_workspaces/{task_id}/CONVERGENCE_GATE_RECORD.json"
                     if convergence_gate_record
                     else None,
-                    "controller_run_result": f"docs/task_workspaces/{task_id}/CONTROLLER_RUN_RESULT.json"
-                    if controller_run_result
-                    else None,
                     "closeout_execution_record": f"docs/task_workspaces/{task_id}/CLOSEOUT_EXECUTION_RECORD.json"
                     if closeout_execution_record
                     else None,

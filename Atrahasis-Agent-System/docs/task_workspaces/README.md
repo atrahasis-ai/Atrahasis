@@ -69,13 +69,11 @@ Exploratory idea prep:
 - a real-swarm ideation result is also incomplete unless the child-result artifacts exist on disk and the swarm record points to them
 - child-result artifacts should record session identity, model auditability, and whether the artifact was written directly by the child session or by a parent proxy
 
-## Optional Controller Files
+## Optional Review And Closeout Files
 
 - `REVIEW_GATE_RECORD.json`
-  First-class controller-owned review status, findings, and verdicts.
-- `CONTROLLER_RUN_RESULT.json`
-  Controller-owned run snapshot for retained runtime metadata and sync posture.
+  Review status, findings, and verdicts for stage or closeout approval.
 - `CLOSEOUT_EXECUTION_RECORD.json`
-  Controller-owned closeout execution record covering review finalization, human decision capture, claim/handoff updates, and validator results.
+  Closeout execution record covering review finalization, human decision capture, claim/handoff updates, and validator results.
 - `CLOSEOUT_CONSISTENCY_REPORT.json`
   Machine-checked report that claim state, task workspace, handoff state, and dispatch order agree before `DONE`.

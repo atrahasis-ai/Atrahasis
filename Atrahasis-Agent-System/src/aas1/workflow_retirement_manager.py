@@ -16,7 +16,6 @@ class WorkflowRetirementManager:
 
     STATE_BUCKETS = (
         "workflows",
-        "operator_sessions",
         "programs",
         "discovery_graphs",
         "governance",

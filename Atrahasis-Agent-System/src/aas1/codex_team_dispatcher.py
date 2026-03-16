@@ -30,7 +30,6 @@ from aas1.aas5_ideation import (
 )
 from aas1.artifact_registry import ArtifactRegistry
 from aas1.common import ensure_dir, load_json, runtime_state_dir, utc_now
-from aas1.operator_session_manager import OperatorSessionManager
 from aas1.provider_runtime import ProviderRuntimeRegistry
 from aas1.task_hardening import (
     build_placeholder_child_result_merge_package,
@@ -53,7 +52,7 @@ class CodexTeamDispatcher:
         *,
         artifact_registry: ArtifactRegistry,
         provider_runtime: ProviderRuntimeRegistry,
-        operator_sessions: OperatorSessionManager | None = None,
+        operator_sessions: Any | None = None,
         context_store: WorkflowContextStore | None = None,
     ) -> None:
         self.repo_root = repo_root
@@ -1395,17 +1394,6 @@ class CodexTeamDispatcher:
             if future_branch_report_ref:
                 workflow_record["artifacts"]["future_branch_report"] = future_branch_report_ref
             self.registry.write_json_artifact(task_id, "WORKFLOW_RUN_RECORD.json", workflow_record, schema_name="workflow_run_record")
-        if self.operator_sessions is not None:
-            self.operator_sessions.update_latest_session(
-                task_id=task_id,
-                status=workflow_status,
-                artifact_refs={
-                    "team_plan": team_plan_ref,
-                    "team_dispatch_record": dispatch_record_ref,
-                    "parent_merge_prompt": merge_prompt_ref,
-                    "future_branch_report": future_branch_report_ref,
-                },
-            )
         if self.context_store is not None and workflow_id != "unknown":
             self.context_store.update_status(
                 task_id=task_id,

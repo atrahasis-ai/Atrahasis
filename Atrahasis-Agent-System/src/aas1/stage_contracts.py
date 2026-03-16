@@ -33,7 +33,6 @@ CONTROL_ARTIFACTS = {
     "REVIEW_GATE_RECORD.json",
     "ADVERSARIAL_REVIEW_RECORD.json",
     "CONVERGENCE_GATE_RECORD.json",
-    "CONTROLLER_RUN_RESULT.json",
     "CLOSEOUT_EXECUTION_RECORD.json",
     "TEAM_DISPATCH_RECOMMENDATIONS.json",
     "TEAM_PLAN.yaml",
@@ -125,7 +124,7 @@ DEFAULT_STAGE_CONTRACTS: dict[str, dict[str, dict[str, Any]]] = {
         },
         "ASSESSMENT": {
             "required_files": ["REVIEW_GATE_RECORD.json", "HUMAN_DECISION_RECORD.json"],
-            "any_of_files": ["CONTROLLER_RUN_RESULT.json", "WORKFLOW_SUMMARY.md"],
+            "any_of_files": ["WORKFLOW_SUMMARY.md"],
             "minimum_evidence_artifacts": 4,
             "validators": ["workspace"],
         },
@@ -187,7 +186,7 @@ DEFAULT_STAGE_CONTRACTS: dict[str, dict[str, dict[str, Any]]] = {
         },
         "ASSESSMENT": {
             "required_files": ["REVIEW_GATE_RECORD.json", "HUMAN_DECISION_RECORD.json"],
-            "any_of_files": ["CONTROLLER_RUN_RESULT.json", "WORKFLOW_SUMMARY.md"],
+            "any_of_files": ["WORKFLOW_SUMMARY.md"],
             "minimum_evidence_artifacts": 2,
             "validators": ["workspace"],
         },

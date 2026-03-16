@@ -23,7 +23,6 @@ from aas1.governance_kernel import GovernanceKernel
 from aas1.human_decision_interface import HumanDecisionInterface
 from aas1.knowledge_index import KnowledgeIndex
 from aas1.knowledge_distillation_engine import KnowledgeDistillationEngine
-from aas1.operator_session_manager import OperatorSessionManager
 from aas1.pipeline_stage_registry import PipelineStageRegistry
 from aas1.platform_alignment_engine import PlatformAlignmentEngine
 from aas1.provider_runtime import ProviderRuntimeRegistry
@@ -64,14 +63,12 @@ class InventionPipelineManager:
         self.governance_kernel = GovernanceKernel(repo_root)
         self.program_state_store = ProgramStateStore(repo_root)
         self.discovery_graph_store = DiscoveryGraphStore(repo_root)
-        self.operator_sessions = OperatorSessionManager(repo_root)
         self.provider_runtime = ProviderRuntimeRegistry(repo_root)
         self.task_claims = TaskClaimCoordinator(repo_root)
         self.team_dispatcher = CodexTeamDispatcher(
             repo_root,
             artifact_registry=self.registry,
             provider_runtime=self.provider_runtime,
-            operator_sessions=self.operator_sessions,
             context_store=self.context_store,
         )
 
@@ -818,31 +815,17 @@ class InventionPipelineManager:
             human_record=human_record,
             exploration_record=exploration_record,
         )
-        self.operator_sessions.persist_pending_session(
-            task_id=request.task_id,
-            workflow_id=workflow_id,
-            human_record=human_record,
-            exploration_record=exploration_record,
-            rendered_prompt=rendered_prompt,
-            artifact_paths=artifact_paths,
-        )
-        self.telemetry.emit(
-            "system",
-            "operator_session_updated",
-            task_id=request.task_id,
-            workflow_id=workflow_id,
-        )
         stage_records.append(
             {
                 "stage": "human_guidance",
-                "status": "PENDING_OPERATOR_ACTION",
+                "status": "PENDING_HUMAN_REVIEW",
                 "produced_artifacts": [
                     "human_decision_record",
                     "exploration_control_record",
                     "team_dispatch_recommendations",
                 ],
                 "notes": [
-                    "Operator review state was persisted through the AAS3 operator session manager.",
+                    "Human-review state is derived from task-local artifacts rather than a separate operator runtime surface.",
                     "Spawn-program actions now carry explicit Codex team recommendations.",
                 ],
             }
@@ -995,13 +978,6 @@ class InventionPipelineManager:
 
     def render_operator_prompt(self, *, task_id: str) -> str:
         task_workspace = self.repo_root / "docs" / "task_workspaces" / task_id
-        if self.human_decision.has_synthesized_option_inputs(task_workspace=task_workspace):
-            return self.human_decision.render_prompt_for_task(
-                task_workspace=task_workspace,
-            )
-        prompt = self.operator_sessions.load_latest_prompt(task_id)
-        if prompt:
-            return prompt
         return self.human_decision.render_prompt_for_task(
             task_workspace=task_workspace,
         )
