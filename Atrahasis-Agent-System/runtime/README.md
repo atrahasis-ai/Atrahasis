@@ -4,7 +4,6 @@ This directory is the live mutable runtime surface for the Atrahasis Agent Syste
 
 - `state/` contains active workflow, provider, operator-session, telemetry, and related execution state.
 - `logs/` contains runtime logs produced by the current execution stack.
-- `archive/` contains retired runtime artifacts that were moved out of the active state buckets.
 
 The old controller-owned App Server runtime was retired from AAS5. The live runtime surface should no longer contain:
 - `runtime/app_server_home`

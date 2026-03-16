@@ -1,6 +1,0 @@
-system_name: Atrahasis Agent System
-paee_enabled: true
-max_swarms: 3
-default_terminal_mode: single
-allow_multi_terminal_spawn: true
-cssm_initial_version: AAS-State-v1.0
